@@ -2,6 +2,10 @@ import { defineCollection, defineConfig } from "@content-collections/core";
 import { z } from "zod";
 
 const editorialFields = {
+  // Search title, used only for <title>/og:title. Falls back to `title`.
+  // Lets an editorial H1 stay editorial while the SERP title matches the
+  // language people actually search for.
+  seoTitle: z.string().optional(),
   featured: z.boolean().optional().default(false),
   contentType: z.string().optional(),
   readingTime: z.number().optional(),

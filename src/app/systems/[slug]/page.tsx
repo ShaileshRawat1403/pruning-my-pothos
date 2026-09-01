@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!system) return {};
 
   return constructMetadata({
-    title: system.title,
+    title: system.seoTitle ?? system.title,
     description: system.description,
     image: system.heroImage,
     path: `/systems/${slug}`,

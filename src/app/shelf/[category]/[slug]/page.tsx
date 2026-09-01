@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!item) return {};
 
   return constructMetadata({
-    title: item.title,
+    title: item.seoTitle ?? item.title,
     description: item.description,
     image: item.coverUrl,
     path: `/shelf/${category}/${slug}`,
