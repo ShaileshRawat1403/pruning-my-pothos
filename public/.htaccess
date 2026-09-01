@@ -83,8 +83,36 @@ RewriteRule ^blog/?$ /systems/ [R=301,L]
 RewriteRule ^category/.+$ /tags/ [R=301,L]
 RewriteRule ^tag/.+$ /tags/ [R=301,L]
 
+# WordPress leftovers.
+RewriteRule ^author/.+$ /about/ [R=301,L]
+RewriteRule ^gallery/?$ /canvases/ [R=301,L]
+RewriteRule ^wp-content/.+$ - [G,L]
+RewriteRule ^wp-(admin|login|json)(/.*)?$ - [G,L]
+
+# Legacy personal essays from the WordPress era. 13 URLs, 597 impressions,
+# zero clicks between them in 16 months, all off-strategy for the pivot.
+# They currently 404, which is a valid outcome: Google will drop them.
+# Uncomment to serve 410 instead, which drops them faster and shrinks the
+# "crawled - currently not indexed" backlog (193 pages). Reversible.
+# RewriteRule ^content-enablement-a-critical-strategy-for-change-management/?$ - [G,L]
+# RewriteRule ^the-anatomy-of-change-communications/?$ - [G,L]
+# RewriteRule ^artificial-intelligence-vs-natural-stupidity/?$ - [G,L]
+# RewriteRule ^ai-for-all-guide/?$ - [G,L]
+# RewriteRule ^attention-aint-broken-thinking-is-the-thinking-gap-and-a/?$ - [G,L]
+# RewriteRule ^conscience-of-an-unconscious-subconscious/?$ - [G,L]
+# RewriteRule ^slow-slow-fast-change-management-framework/?$ - [G,L]
+# RewriteRule ^overwatered-by-expectations/?$ - [G,L]
+# RewriteRule ^the-antithesis/?$ - [G,L]
+# RewriteRule ^category-terms-and-conditions-buster-keaton-branding-lessons/?$ - [G,L]
+# RewriteRule ^2025-best-time-to-be-a-writer/?$ - [G,L]
+# RewriteRule ^copywriting-needs-a-rest/?$ - [G,L]
+# RewriteRule ^unmute-write-in-voice/?$ - [G,L]
+# RewriteRule ^change-communication-isnt-a-message-its-a-translation/?$ - [G,L]
+# RewriteRule ^the-philosophy-of-faith-reason/?$ - [G,L]
+
 # Remaining WordPress date archives. Keep last so the specific rules above win.
 RewriteRule ^[0-9]{4}/[0-9]{2}/[0-9]{2}/?$ / [R=301,L]
+RewriteRule ^[0-9]{4}/[0-9]{2}/[0-9]{2}/(.+)$ /$1 [R=301,L]
 
 # Retired paths with no direct replacement.
 RewriteRule ^shelf/movies(/.*)?$ - [G,L]
@@ -115,6 +143,10 @@ RedirectMatch 301 ^/blog/?$ /systems/
 RedirectMatch 301 ^/resources/?$ /shelf/
 RedirectMatch 301 ^/category/.+$ /tags/
 RedirectMatch 301 ^/tag/.+$ /tags/
+RedirectMatch 301 ^/author/.+$ /about/
+RedirectMatch 301 ^/gallery/?$ /canvases/
+RedirectMatch 410 ^/wp-content/
+RedirectMatch 410 ^/wp-(admin|login|json)
 RedirectMatch 410 ^/shelf/movies/
 RedirectMatch 410 ^/sentences/sentence-[0-9]+/?$
 RedirectMatch 410 ^/systems/simple-tokenizer/?$
