@@ -187,4 +187,4 @@ That moved the system from "assistant behavior" to "orchestrated execution."
 
 I would add three integration harnesses on day one: one CLI loop, one IDE loop, one CI loop. The runtime is stable only when contract assumptions are tested from each client surface, not just from unit tests.
 
-If you want the design lens behind this implementation, [Dual NLP framework](/dual-nlp-framework/) explains the planning language this runtime operationalizes.
+If you want the design lens behind this implementation, [Dual NLP framework](/docs/natural-language-programming-stack/) explains the planning language this runtime operationalizes.
