@@ -5,6 +5,13 @@ import { Metadata } from "next";
 import { constructMetadata } from "../../../lib/seo/metadata";
 import { getArticleSchema, getFaqSchema } from "../../../lib/seo/jsonld";
 import { renderMarkdown } from "../../../lib/markdown";
+import ExplainerFigure from "../../../components/explainer/ExplainerFigure";
+import {
+  AnswerBlock,
+  AnalogyBlock,
+  EvidenceBlock,
+  RelatedThree,
+} from "../../../components/explainer/ExplainerBlocks";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -124,11 +131,42 @@ export default async function SystemsDetailPage({ params }: PageProps) {
         </figure>
       )}
 
+      {/* Slot 04 — the retrieval unit. Above the prose on purpose. */}
+      {system.shortAnswer && <AnswerBlock>{system.shortAnswer}</AnswerBlock>}
+
+      {/* Slot 05 — the analogy, carrying its own failure point. */}
+      {system.analogy && (
+        <AnalogyBlock
+          mapping={system.analogy.mapping}
+          breaksWhen={system.analogy.breaksWhen}
+        />
+      )}
+
+      {/* Slot 06 — one picture of the mechanism. */}
+      {system.figure && (
+        <ExplainerFigure
+          shows={system.figure.shows}
+          caption={system.figure.caption}
+          alt={system.figure.alt}
+          src={system.figure.src}
+        />
+      )}
+
       {/* HTML Content Body */}
       <div 
         className="content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]"
         dangerouslySetInnerHTML={{ __html: renderMarkdown(system.content) }}
       />
+
+      {/* Slot 10 — evidence. What was built, where, and what it changed. */}
+      {system.evidence && (
+        <EvidenceBlock
+          what={system.evidence.what}
+          where={system.evidence.where}
+          changed={system.evidence.changed}
+          tags={system.evidence.tags}
+        />
+      )}
 
       {/* Meta Reinforcements (Proof Block & FAQ) */}
       {(proofPoints.length > 0 || faqs.length > 0) && (
@@ -160,6 +198,11 @@ export default async function SystemsDetailPage({ params }: PageProps) {
             </section>
           )}
         </section>
+      )}
+
+      {/* Slot 12 — the internal link model, made visible. */}
+      {system.related && system.related.length > 0 && (
+        <RelatedThree items={system.related} />
       )}
 
       {/* Continue Navigation footer */}

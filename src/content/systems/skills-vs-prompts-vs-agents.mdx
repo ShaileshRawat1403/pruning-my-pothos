@@ -17,6 +17,61 @@ tags:
 proofPoints:
   - "This page gives the site a direct comparison surface for prompts, skills, workflows, and agents."
   - "The comparison now links directly to reusable skill templates and the Dual NLP framework."
+shortAnswer: >-
+  A prompt is a one-step instruction. A system prompt is standing configuration
+  for a whole session. A skill is a reusable capability with defined inputs and
+  outputs. A workflow sequences skills, and an agent is the runtime actor that
+  executes them under tools, memory and policy.
+analogy:
+  mapping: >-
+    A prompt is a note you leave on someone's desk. A system prompt is the job
+    description taped above it. A skill is a procedure in the team handbook. A
+    workflow is the checklist that puts procedures in order. An agent is the
+    person who reads all of it and decides what to do next.
+  breaksWhen: >-
+    A person can ignore the handbook and still do the job from memory. A model
+    has no memory of the handbook at all. Nothing reaches it unless some layer
+    below the agent puts it into context on that specific turn. The analogy
+    makes the layers sound like helpful documentation. They are the only reason
+    anything is there.
+figure:
+  shows: range
+  caption: >-
+    One session, three turns. The layers differ by how much of it they touch,
+    not by how important they are.
+  alt: >-
+    A three-turn session. The prompt covers one turn only. The system prompt
+    spans all three and stays resident whether or not the turn needs it. A skill
+    is invoked inside one turn and then ends. A workflow chains one step per
+    turn across all three. A dashed frame around everything is the agent
+    runtime, holding tools, memory and policy.
+evidence:
+  what: >-
+    Split the system prompt of DAX into named skills, one rule at a time, and
+    watched what the review process did with each half.
+  where: DAX, the deterministic execution layer, over about three weeks.
+  changed: >-
+    Rules living in the system prompt were never reviewed, because nobody diffs
+    a system prompt. The same rules as named skills went through the same
+    approval gate as everything else, and two of them turned out to contradict
+    each other. Neither had ever surfaced as a bug; the model had just been
+    quietly picking one.
+  tags:
+    - DAX
+    - Sep 2026
+related:
+  - type: explainer
+    title: What a Skill Is in AI Systems
+    href: /systems/what-a-skill-is-in-ai-systems/
+    note: The layer this page separates from the others, defined on its own terms.
+  - type: playbook
+    title: Designing Reusable AI Skills
+    href: /systems/designing-reusable-ai-skills/
+    note: What to define before a repeated task counts as a skill.
+  - type: tool
+    title: Skill catalog
+    href: /tools/skill-catalog/
+    note: Paste a system prompt and see which rules want to be skills.
 faq:
   - question: "What is the difference between a skill and a prompt?"
     answer: "A prompt is one instruction for one interaction. A skill is a reusable capability with defined inputs, outputs and constraints. The prompt initiates work; the skill packages work so it behaves the same way every time it is invoked."
