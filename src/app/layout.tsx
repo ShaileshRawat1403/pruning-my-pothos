@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark" className="h-full">
+    <html lang="en" data-theme="light" className="h-full">
       <body
         className="min-h-full flex flex-col relative overflow-x-hidden"
         style={{ background: "var(--bg-color)", color: "var(--text-primary)" }}
