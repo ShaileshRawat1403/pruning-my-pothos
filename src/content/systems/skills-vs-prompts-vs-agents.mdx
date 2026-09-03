@@ -45,20 +45,6 @@ figure:
     is invoked inside one turn and then ends. A workflow chains one step per
     turn across all three. A dashed frame around everything is the agent
     runtime, holding tools, memory and policy.
-evidence:
-  what: >-
-    Split the system prompt of DAX into named skills, one rule at a time, and
-    watched what the review process did with each half.
-  where: DAX, the deterministic execution layer, over about three weeks.
-  changed: >-
-    Rules living in the system prompt were never reviewed, because nobody diffs
-    a system prompt. The same rules as named skills went through the same
-    approval gate as everything else, and two of them turned out to contradict
-    each other. Neither had ever surfaced as a bug; the model had just been
-    quietly picking one.
-  tags:
-    - DAX
-    - Sep 2026
 related:
   - type: explainer
     title: What a Skill Is in AI Systems

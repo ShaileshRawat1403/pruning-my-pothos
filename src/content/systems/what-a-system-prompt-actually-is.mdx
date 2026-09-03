@@ -1,0 +1,182 @@
+---
+title: "What a System Prompt Actually Is"
+seoTitle: "What Is a System Prompt? And How It Differs From a Skill"
+publishDate: "2026-09-03"
+updatedAt: "2026-09-03"
+description: "A system prompt is standing configuration for a whole session, not a request. What belongs in one, what does not, and where the line sits between a system prompt and a skill."
+category: "Concepts"
+tags:
+  - prompting
+  - skills
+  - agents
+  - orchestration
+  - governance
+  - reliability
+readingTime: 6
+difficulty: "Foundational"
+shortAnswer: >-
+  A system prompt is standing configuration for an entire session. It is loaded
+  before the conversation starts and stays in the context window on every turn,
+  whether or not the current task needs it. That makes it the right place for
+  tone, role boundaries and output conventions, and the wrong place for task
+  logic. A skill, by contrast, is invoked for one bounded task and then done.
+analogy:
+  mapping: >-
+    A prompt is a note left on someone's desk. A system prompt is the sign on
+    the office wall. It is not addressed to anyone in particular, nobody
+    re-reads it, and everyone is assumed to have absorbed it. It shapes what
+    happens all day without ever being mentioned.
+  breaksWhen: >-
+    A person can walk past the sign and forget it. A model cannot. The sign is
+    physically in front of it on every single turn, occupying room the actual
+    work needs. And nobody proofreads a wall. That is the real failure: signs
+    accumulate, nobody diffs them, and eventually two of them disagree.
+figure:
+  shows: range
+  caption: >-
+    One session, three turns. The system prompt is the only layer present on
+    every turn regardless of what is being asked.
+  alt: >-
+    A three-turn session. The prompt covers one turn only. The system prompt
+    spans all three turns and stays resident whether or not the turn needs it. A
+    skill is invoked inside one turn and then ends. A workflow chains one step
+    per turn. A dashed frame around everything is the agent runtime.
+related:
+  - type: explainer
+    title: "Skills vs Prompts vs Agents"
+    href: /systems/skills-vs-prompts-vs-agents/
+    note: "Where a prompt ends, a skill begins, and an agent takes over."
+  - type: explainer
+    title: "What a Skill Is in AI Systems"
+    href: /systems/what-a-skill-is-in-ai-systems/
+    note: "The layer a system prompt keeps accidentally absorbing."
+  - type: tool
+    title: "Prompt to JSON"
+    href: /tools/prompt-to-json/
+    note: "Compile a loose instruction into something with a shape."
+proofPoints:
+  - "Separates the system prompt from the skill layer explicitly, which the comparison page previously only implied."
+  - "Gives the site a direct answer surface for the system prompt question rather than inferring it from adjacent pages."
+faq:
+  - question: "What is the difference between a skill and a system prompt?"
+    answer: "Range. A system prompt applies to every turn in a session and stays in context whether or not it is relevant. A skill is invoked for one bounded task and carries its own inputs, outputs and success criteria. If an instruction should apply to everything, it belongs in the system prompt. If it applies to one repeated task, it belongs in a skill."
+  - question: "Can a system prompt replace skills?"
+    answer: "Only until it cannot. A system prompt scales fine while the rules are general. The moment it starts carrying task-specific logic, that logic applies on turns where it is irrelevant, competes for context with the actual work, and stops being reviewable. A system prompt accumulating task rules is a skill layer that has not been named yet."
+  - question: "How long should a system prompt be?"
+    answer: "There is no correct number, but there is a useful test: read it and ask whether every line should apply to every turn. Whatever fails that test is not configuration, it is a task instruction sitting in the wrong place."
+  - question: "Does the system prompt use up the context window?"
+    answer: "Yes, on every turn. It is resident, not conditional. That is the practical cost of putting task logic there: you pay for it on turns that have nothing to do with it, and you pay again on every turn after."
+---
+
+> **Key takeaways**
+>
+> - A system prompt is configuration, not a request.
+> - It is resident: present on every turn, paid for on every turn.
+> - It is the right home for tone, role and output conventions.
+> - It is the wrong home for task logic, because task logic written there becomes invisible to review.
+
+Most teams write their first system prompt in about four minutes and then never look at it again. It gets a role sentence, a tone instruction, maybe a rule about not inventing facts. It works. So it stays.
+
+Six months later it is nine hundred words, four people have added to it, nobody has removed anything, and the last person to read it end to end was the person who wrote the first version.
+
+That is not a discipline problem. It is a structural one, and it comes from treating a configuration file as if it were a conversation.
+
+<div id="toc-anchor"></div>
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Why the system prompt grows</summary>
+      <ol>
+        <li><a href="#what-is-a-system-prompt">What is a system prompt?</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Where the line actually sits</summary>
+      <ol>
+        <li><a href="#how-is-a-system-prompt-different-from-a-skill">How is a system prompt different from a skill?</a></li>
+        <li><a href="#what-belongs-in-a-system-prompt">What belongs in a system prompt</a></li>
+        <li><a href="#what-does-not-belong-in-a-system-prompt">What does not belong in a system prompt</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: What it costs when the line moves</summary>
+      <ol>
+        <li><a href="#the-failure-mode-nobody-catches">The failure mode nobody catches</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+
+## Act I: Why the system prompt grows
+
+### What is a system prompt?
+
+A system prompt is a set of instructions loaded before a session begins and held in context for its entire duration. It is not addressed to a task. It describes the conditions under which every task will be handled.
+
+An ordinary prompt asks for something. A system prompt establishes what is true before anything is asked.
+
+That difference sounds small in a sentence and turns out to be the whole thing in practice, because it determines three properties: the system prompt applies whether or not it is relevant, it costs context on every turn, and <span class="highlight">it is read by the model far more often than it is read by a person</span>.
+
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> The question is never whether a rule is good. It is whether the rule should be true on every turn of every session. That single test sorts almost everything.</p>
+</aside>
+
+## Act II: Where the line actually sits
+
+### How is a system prompt different from a skill?
+
+The honest answer is range, not importance.
+
+A skill is invoked. Something decides that this bounded task is now the task, the skill runs, and it finishes. It has inputs, outputs, and a definition of what a correct result looks like. You can point at a skill and ask whether it did its job.
+
+A system prompt is resident. Nothing invokes it. It is simply there, on the turn where it matters and on the forty turns where it does not.
+
+That gives a clean rule:
+
+- if the instruction should apply to **everything in this session**, it belongs in the system prompt
+- if it applies to **one repeated task**, it belongs in a skill
+
+Most arguments about this are not really about definitions. They are about a specific rule someone has written and cannot decide where to put. Run it through the test above and the answer is usually immediate.
+
+### What belongs in a system prompt
+
+Things that are true regardless of the request:
+
+- who the model is acting as, and on whose behalf
+- what it must refuse, and what it must escalate rather than decide
+- output conventions that apply to everything: format, units, citation style
+- tone, when tone is a product decision and not a preference
+
+The common thread is that none of these change based on what is being asked. They are the conditions, not the work.
+
+### What does not belong in a system prompt
+
+Task logic. Steps. Anything shaped like *when the user asks for X, do Y*.
+
+Three costs follow, and only the first is obvious.
+
+**It applies when it is irrelevant.** A rule about how to format a migration plan is loaded on the turn where someone asks a definitional question. The model has to hold it and decide it does not apply, on every turn, forever.
+
+**It competes for context with the work.** Resident text is not free. Every token of task logic in the system prompt is a token unavailable to the thing the session is actually for, and it is spent on every turn rather than once.
+
+**It becomes invisible to review.** This is the expensive one. Code gets diffed. Skills, if you have defined them properly, have inputs and outputs and can be tested. A system prompt is a wall of prose in a settings field, and almost no team has a process that examines it. Rules go in. Nothing takes them out. Nobody reads the whole thing.
+
+## Act III: What it costs when the line moves
+
+### The failure mode nobody catches
+
+Two rules in a long system prompt can contradict each other and never produce a visible error.
+
+The model does not raise an exception when its instructions disagree. It picks one, plausibly and quietly, and keeps going. Output stays fluent. Nothing looks broken. The only symptom is that behaviour is subtly inconsistent in a way that gets blamed on the model being non-deterministic.
+
+It usually is not the model. It is two sentences, written eight weeks apart by two people, sitting four hundred words from each other in a file neither of them has read since.
+
+Naming those rules as skills does not make the model smarter. It makes the contradiction *visible*, because a skill has a boundary and two skills that disagree can be seen to disagree. That is the entire argument for the split, and it is a governance argument rather than a performance one.
+
+### What this changes in practice
+
+Read your system prompt. Not skim, read. For each line, ask whether it should apply on every turn of every session.
+
+Whatever survives that question is configuration, and it is in the right place. Whatever fails it is a task instruction that has been hiding in the settings, applying when it should not, costing context on every turn, and quietly waiting to disagree with the line someone adds next month.
