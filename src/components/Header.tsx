@@ -5,15 +5,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 
+// Named by what is behind the link, not by the reader's state and not by
+// an internal metaphor. Sentences, Sentiments, Self and Schema come out of
+// the nav: 139 of 263 content files, zero clicks between them in 16 months.
+// Their URLs stay live, so nothing 404s and no equity is lost. Playbooks,
+// Teardowns and Field Notes join this list when those routes exist; naming
+// them here before then would be four dead links.
 const navLinks = [
-  { href: "/systems",    label: "Systems" },
-  { href: "/sentences",  label: "Sentences" },
-  { href: "/sentiments", label: "Sentiments" },
-  { href: "/shelf",      label: "Shelf" },
-  { href: "/self",       label: "Self" },
-  { href: "/tools",      label: "Stack" },
-  { href: "/schema",     label: "Schema" },
-  { href: "/about",      label: "About" },
+  { href: "/systems",   label: "Explainers" },
+  { href: "/tools",     label: "Tools" },
+  { href: "/shelf",     label: "Resources" },
+  { href: "/about",     label: "About" },
 ];
 
 export default function Header() {
