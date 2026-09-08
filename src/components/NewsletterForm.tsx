@@ -65,6 +65,10 @@ export default function NewsletterForm({
       setStatus("error");
       return;
     }
+    if (!NEWSLETTER_CONFIG.form.action) {
+      e.preventDefault();
+      return;
+    }
     setStatus("submitting");
     // Native POST submission to the provider's public action endpoint.
     // Provider confirmation and redirect are authoritative. No optimistic fake success states.
@@ -72,15 +76,18 @@ export default function NewsletterForm({
 
   return (
     <form
-      action={NEWSLETTER_CONFIG.formActionUrl || "#"}
+      action={NEWSLETTER_CONFIG.form.action || "#"}
       method="post"
       onSubmit={handleSubmit}
       className={`flex flex-col gap-2 ${className}`}
     >
+      {Object.entries(NEWSLETTER_CONFIG.form.hiddenFields).map(([fieldName, fieldValue]) => (
+        <input key={fieldName} type="hidden" name={fieldName} value={fieldValue} />
+      ))}
       <div className="flex flex-wrap items-center gap-2">
         <input
           type="email"
-          name="email_address"
+          name={NEWSLETTER_CONFIG.form.emailFieldName || "email"}
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);

@@ -55,7 +55,6 @@ export default function NewsletterWelcomePage() {
                   <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded">
                     UNDERSTAND
                   </span>
-                  <span className="font-mono text-[10px] text-[#8A8780]">14 min</span>
                 </div>
                 <h3 className="font-heading font-bold text-base text-[#121212]">
                   Engineering Agentic Systems for Reliability

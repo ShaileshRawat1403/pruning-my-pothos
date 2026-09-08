@@ -1,5 +1,25 @@
 export type NewsletterProvider = "kit" | "unconfigured";
 
+export interface NewsletterFormContract {
+  /**
+   * Public form action URL for direct browser submission.
+   * Null when unconfigured.
+   */
+  action: string | null;
+
+  /**
+   * Field name expected by the provider for email input.
+   * Null when unconfigured.
+   */
+  emailFieldName: string | null;
+
+  /**
+   * Hidden input fields required by the provider form embed (e.g. tracking tokens, form UIDs).
+   * Empty when unconfigured.
+   */
+  hiddenFields: Record<string, string>;
+}
+
 export interface NewsletterConfig {
   /**
    * Active newsletter provider system of record.
@@ -7,26 +27,20 @@ export interface NewsletterConfig {
   provider: NewsletterProvider;
 
   /**
-   * True only when live form endpoints or embed parameters are configured.
+   * True only when live form endpoints and embed parameters are configured.
    * When false, forms across the site render an honest "Newsletter coming soon" state.
    */
   configured: boolean;
 
   /**
-   * Public form action URL for direct browser submission (e.g. Kit public action endpoint).
-   * Null when unconfigured.
+   * Provider-specific public form parameters.
+   * Populated only after inspecting the real form embed code.
    */
-  formActionUrl: string | null;
+  form: NewsletterFormContract;
 
   /**
-   * Public form identifier or form UID if required by the provider embed.
-   * Null when unconfigured.
-   */
-  formId: string | null;
-
-  /**
-   * Post-confirmation destination URL on this site.
-   * Kit redirects confirmed subscribers here after email verification.
+   * Intended post-confirmation destination URL on this site.
+   * Must be set in Kit's form redirect settings once the form is created.
    */
   confirmationRedirectUrl: string;
 
@@ -40,9 +54,12 @@ export interface NewsletterConfig {
 export const NEWSLETTER_CONFIG: NewsletterConfig = {
   provider: "kit",
   configured: false,
-  formActionUrl: null,
-  formId: null,
-  confirmationRedirectUrl: "/newsletter/welcome",
+  form: {
+    action: null,
+    emailFieldName: null,
+    hiddenFields: {},
+  },
+  confirmationRedirectUrl: "/newsletter/welcome/",
   socialProofCount: null,
 };
 
