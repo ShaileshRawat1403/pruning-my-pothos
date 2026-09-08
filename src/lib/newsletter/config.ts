@@ -40,7 +40,7 @@ export interface NewsletterConfig {
 
   /**
    * Intended post-confirmation destination URL on this site.
-   * Must be set in Kit's form redirect settings once the form is created.
+   * Configured in Kit form settings under post-confirmation redirect.
    */
   confirmationRedirectUrl: string;
 
@@ -53,14 +53,17 @@ export interface NewsletterConfig {
 
 export const NEWSLETTER_CONFIG: NewsletterConfig = {
   provider: "kit",
-  configured: false,
+  configured: true,
   form: {
-    action: null,
-    emailFieldName: null,
+    action: "https://app.kit.com/forms/9894657/subscriptions",
+    emailFieldName: "email_address",
     hiddenFields: {},
   },
   confirmationRedirectUrl: "/newsletter/welcome/",
   socialProofCount: null,
 };
 
-export const isNewsletterConfigured: boolean = NEWSLETTER_CONFIG.configured;
+export const isNewsletterConfigured: boolean =
+  NEWSLETTER_CONFIG.configured &&
+  NEWSLETTER_CONFIG.form.action !== null &&
+  NEWSLETTER_CONFIG.form.emailFieldName !== null;

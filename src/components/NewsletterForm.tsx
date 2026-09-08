@@ -28,11 +28,17 @@ export default function NewsletterForm({
   variant: Variant;
   className?: string;
 }) {
-  const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const copy = COPY[variant];
 
-  if (!isNewsletterConfigured) {
+  const actionUrl = NEWSLETTER_CONFIG.form.action;
+  const emailFieldName = NEWSLETTER_CONFIG.form.emailFieldName;
+
+  // Fail closed: if unconfigured or if either required contract field is missing,
+  // render the honest disabled state.
+  if (!isNewsletterConfigured || !actionUrl || !emailFieldName) {
     return (
       <div className={`flex flex-col gap-2 ${className}`}>
         <div className="flex flex-col sm:flex-row gap-2">
@@ -59,24 +65,83 @@ export default function NewsletterForm({
     );
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    if (!EMAIL_RE.test(email)) {
-      e.preventDefault();
+  if (status === "success") {
+    return (
+      <div
+        role="status"
+        aria-live="polite"
+        className={`flex items-start gap-2.5 p-3.5 rounded-lg bg-[#F0FDF4] border border-[#BBF7D0] ${className}`}
+      >
+        <span className="text-[#16A34A] text-sm mt-0.5 shrink-0" aria-hidden="true">&#10003;</span>
+        <div className="flex flex-col gap-0.5 text-left">
+          <span className="font-heading text-xs font-bold text-[#166534]">
+            Almost there. Check your inbox and confirm your email to join.
+          </span>
+          <span className="font-mono text-[11px] text-[#15803D]">
+            We sent a confirmation link to your email address.
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const trimmedEmail = email.trim();
+
+    if (!EMAIL_RE.test(trimmedEmail)) {
       setStatus("error");
+      setErrorMessage("Please enter a valid email address.");
       return;
     }
-    if (!NEWSLETTER_CONFIG.form.action) {
-      e.preventDefault();
+
+    if (!actionUrl || !emailFieldName) {
+      setStatus("error");
+      setErrorMessage("Newsletter is currently unavailable.");
       return;
     }
+
     setStatus("submitting");
-    // Native POST submission to the provider's public action endpoint.
-    // Provider confirmation and redirect are authoritative. No optimistic fake success states.
+    setErrorMessage("");
+
+    try {
+      const formData = new FormData();
+      formData.append(emailFieldName, trimmedEmail);
+      for (const [key, value] of Object.entries(NEWSLETTER_CONFIG.form.hiddenFields)) {
+        formData.append(key, value);
+      }
+
+      const res = await fetch(actionUrl, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
+
+      const data = await res.json();
+      if (data.status === "success") {
+        setStatus("success");
+      } else {
+        const msg =
+          data.errors?.messages?.[0] ||
+          "Unable to submit at this time. Please try again.";
+        setStatus("error");
+        setErrorMessage(msg);
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage("Network error. Please check your connection and try again.");
+    }
   }
 
   return (
     <form
-      action={NEWSLETTER_CONFIG.form.action || "#"}
+      action={actionUrl}
       method="post"
       onSubmit={handleSubmit}
       className={`flex flex-col gap-2 ${className}`}
@@ -84,18 +149,23 @@ export default function NewsletterForm({
       {Object.entries(NEWSLETTER_CONFIG.form.hiddenFields).map(([fieldName, fieldValue]) => (
         <input key={fieldName} type="hidden" name={fieldName} value={fieldValue} />
       ))}
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="flex flex-col sm:flex-row gap-2">
         <input
           type="email"
-          name={NEWSLETTER_CONFIG.form.emailFieldName || "email"}
+          name={emailFieldName}
           value={email}
+          disabled={status === "submitting"}
           onChange={(e) => {
             setEmail(e.target.value);
-            if (status === "error") setStatus("idle");
+            if (status === "error") {
+              setStatus("idle");
+              setErrorMessage("");
+            }
           }}
           placeholder={copy.placeholder}
           required
-          className="px-4 py-3 rounded-lg border border-[#D5D2C9] bg-white text-sm font-mono text-[#121212] placeholder:text-[#A8A29E] focus:outline-none focus:border-[#121212] flex-1 min-w-[220px]"
+          aria-label="Email Address"
+          className="px-4 py-3 rounded-lg border border-[#D5D2C9] bg-white text-sm font-mono text-[#121212] placeholder:text-[#A8A29E] focus:outline-none focus:border-[#121212] flex-1 min-w-[220px] disabled:bg-[#F4F2EC]"
         />
         <button
           type="submit"
@@ -105,9 +175,9 @@ export default function NewsletterForm({
           {status === "submitting" ? "Submitting..." : copy.cta}
         </button>
       </div>
-      {status === "error" && (
-        <span className="font-mono text-xs text-[#DC2626]">
-          Please enter a valid email address.
+      {status === "error" && errorMessage && (
+        <span role="alert" className="font-mono text-xs text-[#DC2626]">
+          {errorMessage}
         </span>
       )}
       {NEWSLETTER_CONFIG.socialProofCount !== null && (
