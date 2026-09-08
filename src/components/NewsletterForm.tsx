@@ -14,15 +14,15 @@ const COPY: Record<Variant, { placeholder: string; cta: string }> = {
 };
 
 /**
- * Newsletter capture, one component for all three placements (hero / footer /
- * inline). Reads exclusively from src/lib/newsletter/config.ts — swapping in a
+ * Newsletter capture, one component for all three placements (hero, footer,
+ * inline). Reads exclusively from src/lib/newsletter/config.ts. Swapping in a
  * real Beehiiv publication is a one-file edit, nothing here changes.
  *
  * The site is a static export with no server (see next.config.ts: output:
  * "export"), so this can only ever talk to Beehiiv directly from the browser:
- * an iframe embed (hero — correctness over full theming, highest-stakes spot)
- * or a themed <form> POST to Beehiiv's public subscribe endpoint (footer/
- * inline — target="_blank", optimistic success since there's no server here
+ * an iframe embed (hero: correctness over full theming, highest-stakes spot)
+ * or a themed <form> POST to Beehiiv's public subscribe endpoint (footer,
+ * inline: target="_blank", optimistic success since there's no server here
  * to confirm the POST synchronously).
  */
 export default function NewsletterForm({
@@ -39,33 +39,24 @@ export default function NewsletterForm({
   if (!isNewsletterConfigured) {
     return (
       <div className={`flex flex-col gap-2 ${className}`}>
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           <input
             type="email"
             placeholder={copy.placeholder}
             disabled
             aria-disabled="true"
-            className="font-mono text-sm px-4 py-3 flex-1 min-w-[220px]"
-            style={{
-              background: "var(--card-bg)",
-              border: "1px solid var(--card-border)",
-              color: "var(--text-muted)",
-              borderRadius: "3px",
-            }}
+            className="px-4 py-3 rounded-lg border border-[#D5D2C9] bg-[#F4F2EC]/60 text-sm font-mono text-[#8A8780] placeholder:text-[#A8A29E] cursor-not-allowed focus:outline-none flex-1 min-w-[220px]"
           />
           <button
             type="button"
             disabled
-            className="btn-premium btn-secondary"
-            style={{ opacity: 0.5, cursor: "not-allowed" }}
+            className="px-6 py-3 rounded-lg bg-[#D5D2C9] text-[#7A7872] text-xs font-mono font-bold uppercase tracking-wider cursor-not-allowed shrink-0"
           >
             {copy.cta}
           </button>
         </div>
-        <span
-          className="badge self-start"
-          style={{ color: "var(--text-muted)", border: "1px solid var(--card-border)" }}
-        >
+        <span className="self-start inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-[#EAE8E2]/70 text-[#6B6964] border border-[#D5D2C9]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#8A8780]" />
           Newsletter coming soon
         </span>
       </div>

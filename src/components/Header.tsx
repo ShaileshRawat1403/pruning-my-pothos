@@ -8,15 +8,15 @@ export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // If on homepage, anchor links scroll smoothly in-page; on inner pages, they link back to homepage sections or respective indices
+  // Navigation target routing: Breakdowns to /systems, Tools & SDKs to /tools, About to /about; Projects and Methodology route to homepage sections
   const isHome = pathname === "/" || pathname === "/editorial-preview";
 
   const navLinks = [
     { href: isHome ? "#breakdowns" : "/systems", label: "Breakdowns" },
-    { href: isHome ? "#projects" : "/tools",     label: "Projects" },
-    { href: isHome ? "#tools" : "/shelf",         label: "Tools & SDKs" },
+    { href: isHome ? "#projects" : "/#projects", label: "Projects" },
+    { href: isHome ? "#tools" : "/tools", label: "Tools & SDKs" },
     { href: isHome ? "#methodology" : "/#methodology", label: "Methodology" },
-    { href: isHome ? "#about" : "/about",         label: "About" },
+    { href: isHome ? "#about" : "/about", label: "About" },
   ];
 
   return (
@@ -49,9 +49,7 @@ export default function Header() {
           {navLinks.map(({ href, label }) => {
             const isCurrent =
               (label === "Breakdowns" && pathname.startsWith("/systems")) ||
-              (label === "Projects" && pathname.startsWith("/tools")) ||
-              (label === "Tools & SDKs" && pathname.startsWith("/shelf")) ||
-              (label === "Methodology" && pathname.startsWith("/self")) ||
+              (label === "Tools & SDKs" && pathname.startsWith("/tools")) ||
               (label === "About" && pathname.startsWith("/about"));
 
             return (

@@ -70,6 +70,16 @@ const systems = defineCollection({
       href: z.string(),
       note: z.string().optional(),
     })).max(3).optional(),
+
+    // Slot 13. What can the reader do afterwards that they could not do before?
+    useValue: z.string().optional(),
+
+    // Slot 14. Where does this concept begin, where does it stop, and when does the distinction matter?
+    boundary: z.object({
+      is: z.string(),
+      isNot: z.string(),
+      mattersWhen: z.string(),
+    }).optional(),
     // --------------------------------------------------------------------
     faq: z.array(
       z.object({
@@ -149,6 +159,69 @@ const shelf = defineCollection({
   }),
 });
 
+const teardowns = defineCollection({
+  name: "teardowns",
+  directory: "src/content/teardowns",
+  include: "**/*.{md,mdx}",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    useValue: z.string(),
+    repo: z.object({
+      url: z.string(),
+      name: z.string().optional(),
+    }),
+    inspected: z.object({
+      ref: z.string(),
+      on: z.string(),
+    }),
+    publishDate: z.string().optional(),
+    tags: z.array(z.string()).optional().default([]),
+    ...editorialFields,
+    content: z.string(),
+  }),
+});
+
+const kits = defineCollection({
+  name: "kits",
+  directory: "src/content/kits",
+  include: "**/*.{md,mdx}",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    useValue: z.string(),
+    asset: z.object({
+      type: z.string(),
+      path: z.string().optional(),
+      content: z.string().optional(),
+    }),
+    publishDate: z.string().optional(),
+    tags: z.array(z.string()).optional().default([]),
+    ...editorialFields,
+    content: z.string(),
+  }),
+});
+
+const projects = defineCollection({
+  name: "projects",
+  directory: "src/content/projects",
+  include: "**/*.{md,mdx}",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    useValue: z.string(),
+    status: z.enum(["alpha", "beta", "active", "archived", "exploratory"]).optional(),
+    repo: z.string().optional(),
+    demo: z.string().optional(),
+    package: z.string().optional(),
+    docs: z.string().optional(),
+    publishDate: z.string().optional(),
+    tags: z.array(z.string()).optional().default([]),
+    ...editorialFields,
+    content: z.string(),
+  }),
+});
+
 export default defineConfig({
-  content: [systems, sentences, stickyNotes, self, shelf],
+  content: [systems, sentences, stickyNotes, self, shelf, teardowns, kits, projects],
 });
