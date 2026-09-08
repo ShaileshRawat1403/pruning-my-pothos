@@ -142,43 +142,6 @@ const FEATURED_PROJECTS: ProjectItem[] = [
       },
     ],
   },
-  {
-    title: "Soothsayer: Governed AI Operator Plane",
-    role: "Creator · Operator Workstation",
-    status: "Operator Plane",
-    summary:
-      "DAX-first governed AI operator plane and workstation surface for conversational assistance, autonomous action, enterprise control, and decision visibility.",
-    boundary:
-      "Normal assistant conversations start on the DAX path by default, promoting requests into governed live runs when execution is needed. Direct model providers remain available only as advanced fallback overrides.",
-    href: "https://github.com/ShaileshRawat1403/soothsayer",
-    tabs: [
-      {
-        title: "Philosophy",
-        filename: "README.md",
-        ref: "601ee19",
-        sourceUrl: "https://github.com/ShaileshRawat1403/soothsayer/blob/601ee19/README.md",
-        lines: [
-          "## Platform Philosophy",
-          "",
-          "Soothsayer is not just a chatbot; it is a **DAX (Distributed Autonomous eXecution) Control Plane**. Normal assistant conversations now start on the DAX path by default, and the workstation promotes requests into governed live runs when execution is needed. Direct model providers remain available only as advanced fallback overrides.",
-        ],
-      },
-      {
-        title: "Pillars",
-        filename: "README.md",
-        ref: "601ee19",
-        sourceUrl: "https://github.com/ShaileshRawat1403/soothsayer/blob/601ee19/README.md",
-        lines: [
-          "### Core Pillars",
-          "",
-          "1.  **Autonomous Execution (DAX)**: Real-world action via the DAX Engine, capable of complex multi-step tasks.",
-          "2.  **Operator Authority**: A high-fidelity professional UI designed for triage and rapid decision-making.",
-          "3.  **Governance V2**: Fine-grained control over DAX-first assistant routing, behavioral personas, and risk-based approval gates.",
-          "4.  **Audit Integrity**: Immutable signal trails and stage-based replays for every execution path.",
-        ],
-      },
-    ],
-  },
 ];
 
 export default function Projects() {

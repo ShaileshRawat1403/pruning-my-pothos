@@ -7,7 +7,7 @@ export interface ProjectTab {
   filename: string;
   ref: string;
   lines: string[];
-  sourceUrl?: string;
+  sourceUrl: string;
 }
 
 export interface ProjectItem {
@@ -61,7 +61,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </p>
       </div>
 
-      {/* Uniform Tab Bar with Provenance Header */}
+      {/* Uniform Tab Bar with Strict Provenance Link */}
       <div className="flex items-center justify-between px-3 bg-[#1E1E1E] text-xs font-mono border-b border-[#333333] h-10 shrink-0">
         <div className="flex items-center gap-1 overflow-x-auto">
           {project.tabs.map((tab, idx) => (
@@ -80,21 +80,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
         <div className="flex items-center gap-3">
-          {currentTab.sourceUrl ? (
-            <a
-              href={currentTab.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[10px] text-[#A3A3A3] hover:text-white underline decoration-[#555555] underline-offset-2 hidden sm:inline truncate max-w-[220px] transition-colors"
-              title="Inspect source file on GitHub"
-            >
-              {currentTab.filename} · {currentTab.ref} ↗
-            </a>
-          ) : (
-            <span className="text-[10px] text-[#888888] hidden sm:inline truncate max-w-[220px]">
-              {currentTab.filename} · {currentTab.ref}
-            </span>
-          )}
+          <a
+            href={currentTab.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[10px] text-[#A3A3A3] hover:text-white underline decoration-[#555555] underline-offset-2 hidden sm:inline truncate max-w-[220px] transition-colors"
+            title="Inspect public source file on GitHub"
+          >
+            {currentTab.filename} · {currentTab.ref} ↗
+          </a>
           <button
             type="button"
             onClick={handleCopy}
@@ -155,7 +149,7 @@ interface ProjectInspectorProps {
 
 export default function ProjectInspector({ projects }: ProjectInspectorProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
       {projects.map((project) => (
         <ProjectCard key={project.title} project={project} />
       ))}
