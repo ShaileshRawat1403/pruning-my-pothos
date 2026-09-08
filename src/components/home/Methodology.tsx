@@ -42,7 +42,7 @@ export default function Methodology({ systemsCount }: MethodologyProps) {
                 </p>
               </div>
               <div className="pt-3 border-t border-[#F4F2EC] flex items-center justify-between text-[11px] font-mono text-[#7A7872]">
-                <span>Lifecycle: 6 Verified Stages</span>
+                <span>Lifecycle: 6 Stages</span>
                 <a href="#hero" className="text-[#16A34A] hover:underline">
                   Inspect Botanical Vine &uarr;
                 </a>
@@ -100,24 +100,25 @@ export default function Methodology({ systemsCount }: MethodologyProps) {
               </div>
             </article>
 
-            {/* Card 4: Runtime Bench */}
+            {/* Card 4: Project Architectures */}
             <article className="p-6 rounded-xl bg-white border border-[#EAE8E2] flex flex-col justify-between gap-4 shadow-2xs">
               <div className="flex flex-col gap-2">
                 <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#7C3AED] bg-[#F5F3FF] px-2.5 py-0.5 rounded w-fit">
-                  RUNTIME BENCH
+                  PROJECT ARCHITECTURES
                 </span>
                 <h3 className="font-heading font-bold text-base text-[#121212]">
-                  How are runtimes like DAX, PaneTera, and Verb designed?
+                  How do DAX, PaneTera, and Verb approach agent control?
                 </h3>
                 <p className="text-xs text-[#55534E] leading-relaxed">
-                  They treat model outputs as untrusted proposals. All file system writes, external commands, and state
-                  transitions are routed through explicit approval boundaries, append-only logs, and replayable session checkpoints.
+                  Each addresses a distinct failure mode rather than sharing a single execution contract. DAX uses pure Rust
+                  proof surfaces for deterministic policy and replay. PaneTera enforces a read-only workspace exploration boundary
+                  over MCP. Verb manages the terminal environment and session survival without recording command bytes or prompts.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#F4F2EC] flex items-center justify-between text-[11px] font-mono text-[#7A7872]">
-                <span>Execution Boundary</span>
+                <span>Project Boundaries</span>
                 <a href="#projects" className="text-[#121212] hover:underline font-semibold">
-                  Inspect Code &darr;
+                  Inspect Projects &darr;
                 </a>
               </div>
             </article>

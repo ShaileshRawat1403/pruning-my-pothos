@@ -5,6 +5,7 @@ import { useState } from "react";
 export interface ProjectTab {
   title: string;
   filename: string;
+  ref?: string;
   lines: string[];
 }
 
@@ -13,6 +14,7 @@ export interface ProjectItem {
   role: string;
   status: string;
   summary: string;
+  boundary: string;
   href: string;
   tabs: ProjectTab[];
 }
@@ -34,7 +36,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
     } catch {
-      // Fallback if clipboard API is blocked
       setIsCopied(false);
     }
   };
@@ -48,7 +49,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.status}
           </span>
           <span className="font-mono text-[10px] text-[#7A7872] uppercase tracking-wider">
-            Verified Repo
+            Repository Sourced
           </span>
         </div>
         <h3 className="font-heading font-bold text-base text-[#121212] pt-2">
@@ -59,7 +60,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </p>
       </div>
 
-      {/* Uniform Tab Bar */}
+      {/* Uniform Tab Bar with Provenance Header */}
       <div className="flex items-center justify-between px-3 bg-[#1E1E1E] text-xs font-mono border-b border-[#333333] h-10 shrink-0">
         <div className="flex items-center gap-1 overflow-x-auto">
           {project.tabs.map((tab, idx) => (
@@ -78,14 +79,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-[10px] text-[#888888] hidden sm:inline">
-            {currentTab.filename}
+          <span className="text-[10px] text-[#888888] hidden sm:inline truncate max-w-[200px]">
+            {currentTab.filename}{currentTab.ref ? ` · ${currentTab.ref}` : ""}
           </span>
           <button
             type="button"
             onClick={handleCopy}
-            className="px-2 py-1 text-[10px] rounded bg-[#2D2D2D] hover:bg-[#3D3D3D] text-[#CCCCCC] transition-colors cursor-pointer flex items-center gap-1"
-            title="Copy file contents"
+            className="px-2 py-1 text-[10px] rounded bg-[#2D2D2D] hover:bg-[#3D3D3D] text-[#CCCCCC] transition-colors cursor-pointer flex items-center gap-1 shrink-0"
+            title="Copy file excerpt"
           >
             {isCopied ? (
               <span className="text-[#86EFAC] font-bold">✓ Copied</span>
@@ -96,7 +97,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </div>
 
-      {/* Terminal Code Body */}
+      {/* Terminal Excerpt Body */}
       <div className="p-4 bg-[#181818] font-mono text-xs text-[#E5E5E5] overflow-x-auto h-[180px] leading-relaxed select-text flex-1">
         <pre className="m-0">
           <code>
@@ -105,11 +106,17 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 <span className="table-cell pr-4 text-[#555555] select-none text-[10px] text-right">
                   {lIdx + 1}
                 </span>
-                <span className="table-cell">{line}</span>
+                <span className="table-cell whitespace-pre">{line}</span>
               </div>
             ))}
           </code>
         </pre>
+      </div>
+
+      {/* Documented Boundary Callout */}
+      <div className="px-4 py-2.5 bg-[#FAF9F6] border-t border-[#EAE8E2] text-[11px] font-mono text-[#55534E] leading-relaxed">
+        <span className="font-bold text-[#121212]">Boundary: </span>
+        <span>{project.boundary}</span>
       </div>
 
       {/* Card Footer Link */}

@@ -175,7 +175,7 @@ const teardowns = defineCollection({
       ref: z.string(),
       on: z.string(),
     }),
-    publishDate: z.string().optional(),
+    publishDate: z.string(),
     tags: z.array(z.string()).optional().default([]),
     ...editorialFields,
     content: z.string(),
@@ -190,11 +190,15 @@ const kits = defineCollection({
     title: z.string(),
     description: z.string(),
     useValue: z.string(),
-    asset: z.object({
-      type: z.string(),
-      path: z.string().optional(),
-      content: z.string().optional(),
-    }),
+    asset: z
+      .object({
+        type: z.string(),
+        path: z.string().optional(),
+        content: z.string().optional(),
+      })
+      .refine((a) => Boolean(a.path || a.content), {
+        message: "Kit asset must specify at least one of asset.path or asset.content",
+      }),
     publishDate: z.string().optional(),
     tags: z.array(z.string()).optional().default([]),
     ...editorialFields,
@@ -206,20 +210,24 @@ const projects = defineCollection({
   name: "projects",
   directory: "src/content/projects",
   include: "**/*.{md,mdx}",
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    useValue: z.string(),
-    status: z.enum(["alpha", "beta", "active", "archived", "exploratory"]).optional(),
-    repo: z.string().optional(),
-    demo: z.string().optional(),
-    package: z.string().optional(),
-    docs: z.string().optional(),
-    publishDate: z.string().optional(),
-    tags: z.array(z.string()).optional().default([]),
-    ...editorialFields,
-    content: z.string(),
-  }),
+  schema: z
+    .object({
+      title: z.string(),
+      description: z.string(),
+      useValue: z.string(),
+      status: z.enum(["alpha", "beta", "active", "archived", "exploratory"]),
+      repo: z.string().optional(),
+      demo: z.string().optional(),
+      package: z.string().optional(),
+      docs: z.string().optional(),
+      publishDate: z.string().optional(),
+      tags: z.array(z.string()).optional().default([]),
+      ...editorialFields,
+      content: z.string(),
+    })
+    .refine((p) => Boolean(p.repo || p.demo || p.package || p.docs), {
+      message: "Project must specify at least one of repo, demo, package, or docs",
+    }),
 });
 
 export default defineConfig({
