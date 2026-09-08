@@ -37,7 +37,7 @@ export default function Hero({ systemsCount }: HeroProps) {
               <div className="flex items-center justify-between text-xs text-[#7A7872] px-1 font-mono pt-1">
                 <span className="flex items-center gap-1.5 text-[11px]">
                   <span className="text-[#16A34A]">&#10003;</span>
-                  Field notes on orchestration, runtime evaluations, and failure modes
+                  What worked, what broke, and what I learned building with AI.
                 </span>
                 <a
                   href="#breakdowns"
