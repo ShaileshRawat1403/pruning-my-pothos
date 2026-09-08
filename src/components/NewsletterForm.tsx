@@ -143,6 +143,7 @@ export default function NewsletterForm({
     <form
       action={actionUrl}
       method="post"
+      noValidate
       onSubmit={handleSubmit}
       className={`flex flex-col gap-2 ${className}`}
     >
