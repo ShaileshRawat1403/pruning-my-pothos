@@ -14,16 +14,12 @@ const COPY: Record<Variant, { placeholder: string; cta: string }> = {
 };
 
 /**
- * Newsletter capture, one component for all three placements (hero, footer,
- * inline). Reads exclusively from src/lib/newsletter/config.ts. Swapping in a
- * real Beehiiv publication is a one-file edit, nothing here changes.
+ * Reusable newsletter capture component for hero, footer, and inline placements.
+ * Reads exclusively from src/lib/newsletter/config.ts.
  *
- * The site is a static export with no server (see next.config.ts: output:
- * "export"), so this can only ever talk to Beehiiv directly from the browser:
- * an iframe embed (hero: correctness over full theming, highest-stakes spot)
- * or a themed <form> POST to Beehiiv's public subscribe endpoint (footer,
- * inline: target="_blank", optimistic success since there's no server here
- * to confirm the POST synchronously).
+ * The site is a static export with no custom email backend. When configured,
+ * it submits directly to the external provider's public form action endpoint.
+ * While unconfigured, it displays an honest "Newsletter coming soon" indicator.
  */
 export default function NewsletterForm({
   variant,
@@ -34,9 +30,15 @@ export default function NewsletterForm({
 }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const copy = COPY[variant];
 
-  if (!isNewsletterConfigured) {
+  const actionUrl = NEWSLETTER_CONFIG.form.action;
+  const emailFieldName = NEWSLETTER_CONFIG.form.emailFieldName;
+
+  // Fail closed: if unconfigured or if either required contract field is missing,
+  // render the honest disabled state.
+  if (!isNewsletterConfigured || !actionUrl || !emailFieldName) {
     return (
       <div className={`flex flex-col gap-2 ${className}`}>
         <div className="flex flex-col sm:flex-row gap-2">
@@ -63,84 +65,126 @@ export default function NewsletterForm({
     );
   }
 
-  if (variant === "hero") {
+  if (status === "success") {
     return (
-      <div className={className}>
-        <iframe
-          src={NEWSLETTER_CONFIG.embedIframeUrl}
-          title="Subscribe to the newsletter"
-          loading="lazy"
-          style={{ width: "100%", maxWidth: 480, height: 96, border: "none" }}
-        />
-        {NEWSLETTER_CONFIG.socialProofCount !== null && (
-          <p className="font-mono text-xs mt-2" style={{ color: "var(--text-muted)" }}>
-            Join {NEWSLETTER_CONFIG.socialProofCount.toLocaleString()} readers
-          </p>
-        )}
+      <div
+        role="status"
+        aria-live="polite"
+        className={`flex items-start gap-2.5 p-3.5 rounded-lg bg-[#F0FDF4] border border-[#BBF7D0] ${className}`}
+      >
+        <span className="text-[#16A34A] text-sm mt-0.5 shrink-0" aria-hidden="true">&#10003;</span>
+        <div className="flex flex-col gap-0.5 text-left">
+          <span className="font-heading text-xs font-bold text-[#166534]">
+            Almost there. Check your inbox and confirm your email to join.
+          </span>
+          <span className="font-mono text-[11px] text-[#15803D]">
+            We sent a confirmation link to your email address.
+          </span>
+        </div>
       </div>
     );
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!EMAIL_RE.test(email)) {
+    const trimmedEmail = email.trim();
+
+    if (!EMAIL_RE.test(trimmedEmail)) {
       setStatus("error");
+      setErrorMessage("Please enter a valid email address.");
       return;
     }
-    setStatus("submitting");
-    e.currentTarget.submit();
-    // Optimistic: static export has no server to confirm the POST landed.
-    // Beehiiv's own hosted page (opened in the new tab) is the real confirmation.
-    window.setTimeout(() => setStatus("success"), 600);
-  }
 
-  if (status === "success") {
-    return (
-      <p className={`font-mono text-sm ${className}`} style={{ color: "var(--accent-green)" }}>
-        Check your inbox to confirm →
-      </p>
-    );
+    if (!actionUrl || !emailFieldName) {
+      setStatus("error");
+      setErrorMessage("Newsletter is currently unavailable.");
+      return;
+    }
+
+    setStatus("submitting");
+    setErrorMessage("");
+
+    try {
+      const formData = new FormData();
+      formData.append(emailFieldName, trimmedEmail);
+      for (const [key, value] of Object.entries(NEWSLETTER_CONFIG.form.hiddenFields)) {
+        formData.append(key, value);
+      }
+
+      const res = await fetch(actionUrl, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
+
+      const data = await res.json();
+      if (data.status === "success") {
+        setStatus("success");
+      } else {
+        const msg =
+          data.errors?.messages?.[0] ||
+          "Unable to submit at this time. Please try again.";
+        setStatus("error");
+        setErrorMessage(msg);
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage("Network error. Please check your connection and try again.");
+    }
   }
 
   return (
     <form
-      action={NEWSLETTER_CONFIG.embedFormUrl}
+      action={actionUrl}
       method="post"
-      target="_blank"
+      noValidate
       onSubmit={handleSubmit}
       className={`flex flex-col gap-2 ${className}`}
     >
-      <div className="flex flex-wrap items-center gap-2">
+      {Object.entries(NEWSLETTER_CONFIG.form.hiddenFields).map(([fieldName, fieldValue]) => (
+        <input key={fieldName} type="hidden" name={fieldName} value={fieldValue} />
+      ))}
+      <div className="flex flex-col sm:flex-row gap-2">
         <input
           type="email"
-          name="email"
+          name={emailFieldName}
           value={email}
+          disabled={status === "submitting"}
           onChange={(e) => {
             setEmail(e.target.value);
-            if (status === "error") setStatus("idle");
+            if (status === "error") {
+              setStatus("idle");
+              setErrorMessage("");
+            }
           }}
           placeholder={copy.placeholder}
           required
-          className="font-mono text-sm px-4 py-3 flex-1 min-w-[220px]"
-          style={{
-            background: "var(--card-bg)",
-            border: `1px solid ${status === "error" ? "var(--accent-pink)" : "var(--card-border)"}`,
-            color: "var(--text-primary)",
-            borderRadius: "3px",
-          }}
+          aria-label="Email Address"
+          className="px-4 py-3 rounded-lg border border-[#D5D2C9] bg-white text-sm font-mono text-[#121212] placeholder:text-[#A8A29E] focus:outline-none focus:border-[#121212] flex-1 min-w-[220px] disabled:bg-[#F4F2EC]"
         />
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="btn-premium btn-primary"
+          className="px-6 py-3 rounded-lg bg-[#121212] hover:bg-[#2A2926] text-white text-xs font-mono font-bold uppercase tracking-wider transition-colors shrink-0 disabled:opacity-50"
         >
-          {status === "submitting" ? "···" : copy.cta}
+          {status === "submitting" ? "Submitting..." : copy.cta}
         </button>
       </div>
-      {status === "error" && (
-        <span className="font-mono text-xs" style={{ color: "var(--accent-pink)" }}>
-          That doesn&apos;t look like an email.
+      {status === "error" && errorMessage && (
+        <span role="alert" className="font-mono text-xs text-[#DC2626]">
+          {errorMessage}
         </span>
+      )}
+      {NEWSLETTER_CONFIG.socialProofCount !== null && (
+        <p className="font-mono text-xs text-[#7A7872] mt-1">
+          Join {NEWSLETTER_CONFIG.socialProofCount.toLocaleString()} readers
+        </p>
       )}
     </form>
   );
