@@ -3,7 +3,10 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const PUBLIC_HTACCESS = path.join(ROOT, 'public', '.htaccess');
-const DIST_HTACCESS = path.join(ROOT, 'dist', '.htaccess');
+// Next.js static export writes to out/, not dist/ (Astro-era leftover path).
+// Next already copies dotfiles from public/ into out/ on its own, so this is a
+// belt-and-suspenders safety net, not the primary mechanism.
+const DIST_HTACCESS = path.join(ROOT, 'out', '.htaccess');
 
 async function main() {
   try {
@@ -13,7 +16,7 @@ async function main() {
   }
 
   await fs.copyFile(PUBLIC_HTACCESS, DIST_HTACCESS);
-  console.log('Copied public/.htaccess to dist/.htaccess');
+  console.log('Copied public/.htaccess to out/.htaccess');
 }
 
 main().catch((error) => {

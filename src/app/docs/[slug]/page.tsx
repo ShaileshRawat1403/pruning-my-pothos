@@ -31,6 +31,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return [
     { slug: "natural-language-programming-stack" },
@@ -56,7 +58,7 @@ export default async function DocSubpage({ params }: PageProps) {
   }
 
   const webpageSchema = getWebPageSchema({
-    title: `${schemaTitle} | Sans Serif Systems`,
+    title: `${schemaTitle} | Pruning My Pothos`,
     description: schemaDesc,
     path: `/docs/${slug}`
   });

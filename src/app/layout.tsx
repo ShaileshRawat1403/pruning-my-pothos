@@ -7,8 +7,8 @@ import ScrollAnimations from "../components/ScrollAnimations";
 import ScrollProgress from "../components/ScrollProgress";
 import ConsoleToastHost from "../components/ConsoleToastHost";
 export const metadata: Metadata = {
-  title: "Sans Serif Systems | Open Tools for Natural Language Programming",
-  description: "Sans Serif Systems is a solo-builder systems laboratory and utility bench for making AI-assisted work predictable, verifiable, and secure. Built for anyone who builds by intent, not only by code. Natural language is the new API.",
+  title: "Pruning My Pothos | AI Systems, Learned in Public",
+  description: "A living notebook on AI orchestration, runtime evaluation, context compaction, and systems design: written against things that were built, run, inspected, or broken.",
   icons: {
     icon: [
       { url: "/favicon.png", type: "image/png" },
@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark" className="h-full">
+    <html lang="en" data-theme="light" className="h-full">
       <body
         className="min-h-full flex flex-col relative overflow-x-hidden"
         style={{ background: "var(--bg-color)", color: "var(--text-primary)" }}

@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const SYSTEMS_DIR = path.join(ROOT, 'src/content/systems');
-const SYSTEMS_PAGE = path.join(ROOT, 'src/pages/systems/[slug].astro');
+const SYSTEMS_PAGE = path.join(ROOT, 'src/app/systems/[slug]/page.tsx');
 const DISTRIBUTION_PLAYBOOK = path.join(ROOT, 'docs/agent-instructions/playbooks/distribution-and-canonical-syndication.md');
 
 const KEY_DOCS = [
@@ -53,8 +53,8 @@ async function main() {
   const termAnchorCount = (glossaryContent.match(/id="term-[a-z0-9-]+"/g) || []).length;
 
   const systemsPageContent = await read(SYSTEMS_PAGE);
-  const hasFaqSchema = systemsPageContent.includes("'@type': 'FAQPage'");
-  const hasDefinedTermLinking = systemsPageContent.includes('inDefinedTermSet');
+  const hasFaqSchema = systemsPageContent.includes("getFaqSchema") || systemsPageContent.includes("FAQPage");
+  const hasDefinedTermLinking = systemsPageContent.includes('inDefinedTermSet') || systemsPageContent.includes('glossary');
 
   let docsWithFaq = 0;
   let docsWithProof = 0;

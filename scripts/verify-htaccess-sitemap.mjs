@@ -2,7 +2,8 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 async function main() {
-  const sitemapPath = path.resolve('dist/sitemap.xml');
+  // Next.js static export writes to out/, not dist/ (Astro-era leftover path).
+  const sitemapPath = path.resolve('out/sitemap.xml');
   const sitemapXml = await fs.readFile(sitemapPath, 'utf8');
   
   // Extract all urls using regex

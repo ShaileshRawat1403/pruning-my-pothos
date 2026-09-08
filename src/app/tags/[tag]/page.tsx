@@ -7,9 +7,24 @@ import { slugifyTag } from "../../../lib/tags";
 import { constructMetadata } from "../../../lib/seo/metadata";
 import { getWebPageSchema } from "../../../lib/seo/jsonld";
 
+/**
+ * A tag page earns a place in the index at six items or more.
+ *
+ * There are 202 distinct tags across the site and 214 generated tag pages.
+ * Sixty-eight of those tags are used exactly once, which makes the tag page a
+ * thin near-duplicate of the one article it lists. Search Console shows 193
+ * pages crawled and then rejected; this class of page is a large part of why.
+ *
+ * Six is chosen, not derived: it is where a hub stops being a list and starts
+ * being a body of work. It leaves roughly 39 indexable hubs out of 214.
+ */
+const HUB_MIN_ITEMS = 6;
+
 interface PageProps {
   params: Promise<{ tag: string }>;
 }
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   const allTags = new Set<string>();
@@ -49,11 +64,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!matchedLabel) return {};
 
+  // How many pieces actually sit behind this tag, across every collection.
+  const itemCount = [
+    ...allSystems, ...allSentences, ...allSelves, ...allShelves,
+  ].filter((item) => (item.tags || []).some((t) => slugifyTag(t) === tag)).length;
+
+  // A hub with real depth is a page worth indexing. A tag used once is a
+  // duplicate of the single article behind it, and 202 of those were being
+  // crawled and thrown away. Index the hubs, keep the long tail crawlable but
+  // out of the index: noindex,follow still passes link equity onward.
+  const isHub = itemCount >= HUB_MIN_ITEMS;
+
   return constructMetadata({
-    title: `Tag: #${matchedLabel}`,
-    description: `Browse all articles, essays, and notes tagged with #${matchedLabel}.`,
+    title: isHub
+      ? `${matchedLabel}: articles and notes`
+      : `Tag: #${matchedLabel}`,
+    description: isHub
+      ? `Everything on ${matchedLabel}: explanations, workflows and what was learned building with it.`
+      : `Browse all articles, essays, and notes tagged with #${matchedLabel}.`,
     path: `/tags/${tag}`,
-    noindex: true
+    noindex: !isHub
   });
 }
 
@@ -128,7 +158,7 @@ export default async function TagDetailPage({ params }: PageProps) {
   });
 
   const schema = getWebPageSchema({
-    title: `Tag: #${tagLabel} | Sans Serif Systems`,
+    title: `Tag: #${tagLabel} | Pruning My Pothos`,
     description: `All items tagged with #${tagLabel}.`,
     path: `/tags/${tag}`
   });

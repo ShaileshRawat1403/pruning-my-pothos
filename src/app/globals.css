@@ -1,60 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import './explainer.css';
 
 @import "tailwindcss";
 
 /* ══════════════════════════════════════════════════════════
-   SANS SERIF SYSTEMS — Lovelace Atelier
-   Manuscript × Machine. Ink, parchment, oxblood, brass.
+   PRUNING MY POTHOS
+   One sans family used with real range. Warm neutral ground, near-black
+   ink, accents that share lightness and chroma and vary only by hue.
+   Flat by decision: no glow, no grain, no depth.
    ══════════════════════════════════════════════════════════ */
 
 :root {
-  --font-sans:    'Newsreader', Georgia, serif;   /* body / manuscript voice */
-  --font-heading: 'Fraunces', Georgia, serif;     /* engraved display */
-  --font-mono:    'JetBrains Mono', monospace;     /* machine voice */
+  --font-sans:    'Schibsted Grotesk', 'Helvetica Neue', Helvetica, sans-serif;
+  --font-heading: 'Schibsted Grotesk', 'Helvetica Neue', Helvetica, sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 }
 
 /* ── INK (dark, primary) ── */
 :root,
 [data-theme="dark"] {
-  --bg-color:    #14110b;
-  --bg-surface:  #1a160e;
-  --bg-elevated: #221c12;
+  /* Ink on warm near-black. Same hue family as the light theme.
+     Accents keep their distinct hues so UI that encodes meaning by colour
+     still reads, but they now share lightness and chroma, so they belong to
+     one family instead of competing. Hue is the only thing that varies. */
+  --bg-color:    oklch(0.178 0.008 85);
+  --bg-surface:  oklch(0.213 0.009 85);
+  --bg-elevated: oklch(0.248 0.010 85);
 
-  --card-bg:           #1b160d;
-  --card-bg-hover:     #241d11;
-  --card-border:       rgba(201, 154, 62, 0.16);
-  --card-border-hover: rgba(181, 64, 47, 0.55);
+  --card-bg:           oklch(0.213 0.009 85);
+  --card-bg-hover:     oklch(0.248 0.010 85);
+  --card-border:       oklch(0.325 0.010 85);
+  --card-border-hover: oklch(0.70 0.12 45);
 
-  --text-primary:   #efe5cf;
-  --text-secondary: #b7a685;
-  --text-muted:     #837457;
+  --text-primary:   oklch(0.945 0.006 85);
+  --text-secondary: oklch(0.755 0.008 85);
+  --text-muted:     oklch(0.585 0.008 85);
 
-  /* Accents — names preserved, values re-toned to the Atelier palette
-     so existing inline references inherit the new look. */
-  --accent-purple: #b5402f;  /* OXBLOOD  — primary signal */
-  --accent-cyan:   #c79a3e;  /* BRASS    — secondary signal */
-  --accent-amber:  #c08a2e;  /* GOLD     — warm tertiary */
-  --accent-pink:   #c2564a;  /* light oxblood */
-  --accent-green:  #828c54;  /* SAGE     — pass / active */
-  --accent-blue:   #6d8a9c;  /* LEDGER   — quiet info */
+  --accent-purple: oklch(0.70 0.12 45);
+  --accent-cyan:   oklch(0.70 0.10 230);
+  --accent-amber:  oklch(0.70 0.11 75);
+  --accent-pink:   oklch(0.70 0.12 20);
+  --accent-green:  oklch(0.70 0.12 165);
+  --accent-blue:   oklch(0.70 0.05 250);
 
   --color-bg: var(--bg-color);
   --color-surface: var(--bg-surface);
-  --color-accent: var(--accent-cyan);
+  --color-accent: var(--accent-purple);
   --color-text-muted: var(--text-muted);
   --color-blockquote-bg: var(--bg-elevated);
 
-  --shadow-card:    0 12px 40px rgba(0, 0, 0, 0.55);
-  --shadow-premium: 0 20px 60px rgba(0, 0, 0, 0.6);
-  --glow-purple:    0 22px 56px rgba(0, 0, 0, 0.5);
-  --glow-cyan:      0 22px 56px rgba(0, 0, 0, 0.5);
-  --grid-color:     rgba(201, 154, 62, 0.045);
-  --grain-opacity:  0.05;
+  /* Flat by decision: no glow, no grain, no depth. */
+  --shadow-card:    none;
+  --shadow-premium: none;
+  --glow-purple:    none;
+  --glow-cyan:      none;
+  --grid-color:     transparent;
+  --grain-opacity:  0;
 
-  --header-bg-idle:     rgba(20, 17, 11, 0.55);
-  --header-bg-scrolled: rgba(15, 12, 7, 0.92);
-  --header-border-idle:     rgba(201, 154, 62, 0.10);
-  --header-border-scrolled: rgba(201, 154, 62, 0.24);
+  --header-bg-idle:         oklch(0.178 0.008 85 / 0.86);
+  --header-bg-scrolled:     oklch(0.178 0.008 85 / 0.97);
+  --header-border-idle:     oklch(0.325 0.010 85);
+  --header-border-scrolled: oklch(0.325 0.010 85);
 }
 
 /* Header logo badge is a monochrome (near-black ink) portrait on a
@@ -69,50 +75,59 @@
 
 /* ── PARCHMENT (light) ── */
 [data-theme="light"] {
-  --bg-color:    #efe6d2;
-  --bg-surface:  #e9dec6;
-  --bg-elevated: #e2d5b9;
+  /* Warm neutral paper, near-black ink.
+     Accents keep their distinct hues so UI that encodes meaning by colour
+     still reads, but they now share lightness and chroma, so they belong to
+     one family instead of competing. Hue is the only thing that varies. */
+  --bg-color:    oklch(0.985 0.004 85);
+  --bg-surface:  oklch(0.963 0.007 85);
+  --bg-elevated: oklch(0.945 0.009 85);
 
-  --card-bg:           #f6efdd;
-  --card-bg-hover:     #fbf6e9;
-  --card-border:       rgba(74, 54, 24, 0.18);
-  --card-border-hover: rgba(140, 47, 35, 0.5);
+  --card-bg:           oklch(0.985 0.004 85);
+  --card-bg-hover:     oklch(0.963 0.007 85);
+  --card-border:       oklch(0.897 0.008 85);
+  --card-border-hover: oklch(0.52 0.13 45);
 
-  --text-primary:   #2a2012;
-  --text-secondary: #5c4d33;
-  --text-muted:     #8a795a;
+  --text-primary:   oklch(0.22 0.012 85);
+  --text-secondary: oklch(0.46 0.012 85);
+  --text-muted:     oklch(0.63 0.010 85);
 
-  --accent-purple: #8c2f23;
-  --accent-cyan:   #9a7322;
-  --accent-amber:  #a06a16;
-  --accent-pink:   #a8453a;
-  --accent-green:  #5f6b3a;
-  --accent-blue:   #466374;
+  --accent-purple: oklch(0.52 0.13 45);
+  --accent-cyan:   oklch(0.52 0.11 230);
+  --accent-amber:  oklch(0.52 0.12 75);
+  --accent-pink:   oklch(0.52 0.13 20);
+  --accent-green:  oklch(0.52 0.13 165);
+  --accent-blue:   oklch(0.52 0.06 250);
 
   --color-bg: var(--bg-color);
   --color-surface: var(--bg-surface);
-  --color-accent: var(--accent-cyan);
+  --color-accent: var(--accent-purple);
   --color-text-muted: var(--text-muted);
   --color-blockquote-bg: var(--bg-elevated);
 
-  --shadow-card:    0 10px 30px rgba(74, 54, 24, 0.12);
-  --shadow-premium: 0 16px 44px rgba(74, 54, 24, 0.16);
-  --glow-purple:    0 16px 40px rgba(74, 54, 24, 0.14);
-  --glow-cyan:      0 16px 40px rgba(74, 54, 24, 0.14);
-  --grid-color:     rgba(74, 54, 24, 0.05);
-  --grain-opacity:  0.035;
+  --shadow-card:    none;
+  --shadow-premium: none;
+  --glow-purple:    none;
+  --glow-cyan:      none;
+  --grid-color:     transparent;
+  --grain-opacity:  0;
 
-  --header-bg-idle:     rgba(243, 236, 218, 0.72);
-  --header-bg-scrolled: rgba(247, 241, 226, 0.94);
-  --header-border-idle:     rgba(74, 54, 24, 0.12);
-  --header-border-scrolled: rgba(140, 47, 35, 0.22);
+  --header-bg-idle:         oklch(0.985 0.004 85 / 0.86);
+  --header-bg-scrolled:     oklch(0.985 0.004 85 / 0.97);
+  --header-border-idle:     oklch(0.897 0.008 85);
+  --header-border-scrolled: oklch(0.897 0.008 85);
 }
 
-/* ── Tailwind v4 token registration ── */
+/* ── Tailwind v4 token registration ──
+   These names used to point at Newsreader/Fraunces/JetBrains Mono, none of
+   which were ever @import-ed above — dead tokens shadowed at runtime by the
+   real values in the plain :root block (line 13), since Tailwind's @theme
+   output lives in a CSS cascade layer and unlayered rules always win. Fixed
+   to name what's actually loaded and rendering. ── */
 @theme {
-  --font-sans:    'Newsreader', Georgia, serif;
-  --font-heading: 'Fraunces', Georgia, serif;
-  --font-mono:    'JetBrains Mono', monospace;
+  --font-sans:    'Schibsted Grotesk', 'Helvetica Neue', Helvetica, sans-serif;
+  --font-heading: 'Schibsted Grotesk', 'Helvetica Neue', Helvetica, sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   --color-accent-purple: var(--accent-purple);
   --color-accent-cyan:   var(--accent-cyan);
@@ -354,6 +369,13 @@ h1, h2, h3, h4, h5 {
   max-width: 1200px;
   margin-inline: auto;
   padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+.app-shell:has(.editorial-container),
+.app-shell:has(#hero) {
+  max-width: 100%;
+  margin-inline: 0;
+  padding-inline: 0;
 }
 
 /* ══ Display gradients — warm, restrained ══ */

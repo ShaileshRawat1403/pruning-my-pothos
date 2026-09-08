@@ -21,7 +21,7 @@ export const metadata = constructMetadata({
 
 export default function SelvesIndexPage() {
   const schema = getWebPageSchema({
-    title: "Self Calibrations | Sans Serif Systems",
+    title: "Self Calibrations | Pruning My Pothos",
     description: "A chronological archive of personal calibrations, mental models, and reflections.",
     path: "/self"
   });

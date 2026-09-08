@@ -22,7 +22,7 @@ export const metadata = constructMetadata({
 
 export default function SentencesIndexPage() {
   const schema = getWebPageSchema({
-    title: "Sentences Archive | Sans Serif Systems",
+    title: "Sentences Archive | Pruning My Pothos",
     description: "A chronological archive of short reflections, principles, and writing on systems design.",
     path: "/sentences"
   });

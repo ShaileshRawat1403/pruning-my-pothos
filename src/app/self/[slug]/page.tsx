@@ -10,6 +10,8 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return allSelves.map((selfItem) => ({
     slug: selfItem._meta.path,
@@ -39,7 +41,7 @@ export default async function SelfDetailPage({ params }: PageProps) {
   }
 
   const webpageSchema = getWebPageSchema({
-    title: `${selfItem.title} | Sans Serif Systems`,
+    title: `${selfItem.title} | Pruning My Pothos`,
     description: selfItem.description,
     path: `/self/${slug}`,
     image: selfItem.heroImage,

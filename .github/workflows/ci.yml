@@ -22,4 +22,5 @@ jobs:
       - run: npm run lint:systems:advisory
       - run: npm run report:systems
       - run: npm run lint:systems
+      - run: npm run verify:covers
       - run: npm run build

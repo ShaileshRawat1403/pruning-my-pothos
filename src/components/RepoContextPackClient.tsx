@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 
-const SAMPLE_REPO = `src/pages/index.astro
-src/layouts/SystemsLayout.astro
-src/styles/systems.css
+const SAMPLE_REPO = `src/app/page.tsx
+src/app/layout.tsx
+src/app/globals.css
 package.json`;
 
 export default function RepoContextPackClient() {
@@ -72,7 +72,7 @@ export default function RepoContextPackClient() {
           <textarea
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            placeholder="Paste file path listings, readme content, or selected files...&#10;Example:&#10;src/pages/index.astro&#10;src/layouts/Layout.astro&#10;package.json"
+            placeholder="Paste file path listings, readme content, or selected files...&#10;Example:&#10;src/app/page.tsx&#10;src/app/layout.tsx&#10;package.json"
             className="w-full flex-grow min-h-[300px] bg-[color:var(--bg-color)] border border-[color:var(--card-border)] rounded-sm p-4 text-xs font-mono text-[color:var(--text-primary)] focus:border-accent-cyan/60 focus:bg-[color:var(--bg-color)] outline-none resize-none transition-all duration-300 placeholder:text-[color:var(--text-muted)]"
           />
         </div>

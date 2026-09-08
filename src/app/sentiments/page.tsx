@@ -22,7 +22,7 @@ export const metadata = constructMetadata({
 
 export default function SentimentsIndexPage() {
   const schema = getWebPageSchema({
-    title: "Sentiments Index | Sans Serif Systems",
+    title: "Sentiments Index | Pruning My Pothos",
     description: "A calm, reading-first index of conceptual maps, reflections, and notes detailing the Sentiments workspace.",
     path: "/sentiments"
   });

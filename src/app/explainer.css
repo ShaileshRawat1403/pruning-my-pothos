@@ -1,0 +1,229 @@
+/* ==========================================================================
+   Explainer blocks
+   The twelve-slot Explainer schema, rendered. Styled against the existing
+   semantic tokens (--bg-*, --text-*, --accent-*, --font-*) so these blocks
+   follow whatever theme is active rather than pinning their own colours.
+   ========================================================================== */
+
+.explainer-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+}
+
+/* --- Slot 04: the retrieval unit ----------------------------------------- */
+
+.explainer-answer {
+  background: var(--bg-surface);
+  border: 1px solid var(--card-border);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.explainer-answer p {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  text-wrap: pretty;
+}
+
+/* --- Slot 05: the analogy, and its seam ---------------------------------- */
+
+.explainer-analogy {
+  background: var(--bg-elevated);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.explainer-analogy-mapping {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  text-wrap: pretty;
+}
+
+.explainer-analogy-break {
+  border-top: 1px solid var(--card-border);
+  padding-top: 0.9rem;
+  margin-top: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.explainer-analogy-break p {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
+.explainer-kicker-break {
+  color: var(--accent-purple);
+}
+
+/* --- Slot 06: one picture of the mechanism ------------------------------- */
+
+.explainer-figure {
+  margin: 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.explainer-figure > svg,
+.explainer-figure > img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.explainer-figure figcaption {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+/* --- Slot 10: evidence --------------------------------------------------- */
+
+.explainer-evidence {
+  border-top: 2px solid var(--accent-green);
+  background: var(--bg-surface);
+  padding: 1.4rem 1.75rem 1.6rem;
+  margin: 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.explainer-kicker-evidence {
+  color: var(--accent-green);
+}
+
+.explainer-evidence-list {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(7.5rem, auto) minmax(0, 1fr);
+  gap: 0.55rem 1.5rem;
+  align-items: baseline;
+}
+
+.explainer-evidence-list dt {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.explainer-evidence-list dd {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  text-wrap: pretty;
+}
+
+.explainer-evidence-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.explainer-evidence-tags li {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  background: var(--bg-color);
+  color: var(--text-secondary);
+}
+
+/* --- Slot 12: the link model, made visible ------------------------------- */
+
+.explainer-related {
+  margin: 3rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.explainer-related ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.explainer-related li {
+  border-top: 2px solid var(--text-primary);
+  padding-top: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.explainer-related-type {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.explainer-related a {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+  text-decoration: none;
+  text-wrap: pretty;
+}
+
+.explainer-related a:hover {
+  color: var(--accent-purple);
+}
+
+.explainer-related-note {
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+@media (max-width: 46rem) {
+  .explainer-related ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .explainer-evidence-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.2rem 0;
+  }
+  .explainer-evidence-list dd {
+    margin-bottom: 0.6rem;
+  }
+  .explainer-answer,
+  .explainer-analogy,
+  .explainer-evidence {
+    padding-left: 1.15rem;
+    padding-right: 1.15rem;
+  }
+}

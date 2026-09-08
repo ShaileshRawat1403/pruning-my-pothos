@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
   url: "https://pruningmypothos.com",
-  name: "Sans Serif Systems",
-  defaultTitle: "Sans Serif Systems | AI Systems, Learned in Public",
-  defaultDescription: "A living notebook on AI orchestration and governance: long-form writing and browser-native tools, shared as they are built, not after.",
+  name: "Pruning My Pothos",
+  defaultTitle: "Pruning My Pothos | The Systems We Build, The Prompts We Prune",
+  defaultDescription: "A living notebook on AI orchestration, runtime evaluation, context compaction, and systems design: written against things that were built, run, inspected, or broken.",
   defaultImage: "/og-default.png",
   author: "Shailesh Rawat",
   twitterHandle: "@ShaileshRawat",

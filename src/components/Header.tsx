@@ -1,197 +1,128 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ThemeToggle from "./ThemeToggle";
-
-const navLinks = [
-  { href: "/systems",    label: "Systems" },
-  { href: "/sentences",  label: "Sentences" },
-  { href: "/sentiments", label: "Sentiments" },
-  { href: "/shelf",      label: "Shelf" },
-  { href: "/self",       label: "Self" },
-  { href: "/tools",      label: "Stack" },
-  { href: "/schema",     label: "Schema" },
-  { href: "/about",      label: "About" },
-];
 
 export default function Header() {
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  // Navigation target routing: Breakdowns to /systems, Tools & SDKs to /tools, About to /about; Projects and Methodology route to homepage sections
+  const isHome = pathname === "/" || pathname === "/editorial-preview";
 
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const navLinks = [
+    { href: isHome ? "#breakdowns" : "/systems", label: "Breakdowns" },
+    { href: isHome ? "#projects" : "/#projects", label: "Projects" },
+    { href: isHome ? "#tools" : "/tools", label: "Tools & SDKs" },
+    { href: isHome ? "#methodology" : "/#methodology", label: "Methodology" },
+    { href: isHome ? "#about" : "/about", label: "About" },
+  ];
 
   return (
-    <header className="sticky top-4 z-50 mt-4">
-      <div className="app-shell">
-      <nav
-        className="flex items-center justify-between px-5 py-2.5 transition-all duration-300"
-        style={{
-          background: scrolled ? "var(--header-bg-scrolled)" : "var(--header-bg-idle)",
-          backdropFilter: "blur(18px)",
-          WebkitBackdropFilter: "blur(18px)",
-          borderRadius: "4px",
-          border: `1px solid ${scrolled ? "var(--header-border-scrolled)" : "var(--header-border-idle)"}`,
-          boxShadow: scrolled ? "0 10px 34px rgba(0,0,0,0.28)" : "none",
-        }}
-      >
-        <Link href="/" className="flex items-center gap-2.5 shrink-0 group" style={{ textDecoration: "none" }}>
-          <div
-            className="transition-all duration-300"
-            aria-hidden="true"
-            style={{
-              width: "30px",
-              height: "30px",
-              borderRadius: "50%",
-              overflow: "hidden",
-              backgroundColor: "var(--card-bg)",
-              border: "1px solid var(--card-border-hover)",
-              boxShadow: "inset 0 0 0 1px color-mix(in srgb, var(--bg-color) 28%, transparent)",
-            }}
+    <header className="w-full bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#EAE8E2] sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-20 flex items-center justify-between">
+        {/* Brand Logo & Telemetry Indicator */}
+        <div className="flex items-center gap-4">
+          <Link
+            href="/"
+            className="flex items-center gap-3 text-decoration-none group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212] rounded-lg p-1"
           >
-            <img
-              src="/favicon.png"
-              alt=""
-              className="header-logo-badge"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "center",
-                display: "block",
-              }}
-            />
-          </div>
-          <span
-            className="font-heading font-semibold text-[15px] tracking-tight"
-            style={{ color: "var(--text-primary)" }}
-          >
-            Sans Serif Systems
+            <div className="w-8 h-8 rounded-full bg-[#121212] text-white flex items-center justify-center transition-transform group-hover:scale-105 shadow-2xs">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+              </svg>
+            </div>
+            <span className="font-heading font-extrabold text-lg tracking-tight text-[#121212]">
+              Pruning My Pothos
+            </span>
+          </Link>
+          <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-[#F4F2EC] text-[#6B6964] border border-[#E5E2DA]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A] animate-pulse" />
+            <span>SYS.ONLINE · v2.4</span>
           </span>
-        </Link>
-
-        {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-1.5">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="nav-ink relative px-3 py-1.5 transition-all duration-200"
-              style={{
-                color: isActive(href) ? "var(--text-primary)" : "var(--text-muted)",
-                fontFamily: "var(--font-mono)",
-                fontSize: "10px",
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                borderRadius: "2px",
-                background: isActive(href) ? "color-mix(in srgb, var(--accent-purple) 12%, transparent)" : "transparent",
-              }}
-            >
-              {label}
-              {isActive(href) && (
-                <span
-                  className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 h-px"
-                  style={{ width: "16px", background: "var(--accent-cyan)" }}
-                />
-              )}
-            </Link>
-          ))}
         </div>
 
-        {/* Right actions */}
-        <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <a
-            href="https://github.com/ShaileshRawat1403"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden lg:flex items-center gap-1.5 px-3.5 py-1.5 transition-all duration-200"
-            style={{
-              color: "var(--text-secondary)",
-              background: "var(--card-bg)",
-              border: "1px solid var(--card-border)",
-              borderRadius: "2px",
-              fontFamily: "var(--font-mono)",
-              fontSize: "10px",
-              fontWeight: 700,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-            }}
-          >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.14 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
-            </svg>
-            GitHub
-          </a>
+        {/* Navigation Links (Desktop) */}
+        <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-7 text-xs font-mono font-medium text-[#55534E]">
+          {navLinks.map(({ href, label }) => {
+            const isCurrent =
+              (label === "Breakdowns" && pathname.startsWith("/systems")) ||
+              (label === "Tools & SDKs" && pathname.startsWith("/tools")) ||
+              (label === "About" && pathname.startsWith("/about"));
 
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden flex flex-col gap-1.5 p-2"
-            aria-label="Toggle menu"
+            return (
+              <Link
+                key={label}
+                href={href}
+                className={`transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212] rounded px-1 ${
+                  isCurrent
+                    ? "text-[#121212] font-semibold underline underline-offset-4 decoration-[#16A34A]"
+                    : "hover:text-[#121212]"
+                }`}
+              >
+                {label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Subscribe CTA Button & Mobile Menu Toggle */}
+        <div className="flex items-center gap-3">
+          <Link
+            href={isHome ? "#newsletter" : "/#newsletter"}
+            className="hidden sm:inline-flex px-5 py-2 rounded-full bg-[#121212] hover:bg-[#2A2926] text-white text-xs font-mono font-semibold tracking-wide transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212]"
           >
-            <span className="block w-5 h-px transition-all duration-300" style={{ background: "var(--text-secondary)", transform: menuOpen ? "translateY(8px) rotate(45deg)" : "none" }} />
-            <span className="block w-5 h-px transition-all duration-300" style={{ background: "var(--text-secondary)", opacity: menuOpen ? 0 : 1 }} />
-            <span className="block w-5 h-px transition-all duration-300" style={{ background: "var(--text-secondary)", transform: menuOpen ? "translateY(-8px) rotate(-45deg)" : "none" }} />
+            SUBSCRIBE
+          </Link>
+
+          {/* Mobile Menu Hamburger */}
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile navigation"
+            aria-expanded={isMobileMenuOpen}
+            className="md:hidden p-2 rounded-lg border border-[#EAE8E2] bg-white text-[#121212] hover:bg-[#F4F2EC] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212]"
+          >
+            {isMobileMenuOpen ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="4" y1="6" x2="20" y2="6" />
+                <line x1="4" y1="12" x2="20" y2="12" />
+                <line x1="4" y1="18" x2="20" y2="18" />
+              </svg>
+            )}
           </button>
         </div>
-      </nav>
+      </div>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div
-          className="lg:hidden mt-2 p-4 flex flex-col gap-1 animate-slide-down"
-          style={{
-            background: "var(--header-bg-scrolled)",
-            backdropFilter: "blur(18px)",
-            border: "1px solid var(--card-border)",
-            borderRadius: "4px",
-          }}
-        >
+      {/* Responsive Mobile Drawer */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden w-full border-t border-[#EAE8E2] bg-[#FAF9F6] px-6 py-4 flex flex-col gap-3 font-mono text-xs animate-fadeIn">
           {navLinks.map(({ href, label }) => (
             <Link
-              key={href}
+              key={label}
               href={href}
-              onClick={() => setMenuOpen(false)}
-              className="px-4 py-2.5 transition-all duration-200"
-              style={{
-                color: isActive(href) ? "var(--text-primary)" : "var(--text-muted)",
-                fontFamily: "var(--font-mono)", fontSize: "11px",
-                letterSpacing: "0.14em", textTransform: "uppercase",
-                borderRadius: "2px",
-                background: isActive(href) ? "color-mix(in srgb, var(--accent-purple) 12%, transparent)" : "transparent",
-              }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="py-1 text-[#55534E] hover:text-[#121212] transition-colors"
             >
               {label}
             </Link>
           ))}
-          <a
-            href="https://github.com/ShaileshRawat1403"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 px-4 py-2.5 text-center"
-            style={{
-              color: "var(--text-muted)",
-              border: "1px solid var(--card-border)",
-              borderRadius: "2px",
-              fontFamily: "var(--font-mono)", fontSize: "11px",
-              letterSpacing: "0.14em", textTransform: "uppercase",
-            }}
+          <Link
+            href={isHome ? "#newsletter" : "/#newsletter"}
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="mt-2 text-center py-2.5 rounded-full bg-[#121212] text-white font-semibold"
           >
-            GitHub ↗
-          </a>
+            SUBSCRIBE
+          </Link>
         </div>
       )}
-      </div>
     </header>
   );
 }

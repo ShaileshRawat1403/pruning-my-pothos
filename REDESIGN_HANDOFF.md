@@ -43,10 +43,12 @@ Tailwind built-in ramps are overridden in `globals.css` `@theme` blocks so legac
 resolve to warm Atelier tones without editing each file. `--color-accent-orange`
 is aliased to amber.
 
-Type:
-- Display / headings: **Fraunces** (`--font-heading`)
-- Body: **Newsreader** (`--font-sans`)
-- Machine / labels: **JetBrains Mono** (`--font-mono`)
+Type (superseded 2026-09 — see `globals.css` `:root` block, the single source
+of truth going forward; this doc's "Lovelace Atelier" serif pairing below was
+never actually loaded and is kept only for history):
+- Display / headings: **Schibsted Grotesk** (`--font-heading`)
+- Body: **Schibsted Grotesk** (`--font-sans`)
+- Machine / labels: **IBM Plex Mono** (`--font-mono`)
 
 Texture: `.grid-overlay` (laid-paper rules), `.paper-grain` (engraving noise),
 `.page-vignette` (edge frame). No glow orbs. Corners are sharp (3–4px) site-wide.
@@ -66,9 +68,12 @@ New:
   Props: `href`, `accent`, `className`, children.
 - `NaturalLanguagePlate.tsx` — the "sentence → governed schema" section (home).
 
-Rewritten to the Atelier system:
-- `HeroSection.tsx` — framed Ada painting plate, pointer tilt + parallax,
-  cursor glare, ken-burns drift, periodic light sweep, marginalia.
+Rewritten to the Atelier system, then rewritten again (2026-09) into a dark,
+newsletter-first hero — see `HeroSection.tsx`'s own header comment:
+- `HeroSection.tsx` — was: framed Ada painting plate, pointer tilt + parallax,
+  cursor glare, ken-burns drift, periodic light sweep, marginalia (removed,
+  see git history). Then: plain-text minimal hero. Now: dark-scoped hero with
+  gradient headline + inline `NewsletterForm`, the site's acquisition funnel.
 - `Header.tsx`, `BackgroundGrid.tsx`, `ThemeToggle.tsx`, `CockpitConsole.tsx`,
   `SentimentsClient.tsx` (masonry replaced by an equal-height grid).
 - `layout.tsx` — masthead scrim + bulletproof centered container

@@ -9,7 +9,7 @@ export const metadata = constructMetadata({
 
 export default function PortfolioPage() {
   const schema = getWebPageSchema({
-    title: "Technical Marketing Portfolio | Sans Serif Systems",
+    title: "Technical Marketing Portfolio | Pruning My Pothos",
     description: "Explore developer documentation strategies, GenAI adoption playbooks, and example-driven technical enablement kits.",
     path: "/portfolio"
   });

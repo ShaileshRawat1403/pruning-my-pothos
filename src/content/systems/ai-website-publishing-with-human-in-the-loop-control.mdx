@@ -73,11 +73,43 @@ The agentic system can prepare the work, record evidence, and make the review pa
 
 ## Act I: The baseline problem
 
-### Why agentic publishing needs a boundary
+### Why does agentic publishing need a boundary?
 
 A website is not only a place where words appear. It is a public interface for judgment, positioning, search visibility, reputation, and trust. That makes "let the agent publish it" a poor default.
 
 The risk is not that an agent drafts bad prose. Bad prose is easy to edit. The larger risk is that the system blurs the line between preparation and authority.
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Stage</th>
+      <th>Autonomous Publishing</th>
+      <th>Human-in-the-Loop Gate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Content Intake</strong></td>
+      <td>Raw prompt / automated scrape</td>
+      <td>Declared goal, constraints, source docs</td>
+    </tr>
+    <tr>
+      <td><strong>Draft Generation</strong></td>
+      <td>Unchecked direct output</td>
+      <td>Validated against style and topic rubric</td>
+    </tr>
+    <tr>
+      <td><strong>Pre-flight Checks</strong></td>
+      <td>Skipped or basic build check</td>
+      <td>Schema, link integrity, asset verification</td>
+    </tr>
+    <tr>
+      <td><strong>Promotion / Deploy</strong></td>
+      <td>Agent pushes directly to prod</td>
+      <td>Workflow halts; human signs off handoff</td>
+    </tr>
+  </tbody>
+</table>
 
 A useful assistant can summarize site intent, turn source material into a draft, check for obvious structure gaps, and prepare an export packet. But the authority to publish belongs somewhere else.
 
