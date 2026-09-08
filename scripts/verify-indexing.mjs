@@ -5,7 +5,10 @@ import { join } from 'path';
 import { existsSync } from 'fs';
 
 const SITE_URL = process.env.SITE_URL || 'https://pruningmypothos.com';
-const DIST_DIR = './dist';
+// Next.js static export (output: "export") writes to out/, not dist/. dist/ was
+// the Astro-era output dir; this got missed in the migration and silently made
+// every check in this script report "file not found" instead of running.
+const DIST_DIR = './out';
 
 console.log('# SEO/AEO/GEO Indexing Verification Report');
 console.log(`Site: ${SITE_URL}`);
@@ -41,7 +44,7 @@ if (robotsContent) {
   addCheck('Allows ClaudeBot', hasClaude ? 'pass' : 'warn', hasClaude ? 'Yes' : 'Not specified');
   addCheck('Has sitemap reference', hasSitemap ? 'pass' : 'fail', hasSitemap ? 'Yes' : 'No');
 } else {
-  addCheck('robots.txt exists', 'fail', 'File not found in dist/');
+  addCheck('robots.txt exists', 'fail', 'File not found in out/');
 }
 
 const llmsContent = await checkFile('llms.txt');

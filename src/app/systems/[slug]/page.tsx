@@ -17,6 +17,8 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return allSystems.map((system) => ({
     slug: system._meta.path,
@@ -49,7 +51,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
   const proofPoints = system.proofPoints ?? [];
 
   const articleSchema = getArticleSchema({
-    title: `${system.title} | Sans Serif Systems`,
+    title: `${system.title} | Pruning My Pothos`,
     description: system.description,
     path: `/systems/${slug}`,
     datePublished: system.publishDate,

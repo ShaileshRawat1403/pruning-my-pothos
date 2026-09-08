@@ -19,7 +19,7 @@ export const metadata = constructMetadata({
 
 export default function CanvasesIndexPage() {
   const schema = getWebPageSchema({
-    title: "Visual Canvases | Sans Serif Systems",
+    title: "Visual Canvases | Pruning My Pothos",
     description: "Visual blueprints and system workflow transition canvases for governing agent-assisted engineering loops.",
     path: "/canvases"
   });

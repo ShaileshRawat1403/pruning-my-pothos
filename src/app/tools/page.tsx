@@ -20,7 +20,7 @@ export const metadata = constructMetadata({
 
 export default function ToolsIndexPage() {
   const schema = getWebPageSchema({
-    title: "ToolSmith Playgrounds | Sans Serif Systems",
+    title: "ToolSmith Playgrounds | Pruning My Pothos",
     description: "Stateless, browser-native utilities for anyone who builds with intent. Structure context, evaluate loops, and compile workflow blueprints.",
     path: "/tools"
   });

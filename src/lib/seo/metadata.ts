@@ -18,7 +18,7 @@ export function constructMetadata({
   noindex = false,
   ogType = "website",
 }: MetadataInput = {}): Metadata {
-  const metaTitle = title ? `${title} | Sans Serif Systems` : SITE_CONFIG.defaultTitle;
+  const metaTitle = title ? `${title} | ${SITE_CONFIG.name}` : SITE_CONFIG.defaultTitle;
   const metaDesc = description || SITE_CONFIG.defaultDescription;
   // Social platforms (LinkedIn, X, Slack) do not render SVG og:images.
   // PNG variants are generated alongside each SVG cover.
@@ -27,7 +27,7 @@ export function constructMetadata({
     ? (rasterImage.startsWith("http") ? rasterImage : `${SITE_CONFIG.url}${rasterImage}`)
     : `${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`;
   
-  // Ensure paths start and end cleanly with trailing slashes to preserve Astro format
+  // Ensure paths start and end cleanly with trailing slashes to match static export URL structure
   let cleanPath = path;
   if (cleanPath && !cleanPath.endsWith("/")) {
     cleanPath += "/";

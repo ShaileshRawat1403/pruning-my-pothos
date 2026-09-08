@@ -11,6 +11,8 @@ interface PageProps {
   params: Promise<{ category: string; slug: string }>;
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return allShelves.map((item) => {
     const slug = item._meta.fileName.replace(/\.mdx?$/, "");
@@ -53,7 +55,7 @@ export default async function ShelfDetailPage({ params }: PageProps) {
   }
 
   const webpageSchema = getWebPageSchema({
-    title: `${item.title} | Sans Serif Systems`,
+    title: `${item.title} | Pruning My Pothos`,
     description: item.description,
     path: `/shelf/${category}/${slug}`,
     image: item.coverUrl,

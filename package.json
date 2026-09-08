@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "audit": "npm run lint:content && npm run lint:systems && npm run lint:systems:advisory && npm run verify:covers && node scripts/verify-indexing.mjs",
     "lint:content": "node scripts/lint-content-consistency.mjs",
     "lint:systems": "node scripts/lint-systems-consistency.mjs",
     "lint:systems:advisory": "node scripts/lint-systems-advisory.mjs",

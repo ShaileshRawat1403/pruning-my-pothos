@@ -10,6 +10,8 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return allSentences.map((sentence) => ({
     slug: sentence._meta.path,
@@ -38,7 +40,7 @@ export default async function SentencesDetailPage({ params }: PageProps) {
   }
 
   const webpageSchema = getWebPageSchema({
-    title: `${sentence.title} | Sans Serif Systems`,
+    title: `${sentence.title} | Pruning My Pothos`,
     description: sentence.summary,
     path: `/sentences/${slug}`
   });

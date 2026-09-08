@@ -5,6 +5,8 @@ publishDate: "2026-09-03"
 updatedAt: "2026-09-03"
 description: "A system prompt is standing configuration for a whole session, not a request. What belongs in one, what does not, and where the line sits between a system prompt and a skill."
 category: "Concepts"
+heroImage: "/covers/systems/what-a-system-prompt-actually-is.svg"
+heroImageAlt: "A resident session configuration line spanning multiple task execution turns"
 tags:
   - prompting
   - skills
@@ -81,6 +83,8 @@ Six months later it is nine hundred words, four people have added to it, nobody 
 
 That is not a discipline problem. It is a structural one, and it comes from treating a configuration file as if it were a conversation.
 
+This article is for practitioners and engineering teams configuring agent runtimes who need to separate global session boundaries from modular execution capabilities. Understanding where configuration ends and execution begins requires untangling [Skills vs Prompts vs Agents](/systems/skills-vs-prompts-vs-agents/) and recognizing [What a Skill Is in AI Systems](/systems/what-a-skill-is-in-ai-systems/). Practical verification templates can also be inspected in our [Shared Resources](/shelf/shared-resources/).
+
 <div id="toc-anchor"></div>
 <nav class="toc" aria-label="On-page">
   <h2 class="toc-title">Contents</h2>
@@ -139,6 +143,38 @@ That gives a clean rule:
 - if it applies to **one repeated task**, it belongs in a skill
 
 Most arguments about this are not really about definitions. They are about a specific rule someone has written and cannot decide where to put. Run it through the test above and the answer is usually immediate.
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Dimension</th>
+      <th>System Prompt</th>
+      <th>Skill</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Lifecycle</strong></td>
+      <td>Session-wide (resident at initialization)</td>
+      <td>Turn-bounded (invoked on demand)</td>
+    </tr>
+    <tr>
+      <td><strong>Token Overhead</strong></td>
+      <td>Paid on every turn unconditionally</td>
+      <td>Paid only while the skill is executing</td>
+    </tr>
+    <tr>
+      <td><strong>Primary Role</strong></td>
+      <td>Tone, identity, refusal policies, format rules</td>
+      <td>Bounded tasks, transformations, API execution</td>
+    </tr>
+    <tr>
+      <td><strong>Inspection &amp; Diff</strong></td>
+      <td>Config file / system diff</td>
+      <td>Input/output schema, unit test suite</td>
+    </tr>
+  </tbody>
+</table>
 
 ### What belongs in a system prompt
 

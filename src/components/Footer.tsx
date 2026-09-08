@@ -2,10 +2,20 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import NewsletterForm from "./NewsletterForm";
 
 export default function Footer() {
   const pathname = usePathname();
   const year = new Date().getFullYear();
+
+  const isEditorialHome =
+    pathname === "/" ||
+    pathname === "/editorial-preview" ||
+    pathname === "/editorial-preview/";
+
+  if (isEditorialHome) {
+    return null;
+  }
 
   const isSentiments =
     pathname.startsWith("/sentiments") ||
@@ -62,19 +72,12 @@ export default function Footer() {
                 className="font-heading text-xs font-bold uppercase tracking-wider"
                 style={{ color: "var(--text-primary)" }}
               >
-                Open Source
+                Newsletter
               </h5>
               <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                Contributing new loop patterns, testing custom prompts, or
-                collaborating on open schemas?
+                AI systems and news, written by one person who builds with it.
               </p>
-              <a
-                href="mailto:shailesh.rawat1403@gmail.com"
-                className="link-slide self-start text-sm font-mono"
-                style={{ color: "var(--accent-purple)" }}
-              >
-                shailesh.rawat1403@gmail.com →
-              </a>
+              <NewsletterForm variant="footer" />
             </div>
           </div>
 
@@ -85,10 +88,18 @@ export default function Footer() {
             <div className="flex flex-col gap-1.5">
               <p className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.16em]" style={{ color: "var(--text-muted)" }}>
                 <span className="pulse-dot" aria-hidden />
-                Set in Fraunces &amp; Newsreader &middot; composed in oxblood and brass
+                Set in Schibsted Grotesk &amp; IBM Plex Mono
               </p>
               <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                &copy; {year} Sans Serif Systems. All rights reserved.
+                &copy; {year} Pruning My Pothos. All rights reserved.
+                {" · "}
+                <a
+                  href="mailto:shailesh.rawat1403@gmail.com"
+                  className="link-slide font-mono"
+                  style={{ color: "var(--accent-purple)" }}
+                >
+                  shailesh.rawat1403@gmail.com
+                </a>
               </p>
             </div>
             <div className="flex gap-5">

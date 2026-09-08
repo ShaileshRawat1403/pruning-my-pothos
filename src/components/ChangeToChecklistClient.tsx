@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const SAMPLE_CHANGE = `I want to add a light mode toggle to SystemsLayout.astro, adjust systems.css rules, configure global.css, and verify mobile compilation.`;
+const SAMPLE_CHANGE = `I want to add a light mode toggle to layout.tsx, adjust globals.css design tokens, configure theme providers, and verify static compilation.`;
 
 export default function ChangeToChecklistClient() {
   const [inputText, setInputText] = useState("");

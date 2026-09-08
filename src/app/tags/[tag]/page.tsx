@@ -24,6 +24,8 @@ interface PageProps {
   params: Promise<{ tag: string }>;
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const allTags = new Set<string>();
   const items = [
@@ -156,7 +158,7 @@ export default async function TagDetailPage({ params }: PageProps) {
   });
 
   const schema = getWebPageSchema({
-    title: `Tag: #${tagLabel} | Sans Serif Systems`,
+    title: `Tag: #${tagLabel} | Pruning My Pothos`,
     description: `All items tagged with #${tagLabel}.`,
     path: `/tags/${tag}`
   });
