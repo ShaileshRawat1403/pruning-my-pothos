@@ -14,16 +14,12 @@ const COPY: Record<Variant, { placeholder: string; cta: string }> = {
 };
 
 /**
- * Newsletter capture, one component for all three placements (hero, footer,
- * inline). Reads exclusively from src/lib/newsletter/config.ts. Swapping in a
- * real Beehiiv publication is a one-file edit, nothing here changes.
+ * Reusable newsletter capture component for hero, footer, and inline placements.
+ * Reads exclusively from src/lib/newsletter/config.ts.
  *
- * The site is a static export with no server (see next.config.ts: output:
- * "export"), so this can only ever talk to Beehiiv directly from the browser:
- * an iframe embed (hero: correctness over full theming, highest-stakes spot)
- * or a themed <form> POST to Beehiiv's public subscribe endpoint (footer,
- * inline: target="_blank", optimistic success since there's no server here
- * to confirm the POST synchronously).
+ * The site is a static export with no custom email backend. When configured,
+ * it submits directly to the external provider's public form action endpoint.
+ * While unconfigured, it displays an honest "Newsletter coming soon" indicator.
  */
 export default function NewsletterForm({
   variant,
@@ -32,7 +28,7 @@ export default function NewsletterForm({
   variant: Variant;
   className?: string;
 }) {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [email, setEmail] = useState("");
   const copy = COPY[variant];
 
@@ -63,57 +59,28 @@ export default function NewsletterForm({
     );
   }
 
-  if (variant === "hero") {
-    return (
-      <div className={className}>
-        <iframe
-          src={NEWSLETTER_CONFIG.embedIframeUrl}
-          title="Subscribe to the newsletter"
-          loading="lazy"
-          style={{ width: "100%", maxWidth: 480, height: 96, border: "none" }}
-        />
-        {NEWSLETTER_CONFIG.socialProofCount !== null && (
-          <p className="font-mono text-xs mt-2" style={{ color: "var(--text-muted)" }}>
-            Join {NEWSLETTER_CONFIG.socialProofCount.toLocaleString()} readers
-          </p>
-        )}
-      </div>
-    );
-  }
-
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
     if (!EMAIL_RE.test(email)) {
+      e.preventDefault();
       setStatus("error");
       return;
     }
     setStatus("submitting");
-    e.currentTarget.submit();
-    // Optimistic: static export has no server to confirm the POST landed.
-    // Beehiiv's own hosted page (opened in the new tab) is the real confirmation.
-    window.setTimeout(() => setStatus("success"), 600);
-  }
-
-  if (status === "success") {
-    return (
-      <p className={`font-mono text-sm ${className}`} style={{ color: "var(--accent-green)" }}>
-        Check your inbox to confirm →
-      </p>
-    );
+    // Native POST submission to the provider's public action endpoint.
+    // Provider confirmation and redirect are authoritative. No optimistic fake success states.
   }
 
   return (
     <form
-      action={NEWSLETTER_CONFIG.embedFormUrl}
+      action={NEWSLETTER_CONFIG.formActionUrl || "#"}
       method="post"
-      target="_blank"
       onSubmit={handleSubmit}
       className={`flex flex-col gap-2 ${className}`}
     >
       <div className="flex flex-wrap items-center gap-2">
         <input
           type="email"
-          name="email"
+          name="email_address"
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
@@ -121,26 +88,25 @@ export default function NewsletterForm({
           }}
           placeholder={copy.placeholder}
           required
-          className="font-mono text-sm px-4 py-3 flex-1 min-w-[220px]"
-          style={{
-            background: "var(--card-bg)",
-            border: `1px solid ${status === "error" ? "var(--accent-pink)" : "var(--card-border)"}`,
-            color: "var(--text-primary)",
-            borderRadius: "3px",
-          }}
+          className="px-4 py-3 rounded-lg border border-[#D5D2C9] bg-white text-sm font-mono text-[#121212] placeholder:text-[#A8A29E] focus:outline-none focus:border-[#121212] flex-1 min-w-[220px]"
         />
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="btn-premium btn-primary"
+          className="px-6 py-3 rounded-lg bg-[#121212] hover:bg-[#2A2926] text-white text-xs font-mono font-bold uppercase tracking-wider transition-colors shrink-0 disabled:opacity-50"
         >
-          {status === "submitting" ? "···" : copy.cta}
+          {status === "submitting" ? "Submitting..." : copy.cta}
         </button>
       </div>
       {status === "error" && (
-        <span className="font-mono text-xs" style={{ color: "var(--accent-pink)" }}>
-          That doesn&apos;t look like an email.
+        <span className="font-mono text-xs text-[#DC2626]">
+          Please enter a valid email address.
         </span>
+      )}
+      {NEWSLETTER_CONFIG.socialProofCount !== null && (
+        <p className="font-mono text-xs text-[#7A7872] mt-1">
+          Join {NEWSLETTER_CONFIG.socialProofCount.toLocaleString()} readers
+        </p>
       )}
     </form>
   );
