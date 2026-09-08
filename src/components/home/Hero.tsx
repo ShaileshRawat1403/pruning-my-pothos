@@ -43,7 +43,7 @@ export default function Hero({ systemsCount }: HeroProps) {
                   href="#breakdowns"
                   className="hover:text-[#121212] transition-colors underline underline-offset-4 decoration-[#D5D2C9] text-[11px]"
                 >
-                  Sample issue &rarr;
+                  Read a breakdown &rarr;
                 </a>
               </div>
             </div>

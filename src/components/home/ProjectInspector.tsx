@@ -5,8 +5,9 @@ import { useState } from "react";
 export interface ProjectTab {
   title: string;
   filename: string;
-  ref?: string;
+  ref: string;
   lines: string[];
+  sourceUrl?: string;
 }
 
 export interface ProjectItem {
@@ -79,14 +80,26 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-[10px] text-[#888888] hidden sm:inline truncate max-w-[200px]">
-            {currentTab.filename}{currentTab.ref ? ` · ${currentTab.ref}` : ""}
-          </span>
+          {currentTab.sourceUrl ? (
+            <a
+              href={currentTab.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[10px] text-[#A3A3A3] hover:text-white underline decoration-[#555555] underline-offset-2 hidden sm:inline truncate max-w-[220px] transition-colors"
+              title="Inspect source file on GitHub"
+            >
+              {currentTab.filename} · {currentTab.ref} ↗
+            </a>
+          ) : (
+            <span className="text-[10px] text-[#888888] hidden sm:inline truncate max-w-[220px]">
+              {currentTab.filename} · {currentTab.ref}
+            </span>
+          )}
           <button
             type="button"
             onClick={handleCopy}
             className="px-2 py-1 text-[10px] rounded bg-[#2D2D2D] hover:bg-[#3D3D3D] text-[#CCCCCC] transition-colors cursor-pointer flex items-center gap-1 shrink-0"
-            title="Copy file excerpt"
+            title="Copy exact file excerpt"
           >
             {isCopied ? (
               <span className="text-[#86EFAC] font-bold">✓ Copied</span>
