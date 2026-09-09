@@ -1,25 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { runConsole } from "./ConsoleToastHost";
 
+const subscribeToHydration = () => () => {};
+const subscribeToTheme = (notify: () => void) => {
+  const observer = new MutationObserver(notify);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  return () => observer.disconnect();
+};
+
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
-  const [mounted, setMounted] = useState(false);
+  const theme = useSyncExternalStore(subscribeToTheme, () => document.documentElement.getAttribute("data-theme") || "light", () => "light");
+  const mounted = useSyncExternalStore(subscribeToHydration, () => true, () => false);
 
   useEffect(() => {
-    setMounted(true);
-    const saved = localStorage.getItem("systems-theme") as "light" | "dark" | null;
+    let saved: string | null = null;
+    try { saved = localStorage.getItem("systems-theme"); } catch { /* Storage may be disabled. */ }
     const initial =
-      saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    setTheme(initial);
+      (saved === "light" || saved === "dark") ? saved : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     document.documentElement.setAttribute("data-theme", initial);
   }, []);
 
   const toggle = () => {
     const next = theme === "light" ? "dark" : "light";
-    setTheme(next);
-    localStorage.setItem("systems-theme", next);
+    try { localStorage.setItem("systems-theme", next); } catch { /* Theme still works without persistence. */ }
     document.documentElement.setAttribute("data-theme", next);
     runConsole("theme", next === "light"
       ? { command: "git checkout daylight", steps: [

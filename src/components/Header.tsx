@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   // Navigation target routing: Breakdowns to /systems, Tools & SDKs to /tools, About to /about; Projects and Methodology route to homepage sections
   const isHome = pathname === "/" || pathname === "/editorial-preview";
@@ -16,11 +17,16 @@ export default function Header() {
     { href: isHome ? "#projects" : "/#projects", label: "Projects" },
     { href: isHome ? "#tools" : "/tools", label: "Tools & SDKs" },
     { href: isHome ? "#methodology" : "/#methodology", label: "Methodology" },
-    { href: isHome ? "#about" : "/about", label: "About" },
+    { href: "/about", label: "About" },
   ];
 
   return (
-    <header className="w-full bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#EAE8E2] sticky top-0 z-50">
+    <header onKeyDown={(event) => {
+      if (event.key === "Escape" && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    }} className="w-full bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#EAE8E2] sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-20 flex items-center justify-between">
         {/* Brand Logo & Telemetry Indicator */}
         <div className="flex items-center gap-4">
@@ -38,14 +44,14 @@ export default function Header() {
               Pruning My Pothos
             </span>
           </Link>
-          <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-[#F4F2EC] text-[#6B6964] border border-[#E5E2DA]">
+          <span className="hidden 2xl:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-[#F4F2EC] text-[#6B6964] border border-[#E5E2DA]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A] animate-pulse" />
-            <span>SYS.ONLINE · v2.4</span>
+            <span>Field notes</span>
           </span>
         </div>
 
         {/* Navigation Links (Desktop) */}
-        <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-7 text-xs font-mono font-medium text-[#55534E]">
+        <nav aria-label="Main Navigation" className="hidden xl:flex items-center gap-5 text-xs font-mono font-medium text-[#55534E]">
           {navLinks.map(({ href, label }) => {
             const isCurrent =
               (label === "Breakdowns" && pathname.startsWith("/systems")) ||
@@ -56,6 +62,7 @@ export default function Header() {
               <Link
                 key={label}
                 href={href}
+                aria-current={isCurrent ? "page" : undefined}
                 className={`transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212] rounded px-1 ${
                   isCurrent
                     ? "text-[#121212] font-semibold underline underline-offset-4 decoration-[#16A34A]"
@@ -79,11 +86,13 @@ export default function Header() {
 
           {/* Mobile Menu Hamburger */}
           <button
+            ref={menuButton}
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile navigation"
             aria-expanded={isMobileMenuOpen}
-            className="md:hidden p-2 rounded-lg border border-[#EAE8E2] bg-white text-[#121212] hover:bg-[#F4F2EC] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212]"
+            aria-controls="mobile-navigation"
+            className="xl:hidden p-3 rounded-lg border border-[#EAE8E2] bg-white text-[#121212] hover:bg-[#F4F2EC] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212]"
           >
             {isMobileMenuOpen ? (
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -103,13 +112,13 @@ export default function Header() {
 
       {/* Responsive Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="md:hidden w-full border-t border-[#EAE8E2] bg-[#FAF9F6] px-6 py-4 flex flex-col gap-3 font-mono text-xs animate-fadeIn">
+        <nav id="mobile-navigation" aria-label="Mobile navigation" className="xl:hidden w-full max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-[#EAE8E2] bg-[#FAF9F6] px-6 py-4 flex flex-col gap-1 font-mono text-sm">
           {navLinks.map(({ href, label }) => (
             <Link
               key={label}
               href={href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="py-1 text-[#55534E] hover:text-[#121212] transition-colors"
+              className="py-3 text-[#55534E] hover:text-[#121212] transition-colors"
             >
               {label}
             </Link>
@@ -121,7 +130,7 @@ export default function Header() {
           >
             SUBSCRIBE
           </Link>
-        </div>
+        </nav>
       )}
     </header>
   );

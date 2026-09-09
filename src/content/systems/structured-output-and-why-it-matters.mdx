@@ -1,8 +1,18 @@
 ---
 title: "Structured Output and Why It Matters"
 publishDate: "2026-01-14"
-updatedAt: "2026-06-28"
-description: "Why format turns a response into a system you can trust."
+updatedAt: "2026-09-09"
+description: "How structured output makes model responses easier to validate, and why valid JSON still needs checks before software acts on it."
+useValue: "Separate format checks from factual and permission checks before connecting a model response to an automated action."
+shortAnswer: >-
+  Structured output gives software a defined shape to read, such as named JSON
+  fields with expected types. Schema validation can catch missing fields and
+  wrong types. It cannot establish that a value is true or that an action is
+  permitted. Check those separately before sending the result downstream.
+boundary:
+  is: "A contract for the shape of data exchanged between a model and software."
+  isNot: "Proof of factual accuracy, authorization, or successful execution."
+  mattersWhen: "A model response can update records, send messages, or trigger other actions."
 category: "How-things-fit-together"
 heroImage: '/covers/systems/structured-output-and-why-it-matters.svg'
 heroImageAlt: 'JSON structure diagram'
@@ -102,11 +112,36 @@ To solve this, we need to constrain the model to produce output that conforms to
 <figure class="diagram">
   <iframe src="/scenes/structured-output-compare.html" title="Unstructured vs. Structured Output" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
   <figcaption>
-    Structured output makes information machine-readable and reliable.
+    Structure makes information machine-readable. Reliability also requires checking the values and controlling what happens next.
   </figcaption>
 </figure>
 
 ## Act II: The modern paradigm
+
+<figure class="diagram">
+  <ol>
+    <li><strong>Parse.</strong> Can the response be read as JSON?</li>
+    <li><strong>Validate the shape.</strong> Are required fields present, with the right types and allowed values?</li>
+    <li><strong>Check the meaning.</strong> Do identifiers exist, and do values match the source of truth?</li>
+    <li><strong>Authorize the action.</strong> Is the proposed operation allowed, or does it need human review?</li>
+  </ol>
+  <figcaption>A decision sequence, not a measured test result. Passing one check does not imply that the next check will pass.</figcaption>
+</figure>
+
+### Try the boundary yourself
+
+Use the [Prompt to JSON tool](/tools/prompt-to-json/) to draft a small schema from a list of required fields. This tool drafts a schema and a sample; it does not prove the sample is correct.
+
+For a proposed payment record, compare these two examples:
+
+```json
+{"invoice_id": "INV-EXAMPLE", "amount": "one hundred"}
+{"invoice_id": "INV-EXAMPLE", "amount": 100}
+```
+
+Both examples are valid JSON. Only the second satisfies a contract requiring a numeric amount. Neither establishes that the invoice exists, that 100 is the right amount, or that payment is authorized.
+
+Before using this pattern, write down the required fields, the source used to verify each consequential value, and the action taken on failure. Stop or request review when a check fails. This is the practical boundary between readable output and a trustworthy workflow.
 
 ### Enforcement techniques
 

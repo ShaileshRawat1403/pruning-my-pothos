@@ -34,12 +34,12 @@ export default function RootLayout({
         className="min-h-full flex flex-col relative overflow-x-hidden"
         style={{ background: "var(--bg-color)", color: "var(--text-primary)" }}
       >
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <ScrollAnimations />
         <ScrollProgress />
         <BackgroundGrid />
-        <div className="masthead-scrim" aria-hidden />
         <Header />
-        <main className="relative z-10 w-full flex-grow">
+        <main id="main-content" tabIndex={-1} className="relative z-10 w-full flex-grow">
           <div className="app-shell">
             {children}
           </div>

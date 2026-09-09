@@ -24,7 +24,13 @@ export default function PromptToJsonClient() {
 
   const compilePromptToJson = (text: string) => {
     const lines = text.split("\n").map(l => l.trim()).filter(l => l.length > 0);
-    const schema: any = {
+    const schema: {
+      $schema: string;
+      title: string;
+      type: string;
+      properties: Record<string, { type: string; description?: string; items?: { type: string } }>;
+      required: string[];
+    } = {
       $schema: "http://json-schema.org/draft-07/schema#",
       title: "GeneratedStructuredOutput",
       type: "object",
@@ -36,7 +42,7 @@ export default function PromptToJsonClient() {
       const listMatch = line.match(/^[-*+]\s*(\w+)\s*\(([^)]+)\)/i) || line.match(/^[-*+]\s*(\w+)\s*-\s*(\w+)/i) || line.match(/^[-*+]\s*(\w+)/i);
       if (listMatch) {
         const fieldName = listMatch[1];
-        let typeStr = listMatch[2] || "string";
+        const typeStr = listMatch[2] || "string";
         let type = "string";
 
         if (typeStr.includes("number") || typeStr.includes("int") || typeStr.includes("float")) {
@@ -80,7 +86,7 @@ export default function PromptToJsonClient() {
       setOutputSchema(JSON.stringify(schemaObj, null, 2));
 
       // Generate matching JSON example
-      const mock: any = {};
+      const mock: Record<string, string | number | boolean | string[]> = {};
       Object.keys(schemaObj.properties).forEach((key) => {
         const prop = schemaObj.properties[key];
         if (prop.type === "number") {
@@ -94,8 +100,8 @@ export default function PromptToJsonClient() {
         }
       });
       setOutputExample(JSON.stringify(mock, null, 2));
-    } catch (err: any) {
-      setOutputSchema(`Failed to generate JSON schema: ${err.message}`);
+    } catch (err: unknown) {
+      setOutputSchema(`Failed to generate JSON schema: ${err instanceof Error ? err.message : "Invalid input"}`);
       setOutputExample("");
     }
   };

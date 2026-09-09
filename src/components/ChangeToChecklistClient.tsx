@@ -6,7 +6,7 @@ const SAMPLE_CHANGE = `I want to add a light mode toggle to layout.tsx, adjust g
 
 export default function ChangeToChecklistClient() {
   const [inputText, setInputText] = useState("");
-  const [checklist, setChecklist] = useState<any>(null);
+  const [checklist, setChecklist] = useState<{ risk: string; color: string; filesTouched: string; evidence: string } | null>(null);
   const [copyText, setCopyText] = useState("Copy Checklist");
 
   const loadSample = () => {

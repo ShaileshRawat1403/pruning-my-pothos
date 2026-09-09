@@ -65,7 +65,7 @@ export default function Tools() {
             href="/tools"
             className="px-6 py-3 rounded-lg bg-white hover:bg-[#FAF9F6] border border-[#D5D2C9] text-[#121212] text-xs font-mono font-bold uppercase tracking-wider transition-colors shadow-2xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212]"
           >
-            Explore all 22 browser utilities &rarr;
+            Explore all browser utilities &rarr;
           </Link>
         </div>
       </div>

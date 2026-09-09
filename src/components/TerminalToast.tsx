@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import TerminalSim, { SimStep } from "./TerminalSim";
 
@@ -12,22 +12,19 @@ interface TerminalToastProps {
   onDone: () => void;
 }
 
+const subscribeToHydration = () => () => {};
+
 /**
  * A fixed-corner terminal that plays a short run, then dismisses itself.
  * Dismissal is tied to the run actually finishing (plus a read hold), so it
  * never cuts a long run short or lingers after a quick one.
  */
 export default function TerminalToast({ command, steps, id, onDone }: TerminalToastProps) {
-  const [visible, setVisible] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const mounted = useSyncExternalStore(subscribeToHydration, () => true, () => false);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    setVisible(true);
     return () => {
       timers.current.forEach(clearTimeout);
       timers.current = [];

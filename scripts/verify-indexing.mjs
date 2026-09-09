@@ -23,7 +23,7 @@ function addCheck(name, status, details = '') {
   console.log(`${icon} ${name}${details ? ': ' + details : ''}`);
 }
 
-async function checkFile(path, content) {
+async function checkFile(path) {
   return existsSync(join(DIST_DIR, path)) ? await readFile(join(DIST_DIR, path), 'utf8') : null;
 }
 
@@ -56,8 +56,24 @@ if (sitemapContent) {
   addCheck('sitemap.xml exists', 'pass');
   addCheck('Sitemap URL count', urlCount > 100 ? 'pass' : 'warn', `${urlCount} URLs`);
   
-  const hasTags = sitemapContent.includes('/tags/');
-  addCheck('Tag pages in sitemap', hasTags ? 'warn' : 'pass', hasTags ? 'Included (may want noindex)' : 'Excluded');
+  let invalidRoutes = 0;
+  const origin = new URL(SITE_URL).origin;
+  for (const match of sitemapContent.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    const url = new URL(match[1]);
+    if (url.origin !== origin) {
+      invalidRoutes++;
+      addCheck('Sitemap origin', 'fail', url.href);
+      continue;
+    }
+    const route = decodeURIComponent(url.pathname).replace(/^\/+/, '');
+    const html = await checkFile(join(route, 'index.html'));
+    if (!html || /<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/i.test(html) ||
+        /<meta\b[^>]*http-equiv="refresh"/i.test(html)) {
+      invalidRoutes++;
+      addCheck('Sitemap route is exported, indexable and not a redirect', 'fail', url.pathname);
+    }
+  }
+  addCheck('All sitemap routes resolve to indexable exports', invalidRoutes === 0 ? 'pass' : 'fail', `${invalidRoutes} invalid routes`);
 } else {
   addCheck('sitemap.xml exists', 'fail', 'File not found');
 }
@@ -166,9 +182,7 @@ addCheck('Images have alt text', imagesWithoutAlt === 0 ? 'pass' : 'warn',
 console.log('\n## 6. Indexing Checklist\n');
 
 console.log('### Submit to Search Engines');
-console.log('```bash');
-console.log(`curl -X POST "https://www.google.com/webmasters/sitemaps/ping?sitemap=${SITE_URL}/sitemap.xml"`);
-console.log('```');
+console.log('Submit the sitemap through Google Search Console and Bing Webmaster Tools.');
 console.log('\n### Google Search Console');
 console.log(`1. Go to: https://search.google.com/search-console`);
 console.log(`2. Enter: ${SITE_URL}`);
@@ -195,4 +209,5 @@ console.log(`Pass: ${passCount} | Warnings: ${warnCount} | Failures: ${failCount
 
 if (failCount > 0) {
   console.log('\n⚠️  Some critical checks failed. Review before deploying.');
+  process.exitCode = 1;
 }

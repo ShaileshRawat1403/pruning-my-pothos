@@ -41,7 +41,7 @@ export default function CsvToEvalClient() {
       for (let i = 1; i < lines.length; i++) {
         if (!lines[i].trim()) continue;
         const row = parseRow(lines[i]);
-        const entry: any = {};
+        const entry: Record<string, string> = {};
         headers.forEach((h, index) => {
           entry[h] = row[index] || "";
         });
@@ -63,16 +63,14 @@ export default function CsvToEvalClient() {
                   },
                 ],
               },
-            },
-            null,
-            2
+            }
           )
         );
       }
 
       setOutputJsonl(jsonlEntries.join("\n"));
-    } catch (e: any) {
-      alert("Error parsing CSV: " + e.message);
+    } catch (e: unknown) {
+      alert("Error parsing CSV: " + (e instanceof Error ? e.message : "Invalid input"));
     }
   };
 

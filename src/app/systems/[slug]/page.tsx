@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { constructMetadata } from "../../../lib/seo/metadata";
 import { getArticleSchema, getFaqSchema } from "../../../lib/seo/jsonld";
 import { renderMarkdown } from "../../../lib/markdown";
+import { slugifyTag } from "../../../lib/tags";
 import ExplainerFigure from "../../../components/explainer/ExplainerFigure";
 import {
   AnswerBlock,
@@ -112,12 +113,13 @@ export default async function SystemsDetailPage({ params }: PageProps) {
         {/* Tag chips */}
         <div className="flex flex-wrap gap-2 mt-2">
           {system.tags.map((tag) => (
-            <span
+            <Link
               key={tag}
+              href={`/tags/${slugifyTag(tag)}/`}
               className="px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]"
             >
               #{tag}
-            </span>
+            </Link>
           ))}
         </div>
       </header>
@@ -135,6 +137,23 @@ export default async function SystemsDetailPage({ params }: PageProps) {
 
       {/* Slot 04 — the retrieval unit. Above the prose on purpose. */}
       {system.shortAnswer && <AnswerBlock>{system.shortAnswer}</AnswerBlock>}
+
+      {system.useValue && (
+        <aside className="explainer-answer" aria-label="What you can do after reading">
+          <span className="explainer-kicker">What you can use</span>
+          <p>{system.useValue}</p>
+        </aside>
+      )}
+      {system.boundary && (
+        <section aria-labelledby="concept-boundary" className="border border-[color:var(--card-border)] p-5 rounded-sm">
+          <h2 id="concept-boundary" className="font-heading font-bold mb-3">Where this helps, and where it stops</h2>
+          <dl className="grid gap-3 text-sm leading-relaxed">
+            <div><dt className="font-semibold">What it is</dt><dd>{system.boundary.is}</dd></div>
+            <div><dt className="font-semibold">What it does not guarantee</dt><dd>{system.boundary.isNot}</dd></div>
+            <div><dt className="font-semibold">When the distinction matters</dt><dd>{system.boundary.mattersWhen}</dd></div>
+          </dl>
+        </section>
+      )}
 
       {/* Slot 05 — the analogy, carrying its own failure point. */}
       {system.analogy && (
@@ -176,7 +195,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
           {/* Proof Block */}
           {proofPoints.length > 0 && (
             <div className="flex flex-col gap-3">
-              <h2 className="font-heading text-lg font-bold text-[color:var(--text-primary)]">Proof Block</h2>
+              <h2 className="font-heading text-lg font-bold text-[color:var(--text-primary)]">Practical takeaways</h2>
               <ul className="list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2">
                 {proofPoints.map((point, idx) => (
                   <li key={idx}>{point}</li>

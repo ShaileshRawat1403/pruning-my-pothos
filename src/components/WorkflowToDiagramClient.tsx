@@ -36,11 +36,11 @@ export default function WorkflowToDiagramClient() {
   const compileTextToMermaid = (text: string) => {
     const lines = text.split("\n").map(l => l.trim()).filter(l => l.length > 0);
     let chart = "flowchart TD\n";
-    let nodes: Array<{ id: string; label: string; isConditional: boolean }> = [];
+    const nodes: Array<{ id: string; label: string; isConditional: boolean }> = [];
     
     lines.forEach((line, index) => {
       let label = line;
-      let nodeId = `node${index + 1}`;
+      const nodeId = `node${index + 1}`;
       
       const stepMatch = line.match(/^Step\s*\d+:\s*(.*)/i);
       if (stepMatch) {
@@ -53,7 +53,7 @@ export default function WorkflowToDiagramClient() {
 
     for (let i = 0; i < nodes.length; i++) {
       const current = nodes[i];
-      let cleanLabel = current.label.replace(/"/g, '\\"');
+      const cleanLabel = current.label.replace(/"/g, '\\"');
       
       if (current.isConditional) {
         chart += `  ${current.id}{"${cleanLabel}"}\n`;
@@ -88,9 +88,9 @@ export default function WorkflowToDiagramClient() {
       const uniqueId = `mermaid-svg-${Date.now()}`;
       const { svg } = await mermaid.render(uniqueId, chart);
       setDiagramSvg(svg);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setDiagramSvg(`<div class="text-red-400 font-mono text-xs">Failed to generate flowchart schema: ${err.message}</div>`);
+      setDiagramSvg('<div class="text-red-400 font-mono text-xs">Could not render the diagram. Check the workflow text and try again.</div>');
     }
   };
 

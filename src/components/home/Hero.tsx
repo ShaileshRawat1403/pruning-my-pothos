@@ -14,7 +14,7 @@ export default function Hero({ systemsCount }: HeroProps) {
           {/* Left Column: Hero Editorial Statement */}
           <div className="lg:col-span-7 flex flex-col gap-8">
             <div className="flex items-center gap-2 text-[11px] font-mono tracking-wider text-[#8A8780] uppercase flex-wrap">
-              <span className="text-[#16A34A] font-bold">// TECH-EDITORIAL</span>
+              <span className="text-[#16A34A] font-bold">{"// TECH-EDITORIAL"}</span>
               <span>·</span>
               <span>{systemsCount} BREAKDOWNS</span>
             </div>
@@ -34,7 +34,7 @@ export default function Hero({ systemsCount }: HeroProps) {
             <div id="newsletter" className="scroll-mt-28 flex flex-col gap-3 max-w-lg">
               <NewsletterForm variant="hero" />
 
-              <div className="flex items-center justify-between text-xs text-[#7A7872] px-1 font-mono pt-1">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-3 text-xs text-[#7A7872] px-1 font-mono pt-1">
                 <span className="flex items-center gap-1.5 text-[11px]">
                   <span className="text-[#16A34A]">&#10003;</span>
                   What worked, what broke, and what I learned building with AI.

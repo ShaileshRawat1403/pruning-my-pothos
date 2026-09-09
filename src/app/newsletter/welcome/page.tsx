@@ -13,11 +13,11 @@ export const metadata: Metadata = constructMetadata({
 export default function NewsletterWelcomePage() {
   return (
     <div className="min-h-screen bg-[#FAF9F6]">
-      <main className="max-w-4xl mx-auto px-6 sm:px-10 lg:px-12 py-16 sm:py-24 flex flex-col gap-12">
+      <div className="max-w-4xl mx-auto px-6 sm:px-10 lg:px-12 py-16 sm:py-24 flex flex-col gap-12">
         {/* Header Block */}
         <header className="flex flex-col gap-4 border-b border-[#EAE8E2] pb-10">
           <div className="flex items-center gap-2 text-[11px] font-mono tracking-wider text-[#8A8780] uppercase">
-            <span className="text-[#16A34A] font-bold">// CONFIRMED</span>
+            <span className="text-[#16A34A] font-bold">{"// CONFIRMED"}</span>
             <span>·</span>
             <span>PRUNING MY POTHOS</span>
           </div>
@@ -142,7 +142,7 @@ export default function NewsletterWelcomePage() {
             Browse All Systems &rarr;
           </Link>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

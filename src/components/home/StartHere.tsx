@@ -46,7 +46,7 @@ export default function StartHere() {
               anthropomorphic mental models lead to brittle system prompts.
             </p>
             <div className="flex items-center justify-between pt-4 border-t border-[#F4F2EC] text-[11px] font-mono text-[#7A7872]">
-              <span>12 min read</span>
+              <span>Read the breakdown</span>
               <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
             </div>
           </Link>
@@ -78,7 +78,7 @@ export default function StartHere() {
               steps, deterministic state validation, and runtime escalation gates.
             </p>
             <div className="flex items-center justify-between pt-4 border-t border-[#F4F2EC] text-[11px] font-mono text-[#7A7872]">
-              <span>14 min read</span>
+              <span>Read the field notes</span>
               <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
             </div>
           </Link>
@@ -112,7 +112,7 @@ export default function StartHere() {
               Protocol servers in autonomous workflows.
             </p>
             <div className="flex items-center justify-between pt-4 border-t border-[#F4F2EC] text-[11px] font-mono text-[#7A7872]">
-              <span>11 min read</span>
+              <span>Read the breakdown</span>
               <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
             </div>
           </Link>

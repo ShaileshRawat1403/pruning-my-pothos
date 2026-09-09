@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { NEWSLETTER_CONFIG, isNewsletterConfigured } from "@/lib/newsletter/config";
 
 type Variant = "hero" | "footer" | "inline";
@@ -31,6 +31,7 @@ export default function NewsletterForm({
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const errorId = useId();
   const copy = COPY[variant];
 
   const actionUrl = NEWSLETTER_CONFIG.form.action;
@@ -44,10 +45,11 @@ export default function NewsletterForm({
         <div className="flex flex-col sm:flex-row gap-2">
           <input
             type="email"
+            aria-label="Email address (newsletter coming soon)"
             placeholder={copy.placeholder}
             disabled
             aria-disabled="true"
-            className="px-4 py-3 rounded-lg border border-[#D5D2C9] bg-[#F4F2EC]/60 text-sm font-mono text-[#8A8780] placeholder:text-[#A8A29E] cursor-not-allowed focus:outline-none flex-1 min-w-[220px]"
+            className="px-4 py-3 rounded-lg border border-[#D5D2C9] bg-[#F4F2EC]/60 text-sm font-mono text-[#8A8780] placeholder:text-[#A8A29E] cursor-not-allowed focus:outline-none flex-1 min-w-0 w-full"
           />
           <button
             type="button"
@@ -166,7 +168,11 @@ export default function NewsletterForm({
           placeholder={copy.placeholder}
           required
           aria-label="Email Address"
-          className="px-4 py-3 rounded-lg border border-[#D5D2C9] bg-white text-sm font-mono text-[#121212] placeholder:text-[#A8A29E] focus:outline-none focus:border-[#121212] flex-1 min-w-[220px] disabled:bg-[#F4F2EC]"
+          autoComplete="email"
+          inputMode="email"
+          aria-invalid={status === "error"}
+          aria-describedby={status === "error" ? errorId : undefined}
+          className="px-4 py-3 rounded-lg border border-[#D5D2C9] bg-white text-sm font-mono text-[#121212] placeholder:text-[#7A7872] focus:outline-none focus:border-[#121212] flex-1 min-w-0 w-full disabled:bg-[#F4F2EC]"
         />
         <button
           type="submit"
@@ -177,7 +183,7 @@ export default function NewsletterForm({
         </button>
       </div>
       {status === "error" && errorMessage && (
-        <span role="alert" className="font-mono text-xs text-[#DC2626]">
+        <span id={errorId} role="alert" className="font-mono text-xs text-[#DC2626]">
           {errorMessage}
         </span>
       )}

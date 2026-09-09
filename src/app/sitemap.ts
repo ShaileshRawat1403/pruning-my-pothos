@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { allSystems, allSentences, allSelves, allShelves } from "content-collections";
 import { SITE_CONFIG } from "../lib/seo/site";
+import { slugifyTag } from "../lib/tags";
 
 export const dynamic = "force-static";
 
@@ -41,7 +42,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools/repo-context-pack",
     "/tools/workflow-to-diagram",
     "/tools/language-pattern-check",
-    "/tools/litops",
     "/tools/secret-scanner",
     "/tools/sql-safety",
     "/tools/gha-lint",
@@ -52,12 +52,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools/skill-catalog",
     "/tools/recipe-graph",
     "/tools/repo-hygiene",
-    "/tools/changelog",
-    "/tools/dockerfile-hygiene",
-    "/tools/json-schema-lint",
-    "/tools/license-classify",
-    "/tools/markdown-links",
-    "/tools/todo-triage",
     "/shelf/books",
     "/shelf/culture",
     "/shelf/local-experiments",
@@ -92,11 +86,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
+  // Match the tag page's existing indexability policy. Count documents once,
+  // even when two labels on a document normalize to the same slug.
+  const tagCounts = new Map<string, number>();
+  for (const item of [...allSystems, ...allSentences, ...allSelves, ...allShelves]) {
+    for (const tag of new Set((item.tags || []).map(slugifyTag).filter(Boolean))) {
+      tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+    }
+  }
+  const topicRoutes = [...tagCounts]
+    .filter(([, count]) => count >= 6)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([tag]) => ({ url: `${SITE_CONFIG.url}/tags/${tag}/` }));
+
   return [
     ...staticRoutes,
     ...systemRoutes,
     ...sentenceRoutes,
     ...selfRoutes,
     ...shelfRoutes,
+    ...topicRoutes,
   ];
 }

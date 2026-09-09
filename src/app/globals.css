@@ -3,6 +3,33 @@
 
 @import "tailwindcss";
 
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  padding: 0.8rem 1.2rem;
+  background: var(--text-primary);
+  color: var(--bg-color);
+  border-radius: 4px;
+}
+.skip-link:focus { transform: translateY(0); }
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 4px;
+}
+#main-content, .content-body :is(h2, h3, h4) { scroll-margin-top: 6rem; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* ══════════════════════════════════════════════════════════
    PRUNING MY POTHOS
    One sans family used with real range. Warm neutral ground, near-black

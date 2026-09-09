@@ -6,6 +6,7 @@ import StartHere from "../components/home/StartHere";
 import Projects from "../components/home/Projects";
 import Tools from "../components/home/Tools";
 import Methodology from "../components/home/Methodology";
+import TopicPaths from "../components/home/TopicPaths";
 
 export const metadata: Metadata = constructMetadata({
   path: "/",
@@ -111,6 +112,7 @@ export default function HomePage() {
       />
       <Hero systemsCount={systemsCount} />
       <StartHere />
+      <TopicPaths />
       <Projects />
       <Tools />
       <Methodology systemsCount={systemsCount} />

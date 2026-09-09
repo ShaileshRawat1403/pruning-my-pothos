@@ -69,6 +69,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               key={tab.title}
               type="button"
               onClick={() => setActiveTabIdx(idx)}
+              aria-pressed={activeTabIdx === idx}
               className={`px-3 py-2 text-[11px] transition-colors cursor-pointer ${
                 activeTabIdx === idx
                   ? "text-white bg-[#2D2D2D] font-bold border-b-2 border-[#16A34A]"
@@ -121,6 +122,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Documented Boundary Callout */}
+      <div className="px-4 py-3 bg-[#FAF9F6] border-t border-[#EAE8E2] text-xs leading-relaxed">
+        <a href={currentTab.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-[#55534E] break-words">
+          Inspect source: {currentTab.filename} at {currentTab.ref} <span aria-hidden="true">↗</span>
+        </a>
+        <p className="text-[#7A7872] mt-1">The excerpt above is source material. The summary and boundary are editorial interpretation.</p>
+      </div>
       <div className="px-4 py-2.5 bg-[#FAF9F6] border-t border-[#EAE8E2] text-[11px] font-mono text-[#55534E] leading-relaxed">
         <span className="font-bold text-[#121212]">Boundary: </span>
         <span>{project.boundary}</span>

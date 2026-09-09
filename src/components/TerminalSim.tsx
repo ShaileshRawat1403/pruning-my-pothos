@@ -42,9 +42,13 @@ const COLOR: Record<StepStatus, string> = {
  * Cosmetic sugar over real client-side work, in the house voice (philosophy meets
  * a shell). Honors reduced motion.
  */
-export default function TerminalSim({ command, steps, runKey = 0, onComplete, className = "" }: TerminalSimProps) {
+export default function TerminalSim(props: TerminalSimProps) {
+  return <TerminalRun key={props.runKey ?? 0} {...props} />;
+}
+
+function TerminalRun({ command, steps, runKey = 0, onComplete, className = "" }: TerminalSimProps) {
   const [typed, setTyped] = useState(0);
-  const [phase, setPhase] = useState<Phase>("typing");
+  const [phase, setPhase] = useState<Phase>(command.length ? "typing" : "enter");
   const [resolved, setResolved] = useState(0);
   const [frame, setFrame] = useState(0);
   const [blink, setBlink] = useState(true);
@@ -60,18 +64,17 @@ export default function TerminalSim({ command, steps, runKey = 0, onComplete, cl
     const push = (fn: () => void, ms: number) => timers.push(setTimeout(fn, ms));
 
     doneRef.current = false;
-    setResolved(0);
 
     if (reduced) {
-      setTyped(command.length);
-      setResolved(steps.length);
-      setPhase("done");
-      onComplete?.();
+      push(() => {
+        setTyped(command.length);
+        setResolved(steps.length);
+        setPhase("done");
+        onComplete?.();
+      }, 0);
       return () => timers.forEach(clearTimeout);
     }
 
-    setTyped(0);
-    setPhase("typing");
 
     const runSteps = () => {
       let s = 0;
@@ -119,7 +122,6 @@ export default function TerminalSim({ command, steps, runKey = 0, onComplete, cl
     };
 
     if (command.length === 0) {
-      setPhase("enter");
       push(() => {
         if (cancelled) return;
         setPhase("running");
