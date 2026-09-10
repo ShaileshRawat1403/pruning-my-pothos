@@ -1,0 +1,22 @@
+---
+title: "Downstream Fail Duplicate Cover Test"
+description: "A valid v1 explainer whose cover references an existing systems cover to test downstream verify-covers failure and rollback."
+schemaVersion: "1.0"
+contentKind: "explainer"
+readerIntent: "understand"
+readerOutcome: "Understand safe rollback behavior on downstream gate failure."
+thesis: "Downstream CI gate failure must trigger safe rollback."
+heroImage: "/covers/systems/a-simple-tokenizer.svg"
+shortAnswer: "A policy-governed runtime moves authorization out of the prompt and into a deterministic host supervisor. The model proposes tool calls, but the host environment verifies permissions against immutable rules before execution begins."
+boundary:
+  is: "A test fixture for downstream gate failure."
+  isNot: "A published explainer."
+  mattersWhen: "Testing promotion rollback."
+provenance:
+  primary: "synthesis"
+  claims:
+    - statement: "Downstream CI gate failure must trigger safe rollback."
+      kind: "synthesis"
+---
+
+Downstream CI gate failure must trigger safe rollback.

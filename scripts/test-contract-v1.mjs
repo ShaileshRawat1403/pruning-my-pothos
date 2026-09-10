@@ -366,6 +366,112 @@ async function runTests() {
     `Test 32: prohibited Vale prose pattern actively blocks WebsiteOps from marking draft READY`
   );
 
+  // Test 33: Vale unavailable fails closed and blocks WebsiteOps from marking draft READY
+  const valeMissingRes = spawnSync(
+    "node",
+    ["scripts/websiteops-conform.mjs", "--in", "tests/fixtures/valid-v1-explainer.mdx", "--collection", "systems"],
+    { cwd: ROOT, encoding: "utf8", env: { ...process.env, VALE_FORCE_MISSING: "1" } }
+  );
+  assert(
+    valeMissingRes.status === 1 &&
+      /vale v1 gate\s+✗\s*fails/.test(valeMissingRes.stdout) &&
+      valeMissingRes.stdout.includes("NOT READY"),
+    `Test 33: WebsiteOps v1 validation with Vale unavailable fails closed and does NOT report READY`
+  );
+
+  // Test 34: Reject unsupported values passed to --collection
+  const invalidCollRes = spawnSync(
+    "node",
+    ["scripts/lint-editorial-v1.mjs", "--file", "tests/fixtures/valid-v1-explainer.mdx", "--collection", "unsupported-collection"],
+    { cwd: ROOT, encoding: "utf8" }
+  );
+  assert(
+    invalidCollRes.status === 1 &&
+      (invalidCollRes.stderr + invalidCollRes.stdout).includes('Unsupported collection "unsupported-collection"'),
+    `Test 34: unsupported collection passed to lint-editorial-v1.mjs is rejected with code 1`
+  );
+
+  // Test 35: Safe promotion rollback A: new file + downstream gate failure -> new file absent after rollback
+  const destNewArticle = path.resolve(ROOT, "src/content/systems/downstream-fail-duplicate-cover.mdx");
+  try { await fs.unlink(destNewArticle); } catch {}
+
+  const rollbackNewRes = spawnSync(
+    "node",
+    ["scripts/websiteops-conform.mjs", "--in", "tests/fixtures/downstream-fail-duplicate-cover.mdx", "--collection", "systems", "--promote"],
+    { cwd: ROOT, encoding: "utf8" }
+  );
+  const newArticleExistsAfterRollback = existsSync(destNewArticle);
+  assert(
+    rollbackNewRes.status === 1 &&
+      rollbackNewRes.stdout.includes("NOT READY") &&
+      rollbackNewRes.stdout.includes("rollback") &&
+      !newArticleExistsAfterRollback,
+    `Test 35: safe rollback A: new file is absent after post-promotion downstream gate failure`
+  );
+
+  // Test 36: Safe promotion rollback B: existing file + downstream gate failure -> original bytes restored exactly
+  const destExistingArticle = path.resolve(ROOT, "src/content/systems/test-rollback-existing-target.mdx");
+  const originalArticleContent = "--- original article bytes before failed promote ---";
+  await fs.writeFile(destExistingArticle, originalArticleContent, "utf8");
+
+  const rollbackExistingRes = spawnSync(
+    "node",
+    ["scripts/websiteops-conform.mjs", "--in", "tests/fixtures/downstream-fail-duplicate-cover.mdx", "--collection", "systems", "--slug", "test-rollback-existing-target", "--promote"],
+    { cwd: ROOT, encoding: "utf8" }
+  );
+  const restoredArticleContent = await fs.readFile(destExistingArticle, "utf8");
+  try { await fs.unlink(destExistingArticle); } catch {}
+  assert(
+    rollbackExistingRes.status === 1 &&
+      rollbackExistingRes.stdout.includes("NOT READY") &&
+      rollbackExistingRes.stdout.includes("restored original article") &&
+      restoredArticleContent === originalArticleContent,
+    `Test 36: safe rollback B: existing article content is restored exactly after downstream gate failure`
+  );
+
+  // Test 37: Safe promotion rollback C: public cover state restored exactly after downstream gate failure
+  const testCoverNewPath = path.resolve(ROOT, "public/covers/systems/test-rollback-cover-temp.svg");
+  const testCoverExistingPath = path.resolve(ROOT, "public/covers/systems/test-rollback-cover-existing.svg");
+  const tempBrokenSelf = path.resolve(ROOT, "src/content/self/temp-broken-downstream.md");
+  try { await fs.unlink(testCoverNewPath); } catch {}
+  try { await fs.unlink(tempBrokenSelf); } catch {}
+
+  // Plant downstream gate failure
+  await fs.writeFile(tempBrokenSelf, "broken content without valid frontmatter or word count", "utf8");
+
+  // Part C1: New generated cover rollback (cover was absent before promote; must be removed after rollback)
+  const rollbackCoverNewRes = spawnSync(
+    "node",
+    ["scripts/websiteops-conform.mjs", "--in", "tests/fixtures/valid-v1-explainer.mdx", "--collection", "systems", "--slug", "test-rollback-cover-temp", "--promote"],
+    { cwd: ROOT, encoding: "utf8" }
+  );
+  const newCoverExistsAfterRollback = existsSync(testCoverNewPath);
+  try { await fs.unlink(path.resolve(ROOT, "src/content/systems/test-rollback-cover-temp.mdx")); } catch {}
+
+  // Part C2: Existing public cover rollback (cover existed before promote; original bytes must be restored)
+  const originalCoverBytes = "<svg>ORIGINAL_COVER_BYTES_EXISTS</svg>";
+  await fs.writeFile(testCoverExistingPath, originalCoverBytes, "utf8");
+
+  const rollbackCoverExistingRes = spawnSync(
+    "node",
+    ["scripts/websiteops-conform.mjs", "--in", "tests/fixtures/valid-v1-explainer.mdx", "--collection", "systems", "--slug", "test-rollback-cover-existing", "--promote"],
+    { cwd: ROOT, encoding: "utf8" }
+  );
+  const restoredCoverBytes = await fs.readFile(testCoverExistingPath, "utf8");
+
+  // Clean up test state
+  try { await fs.unlink(tempBrokenSelf); } catch {}
+  try { await fs.unlink(testCoverExistingPath); } catch {}
+  try { await fs.unlink(path.resolve(ROOT, "src/content/systems/test-rollback-cover-existing.mdx")); } catch {}
+
+  assert(
+    rollbackCoverNewRes.status === 1 &&
+      rollbackCoverExistingRes.status === 1 &&
+      !newCoverExistsAfterRollback &&
+      restoredCoverBytes === originalCoverBytes,
+    `Test 37: safe rollback C: generated public cover is cleanly removed and existing cover is restored exactly after downstream failure`
+  );
+
   console.log(`\nRegression Suite Results: ${passed} passed, ${failed} failed.\n`);
   if (failed > 0) {
     process.exit(1);

@@ -21,12 +21,16 @@ const CONTENT_DIRS = [
 ];
 
 function checkValeInstalled() {
+  if (process.env.VALE_FORCE_MISSING === "1") {
+    return { installed: false, version: null, bin: "vale" };
+  }
   const candidates = [
+    process.env.VALE_BIN,
     "vale",
     "/opt/hostedtoolcache/vale/3.17.0/x64/vale",
     "/usr/local/bin/vale",
     "/opt/homebrew/bin/vale",
-  ];
+  ].filter(Boolean);
   for (const bin of candidates) {
     try {
       const versionOutput = execSync(`${bin} --version`, { encoding: "utf8" }).trim();
@@ -76,17 +80,19 @@ async function main() {
     console.warn("\n[WARN] Vale is not installed on PATH.");
     console.warn("  Local installation:");
     console.warn("    macOS: brew install vale");
-    console.warn("    Linux: Download from https://github.com/vale-cli/vale/releases");
+    console.warn("    Linux: Download pinned binary from https://github.com/vale-cli/vale/releases");
     console.warn("  CI installation:");
-    console.warn("    Use: vale-cli/vale-action@v3 with version: " + PINNED_CI_VALE_VERSION);
-    
-    // In CI, lack of vale is fatal for v1-only; locally, emit warning if not available
-    if (process.env.CI && args.v1Only) {
-      console.error("\n[ERROR] Vale is required for CI gate.\n");
+    console.warn("    Pinned binary version: " + PINNED_CI_VALE_VERSION);
+
+    // Fail closed: --file and --v1-only require Vale to run; missing Vale must block publication
+    if (args.file || args.v1Only) {
+      console.error("\n[ERROR] Vale is required for v1 and file-targeted validation. Blocking.\n");
       process.exit(1);
     }
-    console.warn("Skipping Vale prose lint.\n");
-    return;
+
+    // Only --legacy is allowed to degrade to advisory warning
+    console.warn("[ADVISORY] Skipping Vale prose lint on legacy archive (Vale unavailable).\n");
+    process.exit(0);
   }
 
   // Version assertion: pinned in CI, advisory locally

@@ -272,15 +272,43 @@ async function runCli() {
 
   let promotedPath = null;
   let gatesOk = true;
+  let prevArticleExisted = false;
+  let prevArticleContent = null;
+  let prevCoverExisted = false;
+  let prevCoverContent = null;
+  let placedCoverPath = null;
 
   // Transactional promotion: ONLY promote into src/content if prerequisite gates passed
   if (args.promote && prereqsOk) {
     const destDir = path.join(ROOT, "src", "content", collection);
     await fs.mkdir(destDir, { recursive: true });
     promotedPath = path.join(destDir, filename);
+
+    // 1. Snapshot previous article state
+    try {
+      prevArticleContent = await fs.readFile(promotedPath);
+      prevArticleExisted = true;
+    } catch {
+      prevArticleExisted = false;
+      prevArticleContent = null;
+    }
+
+    // 2. Snapshot previous public cover state if a cover is to be placed
+    if (stagedCoverPath && publicCoverPath) {
+      placedCoverPath = publicCoverPath;
+      try {
+        prevCoverContent = await fs.readFile(publicCoverPath);
+        prevCoverExisted = true;
+      } catch {
+        prevCoverExisted = false;
+        prevCoverContent = null;
+      }
+    }
+
+    // 3. Write promoted article
     await fs.writeFile(promotedPath, composed, "utf8");
 
-    // Also place staged cover into public/ if needed
+    // 4. Also place staged cover into public/ if needed
     if (stagedCoverPath && publicCoverPath) {
       await fs.mkdir(path.dirname(publicCoverPath), { recursive: true });
       const coverContent = await fs.readFile(stagedCoverPath, "utf8");
@@ -321,12 +349,32 @@ async function runCli() {
         console.log(`    ${ok ? "✓" : "✗"} ${s}`);
         if (!ok) out.split("\n").filter(Boolean).slice(0, 12).forEach((l) => console.log(`        ${l}`));
       }
-      // Roll back promoted file if collection gates fail
+      // Roll back promoted changes if post-promotion collection gates fail
       if (!gatesOk) {
         try {
-          await fs.unlink(promotedPath);
-        } catch {
-          // ignore rollback error
+          if (prevArticleExisted && prevArticleContent !== null) {
+            await fs.writeFile(promotedPath, prevArticleContent);
+            console.log(`  rollback    ↺ restored original article at ${path.relative(ROOT, promotedPath)}`);
+          } else if (!prevArticleExisted && promotedPath) {
+            await fs.unlink(promotedPath);
+            console.log(`  rollback    ↺ removed newly created file ${path.relative(ROOT, promotedPath)}`);
+          }
+        } catch (e) {
+          console.error(`  rollback error on article:`, e);
+        }
+
+        if (placedCoverPath) {
+          try {
+            if (prevCoverExisted && prevCoverContent !== null) {
+              await fs.writeFile(placedCoverPath, prevCoverContent);
+              console.log(`  rollback    ↺ restored original cover at ${path.relative(ROOT, placedCoverPath)}`);
+            } else if (!prevCoverExisted) {
+              await fs.unlink(placedCoverPath);
+              console.log(`  rollback    ↺ removed newly created cover ${path.relative(ROOT, placedCoverPath)}`);
+            }
+          } catch (e) {
+            console.error(`  rollback error on cover:`, e);
+          }
         }
       }
     } else {

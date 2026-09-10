@@ -238,10 +238,15 @@ async function main() {
 
   if (args.file) {
     let allowedKinds = [...SYSTEMS_CONTENT_KINDS, ...SELF_CONTENT_KINDS];
-    if (args.collection === "systems") {
-      allowedKinds = SYSTEMS_CONTENT_KINDS;
-    } else if (args.collection === "self") {
-      allowedKinds = SELF_CONTENT_KINDS;
+    if (args.collection) {
+      if (args.collection === "systems") {
+        allowedKinds = SYSTEMS_CONTENT_KINDS;
+      } else if (args.collection === "self") {
+        allowedKinds = SELF_CONTENT_KINDS;
+      } else {
+        console.error(`\n[ERROR] Unsupported collection "${args.collection}". Allowed: "systems", "self".\n`);
+        process.exit(1);
+      }
     } else {
       // Deduce collection from file path if possible
       const normPath = path.resolve(ROOT, args.file);
