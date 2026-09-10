@@ -29,7 +29,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="light" className="h-full">
+    <html lang="en" data-theme="light" className="h-full" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem("systems-theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body
         className="min-h-full flex flex-col relative overflow-x-hidden"
         style={{ background: "var(--bg-color)", color: "var(--text-primary)" }}

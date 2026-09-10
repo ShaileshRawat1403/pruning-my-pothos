@@ -5,13 +5,18 @@ import { runConsole } from "./ConsoleToastHost";
 
 const subscribeToHydration = () => () => {};
 const subscribeToTheme = (notify: () => void) => {
+  if (typeof document === "undefined") return () => {};
   const observer = new MutationObserver(notify);
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
   return () => observer.disconnect();
 };
 
 export default function ThemeToggle() {
-  const theme = useSyncExternalStore(subscribeToTheme, () => document.documentElement.getAttribute("data-theme") || "light", () => "light");
+  const theme = useSyncExternalStore(
+    subscribeToTheme,
+    () => (typeof document !== "undefined" ? document.documentElement.getAttribute("data-theme") || "light" : "light"),
+    () => "light"
+  );
   const mounted = useSyncExternalStore(subscribeToHydration, () => true, () => false);
 
   useEffect(() => {
@@ -40,7 +45,7 @@ export default function ThemeToggle() {
   if (!mounted) {
     return (
       <div
-        style={{ width: "34px", height: "34px", borderRadius: "999px", background: "var(--card-bg)", border: "1px solid var(--card-border)" }}
+        style={{ width: "36px", height: "36px", borderRadius: "9999px", background: "var(--card-bg)", border: "1px solid var(--card-border)" }}
       />
     );
   }
@@ -50,12 +55,14 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggle}
+      type="button"
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       title={`Switch to ${isDark ? "light" : "dark"} mode`}
+      className="focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-green)]"
       style={{
-        width: "34px",
-        height: "34px",
-        borderRadius: "3px",
+        width: "36px",
+        height: "36px",
+        borderRadius: "9999px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -77,7 +84,7 @@ export default function ThemeToggle() {
     >
       {isDark ? (
         /* Sun - switch to light */
-        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="5" />
           <line x1="12" y1="1" x2="12" y2="3" />
           <line x1="12" y1="21" x2="12" y2="23" />
@@ -90,7 +97,7 @@ export default function ThemeToggle() {
         </svg>
       ) : (
         /* Moon - switch to dark */
-        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       )}

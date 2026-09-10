@@ -980,3 +980,49 @@ h1, h2, h3, h4, h5 {
 /* ── Legacy hooks kept harmless ── */
 .glow-orb { display: none; }
 .hacker-crt-green, .hacker-crt-blue { font-family: var(--font-mono); }
+
+/* ── Dark theme adapter for static Tailwind token surfaces ── */
+[data-theme="dark"] .bg-\[\#FAF9F6\],
+[data-theme="dark"] .bg-\[\#FAF9F6\]\/95 {
+  background-color: var(--bg-color) !important;
+}
+[data-theme="dark"] .bg-white {
+  background-color: var(--card-bg) !important;
+}
+[data-theme="dark"] .bg-\[\#F4F2EC\],
+[data-theme="dark"] .bg-\[\#F0EEEA\],
+[data-theme="dark"] .bg-\[\#E8F5E9\] {
+  background-color: var(--bg-surface) !important;
+}
+[data-theme="dark"] .border-\[\#EAE8E2\],
+[data-theme="dark"] .border-\[\#E5E2DA\],
+[data-theme="dark"] .border-\[\#D5D2C9\] {
+  border-color: var(--card-border) !important;
+}
+[data-theme="dark"] .text-\[\#121212\] {
+  color: var(--text-primary) !important;
+}
+[data-theme="dark"] .text-\[\#55534E\],
+[data-theme="dark"] .text-\[\#6B6964\],
+[data-theme="dark"] .text-\[\#7A7872\] {
+  color: var(--text-secondary) !important;
+}
+[data-theme="dark"] .text-\[\#8A8780\] {
+  color: var(--text-muted) !important;
+}
+[data-theme="dark"] .hover\:text-\[\#121212\]:hover {
+  color: var(--text-primary) !important;
+}
+[data-theme="dark"] .hover\:border-\[\#121212\]:hover {
+  border-color: var(--card-border-hover) !important;
+}
+[data-theme="dark"] .bg-\[\#121212\] {
+  background-color: var(--text-primary) !important;
+  color: var(--bg-color) !important;
+}
+[data-theme="dark"] .hover\:bg-\[\#2A2926\]:hover {
+  background-color: var(--text-secondary) !important;
+}
+[data-theme="dark"] .hover\:bg-\[\#F4F2EC\]:hover {
+  background-color: var(--card-bg-hover) !important;
+}
