@@ -105,6 +105,7 @@ contentKind: explainer
 readerIntent: understand
 readerOutcome: "Determine which tool permissions should belong in the model prompt versus the host execution runtime."
 thesis: "Model prompts cannot enforce security boundaries that require deterministic execution guarantees."
+shortAnswer: "A policy-governed runtime moves authorization out of the prompt and into a deterministic host supervisor. The model proposes tool calls, but the host environment verifies permissions against immutable rules before execution begins."
 
 boundary:
   is: "An architecture for isolating tool execution in a deterministic host sandbox."

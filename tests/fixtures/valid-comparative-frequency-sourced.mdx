@@ -1,0 +1,27 @@
+---
+title: "Valid Comparative Frequency Sourced Test"
+description: "Demonstrates acceptance when comparative frequency is backed by an empirical external source."
+schemaVersion: "1.0"
+contentKind: "explainer"
+readerIntent: "understand"
+readerOutcome: "Understand empirical evidence requirements for frequency comparisons."
+thesis: "Empirical benchmark sources properly authorize comparative frequency claims."
+shortAnswer: "A policy-governed runtime moves authorization out of the prompt and into a deterministic host supervisor. The model proposes tool calls, but the host environment verifies permissions against immutable rules before execution begins."
+boundary:
+  is: "A test fixture for empirical comparative frequency."
+  isNot: "A published systems explainer."
+  mattersWhen: "Testing publication gates."
+provenance:
+  primary: "external"
+  sources:
+    - id: "benchmark-study"
+      type: "benchmark"
+      url: "https://example.com/concurrency-benchmarks-2025"
+  claims:
+    - statement: "The optimistic locking algorithm fails more often than pessimistic locking under contention."
+      kind: "external"
+      sources:
+        - "benchmark-study"
+---
+
+The optimistic locking algorithm fails more often than pessimistic locking under contention.

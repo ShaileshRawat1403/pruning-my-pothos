@@ -89,10 +89,14 @@ async function main() {
     return;
   }
 
-  // Version advisory
-  if (process.env.CI && version && !version.startsWith("3.")) {
-    console.error(`[ERROR] CI expects Vale 3.x (pinned ${PINNED_CI_VALE_VERSION}), found: ${version}`);
-    process.exit(1);
+  // Version assertion: pinned in CI, advisory locally
+  if (process.env.CI) {
+    if (version !== PINNED_CI_VALE_VERSION) {
+      console.error(`[ERROR] CI requires exact pinned Vale version ${PINNED_CI_VALE_VERSION}, found: ${version}`);
+      process.exit(1);
+    }
+  } else if (version !== PINNED_CI_VALE_VERSION) {
+    console.warn(`[WARN] Local Vale version is ${version}; CI runs pinned ${PINNED_CI_VALE_VERSION}.`);
   }
 
   let targetFiles = [];

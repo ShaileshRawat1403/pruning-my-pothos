@@ -1,31 +1,20 @@
+schema_version: "0.1"
 id: recipe.pmp-teardown
 name: PMP Teardown
-description: >-
-  Governs technical repository inspections. Analyzes architectural choices and
-  trade-offs anchored to an immutable git commit SHA.
-target_kind: teardown
-
+description: Composition recipe for technical repository teardowns in Pruning My Pothos. Analyzes architectural choices and concrete execution boundaries anchored to an immutable git commit ref.
+intents:
+  - intent.explain
+context_profiles:
+  - context-profile.technical-explanation
 recommended_primitives:
-  - primitive.pinned-code-anchor
-  - primitive.architectural-tradeoff
-  - primitive.concrete-data-flow
-  - primitive.execution-boundary
-
-protected_primitives:
-  - primitive.immutable-commit-ref
-  - primitive.code-fidelity
-
-tolerated_anti_patterns:
-  - anti-pattern.code-density
-
-prohibited_anti_patterns:
-  - anti-pattern.unanchored-code-claim
-  - anti-pattern.generic-summary
+  - primitive.evidence-before-claim
+  - primitive.specificity
+  - primitive.plain-language
+  - primitive.restraint
+  - primitive.stop-after-resolution
+avoid_anti_patterns:
   - anti-pattern.throat-clearing
-  - anti-pattern.marketing-puffery
-
-refinement_contract:
-  purpose_preserving_compression: true
-  immutable_ref_required: true
-  factual_anchor_preservation: true
-  voice: sans-serif-sentiments
+  - anti-pattern.summary-wrap
+  - anti-pattern.conceptual-vagueness
+  - anti-pattern.word-count-padding
+  - anti-pattern.didactic-tone

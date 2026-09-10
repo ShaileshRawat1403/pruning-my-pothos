@@ -1,32 +1,22 @@
+schema_version: "0.1"
 id: recipe.pmp-playbook
 name: PMP Playbook
-description: >-
-  Governs actionable walkthroughs and practice sequences. Requires concrete
-  steps, inspectable verification methods, and boundary failure checks.
-target_kind: playbook
-
+description: Composition recipe for actionable technical procedures and walkthroughs in Pruning My Pothos. Requires concrete steps, inspectable verification methods, and boundary failure checks.
+intents:
+  - intent.explain
+context_profiles:
+  - context-profile.technical-explanation
 recommended_primitives:
-  - primitive.actionable-step-sequence
-  - primitive.verifiable-checkpoint
-  - primitive.failure-boundary-check
-  - primitive.concrete-inputs-and-outputs
-
-protected_primitives:
-  - primitive.reproducibility
-  - primitive.failure-condition-clarity
-
-tolerated_anti_patterns:
-  - anti-pattern.imperative-density
-
-prohibited_anti_patterns:
-  - anti-pattern.vague-instruction
-  - anti-pattern.unverifiable-outcome
+  - primitive.direct-answer
+  - primitive.specificity
+  - primitive.plain-language
+  - primitive.one-main-idea-per-sentence
+  - primitive.paragraph-progression
+  - primitive.stop-after-resolution
+avoid_anti_patterns:
   - anti-pattern.throat-clearing
-  - anti-pattern.marketing-puffery
+  - anti-pattern.conceptual-vagueness
+  - anti-pattern.didactic-tone
   - anti-pattern.word-count-padding
-
-refinement_contract:
-  purpose_preserving_compression: true
-  practice_block_required: true
-  factual_anchor_preservation: true
-  voice: sans-serif-sentiments
+  - anti-pattern.excessive-bulleting
+  - anti-pattern.structure-without-progression

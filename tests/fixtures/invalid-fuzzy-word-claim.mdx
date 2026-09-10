@@ -1,0 +1,31 @@
+---
+title: "Fuzzy Word Scattering Test"
+description: "Demonstrates rejection when claim words are scattered across paragraphs without contiguous assertion."
+schemaVersion: "1.0"
+contentKind: "explainer"
+readerIntent: "understand"
+readerOutcome: "Understand strict claim to prose exact assertion matching."
+thesis: "Claim statements must map to actual assertions rather than scattered words."
+shortAnswer: "A policy-governed runtime moves authorization out of the prompt and into a deterministic host supervisor. The model proposes tool calls, but the host environment verifies permissions against immutable rules before execution begins."
+boundary:
+  is: "A test fixture for exact claim matching."
+  isNot: "A published systems explainer."
+  mattersWhen: "Testing publication gates."
+provenance:
+  primary: "synthesis"
+  sources:
+    - id: "scheduler-source"
+      type: "external"
+      url: "https://example.com/scheduler"
+  claims:
+    - statement: "The deployment scheduler evaluates health probes before migrating active traffic."
+      kind: "external"
+      sources:
+        - "scheduler-source"
+---
+
+The deployment team configured an automated scheduler for the fleet.
+
+Health checks were enabled using custom probes configured in the container manifest.
+
+Traffic was monitored carefully before migrating workloads to the secondary node during active hours.

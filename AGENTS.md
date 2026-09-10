@@ -7,7 +7,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 # Editorial Governor: PMP Editorial Contract v1
 
 All content authoring and modification in `src/content/` is strictly governed by:
-👉 [Pruning My Pothos Editorial Skill](file:///.agents/skills/pruningmypothos-editorial/SKILL.md)
+👉 [Pruning My Pothos Editorial Skill](.agents/skills/pruningmypothos-editorial/SKILL.md)
 
 Key rules for AI agents:
 1. **Never manufacture lived experience**: Do not write first-person incident stories ("we received a bug report", "in our cluster") unless explicitly declared as real experience under `provenance: { primary: "observed", claims: [{ attestation: "author" }] }`.

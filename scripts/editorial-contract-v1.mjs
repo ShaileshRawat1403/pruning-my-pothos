@@ -194,6 +194,7 @@ export const editorialContractV1Fields = {
   readerIntent: z.enum(["understand", "inspect", "use", "reflect"]),
   readerOutcome: z.string().min(20, "readerOutcome must describe reader capability/insight (min 20 chars)"),
   thesis: z.string().min(10, "thesis must state the core argument (min 10 chars)"),
+  shortAnswer: z.string().min(80).max(700).optional(),
   boundary: boundarySchema.optional(),
   practice: practiceSchema.optional(),
   provenance: provenanceSchema,
@@ -237,18 +238,9 @@ export function verifyClaimProseMapping(claims, rawBody) {
     const normalizedClaim = normalizeProse(claim.statement);
     if (!normalizedClaim) continue;
 
-    // Check exact substring match first
+    // Exact normalized assertion match (no global fuzzy word matching)
     if (normalizedBody.includes(normalizedClaim)) {
       continue;
-    }
-
-    // Fallback: check if significant words (>= 4 chars) appear in close proximity
-    const words = normalizedClaim.split(" ").filter((w) => w.length >= 4);
-    if (words.length >= 3) {
-      const matchCount = words.filter((w) => normalizedBody.includes(w)).length;
-      if (matchCount / words.length >= 0.75) {
-        continue;
-      }
     }
 
     issues.push(

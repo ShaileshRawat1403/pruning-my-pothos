@@ -23,6 +23,7 @@ import {
   SYSTEMS_CONTENT_KINDS,
   SELF_CONTENT_KINDS,
   verifyClaimProseMapping,
+  normalizeProse,
 } from "./editorial-contract-v1.mjs";
 import { z } from "zod";
 
@@ -107,6 +108,21 @@ export async function validateV1File(filePath, allowedKinds) {
     if (!data.boundary || !data.boundary.is || !data.boundary.isNot || !data.boundary.mattersWhen) {
       issues.push("Explainer requires complete boundary object: boundary.is, boundary.isNot, boundary.mattersWhen");
     }
+    if (!data.shortAnswer || typeof data.shortAnswer !== "string" || data.shortAnswer.trim().length < 80 || data.shortAnswer.trim().length > 700) {
+      issues.push("Explainer requires shortAnswer (between 80 and 700 characters)");
+    }
+  } else if (data.contentKind === "field-note") {
+    const hasAuthorObserved =
+      data.provenance?.primary === "observed" &&
+      Array.isArray(data.provenance?.claims) &&
+      data.provenance.claims.some(
+        (c) => c.kind === "observed" && c.attestation === "author"
+      );
+    if (!hasAuthorObserved) {
+      issues.push(
+        "Field-note requires primary: 'observed' and at least one claim of kind 'observed' with attestation: 'author'."
+      );
+    }
   } else if (data.contentKind === "playbook") {
     if (!data.practice || !Array.isArray(data.practice.steps) || data.practice.steps.length < 2) {
       issues.push("Playbook requires practice block with at least 2 steps");
@@ -126,17 +142,43 @@ export async function validateV1File(filePath, allowedKinds) {
   }
 
   // 5. Epistemic legality (incident phrasing check)
-  const isObservedPrimary = data.provenance?.primary === "observed";
-  const hasObservedAuthorClaim = Array.isArray(data.provenance?.claims) &&
-    data.provenance.claims.some((c) => c.kind === "observed" && c.attestation === "author");
+  const authorObservedClaims = Array.isArray(data.provenance?.claims)
+    ? data.provenance.claims.filter((c) => c.kind === "observed" && c.attestation === "author")
+    : [];
 
   for (const pattern of INCIDENT_PATTERNS) {
     pattern.lastIndex = 0;
-    const match = pattern.exec(body);
-    if (match) {
-      if (!isObservedPrimary && !hasObservedAuthorClaim) {
+    let match;
+    while ((match = pattern.exec(body)) !== null) {
+      const sentenceStart = Math.max(
+        0,
+        body.lastIndexOf("\n", match.index),
+        body.lastIndexOf(".", match.index) + 1,
+        body.lastIndexOf("!", match.index) + 1,
+        body.lastIndexOf("?", match.index) + 1
+      );
+      const nextPeriod = body.indexOf(".", match.index);
+      const nextExcl = body.indexOf("!", match.index);
+      const nextQ = body.indexOf("?", match.index);
+      const nextNewline = body.indexOf("\n", match.index);
+      const candidates = [nextPeriod, nextExcl, nextQ, nextNewline, body.length].filter((pos) => pos !== -1);
+      const sentenceEnd = Math.min(...candidates);
+      const sentence = body.slice(sentenceStart, sentenceEnd).trim();
+      const normalizedSentence = normalizeProse(sentence);
+      const normalizedMatch = normalizeProse(match[0]);
+
+      const matchingClaim = authorObservedClaims.find((c) => {
+        const normClaim = normalizeProse(c.statement);
+        return (
+          normClaim.includes(normalizedMatch) ||
+          normalizedSentence.includes(normClaim) ||
+          normClaim.includes(normalizedSentence)
+        );
+      });
+
+      if (!matchingClaim) {
         issues.push(
-          `Epistemic violation: Body contains first-person incident narrative ("${match[0]}") but document lacks primary: "observed" or an observed claim with attestation: "author".`
+          `Epistemic violation: Body contains first-person incident narrative ("${match[0]}") that is not covered by any author-attested observed claim.`
         );
       }
     }
@@ -145,13 +187,20 @@ export async function validateV1File(filePath, allowedKinds) {
   // 6. Comparative frequency qualification check
   for (const pattern of UNANCHORED_FREQUENCY_PATTERNS) {
     pattern.lastIndex = 0;
-    const match = pattern.exec(body);
-    if (match) {
-      const hasSupportingClaim = Array.isArray(data.provenance?.claims) &&
-        data.provenance.claims.some((c) => /more often/i.test(c.statement));
-      if (!hasSupportingClaim && !isObservedPrimary) {
+    let match;
+    while ((match = pattern.exec(body)) !== null) {
+      const hasEmpiricalSupportingClaim =
+        Array.isArray(data.provenance?.claims) &&
+        data.provenance.claims.some(
+          (c) =>
+            (c.kind === "repository" || c.kind === "external") &&
+            Array.isArray(c.sources) &&
+            c.sources.length > 0 &&
+            /(?:more|less) often/i.test(c.statement)
+        );
+      if (!hasEmpiricalSupportingClaim) {
         issues.push(
-          `Epistemic assertion: Comparative frequency statement ("${match[0]}") requires empirical source backing in provenance.claims or qualifying phrasing.`
+          `Epistemic assertion: Comparative frequency statement ("${match[0]}") requires empirical source backing (repository or external claim referencing an inspectable source). Synthesis or observed claims cannot authorize comparative frequency.`
         );
       }
     }

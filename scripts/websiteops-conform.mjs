@@ -242,6 +242,28 @@ async function runCli() {
   const stagedPath = path.join(stagedDir, filename);
   await fs.writeFile(stagedPath, composed, "utf8");
 
+  // Editorial Contract v1 & Vale verification on staged packet
+  let editorialOk = true;
+  let editorialOut = "";
+  let valeOk = true;
+  let valeOut = "";
+
+  if (fm.schemaVersion === "1.0") {
+    const edRes = spawnSync("node", ["scripts/lint-editorial-v1.mjs", "--file", stagedPath], {
+      cwd: ROOT,
+      encoding: "utf8",
+    });
+    editorialOk = edRes.status === 0;
+    editorialOut = (edRes.stdout || "") + (edRes.stderr || "");
+
+    const valeRes = spawnSync("node", ["scripts/run-vale.mjs", "--file", stagedPath], {
+      cwd: ROOT,
+      encoding: "utf8",
+    });
+    valeOk = valeRes.status === 0;
+    valeOut = (valeRes.stdout || "") + (valeRes.stderr || "");
+  }
+
   let promotedPath = null;
   if (args.promote) {
     const destDir = path.join(ROOT, "src", "content", collection);
@@ -261,6 +283,17 @@ async function runCli() {
   console.log(`  body shape  ${bodyIssues.length ? "✗" : "✓"}${bodyIssues.length ? "" : " passes " + collection + " structure"}`);
   bodyIssues.forEach((i) => console.log(`     - ${i}`));
 
+  if (fm.schemaVersion === "1.0") {
+    console.log(`  editorial v1 gate ${editorialOk ? "✓" : "✗"}${editorialOk ? " passes contract v1" : " fails"}`);
+    if (!editorialOk) {
+      editorialOut.split("\n").filter(Boolean).slice(0, 12).forEach((l) => console.log(`        ${l}`));
+    }
+    console.log(`  vale v1 gate      ${valeOk ? "✓" : "✗"}${valeOk ? " passes prose rules" : " fails"}`);
+    if (!valeOk) {
+      valeOut.split("\n").filter(Boolean).slice(0, 12).forEach((l) => console.log(`        ${l}`));
+    }
+  }
+
   let gatesOk = true;
   if (args.promote) {
     console.log(`  promoted:   ${path.relative(ROOT, promotedPath)}`);
@@ -273,7 +306,12 @@ async function runCli() {
     }
   }
 
-  const ready = fmIssues.length === 0 && bodyIssues.length === 0 && (!args.promote || gatesOk);
+  const ready =
+    fmIssues.length === 0 &&
+    bodyIssues.length === 0 &&
+    (!args.promote || gatesOk) &&
+    (fm.schemaVersion !== "1.0" || (editorialOk && valeOk));
+
   console.log(`\n  ${ready ? "✓ READY" : "✗ NOT READY"} — ${ready
     ? (args.promote ? "gates green; open a PR and merge to publish." : "conforms; run again with --promote to place it and run gates.")
     : "resolve the items above (the drafting step must supply the missing structure)."}`);

@@ -20,6 +20,8 @@
 
 import { validateV1File } from "./lint-editorial-v1.mjs";
 import { conformFrontmatter, V1_PRESERVED_KEYS } from "./websiteops-conform.mjs";
+import { validateAllRecipes } from "./validate-languageops-recipes.mjs";
+import { spawnSync } from "node:child_process";
 import path from "node:path";
 
 const ROOT = process.cwd();
@@ -144,6 +146,7 @@ async function runTests() {
     readerIntent: "understand",
     readerOutcome: "Verify complete metadata preservation across pipelines.",
     thesis: "Conform pipelines must preserve authorial provenance without loss.",
+    shortAnswer: "A policy-governed runtime moves authorization out of the prompt and into a deterministic host supervisor. The model proposes tool calls, but the host environment verifies permissions against immutable rules before execution begins.",
     boundary: {
       is: "A test boundary description.",
       isNot: "Production systems code.",
@@ -181,6 +184,103 @@ async function runTests() {
   assert(
     preservedKeysSystems && preservedKeysSelf && noForcedCategory,
     `Test 13: websiteops-conform preserves all v1 metadata keys without loss (systems & self) and does not force legacy category on v1`
+  );
+
+  // Test 14: LanguageOps recipe validation
+  const recipeResults = await validateAllRecipes();
+  const allRecipesValid = recipeResults.length > 0 && recipeResults.every((r) => r.issues.length === 0);
+  assert(
+    allRecipesValid,
+    `Test 14: all 5 LanguageOps recipes conform strictly to canonical schema & referential integrity`
+  );
+
+  // Test 15: Invalid fuzzy word scattering -> reject
+  const fuzzyPath = path.resolve(ROOT, "tests/fixtures/invalid-fuzzy-word-claim.mdx");
+  const fuzzyIssues = await validateV1File(fuzzyPath, ["explainer", "field-note", "playbook"]);
+  assert(
+    fuzzyIssues.some((i) => i.includes("Claim statement not found in article body")),
+    `Test 15: invalid-fuzzy-word-claim.mdx rejected because scattered words do not satisfy contiguous assertion`
+  );
+
+  // Test 16: Invalid unrelated incident in observed document -> reject
+  const unrelatedIncidentPath = path.resolve(ROOT, "tests/fixtures/invalid-unrelated-incident.md");
+  const unrelatedIncidentIssues = await validateV1File(unrelatedIncidentPath, ["essay", "field-note"]);
+  assert(
+    unrelatedIncidentIssues.some((i) => i.includes("Epistemic violation") && i.includes("we received a bug report")),
+    `Test 16: invalid-unrelated-incident.md rejected because unbacked incident is not covered by author-attested claim`
+  );
+
+  // Test 17: Invalid field-note with synthesis provenance -> reject
+  const fieldNoteSynthPath = path.resolve(ROOT, "tests/fixtures/invalid-fieldnote-synthesis.md");
+  const fieldNoteSynthIssues = await validateV1File(fieldNoteSynthPath, ["essay", "field-note"]);
+  assert(
+    fieldNoteSynthIssues.some((i) => i.includes("field-note requires primary: 'observed'") || i.includes("Field-note requires primary")),
+    `Test 17: invalid-fieldnote-synthesis.md rejected because field-note lacks author-attested observed provenance`
+  );
+
+  // Test 18: Invalid comparative frequency backed only by synthesis -> reject
+  const compSynthPath = path.resolve(ROOT, "tests/fixtures/invalid-comparative-frequency-synthesis.mdx");
+  const compSynthIssues = await validateV1File(compSynthPath, ["explainer", "field-note", "playbook"]);
+  assert(
+    compSynthIssues.some((i) => i.includes("Comparative frequency statement") && i.includes("requires empirical source backing")),
+    `Test 18: invalid-comparative-frequency-synthesis.mdx rejected because comparative frequency cannot be authorized by synthesis`
+  );
+
+  // Test 19: Invalid comparative frequency backed only by observed experience -> reject
+  const compObsPath = path.resolve(ROOT, "tests/fixtures/invalid-comparative-frequency-observed.mdx");
+  const compObsIssues = await validateV1File(compObsPath, ["explainer", "field-note", "playbook"]);
+  assert(
+    compObsIssues.some((i) => i.includes("Comparative frequency statement") && i.includes("requires empirical source backing")),
+    `Test 19: invalid-comparative-frequency-observed.mdx rejected because comparative frequency cannot be authorized by observed experience alone`
+  );
+
+  // Test 20: Valid comparative frequency backed by empirical benchmark source -> pass
+  const compSourcedPath = path.resolve(ROOT, "tests/fixtures/valid-comparative-frequency-sourced.mdx");
+  const compSourcedIssues = await validateV1File(compSourcedPath, ["explainer", "field-note", "playbook"]);
+  assert(
+    compSourcedIssues.length === 0,
+    `Test 20: valid-comparative-frequency-sourced.mdx passes cleanly with empirical benchmark source backing`
+  );
+
+  // Test 21: Invalid explainer missing shortAnswer -> reject
+  const missingShortAnswerPath = path.resolve(ROOT, "tests/fixtures/invalid-explainer-missing-short-answer.mdx");
+  const missingShortAnswerIssues = await validateV1File(missingShortAnswerPath, ["explainer", "field-note", "playbook"]);
+  assert(
+    missingShortAnswerIssues.some((i) => i.includes("shortAnswer")),
+    `Test 21: invalid-explainer-missing-short-answer.mdx rejected because explainer lacks mandatory shortAnswer field`
+  );
+
+  // Test 22: WebsiteOps negative path 1 (unmatched claim)
+  const conformNegRes1 = spawnSync(
+    "node",
+    ["scripts/websiteops-conform.mjs", "--in", "tests/fixtures/invalid-unmatched-claim.mdx", "--collection", "systems"],
+    { cwd: ROOT, encoding: "utf8" }
+  );
+  assert(
+    conformNegRes1.status === 1 && conformNegRes1.stdout.includes("NOT READY"),
+    `Test 22: websiteops-conform negative path 1 (unmatched claim) exits with code 1 and reports NOT READY`
+  );
+
+  // Test 23: WebsiteOps negative path 2 (dangling source)
+  const conformNegRes2 = spawnSync(
+    "node",
+    ["scripts/websiteops-conform.mjs", "--in", "tests/fixtures/invalid-dangling-source.mdx", "--collection", "systems"],
+    { cwd: ROOT, encoding: "utf8" }
+  );
+  assert(
+    conformNegRes2.status === 1 && conformNegRes2.stdout.includes("NOT READY"),
+    `Test 23: websiteops-conform negative path 2 (dangling source) exits with code 1 and reports NOT READY`
+  );
+
+  // Test 24: WebsiteOps positive path (valid v1 explainer)
+  const conformPosRes = spawnSync(
+    "node",
+    ["scripts/websiteops-conform.mjs", "--in", "tests/fixtures/valid-v1-explainer.mdx", "--collection", "systems"],
+    { cwd: ROOT, encoding: "utf8" }
+  );
+  assert(
+    conformPosRes.status === 0 && conformPosRes.stdout.includes("READY"),
+    `Test 24: websiteops-conform positive path (valid v1 explainer) exits with code 0 and reports READY`
   );
 
   console.log(`\nRegression Suite Results: ${passed} passed, ${failed} failed.\n`);

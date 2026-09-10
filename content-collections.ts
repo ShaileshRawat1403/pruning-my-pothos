@@ -146,12 +146,37 @@ const systems = defineCollection({
           path: ["provenance"],
         });
       }
-      if (data.contentKind === "explainer" && !data.boundary) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: "explainer requires boundary object (is, isNot, mattersWhen)",
-          path: ["boundary"],
-        });
+      if (data.contentKind === "explainer") {
+        if (!data.boundary) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: "explainer requires boundary object (is, isNot, mattersWhen)",
+            path: ["boundary"],
+          });
+        }
+        if (!data.shortAnswer || typeof data.shortAnswer !== "string" || data.shortAnswer.trim().length < 80 || data.shortAnswer.trim().length > 700) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: "explainer requires shortAnswer (between 80 and 700 characters)",
+            path: ["shortAnswer"],
+          });
+        }
+      }
+      if (data.contentKind === "field-note") {
+        const hasAuthorObserved =
+          data.provenance?.primary === "observed" &&
+          Array.isArray(data.provenance?.claims) &&
+          data.provenance.claims.some(
+            (c) => c.kind === "observed" && c.attestation === "author"
+          );
+        if (!hasAuthorObserved) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message:
+              "field-note requires primary: 'observed' and at least one observed claim with attestation: 'author'",
+            path: ["provenance"],
+          });
+        }
       }
       if (data.contentKind === "playbook" && !data.practice) {
         ctx.addIssue({
@@ -268,6 +293,22 @@ const self = defineCollection({
             message: "v1 self document requires provenance object",
             path: ["provenance"],
           });
+        }
+        if (data.contentKind === "field-note") {
+          const hasAuthorObserved =
+            data.provenance?.primary === "observed" &&
+            Array.isArray(data.provenance?.claims) &&
+            data.provenance.claims.some(
+              (c) => c.kind === "observed" && c.attestation === "author"
+            );
+          if (!hasAuthorObserved) {
+            ctx.addIssue({
+              code: z.ZodIssueCode.custom,
+              message:
+                "field-note requires primary: 'observed' and at least one observed claim with attestation: 'author'",
+              path: ["provenance"],
+            });
+          }
         }
       }
     }),
