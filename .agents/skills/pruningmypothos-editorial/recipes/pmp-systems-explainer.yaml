@@ -1,0 +1,39 @@
+id: recipe.pmp-systems-explainer
+name: PMP Systems Explainer
+description: >-
+  Governs technical explainers in Pruning My Pothos. Focuses on separating
+  mechanism from implementation detail, defining explicit conceptual boundaries
+  (is / is-not / matters-when), and eliminating decorative boilerplate.
+target_kind: explainer
+
+recommended_primitives:
+  - primitive.concrete-mechanism-first
+  - primitive.falsifiable-boundary
+  - primitive.deliberate-rhythm
+  - primitive.earned-contrast
+  - primitive.direct-resolution
+
+protected_primitives:
+  - primitive.short-answer-clarity
+  - primitive.claim-to-evidence-trace
+  - primitive.failure-mode-identification
+
+tolerated_anti_patterns:
+  - anti-pattern.academic-distancing
+
+prohibited_anti_patterns:
+  - anti-pattern.confessional-opener
+  - anti-pattern.false-pivot-question
+  - anti-pattern.manufactured-candor
+  - anti-pattern.certainty-inflation
+  - anti-pattern.act-heading-formula
+  - anti-pattern.word-count-padding
+  - anti-pattern.delve-reliance
+  - anti-pattern.tapestry-metaphor
+  - anti-pattern.summary-wrap
+
+refinement_contract:
+  purpose_preserving_compression: true
+  falsifiable_boundary_required: true
+  factual_anchor_preservation: true
+  voice: sans-serif-sentiments

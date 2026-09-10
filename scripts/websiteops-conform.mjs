@@ -34,6 +34,8 @@ import { COLLECTIONS, SUPPORTED, slugify } from "./content-contract.mjs";
 const ROOT = process.cwd();
 const TODAY = new Date().toISOString().slice(0, 10);
 
+import { fileURLToPath } from "node:url";
+
 // ── args ──────────────────────────────────────────────────────────────────
 function parseArgs(argv) {
   const a = { enrich: false, promote: false };
@@ -46,32 +48,61 @@ function parseArgs(argv) {
   return a;
 }
 
-const args = parseArgs(process.argv.slice(2));
-
 function fail(msg) {
   console.error(`\n✗ ${msg}\n`);
   process.exit(1);
-}
-
-if (!args.in) fail("Missing --in <packet file>");
-if (!args.collection) fail("Missing --collection <systems|self|sentences>");
-if (!SUPPORTED.includes(args.collection)) {
-  fail(`Unsupported collection "${args.collection}". Use ${SUPPORTED.join(", ")}.`);
 }
 
 // ── conform frontmatter ──────────────────────────────────────────────────────
 const toYmd = (v) =>
   v instanceof Date ? v.toISOString().slice(0, 10) : v ? String(v).slice(0, 10) : v;
 
-function conformFrontmatter(collection, data, slug) {
-  const publishDate = args.date || toYmd(data.publishDate) || toYmd(data.updatedAt) || TODAY;
+export const V1_PRESERVED_KEYS = [
+  "schemaVersion",
+  "contentKind",
+  "readerIntent",
+  "readerOutcome",
+  "thesis",
+  "boundary",
+  "practice",
+  "provenance",
+  "language",
+];
+
+export function conformFrontmatter(collection, data, slug, customDate) {
+  const publishDate = customDate || toYmd(data.publishDate) || toYmd(data.updatedAt) || TODAY;
   const tags = Array.isArray(data.tags) ? data.tags : [];
+  const isV1 = data.schemaVersion === "1.0";
+
+  const v1Entries = Object.fromEntries(
+    V1_PRESERVED_KEYS.filter((key) => data[key] !== undefined).map((key) => [key, data[key]])
+  );
 
   if (collection === "systems") {
     return {
+      ...Object.fromEntries(
+        [
+          "seoTitle",
+          "featured",
+          "contentType",
+          "readingTime",
+          "difficulty",
+          "shortAnswer",
+          "analogy",
+          "figure",
+          "practice",
+          "evidence",
+          "related",
+          "useValue",
+          "boundary",
+        ]
+          .filter((key) => data[key] !== undefined)
+          .map((key) => [key, data[key]])
+      ),
+      ...v1Entries,
       title: data.title,
       description: data.description ?? "",
-      category: data.category,
+      ...(data.category ? { category: data.category } : isV1 ? {} : { category: "Explanations" }),
       tags,
       publishDate,
       updatedAt: toYmd(data.updatedAt) || publishDate,
@@ -83,6 +114,7 @@ function conformFrontmatter(collection, data, slug) {
   }
   if (collection === "self") {
     return {
+      ...v1Entries,
       title: data.title,
       description: data.description ?? data.summary ?? "",
       publishDate,
@@ -151,15 +183,22 @@ function runGate(script) {
   return { ok: r.status === 0, out: (r.stdout || "") + (r.stderr || "") };
 }
 
-// ── main ─────────────────────────────────────────────────────────────────────
-async function main() {
+// ── main CLI runner ──────────────────────────────────────────────────────────
+async function runCli() {
+  const args = parseArgs(process.argv.slice(2));
+  if (!args.in) fail("Missing --in <packet file>");
+  if (!args.collection) fail("Missing --collection <systems|self|sentences>");
+  if (!SUPPORTED.includes(args.collection)) {
+    fail(`Unsupported collection "${args.collection}". Use ${SUPPORTED.join(", ")}.`);
+  }
+
   const collection = args.collection;
   const raw = await fs.readFile(path.resolve(args.in), "utf8");
   const parsed = matter(raw);
   if (!parsed.data?.title) fail("Packet has no title in frontmatter.");
 
   const slug = args.slug ? slugify(args.slug) : slugify(parsed.data.title);
-  const fm = conformFrontmatter(collection, parsed.data, slug);
+  const fm = conformFrontmatter(collection, parsed.data, slug, args.date);
 
   // validate frontmatter
   const result = COLLECTIONS[collection].schema.safeParse(fm);
@@ -242,4 +281,10 @@ async function main() {
   process.exit(ready ? 0 : 1);
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+const isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (isMain) {
+  runCli().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}

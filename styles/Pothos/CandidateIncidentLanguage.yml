@@ -1,0 +1,12 @@
+extends: existence
+message: "Possible first-person incident phrasing '%s'. Ensure this is backed by an observed provenance declaration or explicit author attestation."
+link: https://pruningmypothos.com/schema/
+level: warning
+ignorecase: true
+tokens:
+  - last week we received
+  - last week I received
+  - in our production
+  - at my company
+  - we ended up raising
+  - we received a bug report

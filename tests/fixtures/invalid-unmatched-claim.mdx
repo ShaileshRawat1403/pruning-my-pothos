@@ -1,0 +1,30 @@
+---
+title: "Unmatched Claim Test"
+description: "Demonstrates rejection when a declared claim does not appear in body prose."
+schemaVersion: "1.0"
+contentKind: "explainer"
+readerIntent: "understand"
+readerOutcome: "Understand how claims must trace directly into body assertions."
+thesis: "Declared claims must map to explicit assertions in the text."
+boundary:
+  is: "A test fixture verifying prose mapping."
+  isNot: "Production documentation for systems."
+  mattersWhen: "Testing editorial contract enforcement."
+provenance:
+  primary: "repository"
+  sources:
+    - id: "test-repo"
+      type: "repository"
+      url: "https://github.com/example/repo"
+      path: "src/core/engine.ts"
+      ref: "0123456789abcdef0123456789abcdef01234567"
+  claims:
+    - statement: "The cache reduces latency by ninety percent under peak load"
+      kind: "repository"
+      sources:
+        - "test-repo"
+---
+
+This article discusses caching architectures in distributed systems.
+
+We inspect how buffers behave under network strain.

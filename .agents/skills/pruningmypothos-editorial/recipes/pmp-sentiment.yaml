@@ -1,0 +1,33 @@
+id: recipe.pmp-sentiment
+name: PMP Sentiment & Essay
+description: >-
+  Governs reflective essays and cultural analysis. Evaluates the human signal
+  left behind when automation and syntactic noise are stripped away.
+target_kind: essay
+
+recommended_primitives:
+  - primitive.earned-insight
+  - primitive.clear-thesis
+  - primitive.deliberate-rhythm
+  - primitive.consequential-judgment
+
+protected_primitives:
+  - primitive.human-accountability
+  - primitive.intellectual-honesty
+
+tolerated_anti_patterns:
+  - anti-pattern.subjective-framing
+
+prohibited_anti_patterns:
+  - anti-pattern.manufactured-candor
+  - anti-pattern.false-pivot-question
+  - anti-pattern.confessional-opener
+  - anti-pattern.throat-clearing
+  - anti-pattern.generic-contrast
+  - anti-pattern.word-count-padding
+
+refinement_contract:
+  purpose_preserving_compression: true
+  thesis_statement_required: true
+  factual_anchor_preservation: true
+  voice: sans-serif-sentiments

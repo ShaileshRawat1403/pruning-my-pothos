@@ -1,0 +1,28 @@
+---
+title: "External Claim Incompatible Source Test"
+description: "Demonstrates rejection when an external claim references a repository source."
+schemaVersion: "1.0"
+contentKind: "explainer"
+readerIntent: "understand"
+readerOutcome: "Understand source compatibility requirements in the editorial contract."
+thesis: "External claims require external or literature sources."
+boundary:
+  is: "A test fixture verifying external source typing."
+  isNot: "Production documentation for systems."
+  mattersWhen: "Testing source compatibility rules."
+provenance:
+  primary: "synthesis"
+  sources:
+    - id: "repo-source"
+      type: "repository"
+      url: "https://github.com/example/repo"
+      path: "src/main.rs"
+      ref: "0123456789abcdef0123456789abcdef01234567"
+  claims:
+    - statement: "Industry benchmarks demonstrate a thirty percent throughput difference."
+      kind: "external"
+      sources:
+        - "repo-source"
+---
+
+Industry benchmarks demonstrate a thirty percent throughput difference.

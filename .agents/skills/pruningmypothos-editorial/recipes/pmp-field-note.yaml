@@ -1,0 +1,34 @@
+id: recipe.pmp-field-note
+name: PMP Field Note
+description: >-
+  Governs compact operational observations in Pruning My Pothos. Records real
+  system behaviors, calibration decisions, and edge cases encountered in practice.
+  Strictly requires author attestation without syntactic heading quotas.
+target_kind: field-note
+
+recommended_primitives:
+  - primitive.grounded-observation
+  - primitive.specific-operational-context
+  - primitive.concise-resolution
+  - primitive.honest-uncertainty
+
+protected_primitives:
+  - primitive.author-attestation
+  - primitive.falsifiable-boundary
+
+tolerated_anti_patterns:
+  - anti-pattern.informal-cadence
+
+prohibited_anti_patterns:
+  - anti-pattern.manufactured-candor
+  - anti-pattern.unanchored-metric
+  - anti-pattern.throat-clearing
+  - anti-pattern.summary-wrap
+  - anti-pattern.word-count-padding
+  - anti-pattern.generic-contrast
+
+refinement_contract:
+  purpose_preserving_compression: true
+  author_attestation_required: true
+  factual_anchor_preservation: true
+  voice: sans-serif-sentiments

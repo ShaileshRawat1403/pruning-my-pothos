@@ -1,0 +1,31 @@
+id: recipe.pmp-teardown
+name: PMP Teardown
+description: >-
+  Governs technical repository inspections. Analyzes architectural choices and
+  trade-offs anchored to an immutable git commit SHA.
+target_kind: teardown
+
+recommended_primitives:
+  - primitive.pinned-code-anchor
+  - primitive.architectural-tradeoff
+  - primitive.concrete-data-flow
+  - primitive.execution-boundary
+
+protected_primitives:
+  - primitive.immutable-commit-ref
+  - primitive.code-fidelity
+
+tolerated_anti_patterns:
+  - anti-pattern.code-density
+
+prohibited_anti_patterns:
+  - anti-pattern.unanchored-code-claim
+  - anti-pattern.generic-summary
+  - anti-pattern.throat-clearing
+  - anti-pattern.marketing-puffery
+
+refinement_contract:
+  purpose_preserving_compression: true
+  immutable_ref_required: true
+  factual_anchor_preservation: true
+  voice: sans-serif-sentiments

@@ -1,5 +1,10 @@
 import { defineCollection, defineConfig } from "@content-collections/core";
 import { z } from "zod";
+import {
+  boundarySchema,
+  practiceSchema,
+  provenanceSchema,
+} from "./scripts/editorial-contract-v1.mjs";
 
 const editorialFields = {
   // Search title, used only for <title>/og:title. Falls back to `title`.
@@ -12,6 +17,23 @@ const editorialFields = {
   difficulty: z.string().optional(),
 };
 
+const v1SystemsFields = {
+  schemaVersion: z.literal("1.0").optional(),
+  contentKind: z.enum(["explainer", "field-note", "playbook"]).optional(),
+  readerIntent: z.enum(["understand", "inspect", "use", "reflect"]).optional(),
+  readerOutcome: z.string().optional(),
+  thesis: z.string().optional(),
+  boundary: boundarySchema.optional(),
+  practice: practiceSchema.optional(),
+  provenance: provenanceSchema.optional(),
+  language: z
+    .object({
+      profile: z.string().default("sans-serif-sentiments"),
+      recipe: z.string().optional(),
+    })
+    .optional(),
+};
+
 const systems = defineCollection({
   name: "systems",
   directory: "src/content/systems",
@@ -19,7 +41,7 @@ const systems = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    category: z.enum(["Explanations", "Concepts", "How-things-fit-together"]),
+    category: z.enum(["Explanations", "Concepts", "How-things-fit-together"]).optional(),
     tags: z.array(z.string()).optional().default([]),
     publishDate: z.string().optional(),
     updatedAt: z.string().optional(),
@@ -73,22 +95,80 @@ const systems = defineCollection({
 
     // Slot 13. What can the reader do afterwards that they could not do before?
     useValue: z.string().optional(),
-
-    // Slot 14. Where does this concept begin, where does it stop, and when does the distinction matter?
-    boundary: z.object({
-      is: z.string(),
-      isNot: z.string(),
-      mattersWhen: z.string(),
-    }).optional(),
     // --------------------------------------------------------------------
-    faq: z.array(
-      z.object({
-        question: z.string(),
-        answer: z.string(),
-      })
-    ).optional().default([]),
+    faq: z
+      .array(
+        z.object({
+          question: z.string(),
+          answer: z.string(),
+        })
+      )
+      .optional()
+      .default([]),
     ...editorialFields,
+    ...v1SystemsFields,
     content: z.string(),
+  })
+  .superRefine((data, ctx) => {
+    if (data.schemaVersion === "1.0") {
+      if (!data.contentKind) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "v1 systems document requires contentKind (explainer | field-note | playbook)",
+          path: ["contentKind"],
+        });
+      }
+      if (!data.readerIntent) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "v1 systems document requires readerIntent (understand | inspect | use | reflect)",
+          path: ["readerIntent"],
+        });
+      }
+      if (!data.readerOutcome || data.readerOutcome.trim().length < 20) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "v1 systems document requires readerOutcome (at least 20 characters)",
+          path: ["readerOutcome"],
+        });
+      }
+      if (!data.thesis || data.thesis.trim().length < 10) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "v1 systems document requires thesis (at least 10 characters)",
+          path: ["thesis"],
+        });
+      }
+      if (!data.provenance) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "v1 systems document requires provenance object",
+          path: ["provenance"],
+        });
+      }
+      if (data.contentKind === "explainer" && !data.boundary) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "explainer requires boundary object (is, isNot, mattersWhen)",
+          path: ["boundary"],
+        });
+      }
+      if (data.contentKind === "playbook" && !data.practice) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "playbook requires practice object (steps, verification, failureCheck)",
+          path: ["practice"],
+        });
+      }
+    } else {
+      if (!data.category) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Legacy systems document requires category (Explanations | Concepts | How-things-fit-together)",
+          path: ["category"],
+        });
+      }
+    }
   }),
 });
 
@@ -120,20 +200,77 @@ const stickyNotes = defineCollection({
   }),
 });
 
+const v1SelfFields = {
+  schemaVersion: z.literal("1.0").optional(),
+  contentKind: z.enum(["essay", "field-note"]).optional(),
+  readerIntent: z.enum(["understand", "inspect", "use", "reflect"]).optional(),
+  readerOutcome: z.string().optional(),
+  thesis: z.string().optional(),
+  boundary: boundarySchema.optional(),
+  provenance: provenanceSchema.optional(),
+  language: z
+    .object({
+      profile: z.string().default("sans-serif-sentiments"),
+      recipe: z.string().optional(),
+    })
+    .optional(),
+};
+
 const self = defineCollection({
   name: "self",
   directory: "src/content/self",
   include: "**/*.{md,mdx}",
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    publishDate: z.string(),
-    tags: z.array(z.string()).optional().default([]),
-    heroImage: z.string().optional(),
-    heroImageAlt: z.string().optional(),
-    ...editorialFields,
-    content: z.string(),
-  }),
+  schema: z
+    .object({
+      title: z.string(),
+      description: z.string(),
+      publishDate: z.string(),
+      tags: z.array(z.string()).optional().default([]),
+      heroImage: z.string().optional(),
+      heroImageAlt: z.string().optional(),
+      ...editorialFields,
+      ...v1SelfFields,
+      content: z.string(),
+    })
+    .superRefine((data, ctx) => {
+      if (data.schemaVersion === "1.0") {
+        if (!data.contentKind) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: "v1 self document requires contentKind (essay | field-note)",
+            path: ["contentKind"],
+          });
+        }
+        if (!data.readerIntent) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: "v1 self document requires readerIntent",
+            path: ["readerIntent"],
+          });
+        }
+        if (!data.readerOutcome || data.readerOutcome.trim().length < 20) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: "v1 self document requires readerOutcome (at least 20 characters)",
+            path: ["readerOutcome"],
+          });
+        }
+        if (!data.thesis || data.thesis.trim().length < 10) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: "v1 self document requires thesis (at least 10 characters)",
+            path: ["thesis"],
+          });
+        }
+        if (!data.provenance) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: "v1 self document requires provenance object",
+            path: ["provenance"],
+          });
+        }
+      }
+    }),
 });
 
 const shelf = defineCollection({

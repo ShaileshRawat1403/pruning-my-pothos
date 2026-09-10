@@ -1,0 +1,21 @@
+---
+title: "Observed Claim Without Author Attestation Test"
+description: "Demonstrates rejection when an observed claim lacks author attestation."
+schemaVersion: "1.0"
+contentKind: "explainer"
+readerIntent: "understand"
+readerOutcome: "Understand that observed claims strictly require author attestation."
+thesis: "Observed claims cannot be anonymous or generic."
+boundary:
+  is: "A test fixture verifying author attestation."
+  isNot: "Production documentation for systems."
+  mattersWhen: "Testing epistemic rules."
+provenance:
+  primary: "observed"
+  statement: "Observed during operational testing of the pipeline."
+  claims:
+    - statement: "The deployment pipeline crashed three consecutive times under load."
+      kind: "observed"
+---
+
+The deployment pipeline crashed three consecutive times under load.

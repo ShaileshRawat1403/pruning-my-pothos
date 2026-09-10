@@ -1,0 +1,11 @@
+extends: existence
+message: "Throat-clearing or confessional opener '%s'. Begin directly with the core insight."
+link: https://pruningmypothos.com/schema/
+level: warning
+ignorecase: true
+tokens:
+  - in this article we will
+  - in this article, we will
+  - here's the thing
+  - let's be honest
+  - the truth nobody wants to hear

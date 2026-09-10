@@ -17,8 +17,17 @@ jobs:
           node-version: 20
           cache: npm
 
+      - name: Setup Vale
+        uses: vale-cli/vale-action@v3
+        with:
+          version: 3.17.0
+
+      - name: Add Vale to PATH
+        run: echo "/opt/hostedtoolcache/vale/3.17.0/x64" >> $GITHUB_PATH
+
       - run: npm ci
       - run: npm run lint
+      - run: npm run test:contract
       - run: npm run lint:content
       - run: npm run lint:systems:advisory
       - run: npm run report:systems

@@ -1,0 +1,32 @@
+id: recipe.pmp-playbook
+name: PMP Playbook
+description: >-
+  Governs actionable walkthroughs and practice sequences. Requires concrete
+  steps, inspectable verification methods, and boundary failure checks.
+target_kind: playbook
+
+recommended_primitives:
+  - primitive.actionable-step-sequence
+  - primitive.verifiable-checkpoint
+  - primitive.failure-boundary-check
+  - primitive.concrete-inputs-and-outputs
+
+protected_primitives:
+  - primitive.reproducibility
+  - primitive.failure-condition-clarity
+
+tolerated_anti_patterns:
+  - anti-pattern.imperative-density
+
+prohibited_anti_patterns:
+  - anti-pattern.vague-instruction
+  - anti-pattern.unverifiable-outcome
+  - anti-pattern.throat-clearing
+  - anti-pattern.marketing-puffery
+  - anti-pattern.word-count-padding
+
+refinement_contract:
+  purpose_preserving_compression: true
+  practice_block_required: true
+  factual_anchor_preservation: true
+  voice: sans-serif-sentiments

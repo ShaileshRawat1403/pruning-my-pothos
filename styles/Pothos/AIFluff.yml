@@ -1,0 +1,14 @@
+extends: existence
+message: "Formulaic LLM vocabulary or marketing fluff '%s'. Remove excess and use concrete language."
+link: https://pruningmypothos.com/schema/
+level: warning
+scope: text
+ignorecase: true
+tokens:
+  - delve
+  - tapestry
+  - beacon
+  - testament
+  - game-changing
+  - cutting-edge
+  - battle-tested

@@ -1,0 +1,9 @@
+extends: existence
+message: "Synthetic rhetorical contrast pattern '%s'. Reframe as a direct statement."
+link: https://pruningmypothos.com/schema/
+level: warning
+ignorecase: true
+tokens:
+  - not just about
+  - not only about
+  - not because it

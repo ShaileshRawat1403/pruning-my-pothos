@@ -1,0 +1,14 @@
+extends: existence
+message: "Categorical certainty or unanchored comparative frequency '%s'. Ensure this is supported by empirical evidence or appropriately qualified."
+link: https://pruningmypothos.com/schema/
+level: warning
+ignorecase: true
+tokens:
+  - more often than
+  - less often than
+  - 100% guarantee
+  - 100% reliable
+  - 100% test pass
+  - 100% test coverage
+  - the only way to
+  - zero hallucination
