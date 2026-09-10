@@ -22,6 +22,7 @@ import { validateV1File } from "./lint-editorial-v1.mjs";
 import { conformFrontmatter, V1_PRESERVED_KEYS } from "./websiteops-conform.mjs";
 import { validateAllRecipes } from "./validate-languageops-recipes.mjs";
 import { spawnSync } from "node:child_process";
+import { promises as fs, existsSync } from "node:fs";
 import path from "node:path";
 
 const ROOT = process.cwd();
@@ -186,12 +187,12 @@ async function runTests() {
     `Test 13: websiteops-conform preserves all v1 metadata keys without loss (systems & self) and does not force legacy category on v1`
   );
 
-  // Test 14: LanguageOps recipe validation
+  // Test 14: LanguageOps recipe validation against pinned snapshot
   const recipeResults = await validateAllRecipes();
   const allRecipesValid = recipeResults.length > 0 && recipeResults.every((r) => r.issues.length === 0);
   assert(
     allRecipesValid,
-    `Test 14: all 5 LanguageOps recipes conform strictly to canonical schema & referential integrity`
+    `Test 14: all 5 LanguageOps recipes conform strictly to pinned LanguageOps contract snapshot (41f24f1)`
   );
 
   // Test 15: Invalid fuzzy word scattering -> reject
@@ -234,12 +235,12 @@ async function runTests() {
     `Test 19: invalid-comparative-frequency-observed.mdx rejected because comparative frequency cannot be authorized by observed experience alone`
   );
 
-  // Test 20: Valid comparative frequency backed by empirical benchmark source -> pass
-  const compSourcedPath = path.resolve(ROOT, "tests/fixtures/valid-comparative-frequency-sourced.mdx");
+  // Test 20: Valid comparative frequency with declared empirical source -> structural pass
+  const compSourcedPath = path.resolve(ROOT, "tests/fixtures/valid-comparative-frequency-declared-source.mdx");
   const compSourcedIssues = await validateV1File(compSourcedPath, ["explainer", "field-note", "playbook"]);
   assert(
     compSourcedIssues.length === 0,
-    `Test 20: valid-comparative-frequency-sourced.mdx passes cleanly with empirical benchmark source backing`
+    `Test 20: valid-comparative-frequency-declared-source.mdx satisfies structural contract for declared empirical sources`
   );
 
   // Test 21: Invalid explainer missing shortAnswer -> reject
@@ -281,6 +282,88 @@ async function runTests() {
   assert(
     conformPosRes.status === 0 && conformPosRes.stdout.includes("READY"),
     `Test 24: websiteops-conform positive path (valid v1 explainer) exits with code 0 and reports READY`
+  );
+
+  // Test 25: Extension scan: v1 Systems .md format validated
+  const sysMdPath = path.resolve(ROOT, "tests/fixtures/valid-v1-systems.md");
+  const sysMdIssues = await validateV1File(sysMdPath, ["explainer", "field-note", "playbook"]);
+  assert(
+    sysMdIssues.length === 0,
+    `Test 25: v1 Systems .md format is validated and passes structural contract`
+  );
+
+  // Test 26: Extension scan: v1 Self .mdx format validated
+  const selfMdxPath = path.resolve(ROOT, "tests/fixtures/valid-v1-self.mdx");
+  const selfMdxIssues = await validateV1File(selfMdxPath, ["essay", "field-note"]);
+  assert(
+    selfMdxIssues.length === 0,
+    `Test 26: v1 Self .mdx format is validated and passes structural contract`
+  );
+
+  // Test 27: Cross-collection scoping: Self + explainer rejected
+  const selfExplainerRes = spawnSync(
+    "node",
+    ["scripts/lint-editorial-v1.mjs", "--file", "tests/fixtures/invalid-self-explainer.md", "--collection", "self"],
+    { cwd: ROOT, encoding: "utf8" }
+  );
+  assert(
+    selfExplainerRes.status === 1 && (selfExplainerRes.stderr + selfExplainerRes.stdout).includes('Invalid contentKind "explainer" for collection'),
+    `Test 27: Self collection + contentKind 'explainer' is rejected by collection scoping`
+  );
+
+  // Test 28: Cross-collection scoping: Systems + essay rejected
+  const sysEssayRes = spawnSync(
+    "node",
+    ["scripts/lint-editorial-v1.mjs", "--file", "tests/fixtures/invalid-systems-essay.mdx", "--collection", "systems"],
+    { cwd: ROOT, encoding: "utf8" }
+  );
+  assert(
+    sysEssayRes.status === 1 && (sysEssayRes.stderr + sysEssayRes.stdout).includes('Invalid contentKind "essay" for collection'),
+    `Test 28: Systems collection + contentKind 'essay' is rejected by collection scoping`
+  );
+
+  // Test 29: Duplicate trigger phrase unbacked incident rejected
+  const dupTriggerPath = path.resolve(ROOT, "tests/fixtures/invalid-duplicate-trigger-unbacked-incident.md");
+  const dupTriggerIssues = await validateV1File(dupTriggerPath, ["essay", "field-note"]);
+  assert(
+    dupTriggerIssues.some((i) => i.includes("Epistemic violation") && i.includes("database corruption")),
+    `Test 29: duplicate trigger phrase incident is rejected when assertion does not map to author-attested claim`
+  );
+
+  // Test 30: Partially unbacked comparative frequency assertions rejected
+  const partialCompPath = path.resolve(ROOT, "tests/fixtures/invalid-partial-unbacked-comparative.mdx");
+  const partialCompIssues = await validateV1File(partialCompPath, ["explainer", "field-note", "playbook"]);
+  assert(
+    partialCompIssues.some((i) => i.includes("Comparative frequency statement") && i.includes("Each comparative assertion must map")),
+    `Test 30: unbacked comparative frequency assertion is rejected even when document has another backed comparative claim`
+  );
+
+  // Test 31: WebsiteOps transactional promotion leaves src/content untouched on failure
+  const targetPromoteFile = path.resolve(ROOT, "src/content/systems/unmatched-claim-example.mdx");
+  try { await fs.unlink(targetPromoteFile); } catch {}
+
+  const promoteNegRes = spawnSync(
+    "node",
+    ["scripts/websiteops-conform.mjs", "--in", "tests/fixtures/invalid-unmatched-claim.mdx", "--collection", "systems", "--promote"],
+    { cwd: ROOT, encoding: "utf8" }
+  );
+  const fileExistsAfterFailedPromote = existsSync(targetPromoteFile);
+  assert(
+    promoteNegRes.status === 1 && promoteNegRes.stdout.includes("NOT READY") && !fileExistsAfterFailedPromote,
+    `Test 31: websiteops-conform with --promote leaves src/content untouched when prerequisite gate fails`
+  );
+
+  // Test 32: Prohibited Vale prose pattern actively blocks WebsiteOps
+  const valeBlockRes = spawnSync(
+    "node",
+    ["scripts/websiteops-conform.mjs", "--in", "tests/fixtures/invalid-vale-prose-pattern.mdx", "--collection", "systems"],
+    { cwd: ROOT, encoding: "utf8" }
+  );
+  assert(
+    valeBlockRes.status === 1 &&
+      /vale v1 gate\s+✗\s*fails/.test(valeBlockRes.stdout) &&
+      valeBlockRes.stdout.includes("NOT READY"),
+    `Test 32: prohibited Vale prose pattern actively blocks WebsiteOps from marking draft READY`
   );
 
   console.log(`\nRegression Suite Results: ${passed} passed, ${failed} failed.\n`);

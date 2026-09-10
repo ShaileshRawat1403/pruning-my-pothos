@@ -20,104 +20,117 @@ import yaml from "js-yaml";
 const ROOT = process.cwd();
 const RECIPES_DIR = path.resolve(ROOT, ".agents/skills/pruningmypothos-editorial/recipes");
 
-export const KNOWN_INTENTS = new Set([
-  "intent.answer",
-  "intent.explain",
-  "intent.rewrite",
-  "intent.review",
-  "intent.clarify",
-  "intent.reflect",
-  "intent.respond-professionally",
-]);
+/**
+ * Pinned LanguageOps Contract Compatibility Snapshot
+ * Source Repository: ShaileshRawat1403/LanguageOps
+ * Immutable Commit:  41f24f104fbce4bbef761ad9794b1c08c262ee04
+ * Recipe Schema:     0.1
+ */
+export const LANGUAGEOPS_SNAPSHOT = {
+  repository: "ShaileshRawat1403/LanguageOps",
+  source_ref: "41f24f104fbce4bbef761ad9794b1c08c262ee04",
+  recipe_schema_version: "0.1",
+  captured_intents: [
+    "intent.answer",
+    "intent.explain",
+    "intent.rewrite",
+    "intent.review",
+    "intent.clarify",
+    "intent.reflect",
+    "intent.respond-professionally",
+  ],
+  captured_context_profiles: [
+    "context-profile.technical-explanation",
+    "context-profile.reflective-writing",
+    "context-profile.natural-conversation",
+    "context-profile.professional-response",
+    "context-profile.linkedin-post",
+  ],
+  captured_primitives: [
+    "primitive.audience-fit",
+    "primitive.cadence-variation",
+    "primitive.clarification-before-assumption",
+    "primitive.clause-balance",
+    "primitive.compression",
+    "primitive.context-awareness",
+    "primitive.direct-answer",
+    "primitive.evidence-before-claim",
+    "primitive.example-when-needed",
+    "primitive.meaning-preservation",
+    "primitive.natural-connective-tissue",
+    "primitive.one-main-idea-per-sentence",
+    "primitive.paragraph-progression",
+    "primitive.parallel-structure",
+    "primitive.plain-language",
+    "primitive.restraint",
+    "primitive.selective-expansion",
+    "primitive.sentence-opening-variation",
+    "primitive.specificity",
+    "primitive.stop-after-resolution",
+    "primitive.strong-verb-preference",
+    "primitive.subject-clarity",
+    "primitive.uncertainty-preservation",
+    // Nuance Navigator Pack primitives
+    "primitive.controlled-contrast",
+    "primitive.earned-anaphora",
+    "primitive.measured-metaphor",
+    "primitive.minimalist-close",
+    "primitive.restrained-humour",
+  ],
+  captured_anti_patterns: [
+    "anti-pattern.abstract-ending",
+    "anti-pattern.academic-distancing",
+    "anti-pattern.adverbial-padding",
+    "anti-pattern.cliche-reliance",
+    "anti-pattern.conceptual-vagueness",
+    "anti-pattern.connective-density-overuse",
+    "anti-pattern.delve-reliance",
+    "anti-pattern.didactic-tone",
+    "anti-pattern.excessive-bulleting",
+    "anti-pattern.false-urgency",
+    "anti-pattern.forced-parallelism",
+    "anti-pattern.fragmented-paragraph-structure",
+    "anti-pattern.hedging-overuse",
+    "anti-pattern.hyperbolic-intro",
+    "anti-pattern.long-clause-pileup",
+    "anti-pattern.nominalization-bloat",
+    "anti-pattern.noun-stack-overload",
+    "anti-pattern.over-transitioning",
+    "anti-pattern.passive-voice-escape",
+    "anti-pattern.redundant-doublets",
+    "anti-pattern.repeated-sentence-opening",
+    "anti-pattern.robotic-empathy",
+    "anti-pattern.short-sentence-staccato",
+    "anti-pattern.soft-vagueness",
+    "anti-pattern.structure-without-progression",
+    "anti-pattern.summary-wrap",
+    "anti-pattern.sycophantic-agreement",
+    "anti-pattern.tapestry-metaphor",
+    "anti-pattern.throat-clearing",
+    "anti-pattern.weak-verb-chain",
+    "anti-pattern.word-count-padding",
+    // AI-isms & Banned Packs
+    "anti-pattern.confessional-opener",
+    "anti-pattern.false-pivot-question",
+    "anti-pattern.manufactured-stillness",
+    "anti-pattern.ai-vocabulary-cluster",
+    "anti-pattern.false-range-construction",
+    "anti-pattern.legacy-importance-puffery",
+    "anti-pattern.mechanical-synonym-cycling",
+    "anti-pattern.narrator-as-analyst",
+    "anti-pattern.negative-parallelism",
+    "anti-pattern.promotional-brochure-language",
+    "anti-pattern.staccato-fragment-streak",
+    "anti-pattern.trailing-participle-pileup",
+    "anti-pattern.triple-beat-list-overuse",
+    "anti-pattern.forced-wit",
+  ],
+};
 
-export const KNOWN_CONTEXT_PROFILES = new Set([
-  "context-profile.technical-explanation",
-  "context-profile.reflective-writing",
-  "context-profile.natural-conversation",
-  "context-profile.professional-response",
-  "context-profile.linkedin-post",
-]);
-
-export const KNOWN_PRIMITIVES = new Set([
-  "primitive.audience-fit",
-  "primitive.cadence-variation",
-  "primitive.clarification-before-assumption",
-  "primitive.clause-balance",
-  "primitive.compression",
-  "primitive.context-awareness",
-  "primitive.direct-answer",
-  "primitive.evidence-before-claim",
-  "primitive.example-when-needed",
-  "primitive.meaning-preservation",
-  "primitive.natural-connective-tissue",
-  "primitive.one-main-idea-per-sentence",
-  "primitive.paragraph-progression",
-  "primitive.parallel-structure",
-  "primitive.plain-language",
-  "primitive.restraint",
-  "primitive.selective-expansion",
-  "primitive.sentence-opening-variation",
-  "primitive.specificity",
-  "primitive.stop-after-resolution",
-  "primitive.strong-verb-preference",
-  "primitive.subject-clarity",
-  "primitive.uncertainty-preservation",
-  // Nuance Navigator Pack primitives
-  "primitive.controlled-contrast",
-  "primitive.earned-anaphora",
-  "primitive.measured-metaphor",
-  "primitive.minimalist-close",
-  "primitive.restrained-humour",
-]);
-
-export const KNOWN_ANTI_PATTERNS = new Set([
-  "anti-pattern.abstract-ending",
-  "anti-pattern.academic-distancing",
-  "anti-pattern.adverbial-padding",
-  "anti-pattern.cliche-reliance",
-  "anti-pattern.conceptual-vagueness",
-  "anti-pattern.connective-density-overuse",
-  "anti-pattern.delve-reliance",
-  "anti-pattern.didactic-tone",
-  "anti-pattern.excessive-bulleting",
-  "anti-pattern.false-urgency",
-  "anti-pattern.forced-parallelism",
-  "anti-pattern.fragmented-paragraph-structure",
-  "anti-pattern.hedging-overuse",
-  "anti-pattern.hyperbolic-intro",
-  "anti-pattern.long-clause-pileup",
-  "anti-pattern.nominalization-bloat",
-  "anti-pattern.noun-stack-overload",
-  "anti-pattern.over-transitioning",
-  "anti-pattern.passive-voice-escape",
-  "anti-pattern.redundant-doublets",
-  "anti-pattern.repeated-sentence-opening",
-  "anti-pattern.robotic-empathy",
-  "anti-pattern.short-sentence-staccato",
-  "anti-pattern.soft-vagueness",
-  "anti-pattern.structure-without-progression",
-  "anti-pattern.summary-wrap",
-  "anti-pattern.sycophantic-agreement",
-  "anti-pattern.tapestry-metaphor",
-  "anti-pattern.throat-clearing",
-  "anti-pattern.weak-verb-chain",
-  "anti-pattern.word-count-padding",
-  // AI-isms & Banned Packs
-  "anti-pattern.confessional-opener",
-  "anti-pattern.false-pivot-question",
-  "anti-pattern.manufactured-stillness",
-  "anti-pattern.ai-vocabulary-cluster",
-  "anti-pattern.false-range-construction",
-  "anti-pattern.legacy-importance-puffery",
-  "anti-pattern.mechanical-synonym-cycling",
-  "anti-pattern.narrator-as-analyst",
-  "anti-pattern.negative-parallelism",
-  "anti-pattern.promotional-brochure-language",
-  "anti-pattern.staccato-fragment-streak",
-  "anti-pattern.trailing-participle-pileup",
-  "anti-pattern.triple-beat-list-overuse",
-  "anti-pattern.forced-wit",
-]);
+export const KNOWN_INTENTS = new Set(LANGUAGEOPS_SNAPSHOT.captured_intents);
+export const KNOWN_CONTEXT_PROFILES = new Set(LANGUAGEOPS_SNAPSHOT.captured_context_profiles);
+export const KNOWN_PRIMITIVES = new Set(LANGUAGEOPS_SNAPSHOT.captured_primitives);
+export const KNOWN_ANTI_PATTERNS = new Set(LANGUAGEOPS_SNAPSHOT.captured_anti_patterns);
 
 export async function validateRecipeFile(filePath) {
   const issues = [];
@@ -250,12 +263,16 @@ export async function validateAllRecipes() {
 
 async function main() {
   console.log("\n── Validating LanguageOps Recipe Compatibility ──\n");
+  console.log("Validated against pinned LanguageOps contract snapshot:");
+  console.log(`  Repository:    ${LANGUAGEOPS_SNAPSHOT.repository}`);
+  console.log(`  Commit Ref:    ${LANGUAGEOPS_SNAPSHOT.source_ref}`);
+  console.log(`  Recipe Schema: ${LANGUAGEOPS_SNAPSHOT.recipe_schema_version}\n`);
   const results = await validateAllRecipes();
   let failed = false;
 
   for (const r of results) {
     if (r.issues.length === 0) {
-      console.log(`  ✓ ${r.file} passes LanguageOps recipe schema & referential integrity`);
+      console.log(`  ✓ ${r.file} conforms strictly to pinned LanguageOps contract snapshot`);
     } else {
       failed = true;
       console.error(`  ✗ FAIL: ${r.file}`);

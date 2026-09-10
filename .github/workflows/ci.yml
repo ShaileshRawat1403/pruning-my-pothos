@@ -17,13 +17,12 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Setup Vale
-        uses: vale-cli/vale-action@v3
-        with:
-          version: 3.17.0
-
-      - name: Add Vale to PATH
-        run: echo "/opt/hostedtoolcache/vale/3.17.0/x64" >> $GITHUB_PATH
+      - name: Install Pinned Vale (3.17.0)
+        run: |
+          mkdir -p /tmp/vale-install
+          curl -sL https://github.com/vale-cli/vale/releases/download/v3.17.0/vale_3.17.0_Linux_64-bit.tar.gz | tar -xz -C /tmp/vale-install
+          sudo mv /tmp/vale-install/vale /usr/local/bin/vale
+          vale --version
 
       - run: npm ci
       - run: npm run lint

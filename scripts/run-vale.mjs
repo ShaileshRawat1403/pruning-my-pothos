@@ -128,18 +128,30 @@ async function main() {
   const relTargets = targetFiles.map((f) => path.relative(ROOT, f));
   const result = spawnSync(bin, ["--config=.vale.ini", ...relTargets], {
     cwd: ROOT,
-    stdio: "inherit",
+    encoding: "utf8",
   });
+
+  const stdout = result.stdout || "";
+  const stderr = result.stderr || "";
+  if (stdout) process.stdout.write(stdout);
+  if (stderr) process.stderr.write(stderr);
 
   if (args.legacy) {
     // Advisory mode never exits with error
-    if (result.status !== 0) {
+    if (result.status !== 0 || stdout.includes("✖")) {
       console.log("\n[ADVISORY] Vale reported prose suggestions on legacy archive. Non-blocking.");
     }
     process.exit(0);
   }
 
-  process.exit(result.status ?? 0);
+  // In blocking mode (v1-only or file): any Vale alert (warnings or errors) blocks publication
+  const hasAlerts = stdout.includes("✖") || result.status !== 0;
+  if (hasAlerts) {
+    console.error(`\n[ERROR] Vale detected prose violations on v1 content. Blocking.`);
+    process.exit(1);
+  }
+
+  process.exit(0);
 }
 
 main().catch((err) => {

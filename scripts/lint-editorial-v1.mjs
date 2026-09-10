@@ -29,8 +29,8 @@ import { z } from "zod";
 
 const ROOT = process.cwd();
 const TARGET_DIRS = [
-  { dir: "src/content/systems", ext: ".mdx", allowedKinds: SYSTEMS_CONTENT_KINDS },
-  { dir: "src/content/self", ext: ".md", allowedKinds: SELF_CONTENT_KINDS },
+  { dir: "src/content/systems", exts: [".md", ".mdx"], allowedKinds: SYSTEMS_CONTENT_KINDS, collection: "systems" },
+  { dir: "src/content/self", exts: [".md", ".mdx"], allowedKinds: SELF_CONTENT_KINDS, collection: "self" },
 ];
 
 // Candidate incident regexes (Vale = signal, Validator = judgment)
@@ -52,17 +52,19 @@ function parseArgs(argv) {
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === "--file" && argv[i + 1]) {
       args.file = argv[++i];
+    } else if (argv[i] === "--collection" && argv[i + 1]) {
+      args.collection = argv[++i];
     }
   }
   return args;
 }
 
-async function collectFiles(dirPath, ext) {
+async function collectFiles(dirPath, exts = [".md", ".mdx"]) {
   const absDir = path.resolve(ROOT, dirPath);
   try {
     const entries = await fs.readdir(absDir, { withFileTypes: true });
     return entries
-      .filter((e) => e.isFile() && e.name.endsWith(ext))
+      .filter((e) => e.isFile() && exts.some((ext) => e.name.endsWith(ext)))
       .map((e) => path.join(absDir, e.name));
   } catch {
     return [];
@@ -141,7 +143,7 @@ export async function validateV1File(filePath, allowedKinds) {
     issues.push(...mappingIssues);
   }
 
-  // 5. Epistemic legality (incident phrasing check)
+  // 5. Epistemic legality (incident phrasing check bound to specific observed claim)
   const authorObservedClaims = Array.isArray(data.provenance?.claims)
     ? data.provenance.claims.filter((c) => c.kind === "observed" && c.attestation === "author")
     : [];
@@ -165,12 +167,11 @@ export async function validateV1File(filePath, allowedKinds) {
       const sentenceEnd = Math.min(...candidates);
       const sentence = body.slice(sentenceStart, sentenceEnd).trim();
       const normalizedSentence = normalizeProse(sentence);
-      const normalizedMatch = normalizeProse(match[0]);
 
+      // Require that the author-attested observed claim covers this specific assertion
       const matchingClaim = authorObservedClaims.find((c) => {
         const normClaim = normalizeProse(c.statement);
         return (
-          normClaim.includes(normalizedMatch) ||
           normalizedSentence.includes(normClaim) ||
           normClaim.includes(normalizedSentence)
         );
@@ -178,29 +179,51 @@ export async function validateV1File(filePath, allowedKinds) {
 
       if (!matchingClaim) {
         issues.push(
-          `Epistemic violation: Body contains first-person incident narrative ("${match[0]}") that is not covered by any author-attested observed claim.`
+          `Epistemic violation: Body contains first-person incident narrative ("${match[0]}") in "${sentence.slice(0, 140)}" that is not covered by any author-attested observed claim.`
         );
       }
     }
   }
 
-  // 6. Comparative frequency qualification check
+  // 6. Comparative frequency qualification check (each assertion bound to its own empirical claim)
   for (const pattern of UNANCHORED_FREQUENCY_PATTERNS) {
     pattern.lastIndex = 0;
     let match;
     while ((match = pattern.exec(body)) !== null) {
-      const hasEmpiricalSupportingClaim =
-        Array.isArray(data.provenance?.claims) &&
-        data.provenance.claims.some(
-          (c) =>
-            (c.kind === "repository" || c.kind === "external") &&
-            Array.isArray(c.sources) &&
-            c.sources.length > 0 &&
-            /(?:more|less) often/i.test(c.statement)
-        );
-      if (!hasEmpiricalSupportingClaim) {
+      const sentenceStart = Math.max(
+        0,
+        body.lastIndexOf("\n", match.index),
+        body.lastIndexOf(".", match.index) + 1,
+        body.lastIndexOf("!", match.index) + 1,
+        body.lastIndexOf("?", match.index) + 1
+      );
+      const nextPeriod = body.indexOf(".", match.index);
+      const nextExcl = body.indexOf("!", match.index);
+      const nextQ = body.indexOf("?", match.index);
+      const nextNewline = body.indexOf("\n", match.index);
+      const candidates = [nextPeriod, nextExcl, nextQ, nextNewline, body.length].filter((pos) => pos !== -1);
+      const sentenceEnd = Math.min(...candidates);
+      const sentence = body.slice(sentenceStart, sentenceEnd).trim();
+      const normalizedSentence = normalizeProse(sentence);
+
+      const empiricalSupportingClaims = Array.isArray(data.provenance?.claims)
+        ? data.provenance.claims.filter(
+            (c) =>
+              (c.kind === "repository" || c.kind === "external") &&
+              Array.isArray(c.sources) &&
+              c.sources.length > 0 &&
+              /(?:more|less) often/i.test(c.statement)
+          )
+        : [];
+
+      const matchingEmpiricalClaim = empiricalSupportingClaims.find((c) => {
+        const normClaim = normalizeProse(c.statement);
+        return normalizedSentence.includes(normClaim) || normClaim.includes(normalizedSentence);
+      });
+
+      if (!matchingEmpiricalClaim) {
         issues.push(
-          `Epistemic assertion: Comparative frequency statement ("${match[0]}") requires empirical source backing (repository or external claim referencing an inspectable source). Synthesis or observed claims cannot authorize comparative frequency.`
+          `Epistemic assertion: Comparative frequency statement ("${match[0]}") in "${sentence.slice(0, 140)}" requires empirical source backing (repository or external claim referencing an inspectable source). Each comparative assertion must map to its own source-backed claim.`
         );
       }
     }
@@ -214,10 +237,24 @@ async function main() {
   let filesToTest = [];
 
   if (args.file) {
-    filesToTest = [{ path: path.resolve(ROOT, args.file), allowedKinds: [...SYSTEMS_CONTENT_KINDS, ...SELF_CONTENT_KINDS] }];
+    let allowedKinds = [...SYSTEMS_CONTENT_KINDS, ...SELF_CONTENT_KINDS];
+    if (args.collection === "systems") {
+      allowedKinds = SYSTEMS_CONTENT_KINDS;
+    } else if (args.collection === "self") {
+      allowedKinds = SELF_CONTENT_KINDS;
+    } else {
+      // Deduce collection from file path if possible
+      const normPath = path.resolve(ROOT, args.file);
+      if (normPath.includes("/content/systems/") || normPath.includes("/staged/systems/")) {
+        allowedKinds = SYSTEMS_CONTENT_KINDS;
+      } else if (normPath.includes("/content/self/") || normPath.includes("/staged/self/")) {
+        allowedKinds = SELF_CONTENT_KINDS;
+      }
+    }
+    filesToTest = [{ path: path.resolve(ROOT, args.file), allowedKinds }];
   } else {
     for (const target of TARGET_DIRS) {
-      const files = await collectFiles(target.dir, target.ext);
+      const files = await collectFiles(target.dir, target.exts);
       for (const file of files) {
         filesToTest.push({ path: file, allowedKinds: target.allowedKinds });
       }

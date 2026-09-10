@@ -212,30 +212,29 @@ async function runCli() {
   const composed = matter.stringify(body, fm);
   const bodyIssues = COLLECTIONS[collection].body(composed, body);
 
-  // cover (systems) — only touch public/ on --promote; otherwise stage it
+  // cover (systems) — stage only by default; place into public/ only on successful promote
   let coverNote = "";
+  let stagedCoverPath = null;
+  let publicCoverPath = null;
+
   if (COLLECTIONS[collection].needsCover) {
     const coverRel = fm.heroImage.replace(/^\//, "");
     const coverAbs = path.join(ROOT, "public", coverRel);
+    publicCoverPath = coverAbs;
     try {
       await fs.access(coverAbs);
       coverNote = `exists: ${fm.heroImage}`;
     } catch {
       const svg = coverSvg(fm.title, fm.category);
-      if (args.promote) {
-        await fs.mkdir(path.dirname(coverAbs), { recursive: true });
-        await fs.writeFile(coverAbs, svg, "utf8");
-        coverNote = `generated: ${fm.heroImage}`;
-      } else {
-        const stagedCover = path.join(ROOT, ".websiteops", "staged", "covers", coverRel);
-        await fs.mkdir(path.dirname(stagedCover), { recursive: true });
-        await fs.writeFile(stagedCover, svg, "utf8");
-        coverNote = `staged (promote to place at ${fm.heroImage})`;
-      }
+      const stagedCover = path.join(ROOT, ".websiteops", "staged", "covers", coverRel);
+      await fs.mkdir(path.dirname(stagedCover), { recursive: true });
+      await fs.writeFile(stagedCover, svg, "utf8");
+      stagedCoverPath = stagedCover;
+      coverNote = `staged (promote to place at ${fm.heroImage})`;
     }
   }
 
-  // write (staged by default)
+  // write (staged)
   const filename = `${slug}${COLLECTIONS[collection].ext}`;
   const stagedDir = path.join(ROOT, ".websiteops", "staged", collection);
   await fs.mkdir(stagedDir, { recursive: true });
@@ -249,10 +248,11 @@ async function runCli() {
   let valeOut = "";
 
   if (fm.schemaVersion === "1.0") {
-    const edRes = spawnSync("node", ["scripts/lint-editorial-v1.mjs", "--file", stagedPath], {
-      cwd: ROOT,
-      encoding: "utf8",
-    });
+    const edRes = spawnSync(
+      "node",
+      ["scripts/lint-editorial-v1.mjs", "--file", stagedPath, "--collection", collection],
+      { cwd: ROOT, encoding: "utf8" }
+    );
     editorialOk = edRes.status === 0;
     editorialOut = (edRes.stdout || "") + (edRes.stderr || "");
 
@@ -264,12 +264,29 @@ async function runCli() {
     valeOut = (valeRes.stdout || "") + (valeRes.stderr || "");
   }
 
+  // Check whether staged packet satisfies all prerequisite gates
+  const prereqsOk =
+    fmIssues.length === 0 &&
+    bodyIssues.length === 0 &&
+    (fm.schemaVersion !== "1.0" || (editorialOk && valeOk));
+
   let promotedPath = null;
-  if (args.promote) {
+  let gatesOk = true;
+
+  // Transactional promotion: ONLY promote into src/content if prerequisite gates passed
+  if (args.promote && prereqsOk) {
     const destDir = path.join(ROOT, "src", "content", collection);
     await fs.mkdir(destDir, { recursive: true });
     promotedPath = path.join(destDir, filename);
     await fs.writeFile(promotedPath, composed, "utf8");
+
+    // Also place staged cover into public/ if needed
+    if (stagedCoverPath && publicCoverPath) {
+      await fs.mkdir(path.dirname(publicCoverPath), { recursive: true });
+      const coverContent = await fs.readFile(stagedCoverPath, "utf8");
+      await fs.writeFile(publicCoverPath, coverContent, "utf8");
+      coverNote = `placed: ${fm.heroImage}`;
+    }
   }
 
   // report
@@ -294,23 +311,30 @@ async function runCli() {
     }
   }
 
-  let gatesOk = true;
   if (args.promote) {
-    console.log(`  promoted:   ${path.relative(ROOT, promotedPath)}`);
-    console.log(`\n  running CI gates over the collection...`);
-    for (const s of ["lint-content-consistency.mjs", "lint-systems-consistency.mjs", "verify-covers.mjs"]) {
-      const { ok, out } = runGate(s);
-      gatesOk = gatesOk && ok;
-      console.log(`    ${ok ? "✓" : "✗"} ${s}`);
-      if (!ok) out.split("\n").filter(Boolean).slice(0, 12).forEach((l) => console.log(`        ${l}`));
+    if (promotedPath) {
+      console.log(`  promoted:   ${path.relative(ROOT, promotedPath)}`);
+      console.log(`\n  running CI gates over the collection...`);
+      for (const s of ["lint-content-consistency.mjs", "lint-systems-consistency.mjs", "verify-covers.mjs"]) {
+        const { ok, out } = runGate(s);
+        gatesOk = gatesOk && ok;
+        console.log(`    ${ok ? "✓" : "✗"} ${s}`);
+        if (!ok) out.split("\n").filter(Boolean).slice(0, 12).forEach((l) => console.log(`        ${l}`));
+      }
+      // Roll back promoted file if collection gates fail
+      if (!gatesOk) {
+        try {
+          await fs.unlink(promotedPath);
+        } catch {
+          // ignore rollback error
+        }
+      }
+    } else {
+      console.log(`  promotion   ✗ blocked (prerequisite gates failed; src/content left untouched)`);
     }
   }
 
-  const ready =
-    fmIssues.length === 0 &&
-    bodyIssues.length === 0 &&
-    (!args.promote || gatesOk) &&
-    (fm.schemaVersion !== "1.0" || (editorialOk && valeOk));
+  const ready = prereqsOk && (!args.promote || gatesOk);
 
   console.log(`\n  ${ready ? "✓ READY" : "✗ NOT READY"} — ${ready
     ? (args.promote ? "gates green; open a PR and merge to publish." : "conforms; run again with --promote to place it and run gates.")
