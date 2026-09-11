@@ -18,6 +18,7 @@
 
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { createHash } from "node:crypto";
 import { execSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
@@ -99,6 +100,37 @@ export function getSourceRevision() {
   } catch {
     return "unknown";
   }
+}
+
+/**
+ * Computes a deterministic SHA-256 snapshot over the audited content corpus.
+ * Derived solely from the audited content files (relative paths + file bytes).
+ * Stable, repeatable, and completely independent of Git commit hash recursion.
+ */
+export async function computeContentSnapshot(targets = DEFAULT_AUDIT_TARGETS) {
+  const hash = createHash("sha256");
+  const allFiles = [];
+
+  for (const target of targets) {
+    const files = await collectContentFiles(target.dir, target.exts || CONTENT_EXTENSIONS);
+    for (const file of files) {
+      const relPath = path.relative(ROOT, file).replace(/\\/g, "/");
+      allFiles.push({ absPath: file, relPath });
+    }
+  }
+
+  // Stable sort by relative path
+  allFiles.sort((a, b) => a.relPath.localeCompare(b.relPath));
+
+  for (const file of allFiles) {
+    const content = await fs.readFile(file.absPath);
+    hash.update(file.relPath);
+    hash.update("\0");
+    hash.update(content);
+    hash.update("\0");
+  }
+
+  return `sha256:${hash.digest("hex")}`;
 }
 
 function findMatches(lines, signals) {
@@ -220,7 +252,7 @@ export function evaluateDocument(filePath, raw, collection) {
   };
 }
 
-export function generateAuditMarkdown(results, { sourceRevision, outputFile = OUTPUT_FILE }) {
+export function generateAuditMarkdown(results, { contentSnapshot, outputFile = OUTPUT_FILE }) {
   const counts = {
     Total: results.length,
     Green: results.filter((r) => r.status === "Green").length,
@@ -230,7 +262,7 @@ export function generateAuditMarkdown(results, { sourceRevision, outputFile = OU
   };
 
   let md = `# Editorial Integrity Audit Report\n\n`;
-  md += `Source revision: ${sourceRevision}\n`;
+  md += `Content snapshot: ${contentSnapshot}\n`;
   md += `Status: Read-only diagnostic of the existing article archive.\n\n`;
   md += `## Status Definitions\n\n`;
   md += `- **Green**: No integrity risk detected by the current automated checks.\n`;
@@ -299,6 +331,7 @@ export function generateAuditMarkdown(results, { sourceRevision, outputFile = OU
 
 export async function auditArchive(targets = DEFAULT_AUDIT_TARGETS, options = {}) {
   const outputFile = options.outputFile ? path.resolve(ROOT, options.outputFile) : OUTPUT_FILE;
+  const contentSnapshot = options.contentSnapshot || (await computeContentSnapshot(targets));
   const sourceRevision = options.sourceRevision || getSourceRevision();
 
   const results = [];
@@ -318,25 +351,26 @@ export async function auditArchive(targets = DEFAULT_AUDIT_TARGETS, options = {}
     return a.slug.localeCompare(b.slug);
   });
 
-  const { md, counts } = generateAuditMarkdown(results, { sourceRevision, outputFile });
+  const { md, counts } = generateAuditMarkdown(results, { contentSnapshot, outputFile });
 
   if (options.write !== false) {
     await fs.mkdir(path.dirname(outputFile), { recursive: true });
     await fs.writeFile(outputFile, md, "utf8");
   }
 
-  return { results, counts, markdown: md, outputFile, sourceRevision };
+  return { results, counts, markdown: md, outputFile, contentSnapshot, sourceRevision };
 }
 
 async function main() {
   console.log("\n── Running Archive Editorial Integrity Audit ──\n");
-  const { counts, outputFile } = await auditArchive();
+  const { counts, outputFile, contentSnapshot } = await auditArchive();
 
   console.log(`Audited ${counts.Total} articles across systems and self:`);
   console.log(`  🟢 Green:        ${counts.Green}`);
   console.log(`  🟡 Amber:        ${counts.Amber}`);
   console.log(`  🔴 Red:          ${counts.Red}`);
   console.log(`  🔵 Illustrative: ${counts.Illustrative}\n`);
+  console.log(`Content snapshot: ${contentSnapshot}`);
   console.log(`✓ Audit report successfully written to ${path.relative(ROOT, outputFile)}\n`);
 }
 

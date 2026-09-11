@@ -21,7 +21,7 @@
 import { validateV1File } from "./lint-editorial-v1.mjs";
 import { conformFrontmatter, V1_PRESERVED_KEYS } from "./websiteops-conform.mjs";
 import { validateAllRecipes } from "./validate-languageops-recipes.mjs";
-import { collectContentFiles, auditArchive, getSourceRevision } from "./audit-editorial-integrity.mjs";
+import { collectContentFiles, auditArchive, computeContentSnapshot } from "./audit-editorial-integrity.mjs";
 import { spawnSync } from "node:child_process";
 import { promises as fs, existsSync } from "node:fs";
 import path from "node:path";
@@ -493,7 +493,9 @@ async function runTests() {
     `Test 38: archive scanner discovers both .md and .mdx across both systems and self`
   );
 
-  // Test 39: Deterministic report provenance: two consecutive audit runs produce byte-identical output
+  // Test 39: Deterministic content snapshot (Criterion A): two consecutive runs over identical audited content produce identical snapshots and byte-identical report output
+  const snap1 = await computeContentSnapshot();
+  const snap2 = await computeContentSnapshot();
   const tempAudit1 = path.resolve(ROOT, "tests/fixtures/temp-audit-1.md");
   const tempAudit2 = path.resolve(ROOT, "tests/fixtures/temp-audit-2.md");
   try { await fs.unlink(tempAudit1); } catch {}
@@ -506,15 +508,71 @@ async function runTests() {
   try { await fs.unlink(tempAudit1); } catch {}
   try { await fs.unlink(tempAudit2); } catch {}
 
-  const currentRevision = getSourceRevision();
   assert(
-    audit1Bytes === audit2Bytes &&
-      audit1Bytes.includes(`Source revision: ${currentRevision}`) &&
-      !audit1Bytes.includes("Generated: "),
-    `Test 39: deterministic report provenance: two consecutive audit runs produce byte-identical output with git source revision and no date jitter`
+    snap1 === snap2 &&
+      snap1.startsWith("sha256:") &&
+      audit1Bytes === audit2Bytes &&
+      audit1Bytes.includes(`Content snapshot: ${snap1}`) &&
+      !audit1Bytes.includes("Generated: ") &&
+      !audit1Bytes.includes("Source revision: "),
+    `Test 39: deterministic content snapshot (Criterion A): two consecutive runs over identical audited content produce identical snapshots and byte-identical report output`
   );
 
-  // Test 40: Portable links: audit report contains zero machine-local links and only repository-relative paths
+  // Test 40: Content snapshot sensitivity (Criterion B): modifying one byte in an article changes the snapshot
+  const fixtureTargets = [
+    { collection: "systems", dir: "tests/fixtures/archive-discovery/systems", exts: [".md", ".mdx"] },
+  ];
+  const snapBefore = await computeContentSnapshot(fixtureTargets);
+  const fixtureDocPath = path.resolve(ROOT, "tests/fixtures/archive-discovery/systems/sample-systems.md");
+  const originalFixtureBytes = await fs.readFile(fixtureDocPath, "utf8");
+  let snapAfterMod;
+  try {
+    await fs.writeFile(fixtureDocPath, originalFixtureBytes + "!", "utf8");
+    snapAfterMod = await computeContentSnapshot(fixtureTargets);
+  } finally {
+    await fs.writeFile(fixtureDocPath, originalFixtureBytes, "utf8");
+  }
+  const snapRestored = await computeContentSnapshot(fixtureTargets);
+
+  assert(
+    snapBefore !== snapAfterMod &&
+      snapRestored === snapBefore &&
+      snapBefore.startsWith("sha256:") &&
+      snapAfterMod.startsWith("sha256:"),
+    `Test 40: content snapshot sensitivity (Criterion B): modifying one byte in an article changes the content snapshot digest`
+  );
+
+  // Test 41: Content snapshot decoupling (Criterion C): modifying only the generated audit report does NOT change the snapshot
+  const baseCorpusSnap = await computeContentSnapshot();
+  const tempAuditReport = path.resolve(ROOT, "tests/fixtures/temp-audit-report.md");
+  await fs.writeFile(tempAuditReport, "Random extra report content\n", "utf8");
+  const auditReportPath = path.resolve(ROOT, "docs/EDITORIAL_AUDIT.md");
+  const originalReportContent = await fs.readFile(auditReportPath, "utf8");
+  let snapWhileReportMutated;
+  try {
+    await fs.writeFile(auditReportPath, originalReportContent + "\n<!-- extra audit comment -->\n", "utf8");
+    snapWhileReportMutated = await computeContentSnapshot();
+  } finally {
+    await fs.writeFile(auditReportPath, originalReportContent, "utf8");
+    try { await fs.unlink(tempAuditReport); } catch {}
+  }
+
+  assert(
+    baseCorpusSnap === snapWhileReportMutated,
+    `Test 41: content snapshot decoupling (Criterion C): modifying only the generated audit report does NOT change the content snapshot`
+  );
+
+  // Test 42: Audit report alignment (Criterion D): committed docs/EDITORIAL_AUDIT.md contains exact content snapshot derived from audited content
+  const expectedSnapshot = await computeContentSnapshot();
+  const committedAudit = await fs.readFile(path.resolve(ROOT, "docs/EDITORIAL_AUDIT.md"), "utf8");
+  const snapshotMatch = committedAudit.match(/Content snapshot:\s+(sha256:[a-f0-9]{64})/);
+  assert(
+    snapshotMatch !== null &&
+      snapshotMatch[1] === expectedSnapshot,
+    `Test 42: audit report alignment (Criterion D): committed docs/EDITORIAL_AUDIT.md contains exact content snapshot (${expectedSnapshot}) derived from audited content`
+  );
+
+  // Test 43: Portable links: audit report contains zero machine-local links and only repository-relative paths
   const mainAuditPath = path.resolve(ROOT, "docs/EDITORIAL_AUDIT.md");
   const mainAuditContent = await fs.readFile(mainAuditPath, "utf8");
   const hasFileScheme = mainAuditContent.includes("file:///");
@@ -524,7 +582,7 @@ async function runTests() {
   const hasSelfRelLink = mainAuditContent.includes("../src/content/self/");
   assert(
     !hasFileScheme && !hasUsersDir && !hasHomeDir && hasSystemsRelLink && hasSelfRelLink,
-    `Test 40: portable audit links: generated report contains zero machine-local links and only repository-relative paths`
+    `Test 43: portable audit links: generated report contains zero machine-local links and only repository-relative paths`
   );
 
   console.log(`\nRegression Suite Results: ${passed} passed, ${failed} failed.\n`);
