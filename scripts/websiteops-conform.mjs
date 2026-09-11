@@ -34,6 +34,8 @@ import { COLLECTIONS, SUPPORTED, slugify } from "./content-contract.mjs";
 const ROOT = process.cwd();
 const TODAY = new Date().toISOString().slice(0, 10);
 
+import { fileURLToPath } from "node:url";
+
 // ── args ──────────────────────────────────────────────────────────────────
 function parseArgs(argv) {
   const a = { enrich: false, promote: false };
@@ -46,32 +48,61 @@ function parseArgs(argv) {
   return a;
 }
 
-const args = parseArgs(process.argv.slice(2));
-
 function fail(msg) {
   console.error(`\n✗ ${msg}\n`);
   process.exit(1);
-}
-
-if (!args.in) fail("Missing --in <packet file>");
-if (!args.collection) fail("Missing --collection <systems|self|sentences>");
-if (!SUPPORTED.includes(args.collection)) {
-  fail(`Unsupported collection "${args.collection}". Use ${SUPPORTED.join(", ")}.`);
 }
 
 // ── conform frontmatter ──────────────────────────────────────────────────────
 const toYmd = (v) =>
   v instanceof Date ? v.toISOString().slice(0, 10) : v ? String(v).slice(0, 10) : v;
 
-function conformFrontmatter(collection, data, slug) {
-  const publishDate = args.date || toYmd(data.publishDate) || toYmd(data.updatedAt) || TODAY;
+export const V1_PRESERVED_KEYS = [
+  "schemaVersion",
+  "contentKind",
+  "readerIntent",
+  "readerOutcome",
+  "thesis",
+  "boundary",
+  "practice",
+  "provenance",
+  "language",
+];
+
+export function conformFrontmatter(collection, data, slug, customDate) {
+  const publishDate = customDate || toYmd(data.publishDate) || toYmd(data.updatedAt) || TODAY;
   const tags = Array.isArray(data.tags) ? data.tags : [];
+  const isV1 = data.schemaVersion === "1.0";
+
+  const v1Entries = Object.fromEntries(
+    V1_PRESERVED_KEYS.filter((key) => data[key] !== undefined).map((key) => [key, data[key]])
+  );
 
   if (collection === "systems") {
     return {
+      ...Object.fromEntries(
+        [
+          "seoTitle",
+          "featured",
+          "contentType",
+          "readingTime",
+          "difficulty",
+          "shortAnswer",
+          "analogy",
+          "figure",
+          "practice",
+          "evidence",
+          "related",
+          "useValue",
+          "boundary",
+        ]
+          .filter((key) => data[key] !== undefined)
+          .map((key) => [key, data[key]])
+      ),
+      ...v1Entries,
       title: data.title,
       description: data.description ?? "",
-      category: data.category,
+      ...(data.category ? { category: data.category } : isV1 ? {} : { category: "Explanations" }),
       tags,
       publishDate,
       updatedAt: toYmd(data.updatedAt) || publishDate,
@@ -83,6 +114,7 @@ function conformFrontmatter(collection, data, slug) {
   }
   if (collection === "self") {
     return {
+      ...v1Entries,
       title: data.title,
       description: data.description ?? data.summary ?? "",
       publishDate,
@@ -151,15 +183,22 @@ function runGate(script) {
   return { ok: r.status === 0, out: (r.stdout || "") + (r.stderr || "") };
 }
 
-// ── main ─────────────────────────────────────────────────────────────────────
-async function main() {
+// ── main CLI runner ──────────────────────────────────────────────────────────
+async function runCli() {
+  const args = parseArgs(process.argv.slice(2));
+  if (!args.in) fail("Missing --in <packet file>");
+  if (!args.collection) fail("Missing --collection <systems|self|sentences>");
+  if (!SUPPORTED.includes(args.collection)) {
+    fail(`Unsupported collection "${args.collection}". Use ${SUPPORTED.join(", ")}.`);
+  }
+
   const collection = args.collection;
   const raw = await fs.readFile(path.resolve(args.in), "utf8");
   const parsed = matter(raw);
   if (!parsed.data?.title) fail("Packet has no title in frontmatter.");
 
   const slug = args.slug ? slugify(args.slug) : slugify(parsed.data.title);
-  const fm = conformFrontmatter(collection, parsed.data, slug);
+  const fm = conformFrontmatter(collection, parsed.data, slug, args.date);
 
   // validate frontmatter
   const result = COLLECTIONS[collection].schema.safeParse(fm);
@@ -173,42 +212,109 @@ async function main() {
   const composed = matter.stringify(body, fm);
   const bodyIssues = COLLECTIONS[collection].body(composed, body);
 
-  // cover (systems) — only touch public/ on --promote; otherwise stage it
+  // cover (systems) — stage only by default; place into public/ only on successful promote
   let coverNote = "";
+  let stagedCoverPath = null;
+  let publicCoverPath = null;
+
   if (COLLECTIONS[collection].needsCover) {
     const coverRel = fm.heroImage.replace(/^\//, "");
     const coverAbs = path.join(ROOT, "public", coverRel);
+    publicCoverPath = coverAbs;
     try {
       await fs.access(coverAbs);
       coverNote = `exists: ${fm.heroImage}`;
     } catch {
       const svg = coverSvg(fm.title, fm.category);
-      if (args.promote) {
-        await fs.mkdir(path.dirname(coverAbs), { recursive: true });
-        await fs.writeFile(coverAbs, svg, "utf8");
-        coverNote = `generated: ${fm.heroImage}`;
-      } else {
-        const stagedCover = path.join(ROOT, ".websiteops", "staged", "covers", coverRel);
-        await fs.mkdir(path.dirname(stagedCover), { recursive: true });
-        await fs.writeFile(stagedCover, svg, "utf8");
-        coverNote = `staged (promote to place at ${fm.heroImage})`;
-      }
+      const stagedCover = path.join(ROOT, ".websiteops", "staged", "covers", coverRel);
+      await fs.mkdir(path.dirname(stagedCover), { recursive: true });
+      await fs.writeFile(stagedCover, svg, "utf8");
+      stagedCoverPath = stagedCover;
+      coverNote = `staged (promote to place at ${fm.heroImage})`;
     }
   }
 
-  // write (staged by default)
+  // write (staged)
   const filename = `${slug}${COLLECTIONS[collection].ext}`;
   const stagedDir = path.join(ROOT, ".websiteops", "staged", collection);
   await fs.mkdir(stagedDir, { recursive: true });
   const stagedPath = path.join(stagedDir, filename);
   await fs.writeFile(stagedPath, composed, "utf8");
 
+  // Editorial Contract v1 & Vale verification on staged packet
+  let editorialOk = true;
+  let editorialOut = "";
+  let valeOk = true;
+  let valeOut = "";
+
+  if (fm.schemaVersion === "1.0") {
+    const edRes = spawnSync(
+      "node",
+      ["scripts/lint-editorial-v1.mjs", "--file", stagedPath, "--collection", collection],
+      { cwd: ROOT, encoding: "utf8" }
+    );
+    editorialOk = edRes.status === 0;
+    editorialOut = (edRes.stdout || "") + (edRes.stderr || "");
+
+    const valeRes = spawnSync("node", ["scripts/run-vale.mjs", "--file", stagedPath], {
+      cwd: ROOT,
+      encoding: "utf8",
+    });
+    valeOk = valeRes.status === 0;
+    valeOut = (valeRes.stdout || "") + (valeRes.stderr || "");
+  }
+
+  // Check whether staged packet satisfies all prerequisite gates
+  const prereqsOk =
+    fmIssues.length === 0 &&
+    bodyIssues.length === 0 &&
+    (fm.schemaVersion !== "1.0" || (editorialOk && valeOk));
+
   let promotedPath = null;
-  if (args.promote) {
+  let gatesOk = true;
+  let prevArticleExisted = false;
+  let prevArticleContent = null;
+  let prevCoverExisted = false;
+  let prevCoverContent = null;
+  let placedCoverPath = null;
+
+  // Transactional promotion: ONLY promote into src/content if prerequisite gates passed
+  if (args.promote && prereqsOk) {
     const destDir = path.join(ROOT, "src", "content", collection);
     await fs.mkdir(destDir, { recursive: true });
     promotedPath = path.join(destDir, filename);
+
+    // 1. Snapshot previous article state
+    try {
+      prevArticleContent = await fs.readFile(promotedPath);
+      prevArticleExisted = true;
+    } catch {
+      prevArticleExisted = false;
+      prevArticleContent = null;
+    }
+
+    // 2. Snapshot previous public cover state if a cover is to be placed
+    if (stagedCoverPath && publicCoverPath) {
+      placedCoverPath = publicCoverPath;
+      try {
+        prevCoverContent = await fs.readFile(publicCoverPath);
+        prevCoverExisted = true;
+      } catch {
+        prevCoverExisted = false;
+        prevCoverContent = null;
+      }
+    }
+
+    // 3. Write promoted article
     await fs.writeFile(promotedPath, composed, "utf8");
+
+    // 4. Also place staged cover into public/ if needed
+    if (stagedCoverPath && publicCoverPath) {
+      await fs.mkdir(path.dirname(publicCoverPath), { recursive: true });
+      const coverContent = await fs.readFile(stagedCoverPath, "utf8");
+      await fs.writeFile(publicCoverPath, coverContent, "utf8");
+      coverNote = `placed: ${fm.heroImage}`;
+    }
   }
 
   // report
@@ -222,19 +328,62 @@ async function main() {
   console.log(`  body shape  ${bodyIssues.length ? "✗" : "✓"}${bodyIssues.length ? "" : " passes " + collection + " structure"}`);
   bodyIssues.forEach((i) => console.log(`     - ${i}`));
 
-  let gatesOk = true;
-  if (args.promote) {
-    console.log(`  promoted:   ${path.relative(ROOT, promotedPath)}`);
-    console.log(`\n  running CI gates over the collection...`);
-    for (const s of ["lint-content-consistency.mjs", "lint-systems-consistency.mjs", "verify-covers.mjs"]) {
-      const { ok, out } = runGate(s);
-      gatesOk = gatesOk && ok;
-      console.log(`    ${ok ? "✓" : "✗"} ${s}`);
-      if (!ok) out.split("\n").filter(Boolean).slice(0, 12).forEach((l) => console.log(`        ${l}`));
+  if (fm.schemaVersion === "1.0") {
+    console.log(`  editorial v1 gate ${editorialOk ? "✓" : "✗"}${editorialOk ? " passes contract v1" : " fails"}`);
+    if (!editorialOk) {
+      editorialOut.split("\n").filter(Boolean).slice(0, 12).forEach((l) => console.log(`        ${l}`));
+    }
+    console.log(`  vale v1 gate      ${valeOk ? "✓" : "✗"}${valeOk ? " passes prose rules" : " fails"}`);
+    if (!valeOk) {
+      valeOut.split("\n").filter(Boolean).slice(0, 12).forEach((l) => console.log(`        ${l}`));
     }
   }
 
-  const ready = fmIssues.length === 0 && bodyIssues.length === 0 && (!args.promote || gatesOk);
+  if (args.promote) {
+    if (promotedPath) {
+      console.log(`  promoted:   ${path.relative(ROOT, promotedPath)}`);
+      console.log(`\n  running CI gates over the collection...`);
+      for (const s of ["lint-content-consistency.mjs", "lint-systems-consistency.mjs", "verify-covers.mjs"]) {
+        const { ok, out } = runGate(s);
+        gatesOk = gatesOk && ok;
+        console.log(`    ${ok ? "✓" : "✗"} ${s}`);
+        if (!ok) out.split("\n").filter(Boolean).slice(0, 12).forEach((l) => console.log(`        ${l}`));
+      }
+      // Roll back promoted changes if post-promotion collection gates fail
+      if (!gatesOk) {
+        try {
+          if (prevArticleExisted && prevArticleContent !== null) {
+            await fs.writeFile(promotedPath, prevArticleContent);
+            console.log(`  rollback    ↺ restored original article at ${path.relative(ROOT, promotedPath)}`);
+          } else if (!prevArticleExisted && promotedPath) {
+            await fs.unlink(promotedPath);
+            console.log(`  rollback    ↺ removed newly created file ${path.relative(ROOT, promotedPath)}`);
+          }
+        } catch (e) {
+          console.error(`  rollback error on article:`, e);
+        }
+
+        if (placedCoverPath) {
+          try {
+            if (prevCoverExisted && prevCoverContent !== null) {
+              await fs.writeFile(placedCoverPath, prevCoverContent);
+              console.log(`  rollback    ↺ restored original cover at ${path.relative(ROOT, placedCoverPath)}`);
+            } else if (!prevCoverExisted) {
+              await fs.unlink(placedCoverPath);
+              console.log(`  rollback    ↺ removed newly created cover ${path.relative(ROOT, placedCoverPath)}`);
+            }
+          } catch (e) {
+            console.error(`  rollback error on cover:`, e);
+          }
+        }
+      }
+    } else {
+      console.log(`  promotion   ✗ blocked (prerequisite gates failed; src/content left untouched)`);
+    }
+  }
+
+  const ready = prereqsOk && (!args.promote || gatesOk);
+
   console.log(`\n  ${ready ? "✓ READY" : "✗ NOT READY"} — ${ready
     ? (args.promote ? "gates green; open a PR and merge to publish." : "conforms; run again with --promote to place it and run gates.")
     : "resolve the items above (the drafting step must supply the missing structure)."}`);
@@ -242,4 +391,10 @@ async function main() {
   process.exit(ready ? 0 : 1);
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+const isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (isMain) {
+  runCli().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}

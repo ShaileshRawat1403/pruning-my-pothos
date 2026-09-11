@@ -1,0 +1,22 @@
+schema_version: "0.1"
+id: recipe.pmp-field-note
+name: PMP Field Note
+description: Composition recipe for compact operational observations in Pruning My Pothos. Records real system behaviors, calibration decisions, and edge cases encountered in practice with author attestation.
+intents:
+  - intent.reflect
+context_profiles:
+  - context-profile.reflective-writing
+recommended_primitives:
+  - primitive.evidence-before-claim
+  - primitive.specificity
+  - primitive.restraint
+  - primitive.uncertainty-preservation
+  - primitive.compression
+  - primitive.stop-after-resolution
+avoid_anti_patterns:
+  - anti-pattern.throat-clearing
+  - anti-pattern.summary-wrap
+  - anti-pattern.hyperbolic-intro
+  - anti-pattern.word-count-padding
+  - anti-pattern.confessional-opener
+  - anti-pattern.false-pivot-question

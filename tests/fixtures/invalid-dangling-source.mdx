@@ -1,0 +1,34 @@
+---
+schemaVersion: "1.0"
+title: "Dangling Source Example"
+description: "A draft referencing a source ID that does not exist."
+contentKind: "explainer"
+readerIntent: "understand"
+readerOutcome: "Understand how source referential integrity is strictly enforced by the validator."
+thesis: "Dangling source references indicate broken editorial provenance."
+category: "Concepts"
+shortAnswer: "A policy-governed runtime moves authorization out of the prompt and into a deterministic host supervisor. The model proposes tool calls, but the host environment verifies permissions against immutable rules before execution begins."
+
+boundary:
+  is: "A test fixture for referential integrity."
+  isNot: "A published article."
+  mattersWhen: "Testing publication gates."
+
+provenance:
+  primary: "synthesis"
+  sources:
+    - id: "existing-source"
+      type: "external"
+      url: "https://example.com/spec"
+  claims:
+    - statement: "Dangling source references indicate broken editorial provenance."
+      kind: "external"
+      sources:
+        - "non-existent-source-id"
+
+language:
+  profile: "sans-serif-sentiments"
+  recipe: "pmp-systems-explainer"
+---
+
+Dangling source references indicate broken editorial provenance in any publication system.

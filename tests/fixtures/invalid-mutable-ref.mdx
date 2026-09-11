@@ -1,0 +1,36 @@
+---
+schemaVersion: "1.0"
+title: "Mutable Ref Example"
+description: "A draft using a mutable branch name instead of an immutable git commit SHA."
+contentKind: "explainer"
+readerIntent: "understand"
+readerOutcome: "Understand why immutable commit SHAs are required for repository evidence."
+thesis: "Mutable references drift over time and break verification."
+category: "Concepts"
+shortAnswer: "A policy-governed runtime moves authorization out of the prompt and into a deterministic host supervisor. The model proposes tool calls, but the host environment verifies permissions against immutable rules before execution begins."
+
+boundary:
+  is: "A test fixture for git SHA immutability."
+  isNot: "A published article."
+  mattersWhen: "Evaluating repository evidence."
+
+provenance:
+  primary: "synthesis"
+  sources:
+    - id: "mutable-source"
+      type: "repository"
+      url: "https://github.com/example/mcp-runtime"
+      path: "src/main.rs"
+      ref: "main"
+  claims:
+    - statement: "Mutable references drift over time and break verification."
+      kind: "repository"
+      sources:
+        - "mutable-source"
+
+language:
+  profile: "sans-serif-sentiments"
+  recipe: "pmp-systems-explainer"
+---
+
+Mutable references drift over time and break verification in production systems.

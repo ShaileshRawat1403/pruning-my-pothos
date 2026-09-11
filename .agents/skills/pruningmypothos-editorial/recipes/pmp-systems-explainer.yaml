@@ -1,0 +1,27 @@
+schema_version: "0.1"
+id: recipe.pmp-systems-explainer
+name: PMP Systems Explainer
+description: Composition recipe for Pruning My Pothos technical explainers. Enforces direct mechanisms, falsifiable conceptual boundaries, and evidence-backed claims.
+intents:
+  - intent.explain
+context_profiles:
+  - context-profile.technical-explanation
+recommended_primitives:
+  - primitive.direct-answer
+  - primitive.evidence-before-claim
+  - primitive.specificity
+  - primitive.plain-language
+  - primitive.restraint
+  - primitive.selective-expansion
+  - primitive.example-when-needed
+  - primitive.stop-after-resolution
+avoid_anti_patterns:
+  - anti-pattern.throat-clearing
+  - anti-pattern.summary-wrap
+  - anti-pattern.conceptual-vagueness
+  - anti-pattern.didactic-tone
+  - anti-pattern.tapestry-metaphor
+  - anti-pattern.delve-reliance
+  - anti-pattern.word-count-padding
+  - anti-pattern.confessional-opener
+  - anti-pattern.false-pivot-question

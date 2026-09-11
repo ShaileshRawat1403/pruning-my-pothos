@@ -38,21 +38,37 @@ const systems = {
   minWords: 800,
   needsCover: true,
   categories: ["Explanations", "Concepts", "How-things-fit-together"],
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    category: z.enum(["Explanations", "Concepts", "How-things-fit-together"]),
-    tags: z.array(z.string()).default([]),
-    publishDate: z.string().optional(),
-    updatedAt: z.string().optional(),
-    heroImage: z.string().optional(),
-    heroImageAlt: z.string().optional(),
-    proofPoints: z.array(z.string()).default([]),
-    faq: z.array(z.object({ question: z.string(), answer: z.string() })).default([]),
-    ...editorial,
-  }),
+  schema: z
+    .object({
+      title: z.string(),
+      description: z.string(),
+      category: z.enum(["Explanations", "Concepts", "How-things-fit-together"]).optional(),
+      tags: z.array(z.string()).default([]),
+      publishDate: z.string().optional(),
+      updatedAt: z.string().optional(),
+      heroImage: z.string().optional(),
+      heroImageAlt: z.string().optional(),
+      proofPoints: z.array(z.string()).default([]),
+      faq: z.array(z.object({ question: z.string(), answer: z.string() })).default([]),
+      ...editorial,
+    })
+    .passthrough(),
   body(raw, body) {
+    const isV1 = /schemaVersion:\s*["']1\.0["']/.test(raw);
     const issues = [];
+
+    if (isV1) {
+      // ── PMP Editorial Contract v1 Structural Gate ──
+      // Prohibit formulaic placeholder headings
+      if (/^##\s+Act\s+(?:I|II|III)\b/mi.test(raw)) {
+        issues.push("v1 prohibits formulaic Act headings (## Act I/II/III); use descriptive headings");
+      }
+      if (/^##\s+(?:Introduction|Conclusion|Deep Dive)\b/mi.test(raw)) {
+        issues.push("v1 prohibits generic meta-headings (## Introduction/Conclusion/Deep Dive)");
+      }
+      return issues;
+    }
+
     const w = countWords(body);
     if (w < 800) issues.push(`body < 800 words (found ${w})`);
     if (!/\*\*Key takeaways\*\*/i.test(raw)) issues.push("missing **Key takeaways** block");
@@ -73,17 +89,28 @@ const self = {
   dir: "src/content/self",
   minWords: 140,
   needsCover: false,
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    publishDate: z.string(),
-    tags: z.array(z.string()).default([]),
-    heroImage: z.string().optional(),
-    heroImageAlt: z.string().optional(),
-    ...editorial,
-  }),
+  schema: z
+    .object({
+      title: z.string(),
+      description: z.string(),
+      publishDate: z.string(),
+      tags: z.array(z.string()).default([]),
+      heroImage: z.string().optional(),
+      heroImageAlt: z.string().optional(),
+      ...editorial,
+    })
+    .passthrough(),
   body(raw, body) {
+    const isV1 = /schemaVersion:\s*["']1\.0["']/.test(raw);
     const issues = [];
+
+    if (isV1) {
+      if (/^##\s+(?:Introduction|Conclusion|Deep Dive)\b/mi.test(raw)) {
+        issues.push("v1 prohibits generic meta-headings (## Introduction/Conclusion/Deep Dive)");
+      }
+      return issues;
+    }
+
     if (!/<p class="lead">/i.test(raw)) issues.push('missing <p class="lead"> lead paragraph');
     if (!(/class="highlight"/i.test(raw) || /<figure\b/i.test(raw))) issues.push("missing highlight or figure");
     const w = countWords(body);

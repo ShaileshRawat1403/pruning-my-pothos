@@ -17,8 +17,16 @@ jobs:
           node-version: 20
           cache: npm
 
+      - name: Install Pinned Vale (3.17.0)
+        run: |
+          mkdir -p /tmp/vale-install
+          curl -sL https://github.com/vale-cli/vale/releases/download/v3.17.0/vale_3.17.0_Linux_64-bit.tar.gz | tar -xz -C /tmp/vale-install
+          sudo mv /tmp/vale-install/vale /usr/local/bin/vale
+          vale --version
+
       - run: npm ci
       - run: npm run lint
+      - run: npm run test:contract
       - run: npm run lint:content
       - run: npm run lint:systems:advisory
       - run: npm run report:systems

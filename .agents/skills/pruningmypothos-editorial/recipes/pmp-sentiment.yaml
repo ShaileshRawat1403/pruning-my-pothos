@@ -1,0 +1,23 @@
+schema_version: "0.1"
+id: recipe.pmp-sentiment
+name: PMP Sentiment & Essay
+description: Composition recipe for reflective essays and cultural analysis in Pruning My Pothos. Evaluates the human signal left behind when automation and excess are stripped away.
+intents:
+  - intent.reflect
+context_profiles:
+  - context-profile.reflective-writing
+recommended_primitives:
+  - primitive.restraint
+  - primitive.cadence-variation
+  - primitive.controlled-contrast
+  - primitive.minimalist-close
+  - primitive.clause-balance
+  - primitive.meaning-preservation
+avoid_anti_patterns:
+  - anti-pattern.throat-clearing
+  - anti-pattern.hyperbolic-intro
+  - anti-pattern.confessional-opener
+  - anti-pattern.false-pivot-question
+  - anti-pattern.word-count-padding
+  - anti-pattern.delve-reliance
+  - anti-pattern.tapestry-metaphor

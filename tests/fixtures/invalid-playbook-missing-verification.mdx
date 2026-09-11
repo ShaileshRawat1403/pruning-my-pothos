@@ -1,0 +1,18 @@
+---
+title: "Playbook Missing Verification Test"
+description: "Demonstrates rejection when a playbook practice block lacks verification instructions."
+schemaVersion: "1.0"
+contentKind: "playbook"
+readerIntent: "use"
+readerOutcome: "Understand playbook practice block requirements."
+thesis: "Playbooks require explicit verification and failure checks."
+practice:
+  steps:
+    - "First configure the target parameter in settings"
+    - "Next run the command with dry-run mode enabled"
+  failureCheck: "Look for silent timeouts in the stderr stream within five seconds"
+provenance:
+  primary: "synthesis"
+---
+
+Follow these steps to configure your environment safely.

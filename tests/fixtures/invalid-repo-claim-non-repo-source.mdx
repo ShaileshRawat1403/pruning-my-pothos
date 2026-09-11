@@ -1,0 +1,27 @@
+---
+title: "Repository Claim Non-Repo Source Test"
+description: "Demonstrates rejection when a repository claim references an external source."
+schemaVersion: "1.0"
+contentKind: "explainer"
+readerIntent: "understand"
+readerOutcome: "Understand why repository claims must bind to repository sources."
+thesis: "Repository claims cannot bind to external non-code sources."
+shortAnswer: "A policy-governed runtime moves authorization out of the prompt and into a deterministic host supervisor. The model proposes tool calls, but the host environment verifies permissions against immutable rules before execution begins."
+boundary:
+  is: "A test fixture verifying epistemic source binding."
+  isNot: "Production documentation for systems."
+  mattersWhen: "Testing source compatibility rules."
+provenance:
+  primary: "synthesis"
+  sources:
+    - id: "ext-doc"
+      type: "external"
+      url: "https://example.com/docs"
+  claims:
+    - statement: "The parser guarantees linear execution time across all inputs."
+      kind: "repository"
+      sources:
+        - "ext-doc"
+---
+
+The parser guarantees linear execution time across all inputs.
