@@ -18,14 +18,18 @@
 
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { execSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 
 const ROOT = process.cwd();
 const OUTPUT_FILE = path.resolve(ROOT, "docs/EDITORIAL_AUDIT.md");
 
-const TARGETS = [
-  { collection: "systems", dir: "src/content/systems", ext: ".mdx" },
-  { collection: "self", dir: "src/content/self", ext: ".md" },
+export const CONTENT_EXTENSIONS = [".md", ".mdx"];
+
+export const DEFAULT_AUDIT_TARGETS = [
+  { collection: "systems", dir: "src/content/systems", exts: CONTENT_EXTENSIONS },
+  { collection: "self", dir: "src/content/self", exts: CONTENT_EXTENSIONS },
 ];
 
 const INCIDENT_SIGNALS = [
@@ -49,16 +53,51 @@ const PLACEHOLDER_HEADINGS = [
   { pattern: /^##\s+(?:Introduction|Conclusion|Deep Dive)\b/mi, label: "generic placeholder heading ('## Introduction/Conclusion/Deep Dive')" },
 ];
 
-async function collectFiles(dirPath, ext) {
-  const absDir = path.resolve(ROOT, dirPath);
+/**
+ * Reusable content-file discovery helper.
+ * Discovers all files matching specified extensions (default: .md and .mdx).
+ */
+export async function collectContentFiles(dirPath, exts = CONTENT_EXTENSIONS) {
+  const absDir = path.isAbsolute(dirPath) ? dirPath : path.resolve(ROOT, dirPath);
   try {
     const entries = await fs.readdir(absDir, { withFileTypes: true });
     return entries
-      .filter((e) => e.isFile() && e.name.endsWith(ext))
+      .filter((e) => e.isFile() && exts.some((ext) => e.name.endsWith(ext)))
       .map((e) => path.join(absDir, e.name))
       .sort((a, b) => a.localeCompare(b));
   } catch {
     return [];
+  }
+}
+
+/**
+ * Returns a document-relative link from the generated report file to the content file.
+ * Portable across machines, GitHub UI, and coding agents without machine-local paths.
+ */
+export function getDocRelativeLink(filePath, targetOutputFile = OUTPUT_FILE) {
+  const absFile = path.isAbsolute(filePath) ? filePath : path.resolve(ROOT, filePath);
+  const docDir = path.dirname(path.isAbsolute(targetOutputFile) ? targetOutputFile : path.resolve(ROOT, targetOutputFile));
+  const rel = path.relative(docDir, absFile);
+  return rel.replace(/\\/g, "/");
+}
+
+/**
+ * Retrieves the immutable repository revision (git commit SHA).
+ * Deterministic: consecutive runs on the same revision yield identical provenance.
+ */
+export function getSourceRevision() {
+  if (process.env.SOURCE_REVISION && process.env.SOURCE_REVISION.trim()) {
+    return process.env.SOURCE_REVISION.trim();
+  }
+  try {
+    const sha = execSync("git rev-parse HEAD", {
+      cwd: ROOT,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+    return sha || "unknown";
+  } catch {
+    return "unknown";
   }
 }
 
@@ -82,19 +121,23 @@ function findMatches(lines, signals) {
   return matches;
 }
 
-function evaluateDocument(filePath, raw, collection) {
+export function evaluateDocument(filePath, raw, collection) {
   let parsed;
   try {
     parsed = matter(raw);
   } catch (err) {
     return {
-      filePath,
+      filePath: path.relative(ROOT, filePath).replace(/\\/g, "/"),
       slug: path.basename(filePath, path.extname(filePath)),
       collection,
+      title: path.basename(filePath, path.extname(filePath)),
       status: "Red",
       reasons: [`Frontmatter parse error: ${err.message}`],
       excerpts: [],
       declaredIllustrative: false,
+      isV1: false,
+      hasBoundary: false,
+      hasUseValue: false,
     };
   }
 
@@ -163,7 +206,7 @@ function evaluateDocument(filePath, raw, collection) {
   }
 
   return {
-    filePath: path.relative(ROOT, filePath),
+    filePath: path.relative(ROOT, filePath).replace(/\\/g, "/"),
     slug,
     collection,
     title: data.title || slug,
@@ -177,19 +220,7 @@ function evaluateDocument(filePath, raw, collection) {
   };
 }
 
-async function main() {
-  console.log("\n── Running Archive Editorial Integrity Audit ──\n");
-
-  const results = [];
-
-  for (const target of TARGETS) {
-    const files = await collectFiles(target.dir, target.ext);
-    for (const file of files) {
-      const raw = await fs.readFile(file, "utf8");
-      results.push(evaluateDocument(file, raw, target.collection));
-    }
-  }
-
+export function generateAuditMarkdown(results, { sourceRevision, outputFile = OUTPUT_FILE }) {
   const counts = {
     Total: results.length,
     Green: results.filter((r) => r.status === "Green").length,
@@ -198,16 +229,8 @@ async function main() {
     Illustrative: results.filter((r) => r.status === "Illustrative").length,
   };
 
-  console.log(`Audited ${counts.Total} articles across systems and self:`);
-  console.log(`  🟢 Green:        ${counts.Green}`);
-  console.log(`  🟡 Amber:        ${counts.Amber}`);
-  console.log(`  🔴 Red:          ${counts.Red}`);
-  console.log(`  🔵 Illustrative: ${counts.Illustrative}\n`);
-
-  // Build Markdown report
-  const now = new Date().toISOString().slice(0, 10);
   let md = `# Editorial Integrity Audit Report\n\n`;
-  md += `Generated: ${now}\n`;
+  md += `Source revision: ${sourceRevision}\n`;
   md += `Status: Read-only diagnostic of the existing article archive.\n\n`;
   md += `## Status Definitions\n\n`;
   md += `- **Green**: No integrity risk detected by the current automated checks.\n`;
@@ -231,7 +254,8 @@ async function main() {
     md += `*None detected.*\n\n`;
   } else {
     for (const a of redArticles) {
-      md += `### [${a.title}](file:///${path.resolve(ROOT, a.filePath)})\n`;
+      const relLink = getDocRelativeLink(a.filePath, outputFile);
+      md += `### [${a.title}](${relLink})\n`;
       md += `- **File**: \`${a.filePath}\` (${a.collection})\n`;
       md += `- **Status**: 🔴 **Red**\n`;
       md += `- **Diagnostic Issues**:\n`;
@@ -248,7 +272,8 @@ async function main() {
   md += `Articles with solid conceptual foundations that need qualified phrasing (e.g. comparative frequency assertions) or removal of legacy template constraints:\n\n`;
 
   for (const a of amberArticles) {
-    md += `- **[${a.title}](file:///${path.resolve(ROOT, a.filePath)})** (\`${a.filePath}\`)\n`;
+    const relLink = getDocRelativeLink(a.filePath, outputFile);
+    md += `- **[${a.title}](${relLink})** (\`${a.filePath}\`)\n`;
     for (const r of a.reasons) md += `  - *Issue*: ${r}\n`;
     if (a.excerpts.length > 0) {
       for (const e of a.excerpts.slice(0, 3)) md += `  - *Excerpt*: \`${e}\`\n`;
@@ -260,19 +285,64 @@ async function main() {
   md += `| Collection | Slug | Status | Contract | Boundary | Key Diagnostic |\n`;
   md += `| :--- | :--- | :---: | :---: | :---: | :--- |\n`;
   for (const a of results) {
+    const relLink = getDocRelativeLink(a.filePath, outputFile);
     const statusIcon = a.status === "Green" ? "🟢 Green" : a.status === "Amber" ? "🟡 Amber" : a.status === "Red" ? "🔴 Red" : "🔵 Illustrative";
     const v1Tag = a.isV1 ? "v1.0" : "Legacy";
     const boundaryTag = a.hasBoundary ? "Yes" : "None";
     const issueSummary = a.reasons.length > 0 ? a.reasons[0] : "Clean";
-    md += `| ${a.collection} | [${a.slug}](file:///${path.resolve(ROOT, a.filePath)}) | ${statusIcon} | ${v1Tag} | ${boundaryTag} | ${issueSummary} |\n`;
+    md += `| ${a.collection} | [${a.slug}](${relLink}) | ${statusIcon} | ${v1Tag} | ${boundaryTag} | ${issueSummary} |\n`;
   }
   md += `\n`;
 
-  await fs.writeFile(OUTPUT_FILE, md, "utf8");
-  console.log(`✓ Audit report successfully written to ${path.relative(ROOT, OUTPUT_FILE)}\n`);
+  return { md, counts };
 }
 
-main().catch((err) => {
-  console.error("Audit failed:", err);
-  process.exit(1);
-});
+export async function auditArchive(targets = DEFAULT_AUDIT_TARGETS, options = {}) {
+  const outputFile = options.outputFile ? path.resolve(ROOT, options.outputFile) : OUTPUT_FILE;
+  const sourceRevision = options.sourceRevision || getSourceRevision();
+
+  const results = [];
+  for (const target of targets) {
+    const files = await collectContentFiles(target.dir, target.exts || CONTENT_EXTENSIONS);
+    for (const file of files) {
+      const raw = await fs.readFile(file, "utf8");
+      results.push(evaluateDocument(file, raw, target.collection));
+    }
+  }
+
+  // Stable sort by collection then slug
+  results.sort((a, b) => {
+    if (a.collection !== b.collection) {
+      return a.collection.localeCompare(b.collection);
+    }
+    return a.slug.localeCompare(b.slug);
+  });
+
+  const { md, counts } = generateAuditMarkdown(results, { sourceRevision, outputFile });
+
+  if (options.write !== false) {
+    await fs.mkdir(path.dirname(outputFile), { recursive: true });
+    await fs.writeFile(outputFile, md, "utf8");
+  }
+
+  return { results, counts, markdown: md, outputFile, sourceRevision };
+}
+
+async function main() {
+  console.log("\n── Running Archive Editorial Integrity Audit ──\n");
+  const { counts, outputFile } = await auditArchive();
+
+  console.log(`Audited ${counts.Total} articles across systems and self:`);
+  console.log(`  🟢 Green:        ${counts.Green}`);
+  console.log(`  🟡 Amber:        ${counts.Amber}`);
+  console.log(`  🔴 Red:          ${counts.Red}`);
+  console.log(`  🔵 Illustrative: ${counts.Illustrative}\n`);
+  console.log(`✓ Audit report successfully written to ${path.relative(ROOT, outputFile)}\n`);
+}
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  main().catch((err) => {
+    console.error("Audit failed:", err);
+    process.exit(1);
+  });
+}

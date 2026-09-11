@@ -21,6 +21,7 @@
 import { validateV1File } from "./lint-editorial-v1.mjs";
 import { conformFrontmatter, V1_PRESERVED_KEYS } from "./websiteops-conform.mjs";
 import { validateAllRecipes } from "./validate-languageops-recipes.mjs";
+import { collectContentFiles, auditArchive, getSourceRevision } from "./audit-editorial-integrity.mjs";
 import { spawnSync } from "node:child_process";
 import { promises as fs, existsSync } from "node:fs";
 import path from "node:path";
@@ -470,6 +471,60 @@ async function runTests() {
       !newCoverExistsAfterRollback &&
       restoredCoverBytes === originalCoverBytes,
     `Test 37: safe rollback C: generated public cover is cleanly removed and existing cover is restored exactly after downstream failure`
+  );
+
+  // Test 38: Archive scanner discovers both .md and .mdx for both systems and self
+  const directFiles = await collectContentFiles("tests/fixtures/archive-discovery/systems");
+  const directHasMd = directFiles.some((f) => f.endsWith(".md"));
+  const directHasMdx = directFiles.some((f) => f.endsWith(".mdx"));
+
+  const discoveryTargets = [
+    { collection: "systems", dir: "tests/fixtures/archive-discovery/systems", exts: [".md", ".mdx"] },
+    { collection: "self", dir: "tests/fixtures/archive-discovery/self", exts: [".md", ".mdx"] },
+  ];
+  const { results: discoveryResults } = await auditArchive(discoveryTargets, { write: false });
+  const hasSystemsMd = discoveryResults.some((r) => r.collection === "systems" && r.filePath.endsWith(".md"));
+  const hasSystemsMdx = discoveryResults.some((r) => r.collection === "systems" && r.filePath.endsWith(".mdx"));
+  const hasSelfMd = discoveryResults.some((r) => r.collection === "self" && r.filePath.endsWith(".md"));
+  const hasSelfMdx = discoveryResults.some((r) => r.collection === "self" && r.filePath.endsWith(".mdx"));
+  assert(
+    directFiles.length === 2 && directHasMd && directHasMdx &&
+      discoveryResults.length === 4 && hasSystemsMd && hasSystemsMdx && hasSelfMd && hasSelfMdx,
+    `Test 38: archive scanner discovers both .md and .mdx across both systems and self`
+  );
+
+  // Test 39: Deterministic report provenance: two consecutive audit runs produce byte-identical output
+  const tempAudit1 = path.resolve(ROOT, "tests/fixtures/temp-audit-1.md");
+  const tempAudit2 = path.resolve(ROOT, "tests/fixtures/temp-audit-2.md");
+  try { await fs.unlink(tempAudit1); } catch {}
+  try { await fs.unlink(tempAudit2); } catch {}
+
+  await auditArchive(undefined, { outputFile: tempAudit1 });
+  await auditArchive(undefined, { outputFile: tempAudit2 });
+  const audit1Bytes = await fs.readFile(tempAudit1, "utf8");
+  const audit2Bytes = await fs.readFile(tempAudit2, "utf8");
+  try { await fs.unlink(tempAudit1); } catch {}
+  try { await fs.unlink(tempAudit2); } catch {}
+
+  const currentRevision = getSourceRevision();
+  assert(
+    audit1Bytes === audit2Bytes &&
+      audit1Bytes.includes(`Source revision: ${currentRevision}`) &&
+      !audit1Bytes.includes("Generated: "),
+    `Test 39: deterministic report provenance: two consecutive audit runs produce byte-identical output with git source revision and no date jitter`
+  );
+
+  // Test 40: Portable links: audit report contains zero machine-local links and only repository-relative paths
+  const mainAuditPath = path.resolve(ROOT, "docs/EDITORIAL_AUDIT.md");
+  const mainAuditContent = await fs.readFile(mainAuditPath, "utf8");
+  const hasFileScheme = mainAuditContent.includes("file:///");
+  const hasUsersDir = mainAuditContent.includes("/Users/");
+  const hasHomeDir = mainAuditContent.includes("/home/");
+  const hasSystemsRelLink = mainAuditContent.includes("../src/content/systems/");
+  const hasSelfRelLink = mainAuditContent.includes("../src/content/self/");
+  assert(
+    !hasFileScheme && !hasUsersDir && !hasHomeDir && hasSystemsRelLink && hasSelfRelLink,
+    `Test 40: portable audit links: generated report contains zero machine-local links and only repository-relative paths`
   );
 
   console.log(`\nRegression Suite Results: ${passed} passed, ${failed} failed.\n`);
