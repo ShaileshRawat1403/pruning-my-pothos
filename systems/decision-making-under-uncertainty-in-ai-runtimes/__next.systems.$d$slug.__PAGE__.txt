@@ -1,0 +1,165 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+b:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/covers/systems/decision-making-under-uncertainty-in-ai-runtimes.svg","image"]
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Decision-Making Under Uncertainty in AI Runtimes | Pruning My Pothos\",\"description\":\"A practical framework for making accountable decisions in AI systems when evidence is partial, time is limited, and outcomes are high-impact.\",\"url\":\"https://pruningmypothos.com/systems/decision-making-under-uncertainty-in-ai-runtimes/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/decision-making-under-uncertainty-in-ai-runtimes/\"},\"datePublished\":\"2026-03-05\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/decision-making-under-uncertainty-in-ai-runtimes.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Can uncertainty be eliminated before decisions?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Usually no. The goal is not elimination but explicit classification and safe response modes tied to policy and evidence.\"}},{\"@type\":\"Question\",\"name\":\"Why log rationale if outcomes are already tracked?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Outcome-only logs hide why the decision was made. Rationale logs let teams improve policy, evidence thresholds, and escalation rules.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Explanations"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Decision-Making Under Uncertainty in AI Runtimes"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"A practical framework for making accountable decisions in AI systems when evidence is partial, time is limited, and outcomes are high-impact."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L2","decision-making",{"href":"/tags/decision-making/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","decision-making"]}],["$","$L2","uncertainty",{"href":"/tags/uncertainty/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","uncertainty"]}],["$","$L2","governance",{"href":"/tags/governance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}],["$","$L2","evaluation",{"href":"/tags/evaluation/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","evaluation"]}],"$L3","$L4"]}]]}],"$L5","$undefined","$undefined","$undefined","$undefined","$undefined","$L6","$undefined","$L7","$undefined","$L8"]}],null,"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L2","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}]
+4:["$","$L2","orchestration",{"href":"/tags/orchestration/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","orchestration"]}]
+5:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/decision-making-under-uncertainty-in-ai-runtimes.svg","alt":"Decision framework under uncertainty","className":"w-full h-full object-cover"}]}]
+a:T2645,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Most AI failures are decision failures under uncertainty, not generation failures.</li>
+<li>Good runtime decisions balance policy, evidence, and reversibility.</li>
+<li>Escalation rules should be explicit before incidents happen.</li>
+<li>Decision quality improves when teams log rationale, not only outcomes.</li>
+</ul>
+</blockquote>
+<p>AI systems rarely fail because the model cannot produce language. They fail when the system makes a weak decision while evidence is incomplete. This guide is built for builders, operators, and engineering teams launching AI runtimes. In production, you are often choosing under time pressure, with ambiguous context, and with real consequences if you are wrong.</p>
+<p>That is why decision-making deserves first-class architecture. A runtime should not only ask &quot;what can the model do?&quot; It should ask &quot;what should the system allow now, with this evidence, at this risk level?&quot;</p>
+<h3 id="what-is-decision-making-under-uncertainty-in-ai-systems">What is decision-making under uncertainty in AI systems?</h3>
+<p>It is the practice of choosing explicit action modes when information is incomplete, using policy constraints, evidence quality, and reversibility as primary criteria. The objective is not to appear certain but to make accountable choices that can be reviewed, corrected, and improved after execution.</p>
+<p>In practice, <span class="highlight">uncertainty is normal; unmanaged uncertainty is the risk</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> Do not optimize for certainty theater. Optimize for explicit decision rules, clear escalation, and reversible execution where possible.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Why runtime decisions fail</summary>
+      <ol>
+        <li><a href="#the-decision-gap">The decision gap</a></li>
+        <li><a href="#three-types-of-uncertainty">Three types of uncertainty</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Decision architecture</summary>
+      <ol>
+        <li><a href="#the-pe-r-loop-policy-evidence-reversibility">The PE-R loop: policy, evidence, reversibility</a></li>
+        <li><a href="#decision-modes-allow-ask-deny-defer">Decision modes: allow, ask, deny, defer</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Operating discipline</summary>
+      <ol>
+        <li><a href="#how-to-design-escalation-thresholds">How to design escalation thresholds</a></li>
+        <li><a href="#what-to-log-for-better-decisions">What to log for better decisions</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-why-runtime-decisions-fail">Act I: Why runtime decisions fail</h2>
+<h3 id="the-decision-gap">The decision gap</h3>
+<p>Many teams have strong prompt patterns and solid model choices, but still experience unreliable outcomes. The gap is usually between proposal and permission:</p>
+<ul>
+<li>the model proposes an action</li>
+<li>the runtime decides whether to execute</li>
+<li>the system records and learns from the result</li>
+</ul>
+<p>If that middle decision is weak, everything around it becomes fragile. You may ship fast, but reliability becomes luck-driven.</p>
+<p>The hardest part is that weak decisions often look fine at first. A wrong choice can still produce polished output. The problem appears later as rework, user corrections, silent drift, or policy breaches.</p>
+<h3 id="three-types-of-uncertainty">Three types of uncertainty</h3>
+<p>Decision quality improves when you classify uncertainty instead of treating it as one vague state.</p>
+<ol>
+<li><p><strong>Context uncertainty</strong>
+The system is missing relevant facts or receives conflicting inputs.</p>
+</li>
+<li><p><strong>Model uncertainty</strong>
+The model provides plausible alternatives with no strong confidence separation.</p>
+</li>
+<li><p><strong>Outcome uncertainty</strong>
+The action may succeed technically but still cause undesirable downstream effects.</p>
+</li>
+</ol>
+<p>Each type needs a different response. Context uncertainty usually needs retrieval or clarification. Model uncertainty may need a second check or stricter constraints. Outcome uncertainty often needs reversible actions or human review.</p>
+<figure class="diagram">
+  <iframe src="/scenes/uncertainty-decision.html" title="Decision flow under uncertainty" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>Different uncertainty types should map to explicit decision responses.</figcaption>
+</figure>
+<h2 id="act-ii-decision-architecture">Act II: Decision architecture</h2>
+<h3 id="the-pe-r-loop-policy-evidence-reversibility">The PE-R loop: policy, evidence, reversibility</h3>
+<p>A practical decision loop under uncertainty can be simplified to three checks.</p>
+<ul>
+<li><strong>Policy</strong>: Is this action allowed in this context?</li>
+<li><strong>Evidence</strong>: Do we have enough support for this action now?</li>
+<li><strong>Reversibility</strong>: If wrong, how costly is recovery?</li>
+</ul>
+<p>If policy fails, deny. If evidence is weak but impact is low and reversible, allow with trace. If evidence is weak and impact is high, ask or defer.</p>
+<p>This loop prevents one common anti-pattern: treating confidence language as evidence. Confidence in phrasing is not the same as confidence in system state.</p>
+<h3 id="decision-modes-allow-ask-deny-defer">Decision modes: allow, ask, deny, defer</h3>
+<p>The runtime should expose clear decision modes instead of burying logic in prompts.</p>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Mode</th>
+        <th>Use when</th>
+        <th>Required artifact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>allow</strong></td>
+        <td>Policy passes and evidence is sufficient</td>
+        <td>Execution + verification trace</td>
+      </tr>
+      <tr>
+        <td><strong>ask</strong></td>
+        <td>Need human confirmation or missing critical context</td>
+        <td>Clarification request with rationale</td>
+      </tr>
+      <tr>
+        <td><strong>deny</strong></td>
+        <td>Policy violation or unacceptable risk</td>
+        <td>Denial reason code</td>
+      </tr>
+      <tr>
+        <td><strong>defer</strong></td>
+        <td>Insufficient evidence and high potential impact</td>
+        <td>Escalation handoff record</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<p>This model also helps teams debug decisions without blame. You can evaluate whether the wrong mode was selected, whether evidence rules were weak, or whether policy definitions were outdated.</p>
+<p>For related runtime control framing, see <a href="/systems/from-agent-intent-to-governed-execution/">From Agent Intent to Governed Execution</a>. For observability implications, see <a href="/systems/observability-first-ai-systems/">Observability First: How AI Systems Learn After Launch</a>. At the human-interaction level, allow/ask/deny/defer is the same decision surface the <a href="/systems/i-7-cognitive-loop/">I-7 Cognitive Loop</a> names Interpret and Inspect: state assumptions before execution, then verify against evidence before trusting the result.</p>
+<p>For proof surfaces beyond theory, use <a href="/portfolio/">Portfolio</a> for workflow and enablement examples, and <a href="/shelf/local-experiments/soothsayer-mcp-kernel/">Soothsayer MCP kernel: from prompts to controlled orchestration</a> for a local runtime case where escalation and verification matter.</p>
+<h2 id="act-iii-operating-discipline">Act III: Operating discipline</h2>
+<h3 id="how-to-design-escalation-thresholds">How to design escalation thresholds</h3>
+<p>Escalation rules work best when they are concrete and pre-agreed. A useful pattern:</p>
+<ol>
+<li>Define action classes by potential impact (low, medium, high).</li>
+<li>Define minimum evidence per class.</li>
+<li>Define when human confirmation is mandatory.</li>
+<li>Define rollback path for each allowed action class.</li>
+</ol>
+<p>Without these thresholds, teams escalate inconsistently and drift into intuition-led decisions. Consistency matters more than perfection because consistent decisions are learnable decisions.</p>
+<h3 id="what-to-log-for-better-decisions">What to log for better decisions</h3>
+<p>If you only log outcomes, learning is slow. Log rationale and context with each decision:</p>
+<ul>
+<li>uncertainty type detected</li>
+<li>selected decision mode (<code>allow|ask|deny|defer</code>)</li>
+<li>policy version used</li>
+<li>evidence sources and quality score</li>
+<li>reversibility class</li>
+<li>post-action verification result</li>
+</ul>
+<p>This creates a decision memory that can be audited and improved. Over time, teams can identify patterns: recurring false-allow decisions, over-escalation, or policy rules that are too broad.</p>
+<p>For a reflection on building this habit, see <a href="/self/decision-logs-beat-memory/">Decision Logs Beat Memory</a>. For a concise principle view, see <a href="/sentences/a-decision-rule-is-a-kindness-to-your-future-self/">A decision rule is a kindness to your future self</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Stop asking systems to be &quot;certain&quot; before they act. Ask them to be explicit about uncertainty, choose a decision mode with clear rationale, and leave a trace that can be reviewed. That shift turns decision-making from improvisation into infrastructure.</p>
+6:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$a"}}]
+7:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Decision-making topic now spans systems, sentences, and self sections."}],["$","li","1",{"children":"Decision mode taxonomy (allow/ask/deny/defer) is documented with explicit artifacts."}],["$","li","2",{"children":"Rationale logging pattern has a paired self-practice note for operational adoption."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Can uncertainty be eliminated before decisions?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Usually no. The goal is not elimination but explicit classification and safe response modes tied to policy and evidence."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why log rationale if outcomes are already tracked?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Outcome-only logs hide why the decision was made. Rationale logs let teams improve policy, evidence thresholds, and escalation rules."}]]}]]}]]}]]}]
+8:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L2",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L2",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

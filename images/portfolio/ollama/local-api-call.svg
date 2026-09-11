@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-label="Local API call with response and timing">
+  <rect width="960" height="420" rx="24" fill="#f8fafc"/>
+  <rect x="40" y="40" width="880" height="340" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="70" y="90" fill="#0f172a" font-size="18" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Local API call</text>
+
+  <rect x="70" y="120" width="820" height="90" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="100" y="160" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">POST /api/generate</text>
+  <text x="320" y="160" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">model: llama3 | prompt: summarize ticket</text>
+
+  <rect x="70" y="230" width="820" height="110" rx="16" fill="#e0f2fe" stroke="#bae6fd" stroke-width="2"/>
+  <text x="100" y="270" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">200 OK · 620ms · tokens 1,140</text>
+  <text x="100" y="298" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Response: "Here is the one-sentence summary..."</text>
+</svg>

@@ -1,0 +1,29 @@
+1:"$Sreact.fragment"
+6:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+2:T780,<p>We often treat decisions as preferences. We weigh our options, we pick the one we like best, and we move on. But a decision is not a statement of taste. It is a commitment. It is the acceptance of responsibility for the outcome.</p>
+<figure class="content-figure figure-judgment">
+  <svg viewBox="0 0 480 180" role="img" aria-labelledby="judgment-decision-is-responsibility-title">
+    <title id="judgment-decision-is-responsibility-title">Judgment chooses a direction</title>
+    <rect class="figure-stroke" x="40" y="40" width="140" height="44" rx="10" fill="none" stroke-width="2" />
+    <rect class="figure-stroke" x="40" y="100" width="140" height="44" rx="10" fill="none" stroke-width="2" />
+    <text class="figure-label" x="68" y="68">Option A</text>
+    <text class="figure-label" x="68" y="128">Option B</text>
+    <circle class="figure-fill" cx="360" cy="90" r="28" />
+    <text class="figure-label figure-label-strong" x="338" y="96">Choice</text>
+    <path class="figure-accent" d="M180 62h120" stroke-width="3" stroke-linecap="round" />
+    <path class="figure-accent" d="M180 122h120" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="180" cy="62" r="4" />
+    <circle class="figure-dot" cx="180" cy="122" r="4" />
+  </svg>
+  <figcaption>Judgment chooses a path, not just a score.</figcaption>
+</figure>
+<p>When you make a decision, you are not just choosing a path. You are choosing to own the consequences of that path. You are choosing to be accountable for the result, whether it is good or bad.</p>
+<p>To treat a decision as a preference is to abdicate this responsibility. It is to say that if things go wrong, it is not your fault. But it is always your fault. The decision was yours to make.</p>
+<p><strong>What this changes in practice:</strong> Before making a decision, ask yourself: &quot;Am I willing to be responsible for the outcome of this choice?&quot;</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"A decision is a responsibility, not a preference. | Pruning My Pothos\",\"description\":\"Choosing creates obligations you must carry.\",\"url\":\"https://pruningmypothos.com/sentences/decision-is-responsibility/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Judgment"," / 2 min read"," / intermediate"]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"A decision is a responsibility, not a preference."}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-purple/40 pl-4 py-1 text-sm sm:text-base","children":"Choosing creates obligations you must carry."}],["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","judgment",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","judgment"]}],"$L3"]}],"$L4"]}],null,"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","span","responsibility",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","responsibility"]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L6",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

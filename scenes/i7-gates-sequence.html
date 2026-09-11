@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>I-7 control gates</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 240" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 240');
+
+Ink.rect(svg,{x:60,y:100,w:120,h:40,r:10,seed:1,label:'Intent',lx:60,ly:25,anchor:'middle',size:12});
+Ink.rect(svg,{x:220,y:100,w:120,h:40,r:10,seed:2,label:'Inform',lx:60,ly:25,anchor:'middle',size:12});
+Ink.rect(svg,{x:380,y:100,w:120,h:40,r:10,seed:3,label:'Interpret',lx:60,ly:25,anchor:'middle',size:12});
+Ink.rect(svg,{x:540,y:100,w:120,h:40,r:10,seed:4,label:'Initiate',lx:60,ly:25,anchor:'middle',size:12});
+Ink.rect(svg,{x:700,y:100,w:120,h:40,r:10,seed:5,cls:'ink ink-2',hi:true,label:'Inspect',lx:60,ly:25,anchor:'middle',size:12});
+Ink.line(svg,{x1:180,y1:120,x2:220,y2:120,seed:10,dot:true});
+Ink.line(svg,{x1:340,y1:120,x2:380,y2:120,seed:11,dot:true});
+Ink.line(svg,{x1:500,y1:120,x2:540,y2:120,seed:12,dot:true});
+Ink.line(svg,{x1:660,y1:120,x2:700,y2:120,seed:13,dot:true,cls:'ink ink-2',pulse:true});
+  Ink.run();
+})();
+</script>
+</body></html>

@@ -1,0 +1,209 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","skills-vs-prompts-vs-agents",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","skills-vs-prompts-vs-agents","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+17:T75a,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between a skill and a prompt?","acceptedAnswer":{"@type":"Answer","text":"A prompt is one instruction for one interaction. A skill is a reusable capability with defined inputs, outputs and constraints. The prompt initiates work; the skill packages work so it behaves the same way every time it is invoked."}},{"@type":"Question","name":"What is the difference between a skill and a system prompt?","acceptedAnswer":{"@type":"Answer","text":"A system prompt sets standing behaviour for an entire session and stays in context whether or not the current task needs it. A skill is invoked for one bounded task and carries its own inputs, outputs and success criteria. If an instruction should apply to everything, it belongs in the system prompt. If it applies to one repeated task, it belongs in a skill."}},{"@type":"Question","name":"Are agent skills different from prompts?","acceptedAnswer":{"@type":"Answer","text":"Yes. An agent skill is a capability the agent can select and run, with a defined interface. A prompt is the language used to ask for something. An agent may use a prompt to invoke a skill, but the skill is the reusable unit, not the sentence."}},{"@type":"Question","name":"Is a prompt template a skill?","acceptedAnswer":{"@type":"Answer","text":"Not on its own. A template becomes a skill when reuse is actually defined: what it accepts, what it must return, what counts as a correct result and what happens when it fails. Without those boundaries it is a saved prompt, not a capability."}},{"@type":"Question","name":"Does an agent always need skills?","acceptedAnswer":{"@type":"Answer","text":"Not always, but any agent doing repeated work becomes more reliable when common tasks are packaged as skills instead of re-explained every time."}}]}c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Skills vs Prompts vs Agents | Pruning My Pothos\",\"description\":\"A prompt is one instruction, a skill is a reusable capability, an agent decides what to do next. Here is where each belongs and how to tell which you need.\",\"url\":\"https://pruningmypothos.com/systems/skills-vs-prompts-vs-agents/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/skills-vs-prompts-vs-agents/\"},\"datePublished\":\"2026-03-08\",\"dateModified\":\"2026-09-02\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/skills-vs-prompts-vs-agents.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$17"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":["$L18"," • ","$L19","$undefined","$undefined","$L1a"]}],"$L1b","$L1c","$L1d"]}],"$L1e","$L1f","$undefined","$undefined","$L20","$L21","$L22","$undefined","$L23","$L24","$L25"]}]
+:HL["/covers/systems/skills-vs-prompts-vs-agents.svg","image"]
+18:["$","span",null,{"children":"Systems"}]
+19:["$","span",null,{"children":"Explanations"}]
+1a:[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Sep 2, 2026"]}]]
+1b:["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Skills vs Prompts vs Agents"}]
+1c:["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"A prompt is one instruction, a skill is a reusable capability, an agent decides what to do next. Here is where each belongs and how to tell which you need."}]
+1d:["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","skills",{"href":"/tags/skills/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","skills"]}],["$","$L9","prompting",{"href":"/tags/prompting/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","prompting"]}],["$","$L9","agents",{"href":"/tags/agents/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","agents"]}],["$","$L9","workflow",{"href":"/tags/workflow/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","workflow"]}],["$","$L9","orchestration",{"href":"/tags/orchestration/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","orchestration"]}],["$","$L9","governance",{"href":"/tags/governance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}]]}]
+1e:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/skills-vs-prompts-vs-agents.svg","alt":"Venn diagram showing overlapping concepts","className":"w-full h-full object-cover"}]}]
+1f:["$","aside",null,{"className":"explainer-answer","children":[["$","span",null,{"className":"explainer-kicker","children":"The short answer"}],["$","p",null,{"children":"A prompt is a one-step instruction. A system prompt is standing configuration for a whole session. A skill is a reusable capability with defined inputs and outputs. A workflow sequences skills, and an agent is the runtime actor that executes them under tools, memory and policy."}]]}]
+20:["$","aside",null,{"className":"explainer-analogy","children":[["$","span",null,{"className":"explainer-kicker","children":"Think of it like this"}],["$","p",null,{"className":"explainer-analogy-mapping","children":"A prompt is a note you leave on someone's desk. A system prompt is the job description taped above it. A skill is a procedure in the team handbook. A workflow is the checklist that puts procedures in order. An agent is the person who reads all of it and decides what to do next."}],["$","div",null,{"className":"explainer-analogy-break","children":[["$","span",null,{"className":"explainer-kicker explainer-kicker-break","children":"Where the analogy breaks"}],["$","p",null,{"children":"A person can ignore the handbook and still do the job from memory. A model has no memory of the handbook at all. Nothing reaches it unless some layer below the agent puts it into context on that specific turn. The analogy makes the layers sound like helpful documentation. They are the only reason anything is there."}]]}]]}]
+21:["$","figure",null,{"className":"explainer-figure","children":[["$","svg",null,{"viewBox":"0 0 760 300","style":{"width":"100%","maxWidth":"100%","height":"auto","display":"block","color":"var(--text-primary)"},"role":"img","aria-label":"A three-turn session. The prompt covers one turn only. The system prompt spans all three and stays resident whether or not the turn needs it. A skill is invoked inside one turn and then ends. A workflow chains one step per turn across all three. A dashed frame around everything is the agent runtime, holding tools, memory and policy.","children":[["$","defs",null,{"children":["$","marker",null,{"id":"fig-range-arrow","viewBox":"0 0 10 10","refX":"9","refY":"5","markerWidth":"6","markerHeight":"6","orient":"auto-start-reverse","children":["$","path",null,{"d":"M 0 0 L 10 5 L 0 10 z","fill":"currentColor"}]}]}],[["$","g","turn 1",{"children":[["$","text",null,{"x":218,"y":30,"textAnchor":"middle","style":{"fontFamily":"var(--font-mono)","fontSize":11,"fill":"var(--text-muted)"},"children":"turn 1"}],["$","line",null,{"x1":124,"y1":40,"x2":124,"y2":244,"stroke":"currentColor","strokeOpacity":"0.14","strokeDasharray":"3 4"}]]}],["$","g","turn 2",{"children":[["$","text",null,{"x":420,"y":30,"textAnchor":"middle","style":"$21:props:children:0:props:children:1:0:props:children:0:props:style","children":"turn 2"}],["$","line",null,{"x1":326,"y1":40,"x2":326,"y2":244,"stroke":"currentColor","strokeOpacity":"0.14","strokeDasharray":"3 4"}]]}],["$","g","turn 3",{"children":[["$","text",null,{"x":622,"y":30,"textAnchor":"middle","style":"$21:props:children:0:props:children:1:0:props:children:0:props:style","children":"turn 3"}],["$","line",null,{"x1":528,"y1":40,"x2":528,"y2":244,"stroke":"currentColor","strokeOpacity":"0.14","strokeDasharray":"3 4"}]]}]],["$","rect",null,{"x":112,"y":44,"width":612,"height":200,"fill":"none","stroke":"currentColor","strokeOpacity":"0.35","strokeDasharray":"5 5"}],["$","text",null,{"x":718,"y":262,"textAnchor":"end","style":"$21:props:children:0:props:children:1:0:props:children:0:props:style","children":"agent runtime: tools, memory, policy"}],[["$","text","Prompt",{"x":104,"y":79,"textAnchor":"end","style":{"fontFamily":"var(--font-mono)","fontSize":12,"fill":"currentColor"},"children":"Prompt"}],["$","text","System prompt",{"x":104,"y":123,"textAnchor":"end","style":"$21:props:children:0:props:children:4:0:props:style","children":"System prompt"}],["$","text","Skill",{"x":104,"y":167,"textAnchor":"end","style":"$21:props:children:0:props:children:4:0:props:style","children":"Skill"}],["$","text","Workflow",{"x":104,"y":211,"textAnchor":"end","style":"$21:props:children:0:props:children:4:0:props:style","children":"Workflow"}]],["$","rect",null,{"x":326,"y":62,"width":62,"height":26,"fill":"currentColor","fillOpacity":"0.85"}],["$","text",null,{"x":400,"y":79,"style":"$21:props:children:0:props:children:1:0:props:children:0:props:style","children":"one turn"}],["$","rect",null,{"x":124,"y":106,"width":592,"height":26,"fill":"var(--accent-purple)","fillOpacity":"0.22","stroke":"var(--accent-purple)"}],["$","text",null,{"x":134,"y":123,"style":{"fontFamily":"var(--font-mono)","fontSize":11,"fill":"currentColor"},"children":"resident in context whether or not this turn needs it"}],["$","rect",null,{"x":340,"y":150,"width":160,"height":26,"fill":"currentColor","fillOpacity":"0.55"}],["$","text",null,{"x":512,"y":167,"style":"$21:props:children:0:props:children:1:0:props:children:0:props:style","children":"invoked, then done"}],[["$","g","wf-0",{"children":[["$","rect",null,{"x":192,"y":194,"width":52,"height":26,"fill":"none","stroke":"currentColor"}],["$","line",null,{"x1":248,"y1":207,"x2":390,"y2":207,"stroke":"currentColor","markerEnd":"url(#fig-range-arrow)"}]]}],["$","g","wf-1",{"children":[["$","rect",null,{"x":394,"y":194,"width":52,"height":26,"fill":"none","stroke":"currentColor"}],["$","line",null,{"x1":450,"y1":207,"x2":592,"y2":207,"stroke":"currentColor","markerEnd":"url(#fig-range-arrow)"}]]}],["$","g","wf-2",{"children":[["$","rect",null,{"x":596,"y":194,"width":52,"height":26,"fill":"none","stroke":"currentColor"}],false]}]],["$","text",null,{"x":124,"y":238,"style":"$21:props:children:0:props:children:1:0:props:children:0:props:style","children":"step hands off to step"}]]}],["$","figcaption",null,{"children":"One session, three turns. The layers differ by how much of it they touch, not by how important they are."}]]}]
+26:T276b,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>A prompt is an instruction surface, not an operating model.</li>
+<li>A system prompt sets standing behaviour for a session; it is configuration, not a request.</li>
+<li>A skill is a reusable capability with clearer inputs, outputs, and constraints.</li>
+<li>A workflow coordinates several steps, often including multiple skills.</li>
+<li>An agent is a runtime actor executing workflows under tools, memory, and policy.</li>
+</ul>
+</blockquote>
+<p>One reason AI systems feel confusing right now is that teams reuse the same words for different layers of the stack. A prompt gets called a workflow. A workflow gets called an agent. A reusable task gets called a prompt template. The result is architectural ambiguity.</p>
+<p>That ambiguity matters because each layer solves a different problem. If the team cannot name the layer correctly, it usually cannot govern or improve it correctly either.</p>
+<h3 id="what-is-the-simplest-way-to-separate-these-terms">What is the simplest way to separate these terms?</h3>
+<p>A prompt is a one-step instruction. A skill is a reusable capability. A workflow is a sequence of steps. An agent is the runtime actor that executes or coordinates those steps. The layers relate to one another, but they are not interchangeable.</p>
+<p>In practice, <span class="highlight">clarity in naming prevents architecture drift later</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> If you cannot point to where the prompt ends and the runtime begins, the system is usually harder to debug, evaluate, and scale.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Why the confusion persists</summary>
+      <ol>
+        <li><a href="#same-language-different-layers">Same language, different layers</a></li>
+        <li><a href="#why-this-confusion-is-costly">Why this confusion is costly</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: A clean comparison model</summary>
+      <ol>
+        <li><a href="#the-five-layer-comparison">The five-layer comparison</a></li>
+        <li><a href="#where-does-a-system-prompt-fit">Where does a system prompt fit?</a></li>
+        <li><a href="#where-workflows-fit">Where workflows fit</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Applying the distinction</summary>
+      <ol>
+        <li><a href="#a-practical-decision-rule">A practical decision rule</a></li>
+        <li><a href="#common-misclassifications">Common misclassifications</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-why-the-confusion-persists">Act I: Why the confusion persists</h2>
+<h3 id="same-language-different-layers">Same language, different layers</h3>
+<p>The confusion is understandable because all these things involve natural language:</p>
+<ul>
+<li>you write prompts in language</li>
+<li>you define skills in language</li>
+<li>workflows are often described in language</li>
+<li>agents may appear to &quot;reason&quot; in language</li>
+</ul>
+<p>But shared medium does not mean shared role.</p>
+<p>A prompt is closest to the request surface. It initiates a task. A skill packages a task so it can be reused. A workflow sequences tasks toward an outcome. An agent executes or coordinates tasks within a runtime that includes tools, state, and policy.</p>
+<h3 id="why-this-confusion-is-costly">Why this confusion is costly</h3>
+<p>When these are mixed up, teams make weak design choices:</p>
+<ul>
+<li>they try to improve workflows only by editing prompts</li>
+<li>they call a reusable task a skill without defining output boundaries</li>
+<li>they describe an agent as if it were just a chat surface</li>
+<li>they skip governance because the architecture is still spoken about too vaguely</li>
+</ul>
+<p>This is why a comparison page matters. The vocabulary shapes the system.</p>
+<h2 id="act-ii-a-clean-comparison-model">Act II: A clean comparison model</h2>
+<h3 id="the-five-layer-comparison">The five-layer comparison</h3>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Layer</th>
+        <th>Main job</th>
+        <th>Typical scope</th>
+        <th>Failure if misused</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Prompt</strong></td>
+        <td>Initiate or shape one interaction</td>
+        <td>Single instruction</td>
+        <td>Repeated work stays informal</td>
+      </tr>
+      <tr>
+        <td><strong>System prompt</strong></td>
+        <td>Set standing behaviour for a whole session</td>
+        <td>Every interaction in one context</td>
+        <td>Behaviour changes invisibly when it is edited</td>
+      </tr>
+      <tr>
+        <td><strong>Skill</strong></td>
+        <td>Package a repeated capability for reuse</td>
+        <td>One bounded task</td>
+        <td>Behavior drifts between invocations</td>
+      </tr>
+      <tr>
+        <td><strong>Workflow</strong></td>
+        <td>Sequence steps toward an outcome</td>
+        <td>Several linked tasks</td>
+        <td>Handoffs become ambiguous</td>
+      </tr>
+      <tr>
+        <td><strong>Agent</strong></td>
+        <td>Execute or coordinate within runtime</td>
+        <td>Live system actor</td>
+        <td>Policy and tool behavior stay opaque</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<p>This model pairs directly with <a href="/systems/what-a-skill-is-in-ai-systems/">What a Skill Is in AI Systems</a>. That page defines the skill layer; this page separates it from the other layers around it.</p>
+<h3 id="where-does-a-system-prompt-fit">Where does a system prompt fit?</h3>
+<p>A system prompt is still a prompt, but it operates at a different range. An ordinary prompt shapes one interaction. A system prompt shapes every interaction inside a session or product surface, and it stays in the context window whether or not the current task needs it.</p>
+<p>That makes it closer to configuration than to a request. It is a good place for tone, role boundaries, refusal rules, and output conventions. It is a poor place for task logic, because task logic written into a system prompt applies even when it is irrelevant, and it competes for context with the work itself.</p>
+<p>The practical line is about range, not importance:</p>
+<ul>
+<li>if the instruction should apply to everything in this session, it belongs in the system prompt</li>
+<li>if it applies to one repeated task, it belongs in a skill</li>
+</ul>
+<p>A system prompt that keeps accumulating task-specific rules is usually a skill that has not been named yet. That is the most common version of this mistake, and it is expensive because the rules become invisible. Nobody reviews a system prompt the way they review a capability.</p>
+<h3 id="where-workflows-fit">Where workflows fit</h3>
+<p>Workflows are the bridge between skills and agents.</p>
+<figure class="diagram">
+  <iframe src="/scenes/skills-staircase.html" title="Prompt to skill to workflow to agent stack" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>Workflows coordinate reusable skills, and agents execute those workflows inside a governed runtime.</figcaption>
+</figure>
+<p>A workflow might include several skills:</p>
+<ul>
+<li>classify incoming task</li>
+<li>retrieve relevant context</li>
+<li>draft a structured plan</li>
+<li>validate output shape</li>
+<li>escalate if risk threshold is crossed</li>
+</ul>
+<p>That workflow may be executed by an agent system, but the workflow itself is not the same thing as the agent. The agent is the runtime actor; the workflow is the structure it follows.</p>
+<p>If you want the practical asset layer behind this distinction, see <a href="/shelf/shared-resources/ai-skill-design-templates/">AI skill design templates</a>.</p>
+<h2 id="act-iii-applying-the-distinction">Act III: Applying the distinction</h2>
+<h3 id="a-practical-decision-rule">A practical decision rule</h3>
+<p>When a team asks, &quot;What should we build here?&quot; the following rule helps:</p>
+<ul>
+<li>if it is a one-off request, use a prompt</li>
+<li>if it is a repeated bounded task, define a skill</li>
+<li>if it joins several steps together, define a workflow</li>
+<li>if it needs tools, memory, and policy in live execution, design the agent runtime</li>
+</ul>
+<p>That rule is simple, but it removes a lot of conceptual waste.</p>
+<p>It also aligns with <a href="/docs/natural-language-programming-stack/">Dual NLP for AI-assisted SDLC</a>. That page is strongest when read as the bridge from intent to structured capability. In that framing, the sandbox is not just a place to play with wording. It is the place where a vague request can be compiled into a more explicit skill blueprint.</p>
+<h3 id="common-misclassifications">Common misclassifications</h3>
+<p>Several mistakes appear repeatedly:</p>
+<ul>
+<li>calling a prompt template a skill even though nothing about reuse is defined</li>
+<li>calling a workflow an agent because it uses several tool calls</li>
+<li>calling an agent &quot;smart&quot; when the real improvement came from better workflow structure</li>
+<li>calling a reusable task architecture &quot;prompt engineering&quot;</li>
+</ul>
+<p>These mistakes slow improvement because they focus attention on the wrong layer.</p>
+<p>For prompt-specific context, see <a href="/systems/prompting-is-not-the-skill-you-think-it-is/">Prompting Is Not the Skill You Think It Is</a>. For runtime execution context, see <a href="/systems/agent-instructions-and-handoff-as-an-operating-system/">Agent Instructions and Handoff as an Operating System</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>You design the right thing at the right level: prompts for one-offs, skills for reusable tasks, workflows for coordination, and agents for governed runtime execution.</p>
+22:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$26"}}]
+23:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"This page gives the site a direct comparison surface for prompts, skills, workflows, and agents."}],["$","li","1",{"children":"The comparison now links directly to reusable skill templates and the Dual NLP framework."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is the difference between a skill and a prompt?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"A prompt is one instruction for one interaction. A skill is a reusable capability with defined inputs, outputs and constraints. The prompt initiates work; the skill packages work so it behaves the same way every time it is invoked."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is the difference between a skill and a system prompt?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"A system prompt sets standing behaviour for an entire session and stays in context whether or not the current task needs it. A skill is invoked for one bounded task and carries its own inputs, outputs and success criteria. If an instruction should apply to everything, it belongs in the system prompt. If it applies to one repeated task, it belongs in a skill."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Are agent skills different from prompts?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Yes. An agent skill is a capability the agent can select and run, with a defined interface. A prompt is the language used to ask for something. An agent may use a prompt to invoke a skill, but the skill is the reusable unit, not the sentence."}]]}],["$","div","3",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Is a prompt template a skill?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Not on its own. A template becomes a skill when reuse is actually defined: what it accepts, what it must return, what counts as a correct result and what happens when it fails. Without those boundaries it is a saved prompt, not a capability."}]]}],"$L27"]}]]}]]}]
+24:["$","nav",null,{"className":"explainer-related","aria-label":"Related reading","children":[["$","span",null,{"className":"explainer-kicker","children":"Follow this through"}],["$","ul",null,{"children":[["$","li","/systems/what-a-skill-is-in-ai-systems/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"explainer"}],["$","a",null,{"href":"/systems/what-a-skill-is-in-ai-systems/","children":"What a Skill Is in AI Systems"}],["$","span",null,{"className":"explainer-related-note","children":"The layer this page separates from the others, defined on its own terms."}]]}],["$","li","/systems/designing-reusable-ai-skills/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"playbook"}],["$","a",null,{"href":"/systems/designing-reusable-ai-skills/","children":"Designing Reusable AI Skills"}],["$","span",null,{"className":"explainer-related-note","children":"What to define before a repeated task counts as a skill."}]]}],["$","li","/tools/skill-catalog/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"tool"}],["$","a",null,{"href":"/tools/skill-catalog/","children":"Skill catalog"}],["$","span",null,{"className":"explainer-related-note","children":"Paste a system prompt and see which rules want to be skills."}]]}]]}]]}]
+25:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+27:["$","div","4",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Does an agent always need skills?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Not always, but any agent doing repeated work becomes more reliable when common tasks are packaged as skills instead of re-explained every time."}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+28:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"Skill vs Prompt vs Agent: What Is the Difference? | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"A prompt is one instruction, a skill is a reusable capability, an agent decides what to do next. Here is where each belongs and how to tell which you need."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/skills-vs-prompts-vs-agents/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"Skill vs Prompt vs Agent: What Is the Difference? | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"A prompt is one instruction, a skill is a reusable capability, an agent decides what to do next. Here is where each belongs and how to tell which you need."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/skills-vs-prompts-vs-agents/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/skills-vs-prompts-vs-agents.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Skill vs Prompt vs Agent: What Is the Difference? | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"A prompt is one instruction, a skill is a reusable capability, an agent decides what to do next. Here is where each belongs and how to tell which you need."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/skills-vs-prompts-vs-agents.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L28","20",{}]]

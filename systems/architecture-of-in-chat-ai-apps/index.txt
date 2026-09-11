@@ -1,0 +1,138 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","architecture-of-in-chat-ai-apps",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","architecture-of-in-chat-ai-apps","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+17:T4ef,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an in-chat AI app?","acceptedAnswer":{"@type":"Answer","text":"An in-chat AI app is a structured interface, cards, comparisons, maps, calculators, action buttons, rendered live inside a conversation with an AI assistant, instead of a plain text reply. The assistant recognizes intent and opens the relevant app; the interaction happens inside the chat surface itself."}},{"@type":"Question","name":"Why can't a text reply carry a full workflow?","acceptedAnswer":{"@type":"Answer","text":"A workflow needs the user to compare options, see structured state, and take a bounded action, booking a slot, confirming a purchase, reviewing a flagged transaction. Prose can describe those things one at a time, but it cannot hold them side by side the way a card, a table, or a map can, and it gives the user nothing safe to click."}},{"@type":"Question","name":"Is a chat-native app the same as a chatbot?","acceptedAnswer":{"@type":"Answer","text":"No. A chatbot answers in text. A chat-native app renders interface components inside the same conversation and wires them to real actions, so the assistant is a surface for an application, not a substitute for one."}}]}c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"The Architecture of In-Chat AI Apps | Pruning My Pothos\",\"description\":\"A chat reply can carry a sentence, not a workflow. What it takes to render structured interface pieces, cards, comparisons, actions, inside an AI assistant.\",\"url\":\"https://pruningmypothos.com/systems/architecture-of-in-chat-ai-apps/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/architecture-of-in-chat-ai-apps/\"},\"datePublished\":\"2026-07-07\",\"dateModified\":\"2026-07-07\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/architecture-of-in-chat-ai-apps.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$17"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"How-things-fit-together"}],[["$","span",null,{"children":"•"}],["$","span",null,{"children":[8," min read"]}]],[["$","span",null,{"children":"•"}],["$","span",null,{"children":"intermediate"}]],[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jul 7, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"The Architecture of In-Chat AI Apps"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"A chat reply can carry a sentence, not a workflow. What it takes to render structured interface pieces, cards, comparisons, actions, inside an AI assistant."}],"$L18"]}],"$L19","$undefined","$undefined","$undefined","$undefined","$undefined","$L1a","$undefined","$L1b","$undefined","$L1c"]}]
+:HL["/covers/systems/architecture-of-in-chat-ai-apps.svg","image"]
+18:["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","agentic-ux",{"href":"/tags/agentic-ux/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","agentic-ux"]}],["$","$L9","mcp",{"href":"/tags/mcp/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","mcp"]}],["$","$L9","widgets",{"href":"/tags/widgets/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","widgets"]}],["$","$L9","interface-design",{"href":"/tags/interface-design/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","interface-design"]}],["$","$L9","chat-native",{"href":"/tags/chat-native/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","chat-native"]}]]}]
+19:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/architecture-of-in-chat-ai-apps.svg","alt":"A chat bubble connecting to a structured widget panel","className":"w-full h-full object-cover"}]}]
+1d:T1f7a,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>A plain-text reply can answer a question; it cannot carry a workflow.</li>
+<li>In-chat apps work because they reuse one shared widget layer across different tasks, not because each app is custom-built.</li>
+<li>The surface, MCP-connected tool surfaces versus native discovery surfaces, should follow the audience and the governance need, not habit.</li>
+<li>A working demo and a production system differ mainly in what sits around the app: live data, auth, evaluation, and monitoring.</li>
+</ul>
+</blockquote>
+<p>This article is for builders, operators, and product teams designing agentic user interfaces who need to move beyond plain conversational text replies. Real-world interface implementations and prototypes are cataloged in our <a href="/portfolio/">Portfolio</a>.</p>
+<p>This piece is about what changes when the assistant stops replying in text and starts rendering an actual interface. Not a chatbot bolted onto a product, but an application whose surface happens to be a chat window.</p>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The ceiling on text</summary>
+      <ol>
+        <li><a href="#why-can-a-text-reply-not-carry-a-workflow">Why can a text reply not carry a workflow?</a></li>
+        <li><a href="#two-production-patterns">Two production patterns</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The widget layer</summary>
+      <ol>
+        <li><a href="#what-an-in-chat-app-actually-needs">What an in-chat app actually needs</a></li>
+        <li><a href="#choosing-a-surface">Choosing a surface</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Demo to production</summary>
+      <ol>
+        <li><a href="#a-worked-example">A worked example</a></li>
+        <li><a href="#what-a-production-build-adds">What a production build adds</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-ceiling-on-text">Act I: The ceiling on text</h2>
+<h3 id="why-can-a-text-reply-not-carry-a-workflow">Why can a text reply not carry a workflow?</h3>
+<p>An assistant can answer a question well. Moving someone from that question to a finished outcome, a booked appointment, a resolved dispute, a completed purchase, asks for more than text. It needs interface pieces that show options side by side, structured comparisons the user can act on, and safe actions wired to real systems.</p>
+<p>Prose is sequential. A workflow is not. The moment a user needs to compare three options, see a live number update as they adjust a variable, or trust that clicking a button will not silently do the wrong thing, text alone runs out of road.</p>
+<p>In practice, <span class="highlight">the entry point is moving into the assistant, and a plain reply does not travel with it</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> The practical question is not whether to add a chatbot. It is where the experience should live, and how much of a workflow it can actually complete once it is there.</p>
+</aside>
+<h3 id="two-production-patterns">Two production patterns</h3>
+<p>Most teams building for assistants land on one of two shapes.</p>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Pattern</th>
+        <th>What it delivers</th>
+        <th>Where it breaks down</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Reply-only chatbot</strong></td>
+        <td>Fast to ship, answers questions, links out to a website for anything transactional</td>
+        <td>Loses the user at the exact moment they were ready to act</td>
+      </tr>
+      <tr>
+        <td><strong>In-chat app</strong></td>
+        <td>Renders structured state and completes the action inside the conversation</td>
+        <td>Needs a shared widget system, or every task becomes a one-off build</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<p>The second pattern only stays affordable if the interface pieces are reusable across tasks. That reuse is the actual engineering problem.</p>
+<h2 id="act-ii-the-widget-layer">Act II: The widget layer</h2>
+<h3 id="what-an-in-chat-app-actually-needs">What an in-chat app actually needs</h3>
+<p>Underneath a chat-native app is a small library of interface pieces, composed differently per task rather than rebuilt from zero each time:</p>
+<ul>
+<li>cards for discovery and comparison</li>
+<li>charts, gauges, and structured summaries for decision support</li>
+<li>maps for anything location-bound</li>
+<li>selectors, steppers, and calculators for input</li>
+<li>action components, checkout, booking, confirmation, that close the loop</li>
+</ul>
+<p>A commerce flow, a booking flow, and a support flow look different on the surface, but they draw from the same pieces underneath. Once that shared layer exists, adding a new task is closer to composition than to a fresh build.</p>
+<h3 id="choosing-a-surface">Choosing a surface</h3>
+<p>The same capability layer can usually be delivered through more than one surface, and the right choice depends on the job rather than on preference. Tool-connected surfaces suit governed workflows where the assistant needs deep access to documents and structured actions. Native discovery surfaces suit customer-facing journeys where reach and low-friction access matter more than depth of tool access. Picking the wrong one does not fail loudly; it just quietly limits what the app can safely do.</p>
+<p>This is a design and governance decision, not a technical afterthought. See <a href="/systems/ai-agents-vs-ai-workflows/">AI agents vs AI workflows</a> for how that same choice plays out one layer down, at the orchestration level rather than the surface level.</p>
+<h2 id="act-iii-demo-to-production">Act III: Demo to production</h2>
+<h3 id="a-worked-example">A worked example</h3>
+<p>A concrete illustration of this pattern: Newtuple published a <a href="https://www.newtuple.com/post/native-ai-apps-inside-chatgpt-and-claude">proof of concept</a> spanning commerce, healthcare, finance, and real estate scenarios, each rendered as a live in-chat app inside two different assistants from one shared widget system. It is a useful reference point precisely because it shows the reuse claim above holding up across four genuinely different workflows rather than one narrow demo.</p>
+<h3 id="what-a-production-build-adds">What a production build adds</h3>
+<p>A proof of concept proves the experience layer. It usually runs on mock data, with no live backend behind it. Getting from there to something real adds a predictable set of layers:</p>
+<ol>
+<li>Live integration to real catalogs, records, and transaction systems in place of mock data.</li>
+<li>Authentication and permissions, so actions run against the right account with the right scope.</li>
+<li>Evaluation, so quality and safety are checked before and after release, not assumed.</li>
+<li>Monitoring and human approval for the steps that change real state.</li>
+</ol>
+<p>None of that is exotic. It is the same governance layer any production AI system needs, applied to a surface that happens to render inside a chat window instead of a page. For the runtime version of that governance layer, see <a href="/systems/engineering-agentic-systems-for-reliability/">Engineering Agentic Systems for Reliability</a> and <a href="/systems/structured-output-and-why-it-matters/">Structured Output and Why It Matters</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Stop treating the assistant as a place to add a chatbot. Treat it as a surface your application can render on, with the same interface discipline and the same production controls you would demand anywhere else. The conversation is the entry point; the workflow still has to be engineered.</p>
+1a:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1d"}}]
+1b:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Distinguishes conversational reply from in-chat application"}],["$","li","1",{"children":"Maps the widget layer that sits between a model and a completed task"}],["$","li","2",{"children":"Names what a proof of concept leaves out before it can carry real traffic"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is an in-chat AI app?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"An in-chat AI app is a structured interface, cards, comparisons, maps, calculators, action buttons, rendered live inside a conversation with an AI assistant, instead of a plain text reply. The assistant recognizes intent and opens the relevant app; the interaction happens inside the chat surface itself."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why can't a text reply carry a full workflow?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"A workflow needs the user to compare options, see structured state, and take a bounded action, booking a slot, confirming a purchase, reviewing a flagged transaction. Prose can describe those things one at a time, but it cannot hold them side by side the way a card, a table, or a map can, and it gives the user nothing safe to click."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Is a chat-native app the same as a chatbot?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"No. A chatbot answers in text. A chat-native app renders interface components inside the same conversation and wires them to real actions, so the assistant is a surface for an application, not a substitute for one."}]]}]]}]]}]]}]
+1c:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1e:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"The Architecture of In-Chat AI Apps | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"A chat reply can carry a sentence, not a workflow. What it takes to render structured interface pieces, cards, comparisons, actions, inside an AI assistant."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/architecture-of-in-chat-ai-apps/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"The Architecture of In-Chat AI Apps | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"A chat reply can carry a sentence, not a workflow. What it takes to render structured interface pieces, cards, comparisons, actions, inside an AI assistant."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/architecture-of-in-chat-ai-apps/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/architecture-of-in-chat-ai-apps.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"The Architecture of In-Chat AI Apps | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"A chat reply can carry a sentence, not a workflow. What it takes to render structured interface pieces, cards, comparisons, actions, inside an AI assistant."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/architecture-of-in-chat-ai-apps.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L1e","20",{}]]

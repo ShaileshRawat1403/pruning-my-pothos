@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-labelledby="t d">
+<title id="t">From Prompt to Production: A Human Checklist</title>
+<desc id="d">Ink-illustration cover for From Prompt to Production: A Human Checklist</desc>
+<rect width="400" height="225" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="398.5" height="223.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 116.0 40.0 Q 143.5 81.9 180.0 125.0" stroke="#2a2012" stroke-width="1.60" fill="none" stroke-linecap="round"/>
+<path d="M 284.0 40.0 Q 249.4 77.6 220.0 125.0" stroke="#2a2012" stroke-width="1.60" fill="none" stroke-linecap="round"/>
+<path d="M 116.0 40.0 Q 200.6 39.4 284.0 40.0" stroke="#9a7322" stroke-width="1.20" fill="none" opacity="0.8"/>
+<path d="M 200.0 125.0 Q 201.6 129.0 200.0 135.0" stroke="#8c2f23" stroke-width="1.80" fill="none" stroke-linecap="round"/>
+<path d="M 202.8 135.0 Q 202.8 134.5 201.7 137.2 Q 199.5 136.8 199.4 137.7 Q 197.9 138.7 197.4 136.3 Q 198.2 133.5 197.4 133.7 Q 199.1 131.2 199.4 132.4 Q 202.8 132.1 201.8 132.7 Q 200.1 132.2 202.8 135.0 Z" stroke="#8c2f23" stroke-width="1.60" fill="#8c2f23"/>
+<text x="116.0" y="34.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="9.0" fill="#9a7322" text-anchor="middle">IN</text>
+<text x="200.0" y="147.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="9.0" fill="#8c2f23" font-weight="700" text-anchor="middle">OUT</text>
+<text x="200.0" y="155.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12.5" fill="#2a2012" font-weight="700" text-anchor="middle">FROM PROMPT PRODUCTION</text>
+<text x="386" y="215" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.0" fill="#2a2012" opacity="0.5" text-anchor="end">SYSTEMS · HOW-THINGS-FIT-TOGETHER</text>
+</svg>

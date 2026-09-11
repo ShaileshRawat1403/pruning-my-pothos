@@ -1,0 +1,147 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+b:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/covers/systems/seo-aeo-geo-how-things-fit-together.svg","image"]
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"SEO, AEO, GEO: How Discoverability Actually Works | Pruning My Pothos\",\"description\":\"A practical system map of how search engines and answer engines discover, rank, retrieve, summarize, and cite your work.\",\"url\":\"https://pruningmypothos.com/systems/seo-aeo-geo-how-things-fit-together/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/seo-aeo-geo-how-things-fit-together/\"},\"datePublished\":\"2026-03-05\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/seo-aeo-geo-how-things-fit-together.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Are SEO, AEO, and GEO separate strategies?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"They are distinct output surfaces but share one upstream content and structure pipeline. If entity clarity and retrieval quality are weak, all three surfaces degrade.\"}},{\"@type\":\"Question\",\"name\":\"What should be fixed first for discoverability?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Start with crawl and structural clarity, then improve retrieval precision and citation evidence. Sequence matters more than isolated tactical wins.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"How-things-fit-together"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"SEO, AEO, GEO: How Discoverability Actually Works"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"A practical system map of how search engines and answer engines discover, rank, retrieve, summarize, and cite your work."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L2","seo",{"href":"/tags/seo/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","seo"]}],["$","$L2","aeo",{"href":"/tags/aeo/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","aeo"]}],["$","$L2","geo",{"href":"/tags/geo/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","geo"]}],["$","$L2","discoverability",{"href":"/tags/discoverability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","discoverability"]}],"$L3","$L4"]}]]}],"$L5","$undefined","$undefined","$undefined","$undefined","$undefined","$L6","$undefined","$L7","$undefined","$L8"]}],null,"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L2","retrieval",{"href":"/tags/retrieval/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","retrieval"]}]
+4:["$","$L2","citation",{"href":"/tags/citation/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","citation"]}]
+5:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/seo-aeo-geo-how-things-fit-together.svg","alt":"How discoverability systems work together","className":"w-full h-full object-cover"}]}]
+a:T1c0b,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>SEO, AEO, and GEO are one system with different output surfaces.</li>
+<li>The same content quality signal can affect ranking, retrieval, and citation.</li>
+<li>Entity clarity and structural clarity are now as important as keyword relevance.</li>
+</ul>
+</blockquote>
+<p>Teams often treat SEO, AEO, and GEO as separate checklists. In practice, they are connected layers in one discoverability pipeline.</p>
+<p>When your page is crawled, understood, and trusted, it can rank in search, be retrieved by answer systems, and be cited in generated responses. The mechanisms differ, but the foundations are shared.</p>
+<h3 id="what-is-the-practical-difference-between-seo-aeo-and-geo">What is the practical difference between SEO, AEO, and GEO?</h3>
+<p>SEO focuses on ranking and click discovery, AEO focuses on direct answer extraction, and GEO focuses on retrieval plus citation in generated responses. They feel different in output, but they share the same upstream dependencies: stable entities, clear structure, reliable evidence, and coherent internal linking.</p>
+<p>In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The shared pipeline</summary>
+      <ol>
+        <li><a href="#one-system-three-surfaces">One system, three surfaces</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The operating layers</summary>
+      <ol>
+        <li><a href="#layer-1-crawl-and-access">Layer 1: Crawl and access</a></li>
+        <li><a href="#layer-2-understanding-and-entities">Layer 2: Understanding and entities</a></li>
+        <li><a href="#layer-3-retrieval-ranking-and-selection">Layer 3: Retrieval, ranking, and selection</a></li>
+        <li><a href="#layer-4-answer-composition-and-citation">Layer 4: Answer composition and citation</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Execution model</summary>
+      <ol>
+        <li><a href="#what-to-improve-first">What to improve first</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-shared-pipeline">Act I: The shared pipeline</h2>
+<h3 id="one-system-three-surfaces">One system, three surfaces</h3>
+<figure class="diagram">
+  <iframe src="/scenes/discoverability-pipeline.html" title="Discoverability pipeline from crawl to citation" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>One pipeline, three output surfaces: ranking, direct answers, and generated citations.</figcaption>
+</figure>
+<ul>
+<li><strong>SEO</strong> decides whether a page gets discovered and ranked in classic results.</li>
+<li><strong>AEO</strong> decides whether your content can be extracted as answer-ready material.</li>
+<li><strong>GEO</strong> decides whether your ideas are carried forward with attribution in generated responses.</li>
+</ul>
+<p>If the upstream layers are weak, all three surfaces degrade.</p>
+<h2 id="act-ii-the-operating-layers">Act II: The operating layers</h2>
+<h3 id="layer-1-crawl-and-access">Layer 1: Crawl and access</h3>
+<p>This is your mechanical baseline:</p>
+<ul>
+<li>stable canonical URLs</li>
+<li>clean sitemap coverage</li>
+<li>correct robots policy</li>
+<li>internal linking that exposes priority pages</li>
+</ul>
+<p>If crawl access fails, nothing downstream matters.</p>
+<h3 id="layer-2-understanding-and-entities">Layer 2: Understanding and entities</h3>
+<p>Search and answer engines need to understand what the page is about, who it belongs to, and what claims it makes.</p>
+<p>That means:</p>
+<ul>
+<li>explicit topic framing in title and intro</li>
+<li>strong heading structure</li>
+<li>consistent entity naming across pages</li>
+<li>schema that matches page intent</li>
+</ul>
+<p>See <a href="/systems/aeo-and-geo-as-a-retrieval-design-problem/">AEO and GEO as a retrieval design problem</a> for deeper retrieval mechanics, and use the <a href="/systems/entity-glossary-for-ai-discoverability/">Entity Glossary for AI Discoverability</a> as the canonical definition layer for recurring terms.</p>
+<h3 id="layer-3-retrieval-ranking-and-selection">Layer 3: Retrieval, ranking, and selection</h3>
+<p>Different systems choose content differently:</p>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Surface</th>
+        <th>Primary selection logic</th>
+        <th>Failure mode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>SEO</strong></td>
+        <td>Relevance + authority + technical quality</td>
+        <td>Low ranking despite useful content</td>
+      </tr>
+      <tr>
+        <td><strong>AEO</strong></td>
+        <td>Answer extractability + concise structure</td>
+        <td>Good page, poor snippet eligibility</td>
+      </tr>
+      <tr>
+        <td><strong>GEO</strong></td>
+        <td>Retrieval match + citation confidence</td>
+        <td>Idea used without reliable attribution</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<h3 id="layer-4-answer-composition-and-citation">Layer 4: Answer composition and citation</h3>
+<p>In answer engines, your page is often not shown first as a click target. It may be used as evidence inside a synthesized answer.</p>
+<p>So your content must be:</p>
+<ul>
+<li>semantically clear enough to retrieve</li>
+<li>specific enough to trust</li>
+<li>structured enough to quote or cite</li>
+</ul>
+<p>For a practical optimization checklist, see <a href="/systems/seo-aeo-geo-in-plain-terms/">SEO, AEO, and GEO in plain terms</a>. For runtime trust signals after retrieval, continue to <a href="/systems/observability-first-ai-systems/">Observability First: How AI Systems Learn After Launch</a>.</p>
+<p>For proof that these patterns connect to real system work, use <a href="/portfolio/">Portfolio</a> as the practical surface and <a href="/shelf/local-experiments/soothsayer-mcp-kernel/">Soothsayer MCP kernel: from prompts to controlled orchestration</a> as the local experiment trail.</p>
+<h2 id="act-iii-execution-model">Act III: Execution model</h2>
+<h3 id="what-to-improve-first">What to improve first</h3>
+<ol>
+<li>Fix crawl and canonical consistency.</li>
+<li>Publish one definitive page per core entity/topic.</li>
+<li>Add answer-ready sections (definitions, comparisons, boundaries).</li>
+<li>Strengthen internal links across supporting pages.</li>
+<li>Measure impression, snippet, and citation movement over time.</li>
+</ol>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Treat discoverability as a systems problem, not a metadata task. Build pages that can be ranked, retrieved, and cited from the same source of truth.</p>
+6:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$a"}}]
+7:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Systems detail pages now emit FAQPage schema when frontmatter FAQs are present."}],["$","li","1",{"children":"DefinedTerm URLs now point to canonical glossary anchors for recurring concepts."}],["$","li","2",{"children":"Cross-section topic report shows no thin/missing seeded topic gaps."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Are SEO, AEO, and GEO separate strategies?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"They are distinct output surfaces but share one upstream content and structure pipeline. If entity clarity and retrieval quality are weak, all three surfaces degrade."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What should be fixed first for discoverability?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Start with crawl and structural clarity, then improve retrieval precision and citation evidence. Sequence matters more than isolated tactical wins."}]]}]]}]]}]]}]
+8:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L2",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L2",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

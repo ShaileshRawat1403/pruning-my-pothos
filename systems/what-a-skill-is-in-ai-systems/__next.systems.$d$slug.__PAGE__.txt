@@ -1,0 +1,170 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+c:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+:HL["/covers/systems/what-a-skill-is-in-ai-systems.svg","image"]
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"What a Skill Is in AI Systems | Pruning My Pothos\",\"description\":\"A practical definition of skills as reusable execution units that sit between prompts and workflows in modern AI systems.\",\"url\":\"https://pruningmypothos.com/systems/what-a-skill-is-in-ai-systems/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/what-a-skill-is-in-ai-systems/\"},\"datePublished\":\"2026-03-08\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/what-a-skill-is-in-ai-systems.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Is a skill just another name for a prompt?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No. A prompt is a single instruction surface, while a skill is a reusable capability with clearer boundaries, expected inputs, and repeatable outputs.\"}},{\"@type\":\"Question\",\"name\":\"Why do skills matter in AI-assisted SDLC?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"They reduce repeated interpretation work by turning common tasks into reusable capability units that can be evaluated, versioned, and orchestrated.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Concepts"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"What a Skill Is in AI Systems"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"A practical definition of skills as reusable execution units that sit between prompts and workflows in modern AI systems."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L2","skills",{"href":"/tags/skills/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","skills"]}],["$","$L2","agents",{"href":"/tags/agents/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","agents"]}],["$","$L2","workflow",{"href":"/tags/workflow/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","workflow"]}],["$","$L2","orchestration",{"href":"/tags/orchestration/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","orchestration"]}],"$L3","$L4"]}]]}],"$L5","$undefined","$undefined","$undefined","$undefined","$undefined","$L6","$undefined","$L7","$L8","$L9"]}],null,"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L2","prompting",{"href":"/tags/prompting/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","prompting"]}]
+4:["$","$L2","ai-assisted-sdlc",{"href":"/tags/ai-assisted-sdlc/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","ai-assisted-sdlc"]}]
+5:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/what-a-skill-is-in-ai-systems.svg","alt":"Skill as execution unit diagram","className":"w-full h-full object-cover"}]}]
+b:T2388,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>A prompt gives an instruction; a skill packages a reusable capability.</li>
+<li>Skills are useful because they preserve constraints, inputs, and expected outputs across runs.</li>
+<li>Workflows orchestrate skills, and agent systems execute those workflows in runtime.</li>
+<li>If a repeated task cannot be described, tested, and reused, it is not yet operating like a skill.</li>
+</ul>
+</blockquote>
+<p>This guide helps teams and builders design robust capabilities. The term &quot;skill&quot; is getting popular because teams have started to notice the same architectural problem in many tools. A model can respond well once, but that does not automatically create a reliable capability you can reuse inside a larger system.</p>
+<p>That gap matters. If every repeated task has to be re-explained from scratch, the system remains conversational instead of operational. A skill is the first step toward making repeated language work behave more like software.</p>
+<h3 id="what-is-a-skill-in-practical-terms">What is a skill in practical terms?</h3>
+<p>A skill is a reusable execution unit built around a repeated task. It defines what the task is for, what inputs it expects, what constraints shape it, and what output contract it should satisfy. In AI systems, a skill sits between a raw prompt and a larger workflow.</p>
+<p>In practice, <span class="highlight">a skill is useful when it reduces interpretation debt across repeated runs</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> A skill should feel small enough to reuse and explicit enough to evaluate. If it is too vague, it collapses back into a one-off prompt. If it is too large, it behaves like an entire workflow.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Where skills fit</summary>
+      <ol>
+        <li><a href="#from-instruction-to-capability">From instruction to capability</a></li>
+        <li><a href="#why-skills-appear-now">Why skills appear now</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The systems role of a skill</summary>
+      <ol>
+        <li><a href="#the-operating-sequence">The operating sequence</a></li>
+        <li><a href="#what-belongs-inside-a-skill">What belongs inside a skill</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Using skills well</summary>
+      <ol>
+        <li><a href="#when-a-task-should-become-a-skill">When a task should become a skill</a></li>
+        <li><a href="#failure-patterns">Failure patterns</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-where-skills-fit">Act I: Where skills fit</h2>
+<h3 id="from-instruction-to-capability">From instruction to capability</h3>
+<p>Many teams begin with direct prompting:</p>
+<ul>
+<li>ask the model to summarize</li>
+<li>ask it to draft a spec</li>
+<li>ask it to propose a refactor</li>
+<li>ask it to write tests</li>
+</ul>
+<p>This is fine for exploration. It becomes weak when the same task appears over and over and still depends on informal phrasing each time.</p>
+<p>That is the point where a repeated instruction should become a named capability. The useful sequence looks like this:</p>
+<ol>
+<li><strong>Intent</strong>: what outcome is needed?</li>
+<li><strong>Prompt</strong>: what instruction initiates the task?</li>
+<li><strong>Skill</strong>: how is that task packaged for reuse?</li>
+<li><strong>Workflow</strong>: how does the skill connect to adjacent tasks?</li>
+<li><strong>Agent system</strong>: what runtime executes and governs the workflow?</li>
+</ol>
+<figure class="diagram">
+  <iframe src="/scenes/skill-sequence.html" title="Intent to skill to workflow sequence" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>A skill is the reusable unit between a one-time prompt and a larger orchestrated workflow.</figcaption>
+</figure>
+<h3 id="why-skills-appear-now">Why skills appear now</h3>
+<p>Different platforms use different names:</p>
+<ul>
+<li>skills</li>
+<li>tools</li>
+<li>actions</li>
+<li>tasks</li>
+<li>extensions</li>
+</ul>
+<p>The naming changes, but the architectural need is the same. Systems need reusable units of execution that can be invoked repeatedly without rewriting the entire context every time.</p>
+<p>This is why skills matter in AI-assisted SDLC. Repeated tasks like &quot;summarize diff risk,&quot; &quot;compile release notes,&quot; or &quot;generate a constrained implementation plan&quot; should not stay as ad hoc instructions forever. They should become stable operating units.</p>
+<h2 id="act-ii-the-systems-role-of-a-skill">Act II: The systems role of a skill</h2>
+<h3 id="the-operating-sequence">The operating sequence</h3>
+<p>A skill is useful because it narrows ambiguity at the point where repetition begins.</p>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Layer</th>
+        <th>Main question</th>
+        <th>Typical artifact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Prompt</strong></td>
+        <td>What am I asking for right now?</td>
+        <td>Task instruction</td>
+      </tr>
+      <tr>
+        <td><strong>Skill</strong></td>
+        <td>How does this repeated task behave each time?</td>
+        <td>Reusable capability contract</td>
+      </tr>
+      <tr>
+        <td><strong>Workflow</strong></td>
+        <td>How do several skills combine to finish a job?</td>
+        <td>Step sequence with handoffs</td>
+      </tr>
+      <tr>
+        <td><strong>Agent system</strong></td>
+        <td>How are workflows executed, governed, and observed?</td>
+        <td>Runtime with policies, tools, and logs</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<p>This is also why skills fit naturally with <a href="/systems/agent-instructions-and-handoff-as-an-operating-system/">Agent Instructions and Handoff as an Operating System</a>. Once a skill is named and bounded, it can be governed more cleanly inside a larger agent workflow.</p>
+<h3 id="what-belongs-inside-a-skill">What belongs inside a skill</h3>
+<p>A useful skill usually contains:</p>
+<ul>
+<li>one objective</li>
+<li>known input expectations</li>
+<li>clear constraints</li>
+<li>an output contract</li>
+<li>some way to judge success or escalation</li>
+</ul>
+<p>It does not need to be a full platform feature. It needs to be reusable enough that another run, another person, or another agent can invoke it with roughly the same intended behavior.</p>
+<p>If you want the comparative model, continue to <a href="/systems/skills-vs-prompts-vs-agents/">Skills vs Prompts vs Agents</a>. If you want templates to define these more concretely, see <a href="/shelf/shared-resources/ai-skill-design-templates/">AI skill design templates</a>.</p>
+<p>The same idea also fits the <a href="/docs/natural-language-programming-stack/">Dual NLP for AI-assisted SDLC</a> page. In that model, natural language first interprets intent, then NLPg compiles that intent into a more governed execution form. A skill sits exactly at that transition point.</p>
+<h2 id="act-iii-using-skills-well">Act III: Using skills well</h2>
+<h3 id="when-a-task-should-become-a-skill">When a task should become a skill</h3>
+<p>A task usually deserves skill status when:</p>
+<ul>
+<li>it happens often enough to justify reuse</li>
+<li>it has recurring inputs and expected outputs</li>
+<li>quality depends on a stable constraint set</li>
+<li>the team wants to evaluate or version it over time</li>
+</ul>
+<p>That means not every prompt should become a skill. Exploratory work can remain conversational. Repeated work should become more structured.</p>
+<p>If you want to see the handoff point in a concrete local-tool workflow, use <a href="/shelf/local-experiments/ollama-launch-integrations/">Ollama launch: integration handoff</a>. It shows what happens when a reusable capability stops being just an idea and starts behaving like a named operating surface.</p>
+<h3 id="failure-patterns">Failure patterns</h3>
+<p>Teams usually misuse skills in three ways:</p>
+<ul>
+<li>calling any prompt a skill</li>
+<li>making skills so broad they become full workflows</li>
+<li>ignoring output contracts and then claiming the skill is reusable</li>
+</ul>
+<p>These failures are predictable because they come from unclear boundaries.</p>
+<p>For the conceptual comparison layer, see <a href="/systems/skills-vs-prompts-vs-agents/">Skills vs Prompts vs Agents</a>. For runtime framing, see <a href="/systems/tech-stack-for-nlpg-driven-ai-assisted-sdlc/">Tech Stack for NLPg-Driven AI-Assisted SDLC</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>You stop treating repeated language work as informal conversation and start treating it as a reusable capability that can be named, tested, and orchestrated.</p>
+6:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$b"}}]
+7:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Skills are introduced here as reusable execution units, not as standalone prompt tricks."}],["$","li","1",{"children":"The page links skills to workflows, agents, and the Dual NLP framework already used across the site."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Is a skill just another name for a prompt?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"No. A prompt is a single instruction surface, while a skill is a reusable capability with clearer boundaries, expected inputs, and repeatable outputs."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why do skills matter in AI-assisted SDLC?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"They reduce repeated interpretation work by turning common tasks into reusable capability units that can be evaluated, versioned, and orchestrated."}]]}]]}]]}]]}]
+8:["$","nav",null,{"className":"explainer-related","aria-label":"Related reading","children":[["$","span",null,{"className":"explainer-kicker","children":"Follow this through"}],["$","ul",null,{"children":[["$","li","/systems/skills-vs-prompts-vs-agents/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"explainer"}],["$","a",null,{"href":"/systems/skills-vs-prompts-vs-agents/","children":"Skills vs Prompts vs Agents"}],["$","span",null,{"className":"explainer-related-note","children":"Where a prompt ends, a skill begins, and an agent takes over."}]]}],["$","li","/systems/designing-reusable-ai-skills/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"playbook"}],["$","a",null,{"href":"/systems/designing-reusable-ai-skills/","children":"Designing Reusable AI Skills"}],["$","span",null,{"className":"explainer-related-note","children":"What to define before a repeated task counts as a skill."}]]}],["$","li","/tools/skill-catalog/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"tool"}],["$","a",null,{"href":"/tools/skill-catalog/","children":"Skill catalog"}],["$","span",null,{"className":"explainer-related-note","children":"See which rules in a system prompt want to be skills."}]]}]]}]]}]
+9:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L2",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L2",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

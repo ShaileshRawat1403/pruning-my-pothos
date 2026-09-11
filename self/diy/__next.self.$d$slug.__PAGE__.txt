@@ -1,0 +1,29 @@
+1:"$Sreact.fragment"
+6:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+2:Ta03,<p class="lead">DIY is a small act of sovereignty: you touch the world and it answers back.</p>
+
+<p>To build or repair something yourself is to draw a <span class="highlight">small circle of control</span> in a world that often feels chaotic. The act of &quot;doing it yourself&quot; is a <span class="highlight">quiet rebellion</span> against the black-box nature of modern life. It is a refusal to be a passive consumer and an assertion that you can understand, influence, and take responsibility for your immediate environment.</p>
+<p>This is where DIY intersects with a kind of practical existentialism. If our essence is not predefined, but created through our actions, then the things we choose to build and mend become part of who we are. Fixing a leaky faucet is not just a plumbing task; it is an act of <span class="highlight">self-definition</span>. You are a person who can solve their own problems, who can face a small piece of disorder and create order.</p>
+<figure class="content-figure">
+<svg viewBox="0 0 520 140" role="img" aria-labelledby="diy-process-title">
+  <title id="diy-process-title">DIY turns friction into meaning through repair</title>
+  <rect class="figure-stroke" x="20" y="40" width="140" height="60" rx="12" fill="none" stroke-width="2" />
+  <rect class="figure-stroke" x="190" y="40" width="140" height="60" rx="12" fill="none" stroke-width="2" />
+  <rect class="figure-fill" x="360" y="40" width="140" height="60" rx="12" />
+  <text class="figure-label" x="90" y="75" text-anchor="middle">Friction</text>
+  <text class="figure-label" x="260" y="75" text-anchor="middle">Repair</text>
+  <text class="figure-label figure-label-strong" x="430" y="75" text-anchor="middle">Meaning</text>
+  <path class="figure-accent" d="M160 70h20" stroke-width="3" stroke-linecap="round" />
+  <path class="figure-accent" d="M330 70h20" stroke-width="3" stroke-linecap="round" />
+</svg>
+<figcaption>The self is not discovered, but built, piece by piece.</figcaption>
+</figure>
+<p>This practice is not about saving money or achieving perfection. It is about the <span class="highlight">engagement itself</span>. It is about the knowledge gained through trial and error, the satisfaction of a problem solved with your own hands, and the <span class="highlight">slow, deliberate process</span> of shaping a small part of the world to be more in line with your own intent. In this, the self is not discovered, but built.</p>
+<p>DIY is a rehearsal for responsibility. It teaches you to see the seams, to accept friction, and to keep going anyway.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"D.I.Y. | Pruning My Pothos\",\"description\":\"A quiet rebellion: fixing small things to build a steadier self.\",\"url\":\"https://pruningmypothos.com/self/diy/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Published: ","January 14, 2026"," / 5 min read"," / intermediate"]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"D.I.Y."}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-pink/40 pl-4 py-1 text-sm sm:text-base","children":"A quiet rebellion: fixing small things to build a steadier self."}],"$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4"]}],null,"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","diy",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","diy"]}],["$","span","philosophy",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","philosophy"]}],["$","span","identity",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","identity"]}],["$","span","practice",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","practice"]}]]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L6",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

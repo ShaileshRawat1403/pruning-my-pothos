@@ -1,0 +1,154 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+e:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+f:"$Sreact.suspense"
+:HL["/covers/systems/engineering-agentic-systems-for-reliability.svg","image"]
+2:T4d8,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What causes agentic systems to fail?","acceptedAnswer":{"@type":"Answer","text":"Agentic systems fail at boundaries more often than they fail at generation. Weak permissions allow unauthorized actions. Weak verification passes bad outputs downstream. Weak traceability makes it impossible to diagnose what happened. The generation step is usually fine; it's the control around it that breaks."}},{"@type":"Question","name":"How do you make agentic systems reliable?","acceptedAnswer":{"@type":"Answer","text":"Keep planning, execution, and verification separate enough to inspect. Each step should have explicit inputs, explicit outputs, and explicit success criteria. Build escalation paths for when verification fails. The goal is not a smooth conversation; it's accountable behavior."}},{"@type":"Question","name":"What is a governed step in agent reliability?","acceptedAnswer":{"@type":"Answer","text":"A governed step is a unit of agentic work that has been authorized, verified, and logged. The model proposes; the runtime authorizes. This separation makes the system auditable and prevents the model from taking unconstrained actions."}}]}0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Engineering Agentic Systems for Reliability | Pruning My Pothos\",\"description\":\"A practical reliability model for agentic systems built around governed steps, verification, escalation, and observability.\",\"url\":\"https://pruningmypothos.com/systems/engineering-agentic-systems-for-reliability/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/engineering-agentic-systems-for-reliability/\"},\"datePublished\":\"2026-03-26\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/engineering-agentic-systems-for-reliability.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"How-things-fit-together"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Engineering Agentic Systems for Reliability"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"A practical reliability model for agentic systems built around governed steps, verification, escalation, and observability."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L3","agents",{"href":"/tags/agents/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","agents"]}],"$L4","$L5","$L6","$L7"]}]]}],"$L8","$undefined","$undefined","$undefined","$undefined","$undefined","$L9","$undefined","$La","$undefined","$Lb"]}],null,"$Lc"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+4:["$","$L3","engineering",{"href":"/tags/engineering/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","engineering"]}]
+5:["$","$L3","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}]
+6:["$","$L3","governance",{"href":"/tags/governance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}]
+7:["$","$L3","observability",{"href":"/tags/observability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","observability"]}]
+8:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/engineering-agentic-systems-for-reliability.svg","alt":"Reliability model with verification gates","className":"w-full h-full object-cover"}]}]
+d:T20b3,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Agentic systems fail at boundaries more often than they fail at generation.</li>
+<li>Reliability comes from explicit control loops, not from hoping the model &quot;understands the task.&quot;</li>
+<li>Good agent engineering keeps planning, execution, and verification separate enough to inspect.</li>
+</ul>
+</blockquote>
+<p>Agentic systems are attractive because they compress many steps into one conversational surface. That same convenience is what makes them risky. A system can appear smooth while hiding weak permissions, weak verification, or weak traceability.</p>
+<p>Reliable agent engineering starts by refusing to treat one fluent response as proof that the loop is safe.</p>
+<p class="lead">The engineering job is to convert a vague autonomous flow into a series of bounded, inspectable, and recoverable steps.</p>
+
+<p>In practice, <span class="highlight">agentic behavior becomes trustworthy only when each side effect is easier to explain than the prompt that triggered it</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> If you cannot tell where planning ended and execution began, the system will be hard to govern during incidents.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Reliability framing</summary>
+      <ol>
+        <li><a href="#what-agentic-reliability-actually-means">What agentic reliability actually means</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The control loop</summary>
+      <ol>
+        <li><a href="#the-four-reliability-boundaries">The four reliability boundaries</a></li>
+        <li><a href="#why-observability-is-not-optional">Why observability is not optional</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Operational discipline</summary>
+      <ol>
+        <li><a href="#how-good-teams-reduce-blast-radius">How good teams reduce blast radius</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-reliability-framing">Act I: Reliability framing</h2>
+<h3 id="what-agentic-reliability-actually-means">What agentic reliability actually means</h3>
+<p>Reliability for agentic systems does not mean the model is always right. It means the system handles being wrong without becoming dangerous, opaque, or expensive to recover.</p>
+<h3 id="what-does-reliable-agent-engineering-require">What does reliable agent engineering require?</h3>
+<p>For builders, operators, and platform teams, reliable agent engineering means designing the loop so that uncertain behavior stays bounded. The goal is not to eliminate mistakes. The goal is to make mistakes observable, classifiable, and cheap enough to recover from before they become operational damage.</p>
+<p>That usually requires four things:</p>
+<ul>
+<li>scoped permissions</li>
+<li>deterministic execution contracts</li>
+<li>verification after actions</li>
+<li>structured traces for review</li>
+</ul>
+<p>This is why <a href="/systems/ai-agents-vs-ai-workflows/">AI agents vs AI workflows</a> matters. Not every multi-step task needs an agent. Sometimes workflow discipline is the more reliable design.</p>
+<h2 id="act-ii-the-control-loop">Act II: The control loop</h2>
+<h3 id="the-four-reliability-boundaries">The four reliability boundaries</h3>
+<p>Agentic systems usually hold up better when they enforce four boundaries:</p>
+<ol>
+<li><strong>Planning boundary</strong>: the model proposes but does not silently execute.</li>
+<li><strong>Execution boundary</strong>: tools receive explicit, narrow contracts.</li>
+<li><strong>Verification boundary</strong>: completion must be evidenced, not merely stated.</li>
+<li><strong>Escalation boundary</strong>: ambiguous or risky steps can stop for human review.</li>
+</ol>
+<p>These boundaries turn autonomy into a controllable shape rather than a stylistic promise.</p>
+<p>For a detailed runtime version, see <a href="/systems/from-agent-intent-to-governed-execution/">From Agent Intent to Governed Execution</a>.</p>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Boundary</th>
+        <th>Protects</th>
+        <th>What breaks without it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Planning</strong></td>
+        <td>Separation between ideas and actions</td>
+        <td>The model silently turns intent into execution</td>
+      </tr>
+      <tr>
+        <td><strong>Execution</strong></td>
+        <td>Tool scope and side effects</td>
+        <td>Actions run broader than the user or policy intended</td>
+      </tr>
+      <tr>
+        <td><strong>Verification</strong></td>
+        <td>Evidence of completion</td>
+        <td>"Done" is accepted without proof</td>
+      </tr>
+      <tr>
+        <td><strong>Escalation</strong></td>
+        <td>Human review under ambiguity</td>
+        <td>Uncertain branches continue until they cause damage</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<h3 id="why-observability-is-not-optional">Why observability is not optional</h3>
+<p>When an agentic system misbehaves, you need to know:</p>
+<ul>
+<li>what it intended to do,</li>
+<li>what it was allowed to do,</li>
+<li>what it actually did,</li>
+<li>what evidence came back,</li>
+<li>what happened next.</li>
+</ul>
+<p>Without that timeline, debugging becomes storytelling instead of engineering.</p>
+<p>That is why <a href="/systems/observability-first-ai-systems/">Observability First: How AI Systems Learn After Launch</a> belongs inside the reliability model, not after it.</p>
+<p>Observability also improves the social side of reliability. Teams stop reviewing incidents as isolated surprises and start seeing reusable failure classes. A permission miss looks different from a verification miss. A timeout looks different from a weak proposal. That difference matters because each class leads to a different fix: policy changes, tighter schemas, better tool contracts, or a human checkpoint at the right branch.</p>
+<h2 id="act-iii-operational-discipline">Act III: Operational discipline</h2>
+<h3 id="how-good-teams-reduce-blast-radius">How good teams reduce blast radius</h3>
+<p>Teams that engineer reliable agents tend to keep the blast radius small:</p>
+<ul>
+<li>they separate read actions from write actions</li>
+<li>they require explicit scope for stateful operations</li>
+<li>they classify failures into reusable categories</li>
+<li>they make intervention cheap when the loop gets uncertain</li>
+</ul>
+<p>The blast-radius idea matters because agentic failures are rarely unique. A weak boundary becomes a repeated pattern. If a runtime allows broad writes today, it will allow them again tomorrow. If verification is treated as optional once, that shortcut tends to spread. Reliability improves when teams remove the pattern, not only the last visible symptom.</p>
+<p>That is also where good engineering culture helps. Teams that document failure modes, keep traces readable, and insist on scoped actions build systems that can mature over time. Teams that rely on informal confidence usually plateau early because every new capability reintroduces the same old ambiguity in a different place.</p>
+<p>The <a href="/shelf/shared-resources/engineering-agentic-systems-deck/">Engineering Agentic Systems deck</a> is the compact version of this operating model.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Do not ask whether the agent seems smart. Ask whether the system can bound, verify, and explain the next step. That is the engineering standard that makes agentic systems survivable in production.</p>
+<p>Related reading:</p>
+<ul>
+<li><a href="/systems/from-agent-intent-to-governed-execution/">From agent intent to governed execution</a></li>
+<li><a href="/systems/observability-first-ai-systems/">Observability first AI systems</a></li>
+<li><a href="/shelf/shared-resources/engineering-agentic-systems-deck/">Engineering Agentic Systems deck</a></li>
+<li><a href="/systems/i-7-cognitive-loop/">I-7 Cognitive Loop</a> — the four reliability boundaries map onto Initiate, Inspect, and Intervene</li>
+</ul>
+9:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$d"}}]
+a:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Practical reliability model for agentic systems"}],["$","li","1",{"children":"Defines verification and escalation patterns"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What causes agentic systems to fail?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Agentic systems fail at boundaries more often than they fail at generation. Weak permissions allow unauthorized actions. Weak verification passes bad outputs downstream. Weak traceability makes it impossible to diagnose what happened. The generation step is usually fine; it's the control around it that breaks."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"How do you make agentic systems reliable?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Keep planning, execution, and verification separate enough to inspect. Each step should have explicit inputs, explicit outputs, and explicit success criteria. Build escalation paths for when verification fails. The goal is not a smooth conversation; it's accountable behavior."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is a governed step in agent reliability?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"A governed step is a unit of agentic work that has been authorized, verified, and logged. The model proposes; the runtime authorizes. This separation makes the system auditable and prevents the model from taking unconstrained actions."}]]}]]}]]}]]}]
+b:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L3",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L3",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+c:["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]
+10:null

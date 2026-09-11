@@ -1,0 +1,30 @@
+1:"$Sreact.fragment"
+7:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+8:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+9:"$Sreact.suspense"
+2:T7a3,<p>We are often distracted by the urgent. We spend our days answering emails, attending meetings, and fixing minor issues. These tasks feel productive, but they are often proxies for the real work. They are the visible, immediate problems, not the important ones.</p>
+<figure class="content-figure figure-judgment">
+  <svg viewBox="0 0 480 180" role="img" aria-labelledby="judgment-real-problem-title">
+    <title id="judgment-real-problem-title">Judgment chooses a direction</title>
+    <rect class="figure-stroke" x="40" y="40" width="140" height="44" rx="10" fill="none" stroke-width="2" />
+    <rect class="figure-stroke" x="40" y="100" width="140" height="44" rx="10" fill="none" stroke-width="2" />
+    <text class="figure-label" x="68" y="68">Option A</text>
+    <text class="figure-label" x="68" y="128">Option B</text>
+    <circle class="figure-fill" cx="360" cy="90" r="28" />
+    <text class="figure-label figure-label-strong" x="338" y="96">Choice</text>
+    <path class="figure-accent" d="M180 62h120" stroke-width="3" stroke-linecap="round" />
+    <path class="figure-accent" d="M180 122h120" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="180" cy="62" r="4" />
+    <circle class="figure-dot" cx="180" cy="122" r="4" />
+  </svg>
+  <figcaption>Judgment chooses a path, not just a score.</figcaption>
+</figure>
+<p>The real problem is the one that, if solved, would make many of these smaller problems irrelevant. It is the systemic issue, the root cause, the unspoken constraint. Finding it requires stepping back from the noise and asking what is truly at stake.</p>
+<p>This is not a comfortable process. It often means admitting that the work we have been doing is not the work that is needed. But it is the only way to make meaningful progress.</p>
+<p><strong>What this changes in practice:</strong> Before you start a task, ask yourself: &quot;If I solve this, what larger problem does it address?&quot;</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"What is the problem you are *really* trying to solve? | Pruning My Pothos\",\"description\":\"Real problems hide behind proxy tasks and urgent requests.\",\"url\":\"https://pruningmypothos.com/sentences/real-problem/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Judgment","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"What is the problem you are *really* trying to solve?"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-purple/40 pl-4 py-1 text-sm sm:text-base","children":"Real problems hide behind proxy tasks and urgent requests."}],["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","problem-solving",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","problem-solving"]}],"$L3","$L4"]}],"$L5"]}],null,"$L6"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","span","judgment",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","judgment"]}]
+4:["$","span","strategy",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","strategy"]}]
+5:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L7",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+6:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
+a:null

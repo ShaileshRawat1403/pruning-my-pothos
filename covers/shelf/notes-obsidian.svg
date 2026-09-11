@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">Notes/Tools: a daily Obsidian scratchpad</title>
+<desc id="d">Ink-illustration cover for Notes/Tools: a daily Obsidian scratchpad</desc>
+<rect width="1200" height="675" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="1198.5" height="673.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 404.3 131.3 L 709.8 131.6 Q 737.1 131.3 736.6 158.3 L 736.5 356.6 Q 737.3 383.8 709.8 384.2 L 404.3 383.5 Q 377.1 382.9 376.8 356.6 L 377.0 158.3 Q 377.9 131.0 404.3 131.3 Z" stroke="#2a2012" stroke-width="4.50" fill="none"/>
+<path d="M 580.1 149.2 L 838.2 148.7 Q 864.4 149.3 865.3 176.2 L 865.4 335.5 Q 865.0 362.6 838.2 362.3 L 580.1 362.3 Q 553.0 362.4 553.5 335.5 L 553.5 176.2 Q 553.8 149.4 580.1 149.2 Z" stroke="#8c2f23" stroke-width="5.40" fill="none"/>
+<text x="556.8" y="112.3" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="25.5" fill="#2a2012" text-anchor="middle">NOTES TOOL</text>
+<text x="709.2" y="398.6" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="25.5" fill="#8c2f23" text-anchor="middle">DAILY OBSI</text>
+<text x="600.0" y="465.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="37.5" fill="#2a2012" font-weight="700" text-anchor="middle">NOTES TOOLS</text>
+<text x="1186" y="665" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24.0" fill="#2a2012" opacity="0.5" text-anchor="end">SHELF · NOTES</text>
+</svg>

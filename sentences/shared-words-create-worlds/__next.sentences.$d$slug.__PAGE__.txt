@@ -1,0 +1,47 @@
+1:"$Sreact.fragment"
+6:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+2:Tc7a,<p>When a team shares a vocabulary, they share more than just words. They share a way of seeing the world. They share a set of concepts that allow them to coordinate their actions and align their efforts.</p>
+<figure class="content-figure figure-meaning">
+  <svg viewBox="0 0 480 160" role="img" aria-labelledby="meaning-shared-words-create-worlds-title">
+    <title id="meaning-shared-words-create-worlds-title">Meaning bridges experience and understanding</title>
+    <rect class="figure-stroke" x="40" y="55" width="150" height="50" rx="10" fill="none" stroke-width="2" />
+    <rect class="figure-fill" x="290" y="55" width="150" height="50" rx="10" />
+    <text class="figure-label" x="72" y="86">Experience</text>
+    <text class="figure-label figure-label-strong" x="316" y="86">Meaning</text>
+    <path class="figure-accent" d="M200 80h80" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="200" cy="80" r="4" />
+    <circle class="figure-dot" cx="280" cy="80" r="4" />
+  </svg>
+  <figcaption>Meaning bridges experience and shared understanding.</figcaption>
+</figure>
+<p>A shared language is a tool for building a shared reality. It is the foundation of a common culture. Without it, collaboration is difficult and misunderstandings are frequent.</p>
+<figure class="content-figure figure-meaning">
+  <svg viewBox="0 0 480 170" role="img" aria-labelledby="meaning-glossary-shared-words-title">
+    <title id="meaning-glossary-shared-words-title">Shared words form a glossary</title>
+    <circle class="figure-stroke" cx="90" cy="85" r="22" fill="none" stroke-width="2" />
+    <circle class="figure-stroke" cx="90" cy="125" r="22" fill="none" stroke-width="2" />
+    <circle class="figure-stroke" cx="90" cy="45" r="22" fill="none" stroke-width="2" />
+    <rect class="figure-fill" x="190" y="65" width="100" height="40" rx="10" />
+    <text class="figure-label figure-label-strong" x="205" y="91">Glossary</text>
+    <path class="figure-accent" d="M112 85h70" stroke-width="3" stroke-linecap="round" />
+    <path class="figure-accent" d="M112 45h70" stroke-width="3" stroke-linecap="round" />
+    <path class="figure-accent" d="M112 125h70" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="112" cy="85" r="4" />
+    <circle class="figure-dot" cx="112" cy="45" r="4" />
+    <circle class="figure-dot" cx="112" cy="125" r="4" />
+    <rect class="figure-stroke" x="330" y="65" width="110" height="40" rx="10" fill="none" stroke-width="2" />
+    <text class="figure-label" x="350" y="91">Alignment</text>
+    <path class="figure-accent" d="M290 85h40" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="290" cy="85" r="4" />
+  </svg>
+  <figcaption>Shared terms create a shared glossary and shared intent.</figcaption>
+</figure>
+<p>The work of creating a shared vocabulary is not trivial. It requires deliberate effort and a willingness to negotiate meaning. But it is some of the most important work a team can do.</p>
+<p><strong>What this changes in practice:</strong> At the beginning of a project, create a glossary of key terms. Make sure everyone on the team understands and uses the same language.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Shared words create shared worlds. | Pruning My Pothos\",\"description\":\"Alignment starts with shared vocabulary.\",\"url\":\"https://pruningmypothos.com/sentences/shared-words-create-worlds/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Meaning","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Shared words create shared worlds."}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-purple/40 pl-4 py-1 text-sm sm:text-base","children":"Alignment starts with shared vocabulary."}],["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4"]}],null,"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","communication",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","communication"]}],["$","span","meaning",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","meaning"]}],["$","span","alignment",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","alignment"]}]]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L6",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

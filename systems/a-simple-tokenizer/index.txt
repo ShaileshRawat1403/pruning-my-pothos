@@ -1,0 +1,163 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","a-simple-tokenizer",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","a-simple-tokenizer","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+17:T4b6,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is tokenization?","acceptedAnswer":{"@type":"Answer","text":"Tokenization is the process of converting text into tokens (integers) that a language model can process. The model doesn't read characters or words; it sees a sequence of numbers representing these tokens. A token can be a full word, part of a word, a space, or punctuation."}},{"@type":"Question","name":"Why do models struggle with \"Strawberry\"?","acceptedAnswer":{"@type":"Answer","text":"Tokenizers split text into subword units based on frequency in training data. Common words like \"straw\" might be one token while uncommon endings like \"berry\" might be split into multiple tokens. \"Strawberry\" has 3 tokens (straw-berry), making counting the 'r's across token boundaries difficult."}},{"@type":"Question","name":"Does shorter text always mean fewer tokens?","acceptedAnswer":{"@type":"Answer","text":"No. Text length in characters doesn't correlate perfectly with token count. Dense, uncommon words can use more tokens than longer, common phrases. This is why estimating costs or context usage by character count is unreliable."}}]}c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"From Text to Tokens | Pruning My Pothos\",\"description\":\"Explaining tokenization without the math. Why models don't read words, and why that matters for your prompts.\",\"url\":\"https://pruningmypothos.com/systems/a-simple-tokenizer/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/a-simple-tokenizer/\"},\"datePublished\":\"2026-01-13\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/a-simple-tokenizer.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$17"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Explanations"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"From Text to Tokens"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"Explaining tokenization without the math. Why models don't read words, and why that matters for your prompts."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","tokenization",{"href":"/tags/tokenization/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","tokenization"]}],["$","$L9","nlp",{"href":"/tags/nlp/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","nlp"]}],"$L18"]}]]}],"$L19","$undefined","$undefined","$undefined","$undefined","$undefined","$L1a","$undefined","$L1b","$undefined","$L1c"]}]
+:HL["/covers/systems/a-simple-tokenizer.svg","image"]
+18:["$","$L9","foundations",{"href":"/tags/foundations/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","foundations"]}]
+19:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/a-simple-tokenizer.svg","alt":"Text being split into tokens with numeric encoding","className":"w-full h-full object-cover"}]}]
+1d:T24b9,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li><strong>Tokenization</strong> is the process of converting text into numbers (tokens) that a model can process.</li>
+<li>Models do not see characters or words; they see a sequence of <span class="highlight">integers</span>.</li>
+<li>A &quot;token&quot; is not always a word. It can be part of a word, a space, or a punctuation mark.</li>
+<li>This abstraction explains why models struggle with spelling (&quot;Strawberry&quot;) and simple math.</li>
+<li>&quot;Shorter&quot; text is not always &quot;simpler&quot; for a model if it uses rare tokens.</li>
+</ul>
+</blockquote>
+<figure class="diagram diagram-hero">
+  <svg viewBox="0 0 900 260" role="img" aria-labelledby="token-hero-title token-hero-desc" style="width: 100%; height: auto; display: block;">
+    <title id="token-hero-title">Text to Numbers Pipeline</title>
+    <desc id="token-hero-desc">Visualizing the transformation of the phrase 'AI is math' into tokens and then IDs.</desc>
+
+    <!-- Input Text -->
+    <text x="100" y="135" font-family="var(--font-serif)" font-size="24" fill="currentColor">"AI is math"</text>
+
+    <!-- Arrow 1 -->
+    <path d="M 220 130 H 280" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+
+    <!-- Tokenization (Splitting) -->
+    <g transform="translate(300, 100)">
+      <rect x="0" y="0" width="50" height="60" rx="4" fill="var(--color-bg)" stroke="var(--color-accent)" stroke-width="2" />
+      <text x="25" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">AI</text>
+
+      <rect x="60" y="0" width="50" height="60" rx="4" fill="var(--color-bg)" stroke="var(--color-accent)" stroke-width="2" />
+      <text x="85" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">is</text>
+
+      <rect x="120" y="0" width="70" height="60" rx="4" fill="var(--color-bg)" stroke="var(--color-accent)" stroke-width="2" />
+      <text x="155" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">math</text>
+    </g>
+
+    <!-- Arrow 2 -->
+    <path d="M 500 130 H 560" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+
+    <!-- IDs (Integers) -->
+    <g transform="translate(580, 100)">
+      <rect x="0" y="0" width="60" height="60" rx="4" fill="var(--color-blockquote-bg)" stroke="currentColor" stroke-width="2" />
+      <text x="30" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">1045</text>
+
+      <rect x="70" y="0" width="60" height="60" rx="4" fill="var(--color-blockquote-bg)" stroke="currentColor" stroke-width="2" />
+      <text x="100" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">318</text>
+
+      <rect x="140" y="0" width="60" height="60" rx="4" fill="var(--color-blockquote-bg)" stroke="currentColor" stroke-width="2" />
+      <text x="170" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">8921</text>
+    </g>
+
+    <text x="390" y="190" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">Tokenization</text>
+    <text x="680" y="190" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">Encoding</text>
+
+  </svg>
+  <figcaption>The machine never sees the words. It only sees the IDs.</figcaption>
+</figure>
+<p>Before a Large Language Model (LLM) can &quot;think,&quot; it must read. But computers cannot read text; they can only process numbers. The <strong>Tokenizer</strong> is the bridge component that chops human language into atomic units called tokens and assigns each one a unique integer ID.</p>
+<p>This seems like a trivial implementation detail, but it dictates the fundamental capabilities and limitations of the model.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The fundamentals</summary>
+      <ol>
+        <li><a href="#why-not-just-characters">Why Not Just Characters?</a></li>
+        <li><a href="#what-a-token-actually-looks-like">What a Token Actually Looks Like</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The modern paradigm</summary>
+      <ol>
+        <li><a href="#the-reality-subword-tokenization">The Reality: Subword Tokenization</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Principles in practice</summary>
+      <ol>
+        <li><a href="#why-this-matters-for-systems">Why This Matters for Systems</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-fundamentals">Act I: The fundamentals</h2>
+<h3 id="why-not-just-characters">Why Not Just Characters?</h3>
+<p>We could map <code>a=1</code>, <code>b=2</code>, <code>c=3</code>. This is simple, but inefficient.</p>
+<ul>
+<li><strong>Context window:</strong> If every letter is a token, the sentence &quot;The quick brown fox&quot; is 19 tokens.</li>
+<li><strong>Compute cost:</strong> Attention mechanisms scale quadratically with sequence length. Longer sequences = much slower and more expensive models.</li>
+</ul>
+<p>Conversely, we could map every <em>word</em> to a number. But English has hundreds of thousands of words, and new ones are invented daily. The vocabulary would be too large to compute efficiently.</p>
+<p>The solution is <strong>Subword Tokenization</strong>: break common words into whole tokens (<code>&quot;apple&quot;</code>) and rare words into chunks (<code>&quot;un&quot;</code>, <code>&quot;friend&quot;</code>, <code>&quot;li&quot;</code>, <code>&quot;ness&quot;</code>).</p>
+<h3 id="what-a-token-actually-looks-like">What a Token Actually Looks Like</h3>
+<p>To a human, the word &quot;Smart&quot; is a single concept. To a tokenizer, it might be one token (ID: <code>5421</code>).</p>
+<p>But the word &quot;Smartification&quot; (a made-up word) might be split into three tokens:</p>
+<ol>
+<li><code>Smart</code> (ID: <code>5421</code>)</li>
+<li><code>ifi</code> (ID: <code>892</code>)</li>
+<li><code>cation</code> (ID: <code>1102</code>)</li>
+</ol>
+<p>The model processes these three integers in sequence. It learns that <code>5421</code> followed by <code>892</code> usually implies a transformation of the concept &quot;Smart&quot;.</p>
+<p>Here is a <strong>toy tokenizer</strong> you can run locally. It is not BPE, but it shows the idea of splitting text into chunks.</p>
+<pre><code class="language-python">import re
+
+text = &quot;Smartification!&quot;
+tokens = re.findall(r&quot;[A-Za-z]+|[^A-Za-z\\s]&quot;, text)
+print(tokens)
+</code></pre>
+<h2 id="act-ii-the-modern-paradigm">Act II: The modern paradigm</h2>
+<h3 id="the-reality-subword-tokenization">The Reality: Subword Tokenization</h3>
+<p>Real systems (like GPT-4 or Claude) use algorithms like <strong>Byte Pair Encoding (BPE)</strong>. BPE starts with characters and iteratively merges the most frequent adjacent pairs until a target vocabulary size is reached.</p>
+<p>This explains why LLMs struggle with tasks that seem easy to humans:</p>
+<ol>
+<li><strong>Spelling:</strong> The model sees the token ID <code>12345</code> for &quot;Strawberry&quot;. It does not inherently see the letters <code>r-r</code>. It has to memorize the spelling as a separate fact.</li>
+<li><strong>Math:</strong> The number <code>9.11</code> might be tokenized as <code>[9, ., 11]</code> while <code>9.9</code> is <code>[9, ., 9]</code>. To the model, <code>11</code> is &quot;bigger&quot; than <code>9</code>, so it might hallucinate that 9.11 is greater than 9.9.</li>
+</ol>
+<h2 id="act-iii-principles-in-practice">Act III: Principles in practice</h2>
+<h3 id="why-this-matters-for-systems">Why This Matters for Systems</h3>
+<p>When designing systems around LLMs, tokenization creates invisible constraints:</p>
+<ul>
+<li><strong>Cost:</strong> You pay per token. Verbose prompts cost more.</li>
+<li><strong>Performance:</strong> &quot;Prompt Engineering&quot; is often just finding words that tokenize into patterns the model recognizes more strongly.</li>
+<li><strong>Security:</strong> Some &quot;jailbreaks&quot; work by forcing the tokenizer to split forbidden words in ways that bypass safety filters (e.g., splitting &quot;bomb&quot; into &quot;b-omb&quot;).</li>
+</ul>
+<p>Understanding the tokenizer means understanding the raw material of the intelligence you are orchestrating.</p>
+<p>For related systems context, see <a href="/systems/systems-001-foundations/">Systems 001: Foundations</a> and <a href="/systems/from-prompt-to-production/">From Prompt to Production</a>. You can find empirical measurements of context usage and degradation in our <a href="/shelf/local-experiments/context-window-stress/">Context window stress test local experiment</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Treat tokenization as a design constraint: it shapes cost, reliability, and the kinds of prompts your system can handle.</p>
+1a:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1d"}}]
+1b:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Core foundational reference for tokenization mechanics"}],["$","li","1",{"children":"Referenced in context-windows-as-working-memory.mdx"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is tokenization?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Tokenization is the process of converting text into tokens (integers) that a language model can process. The model doesn't read characters or words; it sees a sequence of numbers representing these tokens. A token can be a full word, part of a word, a space, or punctuation."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why do models struggle with \"Strawberry\"?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Tokenizers split text into subword units based on frequency in training data. Common words like \"straw\" might be one token while uncommon endings like \"berry\" might be split into multiple tokens. \"Strawberry\" has 3 tokens (straw-berry), making counting the 'r's across token boundaries difficult."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Does shorter text always mean fewer tokens?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"No. Text length in characters doesn't correlate perfectly with token count. Dense, uncommon words can use more tokens than longer, common phrases. This is why estimating costs or context usage by character count is unreliable."}]]}]]}]]}]]}]
+1c:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1e:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"From Text to Tokens | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"Explaining tokenization without the math. Why models don't read words, and why that matters for your prompts."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/a-simple-tokenizer/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"From Text to Tokens | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"Explaining tokenization without the math. Why models don't read words, and why that matters for your prompts."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/a-simple-tokenizer/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/a-simple-tokenizer.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"From Text to Tokens | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"Explaining tokenization without the math. Why models don't read words, and why that matters for your prompts."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/a-simple-tokenizer.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L1e","20",{}]]

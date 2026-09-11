@@ -1,0 +1,153 @@
+1:"$Sreact.fragment"
+8:I[15141,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3t39z7yidypi6.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3t39z7yidypi6.js"],""]
+a:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+b:"$Sreact.suspense"
+:HL["/covers/shelf/local-soothsayer-mcp-kernel.svg","image"]
+2:T1e74,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Reliable agents need a runtime loop, not just model + tools.</li>
+<li>In this design, the model proposes actions, but the runtime decides execution.</li>
+<li>Lifecycle state, permission gates, and trace logs are what make orchestration trustworthy.</li>
+</ul>
+</blockquote>
+<p>This started from a familiar failure mode. Early agent demos looked impressive, but as soon as tasks became multi-step, the system became hard to trust. Tools executed in surprising order, state went out of sync, and success messages appeared without proof.</p>
+<p>The core lesson was simple: model reasoning is probabilistic, but system execution must be controlled. So instead of building a tool-calling chatbot, I built <code>workspace-mcp</code> as a runtime kernel with explicit orchestration rules.</p>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Orientation</summary>
+      <ol>
+        <li><a href="#architecture-map">Architecture map</a></li>
+        <li><a href="#what-happened">What happened</a></li>
+        <li><a href="#the-two-gates">The two gates</a></li>
+        <li><a href="#message-parts-timeline">Message parts timeline</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Build</summary>
+      <ol>
+        <li><a href="#setup-walkthrough">Setup walkthrough</a></li>
+        <li><a href="#first-time-config">First-time config</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Verification</summary>
+      <ol>
+        <li><a href="#quick-checks">Quick checks</a></li>
+        <li><a href="#failure-modes">Failure modes</a></li>
+        <li><a href="#what-made-the-difference">What made the difference</a></li>
+        <li><a href="#what-i-would-do-next-time">What I would do next time</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="architecture-map">Architecture map</h2>
+<p>The most important boundary is this:</p>
+<p><code>think</code> and <code>act</code> are separated.</p>
+<p>The model can think and propose. The runtime can approve, deny, execute, verify, and record.</p>
+<figure class="diagram">
+  <img src="/images/diagrams/soothsayer-runtime-loop.svg" alt="Runtime control loop showing user request, model proposal, session loop, tool execution, verification, and next step decision." loading="lazy" />
+  <figcaption>The runtime loop is the product. The model is one component inside it.</figcaption>
+</figure>
+<h2 id="what-happened">What happened</h2>
+<p>The first version followed the typical pattern: prompt in, tool call out, answer back. It was fast to build and good for demos, but unreliable for sustained use.</p>
+<p>Three problems kept repeating:</p>
+<ul>
+<li>tool calls retried in loops</li>
+<li>write operations happened without strong guardrails</li>
+<li>success was claimed before verification</li>
+</ul>
+<h2 id="the-two-gates">The two gates</h2>
+<p>The first gate is <strong>permission governance</strong>.
+Before a tool runs, the runtime must decide: allow, deny, or ask user.</p>
+<p>The second gate is <strong>contract integrity</strong>.
+If response shape drifts, clients become fragile and audit trails become noisy.</p>
+<figure class="diagram">
+  <img src="/images/diagrams/soothsayer-orchestration-core.svg" alt="Orchestration core diagram showing policy engine, tool registry, patch and bundle layer, and trace audit around the session loop." loading="lazy" />
+  <figcaption>Internally, this is orchestration infrastructure: policy, tools, patches, and traces move as one system.</figcaption>
+</figure>
+<h2 id="message-parts-timeline">Message parts timeline</h2>
+<p>DAX-style event streaming becomes much easier to inspect when each response is split into structured parts instead of one long string. This is the timeline model that keeps execution debuggable.</p>
+<figure class="diagram">
+  <img src="/images/diagrams/soothsayer-message-parts-timeline.svg" alt="Compact timeline showing reasoning, text, tool, patch, and step message parts as structured events." loading="lazy" />
+  <figcaption>Message parts (`reasoning`, `text`, `tool`, `patch`, `step`) create an audit-friendly execution timeline.</figcaption>
+</figure>
+<h2 id="setup-walkthrough">Setup walkthrough</h2>
+<ol>
+<li>Enter the <code>workspace-mcp</code> package in the Soothsayer repo.</li>
+<li>Install in editable mode with dev tooling.</li>
+<li>Start the kernel with explicit workspace and profile.</li>
+<li>Run a controlled lifecycle, not ad hoc tool calls.</li>
+</ol>
+<pre><code class="language-bash">cd workspace-mcp
+python -m venv .venv
+source .venv/bin/activate
+pip install -e &quot;.[dev]&quot;
+</code></pre>
+<pre><code class="language-bash">workspace-mcp --workspace-root /tmp/workspace --profile dev
+</code></pre>
+<h2 id="first-time-config">First-time config</h2>
+<p>Project policy layering is where this becomes useful in real teams. The packaged kernel policy is stable, while each workspace can overlay tighter controls.</p>
+<pre><code class="language-bash">workspace-mcp \
+  --workspace-root ./examples/minimal-project/workspace \
+  --policy-path ./examples/minimal-project/project_policy.yaml \
+  --profile dev
+</code></pre>
+<p>A minimal lifecycle should always follow this order:</p>
+<ol>
+<li><code>kernel_version</code></li>
+<li><code>self_check</code></li>
+<li><code>start_run</code></li>
+<li><code>repo_search</code></li>
+<li><code>create_change_bundle</code></li>
+<li><code>bundle_report</code></li>
+<li><code>end_run</code></li>
+<li><code>get_run_summary</code></li>
+</ol>
+<p>This keeps every change traceable to one explicit run context.</p>
+<h2 id="quick-checks">Quick checks</h2>
+<p>Build-time confidence:</p>
+<pre><code class="language-bash">pytest -q
+ruff check .
+mypy src
+</code></pre>
+<p>Deterministic hash parity:</p>
+<pre><code class="language-bash">python spec-tests/generate_bundle_hashes.py --check
+</code></pre>
+<p>Runtime behavior sanity:</p>
+<pre><code class="language-bash">workspace-mcp --workspace-root /tmp/workspace --profile read_only
+</code></pre>
+<p>For CI hardening, run the kernel under <code>ci</code> profile and assert blocked write flows return canonical violations instead of tool output.</p>
+<h2 id="failure-modes">Failure modes</h2>
+<ul>
+<li>Starting without <code>start_run</code>, then assuming subsequent steps are connected.</li>
+<li>Letting the model call tools directly without a policy decision boundary.</li>
+<li>Trusting success text without verification evidence.</li>
+<li>Treating violations as free-form errors rather than structured contract outputs.</li>
+<li>Ignoring loop behavior (repeated tool intents) until runtime costs spike.</li>
+</ul>
+<h2 id="what-made-the-difference">What made the difference</h2>
+<p>These decisions made the runtime resilient:</p>
+<ul>
+<li>Enforce runtime invariants (<code>meta</code> shape, code alignment, timestamp format).</li>
+<li>Make lifecycle explicit (<code>run_id</code>, owner scoping, bounded run store).</li>
+<li>Keep patch/change artifacts deterministic and hash-based.</li>
+<li>Record policy decisions in audit logs that can be explained later.</li>
+</ul>
+<p>That moved the system from &quot;assistant behavior&quot; to &quot;orchestrated execution.&quot;</p>
+<h2 id="what-i-would-do-next-time">What I would do next time</h2>
+<p>I would add three integration harnesses on day one: one CLI loop, one IDE loop, one CI loop. The runtime is stable only when contract assumptions are tested from each client surface, not just from unit tests.</p>
+<p>If you want the design lens behind this implementation, <a href="/docs/natural-language-programming-stack/">Dual NLP framework</a> explains the planning language this runtime operationalizes.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Soothsayer MCP kernel: from prompts to controlled orchestration | Pruning My Pothos\",\"description\":\"How I built a policy-governed MCP runtime where models can reason freely but execution stays deterministic, verifiable, and auditable.\",\"url\":\"https://pruningmypothos.com/shelf/local-experiments/soothsayer-mcp-kernel/\",\"image\":\"https://pruningmypothos.com/covers/shelf/local-soothsayer-mcp-kernel.svg\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Shelf • ","local-experiments"]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Soothsayer MCP kernel: from prompts to controlled orchestration"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-cyan/40 pl-4 py-1 text-sm sm:text-base","children":"How I built a policy-governed MCP runtime where models can reason freely but execution stays deterministic, verifiable, and auditable."}],["$","figure",null,{"className":"w-full max-w-[420px] overflow-hidden rounded-lg border border-[color:var(--card-border)] aspect-video my-4 shadow-none self-center sm:self-start bg-[color:var(--card-bg)]","children":["$","img",null,{"src":"/covers/shelf/local-soothsayer-mcp-kernel.svg","alt":"Cover illustration for Soothsayer MCP kernel: from prompts to controlled orchestration","className":"w-full h-full object-contain"}]}],"$undefined","$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4","$L5"]}],["$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L8",null,{"title":"Soothsayer MCP kernel: from prompts to controlled orchestration"}]
+4:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","experiments",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","experiments"]}],["$","span","mcp",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","mcp"]}],["$","span","orchestration",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","orchestration"]}],["$","span","policy",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","policy"]}],["$","span","reliability",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}]]}]
+5:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L9",null,{"href":"/shelf","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Shelf"}]}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/3t39z7yidypi6.js","async":true}]
+7:["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]
+c:null

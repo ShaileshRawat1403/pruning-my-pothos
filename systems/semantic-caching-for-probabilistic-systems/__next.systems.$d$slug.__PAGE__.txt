@@ -1,0 +1,154 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+c:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+:HL["/covers/systems/semantic-caching-for-probabilistic-systems.svg","image"]
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Semantic Caching for Probabilistic Systems | Pruning My Pothos\",\"description\":\"How to reduce latency and cost in LLM applications by caching semantically equivalent queries using vector similarity.\",\"url\":\"https://pruningmypothos.com/systems/semantic-caching-for-probabilistic-systems/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/semantic-caching-for-probabilistic-systems/\"},\"datePublished\":\"2026-06-28\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/semantic-caching-for-probabilistic-systems.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What is semantic caching?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Semantic caching is the technique of caching LLM responses by matching incoming queries based on semantic similarity (embeddings vector distance) rather than exact character matches.\"}},{\"@type\":\"Question\",\"name\":\"How do you prevent returning stale information?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"By setting strict Time-To-Live (TTL) policies, namespace partitioning, and using event-driven cache invalidation when underlying reference data (like RAG databases) changes.\"}},{\"@type\":\"Question\",\"name\":\"What similarity threshold should I use?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"A baseline threshold of 0.90 to 0.95 cosine similarity is common. Lower values increase hit rates but risk returning incorrect answers, while higher values ensure correctness but reduce cache utility.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Concepts"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Semantic Caching for Probabilistic Systems"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"How to reduce latency and cost in LLM applications by caching semantically equivalent queries using vector similarity."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L2","caching",{"href":"/tags/caching/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","caching"]}],["$","$L2","llm-ops",{"href":"/tags/llm-ops/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","llm-ops"]}],"$L3","$L4","$L5"]}]]}],"$L6","$undefined","$undefined","$undefined","$undefined","$undefined","$L7","$undefined","$L8","$undefined","$L9"]}],null,"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L2","performance",{"href":"/tags/performance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","performance"]}]
+4:["$","$L2","cost",{"href":"/tags/cost/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","cost"]}]
+5:["$","$L2","optimization",{"href":"/tags/optimization/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","optimization"]}]
+6:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/semantic-caching-for-probabilistic-systems.svg","alt":"Semantic cache lookup for probabilistic systems","className":"w-full h-full object-cover"}]}]
+b:T2e8f,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Traditional exact-match caching is ineffective for natural language prompts due to variation in phrasing.</li>
+<li>Semantic caching leverages vector embeddings to match queries based on meaning rather than exact characters.</li>
+<li>Calibrating the similarity threshold is critical to prevent cache collisions and incorrect output retrieval.</li>
+<li>Operators must design proactive cache invalidation policies to prevent serving stale or outdated responses.</li>
+</ul>
+</blockquote>
+<p>As AI systems move from simple experiments to production applications, teams encounter a dual challenge: latency and operating cost. Every API call to a large language model is relatively slow and carries a transaction cost in tokens. In traditional software engineering, caching is the default solution to protect backend services and speed up client response times.</p>
+<p>However, traditional exact-match caching (such as standard key-value lookups in Redis or Memcached) fails when applied to generative AI. Because natural language is fluid, users can ask the same question in infinite ways, meaning the exact same intent rarely arrives as the exact same string. To build a reliable performance layer for probabilistic systems, we must shift from exact matching to similarity-based matching.</p>
+<h3 id="what-is-semantic-caching-in-practice">What is semantic caching in practice?</h3>
+<p>Semantic caching is the technique of intercepting natural language queries and matching them against pre-computed cache responses using vector similarity thresholds. This guide is for builders, operators, and product teams looking to optimize latency and api token costs without sacrificing correct system execution.</p>
+<p>For a broader conceptual map of building reliability into probabilistic systems, see the <a href="/shelf/shared-resources/engineering-agentic-systems-deck/">Engineering Agentic Systems deck</a>.</p>
+<h3 id="the-operational-challenge-of-probabilistic-input">The Operational Challenge of Probabilistic Input</h3>
+<p>In traditional API design, input arguments are structured, predictable, and exact. If a user requests account details for account ID <code>98273</code>, the query is identical every time. In contrast, generative AI interfaces invite open-ended natural language inputs. A user trying to understand how to reset a password might ask:</p>
+<ol>
+<li>&quot;How do I reset my password?&quot;</li>
+<li>&quot;Can you tell me where to change my password?&quot;</li>
+<li>&quot;Password reset instructions, please.&quot;</li>
+</ol>
+<p>To a standard key-value cache, these are three completely separate cache misses. The system must send all three requests to the language model, incurring identical latency and billing costs. This is where <span class="highlight">semantic caching changes the paradigm by matching queries based on vector similarity rather than exact string equality</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Operational Impact.</strong> In production customer service portals, up to 40% of user queries represent semantically duplicate intents. Implementing a semantic cache directly reduces average system latency from seconds to milliseconds while lowering model API costs.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The Architecture of Semantic Caching</summary>
+      <ol>
+        <li><a href="#how-semantic-caching-works">How semantic caching works</a></li>
+        <li><a href="#comparing-cache-paradigms">Comparing cache paradigms</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Calibrating the Similarity Gate</summary>
+      <ol>
+        <li><a href="#embedding-selection">Embedding selection and metrics</a></li>
+        <li><a href="#threshold-calibration">Threshold calibration trade-offs</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Invalidation and Governance</summary>
+      <ol>
+        <li><a href="#cache-poisoning-and-stale-data">Cache poisoning and stale data</a></li>
+        <li><a href="#invalidation-strategies">Invalidation strategies and policies</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-architecture-of-semantic-caching">Act I: The Architecture of Semantic Caching</h2>
+<h3 id="how-semantic-caching-works">How semantic caching works</h3>
+<p>A semantic cache sits between the orchestration layer of the application and the model API. The lifecycle of a query passing through a semantic cache follows a structured sequence:</p>
+<ol>
+<li><strong>Embedding Generation:</strong> The incoming query string is sent to a fast, low-cost embedding model to generate a high-dimensional vector representation.</li>
+<li><strong>Vector Database Lookup:</strong> The system queries a vector index containing previously cached queries and their corresponding model outputs.</li>
+<li><strong>Similarity Evaluation:</strong> The vector database computes the distance (typically cosine similarity) between the query vector and the closest vectors in the index.</li>
+<li><strong>Gate Check:</strong> If the similarity score exceeds a defined threshold (e.g., <code>0.92</code>), the system returns the cached text response immediately. This is a cache hit.</li>
+<li><strong>Model Invocation &amp; Cache Update:</strong> If the score is below the threshold, it is a cache miss. The system invokes the primary LLM, returns the response to the user, and inserts both the query embedding and the model output into the vector index for future lookups.</li>
+</ol>
+<h3 id="comparing-cache-paradigms">Comparing cache paradigms</h3>
+<p>Understanding the difference between traditional caching and semantic caching is critical for designing the system.</p>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Dimension</th>
+      <th>Traditional Caching</th>
+      <th>Semantic Caching</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Matching Logic</strong></td>
+      <td>Exact string match / Hash lookup</td>
+      <td>Vector distance threshold (probabilistic)</td>
+    </tr>
+    <tr>
+      <td><strong>Data Storage</strong></td>
+      <td>Key-Value Store (Redis, Memcached)</td>
+      <td>Vector Database (Pinecone, Milvus, pgvector)</td>
+    </tr>
+    <tr>
+      <td><strong>Lookup Latency</strong></td>
+      <td>Sub-millisecond (&lt; 1ms)</td>
+      <td>Low double-digit milliseconds (10–30ms)</td>
+    </tr>
+    <tr>
+      <td><strong>Cost Reduction</strong></td>
+      <td>High (removes all database lookups)</td>
+      <td>Extremely High (removes expensive model generation tokens)</td>
+    </tr>
+    <tr>
+      <td><strong>Failure Mode</strong></td>
+      <td>Key mismatch (cache miss)</td>
+      <td>Semantic collision (cache hit returning wrong answer)</td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="act-ii-calibrating-the-similarity-gate">Act II: Calibrating the Similarity Gate</h2>
+<h3 id="embedding-selection-and-metrics">Embedding selection and metrics</h3>
+<p>The performance and accuracy of a semantic cache depend heavily on the choice of embedding model and the metric used to compute distance. </p>
+<p>For caching, speed is the primary driver. If generating the query embedding and performing the vector search takes 500 milliseconds, the cache loses much of its speed advantage over a fast LLM. Operators should select small, highly optimized embedding models (such as local BERT-based models) that run in-memory or on local resources.</p>
+<p>The standard metric used for similarity matching is <strong>Cosine Similarity</strong>, which measures the cosine of the angle between two multi-dimensional vectors:</p>
+<p>Cosine Similarity (A, B) = (A · B) / (||A|| * ||B||)</p>
+<p>This score ranges from <code>-1</code> to <code>1</code>, where <code>1</code> represents identical direction (meaning).</p>
+<h3 id="threshold-calibration-trade-offs">Threshold calibration trade-offs</h3>
+<p>Selecting the correct similarity threshold is the single most sensitive decision in semantic cache design. </p>
+<ul>
+<li><strong>A threshold that is too low</strong> (e.g., <code>&lt; 0.85</code>) leads to semantic collisions. The system might match the query &quot;Is it safe to delete this database?&quot; with a cached answer for &quot;How do I delete this database?&quot;, resulting in catastrophic behavior.</li>
+<li><strong>A threshold that is too high</strong> (e.g., <code>&gt; 0.98</code>) ensures absolute safety but causes a high rate of cache misses, drastically reducing the utility and cost savings of the performance layer.</li>
+</ul>
+<p>For most workloads, a threshold between <code>0.90</code> and <code>0.95</code> is ideal. Calibration must be done empirically by running test datasets containing varying formulations of identical intents alongside distinct intents to find the inflection point where accuracy remains high without sacrificing cache hits.</p>
+<hr>
+<h2 id="act-iii-invalidation-and-governance">Act III: Invalidation and Governance</h2>
+<h3 id="cache-poisoning-and-stale-data">Cache poisoning and stale data</h3>
+<p>Traditional caches become stale when database records update. In LLMOps, cache staleness is amplified by retrieval-augmented generation (RAG). If a semantic cache stores the response to the query &quot;What are our current cloud billing policies?&quot;, and the finance team updates the policy document, the cache will continue to serve the outdated policy until it is invalidated.</p>
+<p>Additionally, semantic caches are vulnerable to <strong>cache poisoning</strong>. If a user inputs a query that matches a malicious or inaccurate output stored in the cache, subsequent users asking similar questions will receive that poisoned output without the LLM ever checking it.</p>
+<h3 id="invalidation-strategies-and-policies">Invalidation strategies and policies</h3>
+<p>To govern a semantic cache safely, developers must build a multi-layered invalidation strategy:</p>
+<ol>
+<li><strong>Time-To-Live (TTL):</strong> Standard expiration boundaries ensure that no cached response remains active indefinitely.</li>
+<li><strong>Namespace Partitioning:</strong> Divide the cache vector database into distinct partitions (namespaces) based on user roles or data categories, preventing cross-tenant leakage.</li>
+<li><strong>Event-Driven Purging:</strong> Listen for updates in RAG document stores or system configurations, and trigger targeted purges of vector index clusters when underlying reference data changes.</li>
+</ol>
+<p>Here is the operational lifecycle of a request passing through a governed semantic cache:</p>
+<figure class="diagram">
+  <iframe src="/scenes/semantic-cache-flow.html" title="Governed Semantic Cache Workflow" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>The workflow separates the fast path (cache hit) from the slower, governed path (LLM generation and index update).</figcaption>
+</figure>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>For more details on implementing specific caching boundaries, read the <a href="/shelf/notes/semantic-cache-policy-guide/">Semantic Cache Policy Guide</a>. For a case study on troubleshooting threshold issues, see <a href="/self/debugging-a-semantic-cache-miss/">Debugging a Semantic Cache Miss</a>.</p>
+<p><strong>What this changes in practice:</strong> Do not implement semantic caching without an active logging layer that monitors similarity distributions and cache hit accuracy. Set conservative baseline thresholds (<code>0.92</code> to <code>0.94</code>) and implement event-driven cache invalidation aligned directly with RAG data updates to protect system trust.</p>
+<hr>
+7:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$b"}}]
+8:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Establishes the architecture of similarity-based caching."}],["$","li","1",{"children":"Connects to the shelf policy guide and self debugging notes."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is semantic caching?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Semantic caching is the technique of caching LLM responses by matching incoming queries based on semantic similarity (embeddings vector distance) rather than exact character matches."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"How do you prevent returning stale information?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"By setting strict Time-To-Live (TTL) policies, namespace partitioning, and using event-driven cache invalidation when underlying reference data (like RAG databases) changes."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What similarity threshold should I use?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"A baseline threshold of 0.90 to 0.95 cosine similarity is common. Lower values increase hit rates but risk returning incorrect answers, while higher values ensure correctness but reduce cache utility."}]]}]]}]]}]]}]
+9:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L2",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L2",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

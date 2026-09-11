@@ -1,0 +1,46 @@
+1:"$Sreact.fragment"
+6:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+2:Ta58,<p class="lead">Sentences are the smallest machines of meaning we carry. They turn instinct into language, and language into shared direction.</p>
+
+<p>A sentence is not just a string of words. It is a structure that can be repeated, tested, and revised until it holds. When it holds, people can align on it. When it does not, the system drifts.</p>
+<figure class="content-figure figure-meaning">
+  <svg viewBox="0 0 480 160" role="img" aria-labelledby="meaning-bridge-title">
+    <title id="meaning-bridge-title">Meaning connects signal to shared understanding</title>
+    <rect class="figure-stroke" x="50" y="55" width="150" height="50" rx="10" fill="none" stroke-width="2" />
+    <rect class="figure-fill" x="280" y="55" width="150" height="50" rx="10" />
+    <text class="figure-label" x="78" y="85">Instinct</text>
+    <text class="figure-label figure-label-strong" x="305" y="85">Shared</text>
+    <path class="figure-accent" d="M210 80h60" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="210" cy="80" r="4" />
+    <circle class="figure-dot" cx="270" cy="80" r="4" />
+  </svg>
+  <figcaption>Sentences move private thought into shared space.</figcaption>
+</figure>
+<p>A foundation sentence does three jobs:</p>
+<ul>
+<li><strong>Name the focus.</strong> It tells everyone what the system should pay attention to.</li>
+<li><strong>Bound the scope.</strong> It marks what is included and what is not.</li>
+<li><strong>Invite response.</strong> It makes disagreement possible without confusion.</li>
+</ul>
+<figure class="content-figure figure-meaning">
+  <svg viewBox="0 0 480 160" role="img" aria-labelledby="sentence-functions-title">
+    <title id="sentence-functions-title">Three functions of a foundation sentence</title>
+    <rect class="figure-stroke" x="40" y="45" width="120" height="70" rx="12" fill="none" stroke-width="2" />
+    <rect class="figure-stroke" x="180" y="45" width="120" height="70" rx="12" fill="none" stroke-width="2" />
+    <rect class="figure-fill" x="320" y="45" width="120" height="70" rx="12" />
+    <text class="figure-label" x="70" y="85">Name</text>
+    <text class="figure-label" x="210" y="85">Bound</text>
+    <text class="figure-label figure-label-strong" x="350" y="85">Invite</text>
+    <path class="figure-accent" d="M160 80h20" stroke-width="3" stroke-linecap="round" />
+    <path class="figure-accent" d="M300 80h20" stroke-width="3" stroke-linecap="round" />
+  </svg>
+  <figcaption>Sentences align attention, scope, and response.</figcaption>
+</figure>
+<p><strong>What this changes in practice:</strong>** Write the sentence that aligns your team before you add more.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Sentences 001: Foundations | Pruning My Pothos\",\"description\":\"Foundational notes on how sentences turn thought into shared meaning.\",\"url\":\"https://pruningmypothos.com/sentences/sentences-001-foundations/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Meaning"," / 3 min read"," / beginner"]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Sentences 001: Foundations"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-purple/40 pl-4 py-1 text-sm sm:text-base","children":"Foundational notes on how sentences turn thought into shared meaning."}],["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4"]}],null,"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","language",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","language"]}],["$","span","meaning",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","meaning"]}],["$","span","communication",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","communication"]}],["$","span","foundations",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","foundations"]}]]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L6",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

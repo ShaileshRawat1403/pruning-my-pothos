@@ -1,0 +1,176 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","entity-glossary-for-ai-discoverability",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","entity-glossary-for-ai-discoverability","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Entity Glossary for AI Discoverability | Pruning My Pothos\",\"description\":\"Canonical definitions for recurring SEO, AEO, GEO, and runtime concepts used across this site.\",\"url\":\"https://pruningmypothos.com/systems/entity-glossary-for-ai-discoverability/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/entity-glossary-for-ai-discoverability/\"},\"datePublished\":\"2026-03-05\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/entity-glossary-for-ai-discoverability.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Why keep an entity glossary when terms seem obvious?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Because retrieval systems and humans both degrade when terminology drifts across pages. Canonical anchors preserve continuity, reduce ambiguity, and improve citation reliability.\"}},{\"@type\":\"Question\",\"name\":\"How often should these definitions be updated?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Only when conceptual boundaries actually change. Minor wording tweaks are fine, but the canonical term identity should stay stable.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Concepts"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Entity Glossary for AI Discoverability"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"Canonical definitions for recurring SEO, AEO, GEO, and runtime concepts used across this site."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","entities",{"href":"/tags/entities/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","entities"]}],["$","$L9","glossary",{"href":"/tags/glossary/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","glossary"]}],["$","$L9","seo",{"href":"/tags/seo/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","seo"]}],["$","$L9","aeo",{"href":"/tags/aeo/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","aeo"]}],"$L17","$L18"]}]]}],"$L19","$undefined","$undefined","$undefined","$undefined","$undefined","$L1a","$undefined","$L1b","$undefined","$L1c"]}]
+:HL["/covers/systems/entity-glossary-for-ai-discoverability.svg","image"]
+17:["$","$L9","geo",{"href":"/tags/geo/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","geo"]}]
+18:["$","$L9","knowledge-management",{"href":"/tags/knowledge-management/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","knowledge-management"]}]
+19:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/entity-glossary-for-ai-discoverability.svg","alt":"Glossary and entity definitions","className":"w-full h-full object-cover"}]}]
+1d:T21e6,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Entity consistency is a retrieval advantage, not only an editorial preference.</li>
+<li>Canonical term anchors reduce semantic drift across sections.</li>
+<li>Definitions should be stable, concise, and linked where concepts recur.</li>
+<li>A glossary is most useful when schema, headings, and body language align.</li>
+</ul>
+</blockquote>
+<p>A site can have excellent writing and still underperform in search, answer extraction, and generated citations if core terms are used inconsistently. The issue is not only keyword variation. The deeper issue is entity drift: the same idea being named differently without clear boundary rules.</p>
+<p>This glossary exists to keep recurring concepts stable across systems, sentences, self, and shelf pages. It is both a reader aid and a machine-readable anchor surface.</p>
+<h3 id="what-does-an-entity-glossary-actually-do">What does an entity glossary actually do?</h3>
+<p>An entity glossary gives a site one stable vocabulary for recurring ideas, so retrieval systems do not have to guess whether similar phrases mean the same thing. This guide is for builders and operators who want stronger discoverability without losing editorial range, and it works best when the glossary is linked into live pages instead of treated as a dead appendix.</p>
+<p>In practice, <span class="highlight">definition stability is a compounding asset</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> Keep canonical terms stable, then allow style variation around them. If the core term changes every month, retrieval quality and citation consistency usually degrade.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Why entity anchors matter</summary>
+      <ol>
+        <li><a href="#the-entity-layer-problem">The entity-layer problem</a></li>
+        <li><a href="#what-makes-a-good-definition-anchor">What makes a good definition anchor</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Canonical definitions</summary>
+      <ol>
+        <li><a href="#core-discoverability-terms">Core discoverability terms</a></li>
+        <li><a href="#runtime-and-governance-terms">Runtime and governance terms</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Operating usage rules</summary>
+      <ol>
+        <li><a href="#how-to-apply-these-definitions">How to apply these definitions</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-why-entity-anchors-matter">Act I: Why entity anchors matter</h2>
+<h3 id="the-entity-layer-problem">The entity-layer problem</h3>
+<p>When multiple pages describe related concepts with unstable naming, systems struggle to link them as one evolving body of knowledge. Humans can often infer intent from context; retrieval engines are less forgiving.</p>
+<p>A glossary solves this by defining canonical names and boundaries. Once stable anchors exist, pages can vary in tone and depth without losing conceptual continuity.</p>
+<h3 id="what-makes-a-good-definition-anchor">What makes a good definition anchor</h3>
+<p>A strong anchor is:</p>
+<ul>
+<li>short and unambiguous</li>
+<li>scoped (what it includes and excludes)</li>
+<li>reusable across sections</li>
+<li>stable over time</li>
+</ul>
+<p>Question-style definition blocks also improve answer extraction quality.</p>
+<h3 id="what-is-an-entity-anchor">What is an entity anchor?</h3>
+<p>An entity anchor is a stable, linkable definition of a recurring concept. It gives humans and machines one canonical reference point, so meaning stays consistent even when pages differ in style, depth, or context.</p>
+<h2 id="act-ii-canonical-definitions">Act II: Canonical definitions</h2>
+<h3 id="core-discoverability-terms">Core discoverability terms</h3>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Glossary job</th>
+        <th>Without a canonical term</th>
+        <th>With a canonical term</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Retrieval</strong></td>
+        <td>Passages compete because naming drifts</td>
+        <td>Related chunks reinforce the same concept</td>
+      </tr>
+      <tr>
+        <td><strong>Citation</strong></td>
+        <td>Claims look inconsistent across pages</td>
+        <td>Systems find repeatable language and safer anchors</td>
+      </tr>
+      <tr>
+        <td><strong>Maintenance</strong></td>
+        <td>Each update risks redefining the concept</td>
+        <td>Scope stays stable while phrasing can adapt</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<aside id="term-seo" class="callout definition-block">
+  <p><strong>SEO:</strong> The discipline of improving crawlability, indexability, relevance, and click-through for search surfaces.</p>
+</aside>
+<aside id="term-aeo" class="callout definition-block">
+  <p><strong>AEO:</strong> The discipline of making content easy for answer engines to extract, summarize, and present directly.</p>
+</aside>
+<aside id="term-geo" class="callout definition-block">
+  <p><strong>GEO:</strong> The discipline of making content retrievable and citable in generative systems.</p>
+</aside>
+<aside id="term-entities" class="callout definition-block">
+  <p><strong>Entity:</strong> A distinct concept or thing with stable identity and meaning across contexts.</p>
+</aside>
+<aside id="term-retrieval" class="callout definition-block">
+  <p><strong>Retrieval:</strong> Selecting relevant context units for a specific question or runtime step.</p>
+</aside>
+<aside id="term-citation" class="callout definition-block">
+  <p><strong>Citation quality:</strong> The degree to which claims are linked to verifiable, relevant, and accurately scoped sources.</p>
+</aside>
+<h3 id="runtime-and-governance-terms">Runtime and governance terms</h3>
+<aside id="term-orchestration" class="callout definition-block">
+  <p><strong>Orchestration:</strong> Runtime coordination of model proposals, tool actions, policy checks, and verification loops.</p>
+</aside>
+<aside id="term-observability" class="callout definition-block">
+  <p><strong>Observability:</strong> The ability to inspect decision paths, evidence, and outcomes in a replayable way.</p>
+</aside>
+<aside id="term-evaluation" class="callout definition-block">
+  <p><strong>Evaluation:</strong> Systematic measurement of output and behavior quality against explicit criteria.</p>
+</aside>
+<aside id="term-governance" class="callout definition-block">
+  <p><strong>Governance:</strong> Policy and accountability rules controlling what a system may do and under which conditions.</p>
+</aside>
+<aside id="term-knowledge-management" class="callout definition-block">
+  <p><strong>Knowledge management:</strong> Maintaining a structured memory surface where source truth, metadata, retrieval, and verification stay aligned.</p>
+</aside>
+<aside id="term-decision-making" class="callout definition-block">
+  <p><strong>Decision-making under uncertainty:</strong> Choosing explicit action modes based on policy, evidence, and reversibility when information is incomplete.</p>
+</aside>
+<h2 id="act-iii-operating-usage-rules">Act III: Operating usage rules</h2>
+<h3 id="how-to-apply-these-definitions">How to apply these definitions</h3>
+<p>Use this glossary as the canonical layer for recurring terms.</p>
+<ul>
+<li>Link to anchors when introducing a concept in new pages.</li>
+<li>Keep wording in headings and schema aligned with these terms.</li>
+<li>Update definitions only when conceptual boundaries truly change.</li>
+<li>Prefer one canonical term over multiple near-synonyms for the same idea.</li>
+</ul>
+<p>For systems-level application, see <a href="/systems/seo-aeo-geo-how-things-fit-together/">SEO, AEO, GEO: How Discoverability Actually Works</a>, <a href="/systems/aeo-and-geo-as-a-retrieval-design-problem/">AEO and GEO as a Retrieval Design Problem</a>, and <a href="/systems/knowledge-management-as-runtime-memory/">Knowledge Management as Runtime Memory</a>. For the compact reference layer, see the <a href="/shelf/shared-resources/winning-ai-search-deck/">Winning AI Search deck</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>A glossary does not replace deep content. It stabilizes it. When canonical definitions stay clear and linkable, your pages become easier to discover, easier to quote, and easier to maintain as a coherent system.</p>
+1a:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1d"}}]
+1b:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Canonical term anchors are mapped in article schema via DefinedTerm URLs."}],["$","li","1",{"children":"Cross-section pages now reference stable entity names for retrieval consistency."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why keep an entity glossary when terms seem obvious?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Because retrieval systems and humans both degrade when terminology drifts across pages. Canonical anchors preserve continuity, reduce ambiguity, and improve citation reliability."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"How often should these definitions be updated?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Only when conceptual boundaries actually change. Minor wording tweaks are fine, but the canonical term identity should stay stable."}]]}]]}]]}]]}]
+1c:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1e:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"Entity Glossary for AI Discoverability | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"Canonical definitions for recurring SEO, AEO, GEO, and runtime concepts used across this site."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/entity-glossary-for-ai-discoverability/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"Entity Glossary for AI Discoverability | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"Canonical definitions for recurring SEO, AEO, GEO, and runtime concepts used across this site."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/entity-glossary-for-ai-discoverability/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/entity-glossary-for-ai-discoverability.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Entity Glossary for AI Discoverability | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"Canonical definitions for recurring SEO, AEO, GEO, and runtime concepts used across this site."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/entity-glossary-for-ai-discoverability.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L1e","20",{}]]

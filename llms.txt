@@ -1,0 +1,36 @@
+# Sans Serif Systems
+
+> A living notebook on AI orchestration and governance by Shailesh Rawat: long-form systems writing, browser-native tools, and documentation for making AI-assisted work predictable, verifiable, and secure. Core thesis: natural language is the new API — models generate, systems govern.
+
+Author: Shailesh Rawat, AI Systems Consultant and Technical Communicator.
+Site: https://pruningmypothos.com/
+Full page index: https://pruningmypothos.com/sitemap.xml
+Feed: https://pruningmypothos.com/rss.xml
+
+## Systems (long-form writing)
+
+- [Systems index](https://pruningmypothos.com/systems/): 55+ essays on AI orchestration, governance, evaluation, and architecture
+- [Natural Language Is the New API](https://pruningmypothos.com/systems/natural-language-is-the-new-api/): prompts as versioned contracts between intent and execution
+- [AI Agents vs AI Workflows](https://pruningmypothos.com/systems/ai-agents-vs-ai-workflows/): when autonomy helps and when orchestration wins
+- [Runtime Over Model](https://pruningmypothos.com/systems/runtime-over-model-why-orchestration-is-the-product/): why orchestration is the product
+- [Human-in-the-Loop Is a System Design Choice](https://pruningmypothos.com/systems/human-in-the-loop-is-a-system-design-choice/): governance as architecture, not fallback
+- [The I-7 Cognitive Loop](https://pruningmypothos.com/systems/i-7-cognitive-loop/): a seven-stage thinking and execution framework
+- [Why Most AI Projects Fail After the Demo Stage](https://pruningmypothos.com/systems/why-most-ai-projects-fail-after-the-demo-stage/): the gap between demos and systems
+
+## Tools
+
+- [ToolSmith Bench](https://pruningmypothos.com/tools/): 14 browser-native, local-first utilities for AI-assisted workflows (prompt-to-JSON, CSV-to-eval, repo context packing, workflow diagrams, secret scanning, and more)
+
+## Docs
+
+- [Natural Language Programming Stack](https://pruningmypothos.com/docs/natural-language-programming-stack/): architecture of the NLPg approach
+- [Public/Private Boundary](https://pruningmypothos.com/docs/public-private-boundary/): data safety bounds for the site's tooling
+
+## Reflections
+
+- [Sentences](https://pruningmypothos.com/sentences/): 260+ short decision rules and observations on AI systems
+- [Self](https://pruningmypothos.com/self/): essays on practice, judgment, and learning in public
+
+## About
+
+- [About](https://pruningmypothos.com/about/): who builds this and why

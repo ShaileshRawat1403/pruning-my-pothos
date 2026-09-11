@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Understand the friction, build the bridge</title>
+<style>
+  html,body{margin:0;padding:0;width:100%;height:100%;background:transparent;overflow:hidden}
+  .stage{position:absolute;inset:0}.stage svg{width:100%;height:100%;display:block}
+  .ink{stroke:#2a2012;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  .ink-2{stroke:#8c2f23}.ink-3{stroke:#9a7322}.fillink{fill:#2a2012;stroke:none}
+  html[data-theme='dark'] .ink{stroke:#efe5cf}html[data-theme='dark'] .ink-2{stroke:#c2564a}
+  html[data-theme='dark'] .ink-3{stroke:#c79a3e}html[data-theme='dark'] .fillink{fill:#efe5cf}
+  .glyph{font-family:'JetBrains Mono',ui-monospace,monospace;fill:#8a795a;opacity:.85}
+  html[data-theme='dark'] .glyph{fill:#837457}
+  .draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+  .walk{animation:walk 7s ease-in-out infinite}
+  @keyframes walk{0%{transform:translateX(-70px)}50%{transform:translateX(70px)}100%{transform:translateX(-70px)}}
+  @media (prefers-reduced-motion:reduce){.walk{animation:none}}
+</style></head>
+<body><div class="stage">
+<svg viewBox="0 0 900 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- left ground: THINKING -->
+  <path class="ink draw" stroke-width="2.4" d="M 20 360 L 150 350 L 250 372 L 330 355 L 330 520"/>
+  <text class="glyph" x="70" y="410" font-size="13">THINKING</text>
+
+  <!-- right ground: EXECUTION -->
+  <path class="ink draw" stroke-width="2.4" d="M 570 355 L 650 372 L 760 350 L 880 360 L 880 520"/>
+  <text class="glyph" x="690" y="410" font-size="13">EXECUTION</text>
+
+  <!-- the gap: friction -->
+  <text class="glyph" x="418" y="470" font-size="12" style="opacity:.6">friction</text>
+
+  <!-- the bridge: TRANSLATION -->
+  <path class="ink ink-3 draw" stroke-width="3" d="M 330 352 L 570 352"/>
+  <path class="ink ink-2 draw" stroke-width="2" d="M 336 352 Q 450 452 564 352"/>
+  <g class="ink ink-2" stroke-width="1.4" opacity="0.85">
+    <line class="draw" x1="378" y1="352" x2="378" y2="392"/>
+    <line class="draw" x1="426" y1="352" x2="426" y2="420"/>
+    <line class="draw" x1="474" y1="352" x2="474" y2="420"/>
+    <line class="draw" x1="522" y1="352" x2="522" y2="392"/>
+  </g>
+  <text class="glyph" x="392" y="336" font-size="12" style="fill:#9a7322">TRANSLATION</text>
+
+  <!-- a small figure crossing -->
+  <g class="ink walk" stroke-width="2">
+    <circle class="draw" cx="450" cy="330" r="7"/>
+    <path class="draw" d="M 450 337 L 450 348"/>
+    <path class="draw" d="M 450 341 L 443 347 M 450 341 L 457 347"/>
+  </g>
+</svg></div>
+<script>
+(function(){var root=document.documentElement;
+ function theme(){try{var p=window.parent&&window.parent.document.documentElement;var t=(p&&p.getAttribute('data-theme'))||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');root.setAttribute('data-theme',t);}catch(e){root.setAttribute('data-theme','light');}}
+ theme();try{var p=window.parent&&window.parent.document.documentElement;if(p)new MutationObserver(theme).observe(p,{attributes:true,attributeFilter:['data-theme']});}catch(e){}
+ function draw(){document.querySelectorAll('.draw').forEach(function(el,i){var len=(el.getTotalLength&&el.getTotalLength())||300;el.style.setProperty('--len',len);el.style.transition='none';el.style.strokeDashoffset=len;el.getBoundingClientRect();el.style.transition='stroke-dashoffset 1.7s cubic-bezier(0.16,1,0.3,1) '+(i*60)+'ms';el.style.strokeDashoffset='0';});}
+ addEventListener('load',draw);setTimeout(draw,60);})();
+</script></body></html>

@@ -1,0 +1,145 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","enterprise-ai-at-scale",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","enterprise-ai-at-scale","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Enterprise AI at Scale: From Blueprint to Operating Reality | Pruning My Pothos\",\"description\":\"How enterprise AI differs from prototype: the governance contracts, architecture layers, and adoption design that turn blueprints into live systems.\",\"url\":\"https://pruningmypothos.com/systems/enterprise-ai-at-scale/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/enterprise-ai-at-scale/\"},\"datePublished\":\"2026-04-15\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/enterprise-ai-at-scale.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What makes enterprise AI different from a prototype?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Enterprise AI requires governance contracts, integration layers, and adoption design that prototypes can skip. At scale, the system must work within policy boundaries, across teams, and under audit requirements.\"}},{\"@type\":\"Question\",\"name\":\"What comes first in an enterprise AI blueprint?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Governance first. Define what the system may do, what requires human approval, and who owns the outcomes. Then build the architecture to enforce those boundaries.\"}},{\"@type\":\"Question\",\"name\":\"How do you design for AI adoption in an organization?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Start with high-clarity, high-value workflows. Make the system explain its reasoning. Reduce cognitive burden. Build trust before you scale.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"How-things-fit-together"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Enterprise AI at Scale: From Blueprint to Operating Reality"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"How enterprise AI differs from prototype: the governance contracts, architecture layers, and adoption design that turn blueprints into live systems."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","enterprise",{"href":"/tags/enterprise/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","enterprise"]}],["$","$L9","architecture",{"href":"/tags/architecture/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","architecture"]}],"$L17","$L18","$L19","$L1a"]}]]}],"$L1b","$undefined","$undefined","$undefined","$undefined","$undefined","$L1c","$undefined","$L1d","$undefined","$L1e"]}]
+:HL["/covers/systems/enterprise-ai-at-scale.svg","image"]
+17:["$","$L9","governance",{"href":"/tags/governance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}]
+18:["$","$L9","adoption",{"href":"/tags/adoption/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","adoption"]}]
+19:["$","$L9","integration",{"href":"/tags/integration/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","integration"]}]
+1a:["$","$L9","scale",{"href":"/tags/scale/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","scale"]}]
+1b:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/enterprise-ai-at-scale.svg","alt":"Enterprise architecture layers","className":"w-full h-full object-cover"}]}]
+1f:T1da9,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Enterprise AI requires governance contracts before architecture decisions.</li>
+<li>Integration layers connect AI to governed source-of-truth systems.</li>
+<li>Adoption design determines whether the system gets used, not just deployed.</li>
+<li>The blueprint must survive policy, audit, and organizational change.</li>
+</ul>
+</blockquote>
+<p>This article explains how enterprise AI systems differ from prototypes and what it takes to move from a promising blueprint to a live operating reality. It covers governance contracts, architecture layers, integration patterns, and adoption design.</p>
+<h3 id="what-is-enterprise-ai-at-scale">What is enterprise AI at scale?</h3>
+<p>Enterprise AI at scale refers to the production deployment of artificial intelligence systems across an organization, governed by explicit compliance contracts, architectural boundaries, and repeatable integration loops. Unlike isolated developer prototypes, enterprise scale requires deterministic policy gates, auditable execution logs, and seamless connections to legacy systems of record.</p>
+<p>It is most useful for teams building or evaluating enterprise AI programs, and for leaders who need to understand what separates a scalable AI initiative from a permanent pilot.</p>
+<h3 id="why-enterprise-ai-is-a-different-problem">Why enterprise AI is a different problem</h3>
+<p>A prototype proves that a model can produce useful output. Enterprise AI asks a harder question: can a system produce useful behavior repeatedly, within policy, across teams, and under audit?</p>
+<p>The difference is not model quality. The difference is everything around the model: governance, integration, observability, and adoption design. <span class="highlight">A strong model in a weak system still fails at scale.</span></p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> If the governance model is undefined, the architecture is undefined. Build governance contracts before you build integration layers.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The enterprise AI gap</summary>
+      <ol>
+        <li><a href="#what-prototypes-skip">What prototypes skip</a></li>
+        <li><a href="#the-three-scale-tests">The three scale tests</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Building the blueprint</summary>
+      <ol>
+        <li><a href="#governance-contracts-first">Governance contracts first</a></li>
+        <li><a href="#architecture-layers">Architecture layers</a></li>
+        <li><a href="#integration-patterns">Integration patterns</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Making it real</summary>
+      <ol>
+        <li><a href="#adoption-design">Adoption design</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-enterprise-ai-gap">Act I: The enterprise AI gap</h2>
+<h3 id="what-prototypes-skip">What prototypes skip</h3>
+<p>Prototypes work in controlled conditions: clean inputs, one user, no policy boundaries, low consequence for failure. Enterprise systems operate in messy conditions: disconnected data, multiple stakeholders, regulatory requirements, and high consequence for mistakes.</p>
+<p>The gap between prototype and production is not model capability. It is system design.</p>
+<h3 id="the-three-scale-tests">The three scale tests</h3>
+<p>Enterprise AI only becomes real when it passes three tests:</p>
+<ol>
+<li><strong>Governance</strong>: clarity on what the system may do, when, and for whom.</li>
+<li><strong>Integration</strong>: connection to governed source-of-truth systems and audit trails.</li>
+<li><strong>Adoption</strong>: real users trust the system enough to change their behavior.</li>
+</ol>
+<p>If any of these fail, the project stays in pilot mode regardless of model performance.</p>
+<figure class="diagram">
+  <iframe src="/scenes/enterprise-venn.html" title="The three enterprise AI scale tests" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>All three tests must pass for enterprise AI to survive at scale.</figcaption>
+</figure>
+<h2 id="act-ii-building-the-blueprint">Act II: Building the blueprint</h2>
+<h3 id="governance-contracts-first">Governance contracts first</h3>
+<p>Before any architecture decision, define the governance contract:</p>
+<ul>
+<li>what the system may do autonomously</li>
+<li>what requires human approval</li>
+<li>which policies apply in edge cases</li>
+<li>who owns the change log and audit trail</li>
+</ul>
+<p>This contract becomes the specification that architecture enforces. See <a href="/systems/from-agent-intent-to-governed-execution/">From Agent Intent to Governed Execution</a> for the operating model.</p>
+<h3 id="architecture-layers">Architecture layers</h3>
+<p>Enterprise AI architecture has three functional layers:</p>
+<ol>
+<li><strong>Policy layer</strong>: defines boundaries and approval requirements.</li>
+<li><strong>Runtime layer</strong>: orchestrates execution within policy constraints.</li>
+<li><strong>Observability layer</strong>: monitors behavior and surfaces failures.</li>
+</ol>
+<p>Each layer must be independently auditable. See <a href="/systems/observability-first-ai-systems/">Observability First: How AI Systems Learn After Launch</a> for the operating model.</p>
+<h3 id="integration-patterns">Integration patterns</h3>
+<p>Integration connects AI systems to governed data sources. The key patterns are:</p>
+<ul>
+<li>source-of-truth anchoring: AI outputs must be traceable to governed sources.</li>
+<li>audit trails: every significant action must be logged and reviewable.</li>
+<li>fallback handling: the system must degrade gracefully when data is unavailable.</li>
+</ul>
+<h2 id="act-iii-making-it-real">Act III: Making it real</h2>
+<h3 id="adoption-design">Adoption design</h3>
+<p>Adoption is not training. It is product design plus organizational trust.</p>
+<p>Users adopt AI when:</p>
+<ul>
+<li>the system can explain its reasoning.</li>
+<li>failures are recoverable.</li>
+<li>the workflow reduces cognitive burden.</li>
+<li>trust is earned through consistent behavior.</li>
+</ul>
+<p>See <a href="/systems/why-most-ai-projects-fail-after-the-demo-stage/">Why Most AI Projects Fail After the Demo Stage</a> for the adoption failure patterns.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Do not ask whether the blueprint is ambitious enough. Ask whether the governance contracts are clear, the architecture layers are auditable, and the adoption design is honest. That is what separates enterprise AI that scales from AI that stays in pilot.</p>
+<h2 id="related-ai-systems-topics">Related AI systems topics</h2>
+<ul>
+<li><a href="/systems/why-most-ai-projects-fail-after-the-demo-stage/">Why Most AI Projects Fail After the Demo Stage</a></li>
+<li><a href="/systems/from-agent-intent-to-governed-execution/">From Agent Intent to Governed Execution</a></li>
+<li><a href="/systems/observability-first-ai-systems/">Observability First: How AI Systems Learn After Launch</a></li>
+<li><a href="/systems/ai-architecture-explained-how-modern-llm-applications-work/">AI Architecture Explained: How Modern LLM Applications Work</a></li>
+<li><a href="/shelf/shared-resources/enterprise-ai-blueprint-deck/">The Enterprise AI Blueprint deck</a></li>
+</ul>
+1c:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1f"}}]
+1d:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"This doc is backed by The Enterprise AI Blueprint shared resource."}],["$","li","1",{"children":"Ties to existing post-demo failure, observability, and governed execution docs."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What makes enterprise AI different from a prototype?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Enterprise AI requires governance contracts, integration layers, and adoption design that prototypes can skip. At scale, the system must work within policy boundaries, across teams, and under audit requirements."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What comes first in an enterprise AI blueprint?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Governance first. Define what the system may do, what requires human approval, and who owns the outcomes. Then build the architecture to enforce those boundaries."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"How do you design for AI adoption in an organization?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Start with high-clarity, high-value workflows. Make the system explain its reasoning. Reduce cognitive burden. Build trust before you scale."}]]}]]}]]}]]}]
+1e:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+20:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"Enterprise AI at Scale: From Blueprint to Operating Reality | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"How enterprise AI differs from prototype: the governance contracts, architecture layers, and adoption design that turn blueprints into live systems."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/enterprise-ai-at-scale/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"Enterprise AI at Scale: From Blueprint to Operating Reality | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"How enterprise AI differs from prototype: the governance contracts, architecture layers, and adoption design that turn blueprints into live systems."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/enterprise-ai-at-scale/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/enterprise-ai-at-scale.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Enterprise AI at Scale: From Blueprint to Operating Reality | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"How enterprise AI differs from prototype: the governance contracts, architecture layers, and adoption design that turn blueprints into live systems."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/enterprise-ai-at-scale.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L20","20",{}]]

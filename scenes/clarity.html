@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Clarity through complexity</title>
+<style>
+  html,body{margin:0;padding:0;width:100%;height:100%;background:transparent;overflow:hidden}
+  .stage{position:absolute;inset:0}.stage svg{width:100%;height:100%;display:block}
+  .ink{stroke:#2a2012;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  .ink-2{stroke:#8c2f23}.ink-3{stroke:#9a7322}.fillink{fill:#2a2012;stroke:none}
+  html[data-theme='dark'] .ink{stroke:#efe5cf}html[data-theme='dark'] .ink-2{stroke:#c2564a}
+  html[data-theme='dark'] .ink-3{stroke:#c79a3e}html[data-theme='dark'] .fillink{fill:#efe5cf}
+  .glyph{font-family:'JetBrains Mono',ui-monospace,monospace;fill:#8a795a;opacity:.8}
+  html[data-theme='dark'] .glyph{fill:#837457}
+  .draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+  .flick{animation:flick 5s ease-in-out infinite}
+  @keyframes flick{0%,100%{opacity:.8}50%{opacity:.35}}
+  .pulse{animation:pulse 3.5s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+  @media (prefers-reduced-motion:reduce){.flick,.pulse{animation:none}}
+</style></head>
+<body><div class="stage">
+<svg viewBox="0 0 900 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- complexity: a tangle of competing lines on the left -->
+  <g class="ink flick" stroke-width="1.4" opacity="0.8">
+    <path class="draw" d="M 70 150 C 150 120 120 220 200 190 S 300 240 250 300"/>
+    <path class="draw" d="M 60 260 C 140 240 180 320 120 360 S 260 340 300 300"/>
+    <path class="draw" d="M 90 420 C 160 400 140 320 230 350 S 300 320 290 300"/>
+    <path class="draw" d="M 80 340 C 170 360 210 260 260 300"/>
+    <path class="draw" d="M 110 200 C 190 210 210 280 270 290"/>
+    <path class="draw" d="M 70 380 C 150 360 200 360 265 310"/>
+    <path class="draw" d="M 130 480 C 200 440 220 350 275 315"/>
+    <path class="draw" d="M 120 110 C 200 150 210 250 268 292"/>
+  </g>
+  <text class="glyph" x="70" y="520" font-size="12">COMPLEXITY</text>
+
+  <!-- the discipline: a narrow aperture everything must pass through -->
+  <g class="ink-2 ink" stroke-width="2">
+    <path class="draw" d="M 470 190 L 470 275"/>
+    <path class="draw" d="M 470 325 L 470 410"/>
+  </g>
+  <circle class="ink ink-2 draw pulse" cx="470" cy="300" r="16" stroke-width="2"/>
+  <circle class="fillink" cx="470" cy="300" r="3"/>
+
+  <!-- clarity: one clean line survives and continues -->
+  <path class="ink ink-3 draw" stroke-width="3" d="M 486 300 L 840 300"/>
+  <path class="ink ink-3 draw" stroke-width="3" d="M 812 288 L 840 300 L 812 312"/>
+  <text class="glyph" x="700" y="336" font-size="12" style="fill:#9a7322">CLARITY</text>
+</svg></div>
+<script>
+(function(){var root=document.documentElement;
+ function theme(){try{var p=window.parent&&window.parent.document.documentElement;var t=(p&&p.getAttribute('data-theme'))||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');root.setAttribute('data-theme',t);}catch(e){root.setAttribute('data-theme','light');}}
+ theme();try{var p=window.parent&&window.parent.document.documentElement;if(p)new MutationObserver(theme).observe(p,{attributes:true,attributeFilter:['data-theme']});}catch(e){}
+ function draw(){document.querySelectorAll('.draw').forEach(function(el,i){var len=(el.getTotalLength&&el.getTotalLength())||320;el.style.setProperty('--len',len);el.style.transition='none';el.style.strokeDashoffset=len;el.getBoundingClientRect();el.style.transition='stroke-dashoffset 1.8s cubic-bezier(0.16,1,0.3,1) '+(i*70)+'ms';el.style.strokeDashoffset='0';});}
+ addEventListener('load',draw);setTimeout(draw,60);})();
+</script></body></html>

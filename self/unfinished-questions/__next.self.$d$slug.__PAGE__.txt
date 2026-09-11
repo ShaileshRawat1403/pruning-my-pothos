@@ -1,0 +1,27 @@
+1:"$Sreact.fragment"
+5:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+6:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+2:T597,<p class="lead">Unfinished questions are compasses, not gaps.</p>
+
+<p>Some questions should stay open for a while. They keep you attentive and humble. An open question is a <span class="highlight">living prompt</span>.</p>
+<p>Return to it regularly. Let it refine your choices without demanding immediate answers. A good question grows with you.</p>
+<figure class="content-figure">
+<svg viewBox="0 0 520 140" role="img" aria-labelledby="unfinished-questions-title">
+  <title id="unfinished-questions-title">Questions lead to noticing that shapes becoming</title>
+  <rect class="figure-stroke" x="20" y="40" width="140" height="60" rx="12" fill="none" stroke-width="2" />
+  <rect class="figure-stroke" x="190" y="40" width="140" height="60" rx="12" fill="none" stroke-width="2" />
+  <rect class="figure-fill" x="360" y="40" width="140" height="60" rx="12" />
+  <text class="figure-label" x="90" y="75" text-anchor="middle">Question</text>
+  <text class="figure-label" x="260" y="75" text-anchor="middle">Notice</text>
+  <text class="figure-label figure-label-strong" x="430" y="75" text-anchor="middle">Become</text>
+  <path class="figure-accent" d="M160 70h20" stroke-width="3" stroke-linecap="round" />
+  <path class="figure-accent" d="M330 70h20" stroke-width="3" stroke-linecap="round" />
+</svg>
+<figcaption>Living questions keep you aligned as you change.</figcaption>
+</figure>
+<p>What you keep asking, you keep becoming.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Unfinished Questions | Pruning My Pothos\",\"description\":\"The questions you keep open shape the person you become.\",\"url\":\"https://pruningmypothos.com/self/unfinished-questions/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Published: ","January 28, 2026","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Unfinished Questions"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-pink/40 pl-4 py-1 text-sm sm:text-base","children":"The questions you keep open shape the person you become."}],"$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","reflection",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reflection"]}],["$","span","identity",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","identity"]}],["$","span","meaning",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","meaning"]}]]}],["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":"$L3"}]]}],null,"$L4"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L5",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]
+4:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

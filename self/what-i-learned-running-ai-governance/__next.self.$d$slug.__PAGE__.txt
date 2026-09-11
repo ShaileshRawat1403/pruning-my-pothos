@@ -1,0 +1,32 @@
+1:"$Sreact.fragment"
+6:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+2:Tb7d,<p class="lead">The governance contract looked clean in the design doc.</p>
+
+<p>In practice, governance is not a document. It is a negotiation that happens every time a team wants to move faster than the policy allows. I learned this when I tried to enforce boundaries that made sense in theory but created friction that nobody wanted to own.</p>
+<p>The first tension is always autonomy versus control. Teams want AI to move quickly. Organizations want humans to approve things. The contract tries to resolve this, but the resolution only holds until a deadline arrives and someone asks to skip the approval step. <span class="highlight">The governance contract only works if someone is willing to enforce it when it is inconvenient.</span></p>
+<p>I found that the blueprint survived longer when I involved the people who would be affected by the policy before finalizing it. Not to negotiate away the boundaries, but to make sure the boundaries made sense for the actual work. A governance contract designed in a room without the people doing the work tends to get worked around.</p>
+<p>The second tension is auditability versus usability. Every action logged, every decision traceable, every failure reviewable. That sounds right until the system becomes so burdensome that people stop using it. Then you have no adoption and no audit trail because nothing happened.</p>
+<figure class="content-figure">
+<svg viewBox="0 0 560 140" role="img" aria-labelledby="governance-tension-title">
+  <title id="governance-tension-title">The tension between governance rigor and practical adoption</title>
+  <rect class="figure-stroke" x="40" y="40" width="140" height="60" rx="10" fill="none" stroke-width="2" />
+  <rect class="figure-stroke" x="330" y="40" width="140" height="60" rx="10" fill="none" stroke-width="2" />
+  <rect class="figure-fill" x="185" y="55" width="130" height="30" rx="8" />
+  <text class="figure-label" x="110" y="75" text-anchor="middle">Full audit</text>
+  <text class="figure-label" x="110" y="92" text-anchor="middle">traceability</text>
+  <text class="figure-label" x="400" y="75" text-anchor="middle">Practical</text>
+  <text class="figure-label" x="400" y="92" text-anchor="middle">adoption</text>
+  <text class="figure-label figure-label-strong" x="250" y="75" text-anchor="middle">Viable</text>
+  <text class="figure-label figure-label-strong" x="250" y="92" text-anchor="middle">compromise</text>
+</svg>
+<figcaption>The goal is the overlap, not either extreme.</figcaption>
+</figure>
+<p>I think about governance now as something that has to be maintained, not just designed. The blueprint is a starting point. The real governance is what emerges from the friction between the ideal system and the actual work.</p>
+<p><strong>What this changes in practice:</strong> governance contracts need owners who will enforce them when they are inconvenient, and designs that make the right path easier than the workaround.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"What I Learned Running AI Governance at Scale | Pruning My Pothos\",\"description\":\"What I discovered when governance contracts met real organizational behavior, and why the blueprint rarely survives first contact with the workflow.\",\"url\":\"https://pruningmypothos.com/self/what-i-learned-running-ai-governance/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Published: ","April 14, 2026","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"What I Learned Running AI Governance at Scale"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-pink/40 pl-4 py-1 text-sm sm:text-base","children":"What I discovered when governance contracts met real organizational behavior, and why the blueprint rarely survives first contact with the workflow."}],"$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4"]}],null,"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","governance",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}],["$","span","enterprise",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","enterprise"]}],["$","span","adoption",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","adoption"]}],["$","span","lessons",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","lessons"]}]]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L6",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

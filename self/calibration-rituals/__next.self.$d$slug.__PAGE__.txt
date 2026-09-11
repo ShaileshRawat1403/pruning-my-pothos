@@ -1,0 +1,27 @@
+1:"$Sreact.fragment"
+5:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+6:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+2:T620,<p class="lead">A ritual is a gentle reset button, not a superstition.</p>
+
+<p>Calibration can be as simple as the first five minutes: one page read, one line written, one deep breath. The goal is not productivity theater; it is <span class="highlight">orientation</span>.</p>
+<p>Rituals keep the day from owning you. They remind you what matters before the noise arrives. The mind does not need control, it needs a <span class="highlight">steady starting point</span>.</p>
+<figure class="content-figure">
+<svg viewBox="0 0 520 140" role="img" aria-labelledby="calibration-rituals-title">
+  <title id="calibration-rituals-title">Rituals reset the day and align the start</title>
+  <rect class="figure-stroke" x="20" y="40" width="140" height="60" rx="12" fill="none" stroke-width="2" />
+  <rect class="figure-stroke" x="190" y="40" width="140" height="60" rx="12" fill="none" stroke-width="2" />
+  <rect class="figure-fill" x="360" y="40" width="140" height="60" rx="12" />
+  <text class="figure-label" x="90" y="75" text-anchor="middle">Reset</text>
+  <text class="figure-label" x="260" y="75" text-anchor="middle">Align</text>
+  <text class="figure-label figure-label-strong" x="430" y="75" text-anchor="middle">Begin</text>
+  <path class="figure-accent" d="M160 70h20" stroke-width="3" stroke-linecap="round" />
+  <path class="figure-accent" d="M330 70h20" stroke-width="3" stroke-linecap="round" />
+</svg>
+<figcaption>Small rituals create an intentional starting line.</figcaption>
+</figure>
+<p>When you calibrate early, you drift less. That is the quiet win.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Calibration Rituals | Pruning My Pothos\",\"description\":\"Small rituals that reset the mind before the day drifts.\",\"url\":\"https://pruningmypothos.com/self/calibration-rituals/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Published: ","January 17, 2026","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Calibration Rituals"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-pink/40 pl-4 py-1 text-sm sm:text-base","children":"Small rituals that reset the mind before the day drifts."}],"$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","practice",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","practice"]}],["$","span","reflection",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reflection"]}],["$","span","identity",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","identity"]}]]}],"$L3"]}],null,"$L4"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L5",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+4:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,45 @@
+1:"$Sreact.fragment"
+6:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+2:Tc4b,<p>A system can be accurate, but if no one is responsible for its output, that accuracy is meaningless. It is a number without a context, a fact without a purpose. It is noise.</p>
+<figure class="content-figure figure-judgment">
+  <svg viewBox="0 0 480 180" role="img" aria-labelledby="judgment-accuracy-without-accountability-title">
+    <title id="judgment-accuracy-without-accountability-title">Judgment chooses a direction</title>
+    <rect class="figure-stroke" x="40" y="40" width="140" height="44" rx="10" fill="none" stroke-width="2" />
+    <rect class="figure-stroke" x="40" y="100" width="140" height="44" rx="10" fill="none" stroke-width="2" />
+    <text class="figure-label" x="68" y="68">Option A</text>
+    <text class="figure-label" x="68" y="128">Option B</text>
+    <circle class="figure-fill" cx="360" cy="90" r="28" />
+    <text class="figure-label figure-label-strong" x="338" y="96">Choice</text>
+    <path class="figure-accent" d="M180 62h120" stroke-width="3" stroke-linecap="round" />
+    <path class="figure-accent" d="M180 122h120" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="180" cy="62" r="4" />
+    <circle class="figure-dot" cx="180" cy="122" r="4" />
+  </svg>
+  <figcaption>Judgment chooses a path, not just a score.</figcaption>
+</figure>
+<p>Accountability is the anchor that gives accuracy its weight. It is the commitment to stand behind the information, to own the consequences of its use. Without accountability, accuracy becomes a game of statistics, a chase for a metric that has no real-world impact.</p>
+<figure class="content-figure figure-judgment">
+  <svg viewBox="0 0 480 180" role="img" aria-labelledby="judgment-accountability-chain-title">
+    <title id="judgment-accountability-chain-title">Accountability links output to consequence</title>
+    <rect class="figure-stroke" x="40" y="70" width="110" height="44" rx="10" fill="none" stroke-width="2" />
+    <rect class="figure-fill" x="185" y="70" width="110" height="44" rx="10" />
+    <rect class="figure-stroke" x="330" y="70" width="110" height="44" rx="10" fill="none" stroke-width="2" />
+    <text class="figure-label" x="60" y="98">Output</text>
+    <text class="figure-label figure-label-strong" x="210" y="98">Owner</text>
+    <text class="figure-label" x="348" y="98">Consequence</text>
+    <path class="figure-accent" d="M150 92h35" stroke-width="3" stroke-linecap="round" />
+    <path class="figure-accent" d="M295 92h35" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="150" cy="92" r="4" />
+    <circle class="figure-dot" cx="295" cy="92" r="4" />
+  </svg>
+  <figcaption>Accuracy gains weight only when it is owned.</figcaption>
+</figure>
+<p>When we build systems, we are not just building tools. We are building relationships of trust. And trust requires accountability. It requires knowing that someone is responsible, that someone will answer for the errors.</p>
+<p><strong>What this changes in practice:</strong> For any system that generates information, define who is accountable for its accuracy. If no one is accountable, the information should not be trusted.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Accuracy without accountability is noise. | Pruning My Pothos\",\"description\":\"Correctness matters only when ownership exists.\",\"url\":\"https://pruningmypothos.com/sentences/accuracy-without-accountability/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Judgment","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Accuracy without accountability is noise."}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-purple/40 pl-4 py-1 text-sm sm:text-base","children":"Correctness matters only when ownership exists."}],["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4"]}],null,"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","accountability",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","accountability"]}],["$","span","judgment",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","judgment"]}],["$","span","quality",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","quality"]}]]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L6",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

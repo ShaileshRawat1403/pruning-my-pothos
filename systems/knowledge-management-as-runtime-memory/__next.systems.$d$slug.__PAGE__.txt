@@ -1,0 +1,167 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+b:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/covers/systems/knowledge-management-as-runtime-memory.svg","image"]
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Knowledge Management as Runtime Memory | Pruning My Pothos\",\"description\":\"Why modern AI teams should treat knowledge management as a live runtime memory system, not a static documentation archive.\",\"url\":\"https://pruningmypothos.com/systems/knowledge-management-as-runtime-memory/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/knowledge-management-as-runtime-memory/\"},\"datePublished\":\"2026-03-05\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/knowledge-management-as-runtime-memory.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Is knowledge management just documentation hygiene?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No. In AI workflows it is runtime memory infrastructure that affects retrieval quality, answer reliability, and citation coherence.\"}},{\"@type\":\"Question\",\"name\":\"What should teams improve first?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Start with canonical naming, clear scope boundaries, and explicit freshness checks before scaling document volume.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"How-things-fit-together"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Knowledge Management as Runtime Memory"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"Why modern AI teams should treat knowledge management as a live runtime memory system, not a static documentation archive."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L2","knowledge-management",{"href":"/tags/knowledge-management/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","knowledge-management"]}],["$","$L2","retrieval",{"href":"/tags/retrieval/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","retrieval"]}],["$","$L2","orchestration",{"href":"/tags/orchestration/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","orchestration"]}],["$","$L2","evaluation",{"href":"/tags/evaluation/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","evaluation"]}],"$L3","$L4"]}]]}],"$L5","$undefined","$undefined","$undefined","$undefined","$undefined","$L6","$undefined","$L7","$undefined","$L8"]}],null,"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L2","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}]
+4:["$","$L2","geo",{"href":"/tags/geo/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","geo"]}]
+5:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/knowledge-management-as-runtime-memory.svg","alt":"Dynamic knowledge management system","className":"w-full h-full object-cover"}]}]
+a:T25f5,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Knowledge management fails when it is treated as storage instead of decision infrastructure.</li>
+<li>Retrieval quality depends more on semantic structure than raw document volume.</li>
+<li>Runtime memory needs governance, freshness rules, and verification loops.</li>
+<li>A strong knowledge surface improves SEO discoverability, AEO answerability, and GEO citation reliability.</li>
+</ul>
+</blockquote>
+<p>Many teams still describe knowledge management as &quot;where documents live.&quot; That definition is now too small. In AI-assisted systems, knowledge is not only referenced by humans reading pages. It is also interpreted by retrieval engines, ranking systems, and generation pipelines that decide what to surface, summarize, or cite.</p>
+<p>Once those systems become part of your product stack, knowledge management stops being an archive concern and becomes an execution concern. The real question is no longer &quot;is this document stored?&quot; The real question is &quot;can this information be retrieved correctly, verified quickly, and applied safely at runtime?&quot;</p>
+<h3 id="what-is-runtime-memory-in-knowledge-management">What is runtime memory in knowledge management?</h3>
+<p>Runtime memory is a structured knowledge surface that helps systems select and apply the right context during execution. It combines source truth, metadata, retrieval rules, and verification habits so decisions are informed by current, scoped evidence rather than by whatever document happened to rank first.</p>
+<p>In practice, <span class="highlight">knowledge only compounds when structure survives retrieval pressure</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> Treat every high-value page as an operational asset with ownership, freshness expectations, and retrieval tests, not just as editorial output.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Reframing knowledge management</summary>
+      <ol>
+        <li><a href="#from-archive-thinking-to-runtime-thinking">From archive thinking to runtime thinking</a></li>
+        <li><a href="#why-volume-is-a-weak-proxy-for-value">Why volume is a weak proxy for value</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Building runtime memory</summary>
+      <ol>
+        <li><a href="#the-four-layer-knowledge-surface">The four-layer knowledge surface</a></li>
+        <li><a href="#minimum-metadata-that-keeps-context-intact">Minimum metadata that keeps context intact</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Operating discipline</summary>
+      <ol>
+        <li><a href="#how-to-run-a-weekly-memory-review">How to run a weekly memory review</a></li>
+        <li><a href="#failure-patterns-to-watch">Failure patterns to watch</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-reframing-knowledge-management">Act I: Reframing knowledge management</h2>
+<h3 id="from-archive-thinking-to-runtime-thinking">From archive thinking to runtime thinking</h3>
+<p>Archive thinking optimizes for preservation. Runtime thinking optimizes for use under constraints.</p>
+<p>In archive mode, teams ask:</p>
+<ul>
+<li>Did we write it?</li>
+<li>Is it saved somewhere?</li>
+<li>Can a person eventually find it?</li>
+</ul>
+<p>In runtime mode, teams ask:</p>
+<ul>
+<li>Can the system retrieve the right unit for this task?</li>
+<li>Is the retrieved unit current enough for this decision?</li>
+<li>Can we verify the claim before it drives an action?</li>
+</ul>
+<p>The second set of questions is what matters for modern AI workflows. Generated output can look coherent even when its supporting context is stale or mismatched. That is why retrieval-aligned structure and evidence hygiene are now core product concerns.</p>
+<h3 id="why-volume-is-a-weak-proxy-for-value">Why volume is a weak proxy for value</h3>
+<p>Large knowledge bases often feel impressive while producing weak outcomes. The common failure is that content grows faster than structure. As taxonomies drift and naming fragments, the system starts returning &quot;something related&quot; instead of &quot;the right thing.&quot; That failure is subtle because outputs remain fluent.</p>
+<p>A small, well-governed knowledge surface usually outperforms a massive, weakly-structured one. Quality comes from:</p>
+<ul>
+<li>stable entities and vocabulary</li>
+<li>clear scope boundaries for each page</li>
+<li>explicit ownership and refresh cadence</li>
+<li>predictable linking between foundational and applied docs</li>
+</ul>
+<p>This is also where SEO, AEO, and GEO converge. Stable structure improves indexing and ranking signals, increases answer extraction precision, and reduces citation ambiguity in generated responses.</p>
+<figure class="diagram">
+  <iframe src="/scenes/knowledge-pipeline.html" title="Knowledge surface from source truth to runtime answer" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>Knowledge management is a pipeline: source truth, indexing, retrieval, and runtime verification.</figcaption>
+</figure>
+<h2 id="act-ii-building-runtime-memory">Act II: Building runtime memory</h2>
+<h3 id="the-four-layer-knowledge-surface">The four-layer knowledge surface</h3>
+<p>A practical knowledge system for AI operations usually has four layers.</p>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Layer</th>
+        <th>Primary responsibility</th>
+        <th>Common failure</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Source layer</strong></td>
+        <td>Capture decisions, methods, and rationale clearly</td>
+        <td>Unclear ownership and conflicting versions</td>
+      </tr>
+      <tr>
+        <td><strong>Structure layer</strong></td>
+        <td>Maintain stable taxonomy, tags, and entity names</td>
+        <td>Tag drift and inconsistent naming</td>
+      </tr>
+      <tr>
+        <td><strong>Retrieval layer</strong></td>
+        <td>Select the right context unit for the current task</td>
+        <td>High recall, low precision retrieval</td>
+      </tr>
+      <tr>
+        <td><strong>Runtime layer</strong></td>
+        <td>Verify outputs against evidence before action</td>
+        <td>Trusting fluent output without proof</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<p>Each layer needs explicit stewardship. If ownership is vague, entropy appears quickly and retrieval quality drops before teams notice it.</p>
+<h3 id="minimum-metadata-that-keeps-context-intact">Minimum metadata that keeps context intact</h3>
+<p>You do not need complex ontology projects to improve reliability. A compact metadata contract is enough for most teams:</p>
+<ul>
+<li>canonical topic/entity name</li>
+<li>scope statement (what this page covers and does not cover)</li>
+<li>freshness marker (<code>last reviewed</code> or <code>publishDate</code> + review cadence)</li>
+<li>related internal links to foundational and applied pages</li>
+<li>evidence links for high-risk claims</li>
+</ul>
+<p>This metadata does two jobs. It helps humans navigate quickly, and it gives retrieval systems stronger context boundaries.</p>
+<p>For naming discipline, see <a href="/sentences/entities-are-memory-anchors/">Entities are memory anchors</a>. For operational review loops, see <a href="/self/the-weekly-observability-reset/">The Weekly Observability Reset</a>. For compact review format, see <a href="/shelf/notes/observability-logbook-pattern/">Notes: Observability Logbook Pattern</a>.</p>
+<p>For proof that this layer matters in working systems, see <a href="/portfolio/">Portfolio</a> for applied documentation and enablement examples, and <a href="/shelf/shared-resources/retrieval-and-grounding-evaluation-kit/">Retrieval and grounding evaluation kit</a> for a resource surface tied to retrieval quality.</p>
+<h2 id="act-iii-operating-discipline">Act III: Operating discipline</h2>
+<h3 id="how-to-run-a-weekly-memory-review">How to run a weekly memory review</h3>
+<p>A useful weekly review should be short and repeatable:</p>
+<ol>
+<li>Pick one priority workflow or topic area.</li>
+<li>Sample recently used knowledge units.</li>
+<li>Check whether retrieval returned the right scope.</li>
+<li>Mark stale, ambiguous, or duplicated units.</li>
+<li>Add one structural fix (rename, merge, link, or archive).</li>
+</ol>
+<p>This keeps the knowledge surface alive without turning maintenance into a separate project.</p>
+<h3 id="failure-patterns-to-watch">Failure patterns to watch</h3>
+<p>Most knowledge-management regressions are gradual. Watch for:</p>
+<ul>
+<li>repeated retrieval of outdated pages despite newer alternatives</li>
+<li>growing number of near-duplicate pages with overlapping scope</li>
+<li>increasing editorial effort to manually &quot;explain context&quot; each time</li>
+<li>citation drift where outputs reference secondary summaries instead of source pages</li>
+<li>high confidence language paired with weak evidence links</li>
+</ul>
+<p>These are structural signals. Fixing them early protects both user trust and system performance.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Treat knowledge management as runtime memory infrastructure. When source truth, structure, retrieval, and verification are aligned, your system becomes easier to reason about, safer to operate, and easier to discover across SEO, AEO, and GEO surfaces.</p>
+6:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$a"}}]
+7:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Knowledge-management topic now spans systems, sentences, self, and shelf/notes."}],["$","li","1",{"children":"Canonical glossary anchors are available for recurring term definitions."}],["$","li","2",{"children":"Weekly map template added for reusable structure and freshness reviews."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Is knowledge management just documentation hygiene?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"No. In AI workflows it is runtime memory infrastructure that affects retrieval quality, answer reliability, and citation coherence."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What should teams improve first?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Start with canonical naming, clear scope boundaries, and explicit freshness checks before scaling document volume."}]]}]]}]]}]]}]
+8:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L2",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L2",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

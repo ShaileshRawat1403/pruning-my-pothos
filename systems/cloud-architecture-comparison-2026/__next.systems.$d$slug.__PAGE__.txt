@@ -1,0 +1,314 @@
+1:"$Sreact.fragment"
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+b:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/covers/systems/cloud-architecture-comparison-2026.svg","image"]
+2:T4d1,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the five layers for comparing cloud architectures?","acceptedAnswer":{"@type":"Answer","text":"The five layers are: (1) Foundation (compute, storage, networking), (2) Data (databases, analytics, ML data), (3) Intelligence (AI/ML services, inference, embeddings), (4) Integration (APIs, event systems, orchestration), and (5) Governance (security, compliance, cost control)."}},{"@type":"Question","name":"How has AI changed cloud architecture decisions?","acceptedAnswer":{"@type":"Answer","text":"AI services have become a primary differentiator. Organizations now choose clouds partly based on AI capabilities: managed inference services, embedding APIs, vector databases, and AI governance tooling vary significantly across providers."}},{"@type":"Question","name":"What should drive cloud architecture choice in 2026?","acceptedAnswer":{"@type":"Answer","text":"Cloud choice should be driven by architectural intent: what you need to build, what governance constraints you face, and what your team's existing expertise is. Service parity has increased, but specialization in specific layers (AI, data, integration) varies."}}]}0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Comparing Cloud Architecture in 2026: AWS vs Azure vs GCP | Pruning My Pothos\",\"description\":\"AWS, Azure and Google Cloud compared across five architecture layers for AI-era workloads, with selection heuristics and cost commitment models.\",\"url\":\"https://pruningmypothos.com/systems/cloud-architecture-comparison-2026/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/cloud-architecture-comparison-2026/\"},\"datePublished\":\"2026-02-02\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/cloud-architecture-comparison-2026.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Concepts"}],[["$","span",null,{"children":"•"}],["$","span",null,{"children":[11," min read"]}]],[["$","span",null,{"children":"•"}],["$","span",null,{"children":"intermediate"}]],[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Comparing Cloud Architecture in 2026: AWS vs Azure vs GCP"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"AWS, Azure and Google Cloud compared across five architecture layers for AI-era workloads, with selection heuristics and cost commitment models."}],"$L3"]}],"$L4","$undefined","$undefined","$undefined","$undefined","$undefined","$L5","$undefined","$L6","$undefined","$L7"]}],null,"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","systems",{"href":"/tags/systems/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","systems"]}],["$","$L9","cloud",{"href":"/tags/cloud/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","cloud"]}],["$","$L9","aws",{"href":"/tags/aws/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","aws"]}],["$","$L9","azure",{"href":"/tags/azure/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","azure"]}],["$","$L9","gcp",{"href":"/tags/gcp/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","gcp"]}],["$","$L9","architecture",{"href":"/tags/architecture/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","architecture"]}]]}]
+4:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/cloud-architecture-comparison-2026.svg","alt":"Cloud comparison diagram","className":"w-full h-full object-cover"}]}]
+a:T3e76,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Cloud choice is now a choice of <span class="highlight">architectural intent</span>, not a service checklist.</li>
+<li>Your authority hierarchy determines governance friction and operating risk.</li>
+<li>Your state layer decides consistency, replication, and recovery behavior.</li>
+<li>Your intelligence layer is a control plane decision, not just model selection.</li>
+<li>Your cost architecture should match your confidence horizon.</li>
+</ul>
+</blockquote>
+<p>As of February 2026, useful cloud decisions start from structure: how each platform encodes governance, data, intelligence, execution, and cost. This guide uses a five-layer model so you can choose based on how your team actually builds, not on whichever feature page you read last.</p>
+<h3 id="how-should-teams-compare-aws-azure-and-gcp-in-2026">How should teams compare AWS, Azure, and GCP in 2026?</h3>
+<p>Teams should compare AWS, Azure, and GCP by architectural intent rather than service-count marketing. This guide is for builders and operators choosing a cloud home for AI-era systems, and the practical question is which platform makes governance, state, intelligence, orchestration, and cost easiest for your real operating model.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The frame</summary>
+      <ol>
+        <li><a href="#the-five-layer-model">The five-layer model</a></li>
+        <li><a href="#layer-5-authority-hierarchy">Layer 5: Authority hierarchy</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The layer comparisons</summary>
+      <ol>
+        <li><a href="#layer-4-state">Layer 4: State</a></li>
+        <li><a href="#layer-3-intelligence">Layer 3: Intelligence</a></li>
+        <li><a href="#layer-2-orchestration">Layer 2: Orchestration</a></li>
+        <li><a href="#layer-1-experience">Layer 1: Experience</a></li>
+        <li><a href="#supporting-layer-networking">Supporting layer: Networking</a></li>
+        <li><a href="#supporting-layer-cost-architecture">Supporting layer: Cost architecture</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Choosing by intent</summary>
+      <ol>
+        <li><a href="#selection-heuristics">Selection heuristics</a></li>
+        <li><a href="#related-systems">Related systems</a></li>
+        <li><a href="#related-resources">Related resources</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+        <li><a href="#sources">Sources</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-frame">Act I: The frame</h2>
+<h3 id="the-five-layer-model">The five-layer model</h3>
+<p>Use this stack from bottom to top:</p>
+<ul>
+<li>Authority hierarchy: identity, policy, and billing boundaries.</li>
+<li>State layer: data models, consistency, and replication.</li>
+<li>Intelligence layer: model access, evaluation, and guardrails.</li>
+<li>Orchestration layer: serverless runtime, workflows, eventing.</li>
+<li>Experience layer: product surface and delivery velocity.</li>
+</ul>
+<p>Two supporting layers cross all five: networking and cost architecture.</p>
+<p>This is the core move in this doc: compare platforms by design constraints first, then by services.</p>
+<figure class="diagram">
+  <iframe src="/scenes/cloud-stack.html" title="Five-layer cloud model" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>A five-layer comparison model for architecture decisions in 2026.</figcaption>
+</figure>
+<h3 id="layer-5-authority-hierarchy">Layer 5: Authority hierarchy</h3>
+<p>Your hierarchy determines how hard governance becomes at scale.</p>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Decision surface</th>
+      <th>AWS</th>
+      <th>Azure</th>
+      <th>GCP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Org structure</td>
+      <td>Organizations + OUs</td>
+      <td>Management Groups</td>
+      <td>Organization + Folders</td>
+    </tr>
+    <tr>
+      <td>Primary billing boundary</td>
+      <td>Account</td>
+      <td>Subscription</td>
+      <td>Project</td>
+    </tr>
+    <tr>
+      <td>Main policy path</td>
+      <td>SCPs + IAM policies</td>
+      <td>Azure Policy + RBAC</td>
+      <td>IAM + policy inheritance</td>
+    </tr>
+    <tr>
+      <td>AI control plane</td>
+      <td>Amazon Bedrock</td>
+      <td>Azure AI Foundry</td>
+      <td>Vertex AI</td>
+    </tr>
+  </tbody>
+</table>
+<p>AWS treats the account as the core boundary and uses SCPs for org-level guardrails (<a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-creating.html">AWS account boundary</a>, <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html">SCPs</a>).</p>
+<p>Azure runs a governance-first hierarchy with Management Groups, Subscriptions, and Resource Groups (<a href="https://learn.microsoft.com/azure/governance/management-groups/overview">Management Groups</a>, <a href="https://learn.microsoft.com/azure/azure-resource-manager/management/fundamentals">Azure hierarchy fundamentals</a>).</p>
+<p>GCP uses a tree model (Organization, Folders, Projects) with inherited access semantics (<a href="https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy">GCP resource hierarchy</a>).</p>
+<h2 id="act-ii-the-layer-comparisons">Act II: The layer comparisons</h2>
+<h3 id="layer-4-state">Layer 4: State</h3>
+<p>The state layer is where consistency and scale trade-offs become explicit.</p>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Representative service</th>
+      <th>Consistency model signal</th>
+      <th>Best fit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AWS</td>
+      <td>DynamoDB</td>
+      <td>Eventually consistent reads by default; strong reads optional</td>
+      <td>High-throughput, low-latency key-value workloads</td>
+    </tr>
+    <tr>
+      <td>Azure</td>
+      <td>Cosmos DB</td>
+      <td>Five tunable consistency levels</td>
+      <td>Teams that need explicit consistency tuning</td>
+    </tr>
+    <tr>
+      <td>GCP</td>
+      <td>Cloud Spanner</td>
+      <td>External consistency with TrueTime</td>
+      <td>Globally distributed transactional systems</td>
+    </tr>
+  </tbody>
+</table>
+<p>References: <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html">DynamoDB read consistency</a>, <a href="https://learn.microsoft.com/azure/cosmos-db/consistency-levels">Cosmos DB consistency levels</a>, <a href="https://cloud.google.com/spanner/docs/true-time-external-consistency">Spanner external consistency</a>.</p>
+<h3 id="layer-3-intelligence">Layer 3: Intelligence</h3>
+<p>The intelligence layer is now a platform decision: model access, safety posture, and evaluation loops.</p>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Control plane</th>
+      <th>Architectural posture</th>
+      <th>Typical fit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AWS</td>
+      <td>Amazon Bedrock</td>
+      <td>Multi-model access through one managed API</td>
+      <td>Teams that want model optionality</td>
+    </tr>
+    <tr>
+      <td>Azure</td>
+      <td>Azure AI Foundry</td>
+      <td>Integrated agent and governance workflows</td>
+      <td>Microsoft-centric enterprise delivery</td>
+    </tr>
+    <tr>
+      <td>GCP</td>
+      <td>Vertex AI</td>
+      <td>Unified ML + generative AI workflow</td>
+      <td>Data-science-heavy product teams</td>
+    </tr>
+  </tbody>
+</table>
+<p>References: <a href="https://docs.aws.amazon.com/bedrock/">Amazon Bedrock</a>, <a href="https://learn.microsoft.com/azure/ai-foundry/">Azure AI Foundry</a>, <a href="https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform">Vertex AI overview</a>.</p>
+<h3 id="layer-2-orchestration">Layer 2: Orchestration</h3>
+<p>The orchestration layer decides cold-start behavior, scaling semantics, and operator burden.</p>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Serverless posture</th>
+      <th>Operational lever</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AWS</td>
+      <td>Lambda</td>
+      <td>SnapStart for faster startup on supported runtimes</td>
+    </tr>
+    <tr>
+      <td>Azure</td>
+      <td>Functions Premium</td>
+      <td>Always-ready / prewarmed instances</td>
+    </tr>
+    <tr>
+      <td>GCP</td>
+      <td>Cloud Run (and Cloud Functions 2nd gen)</td>
+      <td>Configurable high concurrency per instance</td>
+    </tr>
+  </tbody>
+</table>
+<p>References: <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Lambda SnapStart</a>, <a href="https://learn.microsoft.com/azure/azure-functions/functions-premium-plan">Azure Functions Premium</a>, <a href="https://cloud.google.com/run/docs/configuring/concurrency">Cloud Run concurrency</a>.</p>
+<h3 id="layer-1-experience">Layer 1: Experience</h3>
+<p>The experience layer should be chosen last, not first. If hierarchy, state, and orchestration are misfit, front-end velocity becomes rework.</p>
+<ul>
+<li>Use Azure-first experience paths when identity and compliance are tightly coupled to Microsoft tenancy.</li>
+<li>Use GCP-first paths when data products and AI loops are the product core.</li>
+<li>Use AWS-first paths when modularity and ecosystem breadth are your advantage.</li>
+</ul>
+<h3 id="supporting-layer-networking">Supporting layer: Networking</h3>
+<p>Networking architecture often decides whether multi-region growth stays simple or becomes fragile.</p>
+<ul>
+<li>GCP VPC is global, with regional subnets.</li>
+<li>AWS VPC is region-scoped.</li>
+<li>Azure VNet is region-scoped, with global peering options.</li>
+</ul>
+<p>References: <a href="https://cloud.google.com/vpc/docs/vpc">GCP VPC overview</a>, <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">AWS VPC user guide</a>, <a href="https://learn.microsoft.com/azure/virtual-network/virtual-network-vnet-peering-faq">Azure VNet peering FAQ</a>.</p>
+<h3 id="supporting-layer-cost-architecture">Supporting layer: Cost architecture</h3>
+<p>Cost architecture is a design choice, not a cleanup task.</p>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Commitment model</th>
+      <th>When it works best</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AWS</td>
+      <td>Savings Plans</td>
+      <td>Predictable spend with moderate architecture flexibility</td>
+    </tr>
+    <tr>
+      <td>Azure</td>
+      <td>Reservations</td>
+      <td>Stable enterprise workloads and long-lived services</td>
+    </tr>
+    <tr>
+      <td>GCP</td>
+      <td>Committed use discounts</td>
+      <td>Steady regional compute demand</td>
+    </tr>
+  </tbody>
+</table>
+<p>References: <a href="https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html">AWS Savings Plans</a>, <a href="https://learn.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations">Azure Reservations</a>, <a href="https://cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts">GCP committed use discounts</a>.</p>
+<h2 id="act-iii-choosing-by-intent">Act III: Choosing by intent</h2>
+<h3 id="selection-heuristics">Selection heuristics</h3>
+<p>Use your dominant constraint to choose:</p>
+<ul>
+<li><strong>Governance-first intent:</strong> Azure often reduces policy drift sooner.</li>
+<li><strong>Data/AI-first intent:</strong> GCP often reduces distance between data and model workflows.</li>
+<li><strong>Modularity-first intent:</strong> AWS usually provides the widest composition space.</li>
+</ul>
+<p>For a student onboarding platform: if identity and compliance stack are Microsoft-centered, Azure is often the fastest institutional fit; if multimodal data and model workflows are core product differentiators, GCP is often the cleaner data-and-AI fit; if scale plus multi-model optionality dominates, AWS can be the strongest builder path.</p>
+<h3 id="related-systems">Related systems</h3>
+<ul>
+<li><a href="/systems/systems-001-foundations/">Systems 001: Foundations</a></li>
+<li><a href="/systems/training-vs-inference/">Training, Fine-Tuning, and Inference</a></li>
+<li><a href="/systems/context-windows-as-working-memory/">Context windows as working memory</a></li>
+<li><a href="/systems/retrieval-augmented-generation-in-plain-terms/">Retrieval-Augmented Generation in plain terms</a></li>
+</ul>
+<h3 id="related-resources">Related resources</h3>
+<ul>
+<li><a href="/shelf/shared-resources/ai-strategy-2026-deck/">AI Strategy 2026 deck</a></li>
+<li><a href="/shelf/shared-resources/architecting-agent-intelligence-deck/">Architecting Agent Intelligence deck</a></li>
+</ul>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<ol>
+<li>Start architecture reviews with hierarchy and state, not UI and SDKs.</li>
+<li>Pick a cloud by organizational decision pattern, not by feature excitement.</li>
+<li>Treat AI platform selection as a governance decision.</li>
+<li>Make networking and commitment discounts explicit in design docs.</li>
+<li>Re-evaluate every 12 months as platform defaults evolve.</li>
+</ol>
+<h3 id="sources">Sources</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-creating.html">AWS Accounts</a></li>
+<li><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html">AWS Organizations SCPs</a></li>
+<li><a href="https://learn.microsoft.com/azure/governance/management-groups/overview">Azure Management Groups</a></li>
+<li><a href="https://learn.microsoft.com/azure/azure-resource-manager/management/fundamentals">Azure hierarchy fundamentals</a></li>
+<li><a href="https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy">GCP resource hierarchy</a></li>
+<li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html">DynamoDB read consistency</a></li>
+<li><a href="https://learn.microsoft.com/azure/cosmos-db/consistency-levels">Cosmos DB consistency levels</a></li>
+<li><a href="https://cloud.google.com/spanner/docs/true-time-external-consistency">Spanner external consistency</a></li>
+<li><a href="https://docs.aws.amazon.com/bedrock/">Amazon Bedrock docs</a></li>
+<li><a href="https://learn.microsoft.com/azure/ai-foundry/">Azure AI Foundry docs</a></li>
+<li><a href="https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform">Vertex AI overview</a></li>
+<li><a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Lambda SnapStart</a></li>
+<li><a href="https://learn.microsoft.com/azure/azure-functions/functions-premium-plan">Azure Functions Premium</a></li>
+<li><a href="https://cloud.google.com/run/docs/configuring/concurrency">Cloud Run concurrency</a></li>
+<li><a href="https://cloud.google.com/vpc/docs/vpc">GCP VPC overview</a></li>
+<li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">AWS VPC overview</a></li>
+<li><a href="https://learn.microsoft.com/azure/virtual-network/virtual-network-vnet-peering-faq">Azure VNet peering FAQ</a></li>
+<li><a href="https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html">AWS Savings Plans</a></li>
+<li><a href="https://learn.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations">Azure Reservations</a></li>
+<li><a href="https://cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts">GCP committed use discounts</a></li>
+</ul>
+5:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$a"}}]
+6:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"5-layer architecture comparison framework"}],["$","li","1",{"children":"Covers AI-specific services across AWS, Azure, and GCP"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What are the five layers for comparing cloud architectures?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"The five layers are: (1) Foundation (compute, storage, networking), (2) Data (databases, analytics, ML data), (3) Intelligence (AI/ML services, inference, embeddings), (4) Integration (APIs, event systems, orchestration), and (5) Governance (security, compliance, cost control)."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"How has AI changed cloud architecture decisions?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"AI services have become a primary differentiator. Organizations now choose clouds partly based on AI capabilities: managed inference services, embedding APIs, vector databases, and AI governance tooling vary significantly across providers."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What should drive cloud architecture choice in 2026?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Cloud choice should be driven by architectural intent: what you need to build, what governance constraints you face, and what your team's existing expertise is. Service parity has increased, but specialization in specific layers (AI, data, integration) varies."}]]}]]}]]}]]}]
+7:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+8:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

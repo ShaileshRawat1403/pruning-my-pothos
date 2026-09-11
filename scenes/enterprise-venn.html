@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The three enterprise AI scale tests</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 980 240" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 980 240');
+
+Ink.circle(svg,{cx:320,cy:120,r:90,seed:1,label:'Governance',ly:-5,size:13});
+Ink.text(svg,{x:320,y:135,text:'contracts',size:11,cls:'label label-muted',anchor:'middle'});
+Ink.circle(svg,{cx:490,cy:120,r:90,seed:2,label:'Integration',ly:-5,size:13});
+Ink.text(svg,{x:490,y:135,text:'layers',size:11,cls:'label label-muted',anchor:'middle'});
+Ink.circle(svg,{cx:660,cy:120,r:90,seed:3,label:'Adoption',ly:-5,size:13});
+Ink.text(svg,{x:660,y:135,text:'design',size:11,cls:'label label-muted',anchor:'middle'});
+  Ink.run();
+})();
+</script>
+</body></html>

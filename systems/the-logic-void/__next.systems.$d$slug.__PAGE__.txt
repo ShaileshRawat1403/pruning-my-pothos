@@ -1,0 +1,151 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+:HL["/covers/systems/the-logic-void.svg","image"]
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"The Logic Void: Where AI Reasoning Breaks Down | Pruning My Pothos\",\"description\":\"Where AI reasoning reaches its boundaries, why those boundaries matter for system design, and how to build reliable systems that acknowledge the limits of logic.\",\"url\":\"https://pruningmypothos.com/systems/the-logic-void/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/the-logic-void/\"},\"datePublished\":\"2026-04-15\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/the-logic-void.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What is the logic void in AI systems?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"The logic void is the boundary where AI reasoning stops being reliable: ambiguous inputs, novel situations, value conflicts, and situations that require contextual judgment beyond pattern matching.\"}},{\"@type\":\"Question\",\"name\":\"Why does the logic void matter for system design?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Because systems that do not acknowledge where logic ends often fail silently at the boundaries. Understanding the void lets you design appropriate handoffs, fallbacks, and human oversight.\"}},{\"@type\":\"Question\",\"name\":\"How do you handle decisions in the logic void?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"You handle them by building appropriate constraints: rule-based fallbacks, human escalation paths, uncertainty signaling, and graceful degradation instead of confident wrong answers.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Explanations"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"The Logic Void: Where AI Reasoning Breaks Down"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"Where AI reasoning reaches its boundaries, why those boundaries matter for system design, and how to build reliable systems that acknowledge the limits of logic."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L2","logic",{"href":"/tags/logic/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","logic"]}],["$","$L2","reasoning",{"href":"/tags/reasoning/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reasoning"]}],"$L3","$L4","$L5","$L6"]}]]}],"$L7","$undefined","$undefined","$undefined","$undefined","$undefined","$L8","$undefined","$L9","$undefined","$La"]}],null,"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L2","boundaries",{"href":"/tags/boundaries/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","boundaries"]}]
+4:["$","$L2","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}]
+5:["$","$L2","design",{"href":"/tags/design/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","design"]}]
+6:["$","$L2","uncertainty",{"href":"/tags/uncertainty/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","uncertainty"]}]
+7:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/the-logic-void.svg","alt":"Gap diagram showing reasoning boundaries","className":"w-full h-full object-cover"}]}]
+c:T1fed,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>AI reasoning has clear boundaries where logic becomes unreliable.</li>
+<li>The logic void is not a flaw; it is a design surface.</li>
+<li>Systems that acknowledge limits are more trustworthy than systems that pretend to be certain.</li>
+<li>Designing for the void means building fallbacks, escalation paths, and uncertainty signals.</li>
+</ul>
+</blockquote>
+<p>This article explains where AI reasoning breaks down, why those boundaries matter for system design, and how to build reliable systems that acknowledge the limits of logic.</p>
+<h3 id="what-is-the-logic-void-in-ai-reasoning">What is the logic void in AI reasoning?</h3>
+<p>The logic void refers to the boundary where an AI model&#39;s statistical pattern-matching fails to resolve ambiguous inputs, conflicting priorities, or out-of-distribution scenarios. Because language models do not possess a true internal model of logical truth or ethical consensus, they cannot reliably navigate these gaps, leading to sudden reasoning collapse or confident hallucinations.</p>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Scenario Type</th>
+      <th>Model Behavior in Void</th>
+      <th>System Fallback Path</th>
+      <th>Success Criteria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Deterministic</strong></td>
+      <td>Pattern matches training data</td>
+      <td>Direct execution</td>
+      <td>High accuracy (automated check)</td>
+    </tr>
+    <tr>
+      <td><strong>Ambiguous context</strong></td>
+      <td>Extrapolates probabilistically</td>
+      <td>Escalate for clarification</td>
+      <td>Graceful fallback / prompt user</td>
+    </tr>
+    <tr>
+      <td><strong>Value conflict</strong></td>
+      <td>Vulnerable to prompt oscillation</td>
+      <td>Enforce strict policy rules</td>
+      <td>Safety gate verification</td>
+    </tr>
+  </tbody>
+</table>
+<p>It is most useful for teams building AI systems that need to handle edge cases, and for anyone trying to understand why confident AI outputs can still be deeply wrong.</p>
+<h3 id="where-logic-ends">Where logic ends</h3>
+<p>AI systems are trained on patterns in data. They are good at extrapolating from those patterns, but they struggle in situations that require:</p>
+<ul>
+<li>novel reasoning beyond the training distribution</li>
+<li>contextual judgment that depends on unstated values</li>
+<li>handling ambiguous inputs without failing silently</li>
+<li>recognizing when the question itself is malformed</li>
+</ul>
+<p><span class="highlight">The logic void is not a bug. It is a boundary condition that every AI system eventually encounters.</span></p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> The most dangerous moment in an AI system is when it produces a confident answer in the logic void. The system does not know it is outside its reliable range.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The nature of the void</summary>
+      <ol>
+        <li><a href="#what-the-void-looks-like">What the void looks like</a></li>
+        <li><a href="#why-confidence-misleads">Why confidence misleads</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Designing for the void</summary>
+      <ol>
+        <li><a href="#uncertainty-signaling">Uncertainty signaling</a></li>
+        <li><a href="#fallback-patterns">Fallback patterns</a></li>
+        <li><a href="#escalation-paths">Escalation paths</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Trust through honesty</summary>
+      <ol>
+        <li><a href="#the-honest-system">The honest system</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-nature-of-the-void">Act I: The nature of the void</h2>
+<h3 id="what-the-void-looks-like">What the void looks like</h3>
+<p>The logic void appears in several recognizable forms:</p>
+<ol>
+<li><strong>Ambiguity without disambiguation signal</strong>: the input could mean multiple things, and the system picks one without signaling uncertainty.</li>
+<li><strong>Novel situations</strong>: the query describes a situation unlike anything in the training data.</li>
+<li><strong>Value conflicts</strong>: multiple valid principles conflict, and the system cannot reason about which takes precedence.</li>
+<li><strong>Malformed questions</strong>: the question itself contains a category error or false premise.</li>
+</ol>
+<p>Each form produces confident outputs that are unreliable without the system knowing it.</p>
+<h3 id="why-confidence-misleads">Why confidence misleads</h3>
+<p>Language models produce fluent output regardless of whether the situation is inside or outside their reliable range. Fluency is not a signal of validity. <span class="highlight">The system cannot tell you where it stops being reliable.</span></p>
+<p>This is why calibration matters. A calibrated system can express uncertainty. An uncalibrated system produces the same confident tone whether it is answering a simple factual question or hallucinating in the void.</p>
+<h2 id="act-ii-designing-for-the-void">Act II: Designing for the void</h2>
+<h3 id="uncertainty-signaling">Uncertainty signaling</h3>
+<p>The first line of defense is making the system express uncertainty when it is operating in the void. This requires:</p>
+<ul>
+<li>explicit uncertainty thresholds based on input characteristics</li>
+<li>flagging when queries match novel or ambiguous patterns</li>
+<li>expressing confidence intervals rather than binary answers</li>
+</ul>
+<p>See <a href="/systems/decision-making-under-uncertainty-in-ai-runtimes/">Decision-Making Under Uncertainty in AI Runtimes</a> for the operating model.</p>
+<h3 id="fallback-patterns">Fallback patterns</h3>
+<p>When the system detects the void, it should fall back to:</p>
+<ul>
+<li>rule-based responses for known boundary cases</li>
+<li>retrieval from governed knowledge bases instead of model memory</li>
+<li>explicit acknowledgment that the query is outside reliable range</li>
+</ul>
+<h3 id="escalation-paths">Escalation paths</h3>
+<p>For high-stakes decisions in the void, the system should escalate to human judgment. This requires:</p>
+<ul>
+<li>clear escalation triggers based on query characteristics</li>
+<li>seamless handoff that preserves context</li>
+<li>documented escalation outcomes for future learning</li>
+</ul>
+<h2 id="act-iii-trust-through-honesty">Act III: Trust through honesty</h2>
+<h3 id="the-honest-system">The honest system</h3>
+<p>Systems that acknowledge their limits are more trustworthy than systems that pretend certainty. When a system says &quot;I am uncertain about this,&quot; users can adjust their trust accordingly.</p>
+<p>When a system produces a confident answer in the void, users may trust it inappropriately. <span class="highlight">The honest system earns long-term trust by being clear about where it stops being reliable.</span></p>
+<p>See <a href="/systems/runtime-over-model-why-orchestration-is-the-product/">Runtime Over Model: Why Orchestration is the Product</a> for how orchestration discipline supports honest systems.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Do not design systems that avoid the void. Design systems that acknowledge the void, signal when they are operating in it, and handle those situations gracefully. That is what separates reliable AI from impressive AI.</p>
+<h2 id="related-ai-systems-topics">Related AI systems topics</h2>
+<ul>
+<li><a href="/systems/decision-making-under-uncertainty-in-ai-runtimes/">Decision-Making Under Uncertainty in AI Runtimes</a></li>
+<li><a href="/systems/runtime-over-model-why-orchestration-is-the-product/">Runtime Over Model: Why Orchestration is the Product</a></li>
+<li><a href="/systems/evaluation-as-a-runtime-discipline/">Evaluation as a Runtime Discipline</a></li>
+<li><a href="/shelf/shared-resources/logic-void-deck/">The Logic Void deck</a></li>
+</ul>
+8:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$c"}}]
+9:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"This doc is backed by The Logic Void shared resource."}],["$","li","1",{"children":"Ties to decision-making under uncertainty and runtime over model docs."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is the logic void in AI systems?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"The logic void is the boundary where AI reasoning stops being reliable: ambiguous inputs, novel situations, value conflicts, and situations that require contextual judgment beyond pattern matching."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why does the logic void matter for system design?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Because systems that do not acknowledge where logic ends often fail silently at the boundaries. Understanding the void lets you design appropriate handoffs, fallbacks, and human oversight."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"How do you handle decisions in the logic void?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"You handle them by building appropriate constraints: rule-based fallbacks, human escalation paths, uncertainty signaling, and graceful degradation instead of confident wrong answers."}]]}]]}]]}]]}]
+a:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L2",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L2",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+b:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

@@ -1,0 +1,137 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","policy-governed-mcp-runtimes-for-secure-tool-execution",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","policy-governed-mcp-runtimes-for-secure-tool-execution","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Policy-Governed MCP Runtimes for Secure Tool Execution | Pruning My Pothos\",\"description\":\"How to design secure execution sandboxes and policy validation gates for Model Context Protocol servers in agent runtimes.\",\"url\":\"https://pruningmypothos.com/systems/policy-governed-mcp-runtimes-for-secure-tool-execution/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/policy-governed-mcp-runtimes-for-secure-tool-execution/\"},\"datePublished\":\"2026-06-28\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/policy-governed-mcp-runtimes-for-secure-tool-execution.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What is an MCP runtime?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"An MCP runtime is the client-side host environment that manages connections to Model Context Protocol servers and orchestrates tool calls proposed by language models.\"}},{\"@type\":\"Question\",\"name\":\"Why do MCP servers require policy gating?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Because models are susceptible to prompt injection and can propose destructive tool calls (like file deletion or network requests) that must be verified by static rules.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"How-things-fit-together"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Policy-Governed MCP Runtimes for Secure Tool Execution"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"How to design secure execution sandboxes and policy validation gates for Model Context Protocol servers in agent runtimes."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","mcp",{"href":"/tags/mcp/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","mcp"]}],["$","$L9","orchestration",{"href":"/tags/orchestration/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","orchestration"]}],["$","$L9","runtime",{"href":"/tags/runtime/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","runtime"]}],["$","$L9","policy",{"href":"/tags/policy/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","policy"]}],"$L17","$L18"]}]]}],"$L19","$undefined","$undefined","$undefined","$undefined","$undefined","$L1a","$undefined","$L1b","$undefined","$L1c"]}]
+:HL["/covers/systems/policy-governed-mcp-runtimes-for-secure-tool-execution.svg","image"]
+17:["$","$L9","safety",{"href":"/tags/safety/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","safety"]}]
+18:["$","$L9","governance",{"href":"/tags/governance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}]
+19:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/policy-governed-mcp-runtimes-for-secure-tool-execution.svg","alt":"Model Context Protocol runtime intercepting tool executions via policy checks","className":"w-full h-full object-cover"}]}]
+1d:T1fcc,<p class="lead">Autonomous tool execution is a liability unless it is validated by a policy-governed runtime contract at the execution boundary.</p>
+
+<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Models propose tool calls; runtimes execute them under governance.</li>
+<li>Policy gates must intercept raw MCP requests before they reach the host shell.</li>
+<li>Sandboxing isolates execution environments to prevent unauthorized system access.</li>
+<li>Audit logging provides the empirical verification loop needed for post-hoc correction.</li>
+</ul>
+</blockquote>
+<p>This guide is built for builders, operators, and security architects launching agentic systems in production. It defines a policy-governed runtime architecture for the Model Context Protocol (MCP), ensuring that tools run safely and predictably.</p>
+<h3 id="how-do-policy-governed-mcp-runtimes-secure-ai-integrations">How do policy-governed MCP runtimes secure AI integrations?</h3>
+<p>Policy-governed MCP runtimes secure AI integrations by introducing a strict interceptor layer between the model&#39;s reasoning loop and the execution host. Rather than giving the model direct access to command lines or APIs, the runtime parses the proposed tool call, checks it against static permission contracts (such as directory whitelists or resource usage limits), and either executes it in a sandboxed container or halts the loop for manual review.</p>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The security challenge</summary>
+      <ol>
+        <li><a href="#the-vulnerability-of-unconstrained-tools">The Vulnerability of Unconstrained Tools</a></li>
+        <li><a href="#mcp-as-an-attack-surface">MCP as an Attack Surface</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The governance architecture</summary>
+      <ol>
+        <li><a href="#the-interception-and-gating-pattern">The Interception and Gating Pattern</a></li>
+        <li><a href="#runtime-sandboxing">Runtime Sandboxing</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Verification and lifecycle</summary>
+      <ol>
+        <li><a href="#the-seven-stages-of-governed-tool-calls">The Seven Stages of Governed Tool Calls</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-security-challenge">Act I: The security challenge</h2>
+<h3 id="the-vulnerability-of-unconstrained-tools">The Vulnerability of Unconstrained Tools</h3>
+<p>When developers first build agentic loops, they typically bind tool interfaces directly to model prompts. The model is instructed: &quot;Use the shell command tool if you need to inspect files.&quot; While this works in closed demos, it exposes production systems to severe operational risks. If the model processes unverified user data (like email bodies or repository code), a prompt injection attack can force the model to propose malicious shell commands, such as deleting directories or exfiltrating sensitive credentials.</p>
+<p>The core flaw is treating the model as a trusted execution unit. A language model is a probabilistic engine, not a deterministic sandbox. It cannot guarantee compliance with security boundaries because it lacks an internal model of resource access permissions.</p>
+<h3 id="mcp-as-an-attack-surface">MCP as an Attack Surface</h3>
+<p>The Model Context Protocol (MCP) standardizes how models connect to local resources, databases, and external APIs. While MCP makes it easy to integrate tools, it also standardizes the attack surface. An MCP client reads server configurations and exposes tools directly to the model&#39;s action selection window. If an MCP server is configured to run on the host system with root permissions, any vulnerability in the model&#39;s prompt parsing becomes a vulnerability for the entire machine.</p>
+<p>To prevent this, security architects must implement a Zero Trust model: the runtime must treat every proposed tool call as unverified user input.</p>
+<aside class="callout callout-warning">
+  <p><strong>Security warning.</strong> Never configure an MCP client to launch server processes directly on your production host without namespace isolation.</p>
+</aside>
+<h2 id="act-ii-the-governance-architecture">Act II: The governance architecture</h2>
+<h3 id="the-interception-and-gating-pattern">The Interception and Gating Pattern</h3>
+<p>A policy-governed runtime prevents unconstrained execution by enforcing an interception gate between the client and server. When the model selects a tool, the request is intercepted by the runtime. The runtime extracts the tool name and arguments and checks them against a compiled whitelist of rules.</p>
+<p><span class="highlight">Policy rules must be static and deterministic</span> rather than evaluated by another LLM, preventing recursive injection vectors.</p>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Execution Pattern</th>
+      <th>Interception Level</th>
+      <th>Policy Format</th>
+      <th>Jailbreak Resistance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Unrestricted</strong></td>
+      <td>None (Direct shell/API)</td>
+      <td>Prompt instructions only</td>
+      <td>None (High risk of injection)</td>
+    </tr>
+    <tr>
+      <td><strong>Advisory Gating</strong></td>
+      <td>Pre-execution prompt review</td>
+      <td>Evaluator model prompts</td>
+      <td>Low (Prone to nested prompt hacks)</td>
+    </tr>
+    <tr>
+      <td><strong>Governed Gating</strong></td>
+      <td>Deterministic runtime hook</td>
+      <td>JSON Schema & Whitelists</td>
+      <td>Absolute (Failsafe execution)</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="runtime-sandboxing">Runtime Sandboxing</h3>
+<p>Beyond static policy validation, the execution environment must be isolated. Sandboxing ensures that if a tool call bypasses policy checks, it cannot modify the primary host system. This is accomplished using Docker containers, gVisor sandboxes, or WebAssembly runtimes.</p>
+<p>If a tool call requires directory access, only a bounded workspace volume (such as a temporary folder) is mounted into the container. Network access is disabled by default, preventing exfiltration channels.</p>
+<h2 id="act-iii-verification-and-lifecycle">Act III: Verification and lifecycle</h2>
+<h3 id="the-seven-stages-of-governed-tool-calls">The Seven Stages of Governed Tool Calls</h3>
+<p>A secure MCP runtime structures tool execution into seven sequential stages, ensuring full traceability and safety at every step:</p>
+<ol>
+<li><strong>Intent Proposal:</strong> The model proposes a tool call based on context.</li>
+<li><strong>Schema Parsing:</strong> The runtime validates the call arguments against the tool&#39;s JSON Schema contract.</li>
+<li><strong>Static Policy Check:</strong> The runtime asserts that parameters (like file paths or URLs) stay within allowed namespaces.</li>
+<li><strong>Sandboxed Instantiation:</strong> The runtime provisions a temporary sandbox container with limited resource allocations.</li>
+<li><strong>Execution:</strong> The tool runs in isolation, producing standard outputs or errors.</li>
+<li><strong>Result Sanitization:</strong> The output is cleaned of system paths, API keys, or raw shell traces before returning to the model.</li>
+<li><strong>Trace Logging:</strong> The execution parameters, policy check result, and sanitization metrics are saved to the audit log.</li>
+</ol>
+<p>For a detailed case study on how we built a policy-governed MCP runtime where models reason freely but execution remains deterministic, see the <a href="/shelf/local-experiments/soothsayer-mcp-kernel/">Soothsayer MCP kernel local experiment</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Treat tool execution as a system boundary problem. Never assume the model will respect instructions, and enforce strict, deterministic isolation at the runtime layer for all external connections.</p>
+1a:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1d"}}]
+1b:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Empirically verified in our Soothsayer MCP kernel sandbox environment."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is an MCP runtime?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"An MCP runtime is the client-side host environment that manages connections to Model Context Protocol servers and orchestrates tool calls proposed by language models."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why do MCP servers require policy gating?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Because models are susceptible to prompt injection and can propose destructive tool calls (like file deletion or network requests) that must be verified by static rules."}]]}]]}]]}]]}]
+1c:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1e:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"Policy-Governed MCP Runtimes for Secure Tool Execution | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"How to design secure execution sandboxes and policy validation gates for Model Context Protocol servers in agent runtimes."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/policy-governed-mcp-runtimes-for-secure-tool-execution/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"Policy-Governed MCP Runtimes for Secure Tool Execution | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"How to design secure execution sandboxes and policy validation gates for Model Context Protocol servers in agent runtimes."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/policy-governed-mcp-runtimes-for-secure-tool-execution/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/policy-governed-mcp-runtimes-for-secure-tool-execution.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Policy-Governed MCP Runtimes for Secure Tool Execution | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"How to design secure execution sandboxes and policy validation gates for Model Context Protocol servers in agent runtimes."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/policy-governed-mcp-runtimes-for-secure-tool-execution.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L1e","20",{}]]

@@ -1,0 +1,243 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+10:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+11:"$Sreact.suspense"
+:HL["/covers/systems/i-7-cognitive-loop.svg","image"]
+2:T506,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the I-7 cognitive loop?","acceptedAnswer":{"@type":"Answer","text":"The I-7 cognitive loop extends Norman's classic human-computer interaction model to AI-assisted work. It adds stages for delegation, context transfer, and intervention that account for non-deterministic AI behavior that does not fit traditional direct manipulation models."}},{"@type":"Question","name":"How does I-7 differ from Norman's model?","acceptedAnswer":{"@type":"Answer","text":"Norman's model assumes deterministic execution: you act, the system responds predictably. I-7 adds stages for when the AI proposes, when context must transfer between human and AI, and when humans need visibility into and control over AI decisions. The shift is from direct manipulation to delegated execution."}},{"@type":"Question","name":"Why is visibility a design requirement in AI systems?","acceptedAnswer":{"@type":"Answer","text":"Unlike traditional software where you can trace exactly what code ran, AI systems make probabilistic decisions that are not easily explainable. Visibility requirements ensure humans can understand what the AI is doing, intervene when needed, and maintain accountability for outcomes."}}]}0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"I-7 Cognitive Loop: A new standard for Human-AI interaction | Pruning My Pothos\",\"description\":\"A governance-first interaction model that extends Norman's stages for AI-assisted work.\",\"url\":\"https://pruningmypothos.com/systems/i-7-cognitive-loop/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/i-7-cognitive-loop/\"},\"datePublished\":\"2026-02-02\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/i-7-cognitive-loop.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Concepts"}],[["$","span",null,{"children":"•"}],["$","span",null,{"children":[10," min read"]}]],[["$","span",null,{"children":"•"}],["$","span",null,{"children":"intermediate"}]],[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"I-7 Cognitive Loop: A new standard for Human-AI interaction"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"A governance-first interaction model that extends Norman's stages for AI-assisted work."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L3","systems",{"href":"/tags/systems/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","systems"]}],"$L4","$L5","$L6","$L7","$L8","$L9"]}]]}],"$La","$undefined","$undefined","$undefined","$undefined","$undefined","$Lb","$undefined","$Lc","$undefined","$Ld"]}],null,"$Le"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+4:["$","$L3","hci",{"href":"/tags/hci/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","hci"]}]
+5:["$","$L3","ai",{"href":"/tags/ai/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","ai"]}]
+6:["$","$L3","agents",{"href":"/tags/agents/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","agents"]}]
+7:["$","$L3","interaction",{"href":"/tags/interaction/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","interaction"]}]
+8:["$","$L3","i-7",{"href":"/tags/i-7/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","i-7"]}]
+9:["$","$L3","governance",{"href":"/tags/governance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}]
+a:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/i-7-cognitive-loop.svg","alt":"Human-AI interaction loop","className":"w-full h-full object-cover"}]}]
+f:T30ec,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>I-7 does not replace Norman; it extends Norman for non-deterministic systems.</li>
+<li>The shift is from direct manipulation to delegated execution.</li>
+<li>In AI-assisted work, visibility and intervention are design requirements.</li>
+<li>The seven stages make human oversight operational, not optional.</li>
+</ul>
+</blockquote>
+<h3 id="what-is-the-i-7-cognitive-loop">What is the I-7 cognitive loop?</h3>
+<p>The I-7 cognitive loop is a human-computer interaction (HCI) framework designed for builders and designers of AI systems. It extends Donald Norman&#39;s classic stages of action to account for the unique characteristics of non-deterministic, agentic software. Rather than treating interaction as direct manipulation (like clicking buttons), the I-7 loop defines how humans delegate intent, monitor agent execution, and intervene when behavior diverges from policy.</p>
+<p>Norman remains the foundation. The seven stages of action still describe how people form goals, act, and evaluate outcomes. The difference is that modern AI systems can reason, choose tools, and execute intermediate steps on their own. I-7 is an advanced layer for this environment: the age of AI-assisted development, where human judgment stays central.</p>
+<p>In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.</p>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The shift</summary>
+      <ol>
+        <li><a href="#why-norman-needs-an-extension">Why Norman needs an extension</a></li>
+        <li><a href="#the-i-7-loop">The I-7 loop</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The seven phases</summary>
+      <ol>
+        <li><a href="#intent">Intent</a></li>
+        <li><a href="#inform">Inform</a></li>
+        <li><a href="#interpret">Interpret</a></li>
+        <li><a href="#initiate">Initiate</a></li>
+        <li><a href="#inspect">Inspect</a></li>
+        <li><a href="#intervene">Intervene</a></li>
+        <li><a href="#iterate">Iterate</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Using the loop</summary>
+      <ol>
+        <li><a href="#ai-assisted-not-ai-generated">AI-assisted, not AI-generated</a></li>
+        <li><a href="#a-practical-run-loop">A practical run loop</a></li>
+        <li><a href="#related-systems">Related systems</a></li>
+        <li><a href="#related-resources">Related resources</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-shift">Act I: The shift</h2>
+<h3 id="why-norman-needs-an-extension">Why Norman needs an extension</h3>
+<p>Norman’s model was shaped around tools where execution was explicit and deterministic. You click, the system does the exact action, and you compare the result.</p>
+<p>Agentic systems change that middle layer. Between intent and output, there is now hidden reasoning, retrieval, tool calls, and probabilistic generation. That creates a practical gap: users can still state goals, but they cannot safely trust execution unless reasoning and control points are visible.</p>
+<p>The I-7 loop addresses that gap by inserting operational checkpoints before, during, and after execution.</p>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Norman's Stage</th>
+      <th>I-7 Cognitive Stage</th>
+      <th>Nature of the Shift</th>
+      <th>Key Cognitive Demand</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Goal Formation</td>
+      <td>Intent</td>
+      <td>Vague internal states become structured intent.</td>
+      <td>Role-task alignment and explicit boundaries.</td>
+    </tr>
+    <tr>
+      <td>Intent/Specification</td>
+      <td>Inform</td>
+      <td>Focus moves from "how to click" to "what context is required."</td>
+      <td>Context engineering and attention management.</td>
+    </tr>
+    <tr>
+      <td>Execution</td>
+      <td>Initiate</td>
+      <td>The system begins action through autonomous reasoning.</td>
+      <td>Reasoning-action control and safe execution contracts.</td>
+    </tr>
+    <tr>
+      <td>Perception</td>
+      <td>Interpret</td>
+      <td>Human and agent build a shared model before execution scales.</td>
+      <td>Semantic alignment and assumption testing.</td>
+    </tr>
+    <tr>
+      <td>Interpretation</td>
+      <td>Inspect</td>
+      <td>Post-hoc reading becomes evidence-based runtime inspection.</td>
+      <td>Observability of reasoning traces and outputs.</td>
+    </tr>
+    <tr>
+      <td>Evaluation</td>
+      <td>Intervene</td>
+      <td>Evaluation becomes active pause/correct authority.</td>
+      <td>Human-in-the-loop governance and autonomy scaling.</td>
+    </tr>
+    <tr>
+      <td>Not in Norman</td>
+      <td>Iterate</td>
+      <td>Each run is folded into a learning loop for better future runs.</td>
+      <td>Golden examples, policy updates, and PDCA discipline.</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="the-i-7-loop">The I-7 loop</h3>
+<p>I-7 runs as a repeatable control cycle:</p>
+<ul>
+<li>Intent -&gt; Inform -&gt; Interpret -&gt; Initiate -&gt; Inspect -&gt; Intervene -&gt; Iterate</li>
+</ul>
+<p>The value is not the labels alone. The value is that each label marks a decision point where responsibility is explicit.</p>
+<figure class="diagram">
+  <iframe src="/scenes/i7-loop-ring.html" title="The I-7 loop" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>The I-7 stages map responsibility across planning, execution, and governance.</figcaption>
+</figure>
+<aside class="callout">
+  <p><strong>Operational rule.</strong> If a stage cannot be observed or audited, it does not exist in production terms. Add logging, checkpoints, or human gates until it is visible.</p>
+</aside>
+<h2 id="act-ii-the-seven-phases">Act II: The seven phases</h2>
+<h3 id="intent">Intent</h3>
+<p>Intent is the contract. It defines role, task, boundaries, and failure conditions.</p>
+<p>If skipped: the system optimizes for fluency over correctness.</p>
+<p>Examples:</p>
+<ul>
+<li><strong>Developer:</strong> &quot;Refactor this module without changing the public API.&quot;</li>
+<li><strong>Product manager:</strong> &quot;Draft a v1 PRD for onboarding with scope limits and non-goals.&quot;</li>
+<li><strong>Researcher:</strong> &quot;Summarize only claims directly supported by cited sources.&quot;</li>
+</ul>
+<h3 id="inform">Inform</h3>
+<p>Inform is context governance. You choose what evidence the system may use.</p>
+<p>If skipped: low-signal context causes plausible but ungrounded outputs.</p>
+<p>Examples:</p>
+<ul>
+<li><strong>Developer:</strong> provide failing tests, target files, and logs.</li>
+<li><strong>Product manager:</strong> provide interview notes, key metrics, and constraints.</li>
+<li><strong>Researcher:</strong> provide canonical papers and explicit exclusions.</li>
+</ul>
+<h3 id="interpret">Interpret</h3>
+<p>Interpret is pre-execution alignment. The system states plan and assumptions in plain language.</p>
+<p>If skipped: users discover misalignment only after execution side effects.</p>
+<p>Examples:</p>
+<ul>
+<li><strong>Developer:</strong> ask for a step plan before file edits.</li>
+<li><strong>Product manager:</strong> ask for trade-off framing before writing.</li>
+<li><strong>Researcher:</strong> ask for hypothesis and evidence chain before synthesis.</li>
+</ul>
+<h3 id="initiate">Initiate</h3>
+<p>Initiate is guarded execution. Actions should pass schema and policy checks.</p>
+<p>If skipped: malformed tool calls and unsafe actions move into runtime.</p>
+<p>Examples:</p>
+<ul>
+<li><strong>Developer:</strong> patch only after diff preview and lint/test gate.</li>
+<li><strong>Product manager:</strong> ticket creation only after required fields validate.</li>
+<li><strong>Researcher:</strong> data queries only after schema and source checks pass.</li>
+</ul>
+<h3 id="inspect">Inspect</h3>
+<p>Inspect is output verification against evidence and acceptance criteria.</p>
+<p>If skipped: hallucinations and logic drift become part of the baseline.</p>
+<p>Examples:</p>
+<ul>
+<li><strong>Developer:</strong> verify tests, type checks, and behavior diffs.</li>
+<li><strong>Product manager:</strong> verify PRD traceability to source interviews.</li>
+<li><strong>Researcher:</strong> verify every claim maps to a source fragment.</li>
+</ul>
+<h3 id="intervene">Intervene</h3>
+<p>Intervene is explicit human authority to pause, redirect, or reject.</p>
+<p>If skipped: autonomy scales faster than accountability.</p>
+<p>Examples:</p>
+<ul>
+<li><strong>Developer:</strong> block migration without rollback proof.</li>
+<li><strong>Product manager:</strong> stop launch when success metrics are ambiguous.</li>
+<li><strong>Researcher:</strong> halt conclusions where evidence conflicts remain unresolved.</li>
+</ul>
+<h3 id="iterate">Iterate</h3>
+<p>Iterate turns corrections into reusable system memory: tests, prompts, policies, and examples.</p>
+<p>If skipped: the same errors recur in new language.</p>
+<p>Examples:</p>
+<ul>
+<li><strong>Developer:</strong> convert incident fixes into regression tests.</li>
+<li><strong>Product manager:</strong> convert review feedback into template constraints.</li>
+<li><strong>Researcher:</strong> convert corrected citations into a retrieval benchmark set.</li>
+</ul>
+<h2 id="act-iii-using-the-loop">Act III: Using the loop</h2>
+<h3 id="ai-assisted-not-ai-generated">AI-assisted, not AI-generated</h3>
+<p>I-7 is designed for AI-assisted development. The system contributes speed and synthesis; the human owns intent, judgment, and accountability.</p>
+<h3 id="a-practical-run-loop">A practical run loop</h3>
+<p>Use this five-minute loop in any agent workflow:</p>
+<ol>
+<li>Write Intent in one sentence (role, task, boundary).</li>
+<li>Attach only required context for the task.</li>
+<li>Ask for plan and assumptions before execution.</li>
+<li>Run with explicit guardrails and inspect outputs.</li>
+<li>Save one correction as a reusable artifact.</li>
+</ol>
+<figure class="diagram">
+  <iframe src="/scenes/i7-gates-sequence.html" title="I-7 control gates" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>Execution is fast when checkpoints are explicit.</figcaption>
+</figure>
+<h3 id="related-systems">Related systems</h3>
+<p>For adjacent concepts:</p>
+<ul>
+<li><a href="/systems/systems-001-foundations/">Systems 001: Foundations</a></li>
+<li><a href="/systems/retrieval-augmented-generation-in-plain-terms/">Retrieval-Augmented Generation in plain terms</a></li>
+<li><a href="/systems/training-vs-inference/">Training vs inference</a></li>
+<li><a href="/systems/context-windows-as-working-memory/">Context windows as working memory</a></li>
+</ul>
+<p>For governance implementations of specific stages:</p>
+<ul>
+<li><a href="/systems/human-in-the-loop-is-a-system-design-choice/">Human-in-the-Loop Is a System Design Choice</a> — the Intervene stage in practice</li>
+<li><a href="/systems/decision-making-under-uncertainty-in-ai-runtimes/">Decision-Making Under Uncertainty in AI Runtimes</a> — Interpret and Inspect as allow/ask/deny/defer</li>
+<li><a href="/systems/agent-instructions-and-handoff-as-an-operating-system/">Agent Instructions and Handoff as an Operating System</a> — Inform as a durable contract, not a one-off prompt</li>
+<li><a href="/systems/engineering-agentic-systems-for-reliability/">Engineering Agentic Systems for Reliability</a> — Initiate and Inspect as reliability boundaries</li>
+<li><a href="/systems/from-agent-intent-to-governed-execution/">From Agent Intent to Governed Execution</a> — the seven control stages, one runtime-level reading of this same loop</li>
+<li><a href="/systems/evaluation-as-a-runtime-discipline/">Evaluation as a Runtime Discipline</a> — Iterate as a recurring operating habit, not a retrospective</li>
+</ul>
+<h3 id="related-resources">Related resources</h3>
+<ul>
+<li><a href="/shelf/shared-resources/i-7-reliability-standard-deck/">The I-7 Reliability Standard deck</a></li>
+</ul>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>You stop treating interaction as prompt-in, answer-out. You start treating it as a governed loop with observable state transitions. That shift is the difference between impressive demos and reliable systems.</p>
+b:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$f"}}]
+c:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Extends Norman cognitive loop for AI systems"}],["$","li","1",{"children":"Defines 7 stages of human-AI interaction"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is the I-7 cognitive loop?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"The I-7 cognitive loop extends Norman's classic human-computer interaction model to AI-assisted work. It adds stages for delegation, context transfer, and intervention that account for non-deterministic AI behavior that does not fit traditional direct manipulation models."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"How does I-7 differ from Norman's model?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Norman's model assumes deterministic execution: you act, the system responds predictably. I-7 adds stages for when the AI proposes, when context must transfer between human and AI, and when humans need visibility into and control over AI decisions. The shift is from direct manipulation to delegated execution."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why is visibility a design requirement in AI systems?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Unlike traditional software where you can trace exactly what code ran, AI systems make probabilistic decisions that are not easily explainable. Visibility requirements ensure humans can understand what the AI is doing, intervene when needed, and maintain accountability for outcomes."}]]}]]}]]}]]}]
+d:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L3",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L3",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+e:["$","$L10",null,{"children":["$","$11",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]
+12:null

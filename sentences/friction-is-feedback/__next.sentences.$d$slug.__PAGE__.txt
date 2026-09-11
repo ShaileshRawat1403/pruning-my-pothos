@@ -1,0 +1,26 @@
+1:"$Sreact.fragment"
+6:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+2:T6da,<p>We often think of friction as a problem to be solved. We want our systems to be seamless, our workflows to be smooth, our progress to be effortless. And so we spend our time trying to remove friction wherever we find it.</p>
+<figure class="content-figure figure-attention">
+  <svg viewBox="0 0 480 160" role="img" aria-labelledby="attention-friction-is-feedback-title">
+    <title id="attention-friction-is-feedback-title">Attention selects signal</title>
+    <rect class="figure-stroke" x="40" y="58" width="160" height="44" rx="10" fill="none" stroke-width="2" />
+    <rect class="figure-fill" x="280" y="58" width="160" height="44" rx="10" />
+    <path class="figure-accent" d="M200 80h80" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="200" cy="80" r="4" />
+    <circle class="figure-dot" cx="280" cy="80" r="4" />
+    <text class="figure-label" x="70" y="86">Noise</text>
+    <text class="figure-label figure-label-strong" x="306" y="86">Signal</text>
+  </svg>
+  <figcaption>Attention narrows input into signal.</figcaption>
+</figure>
+<p>But friction is not just a problem. It is also a form of feedback. It is a signal that the system is resisting the change we are trying to make. It is a sign that there is a conflict between our intention and the reality of the situation.</p>
+<p>To treat friction as feedback is to shift our mindset from one of annoyance to one of curiosity. Instead of asking &quot;How can I get rid of this friction?&quot; we ask &quot;What is this friction telling me?&quot;</p>
+<p><strong>What this changes in practice:</strong> When you encounter friction, don&#39;t just push through it. Pause and listen. What is the source of the resistance? What is the system trying to tell you?</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Friction is feedback. | Pruning My Pothos\",\"description\":\"Friction reveals where a system resists change.\",\"url\":\"https://pruningmypothos.com/sentences/friction-is-feedback/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Attention","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Friction is feedback."}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-purple/40 pl-4 py-1 text-sm sm:text-base","children":"Friction reveals where a system resists change."}],["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","friction",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","friction"]}],["$","span","feedback",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","feedback"]}],"$L3"]}],"$L4"]}],null,"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","span","attention",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","attention"]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L6",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

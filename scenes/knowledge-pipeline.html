@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Knowledge surface from source truth to runtime answer</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 980 300" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 980 300');
+
+Ink.rect(svg,{x:52,y:98,w:190,h:80,r:12,seed:1,label:'Source truth',lx:20,ly:28,size:12});
+Ink.text(svg,{x:72,y:143,text:'docs, notes, decisions',size:10,cls:'label label-muted'});
+Ink.rect(svg,{x:278,y:98,w:190,h:80,r:12,seed:2,label:'Index + metadata',lx:20,ly:28,size:12});
+Ink.text(svg,{x:298,y:143,text:'entities, tags, freshness',size:10,cls:'label label-muted'});
+Ink.rect(svg,{x:504,y:98,w:190,h:80,r:12,seed:3,label:'Retrieval layer',lx:20,ly:28,size:12});
+Ink.text(svg,{x:524,y:143,text:'ranking, filtering, scope',size:10,cls:'label label-muted'});
+Ink.rect(svg,{x:730,y:88,w:198,h:100,r:12,seed:4,cls:'ink ink-2',hi:true,label:'Runtime decision',lx:20,ly:38,size:12});
+Ink.text(svg,{x:750,y:153,text:'answer + verification',size:10,cls:'label label-muted'});
+Ink.line(svg,{x1:242,y1:138,x2:278,y2:138,seed:10,dot:true});
+Ink.line(svg,{x1:468,y1:138,x2:504,y2:138,seed:11,dot:true});
+Ink.line(svg,{x1:694,y1:138,x2:730,y2:138,seed:12,dot:true,cls:'ink ink-2',pulse:true});
+  Ink.run();
+})();
+</script>
+</body></html>

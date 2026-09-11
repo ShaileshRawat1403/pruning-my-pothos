@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Observability feedback loop for AI runtime decisions</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 980 280" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 980 280');
+
+Ink.rect(svg,{x:60,y:104,w:130,h:64,r:12,seed:1,label:'Decision',lx:65,ly:36,anchor:'middle',size:11});
+Ink.rect(svg,{x:236,y:104,w:130,h:64,r:12,seed:2,label:'Execution',lx:65,ly:36,anchor:'middle',size:11});
+Ink.rect(svg,{x:412,y:104,w:130,h:64,r:12,seed:3,label:'Verification',lx:65,ly:36,anchor:'middle',size:11});
+Ink.rect(svg,{x:588,y:104,w:130,h:64,r:12,seed:4,cls:'ink ink-2',hi:true,label:'Trace',lx:65,ly:36,anchor:'middle',size:11});
+Ink.rect(svg,{x:764,y:104,w:150,h:64,r:12,seed:5,label:'Policy update',lx:75,ly:36,anchor:'middle',size:11});
+Ink.line(svg,{x1:190,y1:136,x2:236,y2:136,seed:10,dot:true});
+Ink.line(svg,{x1:366,y1:136,x2:412,y2:136,seed:11,dot:true});
+Ink.line(svg,{x1:542,y1:136,x2:588,y2:136,seed:12,dot:true,cls:'ink ink-2',pulse:true});
+Ink.line(svg,{x1:718,y1:136,x2:764,y2:136,seed:13,dot:true});
+Ink.path(svg,{d:'M914 136 C944 136 944 52 490 52 C170 52 170 95 190 95',cls:'ink ink-3',seed:20});
+  Ink.run();
+})();
+</script>
+</body></html>

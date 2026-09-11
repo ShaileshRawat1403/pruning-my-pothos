@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Message parts timeline</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 960 250" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 960 250');
+
+Ink.line(svg,{x1:80,y1:124,x2:880,y2:124,seed:1,bow:3,cls:'ink'});
+Ink.dot(svg,{cx:150,cy:124,r:8,cls:'fillink-2'});
+Ink.dot(svg,{cx:300,cy:124,r:8,cls:'fillink'});
+Ink.dot(svg,{cx:450,cy:124,r:8,cls:'fillink-2'});
+Ink.dot(svg,{cx:600,cy:124,r:8,cls:'fillink'});
+Ink.dot(svg,{cx:750,cy:124,r:8,cls:'fillink-2'});
+Ink.text(svg,{x:150,y:90,text:'reasoning',size:11,anchor:'middle'});
+Ink.text(svg,{x:300,y:168,text:'text',size:11,anchor:'middle'});
+Ink.text(svg,{x:450,y:90,text:'tool',size:11,anchor:'middle'});
+Ink.text(svg,{x:600,y:168,text:'patch',size:11,anchor:'middle'});
+Ink.text(svg,{x:750,y:90,text:'step',size:11,anchor:'middle'});
+Ink.line(svg,{x1:150,y1:116,x2:150,y2:98,seed:20,cls:'ink ink-3',bow:1});
+Ink.line(svg,{x1:300,y1:132,x2:300,y2:150,seed:21,cls:'ink ink-3',bow:1});
+Ink.line(svg,{x1:450,y1:116,x2:450,y2:98,seed:22,cls:'ink ink-3',bow:1});
+Ink.line(svg,{x1:600,y1:132,x2:600,y2:150,seed:23,cls:'ink ink-3',bow:1});
+Ink.line(svg,{x1:750,y1:116,x2:750,y2:98,seed:24,cls:'ink ink-3',bow:1});
+  Ink.run();
+})();
+</script>
+</body></html>

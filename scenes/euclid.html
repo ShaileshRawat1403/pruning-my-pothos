@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Euclid — begin with what cannot be doubted</title>
+<style>
+  html,body{margin:0;padding:0;width:100%;height:100%;background:transparent;overflow:hidden}
+  .stage{position:absolute;inset:0}.stage svg{width:100%;height:100%;display:block}
+  .ink{stroke:#2a2012;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  .ink-2{stroke:#8c2f23}.ink-3{stroke:#9a7322}.fillink{fill:#2a2012;stroke:none}
+  html[data-theme='dark'] .ink{stroke:#efe5cf}html[data-theme='dark'] .ink-2{stroke:#c2564a}
+  html[data-theme='dark'] .ink-3{stroke:#c79a3e}html[data-theme='dark'] .fillink{fill:#efe5cf}
+  .draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+  .spinslow{transform-origin:642px 300px;animation:spin 40s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .breathe{animation:breathe 6s ease-in-out infinite}
+  @keyframes breathe{0%,100%{opacity:.9}50%{opacity:.55}}
+  @media (prefers-reduced-motion:reduce){.spinslow,.breathe{animation:none}}
+</style></head>
+<body><div class="stage">
+<svg viewBox="0 0 900 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- Proposition 1: an equilateral triangle from two circles -->
+  <circle class="ink ink-3 draw" cx="300" cy="330" r="120" stroke-width="1.8" opacity="0.9"/>
+  <circle class="ink ink-3 draw" cx="420" cy="330" r="120" stroke-width="1.8" opacity="0.9"/>
+  <path class="ink ink-2 draw" stroke-width="2.6" d="M 300 330 L 420 330 L 360 226 Z"/>
+  <circle class="fillink" cx="300" cy="330" r="4"/><circle class="fillink" cx="420" cy="330" r="4"/><circle class="fillink" cx="360" cy="226" r="4"/>
+
+  <!-- compass, drawing the givens -->
+  <g class="ink" stroke-width="2.2">
+    <path class="draw" d="M 360 150 L 300 330"/>
+    <path class="draw" d="M 360 150 L 420 330"/>
+    <circle class="fillink" cx="360" cy="150" r="5"/>
+    <path class="draw" d="M 352 150 L 368 150"/>
+  </g>
+
+  <!-- a solid, built only from what follows -->
+  <g class="spinslow">
+    <g class="ink breathe" stroke-width="2">
+      <path class="draw" d="M 642 210 L 566 356 L 718 356 Z"/>
+      <path class="draw" d="M 642 210 L 642 320"/>
+      <path class="draw" d="M 642 320 L 566 356"/>
+      <path class="draw" d="M 642 320 L 718 356"/>
+    </g>
+  </g>
+
+  <!-- the scroll: thirteen books -->
+  <g class="ink" stroke-width="1.6" opacity="0.8">
+    <path class="draw" d="M 250 470 C 250 458 268 458 268 470 L 268 512 C 268 524 250 524 250 512 Z"/>
+    <line class="draw" x1="268" y1="470" x2="640" y2="470"/>
+    <line class="draw" x1="268" y1="490" x2="600" y2="490"/>
+    <line class="draw" x1="268" y1="510" x2="640" y2="510"/>
+    <path class="draw" d="M 640 470 C 640 458 658 458 658 470 L 658 512 C 658 524 640 524 640 512 Z"/>
+  </g>
+</svg></div>
+<script>
+(function(){var root=document.documentElement;
+ function theme(){try{var p=window.parent&&window.parent.document.documentElement;var t=(p&&p.getAttribute('data-theme'))||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');root.setAttribute('data-theme',t);}catch(e){root.setAttribute('data-theme','light');}}
+ theme();try{var p=window.parent&&window.parent.document.documentElement;if(p)new MutationObserver(theme).observe(p,{attributes:true,attributeFilter:['data-theme']});}catch(e){}
+ function draw(){document.querySelectorAll('.draw').forEach(function(el,i){var len=(el.getTotalLength&&el.getTotalLength())||300;el.style.setProperty('--len',len);el.style.transition='none';el.style.strokeDashoffset=len;el.getBoundingClientRect();el.style.transition='stroke-dashoffset 1.7s cubic-bezier(0.16,1,0.3,1) '+(i*55)+'ms';el.style.strokeDashoffset='0';});}
+ addEventListener('load',draw);setTimeout(draw,60);})();
+</script></body></html>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-label="AWS Bedrock governance flow">
+  <rect width="960" height="420" rx="24" fill="#f8fafc"/>
+  <rect x="40" y="40" width="880" height="340" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="70" y="90" fill="#0f172a" font-size="18" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Bedrock governance flow</text>
+
+  <rect x="90" y="150" width="220" height="120" rx="16" fill="#fef3c7" stroke="#fcd34d" stroke-width="2"/>
+  <text x="200" y="205" text-anchor="middle" fill="#92400e" font-size="14" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700">Account</text>
+  <text x="200" y="228" text-anchor="middle" fill="#6b7280" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Identity + policy</text>
+
+  <rect x="370" y="150" width="220" height="120" rx="16" fill="#e0f2fe" stroke="#bae6fd" stroke-width="2"/>
+  <text x="480" y="205" text-anchor="middle" fill="#0f172a" font-size="14" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700">Project</text>
+  <text x="480" y="228" text-anchor="middle" fill="#6b7280" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Budgets + owners</text>
+
+  <rect x="650" y="150" width="220" height="120" rx="16" fill="#dcfce7" stroke="#bbf7d0" stroke-width="2"/>
+  <text x="760" y="205" text-anchor="middle" fill="#166534" font-size="14" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700">Workloads</text>
+  <text x="760" y="228" text-anchor="middle" fill="#6b7280" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Prompts + APIs</text>
+
+  <path d="M310 210h60" stroke="#94a3b8" stroke-width="3"/>
+  <path d="M590 210h60" stroke="#94a3b8" stroke-width="3"/>
+  <polygon points="370,210 360,204 360,216" fill="#94a3b8"/>
+  <polygon points="650,210 640,204 640,216" fill="#94a3b8"/>
+</svg>

@@ -1,0 +1,155 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+b:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/covers/systems/observability-first-ai-systems.svg","image"]
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Observability First: How AI Systems Learn After Launch | Pruning My Pothos\",\"description\":\"Why observability is the missing layer between model output and reliable product behavior in production AI systems.\",\"url\":\"https://pruningmypothos.com/systems/observability-first-ai-systems/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/observability-first-ai-systems/\"},\"datePublished\":\"2026-03-05\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/observability-first-ai-systems.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What does observability add beyond logs?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"It links decisions, evidence, and outcomes in a replayable sequence so teams can debug behavior quality, not only infrastructure events.\"}},{\"@type\":\"Question\",\"name\":\"When should observability design start?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"At architecture time. Retrofitting after incidents usually leaves missing rationale and weak comparability across runs.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Explanations"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Observability First: How AI Systems Learn After Launch"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"Why observability is the missing layer between model output and reliable product behavior in production AI systems."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L2","observability",{"href":"/tags/observability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","observability"]}],["$","$L2","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}],["$","$L2","evaluation",{"href":"/tags/evaluation/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","evaluation"]}],["$","$L2","orchestration",{"href":"/tags/orchestration/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","orchestration"]}],"$L3","$L4"]}]]}],"$L5","$undefined","$undefined","$undefined","$undefined","$undefined","$L6","$undefined","$L7","$undefined","$L8"]}],null,"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L2","operations",{"href":"/tags/operations/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","operations"]}]
+4:["$","$L2","geo",{"href":"/tags/geo/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","geo"]}]
+5:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/observability-first-ai-systems.svg","alt":"Signal and monitoring diagram","className":"w-full h-full object-cover"}]}]
+a:T2673,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Observability turns &quot;it worked once&quot; into repeatable operational knowledge.</li>
+<li>AI incidents are usually boundary failures, so your telemetry must be boundary-aware.</li>
+<li>Runtime traces, policy decisions, and verification artifacts should be queryable as one timeline.</li>
+<li>Without observability, evaluation becomes periodic theater instead of continuous learning.</li>
+</ul>
+</blockquote>
+<p>This guide is built for builders, operators, and engineering teams launching AI systems. Most teams invest early in prompts, models, and tools, then treat observability as a later concern. That sequence feels efficient, but it usually creates blind spots that are expensive to unwind. By the time failures appear, the system can no longer explain why a step was chosen, whether a policy gate was bypassed, or which evidence was used to mark a task as complete.</p>
+<p>Observability is not only &quot;logs and dashboards.&quot; In AI systems, it is the design discipline that keeps decisions inspectable after the model has produced fluent output. You need to see not just what was said, but what happened at each boundary in the execution loop.</p>
+<h3 id="what-is-observability-in-an-ai-runtime">What is observability in an AI runtime?</h3>
+<p>Observability in AI means capturing the decision path, supporting evidence, and downstream outcome as one queryable timeline. It goes beyond raw logs by preserving why a step was allowed, how it was verified, and what changed afterward. This is what makes incident learning and safe iteration possible.</p>
+<p>In practice, <span class="highlight">unobserved systems drift faster than teams can reason about them</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> If you cannot replay a critical user flow with step-level evidence, you do not yet have reliable operations, even if user-facing output looks good.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Why observability is the control surface</summary>
+      <ol>
+        <li><a href="#output-quality-vs-behavior-quality">Output quality vs behavior quality</a></li>
+        <li><a href="#the-three-questions-every-incident-asks">The three questions every incident asks</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: What to observe in AI runtimes</summary>
+      <ol>
+        <li><a href="#the-observability-stack">The observability stack</a></li>
+        <li><a href="#minimum-events-you-should-log">Minimum events you should log</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Operating model and rollout</summary>
+      <ol>
+        <li><a href="#a-safe-rollout-sequence">A safe rollout sequence</a></li>
+        <li><a href="#failure-patterns-to-catch-early">Failure patterns to catch early</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-why-observability-is-the-control-surface">Act I: Why observability is the control surface</h2>
+<h3 id="output-quality-vs-behavior-quality">Output quality vs behavior quality</h3>
+<p>An AI system can produce strong text while behaving poorly as software. These are different qualities:</p>
+<ul>
+<li><strong>Output quality</strong>: relevance, fluency, and usefulness of generated content.</li>
+<li><strong>Behavior quality</strong>: whether the system followed the right policy path, used the right tools, and validated outcomes correctly.</li>
+</ul>
+<p>User trust depends on both. Teams often measure only output quality because it is easier to evaluate manually. But incidents usually emerge from behavior quality failures: wrong tool execution, missing verification, silent retries, stale context, or policy drift.</p>
+<p>That is why observability is foundational for both SEO/AEO/GEO outcomes. If your runtime cannot explain why content was generated or cited, you cannot systematically improve trust signals. Answer systems and retrieval systems reward consistency, not one-off brilliance.</p>
+<h3 id="the-three-questions-every-incident-asks">The three questions every incident asks</h3>
+<p>Most production issues reduce to three questions:</p>
+<ol>
+<li><strong>What decision was made?</strong></li>
+<li><strong>What evidence supported it?</strong></li>
+<li><strong>What changed since the last known-good run?</strong></li>
+</ol>
+<p>If your telemetry cannot answer these quickly, incident response becomes guesswork. Guesswork usually leads to fragile patches that hide root causes.</p>
+<figure class="diagram">
+  <iframe src="/scenes/observability-loop.html" title="Observability feedback loop for AI runtime decisions" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>Observability closes the loop between runtime behavior and policy improvement.</figcaption>
+</figure>
+<h2 id="act-ii-what-to-observe-in-ai-runtimes">Act II: What to observe in AI runtimes</h2>
+<h3 id="the-observability-stack">The observability stack</h3>
+<p>Practical observability has three layers, each with a different purpose.</p>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Layer</th>
+        <th>What it captures</th>
+        <th>Primary use</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Runtime events</strong></td>
+        <td>Tool calls, policy decisions, step transitions, retries</td>
+        <td>Incident debugging and workflow integrity</td>
+      </tr>
+      <tr>
+        <td><strong>Quality signals</strong></td>
+        <td>Verification pass/fail, rubric scores, regressions</td>
+        <td>Model/runtime improvement prioritization</td>
+      </tr>
+      <tr>
+        <td><strong>Outcome metrics</strong></td>
+        <td>Task success rate, latency, abandonment, citation quality</td>
+        <td>Business and trust impact tracking</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<p>When these layers are disconnected, teams cannot distinguish model issues from orchestration issues. You then waste time tuning prompts for problems caused by policy routing or missing verification.</p>
+<h3 id="minimum-events-you-should-log">Minimum events you should log</h3>
+<p>At minimum, each governed step should emit:</p>
+<ul>
+<li><code>run_id</code>, <code>step_id</code>, <code>parent_step_id</code></li>
+<li>policy decision (<code>allow</code>, <code>deny</code>, <code>ask</code>) and policy version</li>
+<li>selected tool/action and scoped parameters</li>
+<li>verification result and artifact identifiers</li>
+<li>latency and retry metadata</li>
+<li>compact reason codes for failure classes</li>
+</ul>
+<p>This event shape makes your system explainable without exposing sensitive prompt internals. It also improves handoffs between engineering, product, and content operations teams.</p>
+<p>For runtime framing, see <a href="/systems/runtime-over-model-why-orchestration-is-the-product/">Runtime Over Model: Why Orchestration Is the Product</a>. For decision-gate detail, see <a href="/systems/from-agent-intent-to-governed-execution/">From Agent Intent to Governed Execution</a> and <a href="/systems/agent-instructions-and-handoff-as-an-operating-system/">Agent Instructions and Handoff as an Operating System</a>.</p>
+<h2 id="act-iii-operating-model-and-rollout">Act III: Operating model and rollout</h2>
+<h3 id="a-safe-rollout-sequence">A safe rollout sequence</h3>
+<p>A safe rollout avoids heavy instrumentation all at once.</p>
+<ol>
+<li><strong>Start with critical path tracing</strong>: instrument one high-impact flow end-to-end.</li>
+<li><strong>Add verification evidence</strong>: record what proved completion, not only that completion was declared.</li>
+<li><strong>Classify failures</strong>: normalize error classes across model, tool, and policy boundaries.</li>
+<li><strong>Attach policy versions</strong>: make governance changes diffable over time.</li>
+<li><strong>Review weekly</strong>: convert recurring incident patterns into runtime guardrails.</li>
+</ol>
+<p>This sequence keeps implementation manageable while producing immediate debugging value.</p>
+<h3 id="failure-patterns-to-catch-early">Failure patterns to catch early</h3>
+<p>Teams should alert on patterns that indicate systemic drift:</p>
+<ul>
+<li>increasing retries with stable inputs</li>
+<li>higher &quot;allowed&quot; rates but lower verified success</li>
+<li>tool success paired with downstream user correction</li>
+<li>sudden shifts after policy or prompt template updates</li>
+<li>repeated fallback to manual intervention in one workflow segment</li>
+</ul>
+<p>These signals are often early warnings of quality decay before public metrics move.</p>
+<p>For related framing in discoverability systems, see <a href="/systems/seo-aeo-geo-how-things-fit-together/">SEO, AEO, GEO: How Discoverability Actually Works</a> and <a href="/systems/seo-aeo-geo-in-plain-terms/">SEO, AEO, and GEO in Plain Terms</a>.</p>
+<p>For applied proof surfaces, review <a href="/portfolio/">Portfolio</a> for operational runbook examples and <a href="/shelf/local-experiments/soothsayer-mcp-kernel/">Soothsayer MCP kernel: from prompts to controlled orchestration</a> for a local runtime loop with policy and trace boundaries.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Treat observability as part of product design, not post-launch logging. When decision paths, evidence, and outcomes stay connected, your system can learn safely after launch. That is how reliability compounds, and why observability belongs in the first architecture draft, not the incident backlog.</p>
+6:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$a"}}]
+7:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Weekly observability review workflow has been documented across systems and self sections."}],["$","li","1",{"children":"Decision and verification terminology is now linked to canonical glossary anchors."}],["$","li","2",{"children":"Runtime observability topic now spans five sections in topic coverage reporting."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What does observability add beyond logs?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"It links decisions, evidence, and outcomes in a replayable sequence so teams can debug behavior quality, not only infrastructure events."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"When should observability design start?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"At architecture time. Retrofitting after incidents usually leaves missing rationale and weak comparability across runs."}]]}]]}]]}]]}]
+8:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L2",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L2",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

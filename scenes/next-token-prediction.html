@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Next-Token Prediction Loop</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 240" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 240');
+
+Ink.rect(svg,{x:40,y:90,w:200,h:60,r:10,seed:1,label:'Input: "The cat sat on the"',lx:20,ly:38,size:12});
+Ink.line(svg,{x1:240,y1:120,x2:345,y2:120,seed:2,dot:true});
+Ink.rect(svg,{x:350,y:50,w:200,h:140,r:12,seed:3,cls:'ink ink-2',hi:true,label:'LLM Predicts',lx:50,ly:74,anchor:'middle',size:13});
+Ink.line(svg,{x1:550,y1:120,x2:655,y2:120,seed:4,dot:true,cls:'ink ink-2',pulse:true});
+Ink.rect(svg,{x:660,y:90,w:200,h:60,r:10,seed:5,label:'Output: "mat" (p=0.8)',lx:20,ly:38,size:12});
+  Ink.run();
+})();
+</script>
+</body></html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Character plate</title>
+<style>
+  html, body { margin: 0; padding: 0; width: 100%; height: 100%; background: transparent; overflow: hidden; }
+  .plate { position: absolute; inset: 0; overflow: hidden; }
+
+  .plate img {
+    position: absolute; inset: 0; z-index: 1;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: var(--focus, center center);
+    filter: grayscale(0.85) brightness(0.7) contrast(1.05);
+    clip-path: inset(0 100% 0 0);
+    transition: filter 2.2s ease, clip-path 1.9s cubic-bezier(0.16,1,0.3,1);
+  }
+  .plate img.is-developed { filter: none; clip-path: inset(0 0 0 0); }
+
+  .fallframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: transparent; z-index: 0; }
+
+  .grade {
+    position: absolute; inset: 0; pointer-events: none; z-index: 2;
+    background:
+      linear-gradient(150deg, rgba(181,64,47,0.10) 0%, transparent 46%, rgba(20,17,11,0.12) 100%),
+      radial-gradient(120% 92% at 50% 34%, transparent 58%, rgba(20,17,11,0.34) 100%);
+    mix-blend-mode: multiply;
+  }
+  html[data-theme='light'] .grade {
+    background:
+      linear-gradient(150deg, rgba(140,47,35,0.08) 0%, transparent 48%, rgba(74,54,24,0.08) 100%),
+      radial-gradient(120% 92% at 50% 34%, transparent 62%, rgba(74,54,24,0.12) 100%);
+  }
+  .grain {
+    position: absolute; inset: 0; pointer-events: none; z-index: 2; opacity: 0.05;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  .sweep {
+    position: absolute; inset: 0; pointer-events: none; z-index: 2;
+    background: linear-gradient(105deg, transparent 40%, rgba(239,229,207,0.14) 50%, transparent 60%);
+    transform: translateX(-120%);
+  }
+  .sweep.run { animation: sweep 1.9s cubic-bezier(0.16,1,0.3,1) forwards; }
+  @keyframes sweep { to { transform: translateX(120%); } }
+  .pending {
+    position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: center;
+    font-family: monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    color: #8a795a; text-align: center; padding: 2rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .plate img { transition: none; filter: none; clip-path: none; }
+    .sweep { display: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="plate" id="plate"></div>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      function applyTheme() {
+        try {
+          var p = window.parent && window.parent.document && window.parent.document.documentElement;
+          var t = (p && p.getAttribute('data-theme')) ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          root.setAttribute('data-theme', t);
+        } catch (e) { root.setAttribute('data-theme', 'light'); }
+      }
+      applyTheme();
+      try {
+        var p = window.parent && window.parent.document && window.parent.document.documentElement;
+        if (p) new MutationObserver(applyTheme).observe(p, { attributes: true, attributeFilter: ['data-theme'] });
+      } catch (e) {}
+
+      var params = new URLSearchParams(location.search);
+      var img = params.get('img');
+      var focus = params.get('focus') || 'center center';
+      var fallback = params.get('fallback');
+      var alt = '';
+      try { alt = (window.frameElement && window.frameElement.title) || params.get('alt') || ''; } catch (e) { alt = params.get('alt') || ''; }
+      if (alt) { try { document.title = alt; } catch (e) {} }
+      var plate = document.getElementById('plate');
+
+      function showFallback() {
+        if (fallback) {
+          var fr = document.createElement('iframe');
+          fr.className = 'fallframe';
+          fr.setAttribute('scrolling', 'no');
+          fr.setAttribute('title', alt || 'illustrated plate');
+          fr.src = fallback;
+          plate.appendChild(fr);
+        } else {
+          var pend = document.createElement('div');
+          pend.className = 'pending';
+          pend.textContent = 'portrait pending';
+          plate.appendChild(pend);
+        }
+      }
+
+      if (!img) { showFallback(); return; }
+
+      var el = document.createElement('img');
+      el.alt = alt;
+      el.style.setProperty('--focus', focus);
+      el.onerror = showFallback;
+      el.onload = function () {
+        requestAnimationFrame(function () { el.classList.add('is-developed'); sweep.classList.add('run'); });
+      };
+      el.src = img;
+
+      var grade = document.createElement('div'); grade.className = 'grade';
+      var grain = document.createElement('div'); grain.className = 'grain';
+      var sweep = document.createElement('div'); sweep.className = 'sweep';
+      plate.append(el, grade, grain, sweep);
+    })();
+  </script>
+</body>
+</html>

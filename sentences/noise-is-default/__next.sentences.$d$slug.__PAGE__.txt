@@ -1,0 +1,23 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+4:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+2:T466,<p class="lead">Noise is default. Signal is the exception you choose to protect.</p>
+
+<p>If everything feels urgent, nothing is. Attention is how you decide which signals deserve your time.</p>
+<figure class="content-figure figure-attention">
+  <svg viewBox="0 0 480 160" role="img" aria-labelledby="attention-filter-title">
+    <title id="attention-filter-title">Attention filters signal from noise</title>
+    <line class="figure-stroke" x1="40" y1="80" x2="440" y2="80" stroke-width="2" />
+    <path class="figure-accent" d="M60 80H180" stroke-width="4" stroke-linecap="round" />
+    <circle class="figure-dot" cx="120" cy="80" r="5" />
+    <circle class="figure-dot" cx="240" cy="80" r="4" />
+    <circle class="figure-dot" cx="360" cy="80" r="3" />
+    <path class="figure-stroke" d="M200 60l12 20l-12 20" stroke-width="2" fill="none" />
+    <path class="figure-stroke" d="M280 60l12 20l-12 20" stroke-width="2" fill="none" />
+  </svg>
+  <figcaption>Attention filters noise into a usable signal.</figcaption>
+</figure>
+<p><strong>What this changes in practice:</strong>** Pick one signal to track before you respond.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Noise is default. | Pruning My Pothos\",\"description\":\"Most inputs are noise until you decide what matters.\",\"url\":\"https://pruningmypothos.com/sentences/noise-is-default/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Attention","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Noise is default."}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-purple/40 pl-4 py-1 text-sm sm:text-base","children":"Most inputs are noise until you decide what matters."}],["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","attention",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","attention"]}],["$","span","clarity",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","clarity"]}],["$","span","focus",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","focus"]}]]}],["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L3",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]]}],null,["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+6:null

@@ -1,0 +1,190 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","ai-agents-vs-ai-workflows",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","ai-agents-vs-ai-workflows","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"AI Agents vs AI Workflows | Pruning My Pothos\",\"description\":\"A practical explanation of the difference between autonomous-seeming agents and controlled workflows, and why the distinction matters in production systems.\",\"url\":\"https://pruningmypothos.com/systems/ai-agents-vs-ai-workflows/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/ai-agents-vs-ai-workflows/\"},\"datePublished\":\"2026-03-14\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/ai-agents-vs-ai-workflows.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What is the difference between an AI agent and an AI workflow?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"A workflow is a predefined sequence with controlled branching, while an agent is a system that proposes its own next steps inside a broader goal. In production, most useful 'agents' still need workflow-like controls.\"}},{\"@type\":\"Question\",\"name\":\"Why do teams confuse the two?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Because many products label any multi-step automation as an agent. The real distinction is not branding, but how much runtime freedom the system has and how that freedom is governed.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Explanations"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"AI Agents vs AI Workflows"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"A practical explanation of the difference between autonomous-seeming agents and controlled workflows, and why the distinction matters in production systems."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","agents",{"href":"/tags/agents/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","agents"]}],["$","$L9","workflow",{"href":"/tags/workflow/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","workflow"]}],["$","$L9","orchestration",{"href":"/tags/orchestration/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","orchestration"]}],["$","$L9","governance",{"href":"/tags/governance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}],"$L17","$L18"]}]]}],"$L19","$undefined","$undefined","$undefined","$undefined","$undefined","$L1a","$undefined","$L1b","$L1c","$L1d"]}]
+:HL["/covers/systems/ai-agents-vs-ai-workflows.svg","image"]
+17:["$","$L9","automation",{"href":"/tags/automation/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","automation"]}]
+18:["$","$L9","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}]
+19:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/ai-agents-vs-ai-workflows.svg","alt":"Comparison of autonomous vs controlled systems","className":"w-full h-full object-cover"}]}]
+1e:T2575,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Workflows prioritize predictability; agents prioritize adaptive step selection.</li>
+<li>Most production systems are hybrids: agent-like reasoning inside workflow boundaries.</li>
+<li>The real design question is not &quot;agent or workflow?&quot; but &quot;where is autonomy allowed, and who governs it?&quot;</li>
+<li>Reliability improves when model freedom is scoped by policy, verification, and clear escalation paths.</li>
+</ul>
+</blockquote>
+<p>This article explains a core component of modern AI systems: the difference between AI agents and AI workflows. It focuses on orchestration, runtime freedom, policy boundaries, and why this distinction matters for reliability.</p>
+<p>It is most useful for teams deciding how much autonomy to allow in production systems, and for builders who need a calmer language for discussing control instead of hype.</p>
+<p>The phrase &quot;AI agent&quot; has become so broad that it often stops being useful. Sometimes it means tool use. Sometimes it means multi-step planning. Sometimes it means a chatbot with memory. That vagueness creates expensive architecture mistakes because teams start debating labels instead of control surfaces.</p>
+<h3 id="what-is-the-practical-difference-between-agents-and-workflows">What is the practical difference between agents and workflows?</h3>
+<p>An AI workflow is a structured path with predefined states, transitions, and checks. An AI agent is a system that can propose or choose its next step inside a goal. In practice, good production systems use both: agent-like reasoning to decide locally, and workflow constraints to keep the system accountable.</p>
+<p>In practice, <span class="highlight">autonomy without boundaries is usually just hidden uncertainty</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> Ask "what kind of decision freedom exists at runtime?" before asking whether something deserves the word agent. That question leads to better systems conversations.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The distinction</summary>
+      <ol>
+        <li><a href="#why-the-terms-get-mixed-up">Why the terms get mixed up</a></li>
+        <li><a href="#a-clearer-definition">A clearer definition</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Runtime behavior</summary>
+      <ol>
+        <li><a href="#how-workflows-behave">How workflows behave</a></li>
+        <li><a href="#how-agents-behave">How agents behave</a></li>
+        <li><a href="#why-most-production-systems-are-hybrids">Why most production systems are hybrids</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Choosing the right pattern</summary>
+      <ol>
+        <li><a href="#when-to-prefer-a-workflow">When to prefer a workflow</a></li>
+        <li><a href="#when-agent-like-control-is-worth-it">When agent-like control is worth it</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-distinction">Act I: The distinction</h2>
+<h3 id="why-the-terms-get-mixed-up">Why the terms get mixed up</h3>
+<p>There are good reasons the terms blur:</p>
+<ul>
+<li>workflows can now include model reasoning</li>
+<li>agents often call tools using step sequences that look like workflows</li>
+<li>product marketing tends to reward the word &quot;agent&quot;</li>
+</ul>
+<p>But architecture still needs the distinction because the two patterns create different operational responsibilities. If the runtime freedom is small, you can test it like a workflow. If the runtime freedom is large, you need stronger policy and observability.</p>
+<h3 id="a-clearer-definition">A clearer definition</h3>
+<p>The difference is easiest to see through runtime choice.</p>
+<ul>
+<li>A <strong>workflow</strong> has a mostly known path. The model may fill in fields, classify inputs, or summarize outputs, but the surrounding system still decides the path.</li>
+<li>An <strong>agent</strong> has meaningful local freedom. It can choose among tools, sequence steps, or revise its plan based on intermediate results.</li>
+</ul>
+<p>That freedom can be useful. It can also create hidden complexity. Once a system decides its own next move, you have to govern that decision.</p>
+<h2 id="act-ii-runtime-behavior">Act II: Runtime behavior</h2>
+<h3 id="how-workflows-behave">How workflows behave</h3>
+<p>Workflows are good at repeatable tasks with known states:</p>
+<ul>
+<li>intake and triage</li>
+<li>document extraction</li>
+<li>policy enforcement</li>
+<li>constrained support tasks</li>
+</ul>
+<p>The advantage is control. Teams can test expected branches, attach explicit approvals, and keep changes diffable over time.</p>
+<figure class="diagram">
+  <iframe src="/scenes/workflow-vs-agent.html" title="Workflow path versus agent path" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>The main difference is not tool use. It is runtime freedom.</figcaption>
+</figure>
+<h3 id="how-agents-behave">How agents behave</h3>
+<p>Agent-like systems become useful when the path is not fully known in advance. They can:</p>
+<ul>
+<li>choose among tools</li>
+<li>loop through intermediate evidence</li>
+<li>adjust the next step based on results</li>
+<li>ask for clarification when the goal is underspecified</li>
+</ul>
+<p>That flexibility helps with exploratory or multi-step work. But it also raises the burden of evaluation. Teams now need to inspect not only final output, but the quality of intermediate decisions.</p>
+<h3 id="why-most-production-systems-are-hybrids">Why most production systems are hybrids</h3>
+<p>This is the part many architecture debates miss. Useful systems are rarely pure workflows or pure agents. They are usually hybrids:</p>
+<ul>
+<li>a workflow sets the allowed path and checkpoints</li>
+<li>an agent-like component proposes the best next local step</li>
+<li>the runtime applies policy and verification before execution</li>
+</ul>
+<p>That hybrid pattern is the most practical because it lets teams use language-model flexibility without surrendering system discipline. It is the same design logic behind <a href="/systems/from-agent-intent-to-governed-execution/">From Agent Intent to Governed Execution</a> and <a href="/systems/agent-instructions-and-handoff-as-an-operating-system/">Agent Instructions and Handoff as an Operating System</a>.</p>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Pattern</th>
+        <th>Strength</th>
+        <th>Main risk</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Workflow-first</strong></td>
+        <td>Predictable and testable</td>
+        <td>Can become rigid in ambiguous tasks</td>
+      </tr>
+      <tr>
+        <td><strong>Agent-first</strong></td>
+        <td>Adaptive step selection</td>
+        <td>Harder to govern and debug</td>
+      </tr>
+      <tr>
+        <td><strong>Hybrid</strong></td>
+        <td>Adaptive inside controlled boundaries</td>
+        <td>Needs careful runtime design</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<p>For a more tactical breakdown of reusable units inside these systems, see <a href="/systems/what-a-skill-is-in-ai-systems/">What a Skill Is in AI Systems</a> and <a href="/systems/skills-vs-prompts-vs-agents/">Skills vs Prompts vs Agents</a>.</p>
+<h2 id="act-iii-choosing-the-right-pattern">Act III: Choosing the right pattern</h2>
+<h3 id="when-to-prefer-a-workflow">When to prefer a workflow</h3>
+<p>Prefer workflow-first design when:</p>
+<ul>
+<li>the task has known states</li>
+<li>policy violations are expensive</li>
+<li>output contracts must stay stable</li>
+<li>you need easy rollback and audit</li>
+</ul>
+<p>Many enterprise use cases fall into this category. Teams still use models, but the path should remain tightly governed.</p>
+<h3 id="when-agent-like-control-is-worth-it">When agent-like control is worth it</h3>
+<p>Agent-like control earns its keep when the system must discover or negotiate the next step:</p>
+<ul>
+<li>open-ended research</li>
+<li>repo understanding</li>
+<li>multi-tool diagnostic loops</li>
+<li>complex drafting or synthesis with verification</li>
+</ul>
+<p>Even then, autonomy should remain local. The runtime should still own permissions, verification, and step recording. Soothsayer is a good example of this principle. It is more useful as a controlled orchestration system than as an unconstrained &quot;agent.&quot;</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Stop asking whether your product is &quot;an agent.&quot; Ask where runtime freedom is genuinely valuable, and where predictability is more important. Most durable AI products are workflows with carefully scoped agent behavior inside them.</p>
+<h2 id="related-ai-systems-topics">Related AI systems topics</h2>
+<ul>
+<li><a href="/systems/from-agent-intent-to-governed-execution/">From Agent Intent to Governed Execution</a></li>
+<li><a href="/systems/agent-instructions-and-handoff-as-an-operating-system/">Agent Instructions and Handoff as an Operating System</a></li>
+<li><a href="/systems/what-a-skill-is-in-ai-systems/">What a Skill Is in AI Systems</a></li>
+<li><a href="/shelf/local-experiments/soothsayer-mcp-kernel/">Soothsayer MCP kernel: from prompts to controlled orchestration</a></li>
+</ul>
+1a:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1e"}}]
+1b:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"This page connects existing governed execution, skills, and observability docs into one direct comparison topic."}],["$","li","1",{"children":"Soothsayer remains the local experiment example for controlled orchestration rather than unconstrained autonomy."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is the difference between an AI agent and an AI workflow?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"A workflow is a predefined sequence with controlled branching, while an agent is a system that proposes its own next steps inside a broader goal. In production, most useful 'agents' still need workflow-like controls."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why do teams confuse the two?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Because many products label any multi-step automation as an agent. The real distinction is not branding, but how much runtime freedom the system has and how that freedom is governed."}]]}]]}]]}]]}]
+1c:["$","nav",null,{"className":"explainer-related","aria-label":"Related reading","children":[["$","span",null,{"className":"explainer-kicker","children":"Follow this through"}],["$","ul",null,{"children":[["$","li","/systems/skills-vs-prompts-vs-agents/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"explainer"}],["$","a",null,{"href":"/systems/skills-vs-prompts-vs-agents/","children":"Skills vs Prompts vs Agents"}],["$","span",null,{"className":"explainer-related-note","children":"Where a prompt ends, a skill begins, and an agent takes over."}]]}],["$","li","/systems/agent-instructions-and-handoff-as-an-operating-system/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"explainer"}],["$","a",null,{"href":"/systems/agent-instructions-and-handoff-as-an-operating-system/","children":"Agent Instructions and Handoff as an Operating System"}],["$","span",null,{"className":"explainer-related-note","children":"What the agent reads before it acts."}]]}],["$","li","/systems/from-ad-hoc-prompts-to-repeatable-agent-workflows/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"playbook"}],["$","a",null,{"href":"/systems/from-ad-hoc-prompts-to-repeatable-agent-workflows/","children":"From Ad-Hoc Prompts to Repeatable Agent Workflows"}],["$","span",null,{"className":"explainer-related-note","children":"Getting from scattered prompts to a workflow."}]]}]]}]]}]
+1d:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1f:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"AI Agents vs AI Workflows | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"A practical explanation of the difference between autonomous-seeming agents and controlled workflows, and why the distinction matters in production systems."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/ai-agents-vs-ai-workflows/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"AI Agents vs AI Workflows | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"A practical explanation of the difference between autonomous-seeming agents and controlled workflows, and why the distinction matters in production systems."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/ai-agents-vs-ai-workflows/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/ai-agents-vs-ai-workflows.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"AI Agents vs AI Workflows | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"A practical explanation of the difference between autonomous-seeming agents and controlled workflows, and why the distinction matters in production systems."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/ai-agents-vs-ai-workflows.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L1f","20",{}]]

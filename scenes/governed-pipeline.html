@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Governed execution pipeline</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 960 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 960 320');
+
+Ink.rect(svg,{x:44,y:132,w:114,h:44,r:10,seed:1,label:'Intent',lx:57,ly:27,anchor:'middle'});
+Ink.rect(svg,{x:190,y:132,w:136,h:44,r:10,seed:2,label:'Model proposal',lx:68,ly:27,anchor:'middle',size:11});
+Ink.rect(svg,{x:358,y:122,w:180,h:64,r:10,seed:3,cls:'ink ink-2',hi:true,label:'Runtime gate',lx:90,ly:26,anchor:'middle',size:11});
+Ink.text(svg,{x:448,y:158,text:'policy + scope + risk',size:10,cls:'label label-muted',anchor:'middle'});
+Ink.rect(svg,{x:570,y:132,w:112,h:44,r:10,seed:4,label:'Tool action',lx:56,ly:27,anchor:'middle',size:11});
+Ink.rect(svg,{x:714,y:132,w:96,h:44,r:10,seed:5,label:'Verify',lx:48,ly:27,anchor:'middle',size:11});
+Ink.rect(svg,{x:842,y:132,w:88,h:44,r:10,seed:6,label:'Trace',lx:44,ly:27,anchor:'middle',size:11});
+Ink.line(svg,{x1:158,y1:154,x2:190,y2:154,seed:10,dot:true});
+Ink.line(svg,{x1:326,y1:154,x2:358,y2:154,seed:11,dot:true});
+Ink.line(svg,{x1:538,y1:154,x2:570,y2:154,seed:12,dot:true,cls:'ink ink-2',pulse:true});
+Ink.line(svg,{x1:682,y1:154,x2:714,y2:154,seed:13,dot:true});
+Ink.line(svg,{x1:810,y1:154,x2:842,y2:154,seed:14,dot:true});
+  Ink.run();
+})();
+</script>
+</body></html>

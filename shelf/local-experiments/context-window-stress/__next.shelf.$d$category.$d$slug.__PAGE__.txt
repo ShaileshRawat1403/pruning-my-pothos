@@ -1,0 +1,106 @@
+1:"$Sreact.fragment"
+8:I[15141,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3t39z7yidypi6.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3t39z7yidypi6.js"],""]
+a:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+b:"$Sreact.suspense"
+:HL["/covers/shelf/local-context-stress.svg","image"]
+2:T13c6,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Longer context is not free; quality bends before it breaks.</li>
+<li>A fixed dataset makes the drift visible.</li>
+<li>Measure the threshold where summaries go vague.</li>
+</ul>
+</blockquote>
+<p>If context windows are new, start with <a href="/systems/context-windows-as-working-memory/">Context windows as working memory</a>.</p>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Orientation</summary>
+      <ol>
+        <li><a href="#architecture-map">Architecture map</a></li>
+        <li><a href="#what-happened">What happened</a></li>
+        <li><a href="#the-two-gates">The two gates</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Experiment</summary>
+      <ol>
+        <li><a href="#experiment-walkthrough">Experiment walkthrough</a></li>
+        <li><a href="#first-time-config">First-time config</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Verification</summary>
+      <ol>
+        <li><a href="#quick-checks">Quick checks</a></li>
+        <li><a href="#failure-modes">Failure modes</a></li>
+        <li><a href="#what-made-the-difference">What made the difference</a></li>
+        <li><a href="#what-i-would-do-next-time">What I would do next time</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="architecture-map">Architecture map</h2>
+<p>The experiment is a loop: fixed documents in, fixed prompt, outputs out. The only variable is context length.</p>
+<figure class="diagram">
+  <svg viewBox="0 0 1200 360" role="img" aria-labelledby="context-loop-title context-loop-desc">
+    <title id="context-loop-title">Context test loop</title>
+    <desc id="context-loop-desc">Documents feed a prompt, model output is scored, and the loop repeats.</desc>
+    <rect width="1200" height="360" fill="#0f172a"/>
+    <rect x="100" y="120" width="220" height="120" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <rect x="390" y="120" width="220" height="120" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <rect x="680" y="120" width="220" height="120" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <rect x="970" y="120" width="120" height="120" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <path d="M320 180 L390 180" stroke="#38bdf8" stroke-width="6"/>
+    <path d="M610 180 L680 180" stroke="#38bdf8" stroke-width="6"/>
+    <path d="M900 180 L970 180" stroke="#38bdf8" stroke-width="6"/>
+    <text x="210" y="190" fill="#cbd5f5" font-size="16" text-anchor="middle" font-family="var(--font-mono)">Docs</text>
+    <text x="500" y="190" fill="#cbd5f5" font-size="16" text-anchor="middle" font-family="var(--font-mono)">Prompt</text>
+    <text x="790" y="190" fill="#cbd5f5" font-size="16" text-anchor="middle" font-family="var(--font-mono)">Model</text>
+    <text x="1030" y="190" fill="#cbd5f5" font-size="16" text-anchor="middle" font-family="var(--font-mono)">Score</text>
+  </svg>
+  <figcaption>The only variable is context length; everything else stays fixed.</figcaption>
+</figure>
+<h2 id="what-happened">What happened</h2>
+<p>Quality held up through the middle range, then bent. Past a threshold, summaries became vague and citations started drifting. The model still responded, but the answers softened.</p>
+<h2 id="the-two-gates">The two gates</h2>
+<p>The first gate is <strong>retrieval fit</strong>. If the context is already noisy, adding more text does not help.</p>
+<p>The second gate is <strong>attention budget</strong>. Past a point, the model spends more effort tracking tokens than answering the question.</p>
+<h2 id="experiment-walkthrough">Experiment walkthrough</h2>
+<ol>
+<li>Fix a small, representative document set.</li>
+<li>Keep the prompt constant across runs.</li>
+<li>Increase context in steps and score the output.</li>
+</ol>
+<h2 id="first-time-config">First-time config</h2>
+<pre><code class="language-bash">export OLLAMA_MODEL=&quot;llama3.1:8b&quot;
+export CONTEXT_STEPS=&quot;4k,8k,16k,32k&quot;
+</code></pre>
+<aside class="callout">
+  <p><strong>Guiding rule.</strong> If you change more than one variable, the result stops being a signal.</p>
+</aside>
+<h2 id="quick-checks">Quick checks</h2>
+<pre><code class="language-bash">ollama run llama3.1:8b &quot;summarize the document set&quot;
+</code></pre>
+<h2 id="failure-modes">Failure modes</h2>
+<ul>
+<li>Changing the document set between runs hides the drift.</li>
+<li>Adding context without scoring quality gives false confidence.</li>
+<li>Overfitting the prompt to one test case.</li>
+</ul>
+<h2 id="what-made-the-difference">What made the difference</h2>
+<p>I fixed the dataset and prompt, then focused on the slope where quality started to bend. That gave me a usable boundary.</p>
+<h2 id="what-i-would-do-next-time">What I would do next time</h2>
+<p>I would add a small human rubric and track a single quality score per step to make the curve explicit.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Context window stress test | Pruning My Pothos\",\"description\":\"A small experiment to see where longer context starts to degrade quality.\",\"url\":\"https://pruningmypothos.com/shelf/local-experiments/context-window-stress/\",\"image\":\"https://pruningmypothos.com/covers/shelf/local-context-stress.svg\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Shelf • ","local-experiments"]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Context window stress test"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-cyan/40 pl-4 py-1 text-sm sm:text-base","children":"A small experiment to see where longer context starts to degrade quality."}],["$","figure",null,{"className":"w-full max-w-[420px] overflow-hidden rounded-lg border border-[color:var(--card-border)] aspect-video my-4 shadow-none self-center sm:self-start bg-[color:var(--card-bg)]","children":["$","img",null,{"src":"/covers/shelf/local-context-stress.svg","alt":"Cover illustration for Context window stress test","className":"w-full h-full object-contain"}]}],"$undefined","$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4","$L5"]}],["$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L8",null,{"title":"Context window stress test"}]
+4:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","experiments",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","experiments"]}],["$","span","local-llm",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","local-llm"]}],["$","span","evaluation",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","evaluation"]}],["$","span","context",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","context"]}]]}]
+5:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L9",null,{"href":"/shelf","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Shelf"}]}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/3t39z7yidypi6.js","async":true}]
+7:["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]
+c:null

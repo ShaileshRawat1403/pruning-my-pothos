@@ -1,0 +1,196 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","llm-ops-without-the-buzzwords",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","llm-ops-without-the-buzzwords","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+17:T476,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is LLM-Ops?","acceptedAnswer":{"@type":"Answer","text":"LLM-Ops is governance over time for probabilistic systems. It replaces traditional DevOps concerns with evaluation, drift monitoring, and semantic observation. The lifecycle is circular: prompt, evaluate, tune, observe, repeat."}},{"@type":"Question","name":"What replaces unit testing in AI systems?","acceptedAnswer":{"@type":"Answer","text":"Evaluation replaces deterministic unit testing. Since AI outputs are probabilistic, you need test cases that compare outputs against expected behaviors, patterns, or ground truth rather than exact matches. Evals are typically slower and less deterministic than unit tests."}},{"@type":"Question","name":"What is semantic drift?","acceptedAnswer":{"@type":"Answer","text":"Semantic drift occurs when the system's outputs remain consistent in form but diverge in meaning from intended behavior. Unlike downtime (obviously broken), semantic drift is subtle: the system works, but its understanding has shifted away from current requirements."}}]}c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"What LLM-Ops Actually Means | Pruning My Pothos\",\"description\":\"LLM-Ops is governance over time. Understanding the lifecycle of probabilistic systems.\",\"url\":\"https://pruningmypothos.com/systems/llm-ops-without-the-buzzwords/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/llm-ops-without-the-buzzwords/\"},\"datePublished\":\"2026-01-13\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/llm-ops-without-the-buzzwords.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$17"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Explanations"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"What LLM-Ops Actually Means"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"LLM-Ops is governance over time. Understanding the lifecycle of probabilistic systems."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","llm-ops",{"href":"/tags/llm-ops/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","llm-ops"]}],["$","$L9","operations",{"href":"/tags/operations/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","operations"]}],"$L18","$L19"]}]]}],"$L1a","$undefined","$undefined","$undefined","$undefined","$undefined","$L1b","$undefined","$L1c","$undefined","$L1d"]}]
+:HL["/covers/systems/llm-ops-without-the-buzzwords.svg","image"]
+18:["$","$L9","evaluation",{"href":"/tags/evaluation/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","evaluation"]}]
+19:["$","$L9","governance",{"href":"/tags/governance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}]
+1a:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/llm-ops-without-the-buzzwords.svg","alt":"LLM operations lifecycle","className":"w-full h-full object-cover"}]}]
+1e:T2e74,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>LLM-Ops is <strong>governance over time</strong>. It is the discipline of managing <span class="highlight">probabilistic risk</span> in production.</li>
+<li><strong>Evaluation</strong> replaces deterministic unit testing as the primary confidence mechanism.</li>
+<li>The lifecycle is circular: &quot;prompt → eval → tune → observe → repeat&quot;.</li>
+<li><span class="keyword">Semantic drift</span> is the new downtime: the system works, but the meaning has changed.</li>
+<li>Monitoring is not just logging; it is detecting when the system&#39;s understanding of the world diverges from reality.</li>
+</ul>
+</blockquote>
+<figure class="diagram diagram-hero">
+  <svg viewBox="0 0 900 260" role="img" aria-labelledby="ops-hero-title ops-hero-desc" style="width: 100%; height: auto; display: block;">
+    <title id="ops-hero-title">The Probabilistic Lifecycle</title>
+    <desc id="ops-hero-desc">A continuous loop showing Design, Evaluate, Deploy, and Observe stages, centered around Reliability.</desc>
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="currentColor" />
+      </marker>
+    </defs>
+    <!-- Central Hub -->
+    <circle cx="450" cy="130" r="40" fill="var(--color-accent)" opacity="0.1" />
+    <circle cx="450" cy="130" r="30" stroke="var(--color-accent)" stroke-width="2" fill="none" />
+    <text x="450" y="135" text-anchor="middle" font-size="10" fill="var(--color-accent)" font-family="var(--font-mono)">RELIABILITY</text>
+
+    <!-- Nodes -->
+    <g transform="translate(450, 40)">
+      <rect x="-60" y="-20" width="120" height="40" rx="20" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
+      <text x="0" y="5" text-anchor="middle" font-size="12" fill="currentColor" font-family="var(--font-mono)">1. Design</text>
+    </g>
+    <g transform="translate(700, 130)">
+      <rect x="-60" y="-20" width="120" height="40" rx="20" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
+      <text x="0" y="5" text-anchor="middle" font-size="12" fill="currentColor" font-family="var(--font-mono)">2. Evaluate</text>
+    </g>
+    <g transform="translate(450, 220)">
+      <rect x="-60" y="-20" width="120" height="40" rx="20" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
+      <text x="0" y="5" text-anchor="middle" font-size="12" fill="currentColor" font-family="var(--font-mono)">3. Deploy</text>
+    </g>
+    <g transform="translate(200, 130)">
+      <rect x="-60" y="-20" width="120" height="40" rx="20" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
+      <text x="0" y="5" text-anchor="middle" font-size="12" fill="currentColor" font-family="var(--font-mono)">4. Observe</text>
+    </g>
+
+    <!-- Paths -->
+    <path d="M 510 40 Q 700 40 700 100" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+    <path d="M 700 160 Q 700 220 520 220" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+    <path d="M 390 220 Q 200 220 200 160" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+    <path d="M 200 100 Q 200 40 380 40" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+
+  </svg>
+  <figcaption>Operations for systems that guess: a cycle of continuous evaluation.</figcaption>
+</figure>
+<p>In traditional software, operations (Ops) is about keeping the lights on. It focuses on uptime, latency, and error rates. If the server is up and the code doesn&#39;t crash, the job is done.</p>
+<p>In the era of Large Language Models (LLMs), &quot;Ops&quot; changes fundamental meaning. The server can be up, the latency low, and the code bug-free, yet the system can still fail completely by producing toxic, incorrect, or irrelevant output. <strong>LLM-Ops</strong> is not just about infrastructure; it is about operationalizing <span class="keyword">judgment</span>.</p>
+<h3 id="what-does-llm-ops-actually-mean">What does LLM-Ops actually mean?</h3>
+<p>LLM-Ops means operating probabilistic systems as living products rather than one-time model launches. This article is for product teams, operators, and builders who need reliable behavior over time, and the real work is evaluation, drift response, and governed change instead of uptime alone.</p>
+<aside class="callout">
+  <p><strong>Definition.</strong> LLM-Ops is the discipline of managing the lifecycle, reliability, and governance of probabilistic AI components. It treats "model behavior" as a managed asset, distinct from the code that runs it.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The fundamentals</summary>
+      <ol>
+        <li><a href="#the-operational-shift">The Operational Shift</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The modern paradigm</summary>
+      <ol>
+        <li><a href="#evaluation-is-the-new-unit-test">Evaluation Is the New Unit Test</a></li>
+        <li><a href="#benchmarks-vs-runtime-evaluations">Benchmarks vs. Runtime Evaluations</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Principles in practice</summary>
+      <ol>
+        <li><a href="#drift-semantic-vs-data">Drift: Semantic vs Data</a></li>
+        <li><a href="#governance-as-a-loop">Governance as a Loop</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-fundamentals">Act I: The fundamentals</h2>
+<h3 id="the-operational-shift">The Operational Shift</h3>
+<p>The move from deterministic code to probabilistic models requires a shift in mindset. We are no longer managing &quot;functions&quot; that return the same output for the same input. We are managing &quot;agents&quot; that reason, approximate, and sometimes hallucinate.</p>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>DevOps (Traditional)</th>
+      <th>LLM-Ops (2026)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Core Artifact</strong></td>
+      <td>Compiled Code / Binary</td>
+      <td>Model Weights + Prompts + Context</td>
+    </tr>
+    <tr>
+      <td><strong>Testing</strong></td>
+      <td>Deterministic (Pass/Fail)</td>
+      <td>Probabilistic (Score/Threshold)</td>
+    </tr>
+    <tr>
+      <td><strong>Failure Mode</strong></td>
+      <td>Crash / Exception</td>
+      <td>Hallucination / Toxicity / Drift</td>
+    </tr>
+    <tr>
+      <td><strong>Fix</strong></td>
+      <td>Patch Code</td>
+      <td>Refine Prompt / Update Context / Fine-tune</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="act-ii-the-modern-paradigm">Act II: The modern paradigm</h2>
+<h3 id="evaluation-is-the-new-unit-test">Evaluation Is the New Unit Test</h3>
+<p>In 2026, you cannot deploy an AI system without an <strong>Evaluation Suite</strong>. An eval suite is a dataset of inputs and &quot;ideal&quot; outputs (or criteria) used to grade the model&#39;s performance.</p>
+<p>Unlike a unit test, an eval doesn&#39;t say &quot;True&quot; or &quot;False.&quot; It says &quot;85% accurate&quot; or &quot;92% relevant.&quot;</p>
+<ol>
+<li><strong>Deterministic Evals:</strong> Check for JSON validity, forbidden words, or regex matches. Fast and cheap.</li>
+<li><strong>Model-Graded Evals:</strong> Use a stronger model (e.g., GPT-5) to grade the output of a smaller, faster model. &quot;Did the assistant answer the user&#39;s question politely?&quot;</li>
+<li><strong>Human Evals:</strong> The gold standard. Real humans review a sample of outputs to calibrate the automated metrics.</li>
+</ol>
+<p>Here is a tiny <strong>deterministic eval</strong> you can run locally:</p>
+<pre><code class="language-python">gold = {&quot;ticket_1&quot;: &quot;refund&quot;, &quot;ticket_2&quot;: &quot;password&quot;}
+pred = {&quot;ticket_1&quot;: &quot;refund&quot;, &quot;ticket_2&quot;: &quot;billing&quot;}
+
+accuracy = sum(pred[k] == gold[k] for k in gold) / len(gold)
+print(f&quot;accuracy={accuracy:.2f}&quot;)
+</code></pre>
+<h3 id="benchmarks-vs-runtime-evaluations">Benchmarks vs. Runtime Evaluations</h3>
+<p>While live systems rely on runtime evaluations to monitor operational telemetry, establishing baseline confidence requires static <strong>benchmark datasets</strong>. These benchmarks check how different models or libraries perform on highly specific tasks.</p>
+<p>For example, in document processing and extraction workloads, developers must benchmark OCR tools, layout parsers, and text extractors (such as PaddleOCR, Docling, LlamaParse, and Surya) to determine baseline accuracy, speed, and cost trade-offs before integrating them. As detailed in the comprehensive <a href="https://www.newtuple.com/post/ocr-benchmark-paddleocr-docling-llamaparse-surya">NewTuple document parsing benchmark</a>, selecting the right model combination based on static datasets is the first step in the LLMOps lifecycle. Once a baseline is selected, continuous runtime evaluation takes over to guard against live behavioral drift.</p>
+<figure class="diagram">
+  <iframe src="/scenes/eval-pipeline.html" title="The Evaluation Pipeline" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>If you can't measure it, you can't improve it.</figcaption>
+</figure>
+<h2 id="act-iii-principles-in-practice">Act III: Principles in practice</h2>
+<h3 id="drift-semantic-vs-data">Drift: Semantic vs Data</h3>
+<p>In traditional ML, we worry about <strong>data drift</strong> (the input distribution changes). In LLM-Ops, we worry about <strong>semantic drift</strong>.</p>
+<p>Semantic drift happens when the model&#39;s understanding of the world diverges from the user&#39;s intent. This can happen because:</p>
+<ul>
+<li>The underlying model was updated by the provider (e.g., OpenAI updates GPT-4).</li>
+<li>The context (RAG data) became stale.</li>
+<li>User expectations evolved (e.g., &quot;summarize&quot; now implies &quot;bullet points&quot; to your users).</li>
+</ul>
+<p>Monitoring for drift requires tracking <strong>feedback signals</strong> (thumbs up/down, rewrites) rather than just CPU usage.</p>
+<h3 id="governance-as-a-loop">Governance as a Loop</h3>
+<p>Governance is often seen as a bottleneck—a compliance team saying &quot;no.&quot; In a mature LLM-Ops practice, governance is a feedback loop.</p>
+<p>Policies (e.g., &quot;Do not give financial advice&quot;) are encoded into <strong>System Prompts</strong> and <strong>Guardrail Models</strong>. When a violation is detected, it doesn&#39;t just block the request; it logs an incident for the governance team to review. This turns &quot;compliance&quot; into &quot;dataset improvement.&quot;</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>LLM-Ops is the bridge between a cool demo and a reliable business process. It acknowledges that AI is probabilistic, and therefore requires a system of checks, balances, and continuous measurement to be trusted. It turns the &quot;magic&quot; of AI into the &quot;engineering&quot; of reliability.</p>
+<p>For related systems context, see <a href="/systems/systems-001-foundations/">Systems 001: Foundations</a> and <a href="/systems/from-prompt-to-production/">From Prompt to Production</a>. For a compact implementation companion, use the <a href="/shelf/shared-resources/engineering-agentic-systems-deck/">Engineering Agentic Systems deck</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Treat LLM-Ops as lifecycle ownership: define evals early, monitor drift continuously, and make governance a routine loop, not an audit event.</p>
+<hr>
+1b:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1e"}}]
+1c:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Defines the circular LLM-Ops lifecycle"}],["$","li","1",{"children":"Referenced in observability-first-ai-systems.mdx"}],["$","li","2",{"children":"Links to NewTuple OCR benchmarking blog under the evaluations section."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is LLM-Ops?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"LLM-Ops is governance over time for probabilistic systems. It replaces traditional DevOps concerns with evaluation, drift monitoring, and semantic observation. The lifecycle is circular: prompt, evaluate, tune, observe, repeat."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What replaces unit testing in AI systems?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Evaluation replaces deterministic unit testing. Since AI outputs are probabilistic, you need test cases that compare outputs against expected behaviors, patterns, or ground truth rather than exact matches. Evals are typically slower and less deterministic than unit tests."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is semantic drift?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Semantic drift occurs when the system's outputs remain consistent in form but diverge in meaning from intended behavior. Unlike downtime (obviously broken), semantic drift is subtle: the system works, but its understanding has shifted away from current requirements."}]]}]]}]]}]]}]
+1d:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1f:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"What LLM-Ops Actually Means | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"LLM-Ops is governance over time. Understanding the lifecycle of probabilistic systems."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/llm-ops-without-the-buzzwords/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"What LLM-Ops Actually Means | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"LLM-Ops is governance over time. Understanding the lifecycle of probabilistic systems."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/llm-ops-without-the-buzzwords/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/llm-ops-without-the-buzzwords.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"What LLM-Ops Actually Means | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"LLM-Ops is governance over time. Understanding the lifecycle of probabilistic systems."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/llm-ops-without-the-buzzwords.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L1f","20",{}]]

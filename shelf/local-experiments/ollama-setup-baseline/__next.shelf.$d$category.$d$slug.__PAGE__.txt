@@ -1,0 +1,108 @@
+1:"$Sreact.fragment"
+8:I[15141,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3t39z7yidypi6.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3t39z7yidypi6.js"],""]
+a:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+b:"$Sreact.suspense"
+:HL["/covers/shelf/local-ollama-setup.svg","image"]
+2:T15f5,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Local stacks fail at the edges: model names, memory, and heat.</li>
+<li>A repeatable baseline beats a fast demo.</li>
+<li>Verify the model before you wire the app.</li>
+</ul>
+</blockquote>
+<p>I wanted a stable local baseline before changing models, prompts, or context size. The surprise was how many failure modes live outside the code. For the RAG side of this stack, see <a href="/systems/retrieval-augmented-generation-in-plain-terms/">Retrieval-Augmented Generation in plain terms</a>.</p>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Orientation</summary>
+      <ol>
+        <li><a href="#architecture-map">Architecture map</a></li>
+        <li><a href="#what-happened">What happened</a></li>
+        <li><a href="#the-two-gates">The two gates</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Setup</summary>
+      <ol>
+        <li><a href="#setup-walkthrough">Setup walkthrough</a></li>
+        <li><a href="#first-time-config">First-time config</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Verification</summary>
+      <ol>
+        <li><a href="#quick-checks">Quick checks</a></li>
+        <li><a href="#failure-modes">Failure modes</a></li>
+        <li><a href="#what-made-the-difference">What made the difference</a></li>
+        <li><a href="#what-i-would-do-next-time">What I would do next time</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="architecture-map">Architecture map</h2>
+<p>Local Ollama is a short stack: a model runtime, a local API, and your app. The boundaries are simple, which makes the bottlenecks obvious.</p>
+<figure class="diagram">
+  <svg viewBox="0 0 1200 520" role="img" aria-labelledby="ollama-arch-title ollama-arch-desc">
+    <title id="ollama-arch-title">Local Ollama architecture</title>
+    <desc id="ollama-arch-desc">App calls a local API which routes to a model runtime and files on disk.</desc>
+    <rect width="1200" height="520" fill="#0f172a"/>
+    <rect x="120" y="170" width="220" height="180" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <rect x="410" y="170" width="260" height="180" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <rect x="730" y="120" width="300" height="140" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <rect x="730" y="290" width="300" height="140" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <path d="M340 260 L410 260" stroke="#38bdf8" stroke-width="6"/>
+    <path d="M670 220 L730 200" stroke="#38bdf8" stroke-width="6"/>
+    <path d="M670 300 L730 320" stroke="#38bdf8" stroke-width="6"/>
+    <text x="230" y="265" fill="#cbd5f5" font-size="18" text-anchor="middle" font-family="var(--font-mono)">App</text>
+    <text x="540" y="265" fill="#cbd5f5" font-size="18" text-anchor="middle" font-family="var(--font-mono)">Ollama API</text>
+    <text x="880" y="200" fill="#cbd5f5" font-size="16" text-anchor="middle" font-family="var(--font-mono)">Model runtime</text>
+    <text x="880" y="360" fill="#cbd5f5" font-size="16" text-anchor="middle" font-family="var(--font-mono)">Model files</text>
+  </svg>
+  <figcaption>The shortest useful path: app → local API → runtime + model files.</figcaption>
+</figure>
+<h2 id="what-happened">What happened</h2>
+<p>The install looked easy and it was. The failure showed up later: a model name mismatch, a stalled pull, and thermal throttling after a long run. Each issue felt minor, but they compounded into unstable baselines.</p>
+<h2 id="the-two-gates">The two gates</h2>
+<p>The first gate is <strong>model identity</strong>. If the model name in your prompt runner does not match the local registry, the request fails or pulls the wrong thing.</p>
+<p>The second gate is <strong>host capacity</strong>. Local runs are bounded by RAM, VRAM, and heat. Even on a good machine, long runs will drift if the system throttles.</p>
+<h2 id="setup-walkthrough">Setup walkthrough</h2>
+<ol>
+<li>Install Ollama and verify the CLI is present.</li>
+<li>Pull one model and run a single prompt to confirm the runtime.</li>
+<li>Keep the first run small. Your goal is a stable baseline, not speed.</li>
+</ol>
+<h2 id="first-time-config">First-time config</h2>
+<p>I pinned the model and forced explicit names in config so I did not guess later.</p>
+<pre><code class="language-bash">export OLLAMA_HOST=&quot;http://127.0.0.1:11434&quot;
+export OLLAMA_MODEL=&quot;llama3.1:8b&quot;
+</code></pre>
+<aside class="callout">
+  <p><strong>Guiding rule.</strong> If the model name is not explicit, the test result is not reliable.</p>
+</aside>
+<h2 id="quick-checks">Quick checks</h2>
+<pre><code class="language-bash">ollama list
+ollama run llama3.1:8b &quot;ping&quot;
+</code></pre>
+<h2 id="failure-modes">Failure modes</h2>
+<ul>
+<li>Model name in code does not match the local registry.</li>
+<li>The first run pulls a large model and stalls without feedback.</li>
+<li>Thermal throttling changes latency after a few minutes.</li>
+</ul>
+<h2 id="what-made-the-difference">What made the difference</h2>
+<p>I locked the model name, measured the first five runs only, and recorded machine state while the fan curve was stable. That turned the baseline into something I could compare later.</p>
+<h2 id="what-i-would-do-next-time">What I would do next time</h2>
+<p>I would script the baseline run from the start, capture system temperature in the log, and freeze the model version before testing anything else.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Ollama setup: local baseline | Pruning My Pothos\",\"description\":\"A first clean install that taught me where local stacks really fail.\",\"url\":\"https://pruningmypothos.com/shelf/local-experiments/ollama-setup-baseline/\",\"image\":\"https://pruningmypothos.com/covers/shelf/local-ollama-setup.svg\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Shelf • ","local-experiments"]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Ollama setup: local baseline"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-cyan/40 pl-4 py-1 text-sm sm:text-base","children":"A first clean install that taught me where local stacks really fail."}],["$","figure",null,{"className":"w-full max-w-[420px] overflow-hidden rounded-lg border border-[color:var(--card-border)] aspect-video my-4 shadow-none self-center sm:self-start bg-[color:var(--card-bg)]","children":["$","img",null,{"src":"/covers/shelf/local-ollama-setup.svg","alt":"Cover illustration for Ollama setup: local baseline","className":"w-full h-full object-contain"}]}],"$undefined","$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4","$L5"]}],["$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L8",null,{"title":"Ollama setup: local baseline"}]
+4:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","experiments",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","experiments"]}],["$","span","local-llm",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","local-llm"]}],["$","span","ollama",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","ollama"]}],["$","span","setup",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","setup"]}]]}]
+5:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L9",null,{"href":"/shelf","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Shelf"}]}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/3t39z7yidypi6.js","async":true}]
+7:["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]
+c:null

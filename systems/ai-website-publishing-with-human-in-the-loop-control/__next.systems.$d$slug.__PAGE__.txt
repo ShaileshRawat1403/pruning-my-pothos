@@ -1,0 +1,190 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+c:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+:HL["/covers/systems/ai-website-publishing-with-human-in-the-loop-control.svg","image"]
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"AI Website Publishing with Human-in-the-Loop Control | Pruning My Pothos\",\"description\":\"A case study in using Flowright WebsiteOps to prepare, verify, review, and hand off website content without autonomous publishing.\",\"url\":\"https://pruningmypothos.com/systems/ai-website-publishing-with-human-in-the-loop-control/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/ai-website-publishing-with-human-in-the-loop-control/\"},\"datePublished\":\"2026-07-02\",\"dateModified\":\"2026-07-02\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/ai-website-publishing-with-human-in-the-loop-control.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Can AI help publish a website without publishing autonomously?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes. The agentic workflow can prepare, verify, and package the work while human approval remains the boundary before any live change.\"}},{\"@type\":\"Question\",\"name\":\"Where does governance begin in this workflow?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Governance begins before publishing, when the workflow declares its inputs, constraints, evidence, stop condition, and approval owner.\"}},{\"@type\":\"Question\",\"name\":\"What is the proof of control?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"The useful proof is that the workflow stopped at human review and did not treat validation as authority to publish.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"How-things-fit-together"}],[["$","span",null,{"children":"•"}],["$","span",null,{"children":[8," min read"]}]],[["$","span",null,{"children":"•"}],["$","span",null,{"children":"intermediate"}]],[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jul 2, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"AI Website Publishing with Human-in-the-Loop Control"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"A case study in using Flowright WebsiteOps to prepare, verify, review, and hand off website content without autonomous publishing."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L2","agents",{"href":"/tags/agents/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","agents"]}],["$","$L2","governance",{"href":"/tags/governance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}],"$L3","$L4","$L5"]}]]}],"$L6","$undefined","$undefined","$undefined","$undefined","$undefined","$L7","$undefined","$L8","$undefined","$L9"]}],null,"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L2","workflow",{"href":"/tags/workflow/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","workflow"]}]
+4:["$","$L2","hitl",{"href":"/tags/hitl/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","hitl"]}]
+5:["$","$L2","websiteops",{"href":"/tags/websiteops/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","websiteops"]}]
+6:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/ai-website-publishing-with-human-in-the-loop-control.svg","alt":"Prepare, review, and act loop with a human review gate before publishing","className":"w-full h-full object-cover"}]}]
+b:T28e1,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Flowright prepares and governs; humans approve and publish — the workflow paused at a declared human review gate and never crossed it.</li>
+<li>The proof isn&#39;t the draft. It&#39;s where the system stopped: intake, draft, verify, then <span class="highlight">human review before anything is exported</span>.</li>
+<li>Even after approval, Flowright does not publish to pruningmypothos.com — export is a handoff, not publication.</li>
+<li>Promotion denial is not a defect. It&#39;s the difference between &quot;prepare this for me&quot; and &quot;ship this for me.&quot;</li>
+</ul>
+</blockquote>
+<p>This article is for builders and operators who want AI-assisted website maintenance without giving an agent the authority to publish directly. It is a small case study in using an agentic workflow to prepare a website post without letting the workflow publish on its own.</p>
+<p>The site goal was simple: draft a public article for pruningmypothos.com titled &quot;AI website publishing with human-in-the-loop control.&quot; The larger goal was more important: show that an agent can help maintain a live website while staying inside an explicit governance boundary.</p>
+<p>The distinction is simple:</p>
+<p><strong>Flowright prepares and governs; humans approve and publish.</strong></p>
+<p>The agentic system can prepare the work, record evidence, and make the review packet easier to inspect. It does not own the final authority.</p>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The baseline problem</summary>
+      <ol>
+        <li><a href="#act-i-the-baseline-problem">The Baseline Problem</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The WebsiteOps loop</summary>
+      <ol>
+        <li><a href="#act-ii-the-websiteops-loop">The WebsiteOps Loop</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Validation and what changed</summary>
+      <ol>
+        <li><a href="#act-iii-validation-and-what-changed">Validation and What Changed</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-baseline-problem">Act I: The baseline problem</h2>
+<h3 id="why-does-agentic-publishing-need-a-boundary">Why does agentic publishing need a boundary?</h3>
+<p>A website is not only a place where words appear. It is a public interface for judgment, positioning, search visibility, reputation, and trust. That makes &quot;let the agent publish it&quot; a poor default.</p>
+<p>The risk is not that an agent drafts bad prose. Bad prose is easy to edit. The larger risk is that the system blurs the line between preparation and authority.</p>
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Stage</th>
+      <th>Autonomous Publishing</th>
+      <th>Human-in-the-Loop Gate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Content Intake</strong></td>
+      <td>Raw prompt / automated scrape</td>
+      <td>Declared goal, constraints, source docs</td>
+    </tr>
+    <tr>
+      <td><strong>Draft Generation</strong></td>
+      <td>Unchecked direct output</td>
+      <td>Validated against style and topic rubric</td>
+    </tr>
+    <tr>
+      <td><strong>Pre-flight Checks</strong></td>
+      <td>Skipped or basic build check</td>
+      <td>Schema, link integrity, asset verification</td>
+    </tr>
+    <tr>
+      <td><strong>Promotion / Deploy</strong></td>
+      <td>Agent pushes directly to prod</td>
+      <td>Workflow halts; human signs off handoff</td>
+    </tr>
+  </tbody>
+</table>
+<p>A useful assistant can summarize site intent, turn source material into a draft, check for obvious structure gaps, and prepare an export packet. But the authority to publish belongs somewhere else.</p>
+<p>This matters more when the website is part of a broader operating system. A post about governed AI work should not be produced by an ungoverned publishing path. The method needs to match the message.</p>
+<aside class="callout">
+  <p><strong>Design note.</strong> The workflow's value isn't in what it can produce. It's in the fact that it stops. A workflow that can draft, verify, and package but cannot publish is more useful for real operations than one that publishes fast and asks forgiveness later.</p>
+</aside>
+<h3 id="the-baseline-problem">The baseline problem</h3>
+<p>The baseline state was ordinary website maintenance: a human could ask an AI tool for a draft, copy material into the site, run a build, and publish.</p>
+<p>That can work for a single post, but it leaves weak evidence. The missing record usually looks like this:</p>
+<ul>
+<li>what the workflow was asked to do;</li>
+<li>what source material it used;</li>
+<li>what constraints it followed;</li>
+<li>where it paused;</li>
+<li>who approved the handoff;</li>
+<li>whether publication was automatic or manual.</li>
+</ul>
+<p>For this proof, those questions became the work. The goal was not only to write an article. The goal was to test whether the article could move through a governed loop.</p>
+<h2 id="act-ii-the-websiteops-loop">Act II: The WebsiteOps loop</h2>
+<h3 id="the-websiteops-loop">The WebsiteOps loop</h3>
+<p>The WebsiteOps workflow followed this shape:</p>
+<pre><code class="language-text">intake website state
+-&gt; audit existing pages
+-&gt; plan content update
+-&gt; draft new content
+-&gt; verify links and SEO
+-&gt; human review
+-&gt; export publish packet
+-&gt; capture performance feedback
+</code></pre>
+<p>The loop is intentionally modest. It does not claim to solve content strategy. It does not claim to understand every nuance of the live site.</p>
+<p>It creates a repeatable path for a specific kind of work: prepare a public website update from declared inputs, verify the draft against basic constraints, pause for review, and export a packet only after approval.</p>
+<p>That is enough to change the operating model. Instead of treating website updates as loose prompting, the update becomes a governed run with declared inputs and a visible stop condition.</p>
+<h3 id="what-was-governed">What was governed</h3>
+<p>The workflow can produce artifacts, but it cannot decide that those artifacts should go live. It can record evidence, but it cannot use that evidence as a substitute for human approval. It can export a packet, but the export is still a handoff, not publication.</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Agentic work</th>
+<th>Governance boundary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Intake</td>
+<td>Accept the site goal, target section, source material, SEO requirements, and publish constraints.</td>
+<td>The workflow starts from declared inputs rather than an open-ended prompt.</td>
+</tr>
+<tr>
+<td>Draft</td>
+<td>Prepare a public case-study draft and publish packet.</td>
+<td>The draft is an artifact, not a live site change.</td>
+</tr>
+<tr>
+<td>Verification</td>
+<td>Check readiness constraints before review.</td>
+<td>Passing validation does not grant publication authority.</td>
+</tr>
+<tr>
+<td>Review</td>
+<td>Pause at the human review gate.</td>
+<td>A human must approve before export or implementation handoff.</td>
+</tr>
+<tr>
+<td>Promotion</td>
+<td>Remain blocked from autonomous promotion.</td>
+<td>Publication stays a separate human-controlled commit, deploy, or CMS action.</td>
+</tr>
+</tbody></table>
+<p>This is the useful part of the proof. The system does not become safer by saying &quot;human-in-the-loop&quot; in the abstract. It becomes safer when the workflow has a specific place where it must stop.</p>
+<h2 id="act-iii-validation-and-what-changed">Act III: Validation and what changed</h2>
+<h3 id="validation">Validation</h3>
+<p>The WebsiteOps run was created from a declared site goal and explicit publishing constraints. It produced a draft artifact, passed the workflow&#39;s validation step, and stopped at <code>human_review</code>.</p>
+<p>That pause is the behavior the system is supposed to show.</p>
+<p>Because the test environment could not reach the model gateway, the run used Flowright&#39;s deterministic fallback generator. That is a limitation of draft quality, not a failure of the governance test. The governance behavior still held: the workflow created artifacts, recorded evidence, validated, and stopped before export.</p>
+<p>The human review then becomes a real editorial checkpoint, not a decorative approval button. The reviewer can reject the packet, request revision, or approve it for export. Even after approval, Flowright does not publish the article to pruningmypothos.com. It only prepares the handoff.</p>
+<h3 id="before-and-after">Before and after</h3>
+<p>Before the loop, the website update could have been a normal AI-assisted writing task.</p>
+<p>After the loop, the update has a clearer operating shape:</p>
+<ul>
+<li>the intent is declared;</li>
+<li>the draft is artifacted;</li>
+<li>validation happens before review;</li>
+<li>human approval is required;</li>
+<li>export is a handoff;</li>
+<li>promotion remains denied.</li>
+</ul>
+<p>That last point matters. Promotion denial is not a defect in this workflow. It is the proof that WebsiteOps is not an autonomous publishing tool. The denial preserves the difference between &quot;prepare this for me&quot; and &quot;ship this for me.&quot;</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>For a personal site, this is enough to create a repeatable WebsiteOps loop:</p>
+<ol>
+<li>Open a site goal.</li>
+<li>Attach source material and constraints.</li>
+<li>Generate a draft packet.</li>
+<li>Verify structure and links.</li>
+<li>Review as the human owner.</li>
+<li>Apply the approved change manually.</li>
+<li>Build, inspect, and publish.</li>
+</ol>
+<p>The workflow does not remove judgment. It makes judgment easier to place.</p>
+<p>For related context, see <a href="/systems/human-in-the-loop-is-a-system-design-choice/">Human-in-the-Loop Is a System Design Choice</a>, <a href="/systems/from-agent-intent-to-governed-execution/">From Agent Intent to Governed Execution</a>, <a href="/systems/from-ad-hoc-prompts-to-repeatable-agent-workflows/">From Ad-Hoc Prompts to Repeatable Agent Workflows</a>, and <a href="/systems/evaluation-as-a-runtime-discipline/">Evaluation as a Runtime Discipline</a>. For an adjacent implementation proof, see the <a href="/shelf/local-experiments/soothsayer-mcp-kernel/">Soothsayer MCP kernel local experiment</a>.</p>
+7:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$b"}}]
+8:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"WebsiteOps run created from a declared site goal, source material, SEO requirements, and publish constraints."}],["$","li","1",{"children":"The workflow prepared a draft artifact, reached validation, and stopped at the human review gate."}],["$","li","2",{"children":"Publication remained a separate human-controlled action rather than an autonomous promotion step."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Can AI help publish a website without publishing autonomously?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Yes. The agentic workflow can prepare, verify, and package the work while human approval remains the boundary before any live change."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Where does governance begin in this workflow?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Governance begins before publishing, when the workflow declares its inputs, constraints, evidence, stop condition, and approval owner."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is the proof of control?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"The useful proof is that the workflow stopped at human review and did not treat validation as authority to publish."}]]}]]}]]}]]}]
+9:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L2",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L2",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

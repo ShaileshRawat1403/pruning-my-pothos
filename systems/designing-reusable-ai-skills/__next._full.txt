@@ -1,0 +1,202 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","designing-reusable-ai-skills",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","designing-reusable-ai-skills","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Designing Reusable AI Skills | Pruning My Pothos\",\"description\":\"How to design AI skills with clear boundaries, input and output contracts, tool limits, side-effect controls, and escalation paths.\",\"url\":\"https://pruningmypothos.com/systems/designing-reusable-ai-skills/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/designing-reusable-ai-skills/\"},\"datePublished\":\"2026-03-08\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/designing-reusable-ai-skills.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What makes a skill reusable instead of just repeatable?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"A reusable skill has stable boundaries, clear inputs, a known output contract, and explicit behavior under failure or uncertainty.\"}},{\"@type\":\"Question\",\"name\":\"When should one skill be split into two?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Split it when the task has two different objectives, two different risk profiles, or two different output contracts that should be evaluated separately.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Explanations"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Designing Reusable AI Skills"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"How to design AI skills with clear boundaries, input and output contracts, tool limits, side-effect controls, and escalation paths."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","skills",{"href":"/tags/skills/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","skills"]}],["$","$L9","workflow",{"href":"/tags/workflow/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","workflow"]}],["$","$L9","orchestration",{"href":"/tags/orchestration/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","orchestration"]}],["$","$L9","governance",{"href":"/tags/governance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}],"$L17","$L18"]}]]}],"$L19","$undefined","$undefined","$undefined","$undefined","$undefined","$L1a","$undefined","$L1b","$L1c","$L1d"]}]
+:HL["/covers/systems/designing-reusable-ai-skills.svg","image"]
+17:["$","$L9","prompting",{"href":"/tags/prompting/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","prompting"]}]
+18:["$","$L9","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}]
+19:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/designing-reusable-ai-skills.svg","alt":"Skill component with input-output contracts","className":"w-full h-full object-cover"}]}]
+1e:T24e3,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Reusable skills need explicit boundaries, not only good wording.</li>
+<li>Input and output contracts matter because reuse depends on predictability.</li>
+<li>Tool access and side effects should be deliberately constrained.</li>
+<li>A skill is incomplete until it knows when to escalate instead of continuing.</li>
+</ul>
+</blockquote>
+<p>It is easy to overestimate how much structure a repeated task needs. Teams often take a successful prompt, save it, call it a skill, and assume the architecture problem is solved. Usually it is not. What they saved was a useful phrase, not a reusable capability.</p>
+<p>Reusable skills require more than repetition. They need design decisions that make the task legible across runs, contributors, and contexts. That is what separates a prompt that worked once from a skill that can operate safely inside a larger system.</p>
+<h3 id="what-makes-a-skill-reusable-in-practice">What makes a skill reusable in practice?</h3>
+<p>A reusable skill has a bounded purpose, explicit input expectations, a known output contract, limited tool authority, and a clear rule for when to stop or escalate. Reuse becomes possible when the task behaves predictably enough to trust across multiple invocations.</p>
+<p>In practice, <span class="highlight">reuse depends on bounded behavior more than on elegant phrasing</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> If a skill can do "a little bit of everything," it usually becomes hard to test, hard to version, and hard to trust. Reusability starts when scope is intentionally small.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The design boundary</summary>
+      <ol>
+        <li><a href="#start-with-one-bounded-purpose">Start with one bounded purpose</a></li>
+        <li><a href="#why-bad-skill-design-spreads-fast">Why bad skill design spreads fast</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The design components</summary>
+      <ol>
+        <li><a href="#input-and-output-contracts">Input and output contracts</a></li>
+        <li><a href="#tool-limits-and-side-effect-control">Tool limits and side-effect control</a></li>
+        <li><a href="#split-vs-merge-decisions">Split vs merge decisions</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Safe operation</summary>
+      <ol>
+        <li><a href="#escalation-paths">Escalation paths</a></li>
+        <li><a href="#common-design-failures">Common design failures</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-design-boundary">Act I: The design boundary</h2>
+<h3 id="start-with-one-bounded-purpose">Start with one bounded purpose</h3>
+<p>The first design question is simple: what job does this skill own that nothing else should own?</p>
+<p>That answer should fit inside one sentence. If the definition starts sounding like a process document, you are probably designing a workflow instead of a skill.</p>
+<p>A reusable skill tends to have:</p>
+<ul>
+<li>one primary objective</li>
+<li>one dominant kind of output</li>
+<li>one main risk profile</li>
+<li>one recognizable invocation pattern</li>
+</ul>
+<p>The point is not minimalism for its own sake. The point is controllability. A bounded skill is easier to improve because you can tell what it is supposed to do and what it should refuse to do.</p>
+<h3 id="why-bad-skill-design-spreads-fast">Why bad skill design spreads fast</h3>
+<p>Bad skills spread because they feel efficient early. A broad skill seems flexible because it accepts many inputs and produces several kinds of output. But that flexibility usually hides a design cost:</p>
+<ul>
+<li>unclear expectations</li>
+<li>unstable output quality</li>
+<li>mixed risk categories</li>
+<li>unclear ownership when something fails</li>
+</ul>
+<p>This is the same architectural mistake discussed in <a href="/systems/skills-vs-prompts-vs-agents/">Skills vs Prompts vs Agents</a>. Once layers blur, every improvement conversation becomes slower because the system no longer has clean units of change.</p>
+<h2 id="act-ii-the-design-components">Act II: The design components</h2>
+<h3 id="input-and-output-contracts">Input and output contracts</h3>
+<p>Reusable skills need contracts.</p>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Good pattern</th>
+        <th>Failure if missing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Input contract</strong></td>
+        <td>Known required fields, context scope, exclusions</td>
+        <td>Skill behaves differently on every invocation</td>
+      </tr>
+      <tr>
+        <td><strong>Output contract</strong></td>
+        <td>Stable structure, success conditions, explicit shape</td>
+        <td>Downstream workflow cannot depend on results</td>
+      </tr>
+      <tr>
+        <td><strong>Escalation rule</strong></td>
+        <td>Defined stop condition under uncertainty or risk</td>
+        <td>Skill keeps going when it should defer</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<p>Input contracts answer:</p>
+<ul>
+<li>what information is required?</li>
+<li>what optional context improves quality?</li>
+<li>what context should be ignored?</li>
+</ul>
+<p>Output contracts answer:</p>
+<ul>
+<li>what form should the result take?</li>
+<li>what qualifies as success?</li>
+<li>what should happen if the skill cannot satisfy the request?</li>
+</ul>
+<p>If you want a reusable starting structure, see <a href="/shelf/shared-resources/ai-skill-design-templates/">AI skill design templates</a>.</p>
+<h3 id="tool-limits-and-side-effect-control">Tool limits and side-effect control</h3>
+<p>A skill should not inherit unlimited authority just because it is useful.</p>
+<p>Tool boundaries matter because skills often sit close to execution. A skill that drafts a release summary does not need billing access. A skill that classifies risk does not need write access to production. Tool scope should be as narrow as the task allows.</p>
+<p>This is where side-effect control enters. Ask:</p>
+<ul>
+<li>can this skill read or also write?</li>
+<li>can it call external tools?</li>
+<li>can it trigger changes with financial, security, or user-facing consequences?</li>
+<li>what evidence must exist before a side effect is allowed?</li>
+</ul>
+<p>These questions align directly with <a href="/systems/agent-instructions-and-handoff-as-an-operating-system/">Agent Instructions and Handoff as an Operating System</a> and <a href="/systems/tech-stack-for-nlpg-driven-ai-assisted-sdlc/">Tech Stack for NLPg-Driven AI-Assisted SDLC</a>. Skills become safer when they are embedded in governed execution rather than treated like free-floating convenience features.</p>
+<h3 id="split-vs-merge-decisions">Split vs merge decisions</h3>
+<p>One of the most important design decisions is whether a skill should remain whole or be split into smaller skills.</p>
+<p>Split the skill when:</p>
+<ul>
+<li>it performs two different jobs</li>
+<li>it serves two different risk profiles</li>
+<li>it produces outputs used by different downstream systems</li>
+<li>one part needs different tool permissions than the other</li>
+</ul>
+<p>Keep the skill whole when:</p>
+<ul>
+<li>the steps are tightly coupled to one objective</li>
+<li>the same inputs are required throughout</li>
+<li>the same output contract defines success</li>
+<li>the same escalation rule governs the whole operation</li>
+</ul>
+<p>The practical test is simple: if two parts of the skill would need to be evaluated differently, they probably should not stay inside one capability.</p>
+<h2 id="act-iii-safe-operation">Act III: Safe operation</h2>
+<h3 id="escalation-paths">Escalation paths</h3>
+<p>Every reusable skill needs to know when not to continue.</p>
+<p>That means defining:</p>
+<ul>
+<li>uncertainty thresholds</li>
+<li>missing-input conditions</li>
+<li>high-risk side-effect triggers</li>
+<li>conflicts between retrieved evidence and requested action</li>
+</ul>
+<p>Escalation is not a sign of weakness. It is the control surface that makes reuse safe. A skill that never escalates is usually either trivial or overconfident.</p>
+<h3 id="common-design-failures">Common design failures</h3>
+<p>The most common failures are predictable:</p>
+<ul>
+<li>the skill accepts vague inputs and still tries to complete the task</li>
+<li>the output contract is implied rather than written down</li>
+<li>tool authority is broader than the task requires</li>
+<li>one skill handles planning, execution, and review all at once</li>
+<li>no one defines what should trigger human review</li>
+</ul>
+<p>These are design failures, not prompting failures.</p>
+<p>For the conceptual layer, start with <a href="/systems/what-a-skill-is-in-ai-systems/">What a Skill Is in AI Systems</a>. For the operational follow-up, continue to <a href="/systems/skill-evaluation-and-versioning/">Skill Evaluation and Versioning</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>You stop asking whether a prompt can be reused and start designing whether a capability can be trusted, constrained, and handed off safely.</p>
+1a:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1e"}}]
+1b:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"This page defines the operational design criteria for reusable AI skills instead of treating skills as prompt fragments."}],["$","li","1",{"children":"The guidance is linked directly to the template resource and the existing skills concept pages."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What makes a skill reusable instead of just repeatable?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"A reusable skill has stable boundaries, clear inputs, a known output contract, and explicit behavior under failure or uncertainty."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"When should one skill be split into two?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Split it when the task has two different objectives, two different risk profiles, or two different output contracts that should be evaluated separately."}]]}]]}]]}]]}]
+1c:["$","nav",null,{"className":"explainer-related","aria-label":"Related reading","children":[["$","span",null,{"className":"explainer-kicker","children":"Follow this through"}],["$","ul",null,{"children":[["$","li","/systems/skills-vs-prompts-vs-agents/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"explainer"}],["$","a",null,{"href":"/systems/skills-vs-prompts-vs-agents/","children":"Skills vs Prompts vs Agents"}],["$","span",null,{"className":"explainer-related-note","children":"Where a prompt ends, a skill begins, and an agent takes over."}]]}],["$","li","/systems/what-a-skill-is-in-ai-systems/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"explainer"}],["$","a",null,{"href":"/systems/what-a-skill-is-in-ai-systems/","children":"What a Skill Is in AI Systems"}],["$","span",null,{"className":"explainer-related-note","children":"The layer this page builds on, defined on its own terms."}]]}],["$","li","/systems/skill-evaluation-and-versioning/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"playbook"}],["$","a",null,{"href":"/systems/skill-evaluation-and-versioning/","children":"Skill Evaluation and Versioning"}],["$","span",null,{"className":"explainer-related-note","children":"How to tell whether a skill still does what it claimed."}]]}]]}]]}]
+1d:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1f:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"Designing Reusable AI Skills | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"How to design AI skills with clear boundaries, input and output contracts, tool limits, side-effect controls, and escalation paths."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/designing-reusable-ai-skills/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"Designing Reusable AI Skills | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"How to design AI skills with clear boundaries, input and output contracts, tool limits, side-effect controls, and escalation paths."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/designing-reusable-ai-skills/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/designing-reusable-ai-skills.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Designing Reusable AI Skills | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"How to design AI skills with clear boundaries, input and output contracts, tool limits, side-effect controls, and escalation paths."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/designing-reusable-ai-skills.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L1f","20",{}]]

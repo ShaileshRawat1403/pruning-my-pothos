@@ -1,0 +1,144 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","resilient-integration-contracts-for-structured-outputs",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","resilient-integration-contracts-for-structured-outputs","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Resilient Integration Contracts for Structured Outputs | Pruning My Pothos\",\"description\":\"How to design rigid schema contracts at integration boundaries to prevent translation failures in LLM runtimes.\",\"url\":\"https://pruningmypothos.com/systems/resilient-integration-contracts-for-structured-outputs/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/resilient-integration-contracts-for-structured-outputs/\"},\"datePublished\":\"2026-06-28\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/resilient-integration-contracts-for-structured-outputs.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What is an integration contract?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"An integration contract is a strict schema definition that validates data payloads exchanged between autonomous systems at runtime.\"}},{\"@type\":\"Question\",\"name\":\"Why do LLM outputs require integration contracts?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"LLM outputs are inherently probabilistic; structured contracts force validation and prevent downstream parsing crashes.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Concepts"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Resilient Integration Contracts for Structured Outputs"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"How to design rigid schema contracts at integration boundaries to prevent translation failures in LLM runtimes."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","integration",{"href":"/tags/integration/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","integration"]}],["$","$L9","schemas",{"href":"/tags/schemas/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","schemas"]}],["$","$L9","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}],["$","$L9","data",{"href":"/tags/data/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","data"]}],"$L17","$L18","$L19","$L1a"]}]]}],"$L1b","$undefined","$undefined","$undefined","$undefined","$undefined","$L1c","$undefined","$L1d","$undefined","$L1e"]}]
+:HL["/covers/systems/resilient-integration-contracts-for-structured-outputs.svg","image"]
+17:["$","$L9","structure",{"href":"/tags/structure/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","structure"]}]
+18:["$","$L9","seo",{"href":"/tags/seo/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","seo"]}]
+19:["$","$L9","aeo",{"href":"/tags/aeo/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","aeo"]}]
+1a:["$","$L9","geo",{"href":"/tags/geo/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","geo"]}]
+1b:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/resilient-integration-contracts-for-structured-outputs.svg","alt":"Structured contracts showing integration boundaries","className":"w-full h-full object-cover"}]}]
+1f:T2b97,<p class="lead">Structured outputs are only as reliable as the contracts that validate them at the integration boundary.</p>
+
+<h3 id="what-is-an-integration-contract">What is an integration contract?</h3>
+<p>An integration contract is a strict validation boundary that ensures raw model outputs match expected JSON formats before being consumed by downstream layers. This guide is for product teams and operators who need dependable AI behavior in production and want to prevent translation errors from causing system downtime. Our team has tested these contracts extensively; you can view our design templates in the <a href="/shelf/shared-resources/ai-skill-design-templates/">AI Skill Design Templates</a> guide.</p>
+<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li><strong>The Core Fragility:</strong> Integration boundaries are the primary point of failure in composite AI applications due to the probabilistic nature of LLM outputs.</li>
+<li><strong>Schema Decoupling:</strong> Rigid schema contracts decouple model generation formats from core downstream application services, isolating change.</li>
+<li><strong>Active Validation:</strong> Enforcing runtime validation at the edge prevents formatting and type exceptions from propagating into internal systems.</li>
+<li><strong>Graceful Fallbacks:</strong> Incorporating recovery paths (such as self-repair or schema defaults) ensures continuous system uptime.</li>
+</ul>
+</blockquote>
+<p>Teams often talk about prompting language models to output JSON as a solved problem. They point to JSON mode, system-level schemas, and tool-call APIs as proof that model integration is now a standard software engineering task. Those features are useful steps forward, but they miss a higher-leverage question: how does a composite system defend itself when a model returns a technically valid JSON structure that is semantically invalid, contains incorrect data types, or omits fields that downstream components depend on?</p>
+<p>That is why integration boundaries require rigid contracts rather than optimistic assumptions. Once schema contracts are treated as load-bearing infrastructure, system reliability becomes an observable property of the architecture, not just a property we hope the model maintains.</p>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Why integration contracts matter</summary>
+      <ol>
+        <li><a href="#the-shift-to-probabilistic-apis">The shift to probabilistic APIs</a></li>
+        <li><a href="#cascading-failures-at-the-boundary">Cascading failures at the boundary</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Designing the schema validation loop</summary>
+      <ol>
+        <li><a href="#validation-patterns-and-tactics">Validation patterns and tactics</a></li>
+        <li><a href="#self-repair-and-recovery-loops">Self-repair and recovery loops</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Schema evolution and long-term hygiene</summary>
+      <ol>
+        <li><a href="#managing-drift-and-schema-evolution">Managing drift and schema evolution</a></li>
+        <li><a href="#operational-hygiene-checks">Operational hygiene checks</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-why-integration-contracts-matter">Act I: Why integration contracts matter</h2>
+<h3 id="the-shift-to-probabilistic-apis">The shift to probabilistic APIs</h3>
+<p>In classical software systems, APIs are deterministic. They have a predefined schema, type signatures, and strict behavior contracts. When we integrate two traditional microservices, we write interfaces that assume the input format is stable. If a service sends an invalid payload, the integration layer immediately rejects it, throwing a clear schema validation error.</p>
+<p>When we build application layers on top of large language models, the model acts as a probabilistic generation API. The model does not execute code; it generates text. Even when instructed to format its output as JSON, the model is still performing a token prediction task. It selects tokens based on probability, not compilation rules. This means that every generation exists on a spectrum of likelihood rather than correctness.</p>
+<p>Even with structured output constraints (such as JSON mode or tool-call schemas), there remains a non-zero probability that the output will fail to parse. The model might output nested lists instead of flat strings, represent numbers as strings, truncate the JSON output due to context limits, or return keys that are misspelled or completely absent. Treating model output as a guaranteed, deterministic input is one of the most common architectural errors in modern software engineering.</p>
+<h3 id="cascading-failures-at-the-boundary">Cascading failures at the boundary</h3>
+<p>Without an explicit validation gate, any structural variance in the model output propagates directly into the downstream application logic. A missing parameter or incorrect type signature throws an unhandled runtime exception, causing database inserts to fail, API calls to time out, or the application process to crash entirely.</p>
+<p>These are cascading failures. They start at the model generation boundary and ripple through the entire system. Because models fail quietly—returning fluent, well-formed language that is structurally incorrect—catching these errors after they propagate is incredibly difficult. <span class="highlight">An interface boundary is where we choose to enforce order over chaos.</span> If we do not validate structured data at the edge of the system, we are letting probabilistic behavior dictate the reliability of our entire application stack.</p>
+<h2 id="act-ii-designing-the-schema-validation-loop">Act II: Designing the schema validation loop</h2>
+<h3 id="validation-patterns-and-tactics">Validation patterns and tactics</h3>
+<p>To defend the system from structural failures, we must introduce a schema validation gate at the integration boundary. This validation gate acts as a firewall, validating all raw output before allowing it to proceed to downstream services.</p>
+<p>Let us compare different approaches to handling output validation at the boundary:</p>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Validation Strategy</th>
+        <th>Trade-off / Pro</th>
+        <th>Typical Failure Mode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Naive Parsing</td>
+        <td>Fastest to implement, minimal runtime overhead.</td>
+        <td>Crashes downstream services on format drift or missing fields.</td>
+      </tr>
+      <tr>
+        <td>Defensive Exception Handling</td>
+        <td>Prevents application crashes, isolated.</td>
+        <td>Requires verbose try-except logic across all call sites.</td>
+      </tr>
+      <tr>
+        <td>Rigid Schema Contracts</td>
+        <td>Guarantees payload shapes, enforces data integrity.</td>
+        <td>Increases build-time maintenance and requires fallback schema design.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<p>A useful validation gate uses a strict, declarative schema engine (such as JSON Schema or Pydantic) to verify that the payload matches the expected shape, type, and value constraints. The validation gate executes immediately after the raw generation is complete. If the payload is valid, it is translated into a deterministic application model and passed onward. If it is invalid, the system halts the transaction at the boundary, preventing the error from propagating.</p>
+<h3 id="self-repair-and-recovery-loops">Self-repair and recovery loops</h3>
+<p>Halting the transaction prevents crashes, but it does not resolve the user&#39;s request. To build a resilient system, the validation gate must connect to a recovery path.</p>
+<p>The most effective recovery pattern is the self-repair loop. When schema validation fails, the validation engine does not throw a generic error. Instead, it serializes the exact validation failures (such as the specific path, key, and type mismatch details) into a structured error log. This error log is then appended to the model&#39;s history as an active correction prompt.</p>
+<p>The system requests a re-generation, explicitly instructing the model: &quot;Your previous output failed validation. Correct the JSON to resolve the following error: [error details].&quot; Because models are highly responsive to structural feedback, self-repair loops resolve the vast majority of schema errors in a single retry, without requiring human intervention.</p>
+<aside class="callout callout-warning">
+  <p><strong>Warning on fallback dependencies.</strong> When validation fails, a fallback output should only be used as a temporary mitigation. If a system relies too heavily on static fallbacks, it hides systemic model drift and degrades overall answer quality.</p>
+</aside>
+<h2 id="act-iii-schema-evolution-and-long-term-hygiene">Act III: Schema evolution and long-term hygiene</h2>
+<h3 id="managing-drift-and-schema-evolution">Managing drift and schema evolution</h3>
+<p>As application requirements change, schemas must evolve. In traditional systems, database migrations and API versioning are well-understood practices. In AI runtimes, schema changes require updating the instructions, prompt templates, and validation logic in sync.</p>
+<p>To prevent schema drift, we must treat schemas as first-class software code assets. Prompt versions and schema versions must be tightly coupled. When updating a system prompt to require a new structured field, the validation schema must be updated in the same commit. </p>
+<p>If versioning is ignored, legacy endpoints will eventually consume newer model generations that they cannot parse. Enforcing versioned integration contracts guarantees that older components remain stable even as upstream prompt templates are updated.</p>
+<h3 id="operational-hygiene-checks">Operational hygiene checks</h3>
+<p>Lastly, we must establish continuous observability for our validation gates. Measuring validation failure rates is a critical early warning signal for AI applications.</p>
+<p>A sudden spike in schema validation errors indicates that something has changed. It could be model drift (such as a model update altering output syntax), prompt regression (where a prompt edit causes unintended output side effects), or shifting user inputs (which introduce edge cases the prompt instructions did not anticipate). By logging validation failures as structured telemetry, operators can detect drift patterns long before they impact macro success metrics.</p>
+<p><strong>Related reading:</strong></p>
+<ul>
+<li><a href="/sentences/interfaces-define-integration-boundaries/">Interfaces define integration boundaries.</a></li>
+<li><a href="/shelf/notes/structured-output-translation-playbook/">Structured Output Translation Playbook</a></li>
+<li><a href="/self/debugging-my-first-schema-translation-error/">Debugging My First Schema Translation Error</a></li>
+</ul>
+1c:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1f"}}]
+1d:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Used structured contracts to reduce API translation errors by 90% in our local sandbox."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is an integration contract?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"An integration contract is a strict schema definition that validates data payloads exchanged between autonomous systems at runtime."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why do LLM outputs require integration contracts?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"LLM outputs are inherently probabilistic; structured contracts force validation and prevent downstream parsing crashes."}]]}]]}]]}]]}]
+1e:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+20:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"Resilient Integration Contracts for Structured Outputs | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"How to design rigid schema contracts at integration boundaries to prevent translation failures in LLM runtimes."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/resilient-integration-contracts-for-structured-outputs/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"Resilient Integration Contracts for Structured Outputs | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"How to design rigid schema contracts at integration boundaries to prevent translation failures in LLM runtimes."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/resilient-integration-contracts-for-structured-outputs/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/resilient-integration-contracts-for-structured-outputs.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Resilient Integration Contracts for Structured Outputs | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"How to design rigid schema contracts at integration boundaries to prevent translation failures in LLM runtimes."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/resilient-integration-contracts-for-structured-outputs.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L20","20",{}]]

@@ -1,0 +1,148 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+:HL["/covers/systems/probabilities-not-truth.svg","image"]
+2:T4ae,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why do AI models sound confident when wrong?","acceptedAnswer":{"@type":"Answer","text":"LLMs predict probable text, not true text. Confidence in output reflects statistical likelihood based on training patterns, not accuracy. A model generates the most probable continuation regardless of truth, so confident-sounding hallucinations are expected behavior."}},{"@type":"Question","name":"Is hallucination a bug or feature?","acceptedAnswer":{"@type":"Answer","text":"Hallucination is a feature of probabilistic systems, not a bug. The model is doing exactly what it was trained to do: predict the next likely token. Without grounding mechanisms (RAG, fact-checking, structured constraints), hallucination is inevitable."}},{"@type":"Question","name":"How should I treat model outputs?","acceptedAnswer":{"@type":"Answer","text":"Treat all model outputs as proposals requiring validation, not as facts. Build systems that verify outputs before acting on them, especially for consequential decisions. This shift from 'trust the AI' to 'verify the AI output' is fundamental to building reliable systems."}}]}0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Probabilities, Not Truth | Pruning My Pothos\",\"description\":\"Language models return the most probable continuation, not the true one. Why hallucination is structural, what accuracy misses, and how to treat any output.\",\"url\":\"https://pruningmypothos.com/systems/probabilities-not-truth/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/probabilities-not-truth/\"},\"datePublished\":\"2026-01-13\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/probabilities-not-truth.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Concepts"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Probabilities, Not Truth"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"Language models return the most probable continuation, not the true one. Why hallucination is structural, what accuracy misses, and how to treat any output."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L3","probability",{"href":"/tags/probability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","probability"]}],"$L4","$L5","$L6"]}]]}],"$L7","$undefined","$undefined","$undefined","$undefined","$undefined","$L8","$undefined","$L9","$undefined","$La"]}],null,"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+4:["$","$L3","hallucination",{"href":"/tags/hallucination/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","hallucination"]}]
+5:["$","$L3","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}]
+6:["$","$L3","mental-models",{"href":"/tags/mental-models/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","mental-models"]}]
+7:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/probabilities-not-truth.svg","alt":"Distribution curve showing confidence levels across possible outputs","className":"w-full h-full object-cover"}]}]
+c:T2808,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Large Language Models (LLMs) are <strong>probabilistic</strong>, not deterministic. They do not know what is true; they know what is <span class="highlight">likely</span>.</li>
+<li><strong>Hallucination</strong> is not a malfunction; it is the model doing exactly what it was trained to do (predict the next token) without a grounding in reality.</li>
+<li>Confidence is a style, not a metric of accuracy. A model can be 100% confident and 100% wrong.</li>
+<li>To build reliable systems, you must treat model outputs as <strong>proposals</strong>, not facts.</li>
+</ul>
+</blockquote>
+<figure class="diagram diagram-hero">
+  <svg viewBox="0 0 900 260" role="img" aria-labelledby="prob-hero-title prob-hero-desc" style="width: 100%; height: auto; display: block;">
+    <title id="prob-hero-title">Likelihood vs Truth</title>
+    <desc id="prob-hero-desc">A comparison between a Database (Truth lookup) and an LLM (Probability roll).</desc>
+
+    <!-- Left: Database -->
+    <g transform="translate(50, 40)">
+      <text x="100" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor" font-weight="bold">Database (Truth)</text>
+      <rect x="20" y="40" width="160" height="100" rx="4" fill="none" stroke="currentColor" stroke-width="2" />
+      <line x1="20" y1="70" x2="180" y2="70" stroke="currentColor" stroke-width="1" />
+      <line x1="20" y1="100" x2="180" y2="100" stroke="currentColor" stroke-width="1" />
+      <text x="100" y="90" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Fact: "Paris"</text>
+
+      <text x="100" y="170" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Query: "Capital?"</text>
+      <path d="M 100 130 V 150" stroke="currentColor" stroke-width="2" marker-start="url(#arrowhead)" />
+    </g>
+
+    <!-- Divider -->
+    <line x1="300" y1="20" x2="300" y2="240" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" />
+
+    <!-- Right: LLM -->
+    <g transform="translate(350, 40)">
+      <text x="250" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor" font-weight="bold">LLM (Probability)</text>
+
+      <!-- Input -->
+      <text x="50" y="100" font-family="var(--font-serif)" font-size="18" fill="currentColor">"The first person on Mars was"</text>
+
+      <!-- Probabilities -->
+      <g transform="translate(300, 60)">
+        <rect x="0" y="0" width="180" height="30" rx="4" fill="var(--color-blockquote-bg)" stroke="none" />
+        <rect x="0" y="0" width="90" height="30" rx="4" fill="var(--color-accent)" opacity="0.3" />
+        <text x="10" y="20" font-family="var(--font-mono)" font-size="12" fill="currentColor">John Boone (50%)</text>
+
+        <rect x="0" y="40" width="180" height="30" rx="4" fill="var(--color-blockquote-bg)" stroke="none" />
+        <rect x="0" y="40" width="54" height="30" rx="4" fill="var(--color-accent)" opacity="0.2" />
+        <text x="10" y="60" font-family="var(--font-mono)" font-size="12" fill="currentColor">Mark Watney (30%)</text>
+
+        <rect x="0" y="80" width="180" height="30" rx="4" fill="var(--color-blockquote-bg)" stroke="none" />
+        <rect x="0" y="80" width="36" height="30" rx="4" fill="var(--color-accent)" opacity="0.1" />
+        <text x="10" y="100" font-family="var(--font-mono)" font-size="12" fill="currentColor">Elon Musk (20%)</text>
+      </g>
+
+      <!-- Arrow -->
+      <path d="M 260 75 H 290" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+
+      <!-- Result -->
+      <text x="390" y="150" text-anchor="middle" font-family="var(--font-serif)" font-size="18" fill="var(--color-accent)" font-style="italic">"John Boone"</text>
+      <text x="390" y="170" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--color-text-muted)">(Plausible, but fiction)</text>
+    </g>
+
+  </svg>
+  <figcaption>Databases retrieve facts. Models generate plausible continuations.</figcaption>
+</figure>
+<p>If you ask a database for the capital of France, it looks up the row labeled &quot;France&quot; and returns &quot;Paris.&quot; If the row doesn&#39;t exist, it returns an error.</p>
+<p>If you ask an AI model for the capital of Mars, it doesn&#39;t look up a fact. It calculates which words are statistically most likely to follow the phrase &quot;The capital of Mars is...&quot; based on the science fiction and speculative texts it has read. It might confidently answer &quot;Elon City&quot; or &quot;Olympus Mons.&quot;</p>
+<p>This is the fundamental nature of the technology: it is a <strong>probability engine</strong>, not a truth engine.</p>
+<h3 id="why-do-models-sound-true-when-they-are-only-probable">Why do models sound true when they are only probable?</h3>
+<p>Models sound true because they are trained to continue authoritative language patterns, not to verify reality. This page is for readers who need a safer mental model for using AI in products and decisions, and the practical shift is to treat outputs as proposals that must be grounded, checked, or constrained.</p>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The fundamentals</summary>
+      <ol>
+        <li><a href="#the-confidence-trick">The Confidence Trick</a></li>
+        <li><a href="#hallucination-is-a-feature-not-a-bug">Hallucination Is a Feature, Not a Bug</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The modern paradigm</summary>
+      <ol>
+        <li><a href="#accuracy-vs-trustworthiness">Accuracy vs Trustworthiness</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Principles in practice</summary>
+      <ol>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-fundamentals">Act I: The fundamentals</h2>
+<h3 id="the-confidence-trick">The Confidence Trick</h3>
+<p>Why do models sound so confident even when they are wrong?</p>
+<p>Because they are trained on human writing, and humans usually write confidently. The model is mimicking the <strong>style</strong> of an authoritative answer.</p>
+<ul>
+<li><strong>Training Data:</strong> Wikipedia, textbooks, news articles (all authoritative styles).</li>
+<li><strong>Model Behavior:</strong> Predicts the next token that fits that authoritative style.</li>
+</ul>
+<p>If you ask a question, the most probable continuation is a confident answer, not a hesitant one. The model isn&#39;t &quot;feeling&quot; confident; it is simply completing the pattern of a confident expert.</p>
+<h3 id="hallucination-is-a-feature-not-a-bug">Hallucination Is a Feature, Not a Bug</h3>
+<p>We call it &quot;hallucination&quot; when the model makes things up. But to the model, there is no difference between &quot;recalling a fact&quot; and &quot;inventing a fact.&quot; Both are just predicting the next token.</p>
+<ul>
+<li><strong>Recall:</strong> &quot;The capital of France is [Paris].&quot; (High probability because &quot;Paris&quot; almost always follows).</li>
+<li><strong>Hallucination:</strong> &quot;The first person on Mars was [John Boone].&quot; (High probability because in the sci-fi context it read, this was true).</li>
+</ul>
+<p>The model is designed to be <strong>creative</strong> and <strong>fluent</strong>. The same mechanism that allows it to write a fictional story (a feature) allows it to invent a legal precedent (a bug). You cannot easily turn off one without killing the other.</p>
+<aside class="callout">
+  <p><strong>Insight.</strong> Hallucination is just "creativity" applied to the wrong context.</p>
+</aside>
+<h2 id="act-ii-the-modern-paradigm">Act II: The modern paradigm</h2>
+<h3 id="accuracy-vs-trustworthiness">Accuracy vs Trustworthiness</h3>
+<p>In traditional software, we expect 100% accuracy. If a calculator says 2+2=5, it is broken.</p>
+<p>In AI, we cannot expect 100% accuracy. Instead, we must design for <strong>trustworthiness</strong>.</p>
+<ul>
+<li><strong>Accuracy:</strong> Getting the right answer.</li>
+<li><strong>Trustworthiness:</strong> Knowing when you might be wrong.</li>
+</ul>
+<p>Current models are high-accuracy but low-trustworthiness. They are often right, but they don&#39;t know when they are wrong. This makes them dangerous if used without supervision.</p>
+<h2 id="act-iii-principles-in-practice">Act III: Principles in practice</h2>
+<p>The goal is not to eliminate uncertainty, but to design around it. If the system is probabilistic, then your workflows must be explicit about verification, constraints, and fallback paths.</p>
+<p>For related systems context, see <a href="/systems/systems-001-foundations/">Systems 001: Foundations</a> and <a href="/systems/from-prompt-to-production/">From Prompt to Production</a>. For grounding and retrieval patterns, see <a href="/systems/retrieval-augmented-generation-in-plain-terms/">Retrieval-Augmented Generation in Plain Terms</a>. To see how validation and evaluation datasets are used to measure uncertainty and grounding in practice, refer to the <a href="/shelf/shared-resources/retrieval-and-grounding-evaluation-kit/">retrieval and grounding evaluation kit</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Since we cannot rely on the model to be truthful, we must change how we build systems around it:</p>
+<ol>
+<li><strong>Grounding (RAG):</strong> Don&#39;t ask the model to &quot;know&quot; things. Give it a document and ask it to &quot;extract&quot; things. This forces it to use the provided context rather than its internal probabilities.</li>
+<li><strong>Verification:</strong> Never use an LLM for a high-stakes decision without a verification step (either a human review or a code-based check).</li>
+<li><strong>Citations:</strong> Ask the model to cite its sources. If it can&#39;t point to where it found the information in your provided text, it is likely hallucinating.</li>
+</ol>
+<p>Treat the model like a brilliant but prone-to-exaggeration intern. You give them the task, but you check their work.</p>
+8:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$c"}}]
+9:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Core mental model for AI reliability"}],["$","li","1",{"children":"Referenced in what-llms-are-optimized-for.mdx"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why do AI models sound confident when wrong?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"LLMs predict probable text, not true text. Confidence in output reflects statistical likelihood based on training patterns, not accuracy. A model generates the most probable continuation regardless of truth, so confident-sounding hallucinations are expected behavior."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Is hallucination a bug or feature?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Hallucination is a feature of probabilistic systems, not a bug. The model is doing exactly what it was trained to do: predict the next likely token. Without grounding mechanisms (RAG, fact-checking, structured constraints), hallucination is inevitable."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"How should I treat model outputs?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Treat all model outputs as proposals requiring validation, not as facts. Build systems that verify outputs before acting on them, especially for consequential decisions. This shift from 'trust the AI' to 'verify the AI output' is fundamental to building reliable systems."}]]}]]}]]}]]}]
+a:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L3",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L3",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+b:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

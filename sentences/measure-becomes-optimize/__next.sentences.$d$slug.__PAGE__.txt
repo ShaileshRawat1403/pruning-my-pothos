@@ -1,0 +1,27 @@
+1:"$Sreact.fragment"
+7:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+8:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+9:"$Sreact.suspense"
+2:T75b,<p>We tend to think of metrics as a neutral tool for understanding the world. But metrics are not neutral. They are a form of attention. They tell people what matters. And what people believe matters is what they will try to improve.</p>
+<figure class="content-figure figure-attention">
+  <svg viewBox="0 0 480 160" role="img" aria-labelledby="attention-measure-becomes-optimize-title">
+    <title id="attention-measure-becomes-optimize-title">Attention selects signal</title>
+    <rect class="figure-stroke" x="40" y="58" width="160" height="44" rx="10" fill="none" stroke-width="2" />
+    <rect class="figure-fill" x="280" y="58" width="160" height="44" rx="10" />
+    <path class="figure-accent" d="M200 80h80" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="200" cy="80" r="4" />
+    <circle class="figure-dot" cx="280" cy="80" r="4" />
+    <text class="figure-label" x="70" y="86">Noise</text>
+    <text class="figure-label figure-label-strong" x="306" y="86">Signal</text>
+  </svg>
+  <figcaption>Attention narrows input into signal.</figcaption>
+</figure>
+<p>This is Goodhart&#39;s Law: &quot;When a measure becomes a target, it ceases to be a good measure.&quot; The act of measuring something changes the behavior of the people being measured. They will find a way to make the number go up, even if it means sacrificing the underlying goal.</p>
+<p>This is not because people are malicious. It is because they are rational. They are responding to the incentives you have created. If you measure the number of lines of code, you will get more lines of code. If you measure customer satisfaction, you will get more satisfied customers.</p>
+<p><strong>What this changes in practice:</strong> Choose your metrics with extreme care. For every metric, ask yourself: &quot;What behavior will this incentivize? And is that the behavior I want?&quot;</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"The thing you measure becomes the thing you optimize. | Pruning My Pothos\",\"description\":\"Metrics steer behavior even when they are wrong.\",\"url\":\"https://pruningmypothos.com/sentences/measure-becomes-optimize/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Attention","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"The thing you measure becomes the thing you optimize."}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-purple/40 pl-4 py-1 text-sm sm:text-base","children":"Metrics steer behavior even when they are wrong."}],["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","metrics",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","metrics"]}],"$L3","$L4"]}],"$L5"]}],null,"$L6"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","span","feedback",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","feedback"]}]
+4:["$","span","attention",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","attention"]}]
+5:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L7",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+6:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
+a:null

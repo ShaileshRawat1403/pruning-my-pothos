@@ -1,0 +1,139 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","context-window-management-and-retrieval-pruning-strategies",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","context-window-management-and-retrieval-pruning-strategies","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Context Window Management and Retrieval Pruning Strategies | Pruning My Pothos\",\"description\":\"How to optimize LLM performance and reduce runtime token costs using token-counting, semantic re-ranking, and context pruning.\",\"url\":\"https://pruningmypothos.com/systems/context-window-management-and-retrieval-pruning-strategies/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/context-window-management-and-retrieval-pruning-strategies/\"},\"datePublished\":\"2026-06-28\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/context-window-management-and-retrieval-pruning-strategies.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What is context window pruning?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Context window pruning is the process of removing redundant, irrelevant, or low-similarity text segments from a model's prompt payload to minimize cost and latency.\"}},{\"@type\":\"Question\",\"name\":\"Why does context size degrade model recall?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"LLMs suffer from the 'lost in the middle' effect, where model recall drops dramatically for facts placed in the middle of long context windows.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Concepts"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Context Window Management and Retrieval Pruning Strategies"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"How to optimize LLM performance and reduce runtime token costs using token-counting, semantic re-ranking, and context pruning."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","context",{"href":"/tags/context/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","context"]}],["$","$L9","retrieval",{"href":"/tags/retrieval/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","retrieval"]}],["$","$L9","grounding",{"href":"/tags/grounding/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","grounding"]}],["$","$L9","performance",{"href":"/tags/performance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","performance"]}],"$L17"]}]]}],"$L18","$undefined","$undefined","$undefined","$undefined","$undefined","$L19","$undefined","$L1a","$undefined","$L1b"]}]
+:HL["/covers/systems/context-window-management-and-retrieval-pruning-strategies.svg","image"]
+17:["$","$L9","optimization",{"href":"/tags/optimization/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","optimization"]}]
+18:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/context-window-management-and-retrieval-pruning-strategies.svg","alt":"Visual representation of retrieval filtering and context window pruning","className":"w-full h-full object-cover"}]}]
+1c:T1c22,<p class="lead">Longer context windows are not a license for lazy retrieval; they are a resource constraints optimization surface.</p>
+
+<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Models perform best with concise, high-density prompts.</li>
+<li>The &#39;lost in the middle&#39; effect degrades recall as context size grows.</li>
+<li>Semantic pruning removes noise to reduce cost and runtime latency.</li>
+<li>Token budgets must be monitored and enforced programmatically at the API boundary.</li>
+</ul>
+</blockquote>
+<p>This guide is built for developers, operators, and architects managing high-throughput RAG systems. It covers the math and design patterns behind context window pruning and semantic compression.</p>
+<h3 id="what-is-context-window-pruning-in-retrieval-systems">What is context window pruning in retrieval systems?</h3>
+<p>Context window pruning is the programmatic extraction and compaction of prompt context to fit within a strict token budget. Rather than passing all retrieved database chunks directly to the model, pruning pipelines use semantic similarity, token counting, and cross-encoder re-ranking to discard low-value information, ensuring that only the most relevant context is fed into the LLM&#39;s active working memory.</p>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The cost of large context</summary>
+      <ol>
+        <li><a href="#the-lost-in-the-middle-phenomenon">The Lost in the Middle Phenomenon</a></li>
+        <li><a href="#operational-overhead">Operational Overhead</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Pruning strategies</summary>
+      <ol>
+        <li><a href="#semantic-filtering-and-re-ranking">Semantic Filtering and Re-ranking</a></li>
+        <li><a href="#naive-sliding-windows-vs-pruning">Naive Sliding Windows vs. Pruning</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Implementation rules</summary>
+      <ol>
+        <li><a href="#enforcing-token-budgets">Enforcing Token Budgets</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-cost-of-large-context">Act I: The cost of large context</h2>
+<h3 id="the-lost-in-the-middle-phenomenon">The Lost in the Middle Phenomenon</h3>
+<p>Modern Large Language Models advertise context capacities ranging from 32,000 to over 1 million tokens. This leads many teams to adopt a naive architecture: search for documents, retrieve the top 50 matches, and dump them wholesale into the system prompt. However, empirical studies show that a model&#39;s ability to locate and reason about information within its context is not uniform.</p>
+<p>When relevant facts are placed in the middle of a very long prompt, model retrieval accuracy drops significantly compared to when those same facts are located at the very beginning or end of the document. This is known as the <strong>Lost in the Middle</strong> effect.</p>
+<h3 id="operational-overhead">Operational Overhead</h3>
+<p>Beyond recall degradation, massive prompts introduce severe cost and speed penalties:</p>
+<ul>
+<li><strong>Financial Costs:</strong> API providers charge per token. Injecting 100k tokens of context for a simple query increases execution costs by orders of magnitude.</li>
+<li><strong>Latency (TTFT):</strong> Time-to-first-token scales linearly with prompt size. Large context windows slow down user interfaces and degrade developer experience.</li>
+<li><strong>Attention Waste:</strong> Probabilistic models can easily get distracted by irrelevant details, leading to weak reasoning paths.</li>
+</ul>
+<aside class="callout callout-insight">
+  <p><strong>Design rule.</strong> Every token added to a prompt should earn its place by improving validation outcomes.</p>
+</aside>
+<h2 id="act-ii-pruning-strategies">Act II: Pruning strategies</h2>
+<h3 id="semantic-filtering-and-re-ranking">Semantic Filtering and Re-ranking</h3>
+<p>An effective context management system uses a two-stage retrieval pipeline:</p>
+<ol>
+<li><strong>Broad Search:</strong> A bi-encoder retrieves the top 100 candidate passages using vector similarity.</li>
+<li><strong>Re-ranking &amp; Pruning:</strong> A cross-encoder model evaluates the query against each retrieved chunk to produce a precise relevance score. Chunks scoring below a specific threshold (e.g., 0.70) are immediately pruned.</li>
+</ol>
+<p><span class="highlight">Pruning should reduce raw context volume</span> by 70-90% before prompt assembly.</p>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Pruning Strategy</th>
+      <th>Implementation Cost</th>
+      <th>Context Utilization</th>
+      <th>Recall Reliability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Full Injection</strong></td>
+      <td>Low (No filtering)</td>
+      <td>Poor (Bloated, noisy)</td>
+      <td>Low (Lost in the middle)</td>
+    </tr>
+    <tr>
+      <td><strong>Naive Sliding Window</strong></td>
+      <td>Medium (Truncates text)</td>
+      <td>Fair (Cuts off early)</td>
+      <td>Medium (Loss of historical context)</td>
+    </tr>
+    <tr>
+      <td><strong>Semantic Pruning</strong></td>
+      <td>High (Requires re-ranker)</td>
+      <td>Optimal (High density)</td>
+      <td>High (Retains only relevant facts)</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="naive-sliding-windows-vs-pruning">Naive Sliding Windows vs. Pruning</h3>
+<p>A naive sliding window truncates historical logs or long documents once they exceed the token limit. This approach is highly destructive because it treats all parts of a document as equally important. In contrast, semantic pruning evaluates each section independently, dropping unhelpful paragraphs while retaining key configuration headers and summary lines, even if they appear early in the file.</p>
+<h2 id="act-iii-implementation-rules">Act III: Implementation rules</h2>
+<h3 id="enforcing-token-budgets">Enforcing Token Budgets</h3>
+<p>To prevent out-of-memory errors and runaways, the runtime must enforce strict token budgets at the system boundary:</p>
+<ul>
+<li><strong>Max Context Budget:</strong> Establish a hard limit (e.g., 16,000 tokens) for the entire payload.</li>
+<li><strong>Dynamic Allocation:</strong> Dedicate 10% of the budget to system instructions, 20% to history, 50% to retrieved context, and reserve 20% for the expected response generation.</li>
+<li><strong>Local Count Verification:</strong> Use local tokenizers (like <code>tiktoken</code>) to measure length before making remote API requests.</li>
+</ul>
+<p>For empirical data on how context window capacity changes model quality and when recall begins to bend, check out the <a href="/shelf/local-experiments/context-window-stress/">Context window stress test local experiment</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Treat context as a scarce resource. Implement semantic pruning, measure token usage locally before execution, and monitor TTFT latency metrics to keep retrieval loops performant.</p>
+19:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1c"}}]
+1a:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Tested on local models using the context window stress test dataset."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is context window pruning?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Context window pruning is the process of removing redundant, irrelevant, or low-similarity text segments from a model's prompt payload to minimize cost and latency."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why does context size degrade model recall?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"LLMs suffer from the 'lost in the middle' effect, where model recall drops dramatically for facts placed in the middle of long context windows."}]]}]]}]]}]]}]
+1b:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1d:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"Context Window Management and Retrieval Pruning Strategies | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"How to optimize LLM performance and reduce runtime token costs using token-counting, semantic re-ranking, and context pruning."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/context-window-management-and-retrieval-pruning-strategies/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"Context Window Management and Retrieval Pruning Strategies | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"How to optimize LLM performance and reduce runtime token costs using token-counting, semantic re-ranking, and context pruning."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/context-window-management-and-retrieval-pruning-strategies/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/context-window-management-and-retrieval-pruning-strategies.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Context Window Management and Retrieval Pruning Strategies | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"How to optimize LLM performance and reduce runtime token costs using token-counting, semantic re-ranking, and context pruning."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/context-window-management-and-retrieval-pruning-strategies.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L1d","20",{}]]

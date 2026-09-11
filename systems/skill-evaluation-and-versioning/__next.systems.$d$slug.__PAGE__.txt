@@ -1,0 +1,180 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+c:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+:HL["/covers/systems/skill-evaluation-and-versioning.svg","image"]
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Skill Evaluation and Versioning | Pruning My Pothos\",\"description\":\"How to define expected behavior, detect regressions, version skill changes safely, and decide when rollback is the right move.\",\"url\":\"https://pruningmypothos.com/systems/skill-evaluation-and-versioning/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/skill-evaluation-and-versioning/\"},\"datePublished\":\"2026-03-08\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/skill-evaluation-and-versioning.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What should be versioned in a skill?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Anything that changes expected behavior: instructions, constraints, tool permissions, output contracts, and escalation rules.\"}},{\"@type\":\"Question\",\"name\":\"When should a skill be rolled back?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"When the new version increases risk, breaks downstream expectations, or fails agreed test cases in ways that cannot be safely contained.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Explanations"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Skill Evaluation and Versioning"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"How to define expected behavior, detect regressions, version skill changes safely, and decide when rollback is the right move."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L2","skills",{"href":"/tags/skills/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","skills"]}],["$","$L2","evaluation",{"href":"/tags/evaluation/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","evaluation"]}],["$","$L2","workflow",{"href":"/tags/workflow/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","workflow"]}],["$","$L2","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}],"$L3","$L4"]}]]}],"$L5","$undefined","$undefined","$undefined","$undefined","$undefined","$L6","$undefined","$L7","$L8","$L9"]}],null,"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L2","governance",{"href":"/tags/governance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}]
+4:["$","$L2","versioning",{"href":"/tags/versioning/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","versioning"]}]
+5:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/skill-evaluation-and-versioning.svg","alt":"Skill versioning and evaluation cycle","className":"w-full h-full object-cover"}]}]
+b:T23b7,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Skills need expected behavior definitions before they need version numbers.</li>
+<li>Regression detection depends on stable test cases and clear output contracts.</li>
+<li>Versioning should track behavior changes, not only text edits.</li>
+<li>Rollback decisions should be based on impact and reversibility, not intuition alone.</li>
+</ul>
+</blockquote>
+<p>Once a skill becomes reusable, it creates a new operational problem: how do you change it safely? A prompt can be edited casually because its blast radius is often local. A skill is different. It may sit inside workflows, feed downstream systems, or operate under tool permissions that make changes consequential.</p>
+<p>That is why skills need evaluation and versioning. Without them, the same mechanism that makes a skill reusable also makes its failures repeatable at scale.</p>
+<h3 id="what-does-it-mean-to-evaluate-a-skill">What does it mean to evaluate a skill?</h3>
+<p>Evaluating a skill means checking whether it still performs its intended task under the expected inputs, constraints, and escalation rules. The evaluation should confirm not only output quality, but also whether the skill behaved within its contract.</p>
+<p>In practice, <span class="highlight">a skill version is only meaningful when the expected behavior is explicit</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> If a team cannot describe what changed in the behavior of a skill, versioning becomes record-keeping theater instead of an operational safeguard.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Define what should stay stable</summary>
+      <ol>
+        <li><a href="#expected-behavior-before-version-numbers">Expected behavior before version numbers</a></li>
+        <li><a href="#what-should-be-tested">What should be tested</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Detect and manage change</summary>
+      <ol>
+        <li><a href="#regression-detection">Regression detection</a></li>
+        <li><a href="#versioning-logic">Versioning logic</a></li>
+        <li><a href="#change-communication">Change communication</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Decide whether to keep or roll back</summary>
+      <ol>
+        <li><a href="#rollback-conditions">Rollback conditions</a></li>
+        <li><a href="#failure-patterns-to-watch">Failure patterns to watch</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-define-what-should-stay-stable">Act I: Define what should stay stable</h2>
+<h3 id="expected-behavior-before-version-numbers">Expected behavior before version numbers</h3>
+<p>Do not start with the version label. Start with the behavior that must remain understandable.</p>
+<p>A skill should define:</p>
+<ul>
+<li>what task it is supposed to accomplish</li>
+<li>what output shape it promises</li>
+<li>what constraints it should respect</li>
+<li>what circumstances require escalation</li>
+<li>what side effects are allowed or forbidden</li>
+</ul>
+<p>If these stay implicit, a version number does not help much. You can say the skill moved from <code>v1.2</code> to <code>v1.3</code>, but that does not explain whether the skill became safer, more permissive, more accurate, or more fragile.</p>
+<p>This is why <a href="/systems/designing-reusable-ai-skills/">Designing Reusable AI Skills</a> comes first. Design establishes the contract. Evaluation and versioning protect that contract over time.</p>
+<h3 id="what-should-be-tested">What should be tested</h3>
+<p>The most useful test set usually includes:</p>
+<ul>
+<li>one normal case</li>
+<li>one borderline case</li>
+<li>one failure or missing-input case</li>
+<li>one escalation-required case</li>
+</ul>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Test type</th>
+        <th>Question it answers</th>
+        <th>Signal to watch</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Nominal</strong></td>
+        <td>Does the skill behave as intended on standard input?</td>
+        <td>Output quality and contract fit</td>
+      </tr>
+      <tr>
+        <td><strong>Boundary</strong></td>
+        <td>Does it stay stable near ambiguity or thin context?</td>
+        <td>Consistency and overreach</td>
+      </tr>
+      <tr>
+        <td><strong>Failure</strong></td>
+        <td>Does it fail clearly when inputs are insufficient?</td>
+        <td>Graceful refusal or fallback</td>
+      </tr>
+      <tr>
+        <td><strong>Escalation</strong></td>
+        <td>Does it stop when risk or uncertainty is too high?</td>
+        <td>Correct handoff behavior</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<p>These do not need to become an overly large suite. They need to stay stable enough that behavior changes can be noticed early.</p>
+<h2 id="act-ii-detect-and-manage-change">Act II: Detect and manage change</h2>
+<h3 id="regression-detection">Regression detection</h3>
+<p>Regression detection is less about perfection than about noticing the wrong kind of drift.</p>
+<p>Useful regression signals include:</p>
+<ul>
+<li>output no longer matches the contract</li>
+<li>escalation happens less often when risk is unchanged</li>
+<li>the skill requires more context than before</li>
+<li>downstream workflows need extra correction</li>
+<li>a safer old behavior is replaced by a more confident but less bounded one</li>
+</ul>
+<p>This is the same logic used in <a href="/systems/evaluation-as-a-runtime-discipline/">Evaluation as a Runtime Discipline</a>. The skill should not only be judged on what it says, but on whether it still behaves correctly as part of a runtime system.</p>
+<h3 id="versioning-logic">Versioning logic</h3>
+<p>Versioning is useful when it reflects behavior, not only edits.</p>
+<p>A practical rule:</p>
+<ul>
+<li><strong>patch-level change</strong>: wording or structure improved without changing behavior expectations</li>
+<li><strong>minor change</strong>: behavior expanded or tightened without changing the core purpose</li>
+<li><strong>major change</strong>: output contract, tool authority, or escalation logic changed in a way that affects downstream use</li>
+</ul>
+<p>The exact labels matter less than consistency. People using the skill should be able to tell whether the change is cosmetic, operational, or breaking.</p>
+<p>If you want a compact starting structure, use the <a href="/shelf/shared-resources/ai-skill-design-templates/">AI skill design templates</a> page and treat the review template as the minimum change log.</p>
+<h3 id="change-communication">Change communication</h3>
+<p>Versioning fails when no one knows what changed.</p>
+<p>Good change communication includes:</p>
+<ul>
+<li>short summary of what changed</li>
+<li>expected behavior difference</li>
+<li>affected workflows or downstream dependencies</li>
+<li>test cases used for verification</li>
+<li>any rollback caveats</li>
+</ul>
+<p>This is where skill design starts to look more like software operations than prompt curation. That is a good sign.</p>
+<h2 id="act-iii-decide-whether-to-keep-or-roll-back">Act III: Decide whether to keep or roll back</h2>
+<h3 id="rollback-conditions">Rollback conditions</h3>
+<p>Rollback should not feel dramatic. It should be a normal response to the wrong kind of change.</p>
+<p>Rollback is usually appropriate when:</p>
+<ul>
+<li>the skill violates its output contract</li>
+<li>tool or side-effect boundaries become less safe</li>
+<li>key test cases fail</li>
+<li>downstream workflows degrade noticeably</li>
+<li>escalation behavior weakens under uncertainty</li>
+</ul>
+<p>Rollback is especially important when the skill is reused in several places. The cost of one bad change compounds quickly when reuse is the whole point.</p>
+<h3 id="failure-patterns-to-watch">Failure patterns to watch</h3>
+<p>Several patterns often indicate that a skill needs rollback or redesign:</p>
+<ul>
+<li>success rate appears stable but manual correction rises</li>
+<li>a version improves one case by weakening boundary behavior elsewhere</li>
+<li>the skill becomes more verbose instead of more reliable</li>
+<li>the team cannot explain why the new version should be trusted more</li>
+<li>&quot;small&quot; edits repeatedly change how downstream systems must interpret the output</li>
+</ul>
+<p>These are operational warnings, not editorial preferences.</p>
+<p>For the conceptual layer, see <a href="/systems/what-a-skill-is-in-ai-systems/">What a Skill Is in AI Systems</a>. For the comparison layer, see <a href="/systems/skills-vs-prompts-vs-agents/">Skills vs Prompts vs Agents</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>You stop treating skill updates as casual prompt edits and start treating them as controlled behavior changes that need tests, versions, and rollback logic.</p>
+6:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$b"}}]
+7:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"This page gives the skills cluster a direct operational layer for testing, regression control, and rollback logic."}],["$","li","1",{"children":"Versioning guidance is linked back to the template asset and the reusable-skill design page."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What should be versioned in a skill?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Anything that changes expected behavior: instructions, constraints, tool permissions, output contracts, and escalation rules."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"When should a skill be rolled back?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"When the new version increases risk, breaks downstream expectations, or fails agreed test cases in ways that cannot be safely contained."}]]}]]}]]}]]}]
+8:["$","nav",null,{"className":"explainer-related","aria-label":"Related reading","children":[["$","span",null,{"className":"explainer-kicker","children":"Follow this through"}],["$","ul",null,{"children":[["$","li","/systems/skills-vs-prompts-vs-agents/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"explainer"}],["$","a",null,{"href":"/systems/skills-vs-prompts-vs-agents/","children":"Skills vs Prompts vs Agents"}],["$","span",null,{"className":"explainer-related-note","children":"Where a prompt ends, a skill begins, and an agent takes over."}]]}],["$","li","/systems/designing-reusable-ai-skills/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"playbook"}],["$","a",null,{"href":"/systems/designing-reusable-ai-skills/","children":"Designing Reusable AI Skills"}],["$","span",null,{"className":"explainer-related-note","children":"Defining the boundaries this page then tests."}]]}],["$","li","/tools/csv-to-eval/",{"children":[["$","span",null,{"className":"explainer-related-type","children":"tool"}],["$","a",null,{"href":"/tools/csv-to-eval/","children":"CSV to eval harness"}],["$","span",null,{"className":"explainer-related-note","children":"Turn a table of cases into an eval you can run."}]]}]]}]]}]
+9:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L2",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L2",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

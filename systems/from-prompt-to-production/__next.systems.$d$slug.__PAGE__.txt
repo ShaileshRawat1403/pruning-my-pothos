@@ -1,0 +1,168 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+:HL["/covers/systems/from-prompt-to-production.svg","image"]
+2:T4b6,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the 7 steps from prompt to production?","acceptedAnswer":{"@type":"Answer","text":"The 7 steps are: (1) Define intent and success criteria, (2) Assess risks and failure modes, (3) Design the interface boundary, (4) Validate output quality, (5) Monitor runtime behavior, (6) Implement human fallback, and (7) Document and version the workflow."}},{"@type":"Question","name":"Why is a prompt in production considered a contract?","acceptedAnswer":{"@type":"Answer","text":"A prompt in production defines what the system should do, under what conditions, and what counts as success. Unlike playground testing, production prompts cannot be easily changed mid-execution. This contract must be explicit, versioned, and tested before deployment."}},{"@type":"Question","name":"What makes guardrails essential, not optional?","acceptedAnswer":{"@type":"Answer","text":"Guardrails prevent unintended actions, contain costs, protect against prompt injection, and provide audit trails. Without guardrails, AI systems can exceed their intended scope, produce harmful outputs, or consume resources unpredictably."}}]}0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"From Prompt to Production: A Human Checklist | Pruning My Pothos\",\"description\":\"A rigorous 7-step framework to move from it works on my machine to a resilient, governed AI workflow.\",\"url\":\"https://pruningmypothos.com/systems/from-prompt-to-production/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/from-prompt-to-production/\"},\"datePublished\":\"2026-01-13\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/from-prompt-to-production.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"How-things-fit-together"}],[["$","span",null,{"children":"•"}],["$","span",null,{"children":[10," min read"]}]],[["$","span",null,{"children":"•"}],["$","span",null,{"children":"advanced"}]],[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"From Prompt to Production: A Human Checklist"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"A rigorous 7-step framework to move from it works on my machine to a resilient, governed AI workflow."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L3","checklist",{"href":"/tags/checklist/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","checklist"]}],"$L4","$L5","$L6"]}]]}],"$L7","$undefined","$undefined","$undefined","$undefined","$undefined","$L8","$undefined","$L9","$undefined","$La"]}],null,"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+4:["$","$L3","deployment",{"href":"/tags/deployment/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","deployment"]}]
+5:["$","$L3","production",{"href":"/tags/production/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","production"]}]
+6:["$","$L3","safety",{"href":"/tags/safety/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","safety"]}]
+7:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/from-prompt-to-production.svg","alt":"Production checklist steps","className":"w-full h-full object-cover"}]}]
+c:T25a8,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>A prompt in a playground is a prototype; a prompt in production is a <span class="highlight">contract</span>.</li>
+<li>You must define <strong>intent</strong> and <strong>success criteria</strong> before writing a single line of instruction.</li>
+<li><strong>Guardrails</strong> are not optional features; they are the safety belts of the system.</li>
+<li><strong>Human fallback</strong> is the ultimate error handler for probabilistic systems.</li>
+</ul>
+</blockquote>
+<figure class="diagram diagram-hero">
+  <svg viewBox="0 0 900 260" role="img" aria-labelledby="checklist-hero-title checklist-hero-desc" style="width: 100%; height: auto; display: block;">
+    <title id="checklist-hero-title">The Production Path</title>
+    <desc id="checklist-hero-desc">A stepped path showing Intent, Risk, Interface, Validate, Monitor, and Fallback.</desc>
+    <line x1="100" y1="130" x2="800" y2="130" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" />
+
+    <!-- Step 1 -->
+    <circle cx="150" cy="130" r="20" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
+    <text x="150" y="135" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">1</text>
+    <text x="150" y="170" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Intent</text>
+
+    <!-- Step 2 -->
+    <circle cx="270" cy="130" r="20" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
+    <text x="270" y="135" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">2</text>
+    <text x="270" y="170" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Risk</text>
+
+    <!-- Step 3 -->
+    <circle cx="390" cy="130" r="20" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
+    <text x="390" y="135" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">3</text>
+    <text x="390" y="170" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Interface</text>
+
+    <!-- Step 4 -->
+    <circle cx="510" cy="130" r="20" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
+    <text x="510" y="135" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">4</text>
+    <text x="510" y="170" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Validate</text>
+
+    <!-- Step 5 -->
+    <circle cx="630" cy="130" r="20" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
+    <text x="630" y="135" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">5</text>
+    <text x="630" y="170" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Monitor</text>
+
+    <!-- Step 6 -->
+    <circle cx="750" cy="130" r="20" fill="var(--color-accent)" stroke="none" />
+    <text x="750" y="135" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="#fff">6</text>
+    <text x="750" y="170" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-accent)">Fallback</text>
+
+  </svg>
+  <figcaption>Don't skip steps. The cost of fixing AI in production is 10x the cost of design.</figcaption>
+</figure>
+<p>It is easy to get an LLM to do something cool once. It is hard to get it to do something useful 10,000 times in a row without embarrassing the company.</p>
+<p>This checklist is designed for <strong>non-technical leaders</strong> and <strong>product owners</strong> who are deploying AI workflows. It forces you to slow down and think about the system, not just the magic.</p>
+<h3 id="what-changes-when-a-prompt-becomes-production-software">What changes when a prompt becomes production software?</h3>
+<p>The moment a prompt becomes production software, it stops being a clever instruction and becomes a managed operating contract. This guide is for product teams and leaders turning prototypes into repeatable workflows, and the real shift is from isolated prompting to defined interfaces, evaluation, monitoring, and fallback.</p>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The fundamentals</summary>
+      <ol>
+        <li><a href="#define-intent-the-contract">Define Intent (The Contract)</a></li>
+        <li><a href="#identify-risks-the-red-team">Identify Risks (The Red Team)</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The modern paradigm</summary>
+      <ol>
+        <li><a href="#set-inputsoutputs-the-interface">Set Inputs/Outputs (The Interface)</a></li>
+        <li><a href="#validate-the-eval">Validate (The Eval)</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Principles in practice</summary>
+      <ol>
+        <li><a href="#monitor-drift-the-pulse">Monitor Drift (The Pulse)</a></li>
+        <li><a href="#human-fallback-the-safety-net">Human Fallback (The Safety Net)</a></li>
+        <li><a href="#related-resources">Related resources</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-fundamentals">Act I: The fundamentals</h2>
+<h3 id="define-intent-the-contract">Define Intent (The Contract)</h3>
+<p>Before writing a prompt, write a sentence describing exactly what the AI should do—and what it should <strong>not</strong> do.</p>
+<ul>
+<li><strong>Goal:</strong> &quot;Summarize customer support tickets.&quot;</li>
+<li><strong>Constraint:</strong> &quot;Do not invent details. If the ticket is unclear, state &#39;Unclear&#39;.&quot;</li>
+<li><strong>Persona:</strong> &quot;Act as a senior support agent.&quot;</li>
+</ul>
+<h3 id="identify-risks-the-red-team">Identify Risks (The Red Team)</h3>
+<p>What is the worst thing that could happen? Be specific.</p>
+<ul>
+<li><strong>Hallucination:</strong> Inventing a refund policy that doesn&#39;t exist.</li>
+<li><strong>Toxicity:</strong> Responding rudely to an angry customer.</li>
+<li><strong>Data Leak:</strong> Revealing one customer&#39;s data to another.</li>
+</ul>
+<aside class="callout">
+  <p><strong>Action:</strong> Create a "Red Team" document where you try to break your own prompt. Feed it confusing, angry, or malicious inputs and see what happens.</p>
+</aside>
+<h2 id="act-ii-the-modern-paradigm">Act II: The modern paradigm</h2>
+<h3 id="set-inputsoutputs-the-interface">Set Inputs/Outputs (The Interface)</h3>
+<p>Natural language is fluid, but your business systems are not. Define the structure.</p>
+<ul>
+<li><strong>Input:</strong> &quot;Raw text from email body, truncated to 2000 tokens.&quot;</li>
+<li><strong>Output:</strong> &quot;JSON object containing <code>{ summary, sentiment, urgency_score }</code>.&quot;</li>
+</ul>
+<p>Forcing the model to output structured data (JSON) is the single best way to make it reliable for software integration.</p>
+<p>Here is a simple <strong>prompt contract</strong> you can copy into your docs or configs:</p>
+<pre><code class="language-yaml">intent: summarize_support_ticket
+inputs:
+  - id: ticket_body
+    type: string
+outputs:
+  - id: summary
+    type: string
+  - id: sentiment
+    type: string
+constraints:
+  max_words: 120
+  pii: disallow
+</code></pre>
+<h3 id="validate-the-eval">Validate (The Eval)</h3>
+<p>Do not deploy until you have run your prompt against at least 50 examples.</p>
+<ul>
+<li><strong>Gold Set:</strong> 50 real examples from history.</li>
+<li><strong>Metric:</strong> How many did it get right?</li>
+<li><strong>Threshold:</strong> &quot;We will not deploy until accuracy &gt; 90%.&quot;</li>
+</ul>
+<h2 id="act-iii-principles-in-practice">Act III: Principles in practice</h2>
+<h3 id="monitor-drift-the-pulse">Monitor Drift (The Pulse)</h3>
+<p>Once deployed, the system will degrade. Not because the code rots, but because the world changes.</p>
+<ul>
+<li><strong>Log everything:</strong> Save every input and output.</li>
+<li><strong>Spot checks:</strong> Have a human review 1% of daily traffic.</li>
+<li><strong>User feedback:</strong> Add a &quot;thumbs down&quot; button. If a user clicks it, that data point goes straight to the engineering team.</li>
+</ul>
+<h3 id="human-fallback-the-safety-net">Human Fallback (The Safety Net)</h3>
+<p>Probabilistic systems <strong>will</strong> fail. You need a plan for when (not if) that happens.</p>
+<figure class="diagram">
+  <iframe src="/scenes/human-fallback-flow.html" title="Human Fallback Flow" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>The "Human in the Loop" is not a bug; it's a feature of high-reliability systems.</figcaption>
+</figure>
+<p>If the AI&#39;s confidence score is low, or if a guardrail is triggered, the system should <strong>fail gracefully</strong> to a human. Do not show the user a hallucination. Show them a message: <em>&quot;I&#39;m not sure about that, let me connect you to a specialist.&quot;</em></p>
+<h3 id="related-resources">Related resources</h3>
+<ul>
+<li><a href="/shelf/shared-resources/architecting-agent-intelligence-deck/">Architecting Agent Intelligence deck</a></li>
+<li><a href="/shelf/shared-resources/code-the-omnichannel-system-deck/">Code the Omnichannel System deck</a></li>
+</ul>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Ship fewer demos and more reliable systems: lock intent, validate early, and plan for human fallback before launch.</p>
+<hr>
+8:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$c"}}]
+9:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"7-step production checklist covering Intent, Risk, Interface, Validate, Monitor, and Fallback"}],["$","li","1",{"children":"Practical deployment framework used in NLPg-driven SDLC"}],["$","li","2",{"children":"Referenced in from-ad-hoc-prompts-to-repeatable-agent-workflows.mdx"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What are the 7 steps from prompt to production?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"The 7 steps are: (1) Define intent and success criteria, (2) Assess risks and failure modes, (3) Design the interface boundary, (4) Validate output quality, (5) Monitor runtime behavior, (6) Implement human fallback, and (7) Document and version the workflow."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why is a prompt in production considered a contract?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"A prompt in production defines what the system should do, under what conditions, and what counts as success. Unlike playground testing, production prompts cannot be easily changed mid-execution. This contract must be explicit, versioned, and tested before deployment."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What makes guardrails essential, not optional?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Guardrails prevent unintended actions, contain costs, protect against prompt injection, and provide audit trails. Without guardrails, AI systems can exceed their intended scope, produce harmful outputs, or consume resources unpredictably."}]]}]]}]]}]]}]
+a:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L3",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L3",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+b:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

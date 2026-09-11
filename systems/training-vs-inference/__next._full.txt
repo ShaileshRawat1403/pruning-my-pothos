@@ -1,0 +1,186 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","training-vs-inference",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","training-vs-inference","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+17:T473,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between training and inference?","acceptedAnswer":{"@type":"Answer","text":"Training is the expensive, one-time process of teaching a model language patterns from scratch by adjusting billions of weights. Inference is using the trained model to generate predictions. Most business applications use inference exclusively."}},{"@type":"Question","name":"When should I fine-tune vs use RAG?","acceptedAnswer":{"@type":"Answer","text":"Fine-tune when you need consistent style, format, or domain-specific reasoning patterns that cannot be reliably injected via prompts. Use RAG when you need access to specific, changing, or private information. RAG is usually cheaper and faster to implement."}},{"@type":"Question","name":"Do models learn from my prompts?","acceptedAnswer":{"@type":"Answer","text":"No. During inference, models do not learn or update their weights. Each conversation is independent from the model's perspective. Customization during inference comes from context (prompts + RAG), not model modification."}}]}c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Training, Fine-Tuning, and Inference | Pruning My Pothos\",\"description\":\"Clarifying the AI lifecycle. Why you probably do not need to train a model, and where business value is actually created.\",\"url\":\"https://pruningmypothos.com/systems/training-vs-inference/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/training-vs-inference/\"},\"datePublished\":\"2026-01-13\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/training-vs-inference.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$17"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Concepts"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Training, Fine-Tuning, and Inference"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"Clarifying the AI lifecycle. Why you probably do not need to train a model, and where business value is actually created."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","training",{"href":"/tags/training/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","training"]}],["$","$L9","inference",{"href":"/tags/inference/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","inference"]}],"$L18","$L19"]}]]}],"$L1a","$undefined","$undefined","$undefined","$undefined","$undefined","$L1b","$undefined","$L1c","$undefined","$L1d"]}]
+:HL["/covers/systems/training-vs-inference.svg","image"]
+18:["$","$L9","fine-tuning",{"href":"/tags/fine-tuning/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","fine-tuning"]}]
+19:["$","$L9","lifecycle",{"href":"/tags/lifecycle/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","lifecycle"]}]
+1a:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/training-vs-inference.svg","alt":"Training and inference lifecycle diagram","className":"w-full h-full object-cover"}]}]
+1e:T2abe,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li><strong>Training</strong> is the expensive process of teaching a model language patterns from scratch.</li>
+<li><strong>Fine-tuning</strong> is adapting an existing model to a specific style or task.</li>
+<li><strong>Inference</strong> is using the model to generate text. This is where 99% of business applications live.</li>
+<li>A model does not &quot;learn&quot; from your prompts during inference; it only uses them as temporary context.</li>
+<li>Most business customization happens via <strong>Context (RAG)</strong>, not training.</li>
+</ul>
+</blockquote>
+<figure class="diagram diagram-hero">
+  <svg viewBox="0 0 900 260" role="img" aria-labelledby="lifecycle-hero-title lifecycle-hero-desc" style="width: 100%; height: auto; display: block;">
+    <title id="lifecycle-hero-title">The AI Lifecycle</title>
+    <desc id="lifecycle-hero-desc">Three stages: Pre-training (General Knowledge), Fine-tuning (Specialization), and Inference (Application).</desc>
+
+    <!-- Stage 1: Pre-training -->
+    <g transform="translate(50, 40)">
+      <text x="100" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">STAGE 1</text>
+      <text x="100" y="40" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor" font-weight="bold">Pre-training</text>
+      <rect x="20" y="60" width="160" height="100" rx="8" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" />
+      <text x="100" y="115" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">The Internet</text>
+      <text x="100" y="180" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">Months / $$</text>
+    </g>
+
+    <path d="M 220 110 H 260" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+
+    <!-- Stage 2: Fine-tuning -->
+    <g transform="translate(270, 40)">
+      <text x="100" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">STAGE 2</text>
+      <text x="100" y="40" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor" font-weight="bold">Fine-tuning</text>
+      <rect x="20" y="60" width="160" height="100" rx="8" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
+      <rect x="40" y="80" width="120" height="60" rx="4" fill="var(--color-accent)" opacity="0.1" />
+      <text x="100" y="115" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Specialized Data</text>
+      <text x="100" y="180" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">Hours / $</text>
+    </g>
+
+    <path d="M 440 110 H 480" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+
+    <!-- Stage 3: Inference -->
+    <g transform="translate(490, 40)">
+      <text x="100" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">STAGE 3</text>
+      <text x="100" y="40" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor" font-weight="bold">Inference</text>
+      <rect x="20" y="60" width="160" height="100" rx="8" fill="var(--color-blockquote-bg)" stroke="currentColor" stroke-width="2" />
+      <text x="100" y="115" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Your Prompt</text>
+      <text x="100" y="180" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">Milliseconds / ¢</text>
+    </g>
+
+    <!-- Output Arrow -->
+    <path d="M 660 110 H 700" stroke="var(--color-accent)" stroke-width="2" marker-end="url(#arrowhead)" />
+    <text x="750" y="115" text-anchor="middle" font-family="var(--font-serif)" font-size="18" fill="var(--color-accent)">Value</text>
+
+  </svg>
+  <figcaption>Most organizations only ever operate in Stage 3.</figcaption>
+</figure>
+<p>There is a persistent myth that to use AI for your business, you need to &quot;train&quot; it on your data. This is almost always wrong.</p>
+<p>Understanding the difference between training, fine-tuning, and inference is critical for making the right architectural decisions. It is the difference between building a car engine (Training), tuning the suspension for a race (Fine-tuning), and driving to the grocery store (Inference).</p>
+<h3 id="what-is-the-difference-between-training-fine-tuning-and-inference">What is the difference between training, fine-tuning, and inference?</h3>
+<p>Training creates the base model, fine-tuning adjusts behavior, and inference is the runtime where almost all product value is delivered. This page is for teams trying to avoid expensive architectural confusion, and the key decision is usually whether a problem needs better context and retrieval rather than a new model-training effort.</p>
+<p>In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The fundamentals</summary>
+      <ol>
+        <li><a href="#training-building-the-brain">Training: Building the Brain</a></li>
+        <li><a href="#fine-tuning-specialized-education">Fine-Tuning: Specialized Education</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The modern paradigm</summary>
+      <ol>
+        <li><a href="#inference-the-runtime">Inference: The Runtime</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Principles in practice</summary>
+      <ol>
+        <li><a href="#why-you-probably-dont-need-to-train">Why You Probably Don't Need to Train</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-fundamentals">Act I: The fundamentals</h2>
+<h3 id="training-building-the-brain">Training: Building the Brain</h3>
+<p><strong>Pre-training</strong> is the process of creating a base model (like GPT-4 or Claude). It involves feeding a neural network trillions of tokens of text from the internet.</p>
+<ul>
+<li><strong>Goal:</strong> Teach the model the structure of language, facts about the world, and reasoning patterns.</li>
+<li><strong>Cost:</strong> Millions of dollars.</li>
+<li><strong>Outcome:</strong> A &quot;Base Model&quot; that can predict the next word but has no specific personality or instruction-following ability.</li>
+</ul>
+<p>You will likely never do this.</p>
+<h3 id="fine-tuning-specialized-education">Fine-Tuning: Specialized Education</h3>
+<p><strong>Fine-tuning</strong> takes a base model and trains it further on a smaller, curated dataset.</p>
+<ul>
+<li><strong>Goal:</strong> Adapt the model to a specific task (e.g., writing code, speaking medical jargon) or style (e.g., &quot;always answer in JSON&quot;).</li>
+<li><strong>Cost:</strong> Hundreds to thousands of dollars.</li>
+<li><strong>Outcome:</strong> A model that is better at <em>one thing</em> but potentially worse at general tasks.</li>
+</ul>
+<p>Fine-tuning changes the model&#39;s weights. It is permanent. It is useful when you need the model to learn a new &quot;grammar&quot; or &quot;behavior&quot; that is too complex to explain in a prompt.</p>
+<h2 id="act-ii-the-modern-paradigm">Act II: The modern paradigm</h2>
+<h3 id="inference-the-runtime">Inference: The Runtime</h3>
+<p><strong>Inference</strong> is what happens when you send a prompt to ChatGPT or an API. The model is &quot;frozen.&quot; It does not change. It simply processes your input and predicts the output.</p>
+<ul>
+<li><strong>Goal:</strong> Solve a specific problem right now.</li>
+<li><strong>Cost:</strong> Fractions of a cent per request.</li>
+<li><strong>Outcome:</strong> Immediate value.</li>
+</ul>
+<p>Crucially, <strong>inference is stateless</strong>. If you tell the model &quot;My name is Sarah&quot; in one chat, and then open a new chat, it does not know your name. It did not &quot;learn&quot; anything; it just held your name in its temporary working memory (context window) for that session.</p>
+<h2 id="act-iii-principles-in-practice">Act III: Principles in practice</h2>
+<h3 id="why-you-probably-dont-need-to-train">Why You Probably Don&#39;t Need to Train</h3>
+<p>Business leaders often say, &quot;We need to train a model on our documents.&quot;</p>
+<p>What they usually mean is: &quot;We need the model to <em>know</em> about our documents.&quot;</p>
+<p>You do not achieve this by training. You achieve this by <strong>Retrieval-Augmented Generation (RAG)</strong>.</p>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Analogy</th>
+      <th>Best For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Training</strong></td>
+      <td>Sending a child to school for 12 years.</td>
+      <td>Creating a new foundation of intelligence.</td>
+    </tr>
+    <tr>
+      <td><strong>Fine-Tuning</strong></td>
+      <td>Sending a graduate to medical school.</td>
+      <td>Teaching specific jargon, style, or format.</td>
+    </tr>
+    <tr>
+      <td><strong>RAG (Context)</strong></td>
+      <td>Giving a doctor a patient's file to read.</td>
+      <td>Answering questions about specific, private data.</td>
+    </tr>
+  </tbody>
+</table>
+<p>For related systems context, see <a href="/systems/systems-001-foundations/">Systems 001: Foundations</a> and <a href="/systems/from-prompt-to-production/">From Prompt to Production</a>. For the retrieval-first alternative, see <a href="/systems/retrieval-augmented-generation-in-plain-terms/">Retrieval-Augmented Generation in Plain Terms</a>. To see how local compute resources are configured for running inference baseline tests, review the <a href="/shelf/local-experiments/ollama-setup-baseline/">Ollama setup baseline experiment</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<ol>
+<li><strong>Stop asking for &quot;training&quot;:</strong> Ask for &quot;context&quot; or &quot;knowledge retrieval.&quot;</li>
+<li><strong>Use RAG for facts:</strong> If you want the model to know your company policy, put the policy in the prompt (or use RAG). Do not fine-tune on it. Fine-tuning is for <em>behavior</em>, not <em>knowledge</em>.</li>
+<li><strong>Treat prompts as transient:</strong> Remember that nothing you type into the model sticks. If you want persistence, you must build it into your application layer (database), not the model layer.</li>
+</ol>
+1b:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1e"}}]
+1c:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Core lifecycle reference document"}],["$","li","1",{"children":"Referenced in what-an-ai-model-actually-is.mdx"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is the difference between training and inference?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Training is the expensive, one-time process of teaching a model language patterns from scratch by adjusting billions of weights. Inference is using the trained model to generate predictions. Most business applications use inference exclusively."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"When should I fine-tune vs use RAG?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Fine-tune when you need consistent style, format, or domain-specific reasoning patterns that cannot be reliably injected via prompts. Use RAG when you need access to specific, changing, or private information. RAG is usually cheaper and faster to implement."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Do models learn from my prompts?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"No. During inference, models do not learn or update their weights. Each conversation is independent from the model's perspective. Customization during inference comes from context (prompts + RAG), not model modification."}]]}]]}]]}]]}]
+1d:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1f:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"Training, Fine-Tuning, and Inference | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"Clarifying the AI lifecycle. Why you probably do not need to train a model, and where business value is actually created."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/training-vs-inference/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"Training, Fine-Tuning, and Inference | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"Clarifying the AI lifecycle. Why you probably do not need to train a model, and where business value is actually created."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/training-vs-inference/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/training-vs-inference.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Training, Fine-Tuning, and Inference | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"Clarifying the AI lifecycle. Why you probably do not need to train a model, and where business value is actually created."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/training-vs-inference.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L1f","20",{}]]

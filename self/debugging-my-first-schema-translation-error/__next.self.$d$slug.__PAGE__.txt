@@ -1,0 +1,28 @@
+1:"$Sreact.fragment"
+6:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+2:T85b,<p class="lead">A single missing key in a JSON payload taught me that assumptions are the weakest link in any system integration.</p>
+
+<p>We had built what we believed was a robust agentic workflow. The model generated clean JSON, the parsing was smooth, and the initial tests were all green. We felt confident that our prompt constraints would prevent formatting errors.</p>
+<p>Then, we updated the system prompt to add a minor instruction. Suddenly, the model began returning a list of strings instead of a single string for one key. The parser threw an unhandled exception, and the entire pipeline stalled.</p>
+<p>I spent hours debugging what was ultimately a translation error. <span class="highlight">The failure occurred because we had treated the model output as a guaranteed database row rather than a probabilistic stream.</span></p>
+<p>This experience forced us to rethink our architecture. We realized that we had built integration points on assumptions. We immediately rewrote our integration layers to include strict runtime contract validation.</p>
+<figure class="content-figure">
+<svg viewBox="0 0 560 160" role="img" aria-labelledby="self-schema-translation-error-title">
+  <title id="self-schema-translation-error-title">Validation prevents propagation</title>
+  <rect class="figure-stroke" x="26" y="52" width="120" height="54" rx="12" fill="none" stroke-width="2" />
+  <rect class="figure-fill" x="414" y="52" width="120" height="54" rx="12" />
+  <text class="figure-label" x="86" y="84" text-anchor="middle">Model</text>
+  <text class="figure-label" x="270" y="84" text-anchor="middle">Validate</text>
+  <text class="figure-label figure-label-strong" x="474" y="84" text-anchor="middle">System</text>
+  <path class="figure-accent" d="M146 79h262" stroke-width="3" stroke-linecap="round" />
+</svg>
+<figcaption>Strict boundaries isolate model variability from downstream components.</figcaption>
+</figure>
+<p>I think of the integration layer as a defense system. I no longer assume the generator will follow instructions. Instead, I validate at the boundary, ensuring the core logic is protected from upstream drift.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Debugging My First Schema Translation Error | Pruning My Pothos\",\"description\":\"A reflection on how a minor change in structured output syntax broke our downstream processing.\",\"url\":\"https://pruningmypothos.com/self/debugging-my-first-schema-translation-error/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Published: ","June 17, 2026","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Debugging My First Schema Translation Error"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-pink/40 pl-4 py-1 text-sm sm:text-base","children":"A reflection on how a minor change in structured output syntax broke our downstream processing."}],"$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4"]}],null,"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","integration",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","integration"]}],["$","span","schemas",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","schemas"]}],["$","span","debugging",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","debugging"]}],["$","span","practice",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","practice"]}],["$","span","reflection",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reflection"]}]]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L6",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

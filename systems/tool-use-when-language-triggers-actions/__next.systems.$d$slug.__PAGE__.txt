@@ -1,0 +1,83 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+:HL["/covers/systems/tool-use-when-language-triggers-actions.svg","image"]
+2:T4d1,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why does tool use change accountability?","acceptedAnswer":{"@type":"Answer","text":"Tool use turns language into actions, not just answers. When an AI can execute code, query databases, or call APIs, its outputs have real-world consequences. This shifts accountability from 'a helpful response' to 'responsible execution' and requires guardrails, verification, and audit logs."}},{"@type":"Question","name":"What guardrails are needed for AI tool use?","acceptedAnswer":{"@type":"Answer","text":"Guardrails for tool use include: permission checks before execution, input validation against injection attacks, output validation before acting, rate limiting and cost controls, timeout handling, and complete audit trails of what was executed and when."}},{"@type":"Question","name":"What is the app's role in tool use?","acceptedAnswer":{"@type":"Answer","text":"The application layer is the gatekeeper for tool use. The model proposes; the app authorizes. This separation keeps the model focused on intent while the app handles safety, validation, and execution constraints. The app must never blindly trust model-generated tool calls."}}]}0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Tool Use: When Language Triggers Actions | Pruning My Pothos\",\"description\":\"Why execution changes accountability and requires guardrails.\",\"url\":\"https://pruningmypothos.com/systems/tool-use-when-language-triggers-actions/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/tool-use-when-language-triggers-actions/\"},\"datePublished\":\"2026-01-14\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/tool-use-when-language-triggers-actions.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"How-things-fit-together"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Tool Use: When Language Triggers Actions"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"Why execution changes accountability and requires guardrails."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L3","tools",{"href":"/tags/tools/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","tools"]}],"$L4","$L5","$L6"]}]]}],"$L7","$undefined","$undefined","$undefined","$undefined","$undefined","$L8","$undefined","$L9","$undefined","$La"]}],null,"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+4:["$","$L3","automation",{"href":"/tags/automation/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","automation"]}]
+5:["$","$L3","safety",{"href":"/tags/safety/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","safety"]}]
+6:["$","$L3","accountability",{"href":"/tags/accountability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","accountability"]}]
+7:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/tool-use-when-language-triggers-actions.svg","alt":"Language triggering action diagram","className":"w-full h-full object-cover"}]}]
+c:T198c,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Tool use turns language into actions, not just answers.</li>
+<li>The app is the gatekeeper for safety and validation.</li>
+<li>Execution introduces accountability and audit needs.</li>
+<li>Guardrails matter more once actions are triggered.</li>
+</ul>
+</blockquote>
+<p>Tool use gives a Large Language Model the ability to interact with the outside world. It transforms the model from a passive text generator into an active agent that can query databases, call APIs, and perform actions. This capability is powerful, but it introduces significant new risks and responsibilities.</p>
+<h3 id="what-changes-when-a-model-can-use-tools">What changes when a model can use tools?</h3>
+<p>The moment a model can use tools, language stops being only output and starts becoming a request for execution. This page is for builders designing agentic or automated workflows, and the main shift is that application policy, validation, and auditability matter more than prompt cleverness.</p>
+<p>In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The fundamentals</summary>
+      <ol>
+        <li><a href="#the-tool-use-loop">The tool-use loop</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The modern paradigm</summary>
+      <ol>
+        <li><a href="#application-as-gatekeeper">Application as gatekeeper</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Principles in practice</summary>
+      <ol>
+        <li><a href="#guardrails-and-accountability">Guardrails and accountability</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-fundamentals">Act I: The fundamentals</h2>
+<h3 id="the-tool-use-loop">The tool-use loop</h3>
+<p>By itself, an LLM can only process text. It cannot access real-time information, interact with other software, or affect the physical world. Tool use, also known as function calling, bridges this gap.</p>
+<p>The process begins by providing the LLM with a list of available &quot;tools.&quot; Each tool is a function in your application&#39;s code, described in natural language (e.g., <code>get_current_weather(location: string)</code>). When a user issues a prompt, the model can decide that it needs to use one of these tools. Instead of generating a text response, it generates a structured JSON object specifying the tool to call and the arguments to use.</p>
+<figure class="diagram">
+  <iframe src="/scenes/tool-use-loop.html" title="Tool Use Loop" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>The tool-use cycle: the LLM requests an action, the application executes it, and the result informs the final response.</figcaption>
+</figure>
+<h2 id="act-ii-the-modern-paradigm">Act II: The modern paradigm</h2>
+<h3 id="application-as-gatekeeper">Application as gatekeeper</h3>
+<p>The application code acts as an intermediary. It inspects the JSON object from the LLM and, if it deems the call safe and valid, executes the requested function. For example, if the LLM generates <code>{ &quot;tool&quot;: &quot;get_current_weather&quot;, &quot;arguments&quot;: { &quot;location&quot;: &quot;Boston, MA&quot; } }</code>, the application would call its internal weather function for Boston.</p>
+<p>The result of that function call (e.g., <code>{ &quot;temperature&quot;: &quot;72F&quot;, &quot;conditions&quot;: &quot;Sunny&quot; }</code>) is then passed back to the LLM as part of a new prompt. The LLM, now equipped with this real-time information, generates the final, human-readable response: &quot;The current weather in Boston is 72°F and sunny.&quot; This entire loop can happen in a single turn of conversation.</p>
+<h2 id="act-iii-principles-in-practice">Act III: Principles in practice</h2>
+<h3 id="guardrails-and-accountability">Guardrails and accountability</h3>
+<p>The moment an LLM can trigger an action, the stakes become much higher. A bug is no longer just a poorly worded sentence; it could be an accidental purchase, a deleted file, or an incorrect database query. This elevates the importance of safety and accountability.</p>
+<ul>
+<li><strong>Never trust the LLM&#39;s output directly.</strong> Always validate the tool name and arguments against a strict schema before execution.</li>
+<li><strong>Implement guardrails.</strong> Use confirmation steps for any destructive or costly actions. A prompt like &quot;Are you sure you want to delete this file?&quot; is a critical safety mechanism.</li>
+<li><strong>Provide precise tool descriptions.</strong> The LLM&#39;s decision to use a tool is based entirely on the description you provide. Vague or ambiguous descriptions will lead to incorrect tool usage.</li>
+<li><strong>Plan for failure.</strong> The tool might fail, an API could be down, or the result might be an error. Your system must be able to handle these failures gracefully and report them back to the LLM.</li>
+</ul>
+<p>For related systems context, see <a href="/systems/systems-001-foundations/">Systems 001: Foundations</a> and <a href="/systems/from-prompt-to-production/">From Prompt to Production</a>. For an execution-focused companion, use the <a href="/shelf/shared-resources/engineering-agentic-systems-deck/">Engineering Agentic Systems deck</a>. For a review artifact that turns guardrails into a repeatable checklist, use the <a href="/portfolio/">Prompt Safety Checklist</a>.</p>
+<p>The shift is quieter than it sounds. You are no longer tuning sentences; you are designing a boundary where a suggestion becomes an effect, and deciding, deliberately, which effects the system is allowed to have. That boundary, not the model, is where trust in a tool-using system actually lives, and it is the part worth most of your attention.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>When you give a model tools, you must shift your focus from prompt quality to a system of validation, error handling, and safety guardrails.</p>
+8:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$c"}}]
+9:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Core reference for tool use and action safety"}],["$","li","1",{"children":"Referenced in structured-output-and-why-it-matters.mdx"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why does tool use change accountability?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Tool use turns language into actions, not just answers. When an AI can execute code, query databases, or call APIs, its outputs have real-world consequences. This shifts accountability from 'a helpful response' to 'responsible execution' and requires guardrails, verification, and audit logs."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What guardrails are needed for AI tool use?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Guardrails for tool use include: permission checks before execution, input validation against injection attacks, output validation before acting, rate limiting and cost controls, timeout handling, and complete audit trails of what was executed and when."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is the app's role in tool use?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"The application layer is the gatekeeper for tool use. The model proposes; the app authorizes. This separation keeps the model focused on intent while the app handles safety, validation, and execution constraints. The app must never blindly trust model-generated tool calls."}]]}]]}]]}]]}]
+a:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L3",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L3",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+b:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

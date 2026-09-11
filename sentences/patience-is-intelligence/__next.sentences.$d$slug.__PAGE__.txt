@@ -1,0 +1,25 @@
+1:"$Sreact.fragment"
+5:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+6:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+2:T67e,<p>In a world that prizes speed, patience can seem like a weakness. We are told to move fast, to decide quickly, to act now. But speed without direction is just churn. It is motion without progress.</p>
+<figure class="content-figure figure-attention">
+  <svg viewBox="0 0 480 160" role="img" aria-labelledby="attention-patience-is-intelligence-title">
+    <title id="attention-patience-is-intelligence-title">Attention selects signal</title>
+    <rect class="figure-stroke" x="40" y="58" width="160" height="44" rx="10" fill="none" stroke-width="2" />
+    <rect class="figure-fill" x="280" y="58" width="160" height="44" rx="10" />
+    <path class="figure-accent" d="M200 80h80" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="200" cy="80" r="4" />
+    <circle class="figure-dot" cx="280" cy="80" r="4" />
+    <text class="figure-label" x="70" y="86">Noise</text>
+    <text class="figure-label figure-label-strong" x="306" y="86">Signal</text>
+  </svg>
+  <figcaption>Attention narrows input into signal.</figcaption>
+</figure>
+<p>Patience is the ability to wait for the right moment. It is the wisdom to know that some problems are not solved by force, but by time. It is the discipline to let an idea mature, to let a situation unfold, to let the noise die down.</p>
+<p>This is not a passive act. It is an active choice to resist the pull of urgency. It is a form of attention, a way of seeing the larger pattern instead of reacting to the immediate signal.</p>
+<p><strong>What this changes in practice:</strong> When you feel pressured to make a quick decision, pause. Ask yourself: &quot;What would happen if I waited?&quot;</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Patience is a form of intelligence. | Pruning My Pothos\",\"description\":\"Patience protects decisions from urgency and impulse.\",\"url\":\"https://pruningmypothos.com/sentences/patience-is-intelligence/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Attention","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Patience is a form of intelligence."}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-purple/40 pl-4 py-1 text-sm sm:text-base","children":"Patience protects decisions from urgency and impulse."}],["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","patience",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","patience"]}],["$","span","discipline",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","discipline"]}],["$","span","attention",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","attention"]}]]}],"$L3"]}],null,"$L4"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L5",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+4:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

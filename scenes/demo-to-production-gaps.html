@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>From demo success to production failure points</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 980 280" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 980 280');
+
+Ink.rect(svg,{x:48,y:104,w:132,h:60,r:12,seed:1,label:'Demo works',lx:66,ly:34,anchor:'middle',size:11});
+Ink.rect(svg,{x:226,y:104,w:150,h:60,r:12,seed:2,label:'Integration test',lx:75,ly:34,anchor:'middle',size:11});
+Ink.rect(svg,{x:422,y:104,w:150,h:60,r:12,seed:3,cls:'ink ink-2',hi:true,label:'Governance test',lx:75,ly:34,anchor:'middle',size:11});
+Ink.rect(svg,{x:618,y:104,w:150,h:60,r:12,seed:4,label:'Observability test',lx:75,ly:34,anchor:'middle',size:11});
+Ink.rect(svg,{x:814,y:104,w:118,h:60,r:12,seed:5,label:'Adoption test',lx:59,ly:34,anchor:'middle',size:11});
+Ink.line(svg,{x1:180,y1:134,x2:226,y2:134,seed:10,dot:true});
+Ink.line(svg,{x1:376,y1:134,x2:422,y2:134,seed:11,dot:true,cls:'ink ink-2',pulse:true});
+Ink.line(svg,{x1:572,y1:134,x2:618,y2:134,seed:12,dot:true});
+Ink.line(svg,{x1:768,y1:134,x2:814,y2:134,seed:13,dot:true});
+  Ink.run();
+})();
+</script>
+</body></html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Prompt to skill to workflow to agent stack</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 960 250" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 960 250');
+
+Ink.rect(svg,{x:120,y:160,w:180,h:42,r:10,seed:1,label:'Prompt',lx:90,ly:26,anchor:'middle',size:11});
+Ink.rect(svg,{x:330,y:124,w:180,h:42,r:10,seed:2,cls:'ink ink-2',hi:true,label:'Skill',lx:90,ly:26,anchor:'middle',size:11});
+Ink.rect(svg,{x:540,y:88,w:180,h:42,r:10,seed:3,label:'Workflow',lx:90,ly:26,anchor:'middle',size:11});
+Ink.rect(svg,{x:750,y:52,w:140,h:42,r:10,seed:4,label:'Agent',lx:70,ly:26,anchor:'middle',size:11});
+Ink.line(svg,{x1:300,y1:181,x2:330,y2:145,seed:10,dot:true});
+Ink.line(svg,{x1:510,y1:145,x2:540,y2:109,seed:11,dot:true,cls:'ink ink-2',pulse:true});
+Ink.line(svg,{x1:720,y1:109,x2:750,y2:73,seed:12,dot:true});
+  Ink.run();
+})();
+</script>
+</body></html>

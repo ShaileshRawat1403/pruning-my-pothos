@@ -1,0 +1,107 @@
+1:"$Sreact.fragment"
+8:I[15141,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3t39z7yidypi6.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3t39z7yidypi6.js"],""]
+a:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+b:"$Sreact.suspense"
+:HL["/covers/shelf/local-aws-baseline.svg","image"]
+2:T1537,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Cloud baselines fail at identity, networking, and instance drift.</li>
+<li>A small, repeatable path beats a big, flexible one.</li>
+<li>Verify endpoints before wiring the app.</li>
+</ul>
+</blockquote>
+<p>This run was about learning the AWS shape, not squeezing performance. For system boundaries and failure loops, see <a href="/systems/systems-001-foundations/">Systems 001: Foundations</a>.</p>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Orientation</summary>
+      <ol>
+        <li><a href="#architecture-map">Architecture map</a></li>
+        <li><a href="#what-happened">What happened</a></li>
+        <li><a href="#the-two-gates">The two gates</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Portal setup</summary>
+      <ol>
+        <li><a href="#portal-walkthrough">Portal walkthrough</a></li>
+        <li><a href="#first-time-config">First-time config</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Verification</summary>
+      <ol>
+        <li><a href="#quick-checks">Quick checks</a></li>
+        <li><a href="#failure-modes">Failure modes</a></li>
+        <li><a href="#what-made-the-difference">What made the difference</a></li>
+        <li><a href="#what-i-would-do-next-time">What I would do next time</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="architecture-map">Architecture map</h2>
+<p>The AWS mental model is a VPC boundary with security groups and IAM as the two control planes.</p>
+<figure class="diagram">
+  <svg viewBox="0 0 1200 520" role="img" aria-labelledby="aws-arch-title aws-arch-desc">
+    <title id="aws-arch-title">AWS baseline map</title>
+    <desc id="aws-arch-desc">A VPC boundary holds compute and database, with IAM and security groups as control layers.</desc>
+    <rect width="1200" height="520" fill="#111111"/>
+    <rect x="120" y="80" width="960" height="360" rx="20" fill="#1a1a1a" stroke="#2f2f2f" stroke-width="2"/>
+    <rect x="200" y="150" width="320" height="140" rx="16" fill="#111827" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="620" y="150" width="320" height="140" rx="16" fill="#111827" stroke="#f59e0b" stroke-width="2"/>
+    <text x="360" y="230" fill="#fef3c7" font-size="16" text-anchor="middle" font-family="var(--font-mono)">GPU instance</text>
+    <text x="780" y="230" fill="#fef3c7" font-size="16" text-anchor="middle" font-family="var(--font-mono)">Postgres</text>
+    <rect x="200" y="320" width="320" height="90" rx="12" fill="#111827" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="620" y="320" width="320" height="90" rx="12" fill="#111827" stroke="#f59e0b" stroke-width="2"/>
+    <text x="360" y="375" fill="#fef3c7" font-size="14" text-anchor="middle" font-family="var(--font-mono)">Security groups</text>
+    <text x="780" y="375" fill="#fef3c7" font-size="14" text-anchor="middle" font-family="var(--font-mono)">IAM</text>
+  </svg>
+  <figcaption>VPC boundary with security groups and IAM as the two control planes.</figcaption>
+</figure>
+<h2 id="what-happened">What happened</h2>
+<p>My first run failed even with valid keys. The issue was not the model. It was a security group rule that blocked the inbound port and a missing IAM permission that made the instance look healthy but unusable.</p>
+<h2 id="the-two-gates">The two gates</h2>
+<p>The first gate is <strong>IAM</strong>. If the role is wrong, you can see the instance but cannot use it.</p>
+<p>The second gate is <strong>networking</strong>. Security groups block traffic by default; your app must be explicitly allowed.</p>
+<h2 id="portal-walkthrough">Portal walkthrough</h2>
+<ol>
+<li>Create a VPC or reuse the default one for the first pass.</li>
+<li>Launch a GPU instance and attach a minimal IAM role.</li>
+<li>Open the inbound port for your app and database access.</li>
+<li>Create a Postgres instance inside the same VPC.</li>
+<li>Collect the endpoint, key, and host values for config.</li>
+</ol>
+<h2 id="first-time-config">First-time config</h2>
+<pre><code class="language-bash">export LLM_HOST=&quot;http://&lt;instance-ip&gt;:&lt;port&gt;&quot;
+export DATABASE_URL=&quot;postgresql://&lt;user&gt;:&lt;password&gt;@&lt;db-hostname&gt;:5432/&lt;db-name&gt;&quot;
+</code></pre>
+<aside class="callout">
+  <p><strong>Guiding rule.</strong> If you cannot describe the VPC boundary, you will debug the wrong layer.</p>
+</aside>
+<h2 id="quick-checks">Quick checks</h2>
+<pre><code class="language-bash">nc -vz &lt;instance-ip&gt; &lt;port&gt;
+psql &quot;postgresql://&lt;user&gt;:&lt;password&gt;@&lt;db-hostname&gt;:5432/&lt;db-name&gt;&quot;
+</code></pre>
+<h2 id="failure-modes">Failure modes</h2>
+<ul>
+<li>IAM role looks correct but lacks the specific service permission.</li>
+<li>Security group allows the port but the instance subnet is private.</li>
+<li>Using a different region for the database adds invisible latency.</li>
+</ul>
+<h2 id="what-made-the-difference">What made the difference</h2>
+<p>I treated IAM and security groups as first-class parts of the architecture, not afterthoughts. Once those gates were clear, the rest was predictable.</p>
+<h2 id="what-i-would-do-next-time">What I would do next time</h2>
+<p>I would pin the AMI, keep everything in a single region, and log network rules alongside app config.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"AWS GPU instance baseline | Pruning My Pothos\",\"description\":\"A minimal cloud baseline focused on identity, networking, and cost control.\",\"url\":\"https://pruningmypothos.com/shelf/local-experiments/aws-llm-instance-baseline/\",\"image\":\"https://pruningmypothos.com/covers/shelf/local-aws-baseline.svg\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Shelf • ","local-experiments"]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"AWS GPU instance baseline"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-cyan/40 pl-4 py-1 text-sm sm:text-base","children":"A minimal cloud baseline focused on identity, networking, and cost control."}],["$","figure",null,{"className":"w-full max-w-[420px] overflow-hidden rounded-lg border border-[color:var(--card-border)] aspect-video my-4 shadow-none self-center sm:self-start bg-[color:var(--card-bg)]","children":["$","img",null,{"src":"/covers/shelf/local-aws-baseline.svg","alt":"Cover illustration for AWS GPU instance baseline","className":"w-full h-full object-contain"}]}],"$undefined","$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4","$L5"]}],["$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L8",null,{"title":"AWS GPU instance baseline"}]
+4:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","experiments",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","experiments"]}],["$","span","cloud",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","cloud"]}],["$","span","aws",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","aws"]}],["$","span","setup",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","setup"]}]]}]
+5:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L9",null,{"href":"/shelf","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Shelf"}]}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/3t39z7yidypi6.js","async":true}]
+7:["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]
+c:null

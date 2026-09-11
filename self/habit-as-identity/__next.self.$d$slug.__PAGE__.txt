@@ -1,0 +1,26 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+5:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+2:T57e,<p class="lead">A habit is a story you tell with your hands.</p>
+
+<p>Identity is not only a narrative in your head. It is the repetition you can see. The habit you keep becomes a <span class="highlight">biography in motion</span>.</p>
+<p>Start with the smallest action that proves the story. One page, one walk, one promise kept. The self is built by these tiny receipts.</p>
+<figure class="content-figure">
+<svg viewBox="0 0 520 140" role="img" aria-labelledby="habit-identity-title">
+  <title id="habit-identity-title">Small acts repeated become identity</title>
+  <rect class="figure-stroke" x="20" y="40" width="140" height="60" rx="12" fill="none" stroke-width="2" />
+  <rect class="figure-stroke" x="190" y="40" width="140" height="60" rx="12" fill="none" stroke-width="2" />
+  <rect class="figure-fill" x="360" y="40" width="140" height="60" rx="12" />
+  <text class="figure-label" x="90" y="75" text-anchor="middle">Act</text>
+  <text class="figure-label" x="260" y="75" text-anchor="middle">Repeat</text>
+  <text class="figure-label figure-label-strong" x="430" y="75" text-anchor="middle">Become</text>
+  <path class="figure-accent" d="M160 70h20" stroke-width="3" stroke-linecap="round" />
+  <path class="figure-accent" d="M330 70h20" stroke-width="3" stroke-linecap="round" />
+</svg>
+<figcaption>Repetition turns effort into identity.</figcaption>
+</figure>
+<p>What you repeat, you become.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Habit as Identity | Pruning My Pothos\",\"description\":\"The small act that becomes a quiet biography.\",\"url\":\"https://pruningmypothos.com/self/habit-as-identity/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Published: ","January 23, 2026","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Habit as Identity"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-pink/40 pl-4 py-1 text-sm sm:text-base","children":"The small act that becomes a quiet biography."}],"$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","identity",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","identity"]}],["$","span","practice",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","practice"]}],["$","span","reflection",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reflection"]}]]}],["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L3",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]]}],null,"$L4"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+4:["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]
+7:null

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Governance as code pipeline</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 260" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 260');
+
+Ink.rect(svg,{x:40,y:50,w:170,h:60,r:10,seed:1,label:'Policy',lx:85,ly:36,anchor:'middle',size:13});
+Ink.rect(svg,{x:260,y:50,w:170,h:60,r:10,seed:2,label:'Rules',lx:85,ly:36,anchor:'middle',size:13});
+Ink.rect(svg,{x:480,y:50,w:170,h:60,r:10,seed:3,label:'Enforce',lx:85,ly:36,anchor:'middle',size:13});
+Ink.rect(svg,{x:700,y:50,w:170,h:60,r:10,seed:4,cls:'ink ink-2',hi:true,label:'Audit',lx:85,ly:36,anchor:'middle',size:13});
+Ink.line(svg,{x1:210,y1:80,x2:250,y2:80,seed:10,dot:true});
+Ink.line(svg,{x1:430,y1:80,x2:470,y2:80,seed:11,dot:true});
+Ink.line(svg,{x1:650,y1:80,x2:690,y2:80,seed:12,dot:true,cls:'ink ink-2',pulse:true});
+Ink.path(svg,{d:'M 760 130 C 620 190, 280 190, 140 130',cls:'ink ink-2',seed:20});
+Ink.text(svg,{x:380,y:210,text:'feedback to policy',size:12,cls:'label-hi',anchor:'middle'});
+  Ink.run();
+})();
+</script>
+</body></html>

@@ -1,0 +1,25 @@
+1:"$Sreact.fragment"
+5:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+6:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+2:T6c0,<p>We tend to think of language as a mirror that reflects the world as it is. But language is not a neutral tool. It is a lens that shapes our perception of reality. The words we use determine what we see and what we ignore.</p>
+<figure class="content-figure figure-meaning">
+  <svg viewBox="0 0 480 160" role="img" aria-labelledby="meaning-language-is-a-lens-title">
+    <title id="meaning-language-is-a-lens-title">Meaning bridges experience and understanding</title>
+    <rect class="figure-stroke" x="40" y="55" width="150" height="50" rx="10" fill="none" stroke-width="2" />
+    <rect class="figure-fill" x="290" y="55" width="150" height="50" rx="10" />
+    <text class="figure-label" x="72" y="86">Experience</text>
+    <text class="figure-label figure-label-strong" x="316" y="86">Meaning</text>
+    <path class="figure-accent" d="M200 80h80" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="200" cy="80" r="4" />
+    <circle class="figure-dot" cx="280" cy="80" r="4" />
+  </svg>
+  <figcaption>Meaning bridges experience and shared understanding.</figcaption>
+</figure>
+<p>Every word carries with it a set of assumptions, a history, a point of view. When we choose a word, we are also choosing a frame. We are choosing to highlight certain aspects of reality and to downplay others.</p>
+<p>There is no view from nowhere. There is no language that is free of bias. The best we can do is to be aware of the lens we are using, and to be willing to try on other lenses from time to time.</p>
+<p><strong>What this changes in practice:</strong> When you are faced with a disagreement, pay attention to the language being used. Often, the conflict is not about the facts, but about the frames.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Language is a lens, not a mirror. | Pruning My Pothos\",\"description\":\"Words shape reality more than they reflect it.\",\"url\":\"https://pruningmypothos.com/sentences/language-is-a-lens/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Meaning","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Language is a lens, not a mirror."}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-purple/40 pl-4 py-1 text-sm sm:text-base","children":"Words shape reality more than they reflect it."}],["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","language",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","language"]}],["$","span","meaning",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","meaning"]}],["$","span","perspective",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","perspective"]}]]}],"$L3"]}],null,"$L4"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L5",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+4:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

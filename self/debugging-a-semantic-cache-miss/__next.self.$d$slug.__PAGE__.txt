@@ -1,0 +1,33 @@
+1:"$Sreact.fragment"
+6:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+2:T9b7,<p class="lead">When optimization layers introduce their own bugs, the complexity of debugging increases exponentially.</p>
+
+<p>Last week, we received a bug report from a user who claimed the customer support agent was providing instructions for an outdated database migration guide. Our database records were correct, and the RAG document store was up to date. Yet, the system was consistently returning stale guidance.</p>
+<p>The culprit was not the model, nor was it the RAG pipeline. It was a semantic cache collision. A previous user had queried for the older migration guide, and the response was cached. When the new user asked about the updated guide, the embedding vector fell just inside the <span class="highlight">cosine similarity threshold of 0.90</span>. The cache registered a hit, bypassed the LLM, and served the stale response.</p>
+<figure class="content-figure">
+  <svg viewBox="0 0 480 200" role="img" aria-labelledby="vector-space-collision-title">
+    <title id="vector-space-collision-title">Vector Space Threshold Gate</title>
+    <!-- Vector circle boundary -->
+    <circle cx="240" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" />
+    <circle cx="240" cy="100" r="5" fill="currentColor" />
+    <text x="240" y="85" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="currentColor" text-anchor="middle">Cached Vector</text>
+
+    <!-- Query A (Hit) -->
+    <circle cx="210" cy="120" r="5" fill="#ef7d32" />
+    <text x="180" y="140" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#ef7d32" text-anchor="middle">Query A (Hit)</text>
+
+    <!-- Query B (Miss) -->
+    <circle cx="340" cy="70" r="5" fill="currentColor" />
+    <text x="340" y="55" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="currentColor" text-anchor="middle">Query B (Miss)</text>
+  </svg>
+  <figcaption>Cosine similarity threshold determines if a query falls within the cache hit boundary.</figcaption>
+</figure>
+<p>This incident reminded me that semantic caching is not a drop-in performance booster. It is a semantic mapping that requires careful boundary calibration. We ended up raising the threshold to <code>0.94</code> and introducing namespace partitions.</p>
+<p>For more details on caching architecture, see the flagship guide <a href="/systems/semantic-caching-for-probabilistic-systems/">Semantic Caching for Probabilistic Systems</a>.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Debugging a Semantic Cache Miss | Pruning My Pothos\",\"description\":\"A reflective look at debugging a user-facing issue where a semantic cache returned a stale context block due to a loose similarity threshold.\",\"url\":\"https://pruningmypothos.com/self/debugging-a-semantic-cache-miss/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Published: ","June 25, 2026","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Debugging a Semantic Cache Miss"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-pink/40 pl-4 py-1 text-sm sm:text-base","children":"A reflective look at debugging a user-facing issue where a semantic cache returned a stale context block due to a loose similarity threshold."}],"$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4"]}],null,"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","caching",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","caching"]}],["$","span","debugging",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","debugging"]}],["$","span","vector-space",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","vector-space"]}],["$","span","systems-design",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","systems-design"]}]]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L6",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

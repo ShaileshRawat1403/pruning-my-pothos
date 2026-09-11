@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Context Window as a Finite Buffer</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 240" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 240');
+
+Ink.rect(svg,{x:40,y:70,w:820,h:100,r:12,seed:1});
+Ink.text(svg,{x:60,y:125,text:'[Token 1]',size:13});
+Ink.text(svg,{x:160,y:125,text:'[Token 2]',size:13});
+Ink.text(svg,{x:260,y:125,text:'...',size:13});
+Ink.text(svg,{x:700,y:125,text:'[Token N]',size:13});
+Ink.line(svg,{x1:780,y1:120,x2:838,y2:120,cls:'ink ink-2',pulse:true,seed:5,dot:true,dotCls:'fillink-2',dotR:3});
+Ink.text(svg,{x:60,y:50,text:'Start of Context',size:12,cls:'label label-muted'});
+Ink.text(svg,{x:750,y:50,text:'End of Context (Limit)',size:12,cls:'label label-muted'});
+  Ink.run();
+})();
+</script>
+</body></html>

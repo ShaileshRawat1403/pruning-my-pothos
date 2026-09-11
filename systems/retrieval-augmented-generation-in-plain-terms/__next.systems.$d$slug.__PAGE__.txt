@@ -1,0 +1,93 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+c:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+:HL["/covers/systems/retrieval-augmented-generation-in-plain-terms.svg","image"]
+2:T487,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is RAG and what problem does it solve?","acceptedAnswer":{"@type":"Answer","text":"RAG (Retrieval-Augmented Generation) connects an LLM to an external knowledge source so it can generate grounded answers from specific, up-to-date, or private information rather than relying only on static training data."}},{"@type":"Question","name":"What are the main failure modes of RAG?","acceptedAnswer":{"@type":"Answer","text":"RAG failures come from three sources: retrieval quality (wrong chunks retrieved), context overload (too much irrelevant content), and outdated knowledge (stale data in the vector store). Even with good retrieval, generation can still hallucinate if the retrieved content is ambiguous."}},{"@type":"Question","name":"How do you measure RAG quality?","acceptedAnswer":{"@type":"Answer","text":"RAG quality has two dimensions: retrieval precision (are the right chunks retrieved?) and generation accuracy (does the answer use those chunks correctly?). Metrics include recall@K for retrieval and faithfulness/precision scores for generation."}}]}0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Retrieval-Augmented Generation in Plain Terms | Pruning My Pothos\",\"description\":\"How retrieval grounds outputs and where it can still fail.\",\"url\":\"https://pruningmypothos.com/systems/retrieval-augmented-generation-in-plain-terms/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/retrieval-augmented-generation-in-plain-terms/\"},\"datePublished\":\"2026-01-14\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/retrieval-augmented-generation-in-plain-terms.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"How-things-fit-together"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Retrieval-Augmented Generation in Plain Terms"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"How retrieval grounds outputs and where it can still fail."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L3","rag",{"href":"/tags/rag/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","rag"]}],["$","$L3","retrieval",{"href":"/tags/retrieval/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","retrieval"]}],"$L4","$L5"]}]]}],"$L6","$undefined","$undefined","$undefined","$undefined","$undefined","$L7","$undefined","$L8","$undefined","$L9"]}],null,"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+4:["$","$L3","grounding",{"href":"/tags/grounding/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","grounding"]}]
+5:["$","$L3","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}]
+6:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/retrieval-augmented-generation-in-plain-terms.svg","alt":"Retrieval pipeline showing query to grounded response","className":"w-full h-full object-cover"}]}]
+b:T1927,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>RAG ties an LLM to external knowledge for grounded answers.</li>
+<li>Retrieval quality determines generation quality.</li>
+<li>RAG reduces hallucinations but introduces new failure modes.</li>
+<li>Treat the knowledge base as a living dependency.</li>
+</ul>
+</blockquote>
+<p>Retrieval-Augmented Generation (RAG) is a technique that connects a Large Language Model to an external knowledge source. It allows the model to generate answers that are grounded in specific, up-to-date, or private information, rather than relying solely on its static training data.</p>
+<h3 id="what-does-rag-actually-solve">What does RAG actually solve?</h3>
+<p>RAG solves the gap between a frozen model and the current information a task requires. This page is for builders who need grounded answers from private or changing knowledge, and the important shift is treating retrieval quality as part of the product instead of an optional add-on.</p>
+<p>In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The fundamentals</summary>
+      <ol>
+        <li><a href="#retriever-plus-generator">Retriever + generator</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The modern paradigm</summary>
+      <ol>
+        <li><a href="#the-rag-pipeline">The RAG pipeline</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Principles in practice</summary>
+      <ol>
+        <li><a href="#failure-modes-and-data-quality">Failure modes and data quality</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-fundamentals">Act I: The fundamentals</h2>
+<h3 id="retriever-generator">Retriever + generator</h3>
+<p>A standard LLM&#39;s knowledge is frozen at the end of its training. It knows nothing about events that have happened since, nor does it have access to your company&#39;s private documents. This leads to &quot;hallucinations&quot; or factually incorrect answers when asked about things outside its knowledge base.</p>
+<p>RAG addresses this by combining two systems:</p>
+<ol>
+<li><strong>A Retriever:</strong> A search system that can find relevant information from a specified knowledge base (like a collection of documents, a database, or a website).</li>
+<li><strong>A Generator:</strong> A standard LLM that takes the retrieved information and uses it to synthesize a human-readable answer.</li>
+</ol>
+<p>The retriever&#39;s job is to find the right puzzle pieces; the generator&#39;s job is to assemble them.</p>
+<figure class="diagram">
+  <iframe src="/scenes/rag-flow.html" title="RAG Pipeline" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>The RAG process: retrieve relevant context, augment the prompt, and then generate the answer.</figcaption>
+</figure>
+<h2 id="act-ii-the-modern-paradigm">Act II: The modern paradigm</h2>
+<h3 id="the-rag-pipeline">The RAG pipeline</h3>
+<p>The standard RAG pipeline works as follows:</p>
+<ol>
+<li><strong>Indexing:</strong> An external knowledge base (e.g., PDFs, web pages, Notion docs) is broken into chunks, and each chunk is converted into a numerical embedding. These embeddings are stored in a vector database.</li>
+<li><strong>Retrieval:</strong> When a user asks a question, the question is also converted into an embedding. The vector database is searched for the document chunks with the most similar embeddings. These are the &quot;retrieved documents.&quot;</li>
+<li><strong>Augmentation:</strong> The original question and the retrieved documents are combined into a new, augmented prompt. The prompt might look something like this: <code>&quot;Given the following context documents, please answer the user&#39;s question. Context: [retrieved documents]. Question: [original question].&quot;</code></li>
+<li><strong>Generation:</strong> This augmented prompt is sent to an LLM, which generates an answer based on the provided context.</li>
+</ol>
+<p>This process ensures that the model&#39;s answer is directly informed by the external data, not just its internal training.</p>
+<h2 id="act-iii-principles-in-practice">Act III: Principles in practice</h2>
+<h3 id="failure-modes-and-data-quality">Failure modes and data quality</h3>
+<p>RAG is a powerful technique, but it is not a magic bullet. Its effectiveness is highly dependent on the quality of the retriever. If the retriever fails to find the correct documents, the generator will not have the information it needs to produce a correct answer. This is the principle of &quot;garbage in, garbage out.&quot;</p>
+<p>Common failure modes include:</p>
+<ul>
+<li><strong>Poor data quality:</strong> The knowledge base contains inaccurate or outdated information.</li>
+<li><strong>Chunking problems:</strong> Documents are split in ways that separate related ideas, making it hard to retrieve full context.</li>
+<li><strong>Retrieval mismatch:</strong> The user&#39;s question is phrased in a way that does not match the language of the documents, leading the semantic search to fail.</li>
+</ul>
+<p>Therefore, building a RAG system is not just about connecting an LLM to a database. It is about carefully curating the knowledge base, optimizing the retrieval process, and implementing checks to handle cases where no relevant information is found.</p>
+<p>For related systems context, see <a href="/systems/systems-001-foundations/">Systems 001: Foundations</a> and <a href="/systems/from-prompt-to-production/">From Prompt to Production</a>. For implementation references and evaluation patterns, use the <a href="/shelf/shared-resources/retrieval-and-grounding-evaluation-kit/">Retrieval and Grounding Evaluation Kit</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Instead of just prompting a model, you must first ensure it has access to the right information by building a reliable retrieval system.</p>
+7:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$b"}}]
+8:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Practical RAG failure modes documented"}],["$","li","1",{"children":"Referenced in knowledge-management-as-runtime-memory.mdx"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is RAG and what problem does it solve?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"RAG (Retrieval-Augmented Generation) connects an LLM to an external knowledge source so it can generate grounded answers from specific, up-to-date, or private information rather than relying only on static training data."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What are the main failure modes of RAG?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"RAG failures come from three sources: retrieval quality (wrong chunks retrieved), context overload (too much irrelevant content), and outdated knowledge (stale data in the vector store). Even with good retrieval, generation can still hallucinate if the retrieved content is ambiguous."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"How do you measure RAG quality?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"RAG quality has two dimensions: retrieval precision (are the right chunks retrieved?) and generation accuracy (does the answer use those chunks correctly?). Metrics include recall@K for retrieval and faithfulness/precision scores for generation."}]]}]]}]]}]]}]
+9:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L3",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L3",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

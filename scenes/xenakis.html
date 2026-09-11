@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Iannis Xenakis — score as architecture</title>
+<style>
+  html,body{margin:0;padding:0;width:100%;height:100%;background:transparent;overflow:hidden}
+  .stage{position:absolute;inset:0}.stage svg{width:100%;height:100%;display:block}
+  .ink{stroke:#2a2012;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  .ink-2{stroke:#8c2f23}.ink-3{stroke:#9a7322}.fillink{fill:#2a2012;stroke:none}
+  .fill-2{fill:#8c2f23;stroke:none}
+  html[data-theme='dark'] .ink{stroke:#efe5cf}html[data-theme='dark'] .ink-2{stroke:#c2564a}
+  html[data-theme='dark'] .ink-3{stroke:#c79a3e}html[data-theme='dark'] .fillink{fill:#efe5cf}
+  html[data-theme='dark'] .fill-2{fill:#c2564a}
+  .draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+  .tw{animation:tw 5s ease-in-out infinite}
+  @keyframes tw{0%,100%{opacity:.85}50%{opacity:.3}}
+  @media (prefers-reduced-motion:reduce){.tw{animation:none}}
+</style></head>
+<body><div class="stage">
+<svg viewBox="0 0 900 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- axes: quantity plotted as shape -->
+  <line class="ink draw" x1="300" y1="470" x2="720" y2="470" stroke-width="1.6" opacity="0.75"/>
+  <line class="ink draw" x1="300" y1="470" x2="300" y2="150" stroke-width="1.6" opacity="0.75"/>
+
+  <!-- ruled surface: straight lines that bend into a curve -->
+  <g class="ink ink-3" stroke-width="1.4" opacity="0.9">
+    <line class="draw" x1="335" y1="470" x2="300" y2="439"/>
+    <line class="draw" x1="370" y1="470" x2="300" y2="408"/>
+    <line class="draw" x1="405" y1="470" x2="300" y2="377"/>
+    <line class="draw" x1="440" y1="470" x2="300" y2="346"/>
+    <line class="draw" x1="475" y1="470" x2="300" y2="315"/>
+    <line class="draw" x1="510" y1="470" x2="300" y2="284"/>
+    <line class="draw" x1="545" y1="470" x2="300" y2="253"/>
+    <line class="draw" x1="580" y1="470" x2="300" y2="222"/>
+    <line class="draw" x1="615" y1="470" x2="300" y2="191"/>
+  </g>
+
+  <!-- the staff, upper right: a score becoming structure -->
+  <g class="ink" stroke-width="1.2" opacity="0.7">
+    <line class="draw" x1="560" y1="180" x2="800" y2="180"/>
+    <line class="draw" x1="560" y1="200" x2="800" y2="200"/>
+    <line class="draw" x1="560" y1="220" x2="800" y2="220"/>
+    <line class="draw" x1="560" y1="240" x2="800" y2="240"/>
+    <line class="draw" x1="560" y1="260" x2="800" y2="260"/>
+  </g>
+  <g class="fill-2">
+    <circle cx="600" cy="200" r="5"/><circle cx="648" cy="240" r="5"/><circle cx="694" cy="180" r="5"/>
+    <circle cx="740" cy="220" r="5"/><circle cx="778" cy="260" r="5"/>
+  </g>
+
+  <!-- stochastic scatter: chance under a strict rule -->
+  <g class="fillink tw">
+    <circle cx="360" cy="200" r="3"/><circle cx="410" cy="250" r="3"/><circle cx="470" cy="210" r="3"/>
+    <circle cx="520" cy="300" r="3"/><circle cx="560" cy="340" r="3"/><circle cx="600" cy="410" r="3"/>
+    <circle cx="660" cy="360" r="3"/><circle cx="700" cy="420" r="3"/><circle cx="440" cy="360" r="3"/>
+  </g>
+</svg></div>
+<script>
+(function(){var root=document.documentElement;
+ function theme(){try{var p=window.parent&&window.parent.document.documentElement;var t=(p&&p.getAttribute('data-theme'))||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');root.setAttribute('data-theme',t);}catch(e){root.setAttribute('data-theme','light');}}
+ theme();try{var p=window.parent&&window.parent.document.documentElement;if(p)new MutationObserver(theme).observe(p,{attributes:true,attributeFilter:['data-theme']});}catch(e){}
+ function draw(){document.querySelectorAll('.draw').forEach(function(el,i){var len=(el.getTotalLength&&el.getTotalLength())||300;el.style.setProperty('--len',len);el.style.transition='none';el.style.strokeDashoffset=len;el.getBoundingClientRect();el.style.transition='stroke-dashoffset 1.6s cubic-bezier(0.16,1,0.3,1) '+(i*50)+'ms';el.style.strokeDashoffset='0';});}
+ addEventListener('load',draw);setTimeout(draw,60);})();
+</script></body></html>

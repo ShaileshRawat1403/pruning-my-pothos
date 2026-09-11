@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Spectrum of Human Oversight</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 240" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 240');
+
+Ink.line(svg,{x1:100,y1:120,x2:800,y2:120,seed:1,bow:2,sw:2.4});
+Ink.dot(svg,{cx:100,cy:120,r:8,cls:'fillink-2'});
+Ink.text(svg,{x:100,y:160,text:'Manual',size:13,anchor:'middle'});
+Ink.dot(svg,{cx:350,cy:120,r:8,cls:'fillink-2'});
+Ink.text(svg,{x:350,y:160,text:'HITL',size:13,anchor:'middle'});
+Ink.dot(svg,{cx:600,cy:120,r:8,cls:'fillink-2'});
+Ink.text(svg,{x:600,y:160,text:'HOTL',size:13,anchor:'middle'});
+Ink.dot(svg,{cx:800,cy:120,r:8,cls:'fillink-2'});
+Ink.text(svg,{x:800,y:160,text:'Autonomous',size:13,anchor:'middle'});
+  Ink.run();
+})();
+</script>
+</body></html>

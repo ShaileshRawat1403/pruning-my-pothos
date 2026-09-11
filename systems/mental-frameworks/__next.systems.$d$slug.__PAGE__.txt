@@ -1,0 +1,190 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+c:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+:HL["/covers/systems/mental-frameworks.svg","image"]
+2:T48d,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a mental framework?","acceptedAnswer":{"@type":"Answer","text":"A mental framework is a system of assumptions, signals, and decisions that compresses complexity into actionable guidance. Good frameworks reduce cognitive load without hiding risk, helping you navigate decisions faster without sacrificing quality."}},{"@type":"Question","name":"How do frameworks drift?","acceptedAnswer":{"@type":"Answer","text":"Frameworks drift when the incentives that shaped them change, or when feedback loops that validate them weaken. A framework that worked for one context may persist into another where it no longer fits. Regular review against actual outcomes keeps frameworks accurate."}},{"@type":"Question","name":"Why do teams need shared frameworks?","acceptedAnswer":{"@type":"Answer","text":"In teams, frameworks become socio-technical artifacts: they provide shared language for communication and common action for decision-making. Without shared frameworks, teams make inconsistent decisions and waste time renegotiating basics instead of solving problems."}}]}0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"On Mental Frameworks | Pruning My Pothos\",\"description\":\"A model for how frameworks simplify complexity and guide decisions in technical and human systems.\",\"url\":\"https://pruningmypothos.com/systems/mental-frameworks/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/mental-frameworks/\"},\"datePublished\":\"2026-01-13\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/mental-frameworks.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Explanations"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"On Mental Frameworks"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"A model for how frameworks simplify complexity and guide decisions in technical and human systems."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L3","systems",{"href":"/tags/systems/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","systems"]}],["$","$L3","frameworks",{"href":"/tags/frameworks/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","frameworks"]}],"$L4","$L5"]}]]}],"$L6","$undefined","$undefined","$undefined","$undefined","$undefined","$L7","$undefined","$L8","$undefined","$L9"]}],null,"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+4:["$","$L3","thinking",{"href":"/tags/thinking/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","thinking"]}]
+5:["$","$L3","decision-making",{"href":"/tags/decision-making/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","decision-making"]}]
+6:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/mental-frameworks.svg","alt":"Framework simplification concept","className":"w-full h-full object-cover"}]}]
+b:T2594,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>A framework is a system of assumptions, signals, and decisions.</li>
+<li>Good frameworks compress complexity without hiding risk.</li>
+<li>Frameworks drift when incentives change or feedback is weak.</li>
+<li>In teams, frameworks become socio-technical: shared language plus action.</li>
+</ul>
+</blockquote>
+<figure class="diagram diagram-hero">
+  <svg viewBox="0 0 900 240" role="img" aria-labelledby="frame-hero-title frame-hero-desc" style="width: 100%; height: auto; display: block;">
+    <title id="frame-hero-title">Mental framework loop</title>
+    <desc id="frame-hero-desc">Signals flow into a frame, then decisions, then actions, with a feedback loop returning to the frame.</desc>
+    <rect x="60" y="90" width="160" height="60" rx="12" fill="none" stroke="currentColor" stroke-width="2" />
+    <rect x="280" y="90" width="160" height="60" rx="12" fill="none" stroke="currentColor" stroke-width="2" />
+    <rect x="500" y="90" width="160" height="60" rx="12" fill="none" stroke="currentColor" stroke-width="2" />
+    <rect x="720" y="90" width="160" height="60" rx="12" fill="none" stroke="currentColor" stroke-width="2" />
+    <text x="98" y="125" font-size="14" fill="currentColor" font-family="var(--font-mono)">Signals</text>
+    <text x="332" y="125" font-size="14" fill="currentColor" font-family="var(--font-mono)">Frame</text>
+    <text x="540" y="125" font-size="14" fill="currentColor" font-family="var(--font-mono)">Decision</text>
+    <text x="768" y="125" font-size="14" fill="currentColor" font-family="var(--font-mono)">Action</text>
+    <path d="M 220 120 H 270" stroke="currentColor" stroke-width="2" />
+    <path d="M 440 120 H 490" stroke="currentColor" stroke-width="2" />
+    <path d="M 660 120 H 710" stroke="currentColor" stroke-width="2" />
+    <path d="M 270 120 L 278 115 L 278 125 Z" fill="currentColor" />
+    <path d="M 490 120 L 498 115 L 498 125 Z" fill="currentColor" />
+    <path d="M 710 120 L 718 115 L 718 125 Z" fill="currentColor" />
+    <path d="M 800 170 C 620 210, 340 210, 160 170" stroke="var(--color-accent)" stroke-width="2" fill="none" />
+    <text x="410" y="215" font-size="12" fill="var(--color-accent)" font-family="var(--font-mono)">feedback</text>
+  </svg>
+  <figcaption>Frameworks are feedback loops: signals shape decisions, and outcomes reshape the frame.</figcaption>
+</figure>
+<h3 id="what-is-a-mental-framework">What is a mental framework?</h3>
+<p>A mental framework is a structured set of assumptions, signals, and rules that compresses real-world complexity into consistent decision-making patterns. For practitioners and leaders, shared mental frameworks function as socio-technical infrastructure: they provide a shared language for communication and coordinate action across teams.</p>
+<aside class="callout">
+  <p><strong>Definition.</strong> A mental framework is a reusable model that turns ambiguous inputs into a consistent decision pattern.</p>
+</aside>
+<p>In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.</p>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The fundamentals</summary>
+      <ol>
+        <li><a href="#the-frame-model">The frame model</a></li>
+        <li><a href="#key-characteristics">Key characteristics</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The modern paradigm</summary>
+      <ol>
+        <li><a href="#frameworks-as-socio-technical-systems">Frameworks as socio-technical systems</a></li>
+        <li><a href="#drift-and-misalignment">Drift and misalignment</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Principles in practice</summary>
+      <ol>
+        <li><a href="#build-a-usable-framework">Build a usable framework</a></li>
+        <li><a href="#framework-audit-checklist">Framework audit checklist</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-fundamentals">Act I: The fundamentals</h2>
+<h3 id="the-frame-model">The frame model</h3>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Role</th>
+      <th>Failure if missing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Signals</td>
+      <td>What you notice in the environment.</td>
+      <td>Blind spots and delayed reaction.</td>
+    </tr>
+    <tr>
+      <td>Assumptions</td>
+      <td>What you treat as true.</td>
+      <td>Fragile decisions and overconfidence.</td>
+    </tr>
+    <tr>
+      <td>Decision rule</td>
+      <td>How the frame converts input into choice.</td>
+      <td>Inconsistent outcomes.</td>
+    </tr>
+    <tr>
+      <td>Feedback</td>
+      <td>How reality updates the frame.</td>
+      <td>Drift and repeating mistakes.</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="key-characteristics">Key characteristics</h3>
+<ul>
+<li><strong>Reusable</strong>: a framework works across multiple scenarios.</li>
+<li><strong>Compresses</strong>: it makes a complex problem smaller without hiding risk.</li>
+<li><strong>Legible</strong>: you can explain it to someone else.</li>
+</ul>
+<h2 id="act-ii-the-modern-paradigm">Act II: The modern paradigm</h2>
+<h3 id="frameworks-as-socio-technical-systems">Frameworks as socio-technical systems</h3>
+<p>In teams, a framework becomes shared infrastructure. It is a blend of language, process, and governance. When a team says “we prioritize impact,” that phrase is a system: it shapes what gets funded and what gets ignored.</p>
+<h3 id="drift-and-misalignment">Drift and misalignment</h3>
+<p>Frameworks drift when incentives change, data shifts, or feedback is ignored. The result is familiar: teams keep following the framework, but outcomes get worse.</p>
+<h2 id="act-iii-principles-in-practice">Act III: Principles in practice</h2>
+<h3 id="build-a-usable-framework">Build a usable framework</h3>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Step</th>
+      <th>Action</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Scope</td>
+      <td>Define what the framework is for.</td>
+      <td>A clear boundary.</td>
+    </tr>
+    <tr>
+      <td>Signals</td>
+      <td>Choose the inputs that matter.</td>
+      <td>Consistent signals.</td>
+    </tr>
+    <tr>
+      <td>Rules</td>
+      <td>Write the decision rule explicitly.</td>
+      <td>Repeatable choices.</td>
+    </tr>
+    <tr>
+      <td>Feedback</td>
+      <td>Define how outcomes update the frame.</td>
+      <td>Learning loop.</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="framework-audit-checklist">Framework audit checklist</h3>
+<ul>
+<li>What signals are we ignoring?</li>
+<li>Which assumption no longer holds?</li>
+<li>Where do decisions feel inconsistent?</li>
+<li>What feedback are we missing?</li>
+</ul>
+<p>For related systems context, see <a href="/systems/systems-001-foundations/">Systems 001: Foundations</a> and <a href="/systems/from-prompt-to-production/">From Prompt to Production</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<ul>
+<li><strong>Make frameworks explicit.</strong> Write the rules so they can be tested, not just remembered.</li>
+<li><strong>Audit on cadence.</strong> Revisit assumptions when incentives or data shift.</li>
+<li><strong>Design for drift.</strong> Build feedback loops so the frame updates before it fails.</li>
+</ul>
+<p>To see how shared mental frameworks guide technical operations, refer to our <a href="/shelf/shared-resources/ai-strategy-2026-deck/">AI strategy 2026 presentation deck</a>.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Frameworks are systems for thinking. When they are explicit, they scale judgment. When they are hidden, they drift.</p>
+<hr>
+<h2 id="references">References</h2>
+<div class="references">
+  <ol class="references-list">
+    <li>
+      <span class="ref-title">Daniel Kahneman, <em>Thinking, Fast and Slow</em> (2011).</span>
+      <a class="ref-link" href="https://www.penguinrandomhouse.com/books/89302/thinking-fast-and-slow-by-daniel-kahneman/"><span class="sr-only">Open reference link</span><svg class="ref-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M10 14L21 3" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M21 14v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+    </li>
+    <li>
+      <span class="ref-title">Dave Snowden, Cynefin Framework.</span>
+      <a class="ref-link" href="https://www.cognitive-edge.com/the-cynefin-framework/"><span class="sr-only">Open reference link</span><svg class="ref-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M10 14L21 3" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M21 14v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+    </li>
+  </ol>
+</div>7:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$b"}}]
+8:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Core thinking framework document"}],["$","li","1",{"children":"Referenced in decision-making-under-uncertainty-in-ai-runtimes.mdx"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is a mental framework?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"A mental framework is a system of assumptions, signals, and decisions that compresses complexity into actionable guidance. Good frameworks reduce cognitive load without hiding risk, helping you navigate decisions faster without sacrificing quality."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"How do frameworks drift?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Frameworks drift when the incentives that shaped them change, or when feedback loops that validate them weaken. A framework that worked for one context may persist into another where it no longer fits. Regular review against actual outcomes keeps frameworks accurate."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why do teams need shared frameworks?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"In teams, frameworks become socio-technical artifacts: they provide shared language for communication and common action for decision-making. Without shared frameworks, teams make inconsistent decisions and waste time renegotiating basics instead of solving problems."}]]}]]}]]}]]}]
+9:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L3",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L3",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

@@ -1,0 +1,34 @@
+1:"$Sreact.fragment"
+6:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+2:Ta40,<p class="lead">The system was producing wrong answers. Nobody knew why.</p>
+
+<p>Two agents were working together. One retrieved context, the other generated output. Both seemed to be working fine in isolation. Together, they were producing outputs that were confidently incorrect.</p>
+<p>The problem was invisible because the system had no observability. I could see the final output. I could not see what happened in between.</p>
+<p>I spent two days adding tracing before I could debug. Once I could see the handoff between agents, the problem was obvious: the context retrieval agent was including stale data that the generation agent did not know was stale. <span class="highlight">The generation agent trusted the context without knowing its age or source.</span></p>
+<figure class="content-figure">
+<svg viewBox="0 0 560 160" role="img" aria-labelledby="multi-agent-trace-title">
+  <title id="multi-agent-trace-title">A multi-agent trace showing context flow between agents</title>
+  <rect class="figure-stroke" x="40" y="50" width="100" height="60" rx="10" fill="none" stroke-width="2" />
+  <rect class="figure-stroke" x="230" y="50" width="100" height="60" rx="10" fill="none" stroke-width="2" />
+  <rect class="figure-stroke" x="420" y="50" width="100" height="60" rx="10" fill="none" stroke-width="2" />
+  <text class="figure-label" x="90" y="85" text-anchor="middle">Agent A</text>
+  <text class="figure-label" x="280" y="85" text-anchor="middle">Context</text>
+  <text class="figure-label" x="470" y="85" text-anchor="middle">Agent B</text>
+  <path d="M140 80h70" stroke="currentColor" stroke-width="2" />
+  <path d="M330 80h70" stroke="currentColor" stroke-width="2" />
+  <text x="90" y="105" font-family="var(--font-mono)" font-size="9" text-anchor="middle">Trace: timestamp</text>
+  <text x="90" y="118" font-family="var(--font-mono)" font-size="9" text-anchor="middle">Trace: source</text>
+  <text x="470" y="105" font-family="var(--font-mono)" font-size="9" text-anchor="middle">Trace: age</text>
+  <text x="470" y="118" font-family="var(--font-mono)" font-size="9" text-anchor="middle">Trace: confidence</text>
+</svg>
+<figcaption>Without trace data, you cannot see where the failure happened.</figcaption>
+</figure>
+<p>Now I add observability before debugging. Not after. The first question I ask when a multi-agent system misbehaves is not &quot;what is the output?&quot; It is &quot;can I see inside the orchestration?&quot;</p>
+<p><strong>What this changes in practice:</strong> add tracing and observability to multi-agent systems before they fail, not after. You cannot debug what you cannot see.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"What I Learned Debugging a Multi-Agent System | Pruning My Pothos\",\"description\":\"The debugging session that taught me why observability is not optional in orchestration, and what I now look for first when a multi-agent system misbehaves.\",\"url\":\"https://pruningmypothos.com/self/debugging-multi-agent-systems/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Published: ","April 14, 2026","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"What I Learned Debugging a Multi-Agent System"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-pink/40 pl-4 py-1 text-sm sm:text-base","children":"The debugging session that taught me why observability is not optional in orchestration, and what I now look for first when a multi-agent system misbehaves."}],"$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4"]}],null,"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","agents",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","agents"]}],["$","span","orchestration",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","orchestration"]}],["$","span","debugging",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","debugging"]}],["$","span","observability",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","observability"]}]]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L6",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

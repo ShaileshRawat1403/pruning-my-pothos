@@ -1,0 +1,162 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+b:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/covers/systems/evaluation-as-a-runtime-discipline.svg","image"]
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Evaluation as a Runtime Discipline | Pruning My Pothos\",\"description\":\"Why evaluation should live inside the operating loop of an AI system instead of being treated as an occasional review ritual.\",\"url\":\"https://pruningmypothos.com/systems/evaluation-as-a-runtime-discipline/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/evaluation-as-a-runtime-discipline/\"},\"datePublished\":\"2026-03-08\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/evaluation-as-a-runtime-discipline.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"How is runtime evaluation different from benchmark testing?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Benchmark testing checks models in isolation, while runtime evaluation checks whether the live system made good decisions with the right evidence under real constraints.\"}},{\"@type\":\"Question\",\"name\":\"When should evaluation begin?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Before production launch. The first useful evaluation loop starts when you define success and failure conditions in the same place you define the workflow.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Explanations"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Evaluation as a Runtime Discipline"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"Why evaluation should live inside the operating loop of an AI system instead of being treated as an occasional review ritual."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L2","evaluation",{"href":"/tags/evaluation/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","evaluation"]}],["$","$L2","observability",{"href":"/tags/observability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","observability"]}],["$","$L2","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}],["$","$L2","governance",{"href":"/tags/governance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}],"$L3","$L4"]}]]}],"$L5","$undefined","$undefined","$undefined","$undefined","$undefined","$L6","$undefined","$L7","$undefined","$L8"]}],null,"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L2","workflow",{"href":"/tags/workflow/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","workflow"]}]
+4:["$","$L2","runtime",{"href":"/tags/runtime/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","runtime"]}]
+5:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/evaluation-as-a-runtime-discipline.svg","alt":"Continuous evaluation loop","className":"w-full h-full object-cover"}]}]
+a:T2af4,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Evaluation is most useful when it runs inside the execution loop, not only after launch.</li>
+<li>A model can look good in isolation while the full runtime still fails under policy, tool, or verification drift.</li>
+<li>Good evaluation records decisions, evidence, and outcomes as one chain.</li>
+<li>If teams cannot explain why a result passed, their evaluation process is not yet operational.</li>
+</ul>
+</blockquote>
+<p>Teams often talk about evaluation as if it were a separate reporting layer. They benchmark prompts, compare models, or run occasional reviews after incidents. Those activities can be useful, but they miss the higher-leverage question: how does a live system know whether it behaved well on this run, under these constraints, with this evidence?</p>
+<p>That is why evaluation works better as a runtime discipline than as an occasional audit. Once evaluation is embedded into the operating loop, quality becomes a property the system can observe, not only a judgment humans make after the fact.</p>
+<h3 id="what-does-runtime-evaluation-mean-in-practice">What does runtime evaluation mean in practice?</h3>
+<p>Runtime evaluation means checking whether an execution path met explicit success conditions while the system was running, not only after outputs were collected. This page is for operators and product teams who need dependable AI behavior in production, and it connects policy gates, evidence, traceability, and verification artifacts so teams can judge behavior quality as an operational fact.</p>
+<p>In practice, <span class="highlight">evaluation becomes durable when it is attached to decisions, not only to outputs</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> If an AI workflow can declare success without recording what evidence justified that outcome, the evaluation layer is still too weak for production use.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Why evaluation must move closer to execution</summary>
+      <ol>
+        <li><a href="#why-post-hoc-reviews-fail">Why post-hoc reviews fail</a></li>
+        <li><a href="#the-real-unit-of-evaluation">The real unit of evaluation</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: What to measure inside the loop</summary>
+      <ol>
+        <li><a href="#three-runtime-evaluation-layers">Three runtime evaluation layers</a></li>
+        <li><a href="#what-a-useful-evaluation-record-contains">What a useful evaluation record contains</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: How to operationalize it</summary>
+      <ol>
+        <li><a href="#a-minimum-viable-evaluation-loop">A minimum viable evaluation loop</a></li>
+        <li><a href="#common-failure-patterns">Common failure patterns</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-why-evaluation-must-move-closer-to-execution">Act I: Why evaluation must move closer to execution</h2>
+<h3 id="why-post-hoc-reviews-fail">Why post-hoc reviews fail</h3>
+<p>Post-hoc reviews usually suffer from a timing problem. By the time a team investigates a weak result, the local context is gone:</p>
+<ul>
+<li>the prompt path has changed</li>
+<li>the retrieved evidence is no longer visible</li>
+<li>the policy version has moved</li>
+<li>the exact runtime boundary that failed is hard to reconstruct</li>
+</ul>
+<p>The review then becomes a mixture of memory, inference, and partial logs. That is enough for a retrospective, but it is not enough for a reliable operating model.</p>
+<p>This is why benchmark wins often fail to translate into durable system quality. Benchmarks tell you whether the model can produce a useful answer in controlled conditions. They do not tell you whether the live system chose the right tool, stopped when uncertain, or preserved the correct constraints during execution.</p>
+<h3 id="the-real-unit-of-evaluation">The real unit of evaluation</h3>
+<p>The useful unit of evaluation is not only the final answer. It is the decision chain that produced the answer.</p>
+<figure class="diagram">
+  <iframe src="/scenes/eval-runtime-loop.html" title="Runtime evaluation loop" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>Runtime evaluation works when intent, action, verification, and record-keeping stay connected.</figcaption>
+</figure>
+<p>That chain includes:</p>
+<ul>
+<li>what the system was trying to do</li>
+<li>which gate allowed the next step</li>
+<li>what action was executed</li>
+<li>what verification evidence was collected</li>
+<li>how the outcome was classified</li>
+</ul>
+<p>This view overlaps directly with <a href="/systems/observability-first-ai-systems/">Observability First: How AI Systems Learn After Launch</a>. Observability tells you what happened. Runtime evaluation tells you whether what happened should count as good behavior.</p>
+<h2 id="act-ii-what-to-measure-inside-the-loop">Act II: What to measure inside the loop</h2>
+<h3 id="three-runtime-evaluation-layers">Three runtime evaluation layers</h3>
+<p>Useful runtime evaluation usually has three layers.</p>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Layer</th>
+        <th>Question it answers</th>
+        <th>Typical signal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Decision quality</strong></td>
+        <td>Did the runtime choose the right path?</td>
+        <td>allow/deny/ask decisions, escalation events, gate reasons</td>
+      </tr>
+      <tr>
+        <td><strong>Execution quality</strong></td>
+        <td>Did the action complete safely and correctly?</td>
+        <td>tool success, retries, validation pass/fail, side-effect controls</td>
+      </tr>
+      <tr>
+        <td><strong>Outcome quality</strong></td>
+        <td>Did the result create the intended user or business effect?</td>
+        <td>task completion, user correction, rollback rate, citation trust</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<p>Most teams over-measure the third layer and under-measure the first two. They collect satisfaction signals, final output reviews, or latency numbers, but they do not record whether the runtime made the right decisions at the boundaries where risk actually entered the system.</p>
+<p>This is where <a href="/systems/agent-instructions-and-handoff-as-an-operating-system/">Agent Instructions and Handoff as an Operating System</a> and <a href="/systems/from-agent-intent-to-governed-execution/">From Agent Intent to Governed Execution</a> become relevant. If instruction contracts and handoff memory define the workflow, evaluation should validate whether the runtime stayed faithful to that workflow.</p>
+<h3 id="what-a-useful-evaluation-record-contains">What a useful evaluation record contains</h3>
+<p>A runtime evaluation record does not need to be large. It needs to be specific enough to preserve judgment.</p>
+<p>At minimum, each critical step should record:</p>
+<ul>
+<li>the objective being attempted</li>
+<li>the version of the relevant rule or policy</li>
+<li>what evidence was retrieved or supplied</li>
+<li>what result was produced</li>
+<li>whether verification passed, failed, or required escalation</li>
+<li>a small set of reason codes explaining why</li>
+</ul>
+<p>This makes the evaluation process explainable. It also reduces the common failure where teams know a run was &quot;bad&quot; but cannot say which part of the system is responsible. Was it model weakness? Prompt ambiguity? Wrong retrieval? Missing policy? Faulty verification? Without explicit records, these collapse into one fuzzy quality complaint.</p>
+<p>For prompt-heavy systems, this is also why <a href="/systems/prompting-is-not-the-skill-you-think-it-is/">Prompting Is Not the Skill You Think It Is</a> matters. Prompt changes should not be evaluated in isolation. They should be judged against whether they improve the runtime chain without increasing hidden risk elsewhere.</p>
+<h2 id="act-iii-how-to-operationalize-it">Act III: How to operationalize it</h2>
+<h3 id="a-minimum-viable-evaluation-loop">A minimum viable evaluation loop</h3>
+<p>You do not need a heavy platform to start. A minimum viable loop can stay compact.</p>
+<ol>
+<li>Define one high-risk workflow you care about.</li>
+<li>Write explicit success and failure conditions for that workflow.</li>
+<li>Attach those conditions to the runtime steps, not only to a test document.</li>
+<li>Capture one evaluation record per critical boundary.</li>
+<li>Review the records weekly for recurring failure shapes.</li>
+</ol>
+<p>This is intentionally similar to the review logic behind <a href="/self/the-weekly-observability-reset/">The Weekly Observability Reset</a>. The goal is not to create more ceremony. The goal is to turn repeated quality surprises into a stable feedback habit.</p>
+<p>For AI-assisted software delivery, the same logic belongs in the build loop. <a href="/systems/tech-stack-for-nlpg-driven-ai-assisted-sdlc/">Tech Stack for NLPg-Driven AI-Assisted SDLC</a> frames language as an executable design artifact. Runtime evaluation is what keeps that design artifact accountable once execution begins.</p>
+<h3 id="common-failure-patterns">Common failure patterns</h3>
+<p>Several patterns usually indicate that evaluation is still too far from execution:</p>
+<ul>
+<li>quality reviews happen only after incidents</li>
+<li>runs are marked successful without evidence</li>
+<li>teams measure output polish but not decision quality</li>
+<li>one workflow has many retries but no explicit failure class</li>
+<li>evaluators cannot reproduce why two similar runs got different outcomes</li>
+</ul>
+<p>These are not small operational annoyances. They are structural signs that the system is still learning too slowly.</p>
+<p>Once evaluation lives inside the runtime loop, the system can improve faster because the evidence is local, recent, and actionable. Instead of debating vague impressions, teams can inspect which gate, which assumption, or which missing artifact caused the problem.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Evaluation stops being a report you visit after something goes wrong. It becomes part of how the system decides, verifies, and learns on every important run. For a compact companion, see the <a href="/shelf/shared-resources/engineering-agentic-systems-deck/">Engineering Agentic Systems deck</a>. At the interaction level, this is Inspect and Iterate from the <a href="/systems/i-7-cognitive-loop/">I-7 Cognitive Loop</a>: verification against evidence, then folding corrections back into reusable memory instead of letting the same failure recur in new language.</p>
+6:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$a"}}]
+7:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Evaluation language is now linked more directly to observability, agent handoff, and AI-assisted SDLC pages."}],["$","li","1",{"children":"The systems hub now surfaces evaluation-adjacent cornerstone docs as a coherent cluster."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"How is runtime evaluation different from benchmark testing?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Benchmark testing checks models in isolation, while runtime evaluation checks whether the live system made good decisions with the right evidence under real constraints."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"When should evaluation begin?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Before production launch. The first useful evaluation loop starts when you define success and failure conditions in the same place you define the workflow."}]]}]]}]]}]]}]
+8:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L2",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L2",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

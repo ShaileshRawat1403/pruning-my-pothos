@@ -1,0 +1,95 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+:HL["/covers/systems/context-windows-as-working-memory.svg","image"]
+2:T46a,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a context window in an LLM?","acceptedAnswer":{"@type":"Answer","text":"A context window is the finite working memory of an LLM. It is the temporary space where the model holds all the information needed to process a request. Everything inside the window is accessible; everything outside is forgotten."}},{"@type":"Question","name":"Why does context size affect cost and latency?","acceptedAnswer":{"@type":"Answer","text":"Larger contexts require more computation for the self-attention mechanism, which grows quadratically with sequence length. This means costs and response times increase faster than linearly as you add more context."}},{"@type":"Question","name":"What does lost in the middle mean?","acceptedAnswer":{"@type":"Answer","text":"LLMs tend to emphasize information at the beginning and end of context more than information in the middle. Important instructions or facts placed centrally may receive less attention. Strategic placement matters; put critical information at the start or end of your context."}}]}0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Context Windows as Working Memory | Pruning My Pothos\",\"description\":\"A context window is working memory, not storage. Why it is capped, what it costs, why position beats volume, and how to operate one well.\",\"url\":\"https://pruningmypothos.com/systems/context-windows-as-working-memory/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/context-windows-as-working-memory/\"},\"datePublished\":\"2026-01-14\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/context-windows-as-working-memory.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Concepts"}],[["$","span",null,{"children":"•"}],["$","span",null,{"children":[6," min read"]}]],[["$","span",null,{"children":"•"}],["$","span",null,{"children":"intermediate"}]],[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Context Windows as Working Memory"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"A context window is working memory, not storage. Why it is capped, what it costs, why position beats volume, and how to operate one well."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L3","llm",{"href":"/tags/llm/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","llm"]}],"$L4","$L5","$L6"]}]]}],"$L7","$undefined","$undefined","$undefined","$undefined","$undefined","$L8","$undefined","$L9","$undefined","$La"]}],null,"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+4:["$","$L3","context",{"href":"/tags/context/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","context"]}]
+5:["$","$L3","memory",{"href":"/tags/memory/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","memory"]}]
+6:["$","$L3","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}]
+7:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/context-windows-as-working-memory.svg","alt":"Container representing limited context capacity with content inside","className":"w-full h-full object-cover"}]}]
+c:T1bbf,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>A context window is a finite working memory, not long-term recall.</li>
+<li>Cost and latency grow fast as context grows; large windows are expensive.</li>
+<li>&quot;Lost in the middle&quot; means placement matters as much as content.</li>
+<li>Good systems manage context deliberately: summarize, refresh, and prune.</li>
+</ul>
+</blockquote>
+<p>The context window of a Large Language Model is best understood as its working memory. It is a finite, temporary space where the model holds the information it needs to process a request. Everything inside this window is accessible; everything outside is forgotten.</p>
+<h3 id="why-does-the-context-window-matter-so-much">Why does the context window matter so much?</h3>
+<p>The context window matters because it determines what the model can actively attend to during a task, not what it permanently knows. This page is for builders dealing with long prompts, memory pressure, or inconsistent outputs, and the real design job is managing placement, compression, and retrieval instead of just buying a bigger window.</p>
+<p>In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The fundamentals</summary>
+      <ol>
+        <li><a href="#the-hard-limit">The hard limit</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The modern paradigm</summary>
+      <ol>
+        <li><a href="#the-long-context-illusion">The long-context illusion</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Principles in practice</summary>
+      <ol>
+        <li><a href="#operating-the-window">Operating the window</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-fundamentals">Act I: The fundamentals</h2>
+<h3 id="the-hard-limit">The hard limit</h3>
+<p>A context window is the maximum number of tokens a model can process at once. This includes both the input prompt and the generated output. For example, a model with a 4,096-token context window can handle a combined input and output of up to 4,096 tokens. If a conversation exceeds this limit, the oldest tokens are pushed out of memory.</p>
+<p>This is a hard technical constraint. The computational resources required to process context grow quadratically with the number of tokens. A longer context window requires significantly more memory and processing power, making it more expensive and slower to operate.</p>
+<figure class="diagram">
+  <iframe src="/scenes/context-buffer.html" title="Context Window as a Finite Buffer" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>The context window is a fixed-size buffer; once full, old information is lost.</figcaption>
+</figure>
+<h2 id="act-ii-the-modern-paradigm">Act II: The modern paradigm</h2>
+<h3 id="the-long-context-illusion">The long-context illusion</h3>
+<p>Modern models feature increasingly large context windows, with some supporting over a million tokens. This seems to promise a future of infinite memory, where a model can hold entire books or codebases in its working memory. However, this is not a perfect solution.</p>
+<p>Research shows that models often struggle to pay attention to information in the middle of very long contexts, a phenomenon known as the &quot;lost in the middle&quot; problem. The model&#39;s attention is sharpest at the very beginning and the very end of the context window. Information buried in the middle can be ignored or forgotten, even if it is still technically within the window.</p>
+<p>Furthermore, the cost and latency of processing large contexts remain significant. Just because a large context window is available does not mean it is efficient or practical to use it for every task.</p>
+<h3 id="position-beats-volume">Position beats volume</h3>
+<p>Context quality is not only about &quot;how much&quot; but also &quot;where.&quot; Systems often fail because teams keep adding documents while ignoring ordering. If a safety rule appears halfway through a long prompt, it competes with many unrelated tokens. If the same rule appears in a short system prefix and is repeated near decision points, compliance improves.</p>
+<p>A practical pattern is to split context into tiers:</p>
+<ul>
+<li><strong>Persistent core:</strong> identity, policy, definitions, and non-negotiable constraints.</li>
+<li><strong>Task frame:</strong> current objective, acceptance criteria, and known boundaries.</li>
+<li><strong>Evidence pack:</strong> only the documents needed for the current step.</li>
+</ul>
+<p>This tiering keeps critical information easy to attend to and reduces token waste.</p>
+<h2 id="act-iii-principles-in-practice">Act III: Principles in practice</h2>
+<h3 id="operating-the-window">Operating the window</h3>
+<p>Effective use of an LLM requires managing its working memory carefully. You cannot assume the model remembers everything you have ever told it. You must ensure that the information it needs to perform a task is present and prominent within the current context window.</p>
+<p>This has several practical implications. For long conversations, a summary of past interactions should be included in the prompt. For knowledge-intensive tasks, Retrieval-Augmented Generation (RAG) is used to find the most relevant information from an external database and place it at the top of the context window. This technique is more efficient and reliable than simply expanding the context to include an entire library of documents.</p>
+<p>A reliable operating loop usually looks like this:</p>
+<ol>
+<li>compress previous turns into a short state snapshot</li>
+<li>retrieve only high-relevance evidence for the active task</li>
+<li>place constraints and acceptance checks near the decision point</li>
+<li>trim stale or duplicate context before the next call</li>
+</ol>
+<p>When this loop is explicit, performance is steadier and token budgets are predictable.</p>
+<p>For related systems context, see <a href="/systems/systems-001-foundations/">Systems 001: Foundations</a> and <a href="/systems/from-prompt-to-production/">From Prompt to Production</a>. For a practical grounding pattern, see the <a href="/shelf/shared-resources/local-llm-references/">Local LLM References</a> and <a href="/systems/retrieval-augmented-generation-in-plain-terms/">Retrieval-Augmented Generation in Plain Terms</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Treat the context window as a scarce resource and place the most important information at the beginning or end of your prompt.</p>
+8:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$c"}}]
+9:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Core reference for context management principles"}],["$","li","1",{"children":"Referenced in knowledge-management-as-runtime-memory.mdx"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is a context window in an LLM?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"A context window is the finite working memory of an LLM. It is the temporary space where the model holds all the information needed to process a request. Everything inside the window is accessible; everything outside is forgotten."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why does context size affect cost and latency?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Larger contexts require more computation for the self-attention mechanism, which grows quadratically with sequence length. This means costs and response times increase faster than linearly as you add more context."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What does lost in the middle mean?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"LLMs tend to emphasize information at the beginning and end of context more than information in the middle. Important instructions or facts placed centrally may receive less attention. Strategic placement matters; put critical information at the start or end of your context."}]]}]]}]]}]]}]
+a:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L3",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L3",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+b:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

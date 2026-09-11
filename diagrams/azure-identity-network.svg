@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <rect width="1200" height="600" fill="#0b1b2b"/>
+  <rect x="120" y="150" width="420" height="300" rx="20" fill="#0f1f33" stroke="#1d4ed8" stroke-width="2"/>
+  <rect x="660" y="150" width="420" height="300" rx="20" fill="#0f1f33" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="330" y="200" fill="#cbd5f5" font-size="20" text-anchor="middle" font-family="system-ui, sans-serif">Identity</text>
+  <text x="870" y="200" fill="#cbd5f5" font-size="20" text-anchor="middle" font-family="system-ui, sans-serif">Networking</text>
+  <rect x="170" y="240" width="320" height="50" rx="12" fill="#111827" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="170" y="310" width="320" height="50" rx="12" fill="#111827" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="710" y="240" width="320" height="50" rx="12" fill="#111827" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="710" y="310" width="320" height="50" rx="12" fill="#111827" stroke="#3b82f6" stroke-width="2"/>
+  <text x="330" y="272" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="system-ui, sans-serif">Deployment Name</text>
+  <text x="330" y="342" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="system-ui, sans-serif">API Key + Endpoint</text>
+  <text x="870" y="272" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="system-ui, sans-serif">Firewall Rules</text>
+  <text x="870" y="342" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="system-ui, sans-serif">NSG / VNet</text>
+</svg>

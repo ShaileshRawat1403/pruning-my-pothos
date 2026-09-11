@@ -1,0 +1,25 @@
+1:"$Sreact.fragment"
+5:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+6:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+2:T649,<p>We often treat clarity as if it were a happy accident, a moment of insight that arrives on its own. But clarity is not a gift. It is the result of hard work. It is the choice to face ambiguity and wrestle it into submission.</p>
+<figure class="content-figure figure-attention">
+  <svg viewBox="0 0 480 160" role="img" aria-labelledby="attention-clarity-is-a-choice-title">
+    <title id="attention-clarity-is-a-choice-title">Attention selects signal</title>
+    <rect class="figure-stroke" x="40" y="58" width="160" height="44" rx="10" fill="none" stroke-width="2" />
+    <rect class="figure-fill" x="280" y="58" width="160" height="44" rx="10" />
+    <path class="figure-accent" d="M200 80h80" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="200" cy="80" r="4" />
+    <circle class="figure-dot" cx="280" cy="80" r="4" />
+    <text class="figure-label" x="70" y="86">Noise</text>
+    <text class="figure-label figure-label-strong" x="306" y="86">Signal</text>
+  </svg>
+  <figcaption>Attention narrows input into signal.</figcaption>
+</figure>
+<p>To choose clarity is to choose focus. It is to decide what matters and what does not. It is to trim away the details that distract and to amplify the signal that guides. This is an act of will, not of inspiration.</p>
+<p>The world does not hand us clarity. The world hands us noise. Our job is to filter that noise, to find the pattern, to make the choice.</p>
+<p><strong>What this changes in practice:</strong> At the start of a project, explicitly define what you are <em>not</em> doing. The constraints create the clarity.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Clarity is a choice. | Pruning My Pothos\",\"description\":\"Clarity is the deliberate act of removing ambiguity before you act.\",\"url\":\"https://pruningmypothos.com/sentences/clarity-is-a-choice/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Attention"," / 2 min read"," / beginner"]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Clarity is a choice."}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-purple/40 pl-4 py-1 text-sm sm:text-base","children":"Clarity is the deliberate act of removing ambiguity before you act."}],["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","clarity",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","clarity"]}],["$","span","focus",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","focus"]}],["$","span","attention",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","attention"]}]]}],"$L3"]}],null,"$L4"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L5",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+4:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

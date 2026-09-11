@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-label="Employee talk track">
+  <rect width="960" height="420" rx="24" fill="#f8fafc"/>
+  <rect x="40" y="40" width="880" height="340" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="70" y="90" fill="#0f172a" font-size="18" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Employee talk track</text>
+
+  <rect x="70" y="120" width="820" height="64" rx="14" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="2"/>
+  <text x="100" y="160" fill="#0f172a" font-size="13" font-family="'Plus Jakarta Sans', sans-serif">AI is an assistant, not a decision-maker.</text>
+
+  <rect x="70" y="200" width="820" height="64" rx="14" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="2"/>
+  <text x="100" y="240" fill="#0f172a" font-size="13" font-family="'Plus Jakarta Sans', sans-serif">Safe usage is built into the tools you already use.</text>
+
+  <rect x="70" y="280" width="820" height="64" rx="14" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="2"/>
+  <text x="100" y="320" fill="#0f172a" font-size="13" font-family="'Plus Jakarta Sans', sans-serif">Training and support are available for every team.</text>
+</svg>

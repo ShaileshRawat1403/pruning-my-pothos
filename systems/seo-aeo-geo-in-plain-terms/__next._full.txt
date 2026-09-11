@@ -1,0 +1,188 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","seo-aeo-geo-in-plain-terms",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","seo-aeo-geo-in-plain-terms","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+17:T4ad,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between SEO, AEO, and GEO?","acceptedAnswer":{"@type":"Answer","text":"SEO (Search Engine Optimization) gets you discovered by ranking in search results. AEO (Answer Engine Optimization) gets you extracted as an answer in zero-click searches. GEO (Generative Engine Optimization) gets you cited by AI systems. They are layers, not competitors."}},{"@type":"Question","name":"Are SEO, AEO, and GEO competing priorities?","acceptedAnswer":{"@type":"Answer","text":"No. They reinforce each other. Content that ranks well in SEO is also easier to extract as answers (AEO) and cite in AI responses (GEO). Strong writing for any layer helps the others. The best strategy is one content core expressed in retrieval-friendly shapes."}},{"@type":"Question","name":"What is the weakest link in machine-mediated discovery?","acceptedAnswer":{"@type":"Answer","text":"Your source pages. If your pages are unclear, inconsistent, or poorly structured, every downstream surface (search, answers, AI citations) gets weaker. Investment in source quality pays dividends across all three layers."}}]}c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"SEO, AEO, and GEO in Plain Terms | Pruning My Pothos\",\"description\":\"A clear conceptual model for how SEO, AEO, and GEO differ, overlap, and reinforce each other.\",\"url\":\"https://pruningmypothos.com/systems/seo-aeo-geo-in-plain-terms/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/seo-aeo-geo-in-plain-terms/\"},\"datePublished\":\"2026-03-05\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/seo-aeo-geo-in-plain-terms.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$17"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Concepts"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"SEO, AEO, and GEO in Plain Terms"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"A clear conceptual model for how SEO, AEO, and GEO differ, overlap, and reinforce each other."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","seo",{"href":"/tags/seo/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","seo"]}],["$","$L9","aeo",{"href":"/tags/aeo/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","aeo"]}],"$L18","$L19","$L1a"]}]]}],"$L1b","$undefined","$undefined","$undefined","$undefined","$undefined","$L1c","$undefined","$L1d","$undefined","$L1e"]}]
+:HL["/covers/systems/seo-aeo-geo-in-plain-terms.svg","image"]
+18:["$","$L9","geo",{"href":"/tags/geo/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","geo"]}]
+19:["$","$L9","concepts",{"href":"/tags/concepts/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","concepts"]}]
+1a:["$","$L9","discoverability",{"href":"/tags/discoverability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","discoverability"]}]
+1b:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/seo-aeo-geo-in-plain-terms.svg","alt":"Search discoverability Venn diagram","className":"w-full h-full object-cover"}]}]
+1f:T22f7,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>SEO gets you discovered, AEO gets you extractable, GEO gets you citable.</li>
+<li>These are not competing channels; they are layers in one discovery system.</li>
+<li>The strongest strategy is one content core, expressed in multiple retrieval-friendly shapes.</li>
+<li>If your source pages are unclear, every downstream surface gets weaker.</li>
+</ul>
+</blockquote>
+<p>Teams often ask whether SEO is being replaced by AEO or GEO. The better framing is systems framing: each layer solves a different failure point in machine-mediated discovery.</p>
+<p>SEO helps engines find and rank your pages. AEO helps answer systems lift direct responses. GEO helps generative systems retrieve and cite your information during synthesis. If one layer is weak, the next layer inherits that weakness.</p>
+<h3 id="what-is-the-practical-difference-between-seo-aeo-and-geo">What is the practical difference between SEO, AEO, and GEO?</h3>
+<p>SEO, AEO, and GEO are different checkpoints in one discoverability system rather than separate marketing channels. This page is for teams trying to organize search work without creating three disconnected programs, and the practical goal is to make one knowledge core discoverable, extractable, and citable.</p>
+<p>In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The fundamentals</summary>
+      <ol>
+        <li><a href="#three-terms-one-pipeline">Three terms, one pipeline</a></li>
+        <li><a href="#what-each-layer-optimizes">What each layer optimizes</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The modern paradigm</summary>
+      <ol>
+        <li><a href="#the-handshake-between-layers">The handshake between layers</a></li>
+        <li><a href="#where-teams-usually-break-the-chain">Where teams usually break the chain</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Principles in practice</summary>
+      <ol>
+        <li><a href="#a-practical-operating-model">A practical operating model</a></li>
+        <li><a href="#measurement-without-vanity-metrics">Measurement without vanity metrics</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-fundamentals">Act I: The fundamentals</h2>
+<h3 id="three-terms-one-pipeline">Three terms, one pipeline</h3>
+<p>A useful way to think about modern visibility is as a pipeline:</p>
+<ol>
+<li><strong>Discovery:</strong> can engines find and index your page?</li>
+<li><strong>Interpretation:</strong> can systems identify the exact answer unit?</li>
+<li><strong>Attribution:</strong> can a model trust and cite that unit in a generated response?</li>
+</ol>
+<p>SEO mostly governs the first gate. AEO mostly governs the second gate. GEO mostly governs the third gate. The same page can contribute to all three, but each gate has different quality checks.</p>
+<h3 id="what-each-layer-optimizes">What each layer optimizes</h3>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>SEO</th>
+        <th>AEO</th>
+        <th>GEO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Primary interface</strong></td>
+        <td>Ranked results pages</td>
+        <td>Direct answer surfaces</td>
+        <td>Generated answers and assistants</td>
+      </tr>
+      <tr>
+        <td><strong>Optimization unit</strong></td>
+        <td>Page/topic authority</td>
+        <td>Answer block clarity</td>
+        <td>Retrievable evidence chunk</td>
+      </tr>
+      <tr>
+        <td><strong>Main failure mode</strong></td>
+        <td>Not discovered or weakly ranked</td>
+        <td>Content found but not extractable</td>
+        <td>Content retrieved but not cited</td>
+      </tr>
+      <tr>
+        <td><strong>Typical signal</strong></td>
+        <td>Coverage, impressions, clicks</td>
+        <td>Answer capture and snippet inclusion</td>
+        <td>Mention rate and citation quality</td>
+      </tr>
+      <tr>
+        <td><strong>Content property</strong></td>
+        <td>Topical depth + crawlability</td>
+        <td>Structured concise explanations</td>
+        <td>Specific claims + attributable evidence</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<p>This table shows why replacing one with another is a category error. You still need crawlable foundations, even if your business goal is generative citation.</p>
+<h2 id="act-ii-the-modern-paradigm">Act II: The modern paradigm</h2>
+<h3 id="the-handshake-between-layers">The handshake between layers</h3>
+<p>In practice, the layers pass work to each other:</p>
+<ul>
+<li>SEO creates visibility of canonical pages.</li>
+<li>AEO shapes those pages into extractable answer units.</li>
+<li>GEO turns those units into citation-ready evidence during generation.</li>
+</ul>
+<p>If SEO produces thin pages, AEO has little to extract. If AEO leaves answers ambiguous, GEO cannot safely cite claims. Strong GEO outcomes usually come from disciplined source pages, not &quot;AI tricks.&quot;</p>
+<p>For the operational mechanics, see <a href="/systems/seo-aeo-geo-how-things-fit-together/">SEO, AEO, GEO: How Discoverability Actually Works</a>.</p>
+<h3 id="where-teams-usually-break-the-chain">Where teams usually break the chain</h3>
+<p>Most inconsistency comes from content architecture, not algorithm updates. Common breaks:</p>
+<ul>
+<li><strong>No canonical source of truth:</strong> multiple weak pages competing on the same intent.</li>
+<li><strong>Definition drift:</strong> key terms described differently across pages.</li>
+<li><strong>Answer buried in narrative:</strong> good writing, poor extractability.</li>
+<li><strong>Weak attribution context:</strong> claims are broad but not scoped, dated, or bounded.</li>
+</ul>
+<p>These failures are subtle because humans can still read around them. Machines usually cannot.</p>
+<p>A practical correction is to design content in layers:</p>
+<ul>
+<li>canonical explainer page for the core concept</li>
+<li>focused satellite pages for specific sub-questions</li>
+<li>explicit internal linking that defines entity relationships</li>
+<li>concise answer blocks close to section headers</li>
+</ul>
+<p>That structure helps both classic indexing and modern retrieval.</p>
+<h2 id="act-iii-principles-in-practice">Act III: Principles in practice</h2>
+<h3 id="a-practical-operating-model">A practical operating model</h3>
+<p>Treat visibility like a system with clear ownership:</p>
+<ol>
+<li><strong>Topic owner:</strong> maintains canonical pages and terminology consistency.</li>
+<li><strong>Structure owner:</strong> enforces headings, answer blocks, and table clarity.</li>
+<li><strong>Evidence owner:</strong> ensures claims are specific, current, and attributable.</li>
+<li><strong>Measurement owner:</strong> tracks search, answer capture, and citation outcomes together.</li>
+</ol>
+<p>This avoids the common split where &quot;SEO team&quot; and &quot;content team&quot; optimize different goals with different language.</p>
+<p>For retrieval-specific design patterns, see <a href="/systems/aeo-and-geo-as-a-retrieval-design-problem/">AEO and GEO as a Retrieval Design Problem</a>.</p>
+<h3 id="measurement-without-vanity-metrics">Measurement without vanity metrics</h3>
+<p>A mature dashboard separates volume from trust:</p>
+<ul>
+<li><strong>SEO layer:</strong> indexed pages, query coverage, non-brand clicks.</li>
+<li><strong>AEO layer:</strong> direct-answer presence for priority intents.</li>
+<li><strong>GEO layer:</strong> citation frequency, citation precision, mention context.</li>
+</ul>
+<p>Citation precision matters. A mention without the right claim context can look positive while still harming credibility. Focus on whether generated answers reflect your intended framing, not just your brand string.</p>
+<p>You also need lag-aware expectations. SEO improvements can appear in weeks, while stable GEO citation patterns may take longer because multiple retrieval systems need to recrawl and re-rank.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Stop choosing between SEO, AEO, and GEO. Build one high-integrity knowledge core, then shape it for ranking, extraction, and citation as connected layers of the same system. For the compact reference version, see the <a href="/shelf/shared-resources/winning-ai-search-deck/">Winning AI Search deck</a>.</p>
+1c:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1f"}}]
+1d:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Core conceptual reference for SEO/AEO/GEO"}],["$","li","1",{"children":"Referenced in seo-aeo-geo-how-things-fit-together.mdx"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is the difference between SEO, AEO, and GEO?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"SEO (Search Engine Optimization) gets you discovered by ranking in search results. AEO (Answer Engine Optimization) gets you extracted as an answer in zero-click searches. GEO (Generative Engine Optimization) gets you cited by AI systems. They are layers, not competitors."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Are SEO, AEO, and GEO competing priorities?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"No. They reinforce each other. Content that ranks well in SEO is also easier to extract as answers (AEO) and cite in AI responses (GEO). Strong writing for any layer helps the others. The best strategy is one content core expressed in retrieval-friendly shapes."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is the weakest link in machine-mediated discovery?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Your source pages. If your pages are unclear, inconsistent, or poorly structured, every downstream surface (search, answers, AI citations) gets weaker. Investment in source quality pays dividends across all three layers."}]]}]]}]]}]]}]
+1e:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+20:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"SEO, AEO, and GEO in Plain Terms | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"A clear conceptual model for how SEO, AEO, and GEO differ, overlap, and reinforce each other."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/seo-aeo-geo-in-plain-terms/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"SEO, AEO, and GEO in Plain Terms | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"A clear conceptual model for how SEO, AEO, and GEO differ, overlap, and reinforce each other."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/seo-aeo-geo-in-plain-terms/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/seo-aeo-geo-in-plain-terms.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"SEO, AEO, and GEO in Plain Terms | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"A clear conceptual model for how SEO, AEO, and GEO differ, overlap, and reinforce each other."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/seo-aeo-geo-in-plain-terms.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L20","20",{}]]

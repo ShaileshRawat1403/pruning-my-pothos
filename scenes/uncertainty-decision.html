@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Decision flow under uncertainty</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 980 280" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 980 280');
+
+Ink.rect(svg,{x:62,y:90,w:170,h:62,r:12,seed:1,label:'Context',lx:85,ly:26,anchor:'middle'});
+Ink.text(svg,{x:147,y:142,text:'uncertainty',size:10,cls:'label label-muted',anchor:'middle'});
+Ink.rect(svg,{x:262,y:90,w:170,h:62,r:12,seed:2,label:'Model',lx:85,ly:26,anchor:'middle'});
+Ink.text(svg,{x:347,y:142,text:'uncertainty',size:10,cls:'label label-muted',anchor:'middle'});
+Ink.rect(svg,{x:462,y:90,w:170,h:62,r:12,seed:3,label:'Outcome',lx:85,ly:26,anchor:'middle'});
+Ink.text(svg,{x:547,y:142,text:'uncertainty',size:10,cls:'label label-muted',anchor:'middle'});
+Ink.rect(svg,{x:694,y:80,w:220,h:82,r:12,seed:4,cls:'ink ink-2',hi:true,label:'Runtime decision',lx:110,ly:34,anchor:'middle'});
+Ink.text(svg,{x:804,y:152,text:'allow / ask / deny / defer',size:10,cls:'label label-muted',anchor:'middle'});
+Ink.line(svg,{x1:232,y1:121,x2:262,y2:121,seed:10,dot:true});
+Ink.line(svg,{x1:432,y1:121,x2:462,y2:121,seed:11,dot:true});
+Ink.line(svg,{x1:632,y1:121,x2:694,y2:121,seed:12,dot:true,cls:'ink ink-2',pulse:true});
+  Ink.run();
+})();
+</script>
+</body></html>

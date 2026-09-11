@@ -1,0 +1,167 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+f:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+:HL["/covers/systems/from-agent-intent-to-governed-execution.svg","image"]
+2:T4a6,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a governed step in agent execution?","acceptedAnswer":{"@type":"Answer","text":"A governed step is the practical unit of production AI: a single action that has been authorized by runtime policy, verified for correctness, and logged for traceability. Agent reliability comes from the quality of these governed steps, not from model capability alone."}},{"@type":"Question","name":"How does the model-to-runtime responsibility shift work?","acceptedAnswer":{"@type":"Answer","text":"The model proposes; the runtime authorizes. The model generates potential actions based on intent. The runtime then checks permissions, validates the action against policy, executes if approved, and logs the outcome. This separation makes behavior auditable."}},{"@type":"Question","name":"What are the seven control stages?","acceptedAnswer":{"@type":"Answer","text":"The seven control stages are: (1) Intent parsing, (2) Policy check, (3) Permission gate, (4) Action proposal, (5) Validation, (6) Execution, and (7) Audit logging. Each stage can halt or redirect the flow if constraints are violated."}}]}0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"From Agent Intent to Governed Execution | Pruning My Pothos\",\"description\":\"How an agent request becomes controlled system behavior through runtime orchestration, policy gates, verification, and traceability.\",\"url\":\"https://pruningmypothos.com/systems/from-agent-intent-to-governed-execution/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/from-agent-intent-to-governed-execution/\"},\"datePublished\":\"2026-03-05\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/from-agent-intent-to-governed-execution.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"How-things-fit-together"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"From Agent Intent to Governed Execution"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"How an agent request becomes controlled system behavior through runtime orchestration, policy gates, verification, and traceability."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L3","mcp",{"href":"/tags/mcp/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","mcp"]}],"$L4","$L5","$L6","$L7","$L8"]}]]}],"$L9","$undefined","$undefined","$undefined","$undefined","$undefined","$La","$undefined","$Lb","$undefined","$Lc"]}],null,"$Ld"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+4:["$","$L3","orchestration",{"href":"/tags/orchestration/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","orchestration"]}]
+5:["$","$L3","runtime",{"href":"/tags/runtime/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","runtime"]}]
+6:["$","$L3","policy",{"href":"/tags/policy/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","policy"]}]
+7:["$","$L3","verification",{"href":"/tags/verification/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","verification"]}]
+8:["$","$L3","traceability",{"href":"/tags/traceability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","traceability"]}]
+9:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/from-agent-intent-to-governed-execution.svg","alt":"Governed execution pipeline","className":"w-full h-full object-cover"}]}]
+e:T2077,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Agent reliability is a runtime property, not a prompt property.</li>
+<li>The model should propose actions; the runtime should authorize execution.</li>
+<li>Deterministic contracts and structured traces make multi-step behavior auditable.</li>
+<li>The practical unit is not &quot;a response&quot; but &quot;a governed step&quot;.</li>
+</ul>
+</blockquote>
+<p>Most agent failures are not caused by low model capability. They come from weak orchestration boundaries between model output and system execution. A model can be correct in language and still unsafe in behavior.</p>
+<h3 id="how-does-governed-execution-secure-agent-runtimes">How does governed execution secure agent runtimes?</h3>
+<p>Governed execution secures agent runtimes by separating action proposal from action authorization. The language model acts as a reasoning engine to propose tool calls, while a deterministic system runtime intercepts, parses, and validates each proposed action against a strict policy contract before execution, ensuring that unsafe or unauthorized actions are blocked.</p>
+<p>This document explains the end-to-end path from user intent to runtime-controlled execution, and why each control point exists.</p>
+<p>In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Runtime framing</summary>
+      <ol>
+        <li><a href="#why-intent-needs-a-runtime">Why intent needs a runtime</a></li>
+        <li><a href="#the-governed-step-model">The governed-step model</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Orchestration flow</summary>
+      <ol>
+        <li><a href="#the-seven-control-stages">The seven control stages</a></li>
+        <li><a href="#message-parts-as-runtime-signals">Message parts as runtime signals</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Production discipline</summary>
+      <ol>
+        <li><a href="#where-systems-break">Where systems break</a></li>
+        <li><a href="#operational-patterns-that-hold">Operational patterns that hold</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-runtime-framing">Act I: Runtime framing</h2>
+<h3 id="why-intent-needs-a-runtime">Why intent needs a runtime</h3>
+<p>The model can map user intent to likely actions, but likelihood is not governance. Production systems need explicit decision boundaries where policy, risk, and verification can intervene before side effects happen.</p>
+<p>Without that boundary, the pipeline becomes:</p>
+<p><code>intent -&gt; model output -&gt; side effect</code></p>
+<p>With runtime orchestration, the pipeline becomes:</p>
+<p><code>intent -&gt; model proposal -&gt; runtime decision -&gt; side effect -&gt; verification -&gt; trace</code></p>
+<figure class="diagram">
+  <iframe src="/scenes/governed-pipeline.html" title="Governed execution pipeline" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>The runtime gate is where intention becomes governed action.</figcaption>
+</figure>
+<h3 id="the-governed-step-model">The governed-step model</h3>
+<p>A governed step is one atomic unit of execution with five properties:</p>
+<ol>
+<li><strong>Context</strong>: run-scoped identifiers and ownership.</li>
+<li><strong>Proposal</strong>: model-produced next action.</li>
+<li><strong>Decision</strong>: allow, deny, or ask.</li>
+<li><strong>Evidence</strong>: verification signals from execution.</li>
+<li><strong>Trace</strong>: structured record for replay and audit.</li>
+</ol>
+<p>This gives agents a controlled rhythm. Instead of an opaque conversation, you get a sequence of accountable transitions.</p>
+<h2 id="act-ii-orchestration-flow">Act II: Orchestration flow</h2>
+<h3 id="the-seven-control-stages">The seven control stages</h3>
+<p>A practical orchestration loop usually passes through seven stages. This is the runtime-level reading of the same shape described at the interaction level in the <a href="/systems/i-7-cognitive-loop/">I-7 Cognitive Loop</a>: both separate proposal from authorization, and both treat every step as something that must be observable to count as real.</p>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Stage</th>
+        <th>Runtime question</th>
+        <th>Output artifact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. Intent capture</strong></td>
+        <td>What is the requested outcome?</td>
+        <td>Intent statement + constraints</td>
+      </tr>
+      <tr>
+        <td><strong>2. Proposal</strong></td>
+        <td>What action does the model suggest?</td>
+        <td>Structured action proposal</td>
+      </tr>
+      <tr>
+        <td><strong>3. Policy gate</strong></td>
+        <td>Is this action permitted here?</td>
+        <td>Decision (`allow|deny|ask`)</td>
+      </tr>
+      <tr>
+        <td><strong>4. Execution</strong></td>
+        <td>What happened in the tool boundary?</td>
+        <td>Tool result payload</td>
+      </tr>
+      <tr>
+        <td><strong>5. Verification</strong></td>
+        <td>Did evidence confirm completion?</td>
+        <td>Verification report</td>
+      </tr>
+      <tr>
+        <td><strong>6. Trace write</strong></td>
+        <td>Can this step be replayed or explained?</td>
+        <td>Audit/trace event</td>
+      </tr>
+      <tr>
+        <td><strong>7. Next-step decision</strong></td>
+        <td>Continue, compact, or stop?</td>
+        <td>Loop transition state</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<h3 id="message-parts-as-runtime-signals">Message parts as runtime signals</h3>
+<p>When model output is split into message parts (<code>reasoning</code>, <code>text</code>, <code>tool</code>, <code>patch</code>, <code>step</code>), orchestration becomes inspectable. This turns raw generation into a timeline the runtime can evaluate and the operator can debug.</p>
+<figure class="diagram">
+  <iframe src="/scenes/message-parts-timeline.html" title="Message parts timeline" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>Structured message parts let the runtime inspect progression, not just final text.</figcaption>
+</figure>
+<p>For an implementation case, see <a href="/shelf/local-experiments/soothsayer-mcp-kernel/">Soothsayer MCP kernel: from prompts to controlled orchestration</a>.
+For the framing lens behind this flow, see <a href="/systems/runtime-over-model-why-orchestration-is-the-product/">Runtime Over Model: Why Orchestration Is the Product</a>.</p>
+<h2 id="act-iii-production-discipline">Act III: Production discipline</h2>
+<h3 id="where-systems-break">Where systems break</h3>
+<p>Most breakdowns happen at boundaries, not at generation:</p>
+<ul>
+<li>proposals executed without policy validation</li>
+<li>tool success accepted without verification</li>
+<li>unstructured logs that hide step-level causality</li>
+<li>implicit session state that cannot be reconstructed</li>
+</ul>
+<h3 id="operational-patterns-that-hold">Operational patterns that hold</h3>
+<p>Reliable teams treat orchestration as a first-class system:</p>
+<ul>
+<li>They require explicit run context for every stateful action.</li>
+<li>They enforce deterministic response contracts where clients depend on stable fields.</li>
+<li>They keep traces structured so incidents can be replayed and corrected.</li>
+<li>They preserve a clean human intervention path for ambiguous or risky branches.</li>
+</ul>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Stop designing around “better prompts” as the primary reliability strategy. Design around governed steps, explicit decision gates, and verifiable artifacts. That is how intent becomes accountable execution.</p>
+a:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$e"}}]
+b:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Defines 7 control stages for agent execution"}],["$","li","1",{"children":"Establishes governed step as the practical unit of production AI"}],["$","li","2",{"children":"Core reference for Dual NLP framework implementation"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is a governed step in agent execution?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"A governed step is the practical unit of production AI: a single action that has been authorized by runtime policy, verified for correctness, and logged for traceability. Agent reliability comes from the quality of these governed steps, not from model capability alone."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"How does the model-to-runtime responsibility shift work?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"The model proposes; the runtime authorizes. The model generates potential actions based on intent. The runtime then checks permissions, validates the action against policy, executes if approved, and logs the outcome. This separation makes behavior auditable."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What are the seven control stages?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"The seven control stages are: (1) Intent parsing, (2) Policy check, (3) Permission gate, (4) Action proposal, (5) Validation, (6) Execution, and (7) Audit logging. Each stage can halt or redirect the flow if constraints are violated."}]]}]]}]]}]]}]
+c:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L3",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L3",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+d:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
+11:null

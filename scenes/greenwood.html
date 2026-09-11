@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jonny Greenwood — signal into music</title>
+<style>
+  html,body{margin:0;padding:0;width:100%;height:100%;background:transparent;overflow:hidden}
+  .stage{position:absolute;inset:0}.stage svg{width:100%;height:100%;display:block}
+  .ink{stroke:#2a2012;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  .ink-2{stroke:#8c2f23}.ink-3{stroke:#9a7322}.fillink{fill:#2a2012;stroke:none}
+  .fill-3{fill:#9a7322;stroke:none}
+  html[data-theme='dark'] .ink{stroke:#efe5cf}html[data-theme='dark'] .ink-2{stroke:#c2564a}
+  html[data-theme='dark'] .ink-3{stroke:#c79a3e}html[data-theme='dark'] .fillink{fill:#efe5cf}
+  html[data-theme='dark'] .fill-3{fill:#c79a3e}
+  .draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+  .osc{animation:osc 4.5s ease-in-out infinite;transform-origin:center}
+  @keyframes osc{0%,100%{transform:scaleY(1)}50%{transform:scaleY(0.72)}}
+  .knob{transform-box:fill-box;transform-origin:center;animation:tweak 8s ease-in-out infinite}
+  @keyframes tweak{0%,100%{transform:rotate(-18deg)}50%{transform:rotate(24deg)}}
+  @media (prefers-reduced-motion:reduce){.osc,.knob{animation:none}}
+</style></head>
+<body><div class="stage">
+<svg viewBox="0 0 900 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- the waveform: noise deciding to become music -->
+  <g class="osc">
+    <path class="ink ink-3 draw" stroke-width="2.4"
+      d="M 120 210 C 170 120 210 300 260 210 S 350 120 400 210 S 500 300 560 210 S 660 120 720 210 S 800 250 810 210"/>
+  </g>
+  <line class="ink draw" x1="120" y1="210" x2="810" y2="210" stroke-width="1" opacity="0.35"/>
+
+  <!-- modular rack -->
+  <g class="ink" stroke-width="2">
+    <rect class="draw" x="180" y="330" width="150" height="180" rx="4"/>
+    <rect class="draw" x="360" y="330" width="150" height="180" rx="4"/>
+    <rect class="draw" x="540" y="330" width="150" height="180" rx="4"/>
+  </g>
+  <!-- knobs -->
+  <g class="ink ink-2" stroke-width="1.8">
+    <g class="knob"><circle class="draw" cx="220" cy="372" r="14"/><line class="draw" x1="220" y1="372" x2="220" y2="360"/></g>
+    <g class="knob" style="animation-delay:-2s"><circle class="draw" cx="290" cy="372" r="14"/><line class="draw" x1="290" y1="372" x2="298" y2="363"/></g>
+    <g class="knob" style="animation-delay:-4s"><circle class="draw" cx="400" cy="372" r="14"/><line class="draw" x1="400" y1="372" x2="392" y2="363"/></g>
+    <g class="knob" style="animation-delay:-1s"><circle class="draw" cx="470" cy="372" r="14"/><line class="draw" x1="470" y1="372" x2="470" y2="360"/></g>
+    <g class="knob" style="animation-delay:-3s"><circle class="draw" cx="580" cy="372" r="14"/><line class="draw" x1="580" y1="372" x2="588" y2="363"/></g>
+    <g class="knob" style="animation-delay:-5s"><circle class="draw" cx="650" cy="372" r="14"/><line class="draw" x1="650" y1="372" x2="642" y2="363"/></g>
+  </g>
+  <!-- jacks -->
+  <g class="fill-3">
+    <circle cx="220" cy="470" r="6"/><circle cx="290" cy="470" r="6"/>
+    <circle cx="400" cy="470" r="6"/><circle cx="470" cy="470" r="6"/>
+    <circle cx="580" cy="470" r="6"/><circle cx="650" cy="470" r="6"/>
+  </g>
+  <!-- patch cables: the negotiation -->
+  <g class="ink ink-2" stroke-width="2.2" opacity="0.9">
+    <path class="draw" d="M 290 470 C 300 560 390 560 400 470"/>
+    <path class="draw" d="M 470 470 C 490 570 560 570 580 470"/>
+    <path class="draw" d="M 220 470 C 240 540 620 560 650 472"/>
+  </g>
+</svg></div>
+<script>
+(function(){var root=document.documentElement;
+ function theme(){try{var p=window.parent&&window.parent.document.documentElement;var t=(p&&p.getAttribute('data-theme'))||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');root.setAttribute('data-theme',t);}catch(e){root.setAttribute('data-theme','light');}}
+ theme();try{var p=window.parent&&window.parent.document.documentElement;if(p)new MutationObserver(theme).observe(p,{attributes:true,attributeFilter:['data-theme']});}catch(e){}
+ function draw(){document.querySelectorAll('.draw').forEach(function(el,i){var len=(el.getTotalLength&&el.getTotalLength())||300;el.style.setProperty('--len',len);el.style.transition='none';el.style.strokeDashoffset=len;el.getBoundingClientRect();el.style.transition='stroke-dashoffset 1.6s cubic-bezier(0.16,1,0.3,1) '+(i*45)+'ms';el.style.strokeDashoffset='0';});}
+ addEventListener('load',draw);setTimeout(draw,60);})();
+</script></body></html>

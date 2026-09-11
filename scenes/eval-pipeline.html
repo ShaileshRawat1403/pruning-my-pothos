@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Evaluation Pipeline</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 180" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 180');
+
+Ink.rect(svg,{x:50,y:70,w:100,h:40,r:6,seed:1,label:'Input',lx:50,ly:25,anchor:'middle',size:12});
+Ink.line(svg,{x1:150,y1:90,x2:200,y2:90,seed:2,dot:true});
+Ink.rect(svg,{x:200,y:50,w:120,h:80,r:8,seed:3,label:'LLM',lx:60,ly:44,anchor:'middle',size:14});
+Ink.line(svg,{x1:320,y1:90,x2:370,y2:90,seed:4,dot:true});
+Ink.rect(svg,{x:370,y:70,w:100,h:40,r:6,seed:5,label:'Output',lx:50,ly:25,anchor:'middle',size:12});
+Ink.line(svg,{x1:470,y1:90,x2:520,y2:90,seed:6,dot:true});
+Ink.rect(svg,{x:520,y:50,w:140,h:80,r:8,seed:7,cls:'ink ink-2',hi:true,label:'Evaluator',lx:70,ly:38,anchor:'middle',size:14});
+Ink.text(svg,{x:590,y:105,text:'(vs Ground Truth)',size:10,cls:'label label-muted',anchor:'middle'});
+Ink.line(svg,{x1:660,y1:90,x2:706,y2:90,seed:8,dot:true,cls:'ink ink-2',pulse:true});
+Ink.circle(svg,{cx:740,cy:90,r:30,seed:9,cls:'ink ink-2',sw:2,label:'92%',size:14,labelCls:'label-hi'});
+  Ink.run();
+})();
+</script>
+</body></html>

@@ -1,0 +1,29 @@
+1:"$Sreact.fragment"
+6:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+2:T874,<p class="lead">I used to think my problem was not writing enough. The real problem was not structuring what I had already written.</p>
+
+<p>For a while, I treated notes as inventory. I kept adding files and told myself I was building a second brain. In reality, I was building a storage room. I could find things, but I could not reuse them without re-thinking everything from scratch.</p>
+<p>The shift came when I started designing a knowledge surface instead of a note archive. I gave ideas stable names, tightened scope boundaries, and linked pages by intent rather than by recency. <span class="highlight">That changed retrieval from luck to design.</span></p>
+<p>Now, when I write a new piece, I first ask where it belongs in the existing map and what neighboring ideas it should strengthen. This slows me down at the start, but it saves hours later. It also makes my writing more coherent across sections.</p>
+<figure class="content-figure">
+<svg viewBox="0 0 560 150" role="img" aria-labelledby="knowledge-surface-title">
+  <title id="knowledge-surface-title">Knowledge surface loop: capture, shape, link</title>
+  <rect class="figure-stroke" x="24" y="44" width="154" height="62" rx="12" fill="none" stroke-width="2" />
+  <rect class="figure-stroke" x="204" y="44" width="154" height="62" rx="12" fill="none" stroke-width="2" />
+  <rect class="figure-fill" x="384" y="44" width="154" height="62" rx="12" />
+  <text class="figure-label" x="101" y="79" text-anchor="middle">Capture</text>
+  <text class="figure-label" x="281" y="79" text-anchor="middle">Shape</text>
+  <text class="figure-label figure-label-strong" x="461" y="79" text-anchor="middle">Link</text>
+  <path class="figure-accent" d="M178 75h20" stroke-width="3" stroke-linecap="round" />
+  <path class="figure-accent" d="M358 75h20" stroke-width="3" stroke-linecap="round" />
+</svg>
+<figcaption>A usable knowledge surface emerges when capture, structure, and linking reinforce each other.</figcaption>
+</figure>
+<p>I still keep messy drafts. But I no longer confuse accumulation with understanding. The goal is not to store more thoughts. The goal is to keep ideas reusable under pressure.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Building a Knowledge Surface | Pruning My Pothos\",\"description\":\"How I moved from collecting notes to designing a usable memory surface for writing and AI workflows.\",\"url\":\"https://pruningmypothos.com/self/building-a-knowledge-surface/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Published: ","March 5, 2026","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Building a Knowledge Surface"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-pink/40 pl-4 py-1 text-sm sm:text-base","children":"How I moved from collecting notes to designing a usable memory surface for writing and AI workflows."}],"$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4"]}],null,"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","knowledge-management",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","knowledge-management"]}],["$","span","reflection",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reflection"]}],["$","span","writing",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","writing"]}],["$","span","practice",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","practice"]}]]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L6",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

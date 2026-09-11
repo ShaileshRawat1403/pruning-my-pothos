@@ -1,0 +1,29 @@
+1:"$Sreact.fragment"
+6:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+2:T8be,<p class="lead">The first thought feels fast and certain. That is exactly why it needs company.</p>
+
+<p>A <span class="highlight">first thought</span> is rarely the best one. It is an instinct, a knee-jerk reaction shaped by biases we don&#39;t fully perceive. It arrives with a feeling of clarity and authority, yet it is often just the most well-worn path in our own neural landscape. The most familiar answer, not the most considered one.</p>
+<p>The real work does not begin until the <span class="highlight">second or third thought</span>. The work begins when you ask: &quot;Why did I think that first?&quot; This act of <span class="highlight">self-interrogation</span> is the start of genuine reflection. It moves beyond mere reaction and into the realm of reasoning.</p>
+<figure class="content-figure">
+<svg viewBox="0 0 520 140" role="img" aria-labelledby="first-thought-title">
+  <title id="first-thought-title">Questioning the first thought opens a better one</title>
+  <rect class="figure-stroke" x="20" y="40" width="140" height="60" rx="12" fill="none" stroke-width="2" />
+  <rect class="figure-stroke" x="190" y="40" width="140" height="60" rx="12" fill="none" stroke-width="2" />
+  <rect class="figure-fill" x="360" y="40" width="140" height="60" rx="12" />
+  <text class="figure-label" x="90" y="75" text-anchor="middle">First</text>
+  <text class="figure-label" x="260" y="75" text-anchor="middle">Question</text>
+  <text class="figure-label figure-label-strong" x="430" y="75" text-anchor="middle">Second</text>
+  <path class="figure-accent" d="M160 70h20" stroke-width="3" stroke-linecap="round" />
+  <path class="figure-accent" d="M330 70h20" stroke-width="3" stroke-linecap="round" />
+</svg>
+<figcaption>The first thought is a draft, not a destination.</figcaption>
+</figure>
+<p>To question your first thought is an act of <span class="highlight">intellectual humility</span>. It is an admission that our minds are not perfect instruments of logic, but organic systems shaped by history and habit. The goal is not to never have a bad first thought, but to build the <span class="highlight">discipline not to stop there</span>.</p>
+<p>The second thought does not need to be brilliant. It just needs to be honest.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"My First Thought | Pruning My Pothos\",\"description\":\"Why the second thought deserves more of the spotlight.\",\"url\":\"https://pruningmypothos.com/self/my-first-thought/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Published: ","January 11, 2026","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"My First Thought"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-pink/40 pl-4 py-1 text-sm sm:text-base","children":"Why the second thought deserves more of the spotlight."}],"$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4"]}],null,"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","reflection",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reflection"]}],["$","span","philosophy",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","philosophy"]}],["$","span","identity",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","identity"]}]]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L6",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

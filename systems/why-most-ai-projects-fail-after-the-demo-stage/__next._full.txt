@@ -1,0 +1,211 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","why-most-ai-projects-fail-after-the-demo-stage",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","why-most-ai-projects-fail-after-the-demo-stage","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Why Most AI Projects Fail After the Demo Stage | Pruning My Pothos\",\"description\":\"Why AI projects often stall after promising demos: weak integration, missing governance, low observability, and unclear adoption design.\",\"url\":\"https://pruningmypothos.com/systems/why-most-ai-projects-fail-after-the-demo-stage/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/why-most-ai-projects-fail-after-the-demo-stage/\"},\"datePublished\":\"2026-03-14\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/why-most-ai-projects-fail-after-the-demo-stage.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Why do AI projects fail after a successful demo?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Because the demo proves model fluency, not production readiness. Projects usually fail when they hit integration debt, governance uncertainty, missing observability, and weak user adoption design.\"}},{\"@type\":\"Question\",\"name\":\"What should teams fix first after a promising prototype?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"They should map the real workflow: source systems, policies, human approvals, verification logic, and failure handling. Without that map, scaling the demo only scales uncertainty.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"How-things-fit-together"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Why Most AI Projects Fail After the Demo Stage"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"Why AI projects often stall after promising demos: weak integration, missing governance, low observability, and unclear adoption design."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","ai",{"href":"/tags/ai/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","ai"]}],["$","$L9","adoption",{"href":"/tags/adoption/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","adoption"]}],["$","$L9","integration",{"href":"/tags/integration/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","integration"]}],"$L17","$L18","$L19"]}]]}],"$L1a","$undefined","$undefined","$undefined","$undefined","$undefined","$L1b","$undefined","$L1c","$undefined","$L1d"]}]
+:HL["/covers/systems/why-most-ai-projects-fail-after-the-demo-stage.svg","image"]
+17:["$","$L9","governance",{"href":"/tags/governance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}]
+18:["$","$L9","observability",{"href":"/tags/observability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","observability"]}]
+19:["$","$L9","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}]
+1a:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/why-most-ai-projects-fail-after-the-demo-stage.svg","alt":"Failure points in AI projects","className":"w-full h-full object-cover"}]}]
+1e:T28ad,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>A demo proves possibility; production requires integration, governance, and operational discipline.</li>
+<li>Most failures happen in the move from isolated prompt success to workflow-level reliability.</li>
+<li>Adoption fails when systems are hard to trust, not only when models are inaccurate.</li>
+<li>Teams improve their odds by designing for observability, approvals, and source-of-truth boundaries early.</li>
+</ul>
+</blockquote>
+<p>This article explains a core failure pattern in modern AI systems: the gap between a successful demo and a useful production system. It focuses on integration, governance, observability, adoption, and how to keep promising AI work from stalling after the first excitement.</p>
+<p>It is most useful for teams trying to move a pilot into real operations, and for leaders who need to understand why model quality alone rarely predicts production value.</p>
+<p>Teams often interpret a strong demo as evidence that the hard part is behind them. In reality, the demo usually proves only one thing: a model can generate a compelling response inside controlled conditions. Production asks a harder question: can the system produce useful behavior repeatedly inside the real organization?</p>
+<h3 id="why-do-ai-projects-stall-after-a-strong-demo">Why do AI projects stall after a strong demo?</h3>
+<p>Most AI projects stall because the demo validates model output, while the production environment exposes system debt. Once real source systems, policy boundaries, reliability expectations, and user trust enter the picture, the original prototype often has no architecture for handling them.</p>
+<p>In practice, <span class="highlight">the post-demo phase is where AI stops being a feature experiment and becomes an operating system problem</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> If a pilot has no explicit plan for approvals, evidence, source systems, and incident review, it is not moving toward production. It is only extending the demo period.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: What the demo really proves</summary>
+      <ol>
+        <li><a href="#the-demo-illusion">The demo illusion</a></li>
+        <li><a href="#the-four-real-production-tests">The four real production tests</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Where projects break</summary>
+      <ol>
+        <li><a href="#breakpoint-1-integration-debt">Breakpoint 1: Integration debt</a></li>
+        <li><a href="#breakpoint-2-governance-ambiguity">Breakpoint 2: Governance ambiguity</a></li>
+        <li><a href="#breakpoint-3-missing-observability">Breakpoint 3: Missing observability</a></li>
+        <li><a href="#breakpoint-4-adoption-friction">Breakpoint 4: Adoption friction</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: How to move beyond the demo</summary>
+      <ol>
+        <li><a href="#a-better-post-demo-sequence">A better post-demo sequence</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-what-the-demo-really-proves">Act I: What the demo really proves</h2>
+<h3 id="the-demo-illusion">The demo illusion</h3>
+<p>Demos are persuasive because they compress the system:</p>
+<ul>
+<li>one user</li>
+<li>one goal</li>
+<li>one clean input</li>
+<li>one success path</li>
+<li>little or no consequence for failure</li>
+</ul>
+<p>That compression is useful. But it hides the conditions that make production difficult. In organizations, the system has to survive:</p>
+<ul>
+<li>messy upstream data</li>
+<li>multiple stakeholders</li>
+<li>policy boundaries</li>
+<li>handoffs across teams</li>
+<li>changing definitions of success</li>
+</ul>
+<p>The danger is not the demo itself. The danger is treating the demo as evidence that the system is nearly production-ready.</p>
+<h3 id="the-four-real-production-tests">The four real production tests</h3>
+<p>Most projects only become real when they pass four tests:</p>
+<ol>
+<li><strong>Integration</strong>: can the system work with real source systems and workflows?</li>
+<li><strong>Governance</strong>: is there clarity on what the system may do, when, and for whom?</li>
+<li><strong>Observability</strong>: can the team inspect and improve behavior after launch?</li>
+<li><strong>Adoption</strong>: do real users trust the system enough to change behavior around it?</li>
+</ol>
+<p>If any of these fail, the project often stays trapped in pilot mode.</p>
+<figure class="diagram">
+  <iframe src="/scenes/demo-to-production-gaps.html" title="From demo success to production failure points" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>The first strong answer is often the easiest part of the project.</figcaption>
+</figure>
+<h2 id="act-ii-where-projects-break">Act II: Where projects break</h2>
+<h3 id="breakpoint-1-integration-debt">Breakpoint 1: Integration debt</h3>
+<p>The prototype usually assumes context is already available in one clean place. Production rarely looks like that. Teams discover:</p>
+<ul>
+<li>important data lives in disconnected systems</li>
+<li>ownership is unclear</li>
+<li>freshness and access controls are inconsistent</li>
+<li>the workflow requires approvals outside the prototype</li>
+</ul>
+<p>This is why retrieval and architecture matter so much. A model can answer beautifully, but if it cannot pull from governed source truth, the value collapses as soon as trust is tested.</p>
+<h3 id="breakpoint-2-governance-ambiguity">Breakpoint 2: Governance ambiguity</h3>
+<p>Governance fails when nobody can answer basic questions:</p>
+<ul>
+<li>what actions may the system take on its own</li>
+<li>what requires human review</li>
+<li>which policies apply in edge cases</li>
+<li>who owns the change log</li>
+</ul>
+<p>The result is predictable. Either the team over-restricts the system until it becomes unhelpful, or it moves too quickly and creates fear. Both outcomes slow adoption.</p>
+<p>This is why <a href="/systems/from-agent-intent-to-governed-execution/">From Agent Intent to Governed Execution</a> matters beyond agent systems. The same runtime discipline helps any AI project cross the boundary from novelty to trusted use.</p>
+<h3 id="breakpoint-3-missing-observability">Breakpoint 3: Missing observability</h3>
+<p>Without observability, the team cannot tell whether failures come from:</p>
+<ul>
+<li>model reasoning</li>
+<li>retrieval quality</li>
+<li>orchestration logic</li>
+<li>user misunderstanding</li>
+</ul>
+<p>Then every issue looks like a prompt problem. That wastes time and creates weak fixes. Observability gives the system a memory of its own behavior, which is what lets teams improve safely after launch. See <a href="/systems/observability-first-ai-systems/">Observability First: How AI Systems Learn After Launch</a> for the operating model.</p>
+<h3 id="breakpoint-4-adoption-friction">Breakpoint 4: Adoption friction</h3>
+<p>Adoption is not only training. It is product design plus organizational trust.</p>
+<p>Users hesitate when:</p>
+<ul>
+<li>the system cannot explain itself</li>
+<li>approvals feel arbitrary</li>
+<li>failures are hard to recover from</li>
+<li>the workflow adds effort instead of removing it</li>
+</ul>
+<p>This is why demos can mislead leadership. A small team may enjoy the novelty of a prototype, while actual operators reject it because it increases cognitive burden. The question is not whether people like AI. The question is whether the system fits their real work.</p>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Stage</th>
+        <th>Looks good in demo</th>
+        <th>Breaks in production</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Prompted answer</strong></td>
+        <td>Fast and impressive output</td>
+        <td>No clear source-of-truth boundary</td>
+      </tr>
+      <tr>
+        <td><strong>Tool use</strong></td>
+        <td>Impressive automation path</td>
+        <td>No policy or verification gate</td>
+      </tr>
+      <tr>
+        <td><strong>Pilot workflow</strong></td>
+        <td>Internal excitement</td>
+        <td>No sustained observability or ownership</td>
+      </tr>
+      <tr>
+        <td><strong>User rollout</strong></td>
+        <td>Strong launch narrative</td>
+        <td>Low trust and weak habit fit</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<p>For applied proof surfaces, the portfolio is now part of the searchable graph at <a href="/portfolio/">Portfolio</a>, and Soothsayer offers a local experiment view at <a href="/shelf/local-experiments/soothsayer-mcp-kernel/">Soothsayer MCP kernel: from prompts to controlled orchestration</a>.</p>
+<h2 id="act-iii-how-to-move-beyond-the-demo">Act III: How to move beyond the demo</h2>
+<h3 id="a-better-post-demo-sequence">A better post-demo sequence</h3>
+<p>A better sequence after the prototype looks like this:</p>
+<ol>
+<li>Map the real workflow and ownership boundaries.</li>
+<li>Define what the system may do without human approval.</li>
+<li>Connect source truth and retrieval to governed data paths.</li>
+<li>Add runtime observability and failure classes.</li>
+<li>Roll out through one high-value, high-clarity workflow before broad expansion.</li>
+</ol>
+<p>This is calmer than scaling first. It is also faster in the long run because it reduces rework.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Do not ask whether the demo was good enough. Ask whether the system can survive integration, governance, observability, and adoption. That is the real transition from AI excitement to AI value.</p>
+<h2 id="related-ai-systems-topics">Related AI systems topics</h2>
+<ul>
+<li><a href="/systems/ai-architecture-explained-how-modern-llm-applications-work/">AI Architecture Explained: How Modern LLM Applications Work</a></li>
+<li><a href="/systems/observability-first-ai-systems/">Observability First: How AI Systems Learn After Launch</a></li>
+<li><a href="/systems/from-agent-intent-to-governed-execution/">From Agent Intent to Governed Execution</a></li>
+<li><a href="/portfolio/">Portfolio</a></li>
+</ul>
+1b:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1e"}}]
+1c:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"This page ties together existing observability, governed execution, retrieval, and portfolio proof surfaces."}],["$","li","1",{"children":"Portfolio and Soothsayer links now support the article's emphasis on real systems over abstract demos."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why do AI projects fail after a successful demo?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Because the demo proves model fluency, not production readiness. Projects usually fail when they hit integration debt, governance uncertainty, missing observability, and weak user adoption design."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What should teams fix first after a promising prototype?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"They should map the real workflow: source systems, policies, human approvals, verification logic, and failure handling. Without that map, scaling the demo only scales uncertainty."}]]}]]}]]}]]}]
+1d:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1f:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"Why Most AI Projects Fail After the Demo Stage | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"Why AI projects often stall after promising demos: weak integration, missing governance, low observability, and unclear adoption design."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/why-most-ai-projects-fail-after-the-demo-stage/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"Why Most AI Projects Fail After the Demo Stage | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"Why AI projects often stall after promising demos: weak integration, missing governance, low observability, and unclear adoption design."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/why-most-ai-projects-fail-after-the-demo-stage/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/why-most-ai-projects-fail-after-the-demo-stage.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Why Most AI Projects Fail After the Demo Stage | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"Why AI projects often stall after promising demos: weak integration, missing governance, low observability, and unclear adoption design."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/why-most-ai-projects-fail-after-the-demo-stage.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L1f","20",{}]]

@@ -1,0 +1,26 @@
+1:"$Sreact.fragment"
+6:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+2:T6f0,<p>We often treat a first draft as a failed attempt at a final version. We see the flaws, the gaps, the awkward phrasing, and we feel discouraged. But a first draft is not a failure. It is data.</p>
+<figure class="content-figure figure-attention">
+  <svg viewBox="0 0 480 160" role="img" aria-labelledby="attention-first-draft-is-data-title">
+    <title id="attention-first-draft-is-data-title">Attention selects signal</title>
+    <rect class="figure-stroke" x="40" y="58" width="160" height="44" rx="10" fill="none" stroke-width="2" />
+    <rect class="figure-fill" x="280" y="58" width="160" height="44" rx="10" />
+    <path class="figure-accent" d="M200 80h80" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="200" cy="80" r="4" />
+    <circle class="figure-dot" cx="280" cy="80" r="4" />
+    <text class="figure-label" x="70" y="86">Noise</text>
+    <text class="figure-label figure-label-strong" x="306" y="86">Signal</text>
+  </svg>
+  <figcaption>Attention narrows input into signal.</figcaption>
+</figure>
+<p>The first draft is a low-fidelity sketch of the problem space. It shows you the shape of your ideas, the connections between them, and the places where your thinking is still fuzzy. It is a map of your own understanding.</p>
+<p>To treat a first draft as data is to shift your mindset from one of judgment to one of curiosity. Instead of asking &quot;Is this good?&quot; you ask &quot;What does this tell me?&quot; You are not trying to produce a finished product. You are trying to generate information.</p>
+<p><strong>What this changes in practice:</strong> Write your first draft as quickly as possible. Don&#39;t worry about quality. The goal is to get the ideas out of your head and onto the page, where you can see them.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"The first draft is data. | Pruning My Pothos\",\"description\":\"Early versions show the shape of the problem.\",\"url\":\"https://pruningmypothos.com/sentences/first-draft-is-data/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Attention","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"The first draft is data."}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-purple/40 pl-4 py-1 text-sm sm:text-base","children":"Early versions show the shape of the problem."}],["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","drafting",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","drafting"]}],["$","span","attention",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","attention"]}],"$L3"]}],"$L4"]}],null,"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","span","iteration",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","iteration"]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L6",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

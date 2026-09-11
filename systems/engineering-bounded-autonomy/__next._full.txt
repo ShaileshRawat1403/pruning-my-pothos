@@ -1,0 +1,177 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","engineering-bounded-autonomy",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","engineering-bounded-autonomy","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Engineering Bounded Autonomy into AI Systems | Pruning My Pothos\",\"description\":\"How to design autonomous AI systems with safety constraints, operational boundaries, and governance hooks that keep autonomy useful without letting it become uncontrolled.\",\"url\":\"https://pruningmypothos.com/systems/engineering-bounded-autonomy/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/engineering-bounded-autonomy/\"},\"datePublished\":\"2026-04-15\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/engineering-bounded-autonomy.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What is bounded autonomy in AI systems?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Bounded autonomy means an AI system can act autonomously within defined boundaries, but those boundaries are enforced by design, not by trust alone. Autonomy stops where governance ends.\"}},{\"@type\":\"Question\",\"name\":\"How do you define autonomy boundaries?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Start with governance contracts: what may the system do without approval, what requires human sign-off, and what is outside its operating range entirely. Then enforce those boundaries architecturally.\"}},{\"@type\":\"Question\",\"name\":\"Why is bounded autonomy better than unrestricted autonomy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Unrestricted autonomy is brittle. When something goes wrong, there is no boundary to contain the failure. Bounded autonomy is reliable because the system cannot act outside its safe operating envelope.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"How-things-fit-together"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Engineering Bounded Autonomy into AI Systems"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"How to design autonomous AI systems with safety constraints, operational boundaries, and governance hooks that keep autonomy useful without letting it become uncontrolled."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","autonomy",{"href":"/tags/autonomy/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","autonomy"]}],["$","$L9","safety",{"href":"/tags/safety/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","safety"]}],"$L17","$L18","$L19","$L1a"]}]]}],"$L1b","$undefined","$undefined","$undefined","$undefined","$undefined","$L1c","$undefined","$L1d","$undefined","$L1e"]}]
+:HL["/covers/systems/engineering-bounded-autonomy.svg","image"]
+17:["$","$L9","engineering",{"href":"/tags/engineering/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","engineering"]}]
+18:["$","$L9","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}]
+19:["$","$L9","governance",{"href":"/tags/governance/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","governance"]}]
+1a:["$","$L9","boundaries",{"href":"/tags/boundaries/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","boundaries"]}]
+1b:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/engineering-bounded-autonomy.svg","alt":"Autonomy with safety boundaries","className":"w-full h-full object-cover"}]}]
+1f:T22eb,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Autonomy without boundaries is unreliable autonomy.</li>
+<li>Governance contracts define boundaries; architecture enforces them.</li>
+<li>Bounded autonomy is more trustworthy than unrestricted autonomy.</li>
+<li>Safety constraints must be architectural, not advisory.</li>
+</ul>
+</blockquote>
+<p>This article explains how to engineer AI systems that can act autonomously while staying within safe operating boundaries. It covers boundary definition, architectural enforcement, safety constraints, and governance hooks.</p>
+<h3 id="what-is-bounded-autonomy-in-ai-systems">What is bounded autonomy in AI systems?</h3>
+<p>Bounded autonomy is a design pattern that allows AI systems to make decisions and execute actions independently, but only within strictly defined, architecturally enforced limits. Rather than relying on a model&#39;s self-restraint or safety prompts, bounded autonomy sets hard constraints at the runtime/API layer to prevent unauthorized or dangerous behaviors.</p>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Autonomy Mode</th>
+      <th>Enforcement Mechanism</th>
+      <th>Allowed Actions</th>
+      <th>Escalation Trigger</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Unrestricted</strong></td>
+      <td>Model self-policing (Prompts)</td>
+      <td>Any tool execution</td>
+      <td>None (vulnerable to prompt injection)</td>
+    </tr>
+    <tr>
+      <td><strong>Bounded (Active)</strong></td>
+      <td>Runtime sandbox + policy checks</td>
+      <td>Whitelist of tools/scopes</td>
+      <td>Token usage limit, high-risk APIs</td>
+    </tr>
+    <tr>
+      <td><strong>Human-in-the-Loop</strong></td>
+      <td>Gateway permission manager</td>
+      <td>Read-only, non-destructive</td>
+      <td>All write/delete mutations</td>
+    </tr>
+  </tbody>
+</table>
+<p>It is most useful for teams building autonomous AI systems and for leaders who need to understand how to get the benefits of autonomy without the risks.</p>
+<h3 id="why-autonomy-needs-boundaries">Why autonomy needs boundaries</h3>
+<p>Autonomous AI systems can do useful work faster than human-in-the-loop systems. They can also cause harm faster. <span class="highlight">The value of autonomy is proportional to the quality of its boundaries.</span></p>
+<p>An unrestricted autonomous system is a liability. It may produce useful outputs most of the time, but when it encounters a situation outside its reliable range, it has no mechanism to stop. The failure is silent and potentially large.</p>
+<p>A bounded autonomous system has the benefits of speed and scale with the safety of contained failure. When it encounters a boundary, it stops, signals, and escalates. The failure is visible and manageable.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> If the autonomy boundary is defined in policy only, it is not a boundary. It is a suggestion. Boundaries must be enforced architecturally.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The case for bounded autonomy</summary>
+      <ol>
+        <li><a href="#autonomy-without-boundaries">Autonomy without boundaries</a></li>
+        <li><a href="#what-bounded-autonomy-looks-like">What bounded autonomy looks like</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Engineering boundaries</summary>
+      <ol>
+        <li><a href="#governance-contracts-as-specifications">Governance contracts as specifications</a></li>
+        <li><a href="#architectural-enforcement">Architectural enforcement</a></li>
+        <li><a href="#safety-constraints">Safety constraints</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Operating bounded systems</summary>
+      <ol>
+        <li><a href="#monitoring-and-observability">Monitoring and observability</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-case-for-bounded-autonomy">Act I: The case for bounded autonomy</h2>
+<h3 id="autonomy-without-boundaries">Autonomy without boundaries</h3>
+<p>Systems without boundaries treat autonomy as permission rather than delegation. They assume the system will act correctly because the model is capable. This fails when:</p>
+<ul>
+<li>the query is outside the training distribution</li>
+<li>multiple valid principles conflict</li>
+<li>the situation requires contextual judgment</li>
+<li>the failure mode is silent</li>
+</ul>
+<p>See <a href="/systems/the-logic-void/">The Logic Void: Where AI Reasoning Breaks Down</a> for where these failures originate.</p>
+<p>The failure modes of unrestricted autonomy are predictable. When a system has no boundaries, it will encounter situations where its reasoning becomes unreliable. In those moments, it produces confident outputs that are wrong. And because there is no boundary enforcement, those wrong outputs propagate through the system unchecked.</p>
+<h3 id="what-bounded-autonomy-looks-like">What bounded autonomy looks like</h3>
+<p>Bounded autonomy has four components:</p>
+<ol>
+<li><strong>Defined operating envelope</strong>: what the system may do autonomously, documented and agreed.</li>
+<li><strong>Boundary enforcement</strong>: architectural checks that stop action at the envelope edge.</li>
+<li><strong>Escalation paths</strong>: clear handoffs to human judgment when boundaries are reached.</li>
+<li><strong>Observability</strong>: monitoring that surfaces when the system operates near boundaries.</li>
+</ol>
+<p>These four components work together. The operating envelope defines the space. Boundary enforcement keeps the system inside it. Escalation paths handle what happens at the edge. Observability makes the whole system debuggable.</p>
+<h2 id="act-ii-engineering-boundaries">Act II: Engineering boundaries</h2>
+<h3 id="governance-contracts-as-specifications">Governance contracts as specifications</h3>
+<p>The governance contract defines the operating envelope. It answers:</p>
+<ul>
+<li>what actions may the system take without approval</li>
+<li>what requires human sign-off before execution</li>
+<li>what is outside the system&#39;s operating range</li>
+</ul>
+<p>This contract becomes the specification that architecture enforces. See <a href="/systems/from-agent-intent-to-governed-execution/">From Agent Intent to Governed Execution</a> for the operating model.</p>
+<h3 id="architectural-enforcement">Architectural enforcement</h3>
+<p>Boundaries must be enforced, not suggested. Architectural enforcement means:</p>
+<ul>
+<li>runtime checks that evaluate whether an action is within the envelope</li>
+<li>blocking behavior when boundaries are approached</li>
+<li>logging of boundary approaches for audit and learning</li>
+</ul>
+<h3 id="safety-constraints">Safety constraints</h3>
+<p>Safety constraints are non-negotiable boundaries that cannot be overridden by the autonomous system. They include:</p>
+<ul>
+<li>actions that have irreversible consequences</li>
+<li>actions that cross organizational policy lines</li>
+<li>actions that affect sensitive data or systems</li>
+</ul>
+<p>See <a href="/systems/human-in-the-loop-is-a-system-design-choice/">Human-in-the-loop is a System Design Choice</a> for how to design oversight into autonomous systems.</p>
+<h2 id="act-iii-operating-bounded-systems">Act III: Operating bounded systems</h2>
+<h3 id="monitoring-and-observability">Monitoring and observability</h3>
+<p>Bounded autonomous systems require observability that surfaces:</p>
+<ul>
+<li>when the system approaches operating boundaries</li>
+<li>how often escalation paths are triggered</li>
+<li>whether boundary definitions need adjustment based on usage patterns</li>
+</ul>
+<p>See <a href="/systems/observability-first-ai-systems/">Observability First: How AI Systems Learn After Launch</a> for the operating model.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Do not ask whether your autonomous system is capable. Ask whether its boundaries are defined, enforced, and observable. That is what separates useful autonomy from dangerous autonomy.</p>
+<h2 id="related-ai-systems-topics">Related AI systems topics</h2>
+<ul>
+<li><a href="/systems/human-in-the-loop-is-a-system-design-choice/">Human-in-the-loop is a System Design Choice</a></li>
+<li><a href="/systems/from-agent-intent-to-governed-execution/">From Agent Intent to Governed Execution</a></li>
+<li><a href="/systems/the-logic-void/">The Logic Void: Where AI Reasoning Breaks Down</a></li>
+<li><a href="/systems/observability-first-ai-systems/">Observability First: How AI Systems Learn After Launch</a></li>
+<li><a href="/shelf/shared-resources/engineering-bounded-autonomy-deck/">Engineering Bounded Autonomy deck</a></li>
+</ul>
+1c:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1f"}}]
+1d:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"This doc is backed by the Engineering Bounded Autonomy shared resource."}],["$","li","1",{"children":"Ties to human-in-the-loop, agent instructions, and observability docs."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is bounded autonomy in AI systems?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Bounded autonomy means an AI system can act autonomously within defined boundaries, but those boundaries are enforced by design, not by trust alone. Autonomy stops where governance ends."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"How do you define autonomy boundaries?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Start with governance contracts: what may the system do without approval, what requires human sign-off, and what is outside its operating range entirely. Then enforce those boundaries architecturally."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why is bounded autonomy better than unrestricted autonomy?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Unrestricted autonomy is brittle. When something goes wrong, there is no boundary to contain the failure. Bounded autonomy is reliable because the system cannot act outside its safe operating envelope."}]]}]]}]]}]]}]
+1e:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+20:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"Engineering Bounded Autonomy into AI Systems | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"How to design autonomous AI systems with safety constraints, operational boundaries, and governance hooks that keep autonomy useful without letting it become uncontrolled."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/engineering-bounded-autonomy/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"Engineering Bounded Autonomy into AI Systems | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"How to design autonomous AI systems with safety constraints, operational boundaries, and governance hooks that keep autonomy useful without letting it become uncontrolled."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/engineering-bounded-autonomy/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/engineering-bounded-autonomy.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Engineering Bounded Autonomy into AI Systems | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"How to design autonomous AI systems with safety constraints, operational boundaries, and governance hooks that keep autonomy useful without letting it become uncontrolled."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/engineering-bounded-autonomy.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L20","20",{}]]

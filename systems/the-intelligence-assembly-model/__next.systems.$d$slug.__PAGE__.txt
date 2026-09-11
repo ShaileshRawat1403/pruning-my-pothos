@@ -1,0 +1,162 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+e:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+f:"$Sreact.suspense"
+:HL["/covers/systems/the-intelligence-assembly-model.svg","image"]
+2:T4f2,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the Intelligence Assembly Model?","acceptedAnswer":{"@type":"Answer","text":"The Intelligence Assembly Model is a framework for understanding that useful AI behavior comes from how models, memory, tools, policies, and feedback loops are assembled into one system. The model alone is not the system; the assembly creates the product."}},{"@type":"Question","name":"Why is intelligence assembled rather than downloaded?","acceptedAnswer":{"@type":"Answer","text":"A model is a static artifact that encodes patterns from training. Intelligence in production requires combining the model with memory (to access current information), tools (to take actions), policies (to constrain behavior), and feedback loops (to improve over time). None of this comes from the model card."}},{"@type":"Question","name":"What makes a strong assembly design?","acceptedAnswer":{"@type":"Answer","text":"Strong assembly design creates leverage: components can improve independently without breaking the whole. A better model does not require rewriting your tools. Better tools do not require retraining. Clear interfaces between components enable independent iteration and testing."}}]}0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"The Intelligence Assembly Model | Pruning My Pothos\",\"description\":\"Why useful AI behavior comes from how models, memory, tools, policies, and feedback loops are assembled into one system.\",\"url\":\"https://pruningmypothos.com/systems/the-intelligence-assembly-model/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/the-intelligence-assembly-model/\"},\"datePublished\":\"2026-03-26\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/the-intelligence-assembly-model.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Concepts"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"The Intelligence Assembly Model"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"Why useful AI behavior comes from how models, memory, tools, policies, and feedback loops are assembled into one system."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L3","architecture",{"href":"/tags/architecture/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","architecture"]}],"$L4","$L5","$L6","$L7"]}]]}],"$L8","$undefined","$undefined","$undefined","$undefined","$undefined","$L9","$undefined","$La","$undefined","$Lb"]}],null,"$Lc"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+4:["$","$L3","orchestration",{"href":"/tags/orchestration/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","orchestration"]}]
+5:["$","$L3","memory",{"href":"/tags/memory/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","memory"]}]
+6:["$","$L3","systems",{"href":"/tags/systems/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","systems"]}]
+7:["$","$L3","agents",{"href":"/tags/agents/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","agents"]}]
+8:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/the-intelligence-assembly-model.svg","alt":"Assembly diagram showing components connecting to a central processor","className":"w-full h-full object-cover"}]}]
+d:T21f7,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Intelligence in production is assembled, not downloaded from a model card.</li>
+<li>The important question is not only what the model knows, but what the system can remember, verify, and route.</li>
+<li>Strong assembly design creates leverage because components can improve independently without breaking the whole.</li>
+</ul>
+</blockquote>
+<p>People often talk about an AI system as if the model were the whole thing. That is useful for demos and misleading for operations.</p>
+<p>In a real system, useful behavior emerges from the arrangement of multiple parts: retrieval, memory, tools, runtime policy, verification loops, and handoff logic. A model may be central, but it is not sufficient.</p>
+<p class="lead">The assembly model treats intelligence as system composition: what gets retrieved, what gets remembered, what gets executed, and what gets checked before the loop moves on.</p>
+
+<p>In practice, <span class="highlight">assembly quality determines whether capability stays usable under real workload</span>.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> When teams say a model feels "smart" in one workflow and brittle in another, the difference is often assembly, not raw capability.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The shift</summary>
+      <ol>
+        <li><a href="#from-model-thinking-to-assembly-thinking">From model thinking to assembly thinking</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The parts</summary>
+      <ol>
+        <li><a href="#the-five-assembly-layers">The five assembly layers</a></li>
+        <li><a href="#why-memory-changes-behavior">Why memory changes behavior</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Design consequences</summary>
+      <ol>
+        <li><a href="#where-assemblies-fail">Where assemblies fail</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-shift">Act I: The shift</h2>
+<h3 id="from-model-thinking-to-assembly-thinking">From model thinking to assembly thinking</h3>
+<p>Model thinking asks, &quot;How capable is the model?&quot;</p>
+<h3 id="what-is-the-intelligence-assembly-model">What is the intelligence assembly model?</h3>
+<p>For builders and operators, the intelligence assembly model is a way to describe an AI system as a coordinated set of layers rather than a single model endpoint. It is useful when the real question is not &quot;Which model is best?&quot; but &quot;Which combination of memory, retrieval, tools, and control will stay dependable under repeated work?&quot;</p>
+<p>Assembly thinking asks:</p>
+<ul>
+<li>what information reaches the model,</li>
+<li>what structure holds across steps,</li>
+<li>what actions the runtime allows,</li>
+<li>what memory persists between tasks,</li>
+<li>what evidence confirms the work.</li>
+</ul>
+<p>That second frame is usually more useful once the prototype phase ends. It is the difference between a strong one-off answer and a dependable operating system for repeated work.</p>
+<h2 id="act-ii-the-parts">Act II: The parts</h2>
+<h3 id="the-five-assembly-layers">The five assembly layers</h3>
+<p>A practical intelligence assembly usually combines five layers:</p>
+<ol>
+<li><strong>Model layer</strong> for language generation and pattern completion.</li>
+<li><strong>Memory layer</strong> for reusable context and prior artifacts.</li>
+<li><strong>Retrieval layer</strong> for finding the right evidence at the right time.</li>
+<li><strong>Execution layer</strong> for tool use and downstream actions.</li>
+<li><strong>Control layer</strong> for permissions, verification, and traceability.</li>
+</ol>
+<p>If even one of these is weak, the user may feel the whole system is unreliable.</p>
+<p>For a runtime-heavy view of this same idea, see <a href="/systems/runtime-over-model-why-orchestration-is-the-product/">Runtime Over Model: Why Orchestration Is the Product</a>.</p>
+<div class="table-scroll-wrap">
+  
+
+<table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Layer</th>
+        <th>Primary job</th>
+        <th>Common failure</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Model</strong></td>
+        <td>Generate likely next language or structure</td>
+        <td>Looks fluent but lacks grounding</td>
+      </tr>
+      <tr>
+        <td><strong>Memory</strong></td>
+        <td>Preserve continuity across tasks</td>
+        <td>Stale or weakly named artifacts</td>
+      </tr>
+      <tr>
+        <td><strong>Retrieval</strong></td>
+        <td>Find the right evidence at the right time</td>
+        <td>Relevant source never reaches the model</td>
+      </tr>
+      <tr>
+        <td><strong>Execution</strong></td>
+        <td>Turn intent into actions and artifacts</td>
+        <td>Tool side effects exceed scope</td>
+      </tr>
+      <tr>
+        <td><strong>Control</strong></td>
+        <td>Apply policy, verification, and traceability</td>
+        <td>System cannot explain why a step was allowed</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<h3 id="why-memory-changes-behavior">Why memory changes behavior</h3>
+<p>Memory is not just storage. It changes what the system can do with continuity.</p>
+<p>Without memory, the system restarts from scratch on each task.
+With memory, the system can:</p>
+<ul>
+<li>preserve vocabulary and entity definitions</li>
+<li>reuse prior decisions</li>
+<li>connect new work to old artifacts</li>
+<li>keep long projects coherent</li>
+</ul>
+<p>This is why <a href="/systems/knowledge-management-as-runtime-memory/">Knowledge Management as Runtime Memory</a> matters: memory is part of the assembly, not a sidecar convenience.</p>
+<p>Another useful shift is to think in dependency quality, not component count. A weak assembly may have many moving parts and still behave poorly because the handoffs are vague. Retrieval may pull in the wrong materials. Memory may preserve context without preserving scope. Tools may be present without enough runtime control to keep actions safe.</p>
+<p>That is why assembly design often matters more than adding one more capability. A smaller, clearer assembly usually outperforms a busier one because each layer knows what it is responsible for and what evidence the next layer needs.</p>
+<h2 id="act-iii-design-consequences">Act III: Design consequences</h2>
+<h3 id="where-assemblies-fail">Where assemblies fail</h3>
+<p>Assemblies usually break in one of four ways:</p>
+<ul>
+<li>retrieval returns the wrong evidence</li>
+<li>memory contains stale or weakly named artifacts</li>
+<li>tools execute without enough policy checks</li>
+<li>verification is skipped because the output &quot;looks right&quot;</li>
+</ul>
+<p>Each failure can be mistaken for a model problem even when the model is not the root cause.</p>
+<p>Assemblies also fail organizationally. Different teams may own different parts of the loop: platform owns the runtime, product owns the workflow, and writers or analysts shape the knowledge surface. If the assembly is unnamed, each team optimizes its local piece and the user experiences the seams. Naming the whole assembly helps teams debug the system as one unit instead of arguing over isolated layers.</p>
+<p>The user usually feels this as inconsistency. One task goes smoothly while the next feels brittle, even though the model did not change much. In reality, the surrounding assembly changed: different retrieval path, weaker memory surface, looser tool contract, or missing verification. The model remains the visible face, but the assembly determines whether its output stays usable.</p>
+<p>The <a href="/shelf/shared-resources/intelligence-assembly-deck/">The Intelligence Assembly deck</a> is useful as the compact visual companion to this architecture.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Design AI systems as compositions of cooperating layers. Improve the assembly where behavior actually breaks, instead of assuming every failure should be solved by changing the model.</p>
+<p>Related reading:</p>
+<ul>
+<li><a href="/systems/knowledge-management-as-runtime-memory/">Knowledge management as runtime memory</a></li>
+<li><a href="/systems/from-ad-hoc-prompts-to-repeatable-agent-workflows/">From ad-hoc prompts to repeatable agent workflows</a></li>
+<li><a href="/shelf/shared-resources/intelligence-assembly-deck/">The Intelligence Assembly deck</a></li>
+</ul>
+9:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$d"}}]
+a:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Core architectural reference document"}],["$","li","1",{"children":"Referenced in runtime-over-model-why-orchestration-is-the-product.mdx"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is the Intelligence Assembly Model?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"The Intelligence Assembly Model is a framework for understanding that useful AI behavior comes from how models, memory, tools, policies, and feedback loops are assembled into one system. The model alone is not the system; the assembly creates the product."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Why is intelligence assembled rather than downloaded?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"A model is a static artifact that encodes patterns from training. Intelligence in production requires combining the model with memory (to access current information), tools (to take actions), policies (to constrain behavior), and feedback loops (to improve over time). None of this comes from the model card."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What makes a strong assembly design?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Strong assembly design creates leverage: components can improve independently without breaking the whole. A better model does not require rewriting your tools. Better tools do not require retraining. Clear interfaces between components enable independent iteration and testing."}]]}]]}]]}]]}]
+b:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L3",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L3",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+c:["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]
+10:null

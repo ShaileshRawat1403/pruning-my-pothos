@@ -1,0 +1,32 @@
+1:"$Sreact.fragment"
+6:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+2:T9a5,<p class="lead">I used to think a good AI system was one that answered everything.</p>
+
+<p>Now I think a good AI system is one that knows when to stop answering.</p>
+<p>The shift happened when I watched a system produce a confident, well-structured answer to a question that was malformed. The answer was fluent. It was also completely wrong. And the system had no signal that anything had gone wrong.</p>
+<p>That moment made me rethink what reliability means. <span class="highlight">Reliability is not the absence of failure. It is the ability to recognize failure conditions and handle them gracefully.</span></p>
+<p>I started building uncertainty signals into the systems I design. Not as a feature, but as a core property. When the system is operating in ambiguous territory, it should say so. When it is retrieving from a governed source versus relying on its training, it should make that distinction visible.</p>
+<figure class="content-figure">
+<svg viewBox="0 0 560 140" role="img" aria-labelledby="confidence-spectrum-title">
+  <title id="confidence-spectrum-title">The confidence spectrum from certainty to uncertainty signaling</title>
+  <rect class="figure-stroke" x="40" y="50" width="100" height="50" rx="8" fill="none" stroke-width="2" />
+  <rect class="figure-stroke" x="170" y="50" width="100" height="50" rx="8" fill="none" stroke-width="2" />
+  <rect class="figure-stroke" x="300" y="50" width="100" height="50" rx="8" fill="none" stroke-width="2" />
+  <rect class="figure-fill" x="430" y="50" width="90" height="50" rx="8" />
+  <text class="figure-label" x="90" y="80" text-anchor="middle">Certain</text>
+  <text class="figure-label" x="220" y="80" text-anchor="middle">Likely</text>
+  <text class="figure-label" x="350" y="80" text-anchor="middle">Uncertain</text>
+  <text class="figure-label figure-label-strong" x="475" y="80" text-anchor="middle">Void</text>
+  <path d="M140 75h24 M270 75h24 M400 75h24" stroke="currentColor" stroke-width="2" />
+</svg>
+<figcaption>The system should know where it sits on this spectrum for each query.</figcaption>
+</figure>
+<p>I find that users trust systems more when those systems are honest about uncertainty. A system that says &quot;I am not sure&quot; and explains why feels more reliable than one that produces confident answers that turn out to be wrong.</p>
+<p><strong>What this changes in practice:</strong> design for uncertainty expression as a core system property, not as a fallback feature.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Learning to Say I Don't Know | Pruning My Pothos\",\"description\":\"What I learned about trust and reliability when I started designing systems that acknowledged the limits of their own reasoning.\",\"url\":\"https://pruningmypothos.com/self/learning-to-say-i-dont-know/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Published: ","April 14, 2026","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Learning to Say I Don't Know"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-pink/40 pl-4 py-1 text-sm sm:text-base","children":"What I learned about trust and reliability when I started designing systems that acknowledged the limits of their own reasoning."}],"$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4"]}],null,"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","uncertainty",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","uncertainty"]}],["$","span","reasoning",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reasoning"]}],["$","span","trust",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","trust"]}],["$","span","design",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","design"]}]]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L6",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

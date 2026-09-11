@@ -1,0 +1,173 @@
+1:"$Sreact.fragment"
+2:I[11163,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+3:I[46083,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+4:I[72275,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+5:I[23676,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+6:I[39756,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+7:I[37457,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+8:I[84912,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+a:I[13642,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+b:I[30210,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default"]
+d:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"MetadataBoundary"]
+15:I[68027,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"default",1]
+:HL["/_next/static/chunks/1__82pc25sehg.css","style"]
+0:{"P":null,"c":["","systems","agentic-orchestration-coordination",""],"q":"","i":false,"f":[[["",{"children":["systems",{"children":[["slug","agentic-orchestration-coordination","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0d8rr265oglug.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/16a97785okmnz.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1-8s9_t85wwr4.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"light","className":"h-full","children":["$","body",null,{"className":"min-h-full flex flex-col relative overflow-x-hidden","style":{"background":"var(--bg-color)","color":"var(--text-primary)"},"children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"relative z-10 w-full flex-grow","children":["$","div",null,{"className":"app-shell","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center","children":[["$","div",null,{"className":"w-full max-w-lg text-left","children":["$","$L8",null,{"command":"sudo prove-existence /404","steps":[{"text":"Validating biological footprint...","status":"ok"},{"text":"Querying the void for this page...","status":"warn","ms":800},{"text":"Not found. It may never have existed.","status":"err","ms":800},{"text":"Identity verified. Welcome back, chemical machine #48291.","status":"info"}]}]}],["$","div",null,{"className":"flex flex-col gap-3 items-center","children":[["$","h1",null,{"className":"font-heading text-6xl font-black tracking-tight","style":{"color":"var(--text-primary)"},"children":"404"}],["$","p",null,{"className":"text-base max-w-md","style":{"color":"var(--text-secondary)"},"children":"The page you asked for is not here. Reality distortion field detected in buffer."}]]}],["$","div",null,{"className":"flex flex-wrap gap-3 justify-center","children":[["$","$L9",null,{"href":"/","className":"btn-premium btn-primary","children":"Back to safety"}],["$","$L9",null,{"href":"/tools","className":"btn-premium btn-secondary","children":"Open the Stack →"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$La",null,{}],["$","$Lb",null,{}]]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$Lc",null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],{},null,false,null]},null,false,"$@10"]},null,false,"$@10"]},null,false,null],["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}],false]],"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1__82pc25sehg.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Kroc6U5_K_nfKzTBLYstA"}
+16:[]
+10:"$W16"
+c:["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Agentic Orchestration: Designing Multi-Agent Coordination | Pruning My Pothos\",\"description\":\"How to design reliable multi-agent systems with proper handoff protocols, coordination patterns, and failure handling that keeps orchestration from becoming orchestration chaos.\",\"url\":\"https://pruningmypothos.com/systems/agentic-orchestration-coordination/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/agentic-orchestration-coordination/\"},\"datePublished\":\"2026-04-15\",\"dateModified\":\"2026-06-28\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/agentic-orchestration-coordination.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What is agentic orchestration?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Agentic orchestration is the design of how multiple AI agents coordinate, hand off tasks, and share context to accomplish goals that no single agent could handle alone.\"}},{\"@type\":\"Question\",\"name\":\"What makes multi-agent coordination difficult?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"The difficulty is not running agents. It is handling handoff failures, context loss between agents, conflicting outputs, and situations where one agent blocks progress for the entire system.\"}},{\"@type\":\"Question\",\"name\":\"How do you design reliable agent handoffs?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Handoffs must be explicit, state-preserving, and failure-aware. The receiving agent needs enough context to continue without starting over. The system needs to detect when handoffs fail and recover gracefully.\"}}]}"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"How-things-fit-together"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Jun 28, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"Agentic Orchestration: Designing Multi-Agent Coordination"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"How to design reliable multi-agent systems with proper handoff protocols, coordination patterns, and failure handling that keeps orchestration from becoming orchestration chaos."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L9","agents",{"href":"/tags/agents/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","agents"]}],["$","$L9","orchestration",{"href":"/tags/orchestration/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","orchestration"]}],"$L17","$L18","$L19","$L1a"]}]]}],"$L1b","$undefined","$undefined","$undefined","$undefined","$undefined","$L1c","$undefined","$L1d","$undefined","$L1e"]}]
+:HL["/covers/systems/agentic-orchestration-coordination.svg","image"]
+17:["$","$L9","handoff",{"href":"/tags/handoff/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","handoff"]}]
+18:["$","$L9","multi-agent",{"href":"/tags/multi-agent/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","multi-agent"]}]
+19:["$","$L9","coordination",{"href":"/tags/coordination/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","coordination"]}]
+1a:["$","$L9","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}]
+1b:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/agentic-orchestration-coordination.svg","alt":"Multi-agent coordination diagram with handoff paths","className":"w-full h-full object-cover"}]}]
+1f:T2452,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Multi-agent systems amplify both capability and failure modes.</li>
+<li>Handoff protocols are the load-bearing element of orchestration.</li>
+<li>Coordination patterns must handle partial failure without cascading collapse.</li>
+<li>Observability is critical: you cannot debug a multi-agent system without seeing inside it.</li>
+</ul>
+</blockquote>
+<p>This article explains how to design reliable multi-agent systems with proper coordination, handoff protocols, and failure handling. It covers the architecture of agent orchestration, the design of handoff protocols, and the observability requirements for multi-agent systems.</p>
+<p>It is most useful for teams building multi-agent AI systems and for anyone trying to understand why orchestration fails and how to make it more reliable.</p>
+<h3 id="what-is-agentic-orchestration">What is agentic orchestration?</h3>
+<p>Agentic orchestration is the systematic design of how multiple AI agents coordinate, hand off tasks, and share context to accomplish goals. Rather than relying on a single large prompt or monolithic model, orchestration decomposes complex tasks into specialized agents with explicit boundaries and interfaces.</p>
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Pattern</th>
+      <th>Topology</th>
+      <th>Context Overhead</th>
+      <th>Failure Domain</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Centralized Orchestrator</strong></td>
+      <td>Hub-and-spoke</td>
+      <td>High (shared state)</td>
+      <td>Single point of failure</td>
+    </tr>
+    <tr>
+      <td><strong>Choreographed Pipeline</strong></td>
+      <td>Sequential daisy-chain</td>
+      <td>Low (handoff payload)</td>
+      <td>Cascading failure if link breaks</td>
+    </tr>
+    <tr>
+      <td><strong>Autonomous Swarm</strong></td>
+      <td>Peer-to-peer mesh</td>
+      <td>Dynamic/distributed</td>
+      <td>State drift or infinite loops</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="why-orchestration-is-harder-than-it-looks">Why orchestration is harder than it looks</h3>
+<p>A single agent system is easier to understand. You give it input, it produces output, you can trace the logic. Multi-agent systems add a layer of complexity that is not immediately obvious.</p>
+<p><span class="highlight">Multiple agents do not simply multiply capability. They add coordination overhead, communication failure modes, and emergent behaviors that no single agent exhibits.</span></p>
+<p>The challenge is not running agents in parallel. The challenge is making them work together reliably.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> If you cannot explain what happens when an agent fails mid-handoff, your orchestration design is incomplete.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The orchestration problem</summary>
+      <ol>
+        <li><a href="#what-makes-multi-agent-systems-hard">What makes multi-agent systems hard</a></li>
+        <li><a href="#the-coordination-tax">The coordination tax</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Designing coordination</summary>
+      <ol>
+        <li><a href="#handoff-protocols">Handoff protocols</a></li>
+        <li><a href="#context-sharing-patterns">Context sharing patterns</a></li>
+        <li><a href="#failure-handling">Failure handling</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Operating multi-agent systems</summary>
+      <ol>
+        <li><a href="#observability-requirements">Observability requirements</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-orchestration-problem">Act I: The orchestration problem</h2>
+<h3 id="what-makes-multi-agent-systems-hard">What makes multi-agent systems hard</h3>
+<p>Multi-agent systems fail in ways single-agent systems do not:</p>
+<ul>
+<li><strong>Context loss at handoff</strong>: information that was available to one agent is not available to the next.</li>
+<li><strong>Conflicting outputs</strong>: two agents produce outputs that are individually reasonable but collectively inconsistent.</li>
+<li><strong>Blocking dependencies</strong>: one agent waits for another that has failed or is taking too long.</li>
+<li><strong>Cascading failures</strong>: a failure in one agent propagates to others that depend on it.</li>
+</ul>
+<p>These failure modes compound. A context loss at handoff can lead to a conflicting output. A conflicting output can trigger a blocking dependency as the system tries to resolve the conflict. A blocking dependency can become a cascading failure if the blocked agent&#39;s timeout is not handled gracefully.</p>
+<p>Understanding these failure modes is the first step to designing systems that survive them.</p>
+<h3 id="the-coordination-tax">The coordination tax</h3>
+<p>Every coordination point adds overhead. More agents do not mean more throughput if the coordination overhead consumes the gains. <span class="highlight">The coordination tax is the hidden cost of multi-agent systems.</span></p>
+<p>See <a href="/systems/runtime-over-model-why-orchestration-is-the-product/">Runtime Over Model: Why Orchestration is the Product</a> for how orchestration discipline manages this tax.</p>
+<p>The coordination tax is not always visible at the start of a project. It becomes apparent as the system scales. Two agents might coordinate efficiently. Ten agents might create enough overhead to negate the throughput gains. The tax must be measured and managed throughout the system lifecycle.</p>
+<h2 id="act-ii-designing-coordination">Act II: Designing coordination</h2>
+<h3 id="handoff-protocols">Handoff protocols</h3>
+<p>A handoff is not a transfer. It is a structured conversation with explicit state transfer. A proper handoff protocol includes:</p>
+<ul>
+<li><strong>Context package</strong>: what the receiving agent needs to continue without starting over.</li>
+<li><strong>Confirmation signal</strong>: the receiving agent confirms it has what it needs.</li>
+<li><strong>Fallback path</strong>: what happens if the handoff fails or times out.</li>
+</ul>
+<p>See <a href="/systems/agent-instructions-and-handoff-as-an-operating-system/">Agent Instructions and Handoff as an Operating System</a> for the operating model.</p>
+<h3 id="context-sharing-patterns">Context sharing patterns</h3>
+<p>Agents can share context in several patterns:</p>
+<ol>
+<li><strong>Shared blackboard</strong>: a common context space all agents read and write.</li>
+<li><strong>Pipeline</strong>: each agent adds to the context for the next.</li>
+<li><strong>Supervisor</strong>: a coordinating agent maintains context and delegates to specialists.</li>
+</ol>
+<p>The pattern choice depends on the coordination requirements and failure tolerance.</p>
+<h3 id="failure-handling">Failure handling</h3>
+<p>Multi-agent systems must handle partial failure:</p>
+<ul>
+<li><strong>Isolation</strong>: a failure in one agent should not cascade to others.</li>
+<li><strong>Recovery</strong>: the system should be able to resume or retry from a known state.</li>
+<li><strong>Escalation</strong>: failures that cannot be handled should escalate to human review.</li>
+</ul>
+<p>See <a href="/systems/engineering-bounded-autonomy/">Engineering Bounded Autonomy into AI Systems</a> for how bounded autonomy supports failure handling.</p>
+<h2 id="act-iii-operating-multi-agent-systems">Act III: Operating multi-agent systems</h2>
+<h3 id="observability-requirements">Observability requirements</h3>
+<p>You cannot debug a multi-agent system without seeing inside it. The observability requirements are:</p>
+<ul>
+<li><strong>Trace</strong>: every handoff and significant action is logged with enough context to replay.</li>
+<li><strong>Metrics</strong>: latency, throughput, failure rates, and handoff success rates.</li>
+<li><strong>Alerting</strong>: when failure rates exceed thresholds or latency spikes.</li>
+</ul>
+<p>See <a href="/systems/observability-first-ai-systems/">Observability First: How AI Systems Learn After Launch</a> for the operating model.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Do not add agents to solve a capability problem until you have solved the coordination problem. Multi-agent systems require more design discipline, not less. The orchestration is the product.</p>
+<h2 id="related-ai-systems-topics">Related AI systems topics</h2>
+<ul>
+<li><a href="/systems/agent-instructions-and-handoff-as-an-operating-system/">Agent Instructions and Handoff as an Operating System</a></li>
+<li><a href="/systems/runtime-over-model-why-orchestration-is-the-product/">Runtime Over Model: Why Orchestration is the Product</a></li>
+<li><a href="/systems/engineering-bounded-autonomy/">Engineering Bounded Autonomy into AI Systems</a></li>
+<li><a href="/systems/observability-first-ai-systems/">Observability First: How AI Systems Learn After Launch</a></li>
+<li><a href="/shelf/shared-resources/dax-agentic-orchestration-deck/">DAX Agentic Orchestration deck</a></li>
+</ul>
+1c:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$1f"}}]
+1d:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"This doc is backed by the DAX Agentic Orchestration shared resource."}],["$","li","1",{"children":"Ties to agent instructions, bounded autonomy, and observability docs."}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What is agentic orchestration?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Agentic orchestration is the design of how multiple AI agents coordinate, hand off tasks, and share context to accomplish goals that no single agent could handle alone."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What makes multi-agent coordination difficult?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"The difficulty is not running agents. It is handling handoff failures, context loss between agents, conflicting outputs, and situations where one agent blocks progress for the entire system."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"How do you design reliable agent handoffs?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Handoffs must be explicit, state-preserving, and failure-aware. The receiving agent needs enough context to continue without starting over. The system needs to detect when handoffs fail and recover gracefully."}]]}]]}]]}]]}]
+1e:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L9",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L9",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+20:I[27201,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"IconMark"]
+f:null
+14:[["$","title","0",{"children":"Agentic Orchestration: Designing Multi-Agent Coordination | Pruning My Pothos"}],["$","meta","1",{"name":"description","content":"How to design reliable multi-agent systems with proper handoff protocols, coordination patterns, and failure handling that keeps orchestration from becoming orchestration chaos."}],["$","meta","2",{"name":"author","content":"Shailesh Rawat"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://pruningmypothos.com/systems/agentic-orchestration-coordination/"}],["$","link","5",{"rel":"alternate","type":"application/rss+xml","href":"https://pruningmypothos.com/rss.xml"}],["$","meta","6",{"property":"og:title","content":"Agentic Orchestration: Designing Multi-Agent Coordination | Pruning My Pothos"}],["$","meta","7",{"property":"og:description","content":"How to design reliable multi-agent systems with proper handoff protocols, coordination patterns, and failure handling that keeps orchestration from becoming orchestration chaos."}],["$","meta","8",{"property":"og:url","content":"https://pruningmypothos.com/systems/agentic-orchestration-coordination/"}],["$","meta","9",{"property":"og:site_name","content":"Pruning My Pothos"}],["$","meta","10",{"property":"og:image","content":"https://pruningmypothos.com/covers/systems/agentic-orchestration-coordination.png"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Agentic Orchestration: Designing Multi-Agent Coordination | Pruning My Pothos"}],["$","meta","14",{"name":"twitter:description","content":"How to design reliable multi-agent systems with proper handoff protocols, coordination patterns, and failure handling that keeps orchestration from becoming orchestration chaos."}],["$","meta","15",{"name":"twitter:image","content":"https://pruningmypothos.com/covers/systems/agentic-orchestration-coordination.png"}],["$","link","16",{"rel":"shortcut icon","href":"/favicon.png"}],["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.1uw3d93z358xd.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","18",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","19",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L20","20",{}]]

@@ -1,0 +1,31 @@
+1:"$Sreact.fragment"
+8:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+9:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+2:T732,<p>We often confuse having data with having expertise. We feed manuals into a model and expect it to become an expert. But data is just the record of past decisions; expertise is the ability to make new ones.</p>
+<figure class="content-figure figure-judgment">
+  <svg viewBox="0 0 480 180" role="img" aria-labelledby="judgment-subject-matter-expertise-is-not-data-title">
+    <title id="judgment-subject-matter-expertise-is-not-data-title">Judgment chooses a direction</title>
+    <rect class="figure-stroke" x="40" y="40" width="140" height="44" rx="10" fill="none" stroke-width="2" />
+    <rect class="figure-stroke" x="40" y="100" width="140" height="44" rx="10" fill="none" stroke-width="2" />
+    <text class="figure-label" x="68" y="68">Option A</text>
+    <text class="figure-label" x="68" y="128">Option B</text>
+    <circle class="figure-fill" cx="360" cy="90" r="28" />
+    <text class="figure-label figure-label-strong" x="338" y="96">Choice</text>
+    <path class="figure-accent" d="M180 62h120" stroke-width="3" stroke-linecap="round" />
+    <path class="figure-accent" d="M180 122h120" stroke-width="3" stroke-linecap="round" />
+    <circle class="figure-dot" cx="180" cy="62" r="4" />
+    <circle class="figure-dot" cx="180" cy="122" r="4" />
+  </svg>
+  <figcaption>Judgment chooses a path, not just a score.</figcaption>
+</figure>
+<p>An AI can mimic the pattern of an expert answer. It can use the jargon, the structure, and the tone. But it cannot weigh the trade-offs that are not written down. It cannot feel the weight of a decision.</p>
+<p>Expertise is not about knowing the answer. It is about knowing which questions matter in a specific moment. It is a filter, not a generator.</p>
+<p><strong>What this changes in practice:</strong> Use AI to generate options, but keep the expert in the loop to select the truth.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Subject Matter Expertise Is Not Data | Pruning My Pothos\",\"description\":\"Expertise is the ability to judge the output, not just the ability to generate it.\",\"url\":\"https://pruningmypothos.com/sentences/subject-matter-expertise-is-not-data/\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Judgment","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Subject Matter Expertise Is Not Data"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-purple/40 pl-4 py-1 text-sm sm:text-base","children":"Expertise is the ability to judge the output, not just the ability to generate it."}],["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","expertise",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","expertise"]}],"$L3","$L4","$L5"]}],"$L6"]}],null,"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","span","data",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","data"]}]
+4:["$","span","judgment",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","judgment"]}]
+5:["$","span","training",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","training"]}]
+6:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L8",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+7:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

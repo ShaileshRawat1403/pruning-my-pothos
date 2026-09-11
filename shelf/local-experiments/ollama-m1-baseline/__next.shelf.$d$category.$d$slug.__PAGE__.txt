@@ -1,0 +1,99 @@
+1:"$Sreact.fragment"
+8:I[15141,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3t39z7yidypi6.js"],"default"]
+9:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3t39z7yidypi6.js"],""]
+a:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+b:"$Sreact.suspense"
+:HL["/covers/shelf/local-ollama-m1.svg","image"]
+2:T1169,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>Local performance is a temperature story, not just a model story.</li>
+<li>Baselines should be short, repeatable, and recorded.</li>
+<li>Throttling hides inside long runs and ruins comparisons.</li>
+</ul>
+</blockquote>
+<p>I wanted a fair baseline for local models on an M1 machine. The surprise was not raw speed. It was how quickly a clean run drifted once the system warmed up.</p>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: Orientation</summary>
+      <ol>
+        <li><a href="#architecture-map">Architecture map</a></li>
+        <li><a href="#what-happened">What happened</a></li>
+        <li><a href="#the-two-gates">The two gates</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: Setup</summary>
+      <ol>
+        <li><a href="#setup-walkthrough">Setup walkthrough</a></li>
+        <li><a href="#first-time-config">First-time config</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Verification</summary>
+      <ol>
+        <li><a href="#quick-checks">Quick checks</a></li>
+        <li><a href="#failure-modes">Failure modes</a></li>
+        <li><a href="#what-made-the-difference">What made the difference</a></li>
+        <li><a href="#what-i-would-do-next-time">What I would do next time</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="architecture-map">Architecture map</h2>
+<p>The system is simple: model runtime, the host machine, and the environment around it. The host is the real boundary.</p>
+<figure class="diagram">
+  <svg viewBox="0 0 1200 420" role="img" aria-labelledby="m1-arch-title m1-arch-desc">
+    <title id="m1-arch-title">Local runtime and host boundary</title>
+    <desc id="m1-arch-desc">A model runtime sits inside a host boundary with thermal limits.</desc>
+    <rect width="1200" height="420" fill="#0f172a"/>
+    <rect x="140" y="80" width="920" height="260" rx="20" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <rect x="340" y="150" width="520" height="140" rx="16" fill="#0f1f33" stroke="#38bdf8" stroke-width="2"/>
+    <text x="600" y="230" fill="#cbd5f5" font-size="18" text-anchor="middle" font-family="var(--font-mono)">Model runtime</text>
+    <text x="170" y="120" fill="#94a3b8" font-size="14" font-family="var(--font-mono)">Host boundary</text>
+  </svg>
+  <figcaption>The host boundary decides how stable your baseline really is.</figcaption>
+</figure>
+<h2 id="what-happened">What happened</h2>
+<p>Short runs were fast. Long runs slowed down. Once I logged temperatures, the pattern was obvious: the system throttled after a few minutes, and the numbers became incomparable.</p>
+<h2 id="the-two-gates">The two gates</h2>
+<p>The first gate is <strong>time</strong>. If you test too long, you stop testing the model and start testing heat dissipation.</p>
+<p>The second gate is <strong>consistency</strong>. Without a fixed prompt and a fixed run length, the baseline drifts even when nothing else changes.</p>
+<h2 id="setup-walkthrough">Setup walkthrough</h2>
+<ol>
+<li>Pick one model and one prompt.</li>
+<li>Run the prompt in short bursts to avoid thermal drift.</li>
+<li>Log run time and system temperature together.</li>
+</ol>
+<h2 id="first-time-config">First-time config</h2>
+<pre><code class="language-bash">export OLLAMA_HOST=&quot;http://127.0.0.1:11434&quot;
+export OLLAMA_MODEL=&quot;llama3.1:8b&quot;
+</code></pre>
+<aside class="callout">
+  <p><strong>Guiding rule.</strong> Your first baseline is only valid for the temperature window you measured.</p>
+</aside>
+<h2 id="quick-checks">Quick checks</h2>
+<pre><code class="language-bash">ollama run llama3.1:8b &quot;ping&quot;
+</code></pre>
+<h2 id="failure-modes">Failure modes</h2>
+<ul>
+<li>Long runs hide throttling until you compare a later test.</li>
+<li>Background apps push the host into a hotter state.</li>
+<li>Changing the prompt changes the performance profile.</li>
+</ul>
+<h2 id="what-made-the-difference">What made the difference</h2>
+<p>I treated the baseline as a short, repeatable ritual and logged the host temperature alongside the timing. That made later comparisons honest.</p>
+<h2 id="what-i-would-do-next-time">What I would do next time</h2>
+<p>I would automate a short benchmark loop, record system temperature per run, and stop the test before the host warms up.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Ollama on M1: thermal baseline | Pruning My Pothos\",\"description\":\"A baseline run to learn where M1 throttles and why it matters.\",\"url\":\"https://pruningmypothos.com/shelf/local-experiments/ollama-m1-baseline/\",\"image\":\"https://pruningmypothos.com/covers/shelf/local-ollama-m1.svg\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Shelf • ","local-experiments"]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Ollama on M1: thermal baseline"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-cyan/40 pl-4 py-1 text-sm sm:text-base","children":"A baseline run to learn where M1 throttles and why it matters."}],["$","figure",null,{"className":"w-full max-w-[420px] overflow-hidden rounded-lg border border-[color:var(--card-border)] aspect-video my-4 shadow-none self-center sm:self-start bg-[color:var(--card-bg)]","children":["$","img",null,{"src":"/covers/shelf/local-ollama-m1.svg","alt":"Cover illustration for Ollama on M1: thermal baseline","className":"w-full h-full object-contain"}]}],"$undefined","$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4","$L5"]}],["$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+3:["$","$L8",null,{"title":"Ollama on M1: thermal baseline"}]
+4:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","experiments",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","experiments"]}],["$","span","local-llm",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","local-llm"]}],["$","span","ollama",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","ollama"]}],["$","span","performance",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","performance"]}]]}]
+5:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L9",null,{"href":"/shelf","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Shelf"}]}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/3t39z7yidypi6.js","async":true}]
+7:["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]
+c:null

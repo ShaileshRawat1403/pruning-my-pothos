@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pruning My Pothos</title>
+    <link>https://pruningmypothos.com/</link>
+    <atom:link href="https://pruningmypothos.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>A living notebook on AI orchestration, runtime evaluation, context compaction, and systems design: written against things that were built, run, inspected, or broken.</description>
+    <language>en</language>
+    <lastBuildDate>Fri, 11 Sep 2026 06:45:12 GMT</lastBuildDate>
+    <item>
+      <title>Structured Output and Why It Matters</title>
+      <link>https://pruningmypothos.com/systems/structured-output-and-why-it-matters/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/structured-output-and-why-it-matters/</guid>
+      <description>How structured output makes model responses easier to validate, and why valid JSON still needs checks before software acts on it.</description>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>What a System Prompt Actually Is</title>
+      <link>https://pruningmypothos.com/systems/what-a-system-prompt-actually-is/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/what-a-system-prompt-actually-is/</guid>
+      <description>A system prompt is standing configuration for a whole session, not a request. What belongs in one, what does not, and where the line sits between a system prompt and a skill.</description>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Skills vs Prompts vs Agents</title>
+      <link>https://pruningmypothos.com/systems/skills-vs-prompts-vs-agents/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/skills-vs-prompts-vs-agents/</guid>
+      <description>A prompt is one instruction, a skill is a reusable capability, an agent decides what to do next. Here is where each belongs and how to tell which you need.</description>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Architecture of In-Chat AI Apps</title>
+      <link>https://pruningmypothos.com/systems/architecture-of-in-chat-ai-apps/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/architecture-of-in-chat-ai-apps/</guid>
+      <description>A chat reply can carry a sentence, not a workflow. What it takes to render structured interface pieces, cards, comparisons, actions, inside an AI assistant.</description>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Why OCR Quietly Breaks Document AI</title>
+      <link>https://pruningmypothos.com/systems/why-ocr-quietly-breaks-document-ai/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/why-ocr-quietly-breaks-document-ai/</guid>
+      <description>OCR sits at the front of every document pipeline. When it misreads a table or a total, every retrieval step and every answer downstream inherits that error.</description>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI Website Publishing with Human-in-the-Loop Control</title>
+      <link>https://pruningmypothos.com/systems/ai-website-publishing-with-human-in-the-loop-control/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/ai-website-publishing-with-human-in-the-loop-control/</guid>
+      <description>A case study in using Flowright WebsiteOps to prepare, verify, review, and hand off website content without autonomous publishing.</description>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>From Text to Tokens</title>
+      <link>https://pruningmypothos.com/systems/a-simple-tokenizer/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/a-simple-tokenizer/</guid>
+      <description>Explaining tokenization without the math. Why models don&apos;t read words, and why that matters for your prompts.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Agent Instructions and Handoff as an Operating System</title>
+      <link>https://pruningmypothos.com/systems/agent-instructions-and-handoff-as-an-operating-system/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/agent-instructions-and-handoff-as-an-operating-system/</guid>
+      <description>A practical architecture for running AI agents reliably using instruction contracts, handoff memory, and measurable quality gates.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Agentic Orchestration: Designing Multi-Agent Coordination</title>
+      <link>https://pruningmypothos.com/systems/agentic-orchestration-coordination/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/agentic-orchestration-coordination/</guid>
+      <description>How to design reliable multi-agent systems with proper handoff protocols, coordination patterns, and failure handling that keeps orchestration from becoming orchestration chaos.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Context Window Management and Retrieval Pruning Strategies</title>
+      <link>https://pruningmypothos.com/systems/context-window-management-and-retrieval-pruning-strategies/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/context-window-management-and-retrieval-pruning-strategies/</guid>
+      <description>How to optimize LLM performance and reduce runtime token costs using token-counting, semantic re-ranking, and context pruning.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Decision-Making Under Uncertainty in AI Runtimes</title>
+      <link>https://pruningmypothos.com/systems/decision-making-under-uncertainty-in-ai-runtimes/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/decision-making-under-uncertainty-in-ai-runtimes/</guid>
+      <description>A practical framework for making accountable decisions in AI systems when evidence is partial, time is limited, and outcomes are high-impact.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Drift, Decay, and Silent Failure</title>
+      <link>https://pruningmypothos.com/systems/drift-decay-and-silent-failure/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/drift-decay-and-silent-failure/</guid>
+      <description>How systems degrade quietly before they break loudly.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Engineering Bounded Autonomy into AI Systems</title>
+      <link>https://pruningmypothos.com/systems/engineering-bounded-autonomy/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/engineering-bounded-autonomy/</guid>
+      <description>How to design autonomous AI systems with safety constraints, operational boundaries, and governance hooks that keep autonomy useful without letting it become uncontrolled.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Enterprise AI at Scale: From Blueprint to Operating Reality</title>
+      <link>https://pruningmypothos.com/systems/enterprise-ai-at-scale/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/enterprise-ai-at-scale/</guid>
+      <description>How enterprise AI differs from prototype: the governance contracts, architecture layers, and adoption design that turn blueprints into live systems.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Evaluating Non-Deterministic Outputs with Rubric-Based Pipelines</title>
+      <link>https://pruningmypothos.com/systems/evaluating-non-deterministic-outputs-with-rubric-based-pipelines/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/evaluating-non-deterministic-outputs-with-rubric-based-pipelines/</guid>
+      <description>How to design assertion loops and structured evaluation rubrics to validate probabilistic LLM output quality.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Evaluation Is a Human Problem</title>
+      <link>https://pruningmypothos.com/systems/evaluation-is-a-human-problem/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/evaluation-is-a-human-problem/</guid>
+      <description>Why benchmarks are not enough and judgment defines quality.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>From Ad-Hoc Prompts to Repeatable Agent Workflows</title>
+      <link>https://pruningmypothos.com/systems/from-ad-hoc-prompts-to-repeatable-agent-workflows/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/from-ad-hoc-prompts-to-repeatable-agent-workflows/</guid>
+      <description>A practical case study showing how structured instructions, handoff memory, and quality gates improved consistency and coverage in this repository.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>From Agent Intent to Governed Execution</title>
+      <link>https://pruningmypothos.com/systems/from-agent-intent-to-governed-execution/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/from-agent-intent-to-governed-execution/</guid>
+      <description>How an agent request becomes controlled system behavior through runtime orchestration, policy gates, verification, and traceability.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop Is a System Design Choice</title>
+      <link>https://pruningmypothos.com/systems/human-in-the-loop-is-a-system-design-choice/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/human-in-the-loop-is-a-system-design-choice/</guid>
+      <description>Why oversight is a design decision, not a safety blanket.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>I-7 Cognitive Loop: A new standard for Human-AI interaction</title>
+      <link>https://pruningmypothos.com/systems/i-7-cognitive-loop/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/i-7-cognitive-loop/</guid>
+      <description>A governance-first interaction model that extends Norman&apos;s stages for AI-assisted work.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>What LLM-Ops Actually Means</title>
+      <link>https://pruningmypothos.com/systems/llm-ops-without-the-buzzwords/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/llm-ops-without-the-buzzwords/</guid>
+      <description>LLM-Ops is governance over time. Understanding the lifecycle of probabilistic systems.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Managing State and Memory Handoffs in Multi-Agent Workflows</title>
+      <link>https://pruningmypothos.com/systems/managing-state-and-memory-handoffs-in-multi-agent-workflows/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/managing-state-and-memory-handoffs-in-multi-agent-workflows/</guid>
+      <description>How to design robust handoff protocols and shared memory blackboards to preserve state continuity across multi-agent boundaries.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>On Mental Frameworks</title>
+      <link>https://pruningmypothos.com/systems/mental-frameworks/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/mental-frameworks/</guid>
+      <description>A model for how frameworks simplify complexity and guide decisions in technical and human systems.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Observability First: How AI Systems Learn After Launch</title>
+      <link>https://pruningmypothos.com/systems/observability-first-ai-systems/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/observability-first-ai-systems/</guid>
+      <description>Why observability is the missing layer between model output and reliable product behavior in production AI systems.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Policy-Governed MCP Runtimes for Secure Tool Execution</title>
+      <link>https://pruningmypothos.com/systems/policy-governed-mcp-runtimes-for-secure-tool-execution/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/policy-governed-mcp-runtimes-for-secure-tool-execution/</guid>
+      <description>How to design secure execution sandboxes and policy validation gates for Model Context Protocol servers in agent runtimes.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Probabilities, Not Truth</title>
+      <link>https://pruningmypothos.com/systems/probabilities-not-truth/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/probabilities-not-truth/</guid>
+      <description>Language models return the most probable continuation, not the true one. Why hallucination is structural, what accuracy misses, and how to treat any output.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Prompting Is Not the Skill You Think It Is</title>
+      <link>https://pruningmypothos.com/systems/prompting-is-not-the-skill-you-think-it-is/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/prompting-is-not-the-skill-you-think-it-is/</guid>
+      <description>Why constraints, examples, and intent matter more than clever prompts.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Resilient Integration Contracts for Structured Outputs</title>
+      <link>https://pruningmypothos.com/systems/resilient-integration-contracts-for-structured-outputs/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/resilient-integration-contracts-for-structured-outputs/</guid>
+      <description>How to design rigid schema contracts at integration boundaries to prevent translation failures in LLM runtimes.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Runtime Over Model: Why Orchestration Is the Product</title>
+      <link>https://pruningmypothos.com/systems/runtime-over-model-why-orchestration-is-the-product/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/runtime-over-model-why-orchestration-is-the-product/</guid>
+      <description>Reliable agents come from controlled execution loops, not model capability alone.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Semantic Caching for Probabilistic Systems</title>
+      <link>https://pruningmypothos.com/systems/semantic-caching-for-probabilistic-systems/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/semantic-caching-for-probabilistic-systems/</guid>
+      <description>How to reduce latency and cost in LLM applications by caching semantically equivalent queries using vector similarity.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Tech Stack for NLPg-Driven AI-Assisted SDLC</title>
+      <link>https://pruningmypothos.com/systems/tech-stack-for-nlpg-driven-ai-assisted-sdlc/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/tech-stack-for-nlpg-driven-ai-assisted-sdlc/</guid>
+      <description>A language-first SDLC design: from intent and compiled instruction to governed execution, validation, and delivery.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Logic Void: Where AI Reasoning Breaks Down</title>
+      <link>https://pruningmypothos.com/systems/the-logic-void/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/the-logic-void/</guid>
+      <description>Where AI reasoning reaches its boundaries, why those boundaries matter for system design, and how to build reliable systems that acknowledge the limits of logic.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Training, Fine-Tuning, and Inference</title>
+      <link>https://pruningmypothos.com/systems/training-vs-inference/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/training-vs-inference/</guid>
+      <description>Clarifying the AI lifecycle. Why you probably do not need to train a model, and where business value is actually created.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>What a Skill Is in AI Systems</title>
+      <link>https://pruningmypothos.com/systems/what-a-skill-is-in-ai-systems/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/what-a-skill-is-in-ai-systems/</guid>
+      <description>A practical definition of skills as reusable execution units that sit between prompts and workflows in modern AI systems.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>What an AI Model Actually Is</title>
+      <link>https://pruningmypothos.com/systems/what-an-ai-model-actually-is/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/what-an-ai-model-actually-is/</guid>
+      <description>Kill the &apos;AI brain&apos; myth. A model is a statistical engine that predicts the next likely token, not a mind that understands intent.</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Debugging a Semantic Cache Miss</title>
+      <link>https://pruningmypothos.com/self/debugging-a-semantic-cache-miss/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/debugging-a-semantic-cache-miss/</guid>
+      <description>A reflective look at debugging a user-facing issue where a semantic cache returned a stale context block due to a loose similarity threshold.</description>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Debugging My First Schema Translation Error</title>
+      <link>https://pruningmypothos.com/self/debugging-my-first-schema-translation-error/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/debugging-my-first-schema-translation-error/</guid>
+      <description>A reflection on how a minor change in structured output syntax broke our downstream processing.</description>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AEO and GEO as a Retrieval Design Problem</title>
+      <link>https://pruningmypothos.com/systems/aeo-and-geo-as-a-retrieval-design-problem/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/aeo-and-geo-as-a-retrieval-design-problem/</guid>
+      <description>Answer and generative visibility improve when pages are designed as retrievable evidence, not only readable prose.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI Agents vs AI Workflows</title>
+      <link>https://pruningmypothos.com/systems/ai-agents-vs-ai-workflows/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/ai-agents-vs-ai-workflows/</guid>
+      <description>A practical explanation of the difference between autonomous-seeming agents and controlled workflows, and why the distinction matters in production systems.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI Architecture Explained: How Modern LLM Applications Work</title>
+      <link>https://pruningmypothos.com/systems/ai-architecture-explained-how-modern-llm-applications-work/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/ai-architecture-explained-how-modern-llm-applications-work/</guid>
+      <description>A practical map of the layers that make modern LLM applications reliable: model access, retrieval, orchestration, interfaces, and governance.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Comparing Cloud Architecture in 2026: AWS vs Azure vs GCP</title>
+      <link>https://pruningmypothos.com/systems/cloud-architecture-comparison-2026/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/cloud-architecture-comparison-2026/</guid>
+      <description>AWS, Azure and Google Cloud compared across five architecture layers for AI-era workloads, with selection heuristics and cost commitment models.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Context Windows as Working Memory</title>
+      <link>https://pruningmypothos.com/systems/context-windows-as-working-memory/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/context-windows-as-working-memory/</guid>
+      <description>A context window is working memory, not storage. Why it is capped, what it costs, why position beats volume, and how to operate one well.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Designing Reusable AI Skills</title>
+      <link>https://pruningmypothos.com/systems/designing-reusable-ai-skills/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/designing-reusable-ai-skills/</guid>
+      <description>How to design AI skills with clear boundaries, input and output contracts, tool limits, side-effect controls, and escalation paths.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Embeddings Explained Like You&apos;re Human</title>
+      <link>https://pruningmypothos.com/systems/embeddings-explained-like-youre-human/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/embeddings-explained-like-youre-human/</guid>
+      <description>Similarity over meaning, and why search works until it doesn&apos;t.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Engineering Agentic Systems for Reliability</title>
+      <link>https://pruningmypothos.com/systems/engineering-agentic-systems-for-reliability/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/engineering-agentic-systems-for-reliability/</guid>
+      <description>A practical reliability model for agentic systems built around governed steps, verification, escalation, and observability.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Entity Glossary for AI Discoverability</title>
+      <link>https://pruningmypothos.com/systems/entity-glossary-for-ai-discoverability/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/entity-glossary-for-ai-discoverability/</guid>
+      <description>Canonical definitions for recurring SEO, AEO, GEO, and runtime concepts used across this site.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Evaluation as a Runtime Discipline</title>
+      <link>https://pruningmypothos.com/systems/evaluation-as-a-runtime-discipline/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/evaluation-as-a-runtime-discipline/</guid>
+      <description>Why evaluation should live inside the operating loop of an AI system instead of being treated as an occasional review ritual.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>From Prompt to Production: A Human Checklist</title>
+      <link>https://pruningmypothos.com/systems/from-prompt-to-production/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/from-prompt-to-production/</guid>
+      <description>A rigorous 7-step framework to move from it works on my machine to a resilient, governed AI workflow.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Intent Architecture as a Language Contract</title>
+      <link>https://pruningmypothos.com/systems/intent-architecture-as-a-language-contract/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/intent-architecture-as-a-language-contract/</guid>
+      <description>How intent becomes usable system behavior only after language is converted into explicit contracts, policies, and execution boundaries.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Knowledge Management as Runtime Memory</title>
+      <link>https://pruningmypothos.com/systems/knowledge-management-as-runtime-memory/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/knowledge-management-as-runtime-memory/</guid>
+      <description>Why modern AI teams should treat knowledge management as a live runtime memory system, not a static documentation archive.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Natural Language Is the New API</title>
+      <link>https://pruningmypothos.com/systems/natural-language-is-the-new-api/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/natural-language-is-the-new-api/</guid>
+      <description>Why natural language is an interface for machine behavior, not just a conversation.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Retrieval-Augmented Generation in Plain Terms</title>
+      <link>https://pruningmypothos.com/systems/retrieval-augmented-generation-in-plain-terms/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/retrieval-augmented-generation-in-plain-terms/</guid>
+      <description>How retrieval grounds outputs and where it can still fail.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SEO, AEO, GEO: How Discoverability Actually Works</title>
+      <link>https://pruningmypothos.com/systems/seo-aeo-geo-how-things-fit-together/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/seo-aeo-geo-how-things-fit-together/</guid>
+      <description>A practical system map of how search engines and answer engines discover, rank, retrieve, summarize, and cite your work.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SEO, AEO, and GEO in Plain Terms</title>
+      <link>https://pruningmypothos.com/systems/seo-aeo-geo-in-plain-terms/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/seo-aeo-geo-in-plain-terms/</guid>
+      <description>A clear conceptual model for how SEO, AEO, and GEO differ, overlap, and reinforce each other.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Skill Evaluation and Versioning</title>
+      <link>https://pruningmypothos.com/systems/skill-evaluation-and-versioning/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/skill-evaluation-and-versioning/</guid>
+      <description>How to define expected behavior, detect regressions, version skill changes safely, and decide when rollback is the right move.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Systems 001: Foundations</title>
+      <link>https://pruningmypothos.com/systems/systems-001-foundations/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/systems-001-foundations/</guid>
+      <description>A technical field guide to systems as the infrastructure of evolution and communication, from boundaries and feedback to socio-technical layers.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Intelligence Assembly Model</title>
+      <link>https://pruningmypothos.com/systems/the-intelligence-assembly-model/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/the-intelligence-assembly-model/</guid>
+      <description>Why useful AI behavior comes from how models, memory, tools, policies, and feedback loops are assembled into one system.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Tool Use: When Language Triggers Actions</title>
+      <link>https://pruningmypothos.com/systems/tool-use-when-language-triggers-actions/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/tool-use-when-language-triggers-actions/</guid>
+      <description>Why execution changes accountability and requires guardrails.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>What Large Language Models Are Optimized For</title>
+      <link>https://pruningmypothos.com/systems/what-llms-are-optimized-for/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/what-llms-are-optimized-for/</guid>
+      <description>Why next-token prediction shapes both capability and failure modes.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Why Most AI Projects Fail After the Demo Stage</title>
+      <link>https://pruningmypothos.com/systems/why-most-ai-projects-fail-after-the-demo-stage/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/why-most-ai-projects-fail-after-the-demo-stage/</guid>
+      <description>Why AI projects often stall after promising demos: weak integration, missing governance, low observability, and unclear adoption design.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Winning AI Search as a Discoverability System</title>
+      <link>https://pruningmypothos.com/systems/winning-ai-search-as-a-discoverability-system/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/systems/winning-ai-search-as-a-discoverability-system/</guid>
+      <description>How SEO, AEO, and GEO become one operating model when crawl access, entity clarity, retrieval structure, and citation trust work together.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>What I Learned Debugging a Multi-Agent System</title>
+      <link>https://pruningmypothos.com/self/debugging-multi-agent-systems/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/debugging-multi-agent-systems/</guid>
+      <description>The debugging session that taught me why observability is not optional in orchestration, and what I now look for first when a multi-agent system misbehaves.</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Designing My First Safety Constraint</title>
+      <link>https://pruningmypothos.com/self/designing-my-first-safety-constraint/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/designing-my-first-safety-constraint/</guid>
+      <description>What I learned designing the first architectural boundary in an autonomous system, and why I had to resist the urge to make it configurable.</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Learning to Say I Don&apos;t Know</title>
+      <link>https://pruningmypothos.com/self/learning-to-say-i-dont-know/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/learning-to-say-i-dont-know/</guid>
+      <description>What I learned about trust and reliability when I started designing systems that acknowledged the limits of their own reasoning.</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>What I Learned Running AI Governance at Scale</title>
+      <link>https://pruningmypothos.com/self/what-i-learned-running-ai-governance/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/what-i-learned-running-ai-governance/</guid>
+      <description>What I discovered when governance contracts met real organizational behavior, and why the blueprint rarely survives first contact with the workflow.</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>How I Run a Weekly Eval Loop</title>
+      <link>https://pruningmypothos.com/self/how-i-run-a-weekly-eval-loop/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/how-i-run-a-weekly-eval-loop/</guid>
+      <description>A small review ritual for checking whether my AI workflows are getting clearer or only getting faster.</description>
+      <pubDate>Sun, 08 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Building a Knowledge Surface</title>
+      <link>https://pruningmypothos.com/self/building-a-knowledge-surface/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/building-a-knowledge-surface/</guid>
+      <description>How I moved from collecting notes to designing a usable memory surface for writing and AI workflows.</description>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Decision Logs Beat Memory</title>
+      <link>https://pruningmypothos.com/self/decision-logs-beat-memory/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/decision-logs-beat-memory/</guid>
+      <description>Why I now log decision rationale instead of trusting recall when AI workflows become ambiguous.</description>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Weekly Observability Reset</title>
+      <link>https://pruningmypothos.com/self/the-weekly-observability-reset/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/the-weekly-observability-reset/</guid>
+      <description>A small weekly ritual that keeps my AI workflows honest after launch.</description>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Writing for Two Readers</title>
+      <link>https://pruningmypothos.com/self/writing-for-two-readers/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/writing-for-two-readers/</guid>
+      <description>How I now write for both humans and retrieval systems without flattening voice.</description>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Unfinished Questions</title>
+      <link>https://pruningmypothos.com/self/unfinished-questions/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/unfinished-questions/</guid>
+      <description>The questions you keep open shape the person you become.</description>
+      <pubDate>Wed, 28 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Second Voice</title>
+      <link>https://pruningmypothos.com/self/the-second-voice/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/the-second-voice/</guid>
+      <description>A quieter perspective that keeps the first from taking over.</description>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Margin of Error</title>
+      <link>https://pruningmypothos.com/self/margin-of-error/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/margin-of-error/</guid>
+      <description>Why you need slack if you want consistency.</description>
+      <pubDate>Mon, 26 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Learning Edges</title>
+      <link>https://pruningmypothos.com/self/learning-edges/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/learning-edges/</guid>
+      <description>The boundary between comfort and growth is where progress hides.</description>
+      <pubDate>Sun, 25 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Inner Critic, Rewritten</title>
+      <link>https://pruningmypothos.com/self/inner-critic/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/inner-critic/</guid>
+      <description>Turn the sharp voice into a useful editor.</description>
+      <pubDate>Sat, 24 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Habit as Identity</title>
+      <link>https://pruningmypothos.com/self/habit-as-identity/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/habit-as-identity/</guid>
+      <description>The small act that becomes a quiet biography.</description>
+      <pubDate>Fri, 23 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Friction Forecast</title>
+      <link>https://pruningmypothos.com/self/friction-forecast/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/friction-forecast/</guid>
+      <description>Predicting where you will stumble saves the day.</description>
+      <pubDate>Thu, 22 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Edit Your Environment</title>
+      <link>https://pruningmypothos.com/self/edit-your-environment/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/edit-your-environment/</guid>
+      <description>Change the room and the mind follows.</description>
+      <pubDate>Wed, 21 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Doubt as a Tool</title>
+      <link>https://pruningmypothos.com/self/doubt-as-tool/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/doubt-as-tool/</guid>
+      <description>How uncertainty sharpens choices instead of slowing them.</description>
+      <pubDate>Tue, 20 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Craft of Saying No</title>
+      <link>https://pruningmypothos.com/self/craft-of-saying-no/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/craft-of-saying-no/</guid>
+      <description>Refusal as a creative act, not a closed door.</description>
+      <pubDate>Mon, 19 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Constraint of Kindness</title>
+      <link>https://pruningmypothos.com/self/constraint-of-kindness/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/constraint-of-kindness/</guid>
+      <description>Limits that protect energy and keep the work human.</description>
+      <pubDate>Sun, 18 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Calibration Rituals</title>
+      <link>https://pruningmypothos.com/self/calibration-rituals/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/calibration-rituals/</guid>
+      <description>Small rituals that reset the mind before the day drifts.</description>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Attention Debt</title>
+      <link>https://pruningmypothos.com/self/attention-debt/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/attention-debt/</guid>
+      <description>What you borrow from your focus now gets repaid with anxiety later.</description>
+      <pubDate>Fri, 16 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>D.I.Y.</title>
+      <link>https://pruningmypothos.com/self/diy/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/diy/</guid>
+      <description>A quiet rebellion: fixing small things to build a steadier self.</description>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>My First Thought</title>
+      <link>https://pruningmypothos.com/self/my-first-thought/</link>
+      <guid isPermaLink="true">https://pruningmypothos.com/self/my-first-thought/</guid>
+      <description>Why the second thought deserves more of the spotlight.</description>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

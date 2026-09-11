@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">Tools: AWS</title>
+<desc id="d">Ink-illustration cover for Tools: AWS</desc>
+<rect width="1200" height="675" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="1198.5" height="673.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 372.3 327.4 Q 390.7 370.5 394.1 355.8" stroke="#9a7322" stroke-width="3.30" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 394.1 355.8 Q 474.1 311.7 494.9 229.7" stroke="#9a7322" stroke-width="3.30" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 494.9 229.7 Q 644.6 199.7 757.8 162.2" stroke="#9a7322" stroke-width="3.30" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 757.8 162.2 Q 773.9 176.8 844.1 202.9" stroke="#9a7322" stroke-width="3.30" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 403.8 327.4 Q 398.5 336.2 396.4 347.7 Q 388.0 350.9 377.7 358.3 Q 366.5 355.0 357.1 353.7 Q 351.6 346.5 344.1 337.7 Q 342.5 326.1 343.7 317.0 Q 349.1 309.8 356.7 300.4 Q 367.6 300.3 377.6 297.2 Q 388.5 304.5 396.3 307.2 Q 399.8 315.1 403.8 327.4 Z" stroke="#2a2012" stroke-width="4.20" fill="none" stroke-linecap="round"/>
+<path d="M 871.9 202.9 Q 867.0 211.6 865.3 220.8 Q 858.8 224.4 848.8 229.5 Q 841.5 226.0 830.9 225.8 Q 823.7 217.9 818.6 212.2 Q 818.7 204.2 819.5 194.0 Q 824.3 188.9 830.7 179.8 Q 839.9 178.6 848.6 177.3 Q 855.8 182.3 864.2 186.1 Q 867.9 195.7 871.9 202.9 Z" stroke="#2a2012" stroke-width="4.20" fill="none" stroke-linecap="round"/>
+<path d="M 423.0 355.8 Q 420.0 366.1 416.0 374.2 Q 407.9 378.0 399.2 384.8 Q 391.5 381.5 380.0 380.2 Q 373.3 375.3 366.6 365.8 Q 368.7 355.4 367.3 346.1 Q 374.7 337.6 379.4 330.4 Q 390.1 330.0 399.1 327.8 Q 408.7 331.4 416.0 337.5 Q 417.2 348.3 423.0 355.8 Z" stroke="#8c2f23" stroke-width="5.40" fill="none" stroke-linecap="round"/>
+<circle cx="394.1" cy="355.8" r="6.00" fill="#8c2f23"/>
+<path d="M 509.2 229.7 Q 509.6 232.6 506.2 239.2 Q 501.2 242.1 497.4 243.8 Q 494.4 240.9 487.9 241.9 Q 483.2 238.4 481.4 234.6 Q 482.7 231.1 482.0 225.0 Q 484.8 221.7 487.5 216.8 Q 490.9 217.2 497.4 215.5 Q 501.5 218.6 505.8 220.6 Q 507.7 223.9 509.2 229.7 Z" stroke="#2a2012" stroke-width="4.20" fill="none" stroke-linecap="round"/>
+<path d="M 770.9 162.2 Q 769.0 166.3 767.1 170.0 Q 762.0 170.9 759.9 174.6 Q 755.3 175.4 751.2 173.7 Q 747.9 169.1 745.7 166.6 Q 746.6 159.9 746.2 158.0 Q 748.6 155.0 751.6 151.6 Q 756.5 152.6 759.9 150.0 Q 763.3 151.7 767.0 154.4 Q 767.2 159.9 770.9 162.2 Z" stroke="#2a2012" stroke-width="4.20" fill="none" stroke-linecap="round"/>
+<text x="600.0" y="465.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="37.5" fill="#2a2012" font-weight="700" text-anchor="middle">TOOLS</text>
+<text x="1186" y="665" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24.0" fill="#2a2012" opacity="0.5" text-anchor="end">SHELF · TOOLS</text>
+</svg>

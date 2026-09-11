@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-label="API deployment and key vault configuration">
+  <rect width="960" height="420" rx="24" fill="#f8fafc"/>
+  <rect x="40" y="40" width="880" height="340" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="70" y="90" fill="#0f172a" font-size="18" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Deployments</text>
+
+  <rect x="70" y="120" width="420" height="240" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="95" y="155" fill="#0f172a" font-size="13" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Models</text>
+  <rect x="95" y="175" width="360" height="44" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="120" y="202" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">foundry-chat-prod</text>
+  <text x="430" y="202" fill="#10b981" font-size="12" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif">Active</text>
+
+  <rect x="95" y="230" width="360" height="44" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="120" y="257" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">foundry-embed-v2</text>
+  <text x="430" y="257" fill="#10b981" font-size="12" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif">Active</text>
+
+  <rect x="520" y="120" width="350" height="240" rx="16" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="545" y="155" fill="#0f172a" font-size="13" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Key Vault</text>
+  <rect x="545" y="175" width="300" height="44" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="570" y="202" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">AZURE_OPENAI_KEY</text>
+  <rect x="545" y="230" width="300" height="44" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="570" y="257" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">AZURE_OPENAI_ENDPOINT</text>
+</svg>

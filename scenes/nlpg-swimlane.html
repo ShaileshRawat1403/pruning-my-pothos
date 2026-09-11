@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NLPg governed workflow</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 1100 520" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 1100 520');
+
+Ink.rect(svg,{x:20,y:30,w:1060,h:80,r:10,seed:1,sw:1.3,label:'Intent lane',lx:14,ly:30,size:14});
+Ink.rect(svg,{x:20,y:130,w:1060,h:80,r:10,seed:2,sw:1.3,label:'Compiler lane',lx:14,ly:30,size:14});
+Ink.rect(svg,{x:20,y:230,w:1060,h:80,r:10,seed:3,sw:1.3,label:'Execution lane',lx:14,ly:30,size:14});
+Ink.rect(svg,{x:20,y:330,w:1060,h:80,r:10,seed:4,sw:1.3,label:'Governance lane',lx:14,ly:30,size:14});
+Ink.rect(svg,{x:180,y:48,w:180,h:44,r:8,seed:5,label:'Business intent',lx:14,ly:27,size:12});
+Ink.rect(svg,{x:410,y:148,w:220,h:44,r:8,seed:6,label:'Compile to instruction spec',lx:14,ly:27,size:11});
+Ink.rect(svg,{x:680,y:248,w:190,h:44,r:8,seed:7,label:'Agent executes plan',lx:14,ly:27,size:12});
+Ink.diamond(svg,{cx:455,cy:352,w:90,h:60,seed:8,cls:'ink ink-3',label:'Risk',size:12});
+Ink.rect(svg,{x:560,y:338,w:210,h:30,r:8,seed:9,cls:'ink ink-3',label:'Approval gate if high risk',lx:12,ly:20,size:10.5});
+Ink.rect(svg,{x:820,y:338,w:200,h:30,r:8,seed:10,cls:'ink ink-2',hi:true,label:'Validation + ledger write',lx:13,ly:20,size:10.5});
+Ink.line(svg,{x1:360,y1:70,x2:410,y2:170,seed:20,bow:4});
+Ink.line(svg,{x1:630,y1:170,x2:680,y2:270,seed:21,bow:4});
+Ink.line(svg,{x1:775,y1:292,x2:500,y2:352,seed:22,bow:4});
+Ink.line(svg,{x1:500,y1:352,x2:560,y2:352,seed:23,bow:2});
+Ink.line(svg,{x1:770,y1:352,x2:820,y2:352,seed:24,bow:2,cls:'ink ink-2',pulse:true});
+Ink.text(svg,{x:840,y:458,text:'Release only after gates and checks pass',size:13,cls:'label-hi'});
+  Ink.run();
+})();
+</script>
+</body></html>

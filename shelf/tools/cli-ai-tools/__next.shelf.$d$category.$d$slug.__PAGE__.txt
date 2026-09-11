@@ -1,0 +1,37 @@
+1:"$Sreact.fragment"
+3:I[15141,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3t39z7yidypi6.js"],"default"]
+4:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3t39z7yidypi6.js"],""]
+7:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+:HL["/covers/shelf/tool-cli-ai.svg","image"]
+2:T40b,<h2 id="benefits">Benefits</h2>
+<ul>
+<li>Fast feedback without leaving the terminal.</li>
+<li>Composable workflows with scripts and pipes.</li>
+<li>Easy to swap models per task.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Installed CLIs and API keys.</li>
+<li>A basic secrets management habit.</li>
+</ul>
+<h2 id="quick-snippets">Quick snippets</h2>
+<pre><code class="language-bash">codex --help
+</code></pre>
+<pre><code class="language-bash">claude --help
+</code></pre>
+<pre><code class="language-bash">gemini --help
+</code></pre>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://github.com/openai/codex">OpenAI Codex CLI</a></li>
+<li><a href="https://docs.anthropic.com/claude/docs/quickstart">Claude CLI</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs">Gemini API</a></li>
+<li><a href="https://learn.microsoft.com/azure/ai-services/openai/">Azure OpenAI docs</a></li>
+</ul>
+<h2 id="where-it-fails">Where it fails</h2>
+<p>CLI power is useless without clear prompts and a stable key setup.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Tools: AI CLIs | Pruning My Pothos\",\"description\":\"Codex, Claude, Gemini, and Azure via terminal for power use.\",\"url\":\"https://pruningmypothos.com/shelf/tools/cli-ai-tools/\",\"image\":\"https://pruningmypothos.com/covers/shelf/tool-cli-ai.svg\"}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Shelf • ","tools"]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Tools: AI CLIs"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-cyan/40 pl-4 py-1 text-sm sm:text-base","children":"Codex, Claude, Gemini, and Azure via terminal for power use."}],["$","figure",null,{"className":"w-full max-w-[420px] overflow-hidden rounded-lg border border-[color:var(--card-border)] aspect-video my-4 shadow-none self-center sm:self-start bg-[color:var(--card-bg)]","children":["$","img",null,{"src":"/covers/shelf/tool-cli-ai.svg","alt":"Cover illustration for Tools: AI CLIs","className":"w-full h-full object-contain"}]}],"$undefined","$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","$L3",null,{"title":"Tools: AI CLIs"}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","tools",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","tools"]}],["$","span","cli",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","cli"]}],["$","span","ai",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","ai"]}]]}],["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L4",null,{"href":"/shelf","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Shelf"}]}]]}],["$L5"],"$L6"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/3t39z7yidypi6.js","async":true}]
+6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

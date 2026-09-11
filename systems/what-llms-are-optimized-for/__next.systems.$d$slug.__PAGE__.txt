@@ -1,0 +1,78 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],""]
+c:I[97367,["/_next/static/chunks/0d8rr265oglug.js","/_next/static/chunks/16a97785okmnz.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+:HL["/covers/systems/what-llms-are-optimized-for.svg","image"]
+2:T492,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are LLMs actually optimized for?","acceptedAnswer":{"@type":"Answer","text":"LLMs are optimized for next-token probability, not truth, accuracy, or user intent. They generate the most statistically probable continuation of the input sequence based on patterns learned during training."}},{"@type":"Question","name":"Is hallucination a bug or a feature?","acceptedAnswer":{"@type":"Answer","text":"Hallucination is a statistical side effect of next-token prediction, not an intentional design. Models generate probable text, and when the most probable continuation includes plausible-sounding but incorrect information, hallucination occurs."}},{"@type":"Question","name":"Does scaling improve model reliability?","acceptedAnswer":{"@type":"Answer","text":"Scaling improves pattern matching and generates more fluent text, but it does not make models inherently more truthful. Larger models are better at mimicking correct answers but can also mimic incorrect answers more persuasively. Reliability requires architecture and runtime controls, not just more parameters."}}]}0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-[840px] mx-auto py-8 flex flex-col gap-8","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"What Large Language Models Are Optimized For | Pruning My Pothos\",\"description\":\"Why next-token prediction shapes both capability and failure modes.\",\"url\":\"https://pruningmypothos.com/systems/what-llms-are-optimized-for/\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://pruningmypothos.com/systems/what-llms-are-optimized-for/\"},\"datePublished\":\"2026-01-14\",\"dateModified\":\"2026-04-15\",\"author\":{\"@type\":\"Person\",\"@id\":\"https://pruningmypothos.com/about/#person\",\"name\":\"Shailesh Rawat\",\"url\":\"https://pruningmypothos.com/about/\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Pruning My Pothos\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://pruningmypothos.com/favicon.png\"}},\"image\":\"https://pruningmypothos.com/covers/systems/what-llms-are-optimized-for.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","header",null,{"className":"flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6","children":[["$","div",null,{"className":"flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider","children":[["$","span",null,{"children":"Systems"}]," • ",["$","span",null,{"children":"Concepts"}],"$undefined","$undefined",[["$","span",null,{"children":"•"}],["$","span",null,{"children":["Updated"," ","Apr 15, 2026"]}]]]}],["$","h1",null,{"className":"font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]","children":"What Large Language Models Are Optimized For"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] text-base leading-relaxed","children":"Why next-token prediction shapes both capability and failure modes."}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-2","children":[["$","$L3","llm",{"href":"/tags/llm/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","llm"]}],["$","$L3","optimization",{"href":"/tags/optimization/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","optimization"]}],"$L4","$L5"]}]]}],"$L6","$undefined","$undefined","$undefined","$undefined","$undefined","$L7","$undefined","$L8","$undefined","$L9"]}],null,"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kroc6U5_K_nfKzTBLYstA"}
+4:["$","$L3","reasoning",{"href":"/tags/reasoning/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reasoning"]}]
+5:["$","$L3","reliability",{"href":"/tags/reliability/","className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","reliability"]}]
+6:["$","figure",null,{"className":"w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]","children":["$","img",null,{"src":"/covers/systems/what-llms-are-optimized-for.svg","alt":"Next token prediction visualization","className":"w-full h-full object-cover"}]}]
+b:T18e1,<blockquote>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li>LLMs optimize for next-token probability, not truth.</li>
+<li>Emergent reasoning comes from scale, not intent.</li>
+<li>Hallucination is a statistical side effect, not a bug.</li>
+<li>Prompts steer completion; they do not query facts.</li>
+</ul>
+</blockquote>
+<p>Large Language Models (LLMs) are not optimized for truth, accuracy, or user intent. They are optimized for one simple goal: predicting the most probable next token in a sequence. This core mechanic is the source of their incredible capabilities and their most frustrating failure modes.</p>
+<h3 id="what-are-llms-actually-optimized-for">What are LLMs actually optimized for?</h3>
+<p>LLMs are optimized for next-token probability, not truth, certainty, or user wellbeing by default. This page is for readers who want a more accurate mental model of model behavior, and the practical value is understanding why good systems must add grounding, verification, and constraints around the model.</p>
+<p>In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.</p>
+<aside class="callout callout-insight">
+  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
+</aside>
+<div id="toc-anchor"></div>
+
+
+<nav class="toc" aria-label="On-page">
+  <h2 class="toc-title">Contents</h2>
+  <div class="toc-groups">
+    <details open>
+      <summary>Act I: The fundamentals</summary>
+      <ol>
+        <li><a href="#the-next-token-objective">The next-token objective</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act II: The modern paradigm</summary>
+      <ol>
+        <li><a href="#emergent-behavior-and-hallucination">Emergent behavior and hallucination</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Act III: Principles in practice</summary>
+      <ol>
+        <li><a href="#prompting-shapes-output">Prompting shapes output</a></li>
+        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
+      </ol>
+    </details>
+  </div>
+</nav>
+<h2 id="act-i-the-fundamentals">Act I: The fundamentals</h2>
+<h3 id="the-next-token-objective">The next-token objective</h3>
+<p>At its heart, an LLM is a sequence prediction engine. During training, it is fed vast amounts of text from the internet and books. For every sequence of tokens (words or parts of words), it is trained to predict the token that is most likely to come next. It adjusts its internal weights—billions of them—to minimize the difference between its prediction and the actual next token in the training data.</p>
+<p>This process is repeated trillions of time. The model isn&#39;t learning concepts, facts, or reasoning in the human sense. It is learning statistical patterns in language. A statement like &quot;The sky is blue&quot; is not stored as a fact, but as a high-probability sequence of tokens.</p>
+<figure class="diagram">
+  <iframe src="/scenes/next-token-prediction.html" title="Next-Token Prediction Loop" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>The model's core function is to find the most statistically likely token to complete a sequence.</figcaption>
+</figure>
+<h2 id="act-ii-the-modern-paradigm">Act II: The modern paradigm</h2>
+<h3 id="emergent-behavior-and-hallucination">Emergent behavior and hallucination</h3>
+<p>The surprising discovery is that a simple objective, when scaled, produces complex, emergent behaviors. To get the next token right in a sophisticated text, the model must implicitly learn grammar, syntax, and even basic reasoning. For example, to correctly complete the sequence &quot;The lawyer advised her client to...&quot;, the model must have learned something about the legal profession and client relationships.</p>
+<p>This is why modern LLMs appear to &quot;understand.&quot; They have created a world model made of linguistic patterns. When you ask a question, you are providing a starting sequence. The model completes it with the most plausible-sounding text it can generate based on its training data. The &quot;answer&quot; is simply the completion of your prompt.</p>
+<p>This also explains why they &quot;hallucinate.&quot; If the training data contains conflicting or incorrect information, the model learns those patterns, too. It has no external source of truth to check against. It only has its internal statistical model of language.</p>
+<h2 id="act-iii-principles-in-practice">Act III: Principles in practice</h2>
+<h3 id="prompting-shapes-output">Prompting shapes output</h3>
+<p>Treating an LLM as a database or a reasoning engine will lead to frustration. Instead, you must treat it as a powerful text-completion machine that is trying to find the most plausible continuation of your prompt.</p>
+<p>This means that the quality of your input directly shapes the quality of the output. A vague prompt will get a vague and generic completion. A precise prompt with clear constraints and context will guide the model toward a more reliable and useful response. This is the art of prompt engineering: structuring the input sequence to make the desired output the most probable one.</p>
+<p>Temperature, top-p, and output length also change behavior because they alter how aggressively the model samples alternatives. For critical tasks, lower-variance settings plus strict output constraints usually produce more stable results than creative, open-ended generation settings.</p>
+<p>For related systems context, see <a href="/systems/systems-001-foundations/">Systems 001: Foundations</a> and <a href="/systems/from-prompt-to-production/">From Prompt to Production</a>. For a complementary mental model, see <a href="/systems/probabilities-not-truth/">Probabilities, Not Truth</a>. To see how next-token probability thresholds and context size constraints degrade outputs in practice, review the <a href="/shelf/local-experiments/context-window-stress/">Context window stress test local experiment</a>.</p>
+<h3 id="what-this-changes-in-practice">What this changes in practice</h3>
+<p>Instead of asking &quot;Is this answer true?&quot;, you should ask &quot;Is this the most useful completion of my prompt, given the patterns in the training data?&quot;</p>
+7:["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]","dangerouslySetInnerHTML":{"__html":"$b"}}]
+8:["$","section",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-6 flex flex-col gap-8","children":[["$","div",null,{"className":"flex flex-col gap-3","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"Practical takeaways"}],["$","ul",null,{"className":"list-disc pl-5 text-sm text-[color:var(--text-secondary)] flex flex-col gap-2","children":[["$","li","0",{"children":"Core conceptual reference for LLM optimization mechanics"}],["$","li","1",{"children":"Referenced in what-an-ai-model-actually-is.mdx"}]]}]]}],["$","section",null,{"className":"flex flex-col gap-4","children":[["$","h2",null,{"className":"font-heading text-lg font-bold text-[color:var(--text-primary)]","children":"FAQ"}],["$","div",null,{"className":"flex flex-col gap-4","children":[["$","div","0",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"What are LLMs actually optimized for?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"LLMs are optimized for next-token probability, not truth, accuracy, or user intent. They generate the most statistically probable continuation of the input sequence based on patterns learned during training."}]]}],["$","div","1",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Is hallucination a bug or a feature?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Hallucination is a statistical side effect of next-token prediction, not an intentional design. Models generate probable text, and when the most probable continuation includes plausible-sounding but incorrect information, hallucination occurs."}]]}],["$","div","2",{"className":"border border-[color:var(--card-border)] p-4 rounded-lg bg-[color:var(--bg-color)] flex flex-col gap-2","children":[["$","h3",null,{"className":"font-heading text-sm font-semibold text-[color:var(--text-primary)]","children":"Does scaling improve model reliability?"}],["$","p",null,{"className":"text-xs text-[color:var(--text-secondary)] leading-relaxed","children":"Scaling improves pattern matching and generates more fluent text, but it does not make models inherently more truthful. Larger models are better at mimicking correct answers but can also mimic incorrect answers more persuasively. Reliability requires architecture and runtime controls, not just more parameters."}]]}]]}]]}]]}]
+9:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono","children":[["$","$L3",null,{"href":"/","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Home"}],["$","$L3",null,{"href":"/systems","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"Systems Index →"}]]}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

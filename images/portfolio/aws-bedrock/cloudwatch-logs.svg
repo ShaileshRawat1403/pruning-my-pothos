@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-label="CloudWatch logs for first request">
+  <rect width="960" height="420" rx="24" fill="#f8fafc"/>
+  <rect x="40" y="40" width="880" height="340" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="70" y="90" fill="#0f172a" font-size="18" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">CloudWatch logs</text>
+
+  <rect x="70" y="120" width="820" height="64" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="100" y="158" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Request ID</text>
+  <text x="300" y="158" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">a9f3b1c2-8c0b-4e2a</text>
+  <text x="840" y="158" fill="#10b981" font-size="12" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif">200 OK</text>
+
+  <rect x="70" y="200" width="820" height="64" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="100" y="238" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Model</text>
+  <text x="300" y="238" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">claude-3-sonnet</text>
+  <text x="840" y="238" fill="#0f172a" font-size="12" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif">Latency 410ms</text>
+
+  <rect x="70" y="280" width="820" height="64" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="100" y="318" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Tokens</text>
+  <text x="300" y="318" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">1,204 total</text>
+  <text x="840" y="318" fill="#0f172a" font-size="12" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif">Cost $0.012</text>
+</svg>
