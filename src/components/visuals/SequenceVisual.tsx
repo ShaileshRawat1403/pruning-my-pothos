@@ -10,6 +10,8 @@ export default function SequenceVisual({ visual }: Props) {
   const isVertical = data.orientation === "vertical";
   const steps = data.steps;
   const n = steps.length;
+  const arrowIdV = `seq-arrow-v-${visual.id}`;
+  const arrowIdH = `seq-arrow-h-${visual.id}`;
 
   if (isVertical) {
     const stepHeight = 60;
@@ -27,7 +29,7 @@ export default function SequenceVisual({ visual }: Props) {
         <desc>{visual.alt}</desc>
         <defs>
           <marker
-            id="seq-arrow-v"
+            id={arrowIdV}
             viewBox="0 0 10 10"
             refX="6"
             refY="5"
@@ -39,7 +41,7 @@ export default function SequenceVisual({ visual }: Props) {
           </marker>
         </defs>
 
-        {steps.map((step, idx) => {
+        {steps.map((step: { id: string; label: string; note?: string }, idx: number) => {
           const y = 20 + idx * (stepHeight + gap);
           return (
             <g key={step.id}>
@@ -95,7 +97,7 @@ export default function SequenceVisual({ visual }: Props) {
                   y2={y + stepHeight + gap - 2}
                   stroke="var(--card-border)"
                   strokeWidth="1.5"
-                  markerEnd="url(#seq-arrow-v)"
+                  markerEnd={`url(#${arrowIdV})`}
                 />
               )}
             </g>
@@ -123,7 +125,7 @@ export default function SequenceVisual({ visual }: Props) {
       <desc>{visual.alt}</desc>
       <defs>
         <marker
-          id="seq-arrow-h"
+          id={arrowIdH}
           viewBox="0 0 10 10"
           refX="6"
           refY="5"
@@ -135,7 +137,7 @@ export default function SequenceVisual({ visual }: Props) {
         </marker>
       </defs>
 
-      {steps.map((step, idx) => {
+      {steps.map((step: { id: string; label: string; note?: string }, idx: number) => {
         const x = startX + idx * (stepWidth + gap);
         return (
           <g key={step.id}>
@@ -190,7 +192,7 @@ export default function SequenceVisual({ visual }: Props) {
                 y2="68"
                 stroke="var(--card-border)"
                 strokeWidth="1.5"
-                markerEnd="url(#seq-arrow-h)"
+                markerEnd={`url(#${arrowIdH})`}
               />
             )}
           </g>

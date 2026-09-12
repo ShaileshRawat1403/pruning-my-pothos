@@ -42,7 +42,7 @@ export default function BoundaryVisual({ visual }: Props) {
         {inside.label}
       </text>
 
-      {inside.items.map((item, idx) => (
+      {inside.items.map((item: string, idx: number) => (
         <g key={idx}>
           <circle cx="50" cy={82 + idx * 28} r="3" fill="var(--accent-green)" />
           <text
@@ -115,7 +115,7 @@ export default function BoundaryVisual({ visual }: Props) {
         {outside.label}
       </text>
 
-      {outside.items.map((item, idx) => (
+      {outside.items.map((item: string, idx: number) => (
         <g key={idx}>
           <circle cx="422" cy={82 + idx * 28} r="3" fill="var(--text-muted)" />
           <text

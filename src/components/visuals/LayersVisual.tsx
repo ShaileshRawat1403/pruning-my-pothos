@@ -33,7 +33,7 @@ export default function LayersVisual({ visual }: Props) {
         strokeDasharray="3 3"
       />
 
-      {layers.map((layer, idx) => {
+      {layers.map((layer: { id: string; label: string; note?: string; highlighted?: boolean }, idx: number) => {
         const y = 18 + idx * (layerHeight + gap);
         const isHighlighted = Boolean(layer.highlighted);
 

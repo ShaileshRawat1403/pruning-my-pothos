@@ -1,102 +1,26 @@
 /**
- * visual-types.ts — TypeScript interfaces for the typed visual grammar.
+ * visual-types.ts — TypeScript types for the typed visual grammar.
+ *
+ * Inferred directly from the authoritative Zod contract in scripts/editorial-contract-v1.mjs.
+ * Preserves a single source of truth across runtime validation and TypeScript compilation.
  */
 
-export type VisualPurpose =
-  | "sequence"
-  | "layers"
-  | "boundary"
-  | "comparison"
-  | "state-change"
-  | "decision"
-  | "evidence-map"
-  | "scale";
+import type { z } from "zod";
+import type {
+  visualSchema,
+  sourceSchema,
+} from "../../scripts/editorial-contract-v1.mjs";
 
-export type VisualRenderMode =
-  | "generated-sequence"
-  | "generated-layers"
-  | "generated-boundary"
-  | "generated-comparison"
-  | "asset";
+export type Visual = z.infer<typeof visualSchema>;
 
-export type EvidenceRole = "explanatory" | "evidence";
+export type GeneratedSequenceVisual = Extract<Visual, { renderAs: "generated-sequence" }>;
+export type GeneratedLayersVisual = Extract<Visual, { renderAs: "generated-layers" }>;
+export type GeneratedBoundaryVisual = Extract<Visual, { renderAs: "generated-boundary" }>;
+export type GeneratedComparisonVisual = Extract<Visual, { renderAs: "generated-comparison" }>;
+export type AssetVisual = Extract<Visual, { renderAs: "asset" }>;
 
-export interface BaseVisual {
-  id: string;
-  purpose: VisualPurpose;
-  takeaway: string;
-  caption: string;
-  alt: string;
-  evidenceRole?: EvidenceRole;
-  sources?: string[];
-}
+export type VisualRenderMode = Visual["renderAs"];
+export type VisualPurpose = Visual["purpose"];
+export type EvidenceRole = NonNullable<Visual["evidenceRole"]>;
 
-export interface GeneratedSequenceVisual extends BaseVisual {
-  renderAs: "generated-sequence";
-  data: {
-    orientation?: "horizontal" | "vertical";
-    steps: {
-      id: string;
-      label: string;
-      note?: string;
-    }[];
-  };
-}
-
-export interface GeneratedLayersVisual extends BaseVisual {
-  renderAs: "generated-layers";
-  data: {
-    layers: {
-      id: string;
-      label: string;
-      note?: string;
-      highlighted?: boolean;
-    }[];
-  };
-}
-
-export interface GeneratedBoundaryVisual extends BaseVisual {
-  renderAs: "generated-boundary";
-  data: {
-    inside: {
-      label: string;
-      items: string[];
-    };
-    outside: {
-      label: string;
-      items: string[];
-    };
-    boundaryLabel?: string;
-  };
-}
-
-export interface GeneratedComparisonVisual extends BaseVisual {
-  renderAs: "generated-comparison";
-  data: {
-    before: {
-      label: string;
-      items: string[];
-    };
-    after: {
-      label: string;
-      items: string[];
-    };
-    diffNote?: string;
-  };
-}
-
-export interface AssetVisual extends BaseVisual {
-  renderAs: "asset";
-  src: string;
-  dimensions?: {
-    width: number;
-    height: number;
-  };
-}
-
-export type Visual =
-  | GeneratedSequenceVisual
-  | GeneratedLayersVisual
-  | GeneratedBoundaryVisual
-  | GeneratedComparisonVisual
-  | AssetVisual;
+export type ProvenanceSource = z.infer<typeof sourceSchema>;

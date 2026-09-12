@@ -178,6 +178,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
       {/* HTML Content Body with Inline Visual Support */}
       {(() => {
         const visuals = (system as { content: string; visuals?: Visual[] }).visuals || [];
+        const provenanceSources = system.provenance?.sources || [];
         const segments = renderArticleSegments(system.content, visuals);
         return segments.map((segment, idx) =>
           segment.type === "html" ? (
@@ -187,7 +188,11 @@ export default async function SystemsDetailPage({ params }: PageProps) {
               dangerouslySetInnerHTML={{ __html: segment.html }}
             />
           ) : (
-            <VisualBlock key={segment.visual.id || idx} visual={segment.visual} />
+            <VisualBlock
+              key={segment.visual.id || idx}
+              visual={segment.visual}
+              provenanceSources={provenanceSources}
+            />
           )
         );
       })()}

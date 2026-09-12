@@ -773,6 +773,70 @@ async function runTests() {
     `Test 59: authored reserved internal placeholder namespace is rejected by governor and preparation pipeline`
   );
 
+  // ── PASS 4.1A FOUNDATION HARDENING REGRESSIONS (TESTS 60–66) ────────────────
+
+  // Test 60: Explanatory visual with dangling source -> rejected
+  const expDanglingIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/invalid-explanatory-dangling-source.mdx"));
+  assert(
+    expDanglingIssues.some((msg) => msg.includes('references unknown source ID "non-existent-source-benchmark"')),
+    `Test 60: explanatory visual with dangling source ID is rejected by referential integrity check`
+  );
+
+  // Test 61: Marker inside list item -> rejected by block-level invariant
+  const listMarkerIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/invalid-marker-inside-list.mdx"));
+  assert(
+    listMarkerIssues.some((msg) => msg.includes("PMP visual marker must not be indented") || msg.includes("PMP visual marker must occupy its own unindented line")),
+    `Test 61: visual marker inside list item is rejected fail-closed`
+  );
+
+  // Test 62: Marker inside blockquote -> rejected by block-level invariant
+  const quoteMarkerIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/invalid-marker-inside-blockquote.mdx"));
+  assert(
+    quoteMarkerIssues.some((msg) => msg.includes("PMP visual marker must occupy its own unindented line")),
+    `Test 62: visual marker inside blockquote is rejected fail-closed`
+  );
+
+  // Test 63: Indented marker -> rejected by block-level invariant
+  const indentedMarkerIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/invalid-marker-indented.mdx"));
+  assert(
+    indentedMarkerIssues.some((msg) => msg.includes("PMP visual marker must not be indented")),
+    `Test 63: indented visual marker is rejected fail-closed`
+  );
+
+  // Test 64: Marker directly adjacent to prose without separating blank lines -> rejected
+  const unseparatedContent = "Prose before marker without blank line.\n<!-- pmp:visual id=\"runtime-sequence\" -->\nProse after marker without blank line.";
+  const { validMarkers: unsepValid, malformedMarkers: unsepMalformed } = scanVisualMarkers(unseparatedContent);
+  assert(
+    unsepValid.length === 0 &&
+    unsepMalformed.length === 1 &&
+    unsepMalformed[0].error.includes("preceded by a blank line"),
+    `Test 64: visual marker directly adjacent to prose without separating blank lines is rejected`
+  );
+
+  // Test 65: Unique SVG marker definition IDs: two sequence visuals generate unique, non-colliding DOM IDs
+  const sequenceSrc = await fs.readFile(path.resolve(ROOT, "src/components/visuals/SequenceVisual.tsx"), "utf8");
+  const hasDynamicArrowV = sequenceSrc.includes("const arrowIdV = `seq-arrow-v-${visual.id}`;");
+  const hasDynamicArrowH = sequenceSrc.includes("const arrowIdH = `seq-arrow-h-${visual.id}`;");
+  const noStaticArrowV = !sequenceSrc.includes('id="seq-arrow-v"');
+  const noStaticArrowH = !sequenceSrc.includes('id="seq-arrow-h"');
+  const usesDynamicMarkerV = sequenceSrc.includes("markerEnd={`url(#${arrowIdV})`}");
+  const usesDynamicMarkerH = sequenceSrc.includes("markerEnd={`url(#${arrowIdH})`}");
+  assert(
+    hasDynamicArrowV && hasDynamicArrowH && noStaticArrowV && noStaticArrowH && usesDynamicMarkerV && usesDynamicMarkerH,
+    `Test 65: SequenceVisual generates unique DOM marker IDs derived from visual.id to prevent collision across multiple sequence visuals`
+  );
+
+  // Test 66: Reader-inspectable evidence: VisualBlock maps provenance sources and exposes repository URL/ref context
+  const visualBlockSrc = await fs.readFile(path.resolve(ROOT, "src/components/visuals/VisualBlock.tsx"), "utf8");
+  const acceptsProvenanceSources = visualBlockSrc.includes("provenanceSources?: ProvenanceSource[]");
+  const resolvesVisualSources = visualBlockSrc.includes("provenanceSources.find((s: ProvenanceSource) => s.id === sid)");
+  const rendersRepoContext = visualBlockSrc.includes("source.path") && visualBlockSrc.includes("source.ref.slice(0, 7)");
+  const exposesUrl = visualBlockSrc.includes("href={source.url}");
+  assert(
+    acceptsProvenanceSources && resolvesVisualSources && rendersRepoContext && exposesUrl,
+    `Test 66: VisualBlock resolves provenance sources and renders inspectable URL, path, and commit ref context for evidence visuals`
+  );
+
   console.log(`\nRegression Suite Results: ${passed} passed, ${failed} failed.\n`);
   if (failed > 0) {
     process.exit(1);

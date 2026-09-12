@@ -259,7 +259,7 @@ export async function validateV1File(filePath, allowedKinds) {
     }
   }
 
-  // Evidence visual source backing check
+  // Visual source backing & referential integrity check
   const sourceMap = new Set((data.provenance?.sources || []).map((s) => s.id));
   for (const v of declaredVisuals) {
     if (v.evidenceRole === "evidence") {
@@ -267,13 +267,15 @@ export async function validateV1File(filePath, allowedKinds) {
         issues.push(
           `Evidence visual "${v.id}" must declare at least one source ID in sources`
         );
-      } else {
-        for (const sid of v.sources) {
-          if (!sourceMap.has(sid)) {
-            issues.push(
-              `Evidence visual "${v.id}" references unknown source ID "${sid}" (not found in provenance.sources)`
-            );
-          }
+      }
+    }
+    // For ANY visual that declares sources: every source ID must resolve through provenance.sources
+    if (Array.isArray(v.sources)) {
+      for (const sid of v.sources) {
+        if (!sourceMap.has(sid)) {
+          issues.push(
+            `Visual "${v.id}" references unknown source ID "${sid}" (not found in provenance.sources)`
+          );
         }
       }
     }

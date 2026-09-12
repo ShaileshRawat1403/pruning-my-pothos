@@ -202,12 +202,22 @@ const systems = defineCollection({
           }
           visualIds.add(v.id);
 
-          if (v.evidenceRole === "evidence" && Array.isArray(v.sources)) {
+          if (v.evidenceRole === "evidence") {
+            if (!Array.isArray(v.sources) || v.sources.length === 0) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                message: `Visual "${v.id}" with evidenceRole "evidence" must declare at least one source ID in sources`,
+                path: ["visuals", i, "sources"],
+              });
+            }
+          }
+
+          if (Array.isArray(v.sources)) {
             for (const sid of v.sources) {
               if (!sourceMap.has(sid)) {
                 ctx.addIssue({
                   code: z.ZodIssueCode.custom,
-                  message: `Visual "${v.id}" with evidenceRole "evidence" references unknown source ID "${sid}" (not found in provenance.sources)`,
+                  message: `Visual "${v.id}" references unknown source ID "${sid}" (not found in provenance.sources)`,
                   path: ["visuals", i, "sources"],
                 });
               }
@@ -356,12 +366,22 @@ const self = defineCollection({
             }
             visualIds.add(v.id);
 
-            if (v.evidenceRole === "evidence" && Array.isArray(v.sources)) {
+            if (v.evidenceRole === "evidence") {
+              if (!Array.isArray(v.sources) || v.sources.length === 0) {
+                ctx.addIssue({
+                  code: z.ZodIssueCode.custom,
+                  message: `Visual "${v.id}" with evidenceRole "evidence" must declare at least one source ID in sources`,
+                  path: ["visuals", i, "sources"],
+                });
+              }
+            }
+
+            if (Array.isArray(v.sources)) {
               for (const sid of v.sources) {
                 if (!sourceMap.has(sid)) {
                   ctx.addIssue({
                     code: z.ZodIssueCode.custom,
-                    message: `Visual "${v.id}" with evidenceRole "evidence" references unknown source ID "${sid}" (not found in provenance.sources)`,
+                    message: `Visual "${v.id}" references unknown source ID "${sid}" (not found in provenance.sources)`,
                     path: ["visuals", i, "sources"],
                   });
                 }

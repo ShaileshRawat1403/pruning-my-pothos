@@ -123,22 +123,101 @@ export function scanVisualMarkers(rawContent) {
 
     // Check if this comment is a candidate PMP marker
     if (/^\s*pmp(?::|\b)/i.test(commentBody)) {
+      const startIndex = match.index;
+      const endIndex = match.index + match[0].length;
+
+      const lastNewline = rawContent.lastIndexOf("\n", startIndex - 1);
+      const lineStart = lastNewline === -1 ? 0 : lastNewline + 1;
+      const leadingChars = rawContent.slice(lineStart, startIndex);
+
+      const nextNewline = rawContent.indexOf("\n", endIndex);
+      const lineEnd = nextNewline === -1 ? rawContent.length : nextNewline;
+      const trailingChars = rawContent.slice(endIndex, lineEnd);
+
       const canonicalMatch = fullComment.match(CANONICAL_MARKER_REGEX);
-      if (canonicalMatch) {
-        validMarkers.push({
-          id: canonicalMatch[1],
-          raw: fullComment,
-          startIndex: match.index,
-          endIndex: match.index + match[0].length,
-        });
-      } else {
+      if (!canonicalMatch) {
         malformedMarkers.push({
           raw: fullComment,
-          startIndex: match.index,
-          endIndex: match.index + match[0].length,
+          startIndex,
+          endIndex,
           error: `Malformed PMP visual marker syntax: "${fullComment}". Expected format: <!-- pmp:visual id="kebab-case-id" -->`,
         });
+        continue;
       }
+
+      // Invariant 1: Must occupy its own unindented line (no leading whitespace, no leading content)
+      if (leadingChars.length > 0) {
+        if (leadingChars.trim().length === 0) {
+          malformedMarkers.push({
+            raw: fullComment,
+            startIndex,
+            endIndex,
+            error: `PMP visual marker must not be indented; found leading whitespace ("${leadingChars}") on marker line.`,
+          });
+        } else {
+          malformedMarkers.push({
+            raw: fullComment,
+            startIndex,
+            endIndex,
+            error: `PMP visual marker must occupy its own unindented line; found leading content ("${leadingChars.trim()}") on marker line.`,
+          });
+        }
+        continue;
+      }
+
+      // Invariant 2: Must have no trailing content on the same line (ignoring optional \r)
+      if (trailingChars.replace(/\r$/, "").length > 0) {
+        malformedMarkers.push({
+          raw: fullComment,
+          startIndex,
+          endIndex,
+          error: `PMP visual marker must occupy its own line; found trailing content ("${trailingChars.trim()}") on marker line.`,
+        });
+        continue;
+      }
+
+      // Invariant 3: Must be preceded by a blank line or start of document
+      if (lineStart > 0) {
+        const prevLineEnd = lineStart - 1;
+        const prevPrevNewline = rawContent.lastIndexOf("\n", prevLineEnd - 1);
+        const prevLineStart = prevPrevNewline === -1 ? 0 : prevPrevNewline + 1;
+        const prevLine = rawContent.slice(prevLineStart, prevLineEnd);
+        if (prevLine.trim().length > 0) {
+          malformedMarkers.push({
+            raw: fullComment,
+            startIndex,
+            endIndex,
+            error: `PMP visual marker must be preceded by a blank line or start of document; found preceding prose: "${prevLine.trim().slice(0, 40)}"`,
+          });
+          continue;
+        }
+      }
+
+      // Invariant 4: Must be followed by a blank line or end of document
+      if (nextNewline !== -1) {
+        const nextLineStart = nextNewline + 1;
+        if (nextLineStart < rawContent.length) {
+          const nextNextNewline = rawContent.indexOf("\n", nextLineStart);
+          const nextLineEnd = nextNextNewline === -1 ? rawContent.length : nextNextNewline;
+          const nextLine = rawContent.slice(nextLineStart, nextLineEnd);
+          if (nextLine.trim().length > 0) {
+            malformedMarkers.push({
+              raw: fullComment,
+              startIndex,
+              endIndex,
+              error: `PMP visual marker must be followed by a blank line or end of document; found following prose: "${nextLine.trim().slice(0, 40)}"`,
+            });
+            continue;
+          }
+        }
+      }
+
+      validMarkers.push({
+        id: canonicalMatch[1],
+        raw: fullComment,
+        startIndex,
+        endIndex,
+      });
     }
   }
 

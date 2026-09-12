@@ -240,103 +240,95 @@ function refineVisualEvidence(schema) {
   });
 }
 
-export const generatedSequenceVisualSchema = refineVisualEvidence(
-  z.object({
-    ...baseVisualFields,
-    renderAs: z.literal("generated-sequence"),
-    data: z.object({
-      orientation: z.enum(["horizontal", "vertical"]).default("horizontal"),
-      steps: z
-        .array(
-          z.object({
-            id: z.string(),
-            label: z.string(),
-            note: z.string().optional(),
-          })
-        )
-        .min(2, "Sequence visual requires at least 2 steps")
-        .max(6, "Sequence visual supports at most 6 steps"),
+export const generatedSequenceVisualSchema = z.object({
+  ...baseVisualFields,
+  renderAs: z.literal("generated-sequence"),
+  data: z.object({
+    orientation: z.enum(["horizontal", "vertical"]).default("horizontal"),
+    steps: z
+      .array(
+        z.object({
+          id: z.string(),
+          label: z.string(),
+          note: z.string().optional(),
+        })
+      )
+      .min(2, "Sequence visual requires at least 2 steps")
+      .max(6, "Sequence visual supports at most 6 steps"),
+  }),
+});
+
+export const generatedLayersVisualSchema = z.object({
+  ...baseVisualFields,
+  renderAs: z.literal("generated-layers"),
+  data: z.object({
+    layers: z
+      .array(
+        z.object({
+          id: z.string(),
+          label: z.string(),
+          note: z.string().optional(),
+          highlighted: z.boolean().optional(),
+        })
+      )
+      .min(2, "Layers visual requires at least 2 layers")
+      .max(5, "Layers visual supports at most 5 layers"),
+  }),
+});
+
+export const generatedBoundaryVisualSchema = z.object({
+  ...baseVisualFields,
+  renderAs: z.literal("generated-boundary"),
+  data: z.object({
+    inside: z.object({
+      label: z.string(),
+      items: z.array(z.string()).min(1, "Inside partition requires at least 1 item"),
     }),
-  })
-);
-
-export const generatedLayersVisualSchema = refineVisualEvidence(
-  z.object({
-    ...baseVisualFields,
-    renderAs: z.literal("generated-layers"),
-    data: z.object({
-      layers: z
-        .array(
-          z.object({
-            id: z.string(),
-            label: z.string(),
-            note: z.string().optional(),
-            highlighted: z.boolean().optional(),
-          })
-        )
-        .min(2, "Layers visual requires at least 2 layers")
-        .max(5, "Layers visual supports at most 5 layers"),
+    outside: z.object({
+      label: z.string(),
+      items: z.array(z.string()).min(1, "Outside partition requires at least 1 item"),
     }),
-  })
-);
+    boundaryLabel: z.string().optional(),
+  }),
+});
 
-export const generatedBoundaryVisualSchema = refineVisualEvidence(
-  z.object({
-    ...baseVisualFields,
-    renderAs: z.literal("generated-boundary"),
-    data: z.object({
-      inside: z.object({
-        label: z.string(),
-        items: z.array(z.string()).min(1, "Inside partition requires at least 1 item"),
-      }),
-      outside: z.object({
-        label: z.string(),
-        items: z.array(z.string()).min(1, "Outside partition requires at least 1 item"),
-      }),
-      boundaryLabel: z.string().optional(),
+export const generatedComparisonVisualSchema = z.object({
+  ...baseVisualFields,
+  renderAs: z.literal("generated-comparison"),
+  data: z.object({
+    before: z.object({
+      label: z.string(),
+      items: z.array(z.string()).min(1, "Before comparison requires at least 1 item"),
     }),
-  })
-);
-
-export const generatedComparisonVisualSchema = refineVisualEvidence(
-  z.object({
-    ...baseVisualFields,
-    renderAs: z.literal("generated-comparison"),
-    data: z.object({
-      before: z.object({
-        label: z.string(),
-        items: z.array(z.string()).min(1, "Before comparison requires at least 1 item"),
-      }),
-      after: z.object({
-        label: z.string(),
-        items: z.array(z.string()).min(1, "After comparison requires at least 1 item"),
-      }),
-      diffNote: z.string().optional(),
+    after: z.object({
+      label: z.string(),
+      items: z.array(z.string()).min(1, "After comparison requires at least 1 item"),
     }),
-  })
-);
+    diffNote: z.string().optional(),
+  }),
+});
 
-export const assetVisualSchema = refineVisualEvidence(
-  z.object({
-    ...baseVisualFields,
-    renderAs: z.literal("asset"),
-    src: z.string().min(1, "Asset visual must provide a source file path"),
-    dimensions: z
-      .object({
-        width: z.number().positive(),
-        height: z.number().positive(),
-      })
-      .optional(),
-  })
-);
+export const assetVisualSchema = z.object({
+  ...baseVisualFields,
+  renderAs: z.literal("asset"),
+  src: z.string().min(1, "Asset visual must provide a source file path"),
+  dimensions: z
+    .object({
+      width: z.number().positive(),
+      height: z.number().positive(),
+    })
+    .optional(),
+});
 
-export const visualSchema = z.discriminatedUnion("renderAs", [
+export const rawVisualSchema = z.discriminatedUnion("renderAs", [
   generatedSequenceVisualSchema,
   generatedLayersVisualSchema,
   generatedBoundaryVisualSchema,
   generatedComparisonVisualSchema,
   assetVisualSchema,
 ]);
+
+export const visualSchema = refineVisualEvidence(rawVisualSchema);
 
 // ── 7. V1 EDITORIAL CONTRACT FIELDS ───────────────────────────────────────────
 export const editorialContractV1Fields = {

@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import { constructMetadata } from "../../../lib/seo/metadata";
 import { getWebPageSchema } from "../../../lib/seo/jsonld";
 import { renderArticleSegments } from "../../../lib/visual-segments";
-import type { Visual } from "../../../lib/visual-types";
+import type { Visual, ProvenanceSource } from "../../../lib/visual-types";
 import VisualBlock from "../../../components/visuals/VisualBlock";
 
 interface PageProps {
@@ -86,6 +86,7 @@ export default async function SelfDetailPage({ params }: PageProps) {
       {/* Content */}
       {(() => {
         const visuals = (selfItem as { content: string; visuals?: Visual[] }).visuals || [];
+        const provenanceSources = (selfItem as { provenance?: { sources?: ProvenanceSource[] } }).provenance?.sources || [];
         const segments = renderArticleSegments(selfItem.content, visuals);
         return segments.map((segment, idx) =>
           segment.type === "html" ? (
@@ -95,7 +96,11 @@ export default async function SelfDetailPage({ params }: PageProps) {
               dangerouslySetInnerHTML={{ __html: segment.html }}
             />
           ) : (
-            <VisualBlock key={segment.visual.id || idx} visual={segment.visual} />
+            <VisualBlock
+              key={segment.visual.id || idx}
+              visual={segment.visual}
+              provenanceSources={provenanceSources}
+            />
           )
         );
       })()}

@@ -1,0 +1,53 @@
+---
+schemaVersion: "1.0"
+title: "Marker Inside Blockquote Test"
+description: "Why model tool execution requires a host-level boundary."
+contentKind: "explainer"
+readerIntent: "understand"
+readerOutcome: "Determine which tool permissions should belong in the model prompt versus the host execution runtime."
+thesis: "Model prompts cannot enforce security boundaries that require deterministic execution guarantees."
+category: "Concepts"
+shortAnswer: "A policy-governed runtime moves authorization out of the prompt and into a deterministic host supervisor. The model proposes tool calls, but the host environment verifies permissions against immutable rules before execution begins."
+
+boundary:
+  is: "An architecture for isolating tool execution in a deterministic host sandbox."
+  isNot: "A guarantee against prompt injection in free-form reasoning."
+  mattersWhen: "Tools have access to write operations, databases, or outbound network calls."
+
+provenance:
+  primary: "synthesis"
+  sources:
+    - id: "runtime-core"
+      type: "repository"
+      url: "https://github.com/example/mcp-runtime"
+      path: "src/policy/engine.rs"
+      ref: "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+  claims:
+    - statement: "The runtime rejects execution above the declared policy tier before invoking tools."
+      kind: "repository"
+      sources:
+        - "runtime-core"
+
+visuals:
+  - id: "runtime-sequence"
+    purpose: "sequence"
+    renderAs: "generated-sequence"
+    takeaway: "Tool authorization happens deterministically in the host supervisor before execution."
+    caption: "Three-stage execution lifecycle of a policy-governed tool call."
+    alt: "Step sequence showing agent proposing tool call, host verifying policy, and sandbox executing."
+    data:
+      steps:
+        - id: "propose"
+          label: "Propose Call"
+        - id: "verify"
+          label: "Verify Policy"
+
+language:
+  profile: "sans-serif-sentiments"
+  recipe: "pmp-systems-explainer"
+---
+
+The runtime rejects execution above the declared policy tier before invoking tools.
+
+> Capability boundaries require host-level enforcement.
+> <!-- pmp:visual id="runtime-sequence" -->

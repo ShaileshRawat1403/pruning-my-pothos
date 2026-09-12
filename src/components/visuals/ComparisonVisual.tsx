@@ -41,7 +41,7 @@ export default function ComparisonVisual({ visual }: Props) {
         {before.label}
       </text>
 
-      {before.items.map((item, idx) => (
+      {before.items.map((item: string, idx: number) => (
         <g key={idx}>
           <circle cx="50" cy={82 + idx * 28} r="3" fill="var(--text-muted)" />
           <text
@@ -91,7 +91,7 @@ export default function ComparisonVisual({ visual }: Props) {
         {after.label}
       </text>
 
-      {after.items.map((item, idx) => (
+      {after.items.map((item: string, idx: number) => (
         <g key={idx}>
           <circle cx="432" cy={82 + idx * 28} r="3" fill="var(--accent-green)" />
           <text

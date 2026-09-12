@@ -75,25 +75,25 @@ const HOME_STRUCTURED_DATA = {
           "acceptedAnswer": {
             "@type": "Answer",
             "text":
-              "Pruning My Pothos is an engineering publication and systems laboratory created by Shailesh Rawat. It publishes practical architectural breakdowns of AI coding agents, deterministic execution engines, context compaction algorithms, and developer tools.",
+              "Pruning My Pothos is an independent notebook and publication created by Shailesh Rawat. It publishes practical explainers, field notes, and architectural breakdowns of AI systems, grounded in real use and explained in plain language.",
           },
         },
         {
           "@type": "Question",
-          "name": "What is the pothos pruning methodology in AI software engineering?",
+          "name": "What is the pruning approach behind the site?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text":
-              "The pruning methodology is a 6-stage engineering lifecycle: (1) Notice genuine architectural signals, (2) Validate through hands-on sandbox trials, (3) Prune away unverified abstractions and brittle prompt chains, (4) Deconstruct boundary limits such as context degradation, (5) Adopt typed, verified production patterns, and (6) Retain only durable, high-ROI systems.",
+              "The approach is an iterative practice: notice real signals from direct use, test mechanisms in concrete environments, prune away unverified claims and brittle abstractions, examine failure boundaries directly, and retain only durable, verified patterns.",
           },
         },
         {
           "@type": "Question",
-          "name": "Why do multi-step AI coding agents fail in production codebases?",
+          "name": "Why do complex AI systems fail in practice?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text":
-              "Agents break due to unchecked context compaction, silent hallucination drift, and lack of typed verification gates. Without deterministic state machines, AST validation, and fail-fast sandboxes, errors compound across long autonomous trajectories.",
+              "Complex AI systems often fail when probabilistic model outputs are trusted without host-level boundaries, context degrades over multi-step workflows, and verification is missing. Testing failure boundaries directly and enforcing deterministic checks helps identify failure modes before they compound.",
           },
         },
       ],

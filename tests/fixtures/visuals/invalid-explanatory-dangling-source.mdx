@@ -1,0 +1,58 @@
+---
+schemaVersion: "1.0"
+title: "Explanatory Dangling Source Test"
+description: "Why model tool execution requires a host-level boundary."
+contentKind: "explainer"
+readerIntent: "understand"
+readerOutcome: "Determine which tool permissions should belong in the model prompt versus the host execution runtime."
+thesis: "Model prompts cannot enforce security boundaries that require deterministic execution guarantees."
+category: "Concepts"
+shortAnswer: "A policy-governed runtime moves authorization out of the prompt and into a deterministic host supervisor. The model proposes tool calls, but the host environment verifies permissions against immutable rules before execution begins."
+
+boundary:
+  is: "An architecture for isolating tool execution in a deterministic host sandbox."
+  isNot: "A guarantee against prompt injection in free-form reasoning."
+  mattersWhen: "Tools have access to write operations, databases, or outbound network calls."
+
+provenance:
+  primary: "synthesis"
+  sources:
+    - id: "runtime-core"
+      type: "repository"
+      url: "https://github.com/example/mcp-runtime"
+      path: "src/policy/engine.rs"
+      ref: "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+  claims:
+    - statement: "The runtime rejects execution above the declared policy tier before invoking tools."
+      kind: "repository"
+      sources:
+        - "runtime-core"
+
+visuals:
+  - id: "explanatory-visual-dangling"
+    purpose: "comparison"
+    renderAs: "generated-comparison"
+    takeaway: "Tool authorization happens deterministically in the host supervisor before execution."
+    caption: "Comparative analysis of execution latency under host policy enforcement."
+    alt: "Comparison showing latency before and after deterministic policy check."
+    evidenceRole: "explanatory"
+    sources:
+      - "non-existent-source-benchmark"
+    data:
+      before:
+        label: "Unchecked"
+        items:
+          - "Arbitrary tool execution"
+      after:
+        label: "Checked"
+        items:
+          - "Deterministic policy verification"
+
+language:
+  profile: "sans-serif-sentiments"
+  recipe: "pmp-systems-explainer"
+---
+
+The runtime rejects execution above the declared policy tier before invoking tools.
+
+<!-- pmp:visual id="explanatory-visual-dangling" -->
