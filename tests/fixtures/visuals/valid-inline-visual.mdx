@@ -1,0 +1,65 @@
+---
+schemaVersion: "1.0"
+title: "Policy-Governed MCP Runtimes"
+description: "Why model tool execution requires a host-level boundary."
+contentKind: "explainer"
+readerIntent: "understand"
+readerOutcome: "Determine which tool permissions should belong in the model prompt versus the host execution runtime."
+thesis: "Model prompts cannot enforce security boundaries that require deterministic execution guarantees."
+category: "Concepts"
+shortAnswer: "A policy-governed runtime moves authorization out of the prompt and into a deterministic host supervisor. The model proposes tool calls, but the host environment verifies permissions against immutable rules before execution begins."
+
+boundary:
+  is: "An architecture for isolating tool execution in a deterministic host sandbox."
+  isNot: "A guarantee against prompt injection in free-form reasoning."
+  mattersWhen: "Tools have access to write operations, databases, or outbound network calls."
+
+provenance:
+  primary: "synthesis"
+  sources:
+    - id: "runtime-core"
+      type: "repository"
+      url: "https://github.com/example/mcp-runtime"
+      path: "src/policy/engine.rs"
+      ref: "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+  claims:
+    - statement: "The runtime rejects execution above the declared policy tier before invoking tools."
+      kind: "repository"
+      sources:
+        - "runtime-core"
+
+visuals:
+  - id: "runtime-sequence"
+    purpose: "sequence"
+    renderAs: "generated-sequence"
+    takeaway: "Tool authorization happens deterministically in the host supervisor before execution."
+    caption: "Three-stage execution lifecycle of a policy-governed tool call."
+    alt: "Step sequence showing agent proposing tool call, host verifying policy, and sandbox executing."
+    evidenceRole: "explanatory"
+    data:
+      orientation: "horizontal"
+      steps:
+        - id: "propose"
+          label: "Propose Call"
+          note: "Probabilistic agent"
+        - id: "verify"
+          label: "Verify Policy"
+          note: "Deterministic host"
+        - id: "execute"
+          label: "Execute"
+          note: "Isolated sandbox"
+
+language:
+  profile: "sans-serif-sentiments"
+  recipe: "pmp-systems-explainer"
+---
+
+When an agent requests a tool call, the execution boundary should not depend on the model remembering not to perform destructive actions.
+
+The runtime rejects execution above the declared policy tier before invoking tools. This deterministic gate ensures that authorization happens outside the probabilistic layer.
+
+<!-- pmp:visual id="runtime-sequence" -->
+
+## The Execution Sandbox
+
+In a policy-governed runtime, capabilities are declared statically. The agent emits a structured intent, but the host environment verifies permissions against immutable credentials.

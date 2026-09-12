@@ -25,6 +25,11 @@ import {
   verifyClaimProseMapping,
   normalizeProse,
 } from "./editorial-contract-v1.mjs";
+import {
+  scanVisualMarkers,
+  containsReservedPlaceholder,
+  RESERVED_INTERNAL_PREFIX,
+} from "./visual-markers.mjs";
 import { z } from "zod";
 
 const ROOT = process.cwd();
@@ -226,6 +231,82 @@ export async function validateV1File(filePath, allowedKinds) {
           `Epistemic assertion: Comparative frequency statement ("${match[0]}") in "${sentence.slice(0, 140)}" requires empirical source backing (repository or external claim referencing an inspectable source). Each comparative assertion must map to its own source-backed claim.`
         );
       }
+    }
+  }
+
+  // 7. Visual Contract & Marker Integrity Checks
+  if (containsReservedPlaceholder(raw)) {
+    issues.push(
+      `Authored content contains reserved internal namespace "${RESERVED_INTERNAL_PREFIX}"`
+    );
+  }
+
+  const { validMarkers, malformedMarkers } = scanVisualMarkers(body);
+
+  for (const malformed of malformedMarkers) {
+    issues.push(malformed.error);
+  }
+
+  const declaredVisuals = Array.isArray(data.visuals) ? data.visuals : [];
+  const seenVisualIds = new Set();
+
+  for (let i = 0; i < declaredVisuals.length; i++) {
+    const v = declaredVisuals[i];
+    if (seenVisualIds.has(v.id)) {
+      issues.push(`Duplicate visual ID "${v.id}" declared in frontmatter visuals[]`);
+    } else {
+      seenVisualIds.add(v.id);
+    }
+  }
+
+  // Evidence visual source backing check
+  const sourceMap = new Set((data.provenance?.sources || []).map((s) => s.id));
+  for (const v of declaredVisuals) {
+    if (v.evidenceRole === "evidence") {
+      if (!Array.isArray(v.sources) || v.sources.length === 0) {
+        issues.push(
+          `Evidence visual "${v.id}" must declare at least one source ID in sources`
+        );
+      } else {
+        for (const sid of v.sources) {
+          if (!sourceMap.has(sid)) {
+            issues.push(
+              `Evidence visual "${v.id}" references unknown source ID "${sid}" (not found in provenance.sources)`
+            );
+          }
+        }
+      }
+    }
+  }
+
+  // Marker-to-visual referential integrity
+  const declaredVisualMap = new Map(declaredVisuals.map((v) => [v.id, v]));
+  const placedMarkerCounts = new Map();
+
+  for (const marker of validMarkers) {
+    if (!declaredVisualMap.has(marker.id)) {
+      issues.push(
+        `Active visual marker references unknown visual ID "${marker.id}" (not declared in frontmatter visuals[])`
+      );
+    }
+    const count = placedMarkerCounts.get(marker.id) || 0;
+    placedMarkerCounts.set(marker.id, count + 1);
+  }
+
+  for (const [id, count] of placedMarkerCounts.entries()) {
+    if (count > 1) {
+      issues.push(
+        `Duplicate placement: Visual ID "${id}" is placed ${count} times in body text (must be placed exactly once)`
+      );
+    }
+  }
+
+  for (const v of declaredVisuals) {
+    const count = placedMarkerCounts.get(v.id) || 0;
+    if (count === 0) {
+      issues.push(
+        `Dangling visual: Visual "${v.id}" is declared in frontmatter visuals[] but never placed in body text`
+      );
     }
   }
 

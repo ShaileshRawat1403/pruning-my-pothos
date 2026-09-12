@@ -22,6 +22,12 @@ import { validateV1File } from "./lint-editorial-v1.mjs";
 import { conformFrontmatter, V1_PRESERVED_KEYS } from "./websiteops-conform.mjs";
 import { validateAllRecipes } from "./validate-languageops-recipes.mjs";
 import { collectContentFiles, auditArchive, computeContentSnapshot } from "./audit-editorial-integrity.mjs";
+import {
+  scanVisualMarkers,
+  prepareMarkdownWithPlaceholders,
+  splitRenderedHtml,
+} from "./visual-markers.mjs";
+import { renderMarkdown } from "./markdown-renderer.mjs";
 import { spawnSync } from "node:child_process";
 import { promises as fs, existsSync } from "node:fs";
 import path from "node:path";
@@ -583,6 +589,188 @@ async function runTests() {
   assert(
     !hasFileScheme && !hasUsersDir && !hasHomeDir && hasSystemsRelLink && hasSelfRelLink,
     `Test 43: portable audit links: generated report contains zero machine-local links and only repository-relative paths`
+  );
+
+  // ── PASS 4.1 VISUAL CONTRACT & MARKDOWN SEMANTICS REGRESSIONS (TESTS 44–59) ──
+
+  // Test 44: Valid marker -> visual segment produced
+  const validVisualIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/valid-inline-visual.mdx"));
+  const validVisualRaw = await fs.readFile(path.resolve(ROOT, "tests/fixtures/visuals/valid-inline-visual.mdx"), "utf8");
+  const validVisualParsed = (await import("gray-matter")).default(validVisualRaw);
+  const { preparedMarkdown: vPrep, orderedVisuals: vOrd, contentToken: vTok } = prepareMarkdownWithPlaceholders(
+    validVisualParsed.content,
+    validVisualParsed.data.visuals
+  );
+  const vHtml = renderMarkdown(vPrep);
+  const vSegments = splitRenderedHtml(vHtml, vOrd, vTok);
+  const hasValidVisualSegment =
+    vSegments.length === 3 &&
+    vSegments[0].type === "html" &&
+    vSegments[1].type === "visual" &&
+    vSegments[1].visual.id === "runtime-sequence" &&
+    vSegments[2].type === "html";
+  assert(
+    validVisualIssues.length === 0 && hasValidVisualSegment,
+    `Test 44: valid-inline-visual.mdx produces valid visual segment in single-parse pipeline`
+  );
+
+  // Test 45: Unknown marker ID -> validation fails
+  const unknownMarkerIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/invalid-unknown-marker.mdx"));
+  assert(
+    unknownMarkerIssues.some((msg) => msg.includes('Active visual marker references unknown visual ID "non-existent-visual"')),
+    `Test 45: unknown marker ID rejected because ID is not declared in visuals[]`
+  );
+
+  // Test 46: Dangling visuals[] declaration -> validation fails
+  const danglingVisualIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/invalid-dangling-visual.mdx"));
+  assert(
+    danglingVisualIssues.some((msg) => msg.includes('Dangling visual: Visual "dangling-sequence" is declared in frontmatter visuals[] but never placed in body text')),
+    `Test 46: dangling visuals[] declaration rejected because visual is never placed in body text`
+  );
+
+  // Test 47: Duplicate visual ID in frontmatter -> validation fails
+  const dupVisualIdIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/invalid-duplicate-visual-id.mdx"));
+  assert(
+    dupVisualIdIssues.some((msg) => msg.includes('Duplicate visual ID "duplicate-id" declared in frontmatter visuals[]')),
+    `Test 47: duplicate visual ID in frontmatter rejected`
+  );
+
+  // Test 48: Duplicate marker placement in body prose -> validation fails
+  const dupMarkerIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/invalid-duplicate-marker.mdx"));
+  assert(
+    dupMarkerIssues.some((msg) => msg.includes('Duplicate placement: Visual ID "single-visual" is placed 2 times in body text')),
+    `Test 48: duplicate marker placement in body prose rejected`
+  );
+
+  // Test 49: Malformed PMP marker (e.g. single quotes) -> validation fails
+  const malformedMarkerIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/invalid-malformed-marker.mdx"));
+  assert(
+    malformedMarkerIssues.some((msg) => msg.includes("Malformed PMP visual marker syntax")),
+    `Test 49: malformed PMP marker syntax rejected fail-closed`
+  );
+
+  // Test 50: Unsupported renderAs mode -> validation fails
+  const unsupportedRenderIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/invalid-unsupported-renderas.mdx"));
+  assert(
+    unsupportedRenderIssues.some((msg) => msg.includes("Invalid discriminator value")),
+    `Test 50: unsupported renderAs mode rejected by strict schema`
+  );
+
+  // Test 51: Evidence visual without sources -> validation fails
+  const noSourcesIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/invalid-evidence-no-sources.mdx"));
+  assert(
+    noSourcesIssues.some((msg) => msg.includes('must declare at least one source ID in sources')),
+    `Test 51: evidenceRole "evidence" visual without sources is rejected`
+  );
+
+  // Test 52: Evidence visual with dangling source ID -> validation fails
+  const danglingSourceIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/invalid-evidence-dangling-source.mdx"));
+  assert(
+    danglingSourceIssues.some((msg) => msg.includes('references unknown source ID "non-existent-source-benchmark"')),
+    `Test 52: evidenceRole "evidence" visual with dangling source ID is rejected`
+  );
+
+  // Test 53: Marker inside standard fenced code block -> ignored as placement, renders as code
+  const fencedMarkerIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/valid-fenced-code-marker.mdx"));
+  const fencedRaw = await fs.readFile(path.resolve(ROOT, "tests/fixtures/visuals/valid-fenced-code-marker.mdx"), "utf8");
+  const fencedParsed = (await import("gray-matter")).default(fencedRaw);
+  const { validMarkers: fencedScannedMarkers } = scanVisualMarkers(fencedParsed.content);
+  const fencedRenderedHtml = renderMarkdown(fencedParsed.content);
+  assert(
+    fencedMarkerIssues.length === 0 &&
+    fencedScannedMarkers.length === 1 &&
+    fencedScannedMarkers[0].id === "active-visual" &&
+    fencedRenderedHtml.includes("&lt;!-- pmp:visual id=&quot;marker-inside-fence&quot; --&gt;") &&
+    fencedRenderedHtml.includes("&lt;!-- pmp:visual id=&quot;nested-marker-inside-fence&quot; --&gt;"),
+    `Test 53: markers inside fenced code blocks are ignored as placement and render cleanly as code`
+  );
+
+  // Test 54: Article with zero markers -> rendered HTML is byte-equivalent to current single-call output
+  const zeroMarkerContent = "## Architecture\n\nA policy-governed runtime moves authorization out of the prompt.\n\n- Step 1: Propose\n- Step 2: Verify\n- Step 3: Execute\n\nConsequential systems require bounded execution.";
+  const directSingleCallHtml = renderMarkdown(zeroMarkerContent);
+  const { preparedMarkdown: zPrep, orderedVisuals: zOrd, contentToken: zTok } = prepareMarkdownWithPlaceholders(zeroMarkerContent, []);
+  const zHtml = renderMarkdown(zPrep);
+  const zSegments = splitRenderedHtml(zHtml, zOrd, zTok);
+  assert(
+    zSegments.length === 1 &&
+    zSegments[0].type === "html" &&
+    zSegments[0].html === directSingleCallHtml,
+    `Test 54: zero-marker article produces byte-equivalent HTML output to single-call renderMarkdown()`
+  );
+
+  // Test 55: Repeated heading names on opposite sides of an inline visual retain unique, sequential heading IDs
+  const repeatedHeadingDoc = "## Overview\n\nInitial overview text.\n\n<!-- pmp:visual id=\"v1\" -->\n\n## Overview\n\nSubsequent overview text.";
+  const sampleVisual = [{
+    id: "v1",
+    purpose: "sequence",
+    renderAs: "generated-sequence",
+    takeaway: "Single takeaway line.",
+    caption: "Caption line.",
+    alt: "Twenty characters descriptive text.",
+    data: { steps: [{ id: "s1", label: "Step 1" }, { id: "s2", label: "Step 2" }] },
+  }];
+  const { preparedMarkdown: rhPrep, orderedVisuals: rhOrd, contentToken: rhTok } = prepareMarkdownWithPlaceholders(repeatedHeadingDoc, sampleVisual);
+  const rhHtml = renderMarkdown(rhPrep);
+  const rhSegments = splitRenderedHtml(rhHtml, rhOrd, rhTok);
+  assert(
+    rhSegments.length === 3 &&
+    rhSegments[0].html.includes('<h2 id="overview">Overview</h2>') &&
+    rhSegments[2].html.includes('<h2 id="overview-2">Overview</h2>'),
+    `Test 55: repeated heading names across an inline visual retain monotonically unique, sequential IDs (#overview, #overview-2)`
+  );
+
+  // Test 56: Markdown reference link definition/use across an inline visual boundary resolves correctly
+  const refLinkDoc = "Inspect the [policy runtime implementation][runtime-ref] for full details.\n\n<!-- pmp:visual id=\"v1\" -->\n\nExecution happens deterministically.\n\n[runtime-ref]: https://github.com/example/mcp-runtime";
+  const { preparedMarkdown: rlPrep, orderedVisuals: rlOrd, contentToken: rlTok } = prepareMarkdownWithPlaceholders(refLinkDoc, sampleVisual);
+  const rlHtml = renderMarkdown(rlPrep);
+  const rlSegments = splitRenderedHtml(rlHtml, rlOrd, rlTok);
+  assert(
+    rlSegments.length === 3 &&
+    rlSegments[0].html.includes('<a href="https://github.com/example/mcp-runtime">policy runtime implementation</a>'),
+    `Test 56: reference-style Markdown link across an inline visual boundary resolves correctly in single-parse pipeline`
+  );
+
+  // Test 57: Legacy figure renders in top slot and remains completely unaffected
+  const matterMod = (await import("gray-matter")).default;
+  const legacyDocWithFigure = await fs.readFile(path.resolve(ROOT, "tests/fixtures/valid-v1-explainer.mdx"), "utf8");
+  const parsedLegacy = matterMod(legacyDocWithFigure);
+  parsedLegacy.data.figure = {
+    shows: "range",
+    caption: "Scope of policy authority",
+    alt: "Range diagram showing authority scope across architectural layers",
+  };
+  const tempLegacyPath = path.resolve(ROOT, "tests/fixtures/visuals/temp-legacy-figure.mdx");
+  await fs.writeFile(tempLegacyPath, matterMod.stringify(parsedLegacy.content, parsedLegacy.data), "utf8");
+  const legacyIssues = await validateV1File(tempLegacyPath);
+  try { await fs.unlink(tempLegacyPath); } catch {}
+  assert(
+    legacyIssues.length === 0,
+    `Test 57: legacy figure remains isolated in top slot and passes contract validation without inline placement markers`
+  );
+
+  // Test 58: Four-backtick fenced block containing a triple-backtick sequence and PMP marker remains code
+  const fourBacktickContent = "````markdown\n```\n<!-- pmp:visual id=\"nested-marker\" -->\n```\n````";
+  const { validMarkers: fbValid, malformedMarkers: fbMalformed } = scanVisualMarkers(fourBacktickContent);
+  const fbHtml = renderMarkdown(fourBacktickContent);
+  assert(
+    fbValid.length === 0 &&
+    fbMalformed.length === 0 &&
+    fbHtml.includes("&lt;!-- pmp:visual id=&quot;nested-marker&quot; --&gt;"),
+    `Test 58: four-backtick fence containing triple backticks and PMP marker remains code and does not place a visual`
+  );
+
+  // Test 59: Authored reserved internal placeholder namespace is rejected
+  const reservedPlaceholderIssues = await validateV1File(path.resolve(ROOT, "tests/fixtures/visuals/invalid-reserved-placeholder.mdx"));
+  let placeholderPrepThrew = false;
+  try {
+    prepareMarkdownWithPlaceholders("Text with <!-- pmp-internal-visual-slot:fake:0 -->", sampleVisual);
+  } catch (err) {
+    placeholderPrepThrew = err.message.includes("pmp-internal-visual-");
+  }
+  assert(
+    reservedPlaceholderIssues.some((msg) => msg.includes('Authored content contains reserved internal namespace "pmp-internal-visual-"')) &&
+    placeholderPrepThrew,
+    `Test 59: authored reserved internal placeholder namespace is rejected by governor and preparation pipeline`
   );
 
   console.log(`\nRegression Suite Results: ${passed} passed, ${failed} failed.\n`);

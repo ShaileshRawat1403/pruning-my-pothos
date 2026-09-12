@@ -187,7 +187,158 @@ export const practiceSchema = z.object({
   failureCheck: z.string().min(10, "Playbook practice requires failureCheck instructions (min 10 chars)"),
 });
 
-// ── 6. V1 EDITORIAL CONTRACT FIELDS ───────────────────────────────────────────
+// ── 6. VISUAL CONTRACT V1 (DISCRIMINATED UNION) ───────────────────────────────
+export const VISUAL_PURPOSES = [
+  "sequence",
+  "layers",
+  "boundary",
+  "comparison",
+  "state-change",
+  "decision",
+  "evidence-map",
+  "scale",
+];
+
+export const VISUAL_RENDER_MODES = [
+  "generated-sequence",
+  "generated-layers",
+  "generated-boundary",
+  "generated-comparison",
+  "asset",
+];
+
+const baseVisualFields = {
+  id: z.string().regex(/^[a-z0-9-]+$/, "Visual ID must be kebab-case"),
+  purpose: z.enum([
+    "sequence",
+    "layers",
+    "boundary",
+    "comparison",
+    "state-change",
+    "decision",
+    "evidence-map",
+    "scale",
+  ]),
+  takeaway: z.string().min(10, "Visual must have an explicit single takeaway (min 10 chars)"),
+  caption: z.string().min(5, "Visual must have a caption (min 5 chars)"),
+  alt: z.string().min(20, "Alt text must provide accessible descriptive detail (min 20 chars)"),
+  evidenceRole: z.enum(["explanatory", "evidence"]).default("explanatory"),
+  sources: z.array(z.string()).optional(),
+};
+
+function refineVisualEvidence(schema) {
+  return schema.superRefine((v, ctx) => {
+    if (v.evidenceRole === "evidence") {
+      if (!Array.isArray(v.sources) || v.sources.length === 0) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Visual "${v.id}" with evidenceRole "evidence" must declare at least one source ID in sources`,
+          path: ["sources"],
+        });
+      }
+    }
+  });
+}
+
+export const generatedSequenceVisualSchema = refineVisualEvidence(
+  z.object({
+    ...baseVisualFields,
+    renderAs: z.literal("generated-sequence"),
+    data: z.object({
+      orientation: z.enum(["horizontal", "vertical"]).default("horizontal"),
+      steps: z
+        .array(
+          z.object({
+            id: z.string(),
+            label: z.string(),
+            note: z.string().optional(),
+          })
+        )
+        .min(2, "Sequence visual requires at least 2 steps")
+        .max(6, "Sequence visual supports at most 6 steps"),
+    }),
+  })
+);
+
+export const generatedLayersVisualSchema = refineVisualEvidence(
+  z.object({
+    ...baseVisualFields,
+    renderAs: z.literal("generated-layers"),
+    data: z.object({
+      layers: z
+        .array(
+          z.object({
+            id: z.string(),
+            label: z.string(),
+            note: z.string().optional(),
+            highlighted: z.boolean().optional(),
+          })
+        )
+        .min(2, "Layers visual requires at least 2 layers")
+        .max(5, "Layers visual supports at most 5 layers"),
+    }),
+  })
+);
+
+export const generatedBoundaryVisualSchema = refineVisualEvidence(
+  z.object({
+    ...baseVisualFields,
+    renderAs: z.literal("generated-boundary"),
+    data: z.object({
+      inside: z.object({
+        label: z.string(),
+        items: z.array(z.string()).min(1, "Inside partition requires at least 1 item"),
+      }),
+      outside: z.object({
+        label: z.string(),
+        items: z.array(z.string()).min(1, "Outside partition requires at least 1 item"),
+      }),
+      boundaryLabel: z.string().optional(),
+    }),
+  })
+);
+
+export const generatedComparisonVisualSchema = refineVisualEvidence(
+  z.object({
+    ...baseVisualFields,
+    renderAs: z.literal("generated-comparison"),
+    data: z.object({
+      before: z.object({
+        label: z.string(),
+        items: z.array(z.string()).min(1, "Before comparison requires at least 1 item"),
+      }),
+      after: z.object({
+        label: z.string(),
+        items: z.array(z.string()).min(1, "After comparison requires at least 1 item"),
+      }),
+      diffNote: z.string().optional(),
+    }),
+  })
+);
+
+export const assetVisualSchema = refineVisualEvidence(
+  z.object({
+    ...baseVisualFields,
+    renderAs: z.literal("asset"),
+    src: z.string().min(1, "Asset visual must provide a source file path"),
+    dimensions: z
+      .object({
+        width: z.number().positive(),
+        height: z.number().positive(),
+      })
+      .optional(),
+  })
+);
+
+export const visualSchema = z.discriminatedUnion("renderAs", [
+  generatedSequenceVisualSchema,
+  generatedLayersVisualSchema,
+  generatedBoundaryVisualSchema,
+  generatedComparisonVisualSchema,
+  assetVisualSchema,
+]);
+
+// ── 7. V1 EDITORIAL CONTRACT FIELDS ───────────────────────────────────────────
 export const editorialContractV1Fields = {
   schemaVersion: z.literal("1.0"),
   contentKind: z.enum(["explainer", "field-note", "playbook", "essay"]),
@@ -198,6 +349,7 @@ export const editorialContractV1Fields = {
   boundary: boundarySchema.optional(),
   practice: practiceSchema.optional(),
   provenance: provenanceSchema,
+  visuals: z.array(visualSchema).optional().default([]),
   language: z
     .object({
       profile: z.string().default("sans-serif-sentiments"),

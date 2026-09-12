@@ -1,9 +1,11 @@
+import { SITE_POSITIONING } from "../config/site-positioning";
+
 export const SITE_CONFIG = {
   url: "https://pruningmypothos.com",
   name: "Pruning My Pothos",
   defaultTitle: "Pruning My Pothos | The Systems We Build, The Prompts We Prune",
-  defaultDescription: "A living notebook on AI orchestration, runtime evaluation, context compaction, and systems design: written against things that were built, run, inspected, or broken.",
+  defaultDescription: SITE_POSITIONING.canonicalDescription,
   defaultImage: "/og-default.png",
-  author: "Shailesh Rawat",
+  author: SITE_POSITIONING.author.name,
   twitterHandle: "@ShaileshRawat",
 };

@@ -4,6 +4,7 @@ import {
   boundarySchema,
   practiceSchema,
   provenanceSchema,
+  visualSchema,
 } from "./scripts/editorial-contract-v1.mjs";
 
 const editorialFields = {
@@ -26,6 +27,7 @@ const v1SystemsFields = {
   boundary: boundarySchema.optional(),
   practice: practiceSchema.optional(),
   provenance: provenanceSchema.optional(),
+  visuals: z.array(visualSchema).optional().default([]),
   language: z
     .object({
       profile: z.string().default("sans-serif-sentiments"),
@@ -185,6 +187,34 @@ const systems = defineCollection({
           path: ["practice"],
         });
       }
+      if (Array.isArray(data.visuals) && data.visuals.length > 0) {
+        const visualIds = new Set<string>();
+        const sourceMap = new Set((data.provenance?.sources || []).map((s: { id: string }) => s.id));
+
+        for (let i = 0; i < data.visuals.length; i++) {
+          const v = data.visuals[i];
+          if (visualIds.has(v.id)) {
+            ctx.addIssue({
+              code: z.ZodIssueCode.custom,
+              message: `Duplicate visual ID "${v.id}" declared in visuals[]`,
+              path: ["visuals", i, "id"],
+            });
+          }
+          visualIds.add(v.id);
+
+          if (v.evidenceRole === "evidence" && Array.isArray(v.sources)) {
+            for (const sid of v.sources) {
+              if (!sourceMap.has(sid)) {
+                ctx.addIssue({
+                  code: z.ZodIssueCode.custom,
+                  message: `Visual "${v.id}" with evidenceRole "evidence" references unknown source ID "${sid}" (not found in provenance.sources)`,
+                  path: ["visuals", i, "sources"],
+                });
+              }
+            }
+          }
+        }
+      }
     } else {
       if (!data.category) {
         ctx.addIssue({
@@ -233,6 +263,7 @@ const v1SelfFields = {
   thesis: z.string().optional(),
   boundary: boundarySchema.optional(),
   provenance: provenanceSchema.optional(),
+  visuals: z.array(visualSchema).optional().default([]),
   language: z
     .object({
       profile: z.string().default("sans-serif-sentiments"),
@@ -308,6 +339,34 @@ const self = defineCollection({
                 "field-note requires primary: 'observed' and at least one observed claim with attestation: 'author'",
               path: ["provenance"],
             });
+          }
+        }
+        if (Array.isArray(data.visuals) && data.visuals.length > 0) {
+          const visualIds = new Set<string>();
+          const sourceMap = new Set((data.provenance?.sources || []).map((s: { id: string }) => s.id));
+
+          for (let i = 0; i < data.visuals.length; i++) {
+            const v = data.visuals[i];
+            if (visualIds.has(v.id)) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                message: `Duplicate visual ID "${v.id}" declared in visuals[]`,
+                path: ["visuals", i, "id"],
+              });
+            }
+            visualIds.add(v.id);
+
+            if (v.evidenceRole === "evidence" && Array.isArray(v.sources)) {
+              for (const sid of v.sources) {
+                if (!sourceMap.has(sid)) {
+                  ctx.addIssue({
+                    code: z.ZodIssueCode.custom,
+                    message: `Visual "${v.id}" with evidenceRole "evidence" references unknown source ID "${sid}" (not found in provenance.sources)`,
+                    path: ["visuals", i, "sources"],
+                  });
+                }
+              }
+            }
           }
         }
       }

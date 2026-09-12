@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { allSystems } from "content-collections";
 import { constructMetadata } from "../lib/seo/metadata";
+import { SITE_POSITIONING } from "../lib/config/site-positioning";
 import Hero from "../components/home/Hero";
 import StartHere from "../components/home/StartHere";
 import Projects from "../components/home/Projects";
@@ -20,8 +21,7 @@ const HOME_STRUCTURED_DATA = {
       "@id": "https://pruningmypothos.com/#website",
       "url": "https://pruningmypothos.com",
       "name": "Pruning My Pothos",
-      "description":
-        "Tech-editorial publication exploring AI coding agents, context compaction, deterministic runtimes, and engineering hygiene.",
+      "description": SITE_POSITIONING.canonicalDescription,
       "publisher": {
         "@id": "https://pruningmypothos.com/#organization",
       },

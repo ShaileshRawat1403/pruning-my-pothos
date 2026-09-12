@@ -94,6 +94,39 @@ Content kinds are strictly scoped per collection:
 
 ---
 
+## Plain-Language Comprehension Pass
+
+Plain language in Pruning My Pothos is an explanatory discipline, not a vocabulary reduction exercise. It ensures the underlying mechanism is clear before introducing abstraction.
+
+Authors must evaluate every piece against this test:
+> *"Can a reasonably curious non-developer understand the main idea, see how it works, and know why it matters?"*
+
+Rules:
+1. **Mechanism before terminology**: Describe what physically or logically occurs in ordinary language before introducing the formal technical label.
+2. **Unfamiliar terms explained**: Define terms in context at their first appearance; never assume the reader shares your sub-discipline's dialect.
+3. **Acronyms expanded on meaningful first use**: Expand acronyms (MCP, AST, LLM, RAG, KV) when first introduced, unless universally known.
+4. **Technical precision retained**: Plain language does not mean sloppy analogies. Do not sacrifice correctness for simplicity.
+5. **Boundaries stated**: Explicitly state where the explanation stops and what the system does not guarantee.
+6. **No readability-score or word-count optimisation**: Do not write to satisfy Flesch-Kincaid formulas or arbitrary word length quotas. Clarity derives from the idea.
+
+---
+
+## Visual Decision Pass
+
+Before specifying an inline visual, authors must evaluate the Six-Question Visual Model:
+1. **What should the reader see?** (Concrete structural entities, not decorative illustrations).
+2. **Why is prose insufficient?** (What spatial, hierarchical, or sequential relationship is confusing in linear text?).
+3. **What is the single takeaway?** (One standalone sentence explaining the key insight).
+4. **What is the caption?** (Contextual grounding).
+5. **What is the alt/accessibility description?** (Detailed descriptive narrative for screen readers and search engines).
+6. **Where does it belong?** (Placed directly adjacent to the prose concept it explains using `<!-- pmp:visual id="..." -->`).
+
+> [!NOTE]
+> **"No visual needed" remains a completely valid outcome.** If text explains the concept with total clarity, do not force an inline visual.
+> Visuals belong to Pruning My Pothos Content Experience; do **not** add visual primitives to LanguageOps recipes or invent LanguageOps IDs.
+
+---
+
 ## Frontmatter Schema Reference (v1.0)
 
 ```yaml
@@ -131,6 +164,27 @@ provenance:
         - runtime-core
     - statement: "Separating permissions from generation makes debugging authorization failures simpler."
       kind: synthesis
+
+visuals:
+  - id: runtime-sequence
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Tool authorization happens deterministically in the host supervisor before execution."
+    caption: "Three-stage execution lifecycle of a policy-governed tool call."
+    alt: "Step sequence showing agent proposing tool call, host verifying policy, and sandbox executing."
+    evidenceRole: explanatory
+    data:
+      orientation: horizontal
+      steps:
+        - id: propose
+          label: "Propose Call"
+          note: "Probabilistic agent"
+        - id: verify
+          label: "Verify Policy"
+          note: "Deterministic host"
+        - id: execute
+          label: "Execute"
+          note: "Isolated sandbox"
 
 language:
   profile: sans-serif-sentiments

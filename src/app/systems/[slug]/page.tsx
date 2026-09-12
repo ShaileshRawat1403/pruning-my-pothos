@@ -4,7 +4,9 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { constructMetadata } from "../../../lib/seo/metadata";
 import { getArticleSchema, getFaqSchema } from "../../../lib/seo/jsonld";
-import { renderMarkdown } from "../../../lib/markdown";
+import { renderArticleSegments } from "../../../lib/visual-segments";
+import type { Visual } from "../../../lib/visual-types";
+import VisualBlock from "../../../components/visuals/VisualBlock";
 import { slugifyTag } from "../../../lib/tags";
 import ExplainerFigure from "../../../components/explainer/ExplainerFigure";
 import {
@@ -173,11 +175,22 @@ export default async function SystemsDetailPage({ params }: PageProps) {
         />
       )}
 
-      {/* HTML Content Body */}
-      <div 
-        className="content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]"
-        dangerouslySetInnerHTML={{ __html: renderMarkdown(system.content) }}
-      />
+      {/* HTML Content Body with Inline Visual Support */}
+      {(() => {
+        const visuals = (system as { content: string; visuals?: Visual[] }).visuals || [];
+        const segments = renderArticleSegments(system.content, visuals);
+        return segments.map((segment, idx) =>
+          segment.type === "html" ? (
+            <div
+              key={idx}
+              className="content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)]"
+              dangerouslySetInnerHTML={{ __html: segment.html }}
+            />
+          ) : (
+            <VisualBlock key={segment.visual.id || idx} visual={segment.visual} />
+          )
+        );
+      })()}
 
       {/* Slot 10 — evidence. What was built, where, and what it changed. */}
       {system.evidence && (

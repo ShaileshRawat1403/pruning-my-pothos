@@ -4,7 +4,9 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { constructMetadata } from "../../../lib/seo/metadata";
 import { getWebPageSchema } from "../../../lib/seo/jsonld";
-import { renderMarkdown } from "../../../lib/markdown";
+import { renderArticleSegments } from "../../../lib/visual-segments";
+import type { Visual } from "../../../lib/visual-types";
+import VisualBlock from "../../../components/visuals/VisualBlock";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -82,10 +84,21 @@ export default async function SelfDetailPage({ params }: PageProps) {
       )}
 
       {/* Content */}
-      <div 
-        className="content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4"
-        dangerouslySetInnerHTML={{ __html: renderMarkdown(selfItem.content) }}
-      />
+      {(() => {
+        const visuals = (selfItem as { content: string; visuals?: Visual[] }).visuals || [];
+        const segments = renderArticleSegments(selfItem.content, visuals);
+        return segments.map((segment, idx) =>
+          segment.type === "html" ? (
+            <div
+              key={idx}
+              className="content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4"
+              dangerouslySetInnerHTML={{ __html: segment.html }}
+            />
+          ) : (
+            <VisualBlock key={segment.visual.id || idx} visual={segment.visual} />
+          )
+        );
+      })()}
 
       {/* Tag lists */}
       {selfItem.tags && selfItem.tags.length > 0 && (
