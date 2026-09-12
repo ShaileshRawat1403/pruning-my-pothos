@@ -93,7 +93,7 @@ const HOME_STRUCTURED_DATA = {
           "acceptedAnswer": {
             "@type": "Answer",
             "text":
-              "Complex AI systems often fail when probabilistic model outputs are trusted without host-level boundaries, context degrades over multi-step workflows, and verification is missing. Testing failure boundaries directly and enforcing deterministic checks helps identify failure modes before they compound.",
+              "Complex AI systems can fail when probabilistic model outputs are trusted without host-level boundaries, context degrades over multi-step workflows, and verification is missing. Testing failure boundaries directly and enforcing deterministic checks helps identify failure modes before they compound.",
           },
         },
       ],

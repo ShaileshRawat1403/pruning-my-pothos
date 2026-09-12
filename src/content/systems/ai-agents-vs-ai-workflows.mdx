@@ -1,9 +1,10 @@
 ---
+schemaVersion: "1.0"
 title: "AI Agents vs AI Workflows"
 publishDate: "2026-03-14"
 updatedAt: "2026-04-15"
 description: "A practical explanation of the difference between autonomous-seeming agents and controlled workflows, and why the distinction matters in production systems."
-category: "Explanations"
+category: "Concepts"
 heroImage: '/covers/systems/ai-agents-vs-ai-workflows.svg'
 heroImageAlt: 'Comparison of autonomous vs controlled systems'
 tags:
@@ -13,9 +14,77 @@ tags:
   - governance
   - automation
   - reliability
-proofPoints:
-  - "This page connects existing governed execution, skills, and observability docs into one direct comparison topic."
-  - "Soothsayer remains the local experiment example for controlled orchestration rather than unconstrained autonomy."
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Distinguish between workflow-first and agent-like execution, identify who chooses the next step, and evaluate where hybrid runtime boundaries improve reliability."
+thesis: "The essential difference between an AI workflow and an AI agent is not tool use, but who chooses the next step—and production systems gain reliability when adaptive reasoning operates within deterministic runtime boundaries."
+shortAnswer: "The main difference between an AI workflow and an AI agent is who chooses the next step. In a workflow, the path and decision branches are fixed in advance by the surrounding program. In an agent-like system, the model evaluates intermediate results and selects among allowed actions toward a goal. Most reliable production systems are hybrids: they allow the model to choose local steps while a deterministic host runtime enforces permissions, execution limits, approvals, and audit trails."
+
+boundary:
+  is: "A conceptual explainer comparing fixed-path AI workflows with adaptive agent-like execution and detailing hybrid governance boundaries."
+  isNot: "A benchmark comparison of specific multi-agent frameworks or a guarantee against model planning errors."
+  mattersWhen: "Designing AI software where unexpected model actions create operational, financial, or data safety risks."
+
+provenance:
+  primary: synthesis
+  sources: []
+  claims:
+    - statement: "The essential difference between an AI workflow and an AI agent is who chooses the next step."
+      kind: synthesis
+    - statement: "Reliability improves when model freedom operates within explicit policy checks and verification boundaries."
+      kind: synthesis
+
+visuals:
+  - id: runtime-choice-comparison
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "The main difference between workflows and agents is who chooses the next step."
+    caption: "Contrasting fixed-sequence execution with adaptive step selection."
+    alt: "Comparison showing workflow path fixed in advance versus agent path determined adaptively by the model."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Workflow-First"
+        items:
+          - "Path mostly chosen by the surrounding system"
+          - "Branches are defined ahead of execution"
+          - "Approvals and checks sit at known fixed points"
+      after:
+        label: "Agent-Like"
+        items:
+          - "Model can choose among allowed next steps"
+          - "Plan may change after intermediate results"
+          - "Additional freedom creates additional governance work"
+      diffNote: "Freedom to choose the next step defines the operational boundary."
+
+  - id: hybrid-governance-boundary
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "Adaptive reasoning can exist inside deterministic boundaries."
+    caption: "Separating model decision freedom from host-level authority and control."
+    alt: "Boundary partition showing model choices inside versus host runtime governance outside."
+    evidenceRole: explanatory
+    data:
+      inside:
+        label: "Model Decides (Local Freedom)"
+        items:
+          - "Which allowed tool helps solve the task"
+          - "Which local step comes next"
+          - "Whether more information is needed"
+      outside:
+        label: "Runtime Enforces (Host Authority)"
+        items:
+          - "Permissions and credential access"
+          - "Approval requirements and policy checks"
+          - "Execution limits, timeouts, and costs"
+          - "Audit trails and recorded system state"
+      boundaryLabel: "Runtime boundary"
+
+language:
+  profile: sans-serif-sentiments
+  recipe: pmp-systems-explainer
+
 related:
   - type: explainer
     title: "Skills vs Prompts vs Agents"
@@ -29,6 +98,7 @@ related:
     title: "From Ad-Hoc Prompts to Repeatable Agent Workflows"
     href: /systems/from-ad-hoc-prompts-to-repeatable-agent-workflows/
     note: "Getting from scattered prompts to a workflow."
+
 faq:
   - question: "What is the difference between an AI agent and an AI workflow?"
     answer: "A workflow is a predefined sequence with controlled branching, while an agent is a system that proposes its own next steps inside a broader goal. In production, most useful 'agents' still need workflow-like controls."
@@ -39,178 +109,89 @@ faq:
 > **Key takeaways**
 >
 > - Workflows prioritize predictability; agents prioritize adaptive step selection.
-> - Most production systems are hybrids: agent-like reasoning inside workflow boundaries.
-> - The real design question is not "agent or workflow?" but "where is autonomy allowed, and who governs it?"
-> - Reliability improves when model freedom is scoped by policy, verification, and clear escalation paths.
+> - The essential difference between an AI workflow and an AI agent is who chooses the next step.
+> - Reliable production designs frequently adopt a hybrid model: adaptive reasoning operating inside deterministic boundaries.
+> - Reliability improves when model freedom operates within explicit policy checks and verification boundaries.
 
-This article explains a core component of modern AI systems: the difference between AI agents and AI workflows. It focuses on orchestration, runtime freedom, policy boundaries, and why this distinction matters for reliability.
+The phrase "AI agent" has become so broad that it often obscures how systems actually work. Sometimes it refers to simple tool use. Sometimes it describes multi-step planning. Sometimes it merely means a chatbot with conversational memory. That vagueness leads to costly design mistakes when teams debate marketing labels instead of engineering control surfaces.
 
-It is most useful for teams deciding how much autonomy to allow in production systems, and for builders who need a calmer language for discussing control instead of hype.
+To build dependable systems, we need a clearer distinction based on mechanical behavior: how much freedom does the software have to choose what it does next, and who enforces the boundaries?
 
-The phrase "AI agent" has become so broad that it often stops being useful. Sometimes it means tool use. Sometimes it means multi-step planning. Sometimes it means a chatbot with memory. That vagueness creates expensive architecture mistakes because teams start debating labels instead of control surfaces.
+## The Core Distinction: Who Chooses the Next Step?
 
-### What is the practical difference between agents and workflows?
+The essential difference between an AI workflow and an AI agent is who chooses the next step.
 
-An AI workflow is a structured path with predefined states, transitions, and checks. An AI agent is a system that can propose or choose its next step inside a goal. In practice, good production systems use both: agent-like reasoning to decide locally, and workflow constraints to keep the system accountable.
+- In an **AI workflow**, the sequence of steps is largely determined in advance by human developers. The model may analyze text, extract data, or classify inputs, but the surrounding software program always determines where the data goes next. If step two succeeds, the program moves to step three. If it fails, the program follows a predetermined fallback path.
+- In an **AI agent**, the model is given a goal and granted the freedom to evaluate intermediate results, select among available tools, and choose what step to take next. If a search query yields incomplete results, the model can decide on its own to rewrite the query or check an alternative source before delivering a final answer.
 
-In practice, <span class="highlight">autonomy without boundaries is usually just hidden uncertainty</span>.
+In software engineering, this freedom is governed by what engineers call the **runtime**—the host program that executes the code, manages network connections, holds credentials, and decides what actions are permitted on the underlying computer. When we speak of "autonomy" in AI, we simply mean how much discretion the host runtime grants the model to choose its own path.
 
-<aside class="callout callout-insight">
-  <p><strong>Design note.</strong> Ask "what kind of decision freedom exists at runtime?" before asking whether something deserves the word agent. That question leads to better systems conversations.</p>
-</aside>
+<!-- pmp:visual id="runtime-choice-comparison" -->
 
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: The distinction</summary>
-      <ol>
-        <li><a href="#why-the-terms-get-mixed-up">Why the terms get mixed up</a></li>
-        <li><a href="#a-clearer-definition">A clearer definition</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: Runtime behavior</summary>
-      <ol>
-        <li><a href="#how-workflows-behave">How workflows behave</a></li>
-        <li><a href="#how-agents-behave">How agents behave</a></li>
-        <li><a href="#why-most-production-systems-are-hybrids">Why most production systems are hybrids</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Choosing the right pattern</summary>
-      <ol>
-        <li><a href="#when-to-prefer-a-workflow">When to prefer a workflow</a></li>
-        <li><a href="#when-agent-like-control-is-worth-it">When agent-like control is worth it</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+## How Fixed Workflows Behave
 
-## Act I: The distinction
+Workflows excel at repeatable, structured tasks where the set of possible states is known in advance:
 
-### Why the terms get mixed up
+- Document intake, classification, and data extraction
+- Compliance and security policy enforcement
+- Structured customer onboarding and triage
+- Fixed-sequence deployment and data migration pipelines
 
-There are good reasons the terms blur:
+The primary advantage of a workflow is total predictability. Engineers can test each branch independently, establish deterministic verification gates, attach mandatory human approvals, and review exact diffs when logic changes.
 
-- workflows can now include model reasoning
-- agents often call tools using step sequences that look like workflows
-- product marketing tends to reward the word "agent"
+When a workflow fails, it fails at an identifiable step with a clear error trace. The trade-off is rigidity: if an unexpected input falls outside the pre-programmed branches, a rigid workflow either halts or routes the task to a human operator.
 
-But architecture still needs the distinction because the two patterns create different operational responsibilities. If the runtime freedom is small, you can test it like a workflow. If the runtime freedom is large, you need stronger policy and observability.
+## How Adaptive Agents Behave
 
-### A clearer definition
+Agent-like systems become valuable when the exact path from problem to solution cannot be scripted in advance. By evaluating output at each step, an agent can:
 
-The difference is easiest to see through runtime choice.
+- Select among multiple tools based on the context of the user request
+- Iterate through diagnostic loops to investigate an ambiguous error
+- Reformulate strategies when an initial search or tool call returns unhelpful data
+- Request targeted clarification when a prompt lacks essential context
 
-- A **workflow** has a mostly known path. The model may fill in fields, classify inputs, or summarize outputs, but the surrounding system still decides the path.
-- An **agent** has meaningful local freedom. It can choose among tools, sequence steps, or revise its plan based on intermediate results.
+This adaptability unlocks capabilities that static scripts cannot match. However, granting a model the freedom to choose its own steps introduces operational risk.
 
-That freedom can be useful. It can also create hidden complexity. Once a system decides its own next move, you have to govern that decision.
+When autonomy is unconstrained, failure modes become probabilistic and difficult to reproduce. A model may get stuck in repetitive loops, hallucinate invalid arguments to tools, or attempt unauthorized operations. Teams can no longer evaluate software by inspecting static code paths; they must actively observe, evaluate, and govern runtime decisions.
 
-## Act II: Runtime behavior
+## The Hybrid Pattern: Governed Autonomy
 
-### How workflows behave
+In production environments, the most reliable systems are rarely pure workflows or unconstrained agents. Instead, they combine both concepts into a **hybrid pattern**: adaptive model reasoning operating inside strict host-level boundaries.
 
-Workflows are good at repeatable tasks with known states:
+In a hybrid design:
+1. The surrounding workflow establishes the overall lifecycle, invariants, and mandatory checkpoints.
+2. An agent-like component evaluates intermediate information and proposes the best local action.
+3. The deterministic host runtime validates that action against immutable security policies, cost limits, and safety rules before execution occurs.
 
-- intake and triage
-- document extraction
-- policy enforcement
-- constrained support tasks
+<!-- pmp:visual id="hybrid-governance-boundary" -->
 
-The advantage is control. Teams can test expected branches, attach explicit approvals, and keep changes diffable over time.
+Reliability improves when model freedom operates within explicit policy checks and verification boundaries. The model is free to propose the next move, but the host environment retains ultimate authority over whether that move is allowed to execute.
 
-<figure class="diagram">
-  <iframe src="/scenes/workflow-vs-agent.html" title="Workflow path versus agent path" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>The main difference is not tool use. It is runtime freedom.</figcaption>
-</figure>
+| Pattern | Primary Strength | Main Risk | Best Suited For |
+| :--- | :--- | :--- | :--- |
+| **Workflow-first** | High predictability, testable branches, simple audit trails | Rigid when inputs or requirements vary unexpectedly | Repetitive processes with strictly defined outcomes |
+| **Agent-first** | Adaptive problem-solving across uncertain paths | Difficult to debug, probabilistic cost and latency | Open-ended research, exploratory troubleshooting |
+| **Hybrid** | Adaptive local reasoning within deterministic safety boundaries | Requires deliberate host runtime architecture | Production systems where flexibility and safety both matter |
 
-### How agents behave
+## Deciding How Much Freedom to Grant
 
-Agent-like systems become useful when the path is not fully known in advance. They can:
+Rather than asking whether an application "is an agent," system designers should evaluate a more grounded question: **where is decision freedom genuinely valuable, and where does it introduce unacceptable risk?**
 
-- choose among tools
-- loop through intermediate evidence
-- adjust the next step based on results
-- ask for clarification when the goal is underspecified
+### When to prefer a workflow-first approach:
+- **High-consequence outcomes**: Financial transactions, database mutations, and external communications where unintended actions cause direct harm.
+- **Fixed input formats**: Standardized forms, invoices, and structured records where the processing sequence is already understood.
+- **Strict latency or cost constraints**: Fixed pipelines consume predictable tokens and complete in consistent time windows.
 
-That flexibility helps with exploratory or multi-step work. But it also raises the burden of evaluation. Teams now need to inspect not only final output, but the quality of intermediate decisions.
+### When agent-like freedom earns its keep:
+- **Exploratory discovery**: Codebase analysis, research synthesis, and multi-source document investigation where the next question depends on previous answers.
+- **Diagnostic loops**: Investigating system alerts or bugs where initial hypotheses must be tested and refined.
+- **Interactive assistance**: Scenarios where the model must collaborate with a human, asking clarifying questions when requirements are ambiguous.
 
-### Why most production systems are hybrids
-
-This is the part many architecture debates miss. Useful systems are rarely pure workflows or pure agents. They are usually hybrids:
-
-- a workflow sets the allowed path and checkpoints
-- an agent-like component proposes the best next local step
-- the runtime applies policy and verification before execution
-
-That hybrid pattern is the most practical because it lets teams use language-model flexibility without surrendering system discipline. It is the same design logic behind [From Agent Intent to Governed Execution](/systems/from-agent-intent-to-governed-execution/) and [Agent Instructions and Handoff as an Operating System](/systems/agent-instructions-and-handoff-as-an-operating-system/).
-
-<div class="table-scroll-wrap">
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th>Pattern</th>
-        <th>Strength</th>
-        <th>Main risk</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Workflow-first</strong></td>
-        <td>Predictable and testable</td>
-        <td>Can become rigid in ambiguous tasks</td>
-      </tr>
-      <tr>
-        <td><strong>Agent-first</strong></td>
-        <td>Adaptive step selection</td>
-        <td>Harder to govern and debug</td>
-      </tr>
-      <tr>
-        <td><strong>Hybrid</strong></td>
-        <td>Adaptive inside controlled boundaries</td>
-        <td>Needs careful runtime design</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-For a more tactical breakdown of reusable units inside these systems, see [What a Skill Is in AI Systems](/systems/what-a-skill-is-in-ai-systems/) and [Skills vs Prompts vs Agents](/systems/skills-vs-prompts-vs-agents/).
-
-## Act III: Choosing the right pattern
-
-### When to prefer a workflow
-
-Prefer workflow-first design when:
-
-- the task has known states
-- policy violations are expensive
-- output contracts must stay stable
-- you need easy rollback and audit
-
-Many enterprise use cases fall into this category. Teams still use models, but the path should remain tightly governed.
-
-### When agent-like control is worth it
-
-Agent-like control earns its keep when the system must discover or negotiate the next step:
-
-- open-ended research
-- repo understanding
-- multi-tool diagnostic loops
-- complex drafting or synthesis with verification
-
-Even then, autonomy should remain local. The runtime should still own permissions, verification, and step recording. Soothsayer is a good example of this principle. It is more useful as a controlled orchestration system than as an unconstrained "agent."
-
-### What this changes in practice
-
-Stop asking whether your product is "an agent." Ask where runtime freedom is genuinely valuable, and where predictability is more important. Most durable AI products are workflows with carefully scoped agent behavior inside them.
+Even in scenarios that benefit from agent-like freedom, autonomy should remain scoped. The host environment should still own permissions, verification, and step recording, ensuring that adaptive reasoning operates as a supervised capability rather than an unconstrained supervisor.
 
 ## Related AI systems topics
 
 - [From Agent Intent to Governed Execution](/systems/from-agent-intent-to-governed-execution/)
 - [Agent Instructions and Handoff as an Operating System](/systems/agent-instructions-and-handoff-as-an-operating-system/)
 - [What a Skill Is in AI Systems](/systems/what-a-skill-is-in-ai-systems/)
-- [Soothsayer MCP kernel: from prompts to controlled orchestration](/shelf/local-experiments/soothsayer-mcp-kernel/)
+- [Skills vs Prompts vs Agents](/systems/skills-vs-prompts-vs-agents/)
