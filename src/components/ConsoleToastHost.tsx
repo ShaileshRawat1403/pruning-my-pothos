@@ -61,7 +61,11 @@ export default function ConsoleToastHost() {
 
   // section-arrival greeting: re-runs on every client navigation, once per session per section
   useEffect(() => {
-    let seg = (pathname || "/").replace(/^\/+/, "").split("/")[0].toLowerCase();
+    const segments = (pathname || "/").split("/").filter(Boolean);
+    // Only on a section landing page. On a detail page the toast lands on top
+    // of the reading column, so the greeting stays out of the way there.
+    if (segments.length !== 1) return;
+    let seg = segments[0].toLowerCase();
     if (seg === "tools") seg = "stack";
     const line = SECTION[seg];
     if (!line) return;

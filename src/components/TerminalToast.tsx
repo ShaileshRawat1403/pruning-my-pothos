@@ -41,7 +41,7 @@ export default function TerminalToast({ command, steps, id, onDone }: TerminalTo
 
   return createPortal(
     <div
-      className="fixed z-[60] bottom-5 right-5 w-[320px] max-w-[86vw] pointer-events-none transition-all duration-300"
+      className="fixed z-[60] bottom-5 right-5 hidden w-[320px] max-w-[86vw] pointer-events-none transition-all duration-300 md:block"
       style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(10px)" }}
       aria-hidden
     >
