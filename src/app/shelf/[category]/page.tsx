@@ -72,7 +72,7 @@ export default async function ShelfCategoryIndexPage({ params }: PageProps) {
   const currentTitle = titleMap[category] || category;
 
   const schema = getWebPageSchema({
-    title: `${currentTitle} Shelf | Pruning My Pothos`,
+    title: currentTitle,
     description: `Index collection listing of articles under the ${category} workspace category.`,
     path: `/shelf/${category}`
   });

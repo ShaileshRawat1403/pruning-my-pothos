@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Metadata } from "next";
 import { constructMetadata } from "../../../../lib/seo/metadata";
-import { getWebPageSchema } from "../../../../lib/seo/jsonld";
+import { getBreadcrumbSchema, getWebPageSchema } from "../../../../lib/seo/jsonld";
 import { renderMarkdown } from "../../../../lib/markdown";
 import ResourceLinks from "../../../../components/ResourceLinks";
 
@@ -26,8 +26,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { category, slug } = await params;
   const item = allShelves.find(
-    (s) => 
-      s._meta.directory === category && 
+    (s) =>
+      s._meta.directory === category &&
       s._meta.fileName.replace(/\.mdx?$/, "") === slug
   );
   if (!item) return {};
@@ -43,10 +43,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ShelfDetailPage({ params }: PageProps) {
   const { category, slug } = await params;
-  
+
   const item = allShelves.find(
-    (s) => 
-      s._meta.directory === category && 
+    (s) =>
+      s._meta.directory === category &&
       s._meta.fileName.replace(/\.mdx?$/, "") === slug
   );
 
@@ -55,11 +55,19 @@ export default async function ShelfDetailPage({ params }: PageProps) {
   }
 
   const webpageSchema = getWebPageSchema({
-    title: `${item.title} | Pruning My Pothos`,
+    // Page name only. The site name is already carried by the document title,
+    // so repeating it here just truncates the useful part.
+    title: item.title,
     description: item.description,
     path: `/shelf/${category}/${slug}`,
     image: item.coverUrl,
   });
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Shelf", path: "/shelf" },
+    { name: category, path: `/shelf/${category}` },
+    { name: item.title, path: `/shelf/${category}/${slug}` },
+  ]);
 
   return (
     <article className="sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6">
@@ -67,11 +75,17 @@ export default async function ShelfDetailPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageSchema) }}
       />
+      {breadcrumbSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      )}
       {/* Category header */}
       <span className="text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start">
         Shelf &bull; {category}
       </span>
-      
+
       {/* Title */}
       <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug">
         {item.title}
@@ -83,13 +97,19 @@ export default async function ShelfDetailPage({ params }: PageProps) {
       </p>
 
       {/* Cover Image — local covers are landscape-authored (decks, tools, notes),
-          external Apple Music art is square. Frame each so nothing gets cropped. */}
+          external Apple Music art is square. Frame each so nothing gets cropped.
+          Only the local branch declares intrinsic size, since the authored ratio
+          is known there; the external branch relies on the figure's aspect box. */}
       {item.coverUrl && (
         item.coverUrl.startsWith("/covers/") ? (
           <figure className="w-full max-w-[420px] overflow-hidden rounded-lg border border-[color:var(--card-border)] aspect-video my-4 shadow-none self-center sm:self-start bg-[color:var(--card-bg)]">
             <img
               src={item.coverUrl}
               alt={item.coverAlt ?? item.description ?? item.title}
+              width={1200}
+              height={675}
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-full object-contain"
             />
           </figure>
@@ -98,6 +118,8 @@ export default async function ShelfDetailPage({ params }: PageProps) {
             <img
               src={item.coverUrl}
               alt={item.coverAlt ?? item.description ?? item.title}
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           </figure>
@@ -126,7 +148,7 @@ export default async function ShelfDetailPage({ params }: PageProps) {
       )}
 
       {/* Content */}
-      <div 
+      <div
         className="content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4"
         dangerouslySetInnerHTML={{ __html: renderMarkdown(item.content) }}
       />

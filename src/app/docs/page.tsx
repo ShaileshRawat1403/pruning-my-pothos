@@ -20,7 +20,7 @@ export const metadata = constructMetadata({
 
 export default function DocsIntroPage() {
   const schema = getWebPageSchema({
-    title: "Documentation & Guides | Pruning My Pothos",
+    title: "Documentation & Guides",
     description: "Access reference documentations, design specs, loop architecture layers, and tool status definitions.",
     path: "/docs"
   });

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Metadata } from "next";
 import { constructMetadata } from "../../../lib/seo/metadata";
-import { getWebPageSchema } from "../../../lib/seo/jsonld";
+import { getBreadcrumbSchema, getWebPageSchema } from "../../../lib/seo/jsonld";
 import { renderArticleSegments } from "../../../lib/visual-segments";
 import type { Visual, ProvenanceSource } from "../../../lib/visual-types";
 import VisualBlock from "../../../components/visuals/VisualBlock";
@@ -43,11 +43,18 @@ export default async function SelfDetailPage({ params }: PageProps) {
   }
 
   const webpageSchema = getWebPageSchema({
-    title: `${selfItem.title} | Pruning My Pothos`,
+    // Page name only. The site name is already carried by the publisher and
+    // the document title, so repeating it here truncates the useful part.
+    title: selfItem.title,
     description: selfItem.description,
     path: `/self/${slug}`,
     image: selfItem.heroImage,
   });
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Self", path: "/self" },
+    { name: selfItem.title, path: `/self/${slug}` },
+  ]);
 
   return (
     <article className="sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6">
@@ -55,13 +62,19 @@ export default async function SelfDetailPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageSchema) }}
       />
+      {breadcrumbSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      )}
       {/* Date Header */}
       <span className="text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start">
         Published: {new Date(selfItem.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
         {selfItem.readingTime ? ` / ${selfItem.readingTime} min read` : ""}
         {selfItem.difficulty ? ` / ${selfItem.difficulty}` : ""}
       </span>
-      
+
       {/* Title */}
       <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug">
         {selfItem.title}
@@ -72,12 +85,17 @@ export default async function SelfDetailPage({ params }: PageProps) {
         {selfItem.description}
       </p>
 
-      {/* Hero Image */}
+      {/* Hero Image. Intrinsic size is declared so layout does not shift while
+          the file loads, and it is fetched eagerly as the first-viewport image. */}
       {selfItem.heroImage && (
         <figure className="w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[360px] my-4">
           <img
             src={selfItem.heroImage}
             alt={selfItem.heroImageAlt ?? selfItem.title}
+            width={1200}
+            height={675}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </figure>

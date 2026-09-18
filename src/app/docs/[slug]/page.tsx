@@ -58,7 +58,7 @@ export default async function DocSubpage({ params }: PageProps) {
   }
 
   const webpageSchema = getWebPageSchema({
-    title: `${schemaTitle} | Pruning My Pothos`,
+    title: `${schemaTitle}`,
     description: schemaDesc,
     path: `/docs/${slug}`
   });

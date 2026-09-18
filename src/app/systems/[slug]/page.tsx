@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Metadata } from "next";
 import { constructMetadata } from "../../../lib/seo/metadata";
-import { getArticleSchema, getFaqSchema } from "../../../lib/seo/jsonld";
+import { getArticleSchema, getBreadcrumbSchema, getFaqSchema } from "../../../lib/seo/jsonld";
 import { renderArticleSegments } from "../../../lib/visual-segments";
 import type { Visual } from "../../../lib/visual-types";
 import VisualBlock from "../../../components/visuals/VisualBlock";
@@ -54,13 +54,21 @@ export default async function SystemsDetailPage({ params }: PageProps) {
   const proofPoints = system.proofPoints ?? [];
 
   const articleSchema = getArticleSchema({
-    title: `${system.title} | Pruning My Pothos`,
+    // headline is the article title alone. Appending the site name pushes the
+    // headline past what search engines display and repeats the publisher,
+    // which is already declared below.
+    title: system.title,
     description: system.description,
     path: `/systems/${slug}`,
     datePublished: system.publishDate,
     dateModified: system.updatedAt ?? system.publishDate,
     image: system.heroImage,
   });
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Systems", path: "/systems" },
+    { name: system.title, path: `/systems/${slug}` },
+  ]);
   const faqSchema = faqs.length > 0 ? getFaqSchema({ faq: faqs }) : null;
 
   return (
@@ -69,6 +77,12 @@ export default async function SystemsDetailPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
+      {breadcrumbSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      )}
       {faqSchema && (
         <script
           type="application/ld+json"
@@ -126,12 +140,18 @@ export default async function SystemsDetailPage({ params }: PageProps) {
         </div>
       </header>
 
-      {/* Hero Image */}
+      {/* Hero Image. Intrinsic size is declared so the browser reserves the
+          space before the file loads, and it is fetched eagerly because it is
+          the largest element in the first viewport. */}
       {system.heroImage && (
         <figure className="w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]">
           <img
             src={system.heroImage}
             alt={system.heroImageAlt ?? system.title}
+            width={1200}
+            height={675}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </figure>

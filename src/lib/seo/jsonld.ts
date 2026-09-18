@@ -133,6 +133,42 @@ export function getArticleSchema({ title, description, path, datePublished, date
   };
 }
 
+interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
+/**
+ * Breadcrumb trail for detail pages. Search engines use this to show the
+ * section a page sits in rather than a bare URL, so the last item is the page
+ * itself and every item carries an absolute URL.
+ */
+export function getBreadcrumbSchema(items: BreadcrumbItem[]) {
+  if (!items || items.length === 0) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((item, index) => {
+      let cleanPath = item.path;
+      if (cleanPath && !cleanPath.endsWith("/")) {
+        cleanPath += "/";
+      }
+      if (cleanPath && !cleanPath.startsWith("/")) {
+        cleanPath = "/" + cleanPath;
+      }
+      const url = cleanPath === "/" ? SITE_CONFIG.url : `${SITE_CONFIG.url}${cleanPath}`;
+
+      return {
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": item.name,
+        "item": url,
+      };
+    }),
+  };
+}
+
 interface SoftwareAppInput {
   name: string;
   description: string;

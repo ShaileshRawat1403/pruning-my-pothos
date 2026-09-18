@@ -47,7 +47,7 @@ const PRINCIPLES = [
 
 export default function SchemaPage() {
   const schema = getWebPageSchema({
-    title: "Schema | Pruning My Pothos",
+    title: "Schema",
     description:
       "The schema underneath the work: Sans Serif Sentiments, the two layers, the I-7 loop, and the operating principles.",
     path: "/schema",

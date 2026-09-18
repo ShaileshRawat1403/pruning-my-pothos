@@ -9,7 +9,7 @@ export const metadata = constructMetadata({
 
 export default function PortfolioPage() {
   const schema = getWebPageSchema({
-    title: "Technical Marketing Portfolio | Pruning My Pothos",
+    title: "Technical Marketing Portfolio",
     description: "Explore developer documentation strategies, GenAI adoption playbooks, and example-driven technical enablement kits.",
     path: "/portfolio"
   });

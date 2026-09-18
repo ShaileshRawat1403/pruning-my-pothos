@@ -40,7 +40,7 @@ export default async function SentencesDetailPage({ params }: PageProps) {
   }
 
   const webpageSchema = getWebPageSchema({
-    title: `${sentence.title} | Pruning My Pothos`,
+    title: `${sentence.title}`,
     description: sentence.summary,
     path: `/sentences/${slug}`
   });

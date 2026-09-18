@@ -30,7 +30,7 @@ export default function SystemsIndexPage() {
   });
 
   const schema = getWebPageSchema({
-    title: "Systems | Pruning My Pothos",
+    title: "Systems",
     description:
       "Explore operating systems, workflows, and tools built for natural language programming.",
     path: "/systems",

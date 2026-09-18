@@ -158,7 +158,7 @@ export default async function TagDetailPage({ params }: PageProps) {
   });
 
   const schema = getWebPageSchema({
-    title: `Tag: #${tagLabel} | Pruning My Pothos`,
+    title: `Tag: #${tagLabel}`,
     description: `All items tagged with #${tagLabel}.`,
     path: `/tags/${tag}`
   });

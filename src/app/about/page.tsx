@@ -13,7 +13,7 @@ export const metadata = constructMetadata({
 
 export default function AboutPage() {
   const schema = getWebPageSchema({
-    title: "About Systems | Pruning My Pothos",
+    title: "About Systems",
     description:
       "The thinker, tinkerer, and translator behind Sans Serif Systems: a solo-builder systems laboratory for predictable, verifiable, and secure AI-assisted work.",
     path: "/about",

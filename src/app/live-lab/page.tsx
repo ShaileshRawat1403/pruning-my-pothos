@@ -9,7 +9,7 @@ export const metadata = constructMetadata({
 
 export default function LiveLabIndexPage() {
   const schema = getWebPageSchema({
-    title: "Systems Telemetry | Pruning My Pothos",
+    title: "Systems Telemetry",
     description: "Monitor execution telemetry, ledger updates, and status checks of offline workflow engines.",
     path: "/live-lab"
   });
