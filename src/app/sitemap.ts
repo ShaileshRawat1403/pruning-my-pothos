@@ -34,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/sentiments",
     "/about",
     "/portfolio",
+    "/dax",
     "/shelf",
     "/tools/prompt-to-json",
     "/tools/change-to-checklist",
