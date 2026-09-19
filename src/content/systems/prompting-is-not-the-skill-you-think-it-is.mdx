@@ -1,129 +1,109 @@
 ---
+schemaVersion: "1.0"
 title: "Prompting Is Not the Skill You Think It Is"
 publishDate: "2026-01-14"
-updatedAt: "2026-06-28"
-description: "Why constraints, examples, and intent matter more than clever prompts."
+updatedAt: "2026-09-20"
+description: "A prompt can describe what you want. It cannot make the system check it. Why the useful skill is diagnosing output and knowing which requirements have to leave the prompt."
 category: "Explanations"
 heroImage: '/covers/systems/prompting-is-not-the-skill-you-think-it-is.svg'
-heroImageAlt: 'Prompt engineering components'
+heroImageAlt: 'An instruction shaping a range of possible outputs without fixing a single one'
 tags:
   - prompting
   - constraints
   - intent
   - iteration
-proofPoints:
-  - Core reference for prompting as system design
-  - Referenced in what-a-skill-is-in-ai-systems.mdx
-related:
-  - type: explainer
-    title: "Skills vs Prompts vs Agents"
-    href: /systems/skills-vs-prompts-vs-agents/
-    note: "Where a prompt ends, a skill begins, and an agent takes over."
-  - type: explainer
-    title: "What a Skill Is in AI Systems"
-    href: /systems/what-a-skill-is-in-ai-systems/
-    note: "What the reusable layer above a prompt actually is."
-  - type: tool
-    title: "Prompt to JSON"
-    href: /tools/prompt-to-json/
-    note: "Compile a loose instruction into a typed schema."
-faq:
-  - question: Why is prompting not the main skill for working with AI?
-    answer: Prompts are specifications, not magic phrases. The real skills are defining intent clearly, setting constraints explicitly, providing good examples, and iterating based on results. Clever prompting cannot compensate for unclear thinking about what you actually want the AI to do.
-  - question: What makes a good prompt specification?
-    answer: A good prompt specifies the task (what), the constraints (boundaries), the output format (structure), and the success criteria (what good looks like). Vague prompts widen output variability; specific prompts narrow it to what you need.
-  - question: Why does iteration matter more than finding the perfect prompt?
-    answer: The first prompt is always a hypothesis. Iteration reveals gaps in your thinking, misunderstood constraints, and edge cases. Each cycle refines both your understanding and the specification. Waiting for the perfect prompt delays learning; iterating accelerates it.
+contentType: 'technical'
+readingTime: 6
+difficulty: 'beginner'
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Say what an instruction can influence and what it cannot enforce, and recognise the point where a requirement has to move out of the prompt and into something software checks."
+thesis: "An instruction shapes what a model is likely to produce, and shaping is not enforcing, so any requirement that actually matters eventually needs a check that lives outside the prompt."
+shortAnswer: "A prompt is text placed in the model input. It can express intent, constraints, examples and a requested output shape, and a clearer one narrows the range of likely responses. It cannot guarantee any of them, because no separate step afterwards checks whether the output satisfied the instruction. The useful skill is not finding better wording. It is reading what came back, seeing which requirement was not met, and deciding whether to improve the instruction or move that requirement into software that can reject a bad result."
+
+boundary:
+  is: "An explainer of what instructions can and cannot do, and where the responsibility for a requirement should move."
+  isNot: "A prompt library, a technique catalogue, a treatment of system prompts or reusable skills, which belong elsewhere, or a guide to authorising actions."
+  mattersWhen: "A requirement keeps being restated more forcefully in a prompt and still fails sometimes."
+
+provenance:
+  primary: synthesis
+  sources: []
+  claims:
+    - statement: "A prompt tells the model what you want. A contract gives software something it can check."
+      kind: synthesis
+    - statement: "Generation is conditioned by the instruction, and no separate step afterwards verifies that the output satisfied it."
+      kind: synthesis
+    - statement: "The skill is reading the gap between what you asked for and what came back."
+      kind: synthesis
 ---
 
-> **Key takeaways**
->
-> - Prompts are specifications, not magic phrases.
-> - Constraints and examples do more than clever wording.
-> - Vague prompts widen output; specific prompts narrow it.
-> - Iteration is the real skill.
+Write "always respond in JSON" in capitals, add "this is very important", and most of the time you will get JSON. Occasionally you will not. Nothing about the emphasis changed what the system does when the output is wrong, because nothing was checking.
 
-### What makes a prompt a system specification?
+That gap is what this page is about.
 
-A prompt is not a magical invocation, but a system specification that defines the boundaries of expected behavior. To move from ad-hoc experimentation to reliable engineering, a prompt must contain four distinct parts: a clear task definition (what to do), strict constraints (what not to do), context/examples (how to do it), and structural output rules (the format of the result).
+## What a prompt actually is
 
-The idea of "prompt engineering" has been mystified into an art of finding secret words to unlock a model's power. This is a misunderstanding. The real skill is not about crafting clever phrases; it is about clearly and explicitly specifying your intent, constraints, and desired output format.
+A prompt is text placed into the model input. It joins whatever else is in there and shapes the ranking the model produces at each step.
 
+Shaping is real. A vague request leaves a wide field of plausible continuations, and a precise one narrows it. Ask for writing about marketing and you could get anything. Ask for three slogans for a coffee brand, playful, under five words each, and the range of likely responses collapses towards what you meant.
 
-In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.
+So instructions work. The question is what "work" means.
 
-<aside class="callout callout-insight">
-  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
-</aside>
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: The fundamentals</summary>
-      <ol>
-        <li><a href="#prompt-as-starting-tokens">Prompt as starting tokens</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: The modern paradigm</summary>
-      <ol>
-        <li><a href="#prompt-as-specification">Prompt as specification</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Principles in practice</summary>
-      <ol>
-        <li><a href="#iterative-refinement">Iterative refinement</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+## What an instruction can express
 
-## Act I: The fundamentals
+Usefully, quite a lot:
 
-### Prompt as starting tokens
+- **Intent.** What you are trying to achieve, which is the part people skip most.
+- **Constraints.** What must not happen.
+- **Examples.** Two or three showing the pattern, which is often worth more than a paragraph describing it.
+- **Requested shape.** The format you want back.
+- **Priorities.** What to favour when instructions pull against each other.
 
-A prompt is the initial set of tokens you provide to a Large Language Model. The model's core function is to predict the most probable sequence of tokens to follow your input. Therefore, the prompt is not a question you are asking a knowledge base; it is the starting point for a text completion.
+Each of these narrows the field. None of them closes it.
 
-A vague prompt gives the model a wide range of plausible completions, leading to generic or irrelevant outputs. For example, asking a model to "write about marketing" could result in anything from a historical essay to a list of buzzwords. The model does not know your intent.
+## What it cannot do
 
-<figure class="diagram">
-  <iframe src="/scenes/prompt-evolution.html" title="Prompt Evolution" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>The more specific the prompt, the more constrained and predictable the output.</figcaption>
-</figure>
+**Generation is conditioned by the instruction, and no separate step afterwards verifies that the output satisfied it.**
 
-## Act II: The modern paradigm
+The model produces a likely continuation given everything in its input, and your requirement is part of that input rather than a rule applied afterwards. There is no step where the system notices that the response was supposed to be JSON, checks whether it is, and objects. If you want that step, you have to build it.
 
-### Prompt as specification
+This is why adding force to the wording has diminishing returns. "Always" and "never" and "you must" are more input, and more input is not a check.
 
-Effective prompting is not about finding magic words. It is about treating the prompt as a formal specification for a task. This means providing clear and structured information that reduces ambiguity and narrows the range of probable outputs.
+**A prompt tells the model what you want. A contract gives software something it can check.**
 
-The modern approach involves several key techniques:
--   **Role-playing:** "You are an expert copywriter. Your task is to..." This primes the model to use the vocabulary and tone associated with that role in its training data.
--   **Constraints:** "The output must be in JSON format." "The summary must be under 100 words." "Do not use technical jargon." These rules explicitly forbid or require certain behaviors.
--   **Few-shot examples:** Providing 2-3 examples of the desired input/output format. This is one of the most effective ways to guide the model's output, as it learns the pattern directly from your examples.
+The difference is where a failure gets caught. An instruction alone does not create a check, so if nothing else validates the requirement, the failure can surface downstream. A validator catches it at a point you chose.
 
-This transforms prompting from a guessing game into a methodical process of defining a clear contract with the model. In this repository, that contract becomes more useful when it is connected to a broader execution model: [Dual NLP for AI-assisted SDLC](/docs/natural-language-programming-stack/) frames prompting as one layer in a governed delivery stack rather than the whole skill.
+## Language as the interface, contracts underneath
 
-## Act III: Principles in practice
+None of this means plain language is the wrong way in. It is often the right one. Someone can describe what they want without knowing your field names, and the system can work out the rest.
 
-### Iterative refinement
+Natural language can be the human-facing interface, while explicit contracts underneath make the result dependable enough to inspect.
 
-Stop searching for the "perfect prompt." Instead, embrace a process of iterative refinement. Start with a simple prompt, observe the output, and identify the gap between what you got and what you wanted. Then, add specificity to close that gap.
+Worth resisting the shorter version of that, which is that language has become the API. An API has defined semantics and a contract that software can verify. Ordinary prose does not acquire those properties by being pointed at a model. The interface changed. The need for something checkable underneath did not.
 
--   If the tone is wrong, add an instruction about the desired tone.
--   If the format is wrong, provide an example of the correct format.
--   If the answer is too generic, add more context to the prompt.
--   If the answer is factually incorrect, use Retrieval-Augmented Generation (RAG) to provide the necessary facts in the context window.
+## The actual skill
 
-Treat prompt updates like code changes: version them, note expected behavior shifts, and test against a small fixed prompt set. This makes prompt quality observable and prevents regressions when multiple contributors edit instructions over time.
+**The skill is reading the gap between what you asked for and what came back.**
 
-The skill is not in the initial prompt, but in the ability to diagnose the output's flaws and systematically add the right constraints and context to correct them.
+Not composing a better opening incantation. Looking at an output, naming precisely what is wrong with it, and choosing the right repair:
 
-For related systems context, see [Tech Stack for NLPg-Driven AI-Assisted SDLC](/systems/tech-stack-for-nlpg-driven-ai-assisted-sdlc/), [Agent Instructions and Handoff as an Operating System](/systems/agent-instructions-and-handoff-as-an-operating-system/), and [Dual NLP for AI-assisted SDLC](/docs/natural-language-programming-stack/). For practical guidelines and templates to build structured prompt specifications, check out the [AI skill design templates](/shelf/shared-resources/ai-skill-design-templates/).
+- Wrong tone, wrong length, wrong register: usually an instruction problem. Say the thing you did not say.
+- Wrong shape, inconsistently: an instruction can improve the odds, and if it matters, this belongs in a schema and a validator instead.
+- Wrong facts: trace the evidence path before editing wording. Missing or stale evidence may be a [retrieval](/systems/retrieval-augmented-generation-in-plain-terms/) problem, and the source material, the assembly step, the generation itself and your own downstream logic are each candidates.
+- Right most of the time, wrong occasionally, in ways that matter: stop editing the prompt. That failure rate is the thing to design around.
 
-### What this changes in practice
+The last one is the point at which prompting stops being the right tool. You are not trying to make a probabilistic system stop varying. You are deciding what happens on the runs that vary.
 
-Focus on making your intent, constraints, and desired format as clear as possible, rather than searching for clever phrasing.
+## Treat instructions like code
+
+If a prompt is doing real work, it deserves the handling code gets. Keep it in version control rather than pasted in a dozen places. Note what you expected a change to do. Keep a small fixed set of inputs and run them after an edit, because a wording change made for one case routinely breaks another, and without that set you will not notice.
+
+This is unglamorous and it is most of the difference between a prompt that holds up and one that is quietly rewritten every week.
+
+## Where this hands off
+
+Once you decide a requirement has to be enforced rather than requested, you have left this page. The next question is what software can actually check: whether the response parses, whether it satisfies an explicit schema, and whether the values make sense.
+
+That is [structured output and why it matters](/systems/structured-output-and-why-it-matters/), and it carries the boundary this page stops at.
