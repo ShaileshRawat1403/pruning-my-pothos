@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Embedding Space</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 280" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 280');
+
+Ink.rect(svg,{x:40,y:40,w:820,h:200,r:12,seed:1,dash:true});
+Ink.dot(svg,{cx:200,cy:100,r:5,cls:'fillink-2'});
+Ink.text(svg,{x:210,y:105,text:'dog',size:13});
+Ink.dot(svg,{cx:240,cy:120,r:5,cls:'fillink-2'});
+Ink.text(svg,{x:250,y:125,text:'puppy',size:13});
+Ink.dot(svg,{cx:650,cy:180,r:5,cls:'fillink-2'});
+Ink.text(svg,{x:660,y:185,text:'cat',size:13});
+Ink.dot(svg,{cx:680,cy:200,r:5,cls:'fillink-2'});
+Ink.text(svg,{x:690,y:205,text:'kitten',size:13});
+Ink.dot(svg,{cx:450,cy:140,r:5,cls:'fillink'});
+Ink.text(svg,{x:460,y:145,text:'car',size:13});
+  Ink.run();
+})();
+</script>
+</body></html>

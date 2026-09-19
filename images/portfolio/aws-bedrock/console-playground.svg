@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-label="Bedrock console playground">
+  <rect width="960" height="420" rx="24" fill="#f8fafc"/>
+  <rect x="40" y="40" width="880" height="340" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="70" y="90" fill="#0f172a" font-size="18" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Bedrock console playground</text>
+
+  <rect x="70" y="120" width="360" height="240" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="95" y="155" fill="#0f172a" font-size="13" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">System prompt</text>
+  <rect x="95" y="170" width="300" height="170" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="115" y="195" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">You are a compliant</text>
+  <text x="115" y="215" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">support assistant.</text>
+  <text x="115" y="235" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Avoid restricted asks.</text>
+
+  <rect x="460" y="120" width="430" height="240" rx="16" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="485" y="155" fill="#0f172a" font-size="13" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Response preview</text>
+  <rect x="485" y="175" width="380" height="70" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="510" y="205" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">User: Summarize the</text>
+  <text x="510" y="225" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">customer ticket.</text>
+  <rect x="485" y="255" width="380" height="80" rx="14" fill="#e0f2fe" stroke="#bae6fd"/>
+  <text x="510" y="285" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Assistant: Here's a concise</text>
+  <text x="510" y="305" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">summary and next steps.</text>
+</svg>

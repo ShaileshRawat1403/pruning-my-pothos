@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Retrieval and citation loop</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 940 250" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 940 250');
+
+Ink.rect(svg,{x:44,y:96,w:160,h:56,r:10,seed:1,label:'Retrieve'});
+Ink.rect(svg,{x:248,y:96,w:160,h:56,r:10,seed:2,label:'Rank'});
+Ink.rect(svg,{x:452,y:96,w:160,h:56,r:10,seed:3,cls:'ink ink-2',hi:true,label:'Compose'});
+Ink.rect(svg,{x:656,y:66,w:220,h:116,r:12,seed:4,label:'Output branch',ly:34});
+Ink.text(svg,{x:670,y:112,text:'- cited answer',size:10,cls:'label label-muted'});
+Ink.text(svg,{x:670,y:130,text:'- uncited summary',size:10,cls:'label label-muted'});
+Ink.line(svg,{x1:204,y1:124,x2:248,y2:124,seed:11,dot:true});
+Ink.line(svg,{x1:408,y1:124,x2:452,y2:124,seed:12,dot:true});
+Ink.line(svg,{x1:612,y1:124,x2:656,y2:124,seed:13,dot:true,cls:'ink ink-2',pulse:true});
+  Ink.run();
+})();
+</script>
+</body></html>

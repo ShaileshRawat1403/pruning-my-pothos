@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ramon Llull — the thinking wheels</title>
+<style>
+  html,body{margin:0;padding:0;width:100%;height:100%;background:transparent;overflow:hidden}
+  .stage{position:absolute;inset:0}.stage svg{width:100%;height:100%;display:block}
+  .ink{stroke:#2a2012;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  .ink-2{stroke:#8c2f23}.ink-3{stroke:#9a7322}.fillink{fill:#2a2012;stroke:none}
+  html[data-theme='dark'] .ink{stroke:#efe5cf}html[data-theme='dark'] .ink-2{stroke:#c2564a}
+  html[data-theme='dark'] .ink-3{stroke:#c79a3e}html[data-theme='dark'] .fillink{fill:#efe5cf}
+  .glyph{font-family:'JetBrains Mono',ui-monospace,monospace;fill:#8c2f23;opacity:.85}
+  html[data-theme='dark'] .glyph{fill:#c79a3e}
+  .draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+  .spin{transform-origin:430px 310px;animation:spin 60s linear infinite}
+  .spin-2{transform-origin:430px 310px;animation:spin 44s linear infinite reverse}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.spin,.spin-2{animation:none}}
+</style></head>
+<body><div class="stage">
+<svg viewBox="0 0 900 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- outer ring with lettered dignities -->
+  <circle class="ink ink-3 draw" cx="430" cy="310" r="172" stroke-width="2.2"/>
+  <g class="spin">
+    <circle class="ink draw" cx="430" cy="310" r="150" stroke-width="1.6"/>
+    <!-- spokes -->
+    <g class="ink" stroke-width="1.2" opacity="0.8">
+      <line class="draw" x1="430" y1="160" x2="430" y2="185"/>
+      <line class="draw" x1="536" y1="204" x2="519" y2="221"/>
+      <line class="draw" x1="580" y1="310" x2="555" y2="310"/>
+      <line class="draw" x1="536" y1="416" x2="519" y2="399"/>
+      <line class="draw" x1="430" y1="460" x2="430" y2="435"/>
+      <line class="draw" x1="324" y1="416" x2="341" y2="399"/>
+      <line class="draw" x1="280" y1="310" x2="305" y2="310"/>
+      <line class="draw" x1="324" y1="204" x2="341" y2="221"/>
+    </g>
+  </g>
+  <!-- lettered dignities around the rim -->
+  <g class="glyph" font-size="18" text-anchor="middle">
+    <text x="430" y="150">B</text><text x="596" y="200">C</text><text x="612" y="316">D</text>
+    <text x="596" y="428">E</text><text x="430" y="482">F</text><text x="262" y="428">G</text>
+    <text x="248" y="316">H</text><text x="262" y="200">I</text>
+  </g>
+  <!-- middle wheel -->
+  <g class="spin-2">
+    <circle class="ink ink-2 draw" cx="430" cy="310" r="104" stroke-width="1.8"/>
+    <g class="ink ink-2" stroke-width="1" opacity="0.85">
+      <line class="draw" x1="430" y1="206" x2="430" y2="240"/>
+      <line class="draw" x1="504" y1="236" x2="480" y2="260"/>
+      <line class="draw" x1="534" y1="310" x2="500" y2="310"/>
+      <line class="draw" x1="504" y1="384" x2="480" y2="360"/>
+      <line class="draw" x1="430" y1="414" x2="430" y2="380"/>
+      <line class="draw" x1="356" y1="384" x2="380" y2="360"/>
+      <line class="draw" x1="326" y1="310" x2="360" y2="310"/>
+      <line class="draw" x1="356" y1="236" x2="380" y2="260"/>
+    </g>
+  </g>
+  <!-- combinatorial chords: every idea against every other -->
+  <g class="ink" stroke-width="1" opacity="0.5">
+    <line class="draw" x1="430" y1="160" x2="580" y2="310"/>
+    <line class="draw" x1="580" y1="310" x2="324" y2="416"/>
+    <line class="draw" x1="324" y1="416" x2="536" y2="204"/>
+    <line class="draw" x1="280" y1="310" x2="536" y2="416"/>
+  </g>
+  <!-- hub -->
+  <circle class="fillink" cx="430" cy="310" r="7"/>
+  <circle class="ink ink-2 draw" cx="430" cy="310" r="52" stroke-width="1.6"/>
+  <text class="glyph" x="612" y="118" font-size="30">&#8258;</text>
+</svg></div>
+<script>
+(function(){var root=document.documentElement;
+ function theme(){try{var p=window.parent&&window.parent.document.documentElement;var t=(p&&p.getAttribute('data-theme'))||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');root.setAttribute('data-theme',t);}catch(e){root.setAttribute('data-theme','light');}}
+ theme();try{var p=window.parent&&window.parent.document.documentElement;if(p)new MutationObserver(theme).observe(p,{attributes:true,attributeFilter:['data-theme']});}catch(e){}
+ function draw(){document.querySelectorAll('.draw').forEach(function(el,i){var len=(el.getTotalLength&&el.getTotalLength())||300;el.style.setProperty('--len',len);el.style.transition='none';el.style.strokeDashoffset=len;el.getBoundingClientRect();el.style.transition='stroke-dashoffset 1.7s cubic-bezier(0.16,1,0.3,1) '+(i*45)+'ms';el.style.strokeDashoffset='0';});}
+ addEventListener('load',draw);setTimeout(draw,60);})();
+</script></body></html>

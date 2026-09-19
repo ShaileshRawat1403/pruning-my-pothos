@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-labelledby="t d">
+<title id="t">AI Architecture Explained: How Modern LLM Applications Work</title>
+<desc id="d">Ink-illustration cover for AI Architecture Explained: How Modern LLM Applications Work</desc>
+<rect width="400" height="225" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="398.5" height="223.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 104.7 50.9 L 294.9 50.8 Q 299.2 50.2 299.8 55.9 L 300.1 57.5 Q 299.4 63.1 294.9 62.1 L 104.7 63.0 Q 100.1 62.5 99.8 57.5 L 100.2 55.9 Q 99.7 50.4 104.7 50.9 Z" stroke="#2a2012" stroke-width="1.30" fill="none"/>
+<text x="92.0" y="58.5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.5" fill="#2a2012" text-anchor="end">ARCHITECTURE</text>
+<path d="M 106.1 70.8 L 293.9 70.5 Q 298.2 71.1 298.7 75.8 L 298.3 77.1 Q 298.6 81.8 293.9 82.0 L 106.1 82.5 Q 101.5 82.5 100.7 77.1 L 101.6 75.8 Q 100.4 71.2 106.1 70.8 Z" stroke="#8c2f23" stroke-width="1.70" fill="none"/>
+<text x="92.0" y="78.3" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.5" fill="#8c2f23" text-anchor="end">LLM</text>
+<path d="M 104.3 87.8 L 294.1 87.9 Q 299.4 87.2 299.3 92.8 L 299.7 94.8 Q 298.3 99.7 294.1 99.6 L 104.3 100.3 Q 99.5 99.7 99.5 94.8 L 98.9 92.8 Q 99.6 87.0 104.3 87.8 Z" stroke="#2a2012" stroke-width="1.30" fill="none"/>
+<text x="92.0" y="96.6" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.5" fill="#2a2012" text-anchor="end">RETRIEVAL</text>
+<path d="M 105.5 106.7 L 296.0 106.8 Q 300.5 107.4 300.5 111.7 L 300.5 114.5 Q 301.5 120.0 296.0 119.1 L 105.5 119.5 Q 100.2 119.6 100.3 114.5 L 100.9 111.7 Q 100.6 106.6 105.5 106.7 Z" stroke="#2a2012" stroke-width="1.30" fill="none"/>
+<text x="92.0" y="115.2" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.5" fill="#2a2012" text-anchor="end">GOVERNANCE</text>
+<text x="200.0" y="155.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12.5" fill="#2a2012" font-weight="700" text-anchor="middle">AI ARCHITECTURE EXPLAINED</text>
+<text x="386" y="215" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.0" fill="#2a2012" opacity="0.5" text-anchor="end">SYSTEMS · HOW-THINGS-FIT-TOGETHER</text>
+</svg>

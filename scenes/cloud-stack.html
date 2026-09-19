@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Five-layer cloud model</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 360" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 360');
+
+Ink.rect(svg,{x:140,y:58,w:620,h:42,r:10,seed:1,label:'Authority hierarchy',lx:310,ly:26,anchor:'middle'});
+Ink.rect(svg,{x:140,y:108,w:620,h:42,r:10,seed:2,label:'State layer',lx:310,ly:26,anchor:'middle'});
+Ink.rect(svg,{x:140,y:158,w:620,h:42,r:10,seed:3,cls:'ink ink-2',hi:true,label:'Intelligence layer',lx:310,ly:26,anchor:'middle'});
+Ink.rect(svg,{x:140,y:208,w:620,h:42,r:10,seed:4,label:'Orchestration layer',lx:310,ly:26,anchor:'middle'});
+Ink.rect(svg,{x:140,y:258,w:620,h:42,r:10,seed:5,label:'Experience layer',lx:310,ly:26,anchor:'middle'});
+  Ink.run();
+})();
+</script>
+</body></html>

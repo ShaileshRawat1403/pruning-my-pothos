@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-label="Executive statement preview">
+  <rect width="960" height="420" rx="24" fill="#f8fafc"/>
+  <rect x="40" y="40" width="880" height="340" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="70" y="90" fill="#0f172a" font-size="18" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Executive statement</text>
+
+  <rect x="70" y="120" width="820" height="220" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="100" y="160" fill="#0f172a" font-size="13" font-family="'Plus Jakarta Sans', sans-serif">We are adopting AI to remove friction, not replace people.</text>
+  <text x="100" y="185" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Every team gets training, safe boundaries, and support.</text>
+  <text x="100" y="210" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">We will measure impact and adjust with transparency.</text>
+</svg>

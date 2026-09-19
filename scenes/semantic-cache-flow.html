@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Governed Semantic Cache Workflow</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 980 260" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 980 260');
+
+Ink.rect(svg,{x:40,y:100,w:120,h:60,r:8,seed:1,label:'1. Query',lx:60,ly:36,anchor:'middle',size:13});
+Ink.line(svg,{x1:160,y1:130,x2:220,y2:130,seed:2,dot:true});
+Ink.rect(svg,{x:220,y:100,w:160,h:60,r:8,seed:3,label:'2. Vector Search',lx:80,ly:36,anchor:'middle',size:13});
+Ink.line(svg,{x1:380,y1:130,x2:440,y2:130,seed:4,dot:true});
+Ink.diamond(svg,{cx:520,cy:130,w:160,h:120,seed:5,cls:'ink ink-3',sw:2,label:'3. Gate (>0.92)',size:11});
+Ink.path(svg,{d:'M 520 70 V 40 H 700',cls:'ink ink-3',dash:true,seed:6});
+Ink.rect(svg,{x:700,y:20,w:180,h:40,r:6,seed:7,cls:'ink ink-3',label:'Cache Hit (Fast Path)',lx:20,ly:25,size:11});
+Ink.path(svg,{d:'M 520 190 V 220 H 700',seed:8});
+Ink.rect(svg,{x:700,y:200,w:180,h:40,r:6,seed:9,label:'4. LLM Generation & Write',lx:14,ly:25,size:10.5});
+  Ink.run();
+})();
+</script>
+</body></html>

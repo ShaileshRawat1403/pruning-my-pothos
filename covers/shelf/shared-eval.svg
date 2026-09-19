@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">Evaluation and prompting references</title>
+<desc id="d">Ink-illustration cover for Evaluation and prompting references</desc>
+<rect width="1200" height="675" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="1198.5" height="673.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 697.8 354.3 L 668.0 370.0 L 639.6 386.9 L 606.8 394.2 L 573.5 389.8 L 542.4 378.5 L 513.2 362.4 L 491.9 336.8 L 477.7 307.3 L 466.7 276.4 L 466.0 243.4 L 472.0 210.8 L 489.9 183.1 L 510.2 157.7 L 534.5 134.3 L 567.1 126.0 L 599.8 125.4 L 631.8 128.6 L 663.3 137.5 L 691.2 155.5 L 711.3 181.8 L 726.6 210.9 " stroke="#2a2012" stroke-width="5.40" fill="none" stroke-linecap="round"/>
+<path d="M 738.6 210.9 Q 736.8 215.9 734.1 220.3 Q 727.4 223.1 723.9 222.7 Q 719.6 219.4 715.9 216.1 Q 717.9 210.1 716.0 205.8 Q 719.5 202.3 723.9 199.2 Q 728.0 200.0 734.0 201.6 Q 738.0 208.4 738.6 210.9 Z" stroke="#8c2f23" stroke-width="4.80" fill="#8c2f23"/>
+<path d="M 707.1 354.3 Q 703.2 359.0 703.5 361.4 Q 699.2 360.5 695.9 362.7 Q 691.1 359.6 689.8 358.1 Q 689.0 355.4 689.3 350.2 Q 692.8 345.9 695.7 345.1 Q 698.1 347.7 703.5 347.1 Q 706.1 349.2 707.1 354.3 Z" stroke="#9a7322" stroke-width="4.20" fill="none"/>
+<text x="600.0" y="265.5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="30.0" fill="#8c2f23" font-weight="700" text-anchor="middle">RUN</text>
+<text x="697.8" y="327.3" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="25.5" fill="#9a7322" text-anchor="middle">START</text>
+<text x="726.6" y="183.9" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="25.5" fill="#8c2f23" text-anchor="middle">REVISE</text>
+<text x="600.0" y="465.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="37.5" fill="#2a2012" font-weight="700" text-anchor="middle">EVALUATION PROMPTING</text>
+<text x="1186" y="665" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24.0" fill="#2a2012" opacity="0.5" text-anchor="end">SHELF · SHARED RESOURCES</text>
+</svg>

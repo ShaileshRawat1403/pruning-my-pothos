@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Human Fallback Flow</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 160" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 160');
+
+Ink.rect(svg,{x:50,y:60,w:120,h:40,r:6,seed:1,label:'AI Output',lx:60,ly:25,anchor:'middle',size:11});
+Ink.line(svg,{x1:170,y1:80,x2:220,y2:80,seed:2,dot:true});
+Ink.diamond(svg,{cx:270,cy:80,w:100,h:80,seed:3,label:'Confidence?',size:10});
+Ink.line(svg,{x1:320,y1:80,x2:400,y2:80,seed:4,dot:true});
+Ink.text(svg,{x:360,y:70,text:'High',size:10,cls:'label label-muted',anchor:'middle'});
+Ink.rect(svg,{x:400,y:60,w:120,h:40,r:6,seed:5,label:'User',lx:60,ly:25,anchor:'middle',size:11});
+Ink.path(svg,{d:'M 270 120 V 140 H 400',cls:'ink ink-2',seed:6});
+Ink.text(svg,{x:300,y:155,text:'Low',size:10,cls:'label-hi',anchor:'middle'});
+Ink.rect(svg,{x:400,y:120,w:120,h:40,r:6,seed:7,cls:'ink ink-2',hi:true,label:'Human Review',lx:60,ly:25,anchor:'middle',size:11});
+  Ink.run();
+})();
+</script>
+</body></html>

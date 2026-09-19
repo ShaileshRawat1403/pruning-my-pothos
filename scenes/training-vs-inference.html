@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Training vs Inference</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 200" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 200');
+
+Ink.text(svg,{x:150,y:60,text:'Training',size:14,cls:'label-hi',anchor:'middle'});
+Ink.rect(svg,{x:50,y:80,w:200,h:100,r:8,seed:1,dash:true,label:'The Internet',lx:100,ly:58,anchor:'middle',size:12});
+Ink.line(svg,{x1:260,y1:130,x2:305,y2:130,seed:2,dot:true});
+Ink.rect(svg,{x:310,y:100,w:80,h:60,r:6,seed:3,cls:'ink ink-2',label:'Model',lx:40,ly:34,anchor:'middle',size:12});
+Ink.line(svg,{x1:450,y1:20,x2:450,y2:180,seed:4,cls:'ink ink-3',dash:true,bow:1});
+Ink.text(svg,{x:600,y:60,text:'Inference',size:14,cls:'label-hi',anchor:'middle'});
+Ink.rect(svg,{x:520,y:100,w:80,h:60,r:6,seed:5,cls:'ink ink-2',label:'Model',lx:40,ly:34,anchor:'middle',size:12});
+Ink.line(svg,{x1:610,y1:130,x2:655,y2:130,seed:6,dot:true});
+Ink.rect(svg,{x:660,y:100,w:110,h:60,r:6,seed:7,label:'Output',lx:55,ly:34,anchor:'middle',size:12});
+  Ink.run();
+})();
+</script>
+</body></html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Workflow path versus agent path</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 980 250" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 980 250');
+
+Ink.rect(svg,{x:64,y:70,w:364,h:120,r:14,seed:1,label:'Workflow',lx:24,ly:30,size:12});
+Ink.text(svg,{x:88,y:124,text:'Intake -> classify -> route -> verify',size:11,cls:'label'});
+Ink.text(svg,{x:88,y:146,text:'predefined states, bounded branches',size:10,cls:'label label-muted'});
+Ink.rect(svg,{x:552,y:70,w:364,h:120,r:14,seed:2,cls:'ink ink-2',hi:true,label:'Agent-like runtime',lx:24,ly:30,size:12});
+Ink.text(svg,{x:576,y:124,text:'Goal -> propose -> choose -> act -> revise',size:11,cls:'label'});
+Ink.text(svg,{x:576,y:146,text:'runtime branching, policy needed',size:10,cls:'label label-muted'});
+  Ink.run();
+})();
+</script>
+</body></html>

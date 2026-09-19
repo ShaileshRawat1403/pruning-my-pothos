@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Input, process, output flow with feedback</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 200" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 200');
+
+Ink.rect(svg,{x:20,y:60,w:200,h:80,r:12,seed:1,label:'Input',lx:50,ly:48,anchor:'middle',size:16});
+Ink.rect(svg,{x:350,y:40,w:200,h:120,r:12,seed:2,label:'Process',lx:50,ly:68,anchor:'middle',size:16});
+Ink.rect(svg,{x:680,y:60,w:200,h:80,r:12,seed:3,label:'Output',lx:50,ly:48,anchor:'middle',size:16});
+Ink.line(svg,{x1:220,y1:100,x2:340,y2:100,seed:10,dot:true});
+Ink.line(svg,{x1:550,y1:100,x2:670,y2:100,seed:11,dot:true});
+Ink.path(svg,{d:'M 550 140 C 600 170, 300 170, 350 140',cls:'ink ink-2',seed:20});
+Ink.text(svg,{x:380,y:178,text:'feedback',size:12,cls:'label-hi'});
+  Ink.run();
+})();
+</script>
+</body></html>

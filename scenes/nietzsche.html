@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nietzsche — the heights</title>
+<style>
+  html, body { margin: 0; padding: 0; width: 100%; height: 100%; background: transparent; overflow: hidden; }
+  .stage { position: absolute; inset: 0; }
+  .stage svg { width: 100%; height: 100%; display: block; }
+
+  /* Ink that adapts to the surrounding theme */
+  .ink   { stroke: #2a2012; fill: none; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+  .ink-2 { stroke: #8c2f23; }            /* oxblood accent */
+  .ink-3 { stroke: #9a7322; }            /* brass accent */
+  .fillink { fill: #2a2012; stroke: none; }
+  html[data-theme='dark'] .ink   { stroke: #efe5cf; }
+  html[data-theme='dark'] .ink-2 { stroke: #c2564a; }
+  html[data-theme='dark'] .ink-3 { stroke: #c79a3e; }
+  html[data-theme='dark'] .fillink { fill: #efe5cf; }
+
+  .glyph { font-family: 'JetBrains Mono', ui-monospace, monospace; fill: #8c2f23; opacity: .7; }
+  html[data-theme='dark'] .glyph { fill: #c79a3e; }
+
+  .draw { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); }
+  .float { animation: drift 9s ease-in-out infinite; }
+  @keyframes drift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  @media (prefers-reduced-motion: reduce) { .float { animation: none; } }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <svg viewBox="0 0 900 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+      <!-- eternal return: a ring that closes on itself -->
+      <g class="float">
+        <circle class="ink ink-2 draw" cx="640" cy="180" r="96" stroke-width="2.4" />
+        <!-- arrowhead where the ring bites its own tail -->
+        <path class="ink ink-2 draw" d="M 726 150 L 736 178 L 708 186" stroke-width="2.4" />
+      </g>
+      <text class="glyph" x="612" y="192" font-size="34">&#8734;</text>
+
+      <!-- the range: the heights he was always climbing -->
+      <path class="ink draw" stroke-width="2.6"
+        d="M 20 470 L 150 400 L 250 452 L 372 322 L 470 470 L 560 402 L 700 486 L 880 430" />
+      <!-- a second, farther ridge -->
+      <path class="ink ink-3 draw" stroke-width="1.6" opacity="0.7"
+        d="M 20 508 L 180 470 L 330 500 L 470 452 L 640 508 L 880 476" />
+
+      <!-- the lone figure on the summit -->
+      <g class="ink" stroke-width="2.4">
+        <circle class="draw" cx="372" cy="286" r="10" />
+        <path class="draw" d="M 372 296 L 372 330" />
+        <path class="draw" d="M 372 306 L 356 320 M 372 306 L 390 318" />
+        <path class="draw" d="M 372 330 L 360 352 M 372 330 L 386 352" />
+        <!-- a staff, planted -->
+        <path class="ink-3 draw" d="M 392 300 L 398 356" stroke-width="2" />
+      </g>
+
+      <!-- the dotted ascent -->
+      <path class="ink ink-3 draw" stroke-width="1.6" stroke-dasharray="1 9"
+        d="M 372 336 C 420 300 520 300 560 220" opacity="0.7" />
+
+      <!-- aphorisms, written as fragments because the whole was too heavy -->
+      <g class="float" style="animation-delay:-3s">
+        <line class="ink draw" x1="120" y1="150" x2="212" y2="150" stroke-width="3" />
+        <line class="ink draw" x1="120" y1="172" x2="176" y2="172" stroke-width="3" />
+        <line class="ink ink-2 draw" x1="120" y1="210" x2="240" y2="210" stroke-width="3" />
+        <line class="ink draw" x1="120" y1="232" x2="164" y2="232" stroke-width="3" />
+        <line class="ink draw" x1="120" y1="270" x2="196" y2="270" stroke-width="3" />
+      </g>
+    </svg>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const applyTheme = () => {
+        const parent = window.parent && window.parent.document && window.parent.document.documentElement;
+        const theme = (parent && parent.getAttribute('data-theme')) ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        root.setAttribute('data-theme', theme);
+      };
+      applyTheme();
+      try {
+        const parent = window.parent && window.parent.document && window.parent.document.documentElement;
+        if (parent) { new MutationObserver(applyTheme).observe(parent, { attributes: true, attributeFilter: ['data-theme'] }); }
+      } catch (e) {}
+
+      const draw = () => {
+        document.querySelectorAll('.draw').forEach((el, i) => {
+          const len = (el.getTotalLength && el.getTotalLength()) || 260;
+          el.style.setProperty('--len', len);
+          el.style.transition = 'none';
+          el.style.strokeDashoffset = len;
+          el.getBoundingClientRect();
+          el.style.transition = 'stroke-dashoffset 1.8s cubic-bezier(0.16,1,0.3,1) ' + (i * 90) + 'ms';
+          el.style.strokeDashoffset = '0';
+        });
+      };
+      window.addEventListener('load', draw);
+      setTimeout(draw, 60);
+    })();
+  </script>
+</body>
+</html>

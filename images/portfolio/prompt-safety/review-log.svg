@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-label="Prompt review log">
+  <rect width="960" height="420" rx="24" fill="#f8fafc"/>
+  <rect x="40" y="40" width="880" height="340" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="70" y="90" fill="#0f172a" font-size="18" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Prompt review log</text>
+
+  <rect x="70" y="120" width="820" height="64" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="100" y="160" fill="#0f172a" font-size="13" font-family="'Plus Jakarta Sans', sans-serif">Support summary v3</text>
+  <text x="840" y="160" fill="#10b981" font-size="12" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif">Approved</text>
+
+  <rect x="70" y="200" width="820" height="64" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="100" y="240" fill="#0f172a" font-size="13" font-family="'Plus Jakarta Sans', sans-serif">Refund escalation</text>
+  <text x="840" y="240" fill="#f59e0b" font-size="12" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif">Review</text>
+
+  <rect x="70" y="280" width="820" height="64" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="100" y="320" fill="#0f172a" font-size="13" font-family="'Plus Jakarta Sans', sans-serif">PII redaction prompt</text>
+  <text x="840" y="320" fill="#10b981" font-size="12" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif">Approved</text>
+</svg>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Chat loop versus control loop</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 980 260" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 980 260');
+
+Ink.rect(svg,{x:40,y:40,w:400,h:180,r:14,seed:1,sw:1.4,label:'Chat loop',lx:25,ly:30,size:12});
+Ink.rect(svg,{x:70,y:100,w:100,h:40,r:8,seed:2,sw:1.2,label:'User',lx:50,ly:25,anchor:'middle',size:11});
+Ink.rect(svg,{x:205,y:100,w:100,h:40,r:8,seed:3,sw:1.2,label:'Model',lx:50,ly:25,anchor:'middle',size:11});
+Ink.rect(svg,{x:340,y:100,w:70,h:40,r:8,seed:4,sw:1.2,label:'Tool',lx:35,ly:25,anchor:'middle',size:11});
+Ink.line(svg,{x1:170,y1:120,x2:205,y2:120,seed:10,bow:2});
+Ink.line(svg,{x1:305,y1:120,x2:340,y2:120,seed:11,bow:2});
+Ink.rect(svg,{x:520,y:40,w:420,h:180,r:14,seed:5,cls:'ink ink-2',sw:1.4,label:'Control loop',lx:25,ly:30,size:12,labelCls:'label-hi'});
+Ink.rect(svg,{x:550,y:100,w:90,h:40,r:8,seed:6,sw:1.2,label:'Model',lx:45,ly:25,anchor:'middle',size:11});
+Ink.rect(svg,{x:665,y:90,w:120,h:60,r:8,seed:7,cls:'ink ink-2',sw:1.4,label:'Runtime gate',lx:60,ly:24,anchor:'middle',size:10});
+Ink.text(svg,{x:725,y:130,text:'policy/verify/trace',size:9,cls:'label label-muted',anchor:'middle'});
+Ink.rect(svg,{x:810,y:100,w:90,h:40,r:8,seed:8,sw:1.2,label:'Tool',lx:45,ly:25,anchor:'middle',size:11});
+Ink.line(svg,{x1:640,y1:120,x2:665,y2:120,seed:12,bow:2});
+Ink.line(svg,{x1:785,y1:120,x2:810,y2:120,seed:13,bow:2});
+  Ink.run();
+})();
+</script>
+</body></html>

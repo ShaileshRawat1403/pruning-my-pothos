@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The I-7 loop</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 360" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 360');
+
+Ink.circle(svg,{cx:450,cy:180,r:120,seed:1,sw:1.8});
+Ink.dot(svg,{cx:450,cy:60,r:4,cls:'fillink-2'});
+Ink.text(svg,{x:450,y:52,text:'Intent',size:12,anchor:'middle'});
+Ink.dot(svg,{cx:557,cy:96,r:4,cls:'fillink-2'});
+Ink.text(svg,{x:566,y:88,text:'Inform',size:12,anchor:'middle'});
+Ink.dot(svg,{cx:610,cy:180,r:4,cls:'fillink-2'});
+Ink.text(svg,{x:626,y:184,text:'Interpret',size:12,anchor:'middle'});
+Ink.dot(svg,{cx:557,cy:264,r:4,cls:'fillink-2'});
+Ink.text(svg,{x:566,y:278,text:'Initiate',size:12,anchor:'middle'});
+Ink.dot(svg,{cx:450,cy:300,r:4,cls:'fillink-2'});
+Ink.text(svg,{x:450,y:316,text:'Inspect',size:12,anchor:'middle'});
+Ink.dot(svg,{cx:343,cy:264,r:4,cls:'fillink-2'});
+Ink.text(svg,{x:334,y:278,text:'Intervene',size:12,anchor:'middle'});
+Ink.dot(svg,{cx:290,cy:180,r:4,cls:'fillink-2'});
+Ink.text(svg,{x:274,y:184,text:'Iterate',size:12,anchor:'middle'});
+  Ink.run();
+})();
+</script>
+</body></html>

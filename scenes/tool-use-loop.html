@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tool Use Loop</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 320');
+
+Ink.rect(svg,{x:40,y:40,w:150,h:60,r:10,seed:1,label:'User Prompt',lx:20,ly:38,size:13});
+Ink.line(svg,{x1:190,y1:70,x2:340,y2:70,seed:2,dot:true});
+Ink.rect(svg,{x:350,y:40,w:200,h:60,r:10,seed:3,label:'LLM: "Call Tool X"',lx:20,ly:38,size:13});
+Ink.line(svg,{x1:450,y1:100,x2:450,y2:155,seed:4,dot:true,bow:2});
+Ink.rect(svg,{x:350,y:160,w:200,h:60,r:10,seed:5,cls:'ink ink-2',hi:true,label:'App: Execute Tool X',lx:20,ly:38,size:13});
+Ink.line(svg,{x1:450,y1:220,x2:450,y2:275,seed:6,dot:true,bow:2,cls:'ink ink-2',pulse:true});
+Ink.rect(svg,{x:350,y:280,w:200,h:60,r:10,seed:7,label:'LLM: Final Answer',lx:20,ly:38,size:13});
+Ink.path(svg,{d:'M 550 190 H 700 V 70 H 555',seed:8,cls:'ink ink-3'});
+Ink.text(svg,{x:560,y:210,text:'[Result of Tool X]',size:11,cls:'label label-muted'});
+  Ink.run();
+})();
+</script>
+</body></html>

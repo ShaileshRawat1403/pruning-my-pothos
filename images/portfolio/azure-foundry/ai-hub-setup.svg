@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-label="AI Hub setup with RBAC roles">
+  <rect width="960" height="420" rx="24" fill="#f8fafc"/>
+  <rect x="40" y="40" width="880" height="340" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="70" y="90" fill="#0f172a" font-size="18" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Create AI Hub</text>
+  <rect x="70" y="120" width="360" height="240" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="90" y="155" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Region</text>
+  <rect x="90" y="165" width="300" height="34" rx="10" fill="#ffffff" stroke="#cbd5f5"/>
+  <text x="110" y="187" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">East US 2</text>
+
+  <text x="90" y="230" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Networking</text>
+  <rect x="90" y="240" width="300" height="34" rx="10" fill="#ffffff" stroke="#cbd5f5"/>
+  <text x="110" y="262" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Private endpoints</text>
+
+  <rect x="460" y="120" width="420" height="240" rx="16" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="490" y="155" fill="#0f172a" font-size="14" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">RBAC roles</text>
+  <rect x="490" y="175" width="360" height="40" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="515" y="200" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Owner</text>
+  <rect x="490" y="225" width="360" height="40" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="515" y="250" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Security Admin</text>
+  <rect x="490" y="275" width="360" height="40" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="515" y="300" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Billing Admin</text>
+</svg>

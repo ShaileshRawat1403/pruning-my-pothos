@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Socio-technical layers</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 240" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 240');
+
+Ink.rect(svg,{x:40,y:30,w:820,h:60,r:12,seed:1,label:'Machine layer: deterministic + agentic',lx:30,ly:38,size:14});
+Ink.rect(svg,{x:40,y:90,w:820,h:60,r:12,seed:2,label:'Human layer: strategic + ethical',lx:30,ly:38,size:14});
+Ink.rect(svg,{x:40,y:150,w:820,h:60,r:12,seed:3,label:'Interconnectivity: socio-technical feedback',lx:30,ly:38,size:14});
+Ink.line(svg,{x1:770,y1:60,x2:828,y2:60,cls:'ink ink-2',seed:10,bow:1});
+Ink.line(svg,{x1:770,y1:120,x2:828,y2:120,cls:'ink ink-2',seed:11,bow:1});
+Ink.line(svg,{x1:770,y1:180,x2:828,y2:180,cls:'ink ink-2',seed:12,bow:1});
+  Ink.run();
+})();
+</script>
+</body></html>

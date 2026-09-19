@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">Deep Thinking AI (JEPA) deck</title>
+<desc id="d">Ink-illustration cover for Deep Thinking AI (JEPA) deck</desc>
+<rect width="1200" height="675" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="1198.5" height="673.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 288.0 256.5 Q 454.5 262.2 600.0 255.5" stroke="#2a2012" stroke-width="4.80" fill="none" stroke-linecap="round"/>
+<path d="M 600.0 255.5 Q 738.1 198.4 912.0 126.0" stroke="#8c2f23" stroke-width="4.80" fill="none" stroke-linecap="round"/>
+<path d="M 600.0 255.5 Q 767.0 316.2 912.0 387.0" stroke="#9a7322" stroke-width="4.20" fill="none" stroke-linecap="round" opacity="0.85"/>
+<path d="M 300.3 256.5 Q 298.6 261.9 295.6 266.0 Q 292.0 267.7 285.4 267.8 Q 279.7 263.1 277.3 261.7 Q 277.9 257.2 277.4 251.4 Q 282.7 247.9 285.4 245.2 Q 288.9 247.4 295.6 247.0 Q 297.7 251.8 300.3 256.5 Z" stroke="#2a2012" stroke-width="3.90" fill="none"/>
+<path d="M 615.0 255.5 Q 613.8 261.4 609.0 266.9 Q 604.5 267.3 596.6 270.6 Q 590.6 267.3 586.3 262.1 Q 584.7 254.3 586.7 249.1 Q 589.8 246.5 596.5 240.3 Q 600.9 244.0 609.7 243.4 Q 611.2 249.9 615.0 255.5 Z" stroke="#8c2f23" stroke-width="3.90" fill="none"/>
+<path d="M 922.8 126.0 Q 922.3 129.3 918.8 134.5 Q 914.1 136.9 909.5 136.8 Q 907.5 132.3 901.9 130.9 Q 903.3 125.8 902.0 121.2 Q 907.9 119.1 909.7 115.7 Q 916.2 115.5 918.6 117.8 Q 921.8 121.7 922.8 126.0 Z" stroke="#2a2012" stroke-width="3.90" fill="none"/>
+<path d="M 922.7 387.0 Q 919.3 391.1 918.8 395.5 Q 912.0 395.7 909.5 397.9 Q 905.3 392.7 901.9 391.9 Q 900.2 384.8 902.5 382.4 Q 906.6 381.2 909.6 376.5 Q 913.2 377.1 918.5 378.8 Q 919.3 382.2 922.7 387.0 Z" stroke="#9a7322" stroke-width="3.90" fill="none"/>
+<text x="600.0" y="465.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="37.5" fill="#2a2012" font-weight="700" text-anchor="middle">DEEP THINKING AI JEPA DECK</text>
+<text x="1186" y="665" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24.0" fill="#2a2012" opacity="0.5" text-anchor="end">SHELF · SHARED RESOURCES</text>
+</svg>

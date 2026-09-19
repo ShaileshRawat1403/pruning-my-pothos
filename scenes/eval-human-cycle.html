@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Human-in-the-Loop Evaluation Cycle</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 300" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 300');
+
+Ink.circle(svg,{cx:450,cy:150,r:200,seed:1,sw:1.6});
+Ink.dot(svg,{cx:450,cy:50,r:7,cls:'fillink-2'});
+Ink.text(svg,{x:450,y:26,text:'1. Define Rubric',size:12,anchor:'middle'});
+Ink.dot(svg,{cx:633,cy:150,r:7,cls:'fillink-2'});
+Ink.text(svg,{x:650,y:155,text:'2. Generate & Score',size:12});
+Ink.dot(svg,{cx:450,cy:250,r:7,cls:'fillink-2'});
+Ink.text(svg,{x:450,y:280,text:'3. Analyze Gaps',size:12,anchor:'middle'});
+Ink.dot(svg,{cx:267,cy:150,r:7,cls:'fillink-2'});
+Ink.text(svg,{x:250,y:155,text:'4. Refine',size:12,anchor:'end'});
+  Ink.run();
+})();
+</script>
+</body></html>

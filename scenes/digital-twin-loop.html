@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Digital twin loop</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 240" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 240');
+
+Ink.circle(svg,{cx:180,cy:120,r:50,seed:1,label:'Simulate',size:12});
+Ink.circle(svg,{cx:420,cy:120,r:50,seed:2,label:'Decide',size:12});
+Ink.circle(svg,{cx:660,cy:120,r:50,seed:3,label:'Deploy',size:12});
+Ink.line(svg,{x1:230,y1:120,x2:370,y2:120,seed:10,dot:true});
+Ink.line(svg,{x1:470,y1:120,x2:610,y2:120,seed:11,dot:true});
+Ink.path(svg,{d:'M 660 170 C 520 210, 320 210, 180 170',cls:'ink ink-2',seed:20});
+Ink.text(svg,{x:360,y:222,text:'learn',size:12,cls:'label-hi',anchor:'middle'});
+  Ink.run();
+})();
+</script>
+</body></html>

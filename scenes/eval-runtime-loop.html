@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Runtime evaluation loop</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 980 260" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 980 260');
+
+Ink.rect(svg,{x:42,y:100,w:140,h:60,r:12,seed:1,label:'Intent',lx:70,ly:34,anchor:'middle'});
+Ink.rect(svg,{x:220,y:100,w:150,h:60,r:12,seed:2,label:'Policy gate',lx:75,ly:34,anchor:'middle'});
+Ink.rect(svg,{x:408,y:100,w:150,h:60,r:12,seed:3,label:'Action',lx:75,ly:34,anchor:'middle'});
+Ink.rect(svg,{x:596,y:100,w:150,h:60,r:12,seed:4,cls:'ink ink-2',hi:true,label:'Verification',lx:75,ly:34,anchor:'middle'});
+Ink.rect(svg,{x:784,y:100,w:150,h:60,r:12,seed:5,label:'Eval record',lx:75,ly:34,anchor:'middle'});
+Ink.line(svg,{x1:182,y1:130,x2:220,y2:130,seed:10,dot:true});
+Ink.line(svg,{x1:370,y1:130,x2:408,y2:130,seed:11,dot:true});
+Ink.line(svg,{x1:558,y1:130,x2:596,y2:130,seed:12,dot:true,cls:'ink ink-2',pulse:true});
+Ink.line(svg,{x1:746,y1:130,x2:784,y2:130,seed:13,dot:true});
+  Ink.run();
+})();
+</script>
+</body></html>

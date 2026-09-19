@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Intent to skill to workflow sequence</title>
+<style>
+  html,body{margin:0;padding:0;width:100%;height:100%;background:transparent;overflow:hidden}
+  .stage{position:absolute;inset:0}.stage svg{width:100%;height:100%;display:block}
+  .ink{stroke:#2a2012;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  .ink-2{stroke:#8c2f23}.ink-3{stroke:#9a7322}.fillink{fill:#2a2012;stroke:none}
+  html[data-theme='dark'] .ink{stroke:#efe5cf}html[data-theme='dark'] .ink-2{stroke:#c2564a}
+  html[data-theme='dark'] .ink-3{stroke:#c79a3e}html[data-theme='dark'] .fillink{fill:#efe5cf}
+  .label{font-family:'JetBrains Mono',ui-monospace,monospace;fill:#2a2012;opacity:.92}
+  html[data-theme='dark'] .label{fill:#efe5cf}
+  .label-hi{font-family:'JetBrains Mono',ui-monospace,monospace;fill:#8c2f23;opacity:.95;font-weight:600}
+  html[data-theme='dark'] .label-hi{fill:#c79a3e}
+  .num{font-family:'JetBrains Mono',ui-monospace,monospace;fill:#9a7322;opacity:.75;font-size:10px}
+  html[data-theme='dark'] .num{fill:#c79a3e}
+  .draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+  .pulse{animation:pulse 3.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+  @media (prefers-reduced-motion:reduce){.pulse{animation:none}}
+</style></head>
+<body><div class="stage">
+<svg viewBox="0 0 980 240" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- five nodes: a hand-drawn sequence from raw intent to a governed runtime -->
+  <path class="ink draw" stroke-width="1.8" d="M 46 120 Q 74 92 106 120 Q 74 148 46 120 Z" transform="translate(-2,0)"/>
+  <rect class="ink draw" x="40" y="92" width="130" height="56" rx="16" stroke-width="1.6"/>
+  <rect class="ink draw" x="214" y="92" width="130" height="56" rx="16" stroke-width="1.6"/>
+  <rect class="ink ink-2 draw" x="388" y="88" width="130" height="64" rx="18" stroke-width="2.2"/>
+  <rect class="ink draw" x="562" y="92" width="148" height="56" rx="16" stroke-width="1.6"/>
+  <rect class="ink draw" x="754" y="92" width="170" height="56" rx="16" stroke-width="1.6"/>
+
+  <text class="num" x="46" y="86">01</text>
+  <text class="label" x="78" y="126" font-size="13" text-anchor="middle">Intent</text>
+  <text class="num" x="220" y="86">02</text>
+  <text class="label" x="255" y="126" font-size="13" text-anchor="middle">Prompt</text>
+  <text class="num" x="394" y="82">03</text>
+  <text class="label-hi" x="430" y="126" font-size="14" text-anchor="middle">Skill</text>
+  <text class="num" x="568" y="86">04</text>
+  <text class="label" x="602" y="126" font-size="13" text-anchor="middle">Workflow</text>
+  <text class="num" x="760" y="86">05</text>
+  <text class="label" x="786" y="126" font-size="13" text-anchor="middle">Agent system</text>
+
+  <!-- hand-drawn connectors, not ruler-straight -->
+  <path class="ink ink-3 draw" stroke-width="1.6" d="M 170 119 Q 192 114 214 120"/>
+  <path class="ink ink-3 draw" stroke-width="1.6" d="M 344 119 Q 366 113 388 120"/>
+  <path class="ink ink-2 draw pulse" stroke-width="1.8" d="M 518 120 Q 540 115 562 120"/>
+  <path class="ink ink-3 draw" stroke-width="1.6" d="M 710 119 Q 732 114 754 120"/>
+
+  <circle class="fillink" cx="392" cy="120" r="2.4"/>
+  <circle class="fillink" cx="516" cy="120" r="2.4"/>
+</svg></div>
+<script>
+(function(){var root=document.documentElement;
+ function theme(){try{var p=window.parent&&window.parent.document.documentElement;var t=(p&&p.getAttribute('data-theme'))||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');root.setAttribute('data-theme',t);}catch(e){root.setAttribute('data-theme','light');}}
+ theme();try{var p=window.parent&&window.parent.document.documentElement;if(p)new MutationObserver(theme).observe(p,{attributes:true,attributeFilter:['data-theme']});}catch(e){}
+ function draw(){document.querySelectorAll('.draw').forEach(function(el,i){var len=(el.getTotalLength&&el.getTotalLength())||300;el.style.setProperty('--len',len);el.style.transition='none';el.style.strokeDashoffset=len;el.getBoundingClientRect();el.style.transition='stroke-dashoffset 1.4s cubic-bezier(0.16,1,0.3,1) '+(i*70)+'ms';el.style.strokeDashoffset='0';});}
+ addEventListener('load',draw);setTimeout(draw,60);})();
+</script></body></html>

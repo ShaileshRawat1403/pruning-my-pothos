@@ -1,0 +1,154 @@
+Options -Indexes
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# ---------------------------------------------------------------------------
+# Canonical host. Must stay first.
+# Search Console shows http://www. and https://www. both indexed and taking
+# traffic, which splits homepage signals three ways. Force https + non-www.
+# ---------------------------------------------------------------------------
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://pruningmypothos.com/$1 [R=301,L]
+
+# Legacy /resources/ index. Must run before the file guard below.
+RewriteRule ^resources/?$ /shelf/ [R=301,L]
+
+# ---------------------------------------------------------------------------
+# Stop rewriting anything that resolves to a real file or directory.
+# Without this, the rules below would 301 /resources/presentations/*.pdf
+# (8,383 impressions on ContentOpsPDF.pdf alone), the videos under
+# /resources/videos/, and the Next.js RSC payload files under /portfolio/.
+# The /resources/ index rule above deliberately sits before this guard.
+# ---------------------------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+
+# Renamed shelf paths.
+RewriteRule ^shelf/notes-tools/?$ /shelf/notes/ [R=301,L]
+RewriteRule ^shelf/notes-tools/obsidian-scratchpad/?$ /shelf/notes/obsidian-scratchpad/ [R=301,L]
+RewriteRule ^shelf/notes-tools/plaintext-logbook/?$ /shelf/notes/plaintext-logbook/ [R=301,L]
+
+# Retired category pages now consolidate to their section indexes.
+RewriteRule ^sentences/(attention|meaning|judgment)/?$ /sentences/ [R=301,L]
+RewriteRule ^systems/(concepts|explanations|how-things-fit-together)/?$ /systems/ [R=301,L]
+
+# Retired sticky-note paths now consolidate to the Sentiments index.
+RewriteRule ^notes/?$ /sentiments/ [R=301,L]
+RewriteRule ^notes/.+/?$ /sentiments/ [R=301,L]
+RewriteRule ^sticky-notes/?$ /sentiments/ [R=301,L]
+RewriteRule ^sticky-notes/.+/?$ /sentiments/ [R=301,L]
+
+# ---------------------------------------------------------------------------
+# Legacy URLs still earning impressions. Each target is the closest live page
+# on the same search intent. Impressions are 16-month GSC figures.
+# ---------------------------------------------------------------------------
+
+# 1,159 impressions at position 8.8, currently a hard 404. Highest-value fix
+# on the domain after the canonical host.
+RewriteRule ^prompt-engineering-mistakes-why-your-ai-prompt-didnt-work-and-how-to-fix-it/?$ /systems/prompting-is-not-the-skill-you-think-it-is/ [R=301,L]
+
+# 67 impressions. Same intent as above.
+RewriteRule ^the-art-of-the-second-question-a-guide-to-effective-ai-prompting/?$ /systems/prompting-is-not-the-skill-you-think-it-is/ [R=301,L]
+
+# 37 impressions. Exact topical match exists.
+RewriteRule ^retrieval-augmented-generation-rag/?$ /systems/retrieval-augmented-generation-in-plain-terms/ [R=301,L]
+
+# 71 impressions. The framework now lives in docs.
+RewriteRule ^dual-nlp-framework/?$ /docs/natural-language-programming-stack/ [R=301,L]
+
+# 439 + 317 + 57 impressions across three spellings of the same essay.
+RewriteRule ^2025/03/29/pruning-pothos-philosophy/?$ /about/ [R=301,L]
+RewriteRule ^2025/03/29/pothos-philosophy/?$ /about/ [R=301,L]
+RewriteRule ^pruning-pothos-philosophy/?$ /about/ [R=301,L]
+RewriteRule ^contact-page/?$ /about/ [R=301,L]
+
+# JUDGEMENT CALL, review this one: 243 impressions, no exact replacement.
+# Closest live intent is the human-in-the-loop publishing workflow piece.
+RewriteRule ^github-contribution-workflow-guide-for-writers/?$ /systems/ai-website-publishing-with-human-in-the-loop-control/ [R=301,L]
+
+# JUDGEMENT CALL, review this one: 158 impressions and 5 clicks, which makes it
+# the 6th most-clicked URL on the domain despite being a 404.
+RewriteRule ^evading-boredom-learning-ai-with-anne-carson/?$ /self/learning-edges/ [R=301,L]
+
+# Portfolio detail pages removed in the migration. ~700 impressions combined.
+RewriteRule ^portfolio/.+$ /portfolio/ [R=301,L]
+
+# WordPress-era section and taxonomy paths.
+RewriteRule ^blog/?$ /systems/ [R=301,L]
+RewriteRule ^category/.+$ /tags/ [R=301,L]
+RewriteRule ^tag/.+$ /tags/ [R=301,L]
+
+# WordPress leftovers.
+RewriteRule ^author/.+$ /about/ [R=301,L]
+RewriteRule ^gallery/?$ /canvases/ [R=301,L]
+RewriteRule ^wp-content/.+$ - [G,L]
+RewriteRule ^wp-(admin|login|json)(/.*)?$ - [G,L]
+
+# Legacy personal essays from the WordPress era. 13 URLs, 597 impressions,
+# zero clicks between them in 16 months, all off-strategy for the pivot.
+# They currently 404, which is a valid outcome: Google will drop them.
+# Uncomment to serve 410 instead, which drops them faster and shrinks the
+# "crawled - currently not indexed" backlog (193 pages). Reversible.
+# RewriteRule ^content-enablement-a-critical-strategy-for-change-management/?$ - [G,L]
+# RewriteRule ^the-anatomy-of-change-communications/?$ - [G,L]
+# RewriteRule ^artificial-intelligence-vs-natural-stupidity/?$ - [G,L]
+# RewriteRule ^ai-for-all-guide/?$ - [G,L]
+# RewriteRule ^attention-aint-broken-thinking-is-the-thinking-gap-and-a/?$ - [G,L]
+# RewriteRule ^conscience-of-an-unconscious-subconscious/?$ - [G,L]
+# RewriteRule ^slow-slow-fast-change-management-framework/?$ - [G,L]
+# RewriteRule ^overwatered-by-expectations/?$ - [G,L]
+# RewriteRule ^the-antithesis/?$ - [G,L]
+# RewriteRule ^category-terms-and-conditions-buster-keaton-branding-lessons/?$ - [G,L]
+# RewriteRule ^2025-best-time-to-be-a-writer/?$ - [G,L]
+# RewriteRule ^copywriting-needs-a-rest/?$ - [G,L]
+# RewriteRule ^unmute-write-in-voice/?$ - [G,L]
+# RewriteRule ^change-communication-isnt-a-message-its-a-translation/?$ - [G,L]
+# RewriteRule ^the-philosophy-of-faith-reason/?$ - [G,L]
+
+# Remaining WordPress date archives. Keep last so the specific rules above win.
+RewriteRule ^[0-9]{4}/[0-9]{2}/[0-9]{2}/?$ / [R=301,L]
+RewriteRule ^[0-9]{4}/[0-9]{2}/[0-9]{2}/(.+)$ /$1 [R=301,L]
+
+# Retired paths with no direct replacement.
+RewriteRule ^shelf/movies(/.*)?$ - [G,L]
+RewriteRule ^sentences/sentence-[0-9]+/?$ - [G,L]
+RewriteRule ^systems/simple-tokenizer/?$ - [G,L]
+RewriteRule ^shelf/music/music-recommendation/?$ - [G,L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+RedirectMatch 301 ^/shelf/notes-tools/?$ /shelf/notes/
+RedirectMatch 301 ^/shelf/notes-tools/obsidian-scratchpad/?$ /shelf/notes/obsidian-scratchpad/
+RedirectMatch 301 ^/shelf/notes-tools/plaintext-logbook/?$ /shelf/notes/plaintext-logbook/
+RedirectMatch 301 ^/sentences/(attention|meaning|judgment)/?$ /sentences/
+RedirectMatch 301 ^/systems/(concepts|explanations|how-things-fit-together)/?$ /systems/
+RedirectMatch 301 ^/notes(/.*)?$ /sentiments/
+RedirectMatch 301 ^/sticky-notes(/.*)?$ /sentiments/
+RedirectMatch 301 ^/prompt-engineering-mistakes-why-your-ai-prompt-didnt-work-and-how-to-fix-it/?$ /systems/prompting-is-not-the-skill-you-think-it-is/
+RedirectMatch 301 ^/the-art-of-the-second-question-a-guide-to-effective-ai-prompting/?$ /systems/prompting-is-not-the-skill-you-think-it-is/
+RedirectMatch 301 ^/retrieval-augmented-generation-rag/?$ /systems/retrieval-augmented-generation-in-plain-terms/
+RedirectMatch 301 ^/dual-nlp-framework/?$ /docs/natural-language-programming-stack/
+RedirectMatch 301 ^/2025/03/29/(pruning-pothos-philosophy|pothos-philosophy)/?$ /about/
+RedirectMatch 301 ^/pruning-pothos-philosophy/?$ /about/
+RedirectMatch 301 ^/contact-page/?$ /about/
+RedirectMatch 301 ^/github-contribution-workflow-guide-for-writers/?$ /systems/ai-website-publishing-with-human-in-the-loop-control/
+RedirectMatch 301 ^/evading-boredom-learning-ai-with-anne-carson/?$ /self/learning-edges/
+RedirectMatch 301 ^/portfolio/.+$ /portfolio/
+RedirectMatch 301 ^/blog/?$ /systems/
+RedirectMatch 301 ^/resources/?$ /shelf/
+RedirectMatch 301 ^/category/.+$ /tags/
+RedirectMatch 301 ^/tag/.+$ /tags/
+RedirectMatch 301 ^/author/.+$ /about/
+RedirectMatch 301 ^/gallery/?$ /canvases/
+RedirectMatch 410 ^/wp-content/
+RedirectMatch 410 ^/wp-(admin|login|json)
+RedirectMatch 410 ^/shelf/movies/
+RedirectMatch 410 ^/sentences/sentence-[0-9]+/?$
+RedirectMatch 410 ^/systems/simple-tokenizer/?$
+RedirectMatch 410 ^/shelf/music/music-recommendation/?$
+</IfModule>

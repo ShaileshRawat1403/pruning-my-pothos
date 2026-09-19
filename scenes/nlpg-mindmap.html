@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NLPg mindmap</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 1100 560" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 1100 560');
+
+Ink.circle(svg,{cx:550,cy:280,r:86,seed:1,sw:2,label:'NLPg',ly:-6,size:16});
+Ink.text(svg,{x:550,y:306,text:'SDLC Method',size:16,cls:'label-hi',anchor:'middle'});
+Ink.rect(svg,{x:160,y:90,w:250,h:80,r:14,seed:2,label:'Intent layer',lx:18,ly:30,size:13});
+Ink.text(svg,{x:178,y:145,text:'objective, scope, constraints',size:11,cls:'label label-muted'});
+Ink.rect(svg,{x:690,y:80,w:250,h:80,r:14,seed:3,label:'Instruction compiler',lx:18,ly:30,size:13});
+Ink.text(svg,{x:708,y:135,text:'language -> executable plan',size:11,cls:'label label-muted'});
+Ink.rect(svg,{x:780,y:240,w:250,h:80,r:14,seed:4,cls:'ink ink-2',hi:true,label:'Execution runtime',lx:18,ly:30,size:13});
+Ink.text(svg,{x:798,y:295,text:'agents, code, migrations, tests',size:11,cls:'label label-muted'});
+Ink.rect(svg,{x:700,y:400,w:250,h:80,r:14,seed:5,label:'Governance layer',lx:18,ly:30,size:13});
+Ink.text(svg,{x:718,y:455,text:'risk score, approval, policy',size:11,cls:'label label-muted'});
+Ink.rect(svg,{x:190,y:400,w:250,h:80,r:14,seed:6,label:'Validation harness',lx:18,ly:30,size:13});
+Ink.text(svg,{x:208,y:455,text:'schema, tests, diff checks',size:11,cls:'label label-muted'});
+Ink.rect(svg,{x:70,y:240,w:250,h:80,r:14,seed:7,label:'Delivery + telemetry',lx:18,ly:30,size:13});
+Ink.text(svg,{x:88,y:295,text:'CI, previews, feedback loops',size:11,cls:'label label-muted'});
+Ink.line(svg,{x1:480,y1:230,x2:410,y2:170,seed:20,bow:3});
+Ink.line(svg,{x1:620,y1:225,x2:690,y2:160,seed:21,bow:3});
+Ink.line(svg,{x1:640,y1:280,x2:780,y2:280,seed:22,bow:3,cls:'ink ink-2',pulse:true});
+Ink.line(svg,{x1:620,y1:335,x2:700,y2:400,seed:23,bow:3});
+Ink.line(svg,{x1:470,y1:335,x2:440,y2:400,seed:24,bow:3});
+Ink.line(svg,{x1:460,y1:280,x2:320,y2:280,seed:25,bow:3});
+  Ink.run();
+})();
+</script>
+</body></html>

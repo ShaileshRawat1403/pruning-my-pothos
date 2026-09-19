@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Five-layer architecture for a modern LLM application</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 980 310" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 980 310');
+
+Ink.rect(svg,{x:180,y:32,w:620,h:42,r:10,seed:1,label:'Layer 1: Model access and provider routing',lx:20,ly:26});
+Ink.rect(svg,{x:180,y:84,w:620,h:42,r:10,seed:2,label:'Layer 2: Knowledge, retrieval, and memory',lx:20,ly:26});
+Ink.rect(svg,{x:180,y:136,w:620,h:42,r:10,seed:3,cls:'ink ink-2',hi:true,label:'Layer 3: Orchestration, policy, and verification',lx:20,ly:26});
+Ink.rect(svg,{x:180,y:188,w:620,h:42,r:10,seed:4,label:'Layer 4: Interface, workflow, and user state',lx:20,ly:26});
+Ink.rect(svg,{x:180,y:240,w:620,h:42,r:10,seed:5,label:'Layer 5: Governance, observability, and operations',lx:20,ly:26});
+  Ink.run();
+})();
+</script>
+</body></html>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-labelledby="t d">
+<title id="t">Why Most AI Projects Fail After the Demo Stage</title>
+<desc id="d">Ink-illustration cover for Why Most AI Projects Fail After the Demo Stage</desc>
+<rect width="400" height="225" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="398.5" height="223.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 232.3 117.8 L 222.9 123.8 L 213.1 128.8 L 202.2 129.4 L 191.0 130.9 L 180.4 127.1 L 171.0 120.9 L 164.7 111.7 L 159.7 102.2 L 154.8 92.2 L 155.4 81.1 L 156.9 70.1 L 161.7 60.0 L 169.2 51.6 L 179.1 46.6 L 189.0 41.8 L 199.9 40.2 L 211.0 41.1 L 220.7 46.5 L 230.7 51.5 L 237.7 60.2 L 241.5 70.5 " stroke="#2a2012" stroke-width="1.80" fill="none" stroke-linecap="round"/>
+<path d="M 245.4 70.5 Q 247.0 70.3 244.1 73.7 Q 244.1 75.7 240.7 74.4 Q 239.1 75.2 237.9 72.3 Q 238.4 71.3 238.0 68.8 Q 238.7 69.1 240.6 66.6 Q 242.9 66.0 244.1 67.4 Q 246.7 70.0 245.4 70.5 Z" stroke="#8c2f23" stroke-width="1.60" fill="#8c2f23"/>
+<path d="M 235.3 117.8 Q 236.0 119.3 234.2 120.2 Q 234.9 120.2 231.6 120.7 Q 229.8 118.7 229.6 119.1 Q 231.9 118.4 229.5 116.4 Q 231.1 114.0 231.6 115.0 Q 231.1 117.4 234.2 115.4 Q 232.5 118.3 235.3 117.8 Z" stroke="#9a7322" stroke-width="1.40" fill="none"/>
+<text x="200.0" y="88.5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10.0" fill="#8c2f23" font-weight="700" text-anchor="middle">RUN</text>
+<text x="232.3" y="108.8" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.5" fill="#9a7322" text-anchor="middle">START</text>
+<text x="241.5" y="61.5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.5" fill="#8c2f23" text-anchor="middle">REVISE</text>
+<text x="200.0" y="155.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12.5" fill="#2a2012" font-weight="700" text-anchor="middle">MOST AI PROJECTS FAIL AFTER</text>
+<text x="386" y="215" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.0" fill="#2a2012" opacity="0.5" text-anchor="end">SYSTEMS · HOW-THINGS-FIT-TOGETHER</text>
+</svg>

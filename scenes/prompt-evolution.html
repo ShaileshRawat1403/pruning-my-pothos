@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Prompt Evolution</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 240" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 240');
+
+Ink.text(svg,{x:40,y:60,text:'Vague Prompt:',size:13});
+Ink.rect(svg,{x:40,y:70,w:200,h:40,r:10,seed:1,label:'"Write about marketing"',lx:20,ly:25,size:12});
+Ink.path(svg,{d:'M 240 95 C 350 55, 350 135, 450 95',seed:2,dash:true});
+Ink.text(svg,{x:500,y:60,text:'Specific Prompt:',size:13});
+Ink.rect(svg,{x:500,y:70,w:360,h:100,r:10,seed:3,cls:'ink ink-2',hi:true});
+Ink.text(svg,{x:520,y:95,text:'"Write 3 marketing slogans for a new coffee brand.',size:11,cls:'label'});
+Ink.text(svg,{x:520,y:115,text:'Tone: playful. Audience: young professionals.',size:11,cls:'label'});
+Ink.text(svg,{x:520,y:135,text:'Constraint: Each slogan under 5 words."',size:11,cls:'label'});
+Ink.line(svg,{x1:860,y1:120,x2:898,y2:120,cls:'ink ink-2',pulse:true,seed:4,dot:true,dotCls:'fillink-2'});
+  Ink.run();
+})();
+</script>
+</body></html>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-labelledby="t d">
+<title id="t">Prompting Is Not the Skill You Think It Is</title>
+<desc id="d">Ink-illustration cover for Prompting Is Not the Skill You Think It Is</desc>
+<rect width="400" height="225" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="398.5" height="223.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 134.2 42.8 L 236.9 42.6 Q 246.3 42.6 246.2 51.8 L 246.0 118.8 Q 246.3 127.2 236.9 127.6 L 134.2 128.0 Q 124.9 127.5 124.8 118.8 L 124.6 51.8 Q 124.9 43.5 134.2 42.8 Z" stroke="#2a2012" stroke-width="1.50" fill="none"/>
+<path d="M 192.2 47.6 L 279.5 47.4 Q 288.6 47.0 288.3 56.6 L 288.5 108.8 Q 288.5 118.5 279.5 118.1 L 192.2 117.3 Q 183.2 118.0 183.0 108.8 L 182.6 56.6 Q 182.9 47.3 192.2 47.6 Z" stroke="#8c2f23" stroke-width="1.80" fill="none"/>
+<text x="185.6" y="37.4" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.5" fill="#2a2012" text-anchor="middle">PROMPTING</text>
+<text x="236.4" y="129.8" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.5" fill="#8c2f23" text-anchor="middle">YOU THINK</text>
+<text x="200.0" y="155.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12.5" fill="#2a2012" font-weight="700" text-anchor="middle">PROMPTING SKILL YOU THINK</text>
+<text x="386" y="215" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.0" fill="#2a2012" opacity="0.5" text-anchor="end">SYSTEMS · EXPLANATIONS</text>
+</svg>

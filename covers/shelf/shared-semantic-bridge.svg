@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">AI skill design templates</title>
+<desc id="d">Ink-illustration cover for AI skill design templates</desc>
+<rect width="1200" height="675" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="1198.5" height="673.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 600.0 140.7 L 744.0 177.7 L 744.0 270.4 Q 744.0 372.3 600.0 370.0 Q 456.0 372.3 456.0 270.4 L 456.0 177.7 Z" stroke="#8c2f23" stroke-width="5.40" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 608.8 251.9 Q 605.1 253.5 605.4 258.6 Q 600.0 257.4 597.9 261.0 Q 596.0 257.5 591.6 255.9 Q 591.5 251.4 592.3 248.1 Q 593.3 244.5 598.0 242.9 Q 599.7 244.5 605.8 244.6 Q 608.9 250.2 608.8 251.9 Z" stroke="#2a2012" stroke-width="4.20" fill="none"/>
+<text x="600.0" y="116.7" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="27.0" fill="#8c2f23" font-weight="700" text-anchor="middle">GOVERNED</text>
+<text x="600.0" y="465.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="37.5" fill="#2a2012" font-weight="700" text-anchor="middle">AI SKILL DESIGN TEMPLATES</text>
+<text x="1186" y="665" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24.0" fill="#2a2012" opacity="0.5" text-anchor="end">SHELF · SHARED RESOURCES</text>
+</svg>

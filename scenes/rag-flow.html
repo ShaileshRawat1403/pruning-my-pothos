@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>RAG Pipeline</title>
+<link rel="stylesheet" href="/scenes/ink-style.css"/>
+</head>
+<body><div class="stage"><svg id="s" viewBox="0 0 900 300" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<script src="/scenes/ink-lib.js"></script>
+<script>
+(function(){
+  var svg = Ink.svg('0 0 900 300');
+
+Ink.text(svg,{x:40,y:80,text:'1. Query',size:13});
+Ink.rect(svg,{x:40,y:90,w:150,h:60,r:10,seed:1,label:'User Question',lx:20,ly:38,size:12});
+Ink.line(svg,{x1:190,y1:120,x2:290,y2:120,seed:2,dot:true});
+Ink.text(svg,{x:300,y:80,text:'2. Retrieve',size:13});
+Ink.rect(svg,{x:300,y:90,w:150,h:60,r:10,seed:3,label:'Search Docs',lx:20,ly:38,size:12});
+Ink.line(svg,{x1:375,y1:150,x2:375,y2:205,seed:4,dot:true,bow:2});
+Ink.rect(svg,{x:300,y:210,w:150,h:60,r:10,seed:5,dash:true,label:'Knowledge Base',lx:10,ly:38,size:12});
+Ink.line(svg,{x1:450,y1:120,x2:550,y2:120,seed:6,dot:true});
+Ink.text(svg,{x:560,y:80,text:'3. Augment & 4. Generate',size:13});
+Ink.rect(svg,{x:560,y:90,w:280,h:80,r:10,seed:7,cls:'ink ink-2',hi:true,label:'Prompt + Retrieved Docs',lx:20,ly:30,size:12});
+Ink.text(svg,{x:650,y:150,text:'=> LLM',size:13,cls:'label-hi'});
+  Ink.run();
+})();
+</script>
+</body></html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hero of Alexandria — brass programs</title>
+<style>
+  html,body{margin:0;padding:0;width:100%;height:100%;background:transparent;overflow:hidden}
+  .stage{position:absolute;inset:0}.stage svg{width:100%;height:100%;display:block}
+  .ink{stroke:#2a2012;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  .ink-2{stroke:#8c2f23}.ink-3{stroke:#9a7322}.fillink{fill:#2a2012;stroke:none}
+  .fill-3{fill:#9a7322;stroke:none}
+  html[data-theme='dark'] .ink{stroke:#efe5cf}html[data-theme='dark'] .ink-2{stroke:#c2564a}
+  html[data-theme='dark'] .ink-3{stroke:#c79a3e}html[data-theme='dark'] .fillink{fill:#efe5cf}
+  html[data-theme='dark'] .fill-3{fill:#c79a3e}
+  .draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+  .turn{transform-origin:300px 250px;animation:spin 24s linear infinite}
+  .turn2{transform-origin:404px 312px;animation:spin 18s linear infinite reverse}
+  .drum{transform-origin:610px 270px;animation:spin 14s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .steam{animation:steam 6s ease-in-out infinite}
+  @keyframes steam{0%{opacity:0;transform:translateY(6px)}40%{opacity:.7}100%{opacity:0;transform:translateY(-22px)}}
+  @media (prefers-reduced-motion:reduce){.turn,.turn2,.drum,.steam{animation:none}}
+</style></head>
+<body><div class="stage">
+<svg viewBox="0 0 900 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- gear A -->
+  <g class="turn">
+    <circle class="ink ink-3 draw" cx="300" cy="250" r="66" stroke-width="2.2"/>
+    <circle class="ink draw" cx="300" cy="250" r="18" stroke-width="1.6"/>
+    <g class="ink ink-3" stroke-width="3">
+      <line class="draw" x1="300" y1="184" x2="300" y2="170"/><line class="draw" x1="366" y1="250" x2="380" y2="250"/>
+      <line class="draw" x1="300" y1="316" x2="300" y2="330"/><line class="draw" x1="234" y1="250" x2="220" y2="250"/>
+      <line class="draw" x1="347" y1="203" x2="357" y2="193"/><line class="draw" x1="347" y1="297" x2="357" y2="307"/>
+      <line class="draw" x1="253" y1="297" x2="243" y2="307"/><line class="draw" x1="253" y1="203" x2="243" y2="193"/>
+    </g>
+  </g>
+  <!-- gear B, meshed -->
+  <g class="turn2">
+    <circle class="ink draw" cx="404" cy="312" r="46" stroke-width="2"/>
+    <circle class="ink draw" cx="404" cy="312" r="12" stroke-width="1.4"/>
+    <g class="ink" stroke-width="2.6">
+      <line class="draw" x1="404" y1="266" x2="404" y2="255"/><line class="draw" x1="450" y1="312" x2="461" y2="312"/>
+      <line class="draw" x1="404" y1="358" x2="404" y2="369"/><line class="draw" x1="358" y1="312" x2="347" y2="312"/>
+    </g>
+  </g>
+
+  <!-- the peg drum: the program, in brass and dots -->
+  <g class="drum">
+    <ellipse class="ink ink-2 draw" cx="610" cy="270" rx="70" ry="30" stroke-width="2"/>
+  </g>
+  <path class="ink ink-2 draw" stroke-width="2" d="M 540 270 L 540 360"/>
+  <path class="ink ink-2 draw" stroke-width="2" d="M 680 270 L 680 360"/>
+  <ellipse class="ink ink-2 draw" cx="610" cy="360" rx="70" ry="30" stroke-width="2"/>
+  <!-- pegs -->
+  <g class="fill-3">
+    <circle cx="580" cy="300" r="4"/><circle cx="612" cy="292" r="4"/><circle cx="644" cy="302" r="4"/>
+    <circle cx="596" cy="330" r="4"/><circle cx="628" cy="330" r="4"/><circle cx="580" cy="342" r="4"/><circle cx="648" cy="338" r="4"/>
+  </g>
+
+  <!-- steam -->
+  <g class="ink" stroke-width="1.6" opacity="0.7">
+    <path class="steam" d="M 600 236 q 10 -12 0 -24 q -10 -12 0 -24"/>
+    <path class="steam" style="animation-delay:-3s" d="M 626 240 q 8 -10 0 -20"/>
+  </g>
+
+  <!-- the cart on its track -->
+  <line class="ink draw" x1="120" y1="470" x2="800" y2="470" stroke-width="2"/>
+  <g>
+    <rect class="ink draw" x="470" y="418" width="120" height="42" rx="4" stroke-width="2"/>
+    <circle class="ink ink-3 draw" cx="500" cy="470" r="14" stroke-width="2"/>
+    <circle class="ink ink-3 draw" cx="560" cy="470" r="14" stroke-width="2"/>
+    <!-- string to the drum: the instruction feed -->
+    <path class="ink ink-3 draw" stroke-width="1.4" d="M 590 428 C 660 420 640 380 610 360"/>
+  </g>
+</svg></div>
+<script>
+(function(){var root=document.documentElement;
+ function theme(){try{var p=window.parent&&window.parent.document.documentElement;var t=(p&&p.getAttribute('data-theme'))||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');root.setAttribute('data-theme',t);}catch(e){root.setAttribute('data-theme','light');}}
+ theme();try{var p=window.parent&&window.parent.document.documentElement;if(p)new MutationObserver(theme).observe(p,{attributes:true,attributeFilter:['data-theme']});}catch(e){}
+ function draw(){document.querySelectorAll('.draw').forEach(function(el,i){var len=(el.getTotalLength&&el.getTotalLength())||300;el.style.setProperty('--len',len);el.style.transition='none';el.style.strokeDashoffset=len;el.getBoundingClientRect();el.style.transition='stroke-dashoffset 1.6s cubic-bezier(0.16,1,0.3,1) '+(i*40)+'ms';el.style.strokeDashoffset='0';});}
+ addEventListener('load',draw);setTimeout(draw,60);})();
+</script></body></html>

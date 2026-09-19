@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">Tools: AI CLIs</title>
+<desc id="d">Ink-illustration cover for Tools: AI CLIs</desc>
+<rect width="1200" height="675" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="1198.5" height="673.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 288.0 256.5 Q 436.7 254.5 600.0 258.8" stroke="#2a2012" stroke-width="4.80" fill="none" stroke-linecap="round"/>
+<path d="M 600.0 258.8 Q 760.0 185.3 912.0 126.0" stroke="#8c2f23" stroke-width="4.80" fill="none" stroke-linecap="round"/>
+<path d="M 600.0 258.8 Q 732.6 337.1 912.0 387.0" stroke="#9a7322" stroke-width="4.20" fill="none" stroke-linecap="round" opacity="0.85"/>
+<path d="M 299.6 256.5 Q 299.7 260.3 295.5 266.0 Q 291.8 265.0 285.4 267.9 Q 280.0 262.9 277.2 261.7 Q 279.3 258.3 277.0 251.2 Q 280.4 246.3 285.4 244.9 Q 289.1 247.9 295.3 247.3 Q 295.5 252.2 299.6 256.5 Z" stroke="#2a2012" stroke-width="3.90" fill="none"/>
+<path d="M 615.5 258.8 Q 612.8 266.8 609.1 270.3 Q 604.4 273.9 596.6 273.9 Q 591.5 269.1 586.4 265.4 Q 585.7 258.1 586.3 252.2 Q 591.4 249.9 596.7 244.3 Q 605.1 247.6 609.7 246.7 Q 612.5 251.3 615.5 258.8 Z" stroke="#8c2f23" stroke-width="3.90" fill="none"/>
+<path d="M 922.8 126.0 Q 920.5 132.0 919.0 134.8 Q 913.6 136.0 909.6 136.7 Q 906.9 132.0 901.9 130.9 Q 903.3 127.7 901.9 121.1 Q 904.7 117.1 909.7 115.9 Q 912.3 118.7 919.0 117.2 Q 922.9 120.9 922.8 126.0 Z" stroke="#2a2012" stroke-width="3.90" fill="none"/>
+<path d="M 922.9 387.0 Q 920.3 392.2 918.9 395.6 Q 915.5 396.5 909.6 397.6 Q 907.3 396.1 902.3 391.7 Q 902.6 388.8 902.0 382.2 Q 906.6 378.0 909.5 376.1 Q 914.4 375.3 919.0 378.3 Q 922.3 382.2 922.9 387.0 Z" stroke="#9a7322" stroke-width="3.90" fill="none"/>
+<text x="600.0" y="465.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="37.5" fill="#2a2012" font-weight="700" text-anchor="middle">TOOLS</text>
+<text x="1186" y="665" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24.0" fill="#2a2012" opacity="0.5" text-anchor="end">SHELF · TOOLS</text>
+</svg>

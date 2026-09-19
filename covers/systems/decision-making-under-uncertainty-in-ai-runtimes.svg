@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-labelledby="t d">
+<title id="t">Decision-Making Under Uncertainty in AI Runtimes</title>
+<desc id="d">Ink-illustration cover for Decision-Making Under Uncertainty in AI Runtimes</desc>
+<rect width="400" height="225" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="398.5" height="223.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 96.0 85.5 Q 147.3 82.9 192.0 86.8" stroke="#2a2012" stroke-width="1.80" fill="none" stroke-linecap="round"/>
+<path d="M 192.0 86.8 Q 245.6 57.2 304.0 40.0" stroke="#9a7322" stroke-width="1.40" fill="none" stroke-linecap="round" opacity="0.88"/>
+<path d="M 307.5 40.0 Q 306.2 39.0 306.1 42.6 Q 306.4 44.7 303.2 43.4 Q 304.4 41.3 300.9 41.5 Q 302.9 40.7 301.0 38.5 Q 303.7 35.5 303.2 36.7 Q 304.3 38.2 306.1 37.3 Q 307.5 37.1 307.5 40.0 Z" stroke="#9a7322" stroke-width="1.30" fill="none"/>
+<text x="311.0" y="43.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.5" fill="#9a7322" text-anchor="start">DECISION</text>
+<path d="M 192.0 86.8 Q 253.9 78.5 312.0 85.5" stroke="#8c2f23" stroke-width="1.40" fill="none" stroke-linecap="round" opacity="0.88"/>
+<path d="M 315.4 85.5 Q 313.5 85.9 314.1 88.1 Q 310.3 87.8 311.3 88.7 Q 312.4 87.0 309.0 86.9 Q 309.0 85.2 308.9 84.0 Q 308.6 85.3 311.3 82.3 Q 313.1 81.4 314.2 82.8 Q 315.7 84.7 315.4 85.5 Z" stroke="#8c2f23" stroke-width="1.30" fill="none"/>
+<text x="319.0" y="88.5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.5" fill="#8c2f23" text-anchor="start">UNCERTAINT</text>
+<path d="M 192.0 86.8 Q 247.8 105.1 296.0 131.0" stroke="#9a7322" stroke-width="1.40" fill="none" stroke-linecap="round" opacity="0.88"/>
+<path d="M 299.5 131.0 Q 300.8 131.5 298.2 133.7 Q 296.1 132.3 295.2 134.4 Q 292.8 134.2 292.9 132.5 Q 293.2 131.8 293.0 129.6 Q 295.8 126.6 295.2 127.5 Q 296.3 127.2 298.1 128.3 Q 297.7 129.4 299.5 131.0 Z" stroke="#9a7322" stroke-width="1.30" fill="none"/>
+<text x="303.0" y="134.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.5" fill="#9a7322" text-anchor="start">GOVERNANCE</text>
+<path d="M 195.9 86.8 Q 195.8 88.9 194.5 89.9 Q 193.2 90.1 191.1 90.8 Q 187.9 88.1 188.5 88.5 Q 188.1 89.2 188.5 85.1 Q 188.8 83.3 191.1 82.9 Q 192.9 82.2 194.6 83.6 Q 195.6 84.5 195.9 86.8 Z" stroke="#8c2f23" stroke-width="1.60" fill="#8c2f23"/>
+<text x="96.0" y="76.5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.5" fill="#2a2012" text-anchor="middle">DECIDE</text>
+<text x="200.0" y="155.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12.5" fill="#2a2012" font-weight="700" text-anchor="middle">DECISION-MAKING UNDER</text>
+<text x="386" y="215" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="8.0" fill="#2a2012" opacity="0.5" text-anchor="end">SYSTEMS · EXPLANATIONS</text>
+</svg>
