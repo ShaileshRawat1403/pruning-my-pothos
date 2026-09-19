@@ -1,43 +1,25 @@
 # Pruning My Pothos
 
-> A practical publication and working lab about understanding AI by building with it, inspecting it, and explaining what holds up. Written by Shailesh Rawat. Explainers, field notes and architectural breakdowns of AI systems, grounded in real use and explained in plain language.
+> A publication and working lab about understanding AI by building with it,
+> inspecting it, and explaining what holds up. Written by Shailesh Rawat.
+> Systems is where ideas are built, inspected, and explained. Sentiments is
+> where they are reflected on.
 
 Author: Shailesh Rawat, AI Systems Consultant and Technical Communicator.
 Site: https://pruningmypothos.com/
-Full page index: https://pruningmypothos.com/sitemap.xml
-Feed: https://pruningmypothos.com/rss.xml
 
-Note on counts: this file deliberately states no article or tool totals, because they drift. The sitemap and feed above are the authoritative index.
+## Sections
 
-## Systems (long-form writing)
-
-- [Systems index](https://pruningmypothos.com/systems/): explainers and breakdowns on AI orchestration, governance, evaluation, retrieval and architecture
-- [AI Agents vs AI Workflows](https://pruningmypothos.com/systems/ai-agents-vs-ai-workflows/): who chooses the next step, and how much freedom the running system allows
-- [Tool Use: When Language Triggers Actions](https://pruningmypothos.com/systems/tool-use-when-language-triggers-actions/): how a model's output becomes an action, and who authorises it
-- [What a System Prompt Actually Is](https://pruningmypothos.com/systems/what-a-system-prompt-actually-is/): standing configuration versus task instructions, and what that costs
-- [Structured Output and Why It Matters](https://pruningmypothos.com/systems/structured-output-and-why-it-matters/): why valid JSON still needs checks before software acts on it
-- [Context Windows as Working Memory](https://pruningmypothos.com/systems/context-windows-as-working-memory/): why placement matters as much as volume
-- [Retrieval-Augmented Generation in Plain Terms](https://pruningmypothos.com/systems/retrieval-augmented-generation-in-plain-terms/): how retrieval grounds answers and where it still fails
-- [Skills vs Prompts vs Agents](https://pruningmypothos.com/systems/skills-vs-prompts-vs-agents/): a map of the terms and which layer a problem belongs to
-
-## Tools
-
-- [Tools index](https://pruningmypothos.com/tools/): browser-native, local-first utilities for AI-assisted work, including prompt-to-JSON, CSV-to-eval, repo context packing, workflow diagrams and secret scanning. They run in the browser and send nothing to a server.
-
-## Docs
-
-- [Natural Language Programming Stack](https://pruningmypothos.com/docs/natural-language-programming-stack/): the architecture behind the NLPg approach
-- [Public/Private Boundary](https://pruningmypothos.com/docs/public-private-boundary/): data safety bounds for the site's tooling
-
-## Reflections
-
-- [Sentences](https://pruningmypothos.com/sentences/): short decision rules and observations on AI systems
+- [Systems](https://pruningmypothos.com/systems/): long-form explainers and breakdowns of AI systems
+- [Sentences](https://pruningmypothos.com/sentences/): short decision rules and observations
 - [Self](https://pruningmypothos.com/self/): essays on practice, judgment and learning in public
-
-## Shelf
-
-- [Shelf](https://pruningmypothos.com/shelf/): local experiments, shared resources, notes and references, including setup runs and baselines performed on real hardware
-
-## About
-
+- [Shelf](https://pruningmypothos.com/shelf/): experiments, resources, notes and references
+- [Tools](https://pruningmypothos.com/tools/): browser-native, local-first utilities that send nothing to a server
+- [Docs](https://pruningmypothos.com/docs/): reference documentation for the working model
+- [Schema](https://pruningmypothos.com/schema/): the thinking underneath the work
 - [About](https://pruningmypothos.com/about/): who builds this and why
+
+## Machine-readable indexes
+
+- Full page index: https://pruningmypothos.com/sitemap.xml
+- Feed: https://pruningmypothos.com/rss.xml

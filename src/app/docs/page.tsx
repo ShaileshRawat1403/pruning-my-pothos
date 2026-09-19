@@ -57,7 +57,7 @@ export default function DocsIntroPage() {
         <section className="flex flex-col gap-4">
           <h2 className="font-heading text-xl font-bold text-[color:var(--text-primary)]">Introduction</h2>
           <p className="text-[color:var(--text-secondary)] text-sm leading-relaxed">
-            Sans Serif Systems is a solo-builder systems laboratory and utility bench dedicated to making AI-assisted operations predictable, verifiable, and secure. It is built for anyone who wants to build, not only those who write code. Natural language is the new API, and intent is the interface.
+            Pruning My Pothos is a publication and working lab for understanding AI by putting it to work. The documentation here records the systems, experiments, boundaries, and working models behind that practice.
           </p>
           <p className="text-[color:var(--text-secondary)] text-sm leading-relaxed">
             The philosophy rejects raw, ad-hoc, untracked prompt snippets in favor of formal execution loops, structured interfaces, and strict build ledgers. You bring the intent; the system keeps it honest.

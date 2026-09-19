@@ -87,7 +87,7 @@ export default async function DocSubpage({ params }: PageProps) {
         <div className="card-glass p-6 sm:p-8 flex flex-col gap-6 bg-[color:var(--bg-color)]">
           <h2 className="font-heading text-xl font-bold text-[color:var(--text-primary)]">The Seven Layers of Alignment</h2>
           <p className="text-[color:var(--text-secondary)] text-sm leading-relaxed">
-            Prompt engineering alone is insufficient to build production systems. Under the Sans Serif operating model, a prompt is merely the topmost layer of an integrated system stack designed to ensure verification, safety, and correctness.
+            Prompt engineering alone is insufficient to build production systems. Under this operating model, a prompt is merely the topmost layer of an integrated system stack designed to ensure verification, safety, and correctness.
           </p>
 
           {/* Table list */}
@@ -187,7 +187,7 @@ export default async function DocSubpage({ params }: PageProps) {
         <div className="card-glass p-6 sm:p-8 flex flex-col gap-6 bg-[color:var(--bg-color)]">
           <h2 className="font-heading text-xl font-bold text-[color:var(--text-primary)]">Ecosystem Partitioning</h2>
           <p className="text-[color:var(--text-secondary)] text-sm leading-relaxed">
-            Sans Serif Systems operates as a hybrid environment. To guarantee predictability for local build environments while keeping client proprietary codebase configurations secure, the lab separates public utility tools from the private execution engine.
+            Pruning My Pothos operates as a hybrid environment. To guarantee predictability for local build environments while keeping client proprietary codebase configurations secure, the lab separates public utility tools from the private execution engine.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 my-4">

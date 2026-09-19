@@ -5,17 +5,17 @@ import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema, getPersonSchema } from "../../lib/seo/jsonld";
 
 export const metadata = constructMetadata({
-  title: "About Systems",
+  title: "About",
   description:
-    "The thinker, tinkerer, and translator behind Sans Serif Systems: a solo-builder systems laboratory for predictable, verifiable, and secure AI-assisted work.",
+    "The thinker, tinkerer, and translator behind Pruning My Pothos: a publication and working lab for understanding AI by putting it to work.",
   path: "/about",
 });
 
 export default function AboutPage() {
   const schema = getWebPageSchema({
-    title: "About Systems",
+    title: "About",
     description:
-      "The thinker, tinkerer, and translator behind Sans Serif Systems: a solo-builder systems laboratory for predictable, verifiable, and secure AI-assisted work.",
+      "The thinker, tinkerer, and translator behind Pruning My Pothos: a publication and working lab for understanding AI by putting it to work.",
     path: "/about",
   });
 
@@ -67,15 +67,14 @@ export default function AboutPage() {
             style={{ color: "var(--text-primary)" }}
           >
             About{" "}
-            <span className="gradient-text">Sans Serif Systems</span>
+            <span className="gradient-text">Pruning My Pothos</span>
           </h1>
 
           <p className="text-base leading-relaxed max-w-2xl" style={{ color: "var(--text-secondary)" }}>
-            Thinker. Tinkerer. Translator. A solo-builder systems laboratory for
-            making AI-assisted work predictable, verifiable, and secure. The one
-            belief underneath all of it:{" "}
+            Thinker. Tinkerer. Translator. I build with AI, test what happens,
+            and explain what I learn in plain language.{" "}
             <span className="font-heading italic" style={{ color: "var(--text-primary)" }}>
-              clarity should survive complexity.
+              Clarity should survive complexity.
             </span>
           </p>
         </div>
@@ -109,8 +108,9 @@ export default function AboutPage() {
             <p>
               Hi, I&apos;m{" "}
               <span style={{ color: "var(--text-primary)", fontWeight: 600 }}>Shailesh Rawat</span>.
-              Sans Serif Systems is a public platform for open tools, workflow
-              canvases, and governed AI-assisted development patterns.
+              Pruning My Pothos is the publication and working lab. Systems is
+              where ideas are built, inspected, and explained. Sentiments is
+              where they&apos;re reflected on.
             </p>
             <p>
               The goal is not to ship another prompt library. The goal is to make

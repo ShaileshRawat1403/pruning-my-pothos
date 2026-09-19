@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const SAMPLE_CSV = `query,response,expected_criteria
-"What is the system theme?","Sans Serif Systems uses a dark cyber theme.","Must reference dark cyber theme"
+"Does the reply match the schema?","The response follows the requested JSON schema.","Must state schema compliance"
 "Explain guided loops.","Guided loops use evaluation checks to auto-correct errors.","Should mention eval checks and self-correction"`;
 
 export default function CsvToEvalClient() {
