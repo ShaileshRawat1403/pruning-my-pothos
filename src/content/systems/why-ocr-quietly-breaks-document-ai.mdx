@@ -1,7 +1,8 @@
 ---
+schemaVersion: "1.0"
 title: "Why OCR Quietly Breaks Document AI"
 publishDate: "2026-07-07"
-updatedAt: "2026-07-07"
+updatedAt: "2026-09-20"
 description: "OCR sits at the front of every document pipeline. When it misreads a table or a total, every retrieval step and every answer downstream inherits that error."
 category: "Explanations"
 heroImage: '/covers/systems/why-ocr-quietly-breaks-document-ai.svg'
@@ -14,84 +15,85 @@ tags:
   - reliability
 featured: false
 contentType: 'deep-dive'
-readingTime: 7
+readingTime: 6
 difficulty: 'intermediate'
-proofPoints:
-  - Names OCR as an upstream reliability boundary, not solved plumbing
-  - Explains why one engine rarely wins across every document type
-  - Frames re-benchmarking as a habit rather than a one-time choice
-faq:
-  - question: Why does OCR quality matter for RAG and document AI?
-    answer: "OCR is the first step in almost every document-AI pipeline. If it misreads a total, a date, or which cell a number belongs in, that error is baked into the text before retrieval or the model ever sees it. A retrieval system cannot find a figure that was merged into the wrong cell, and a language model will answer confidently from text that was already garbled on arrival."
-  - question: Is there one OCR engine that works best for everything?
-    answer: "Usually not. Engines that lead on clean, structured documents like invoices often fall behind on messy, mixed-layout material, and the reverse also holds. Document type changes the ranking more than most teams expect, which is why routing by document type tends to beat standardizing on one engine."
-  - question: How often should a document pipeline re-check its OCR choice?
-    answer: "On a schedule, not once. Engines and models change from one release to the next, so a benchmark result that justified a choice last quarter is evidence with an expiry date. Treat re-benchmarking as a recurring operational habit tied to your own documents, not a public leaderboard."
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Identify OCR as an upstream ingestion failure, and check the extraction step separately instead of assuming a bad answer came from the model."
+thesis: "Extraction errors enter a document pipeline before retrieval exists, so no amount of retrieval or prompting downstream can recover information that was already lost or garbled on the way in."
+shortAnswer: "In a document pipeline the page is converted to text before anything else happens, so the quality of that conversion sets a ceiling on retrieval and on every answer that follows. A figure merged into the wrong cell cannot be retrieved correctly later, and a model reading garbled text will answer from it confidently. Scoring only the final answer hides this, because a reasoning failure and an extraction failure look the same from the outside."
+
+boundary:
+  is: "An explainer of why document extraction is a distinct reliability boundary upstream of retrieval, and what follows from that for pipeline design."
+  isNot: "A ranking of OCR engines, a benchmark of its own, or a claim about industry-wide OCR accuracy."
+  mattersWhen: "A document question returns a wrong number and the model is the first thing blamed."
+
+provenance:
+  primary: external
+  sources:
+    - id: newtuple-ocr-benchmark
+      type: benchmark
+      url: "https://www.newtuple.com/post/ocr-benchmark-paddleocr-docling-llamaparse-surya"
+      citation: "Newtuple, OCR benchmark comparing PaddleOCR, Docling, LlamaParse and Surya across invoice, financial-table and mixed-document test sets."
+  claims:
+    - statement: "Within that benchmark no engine led every category, and the engine that led the easiest category was not the one that led the hardest."
+      kind: external
+      sources:
+        - newtuple-ocr-benchmark
+    - statement: "On invoice run A, Docling led at 0.98, while on the mixed set LlamaParse and PaddleOCR tied at 0.79 and Docling fell to 0.69."
+      kind: external
+      sources:
+        - newtuple-ocr-benchmark
+    - statement: "An error introduced at the first step does not stay contained there."
+      kind: synthesis
 ---
-
-> **Key takeaways**
-> - OCR sits upstream of retrieval and generation, so its errors are inherited, not corrected, by everything downstream.
-> - No single engine wins across every document type; routing by type beats standardizing on one.
-> - A benchmark result is evidence with an expiry date. Re-run it on your own documents, on a schedule.
-> - The tokens OCR gets wrong are usually the ones that carry the most meaning: totals, dates, and table relationships.
-
-This article is for practitioners and engineering teams deploying document processing pipelines who need to identify where quiet data degradation begins. Hands-on testing runs and benchmarks can be explored in our [Local Experiments](/shelf/local-experiments/).
 
 Most teams treat OCR as solved plumbing and spend their attention on the model at the end of the chain. That ordering gets the failure mode backwards.
 
-### Why is OCR the silent failure point in document AI?
+Before a model can answer a question about an invoice or summarise a filing, some engine has to turn the page into text. The quality of that text sets a ceiling on everything after it. A pipeline that spends its evaluation budget on the model while trusting extraction by default is optimising the part least likely to be the actual bottleneck.
 
-OCR is the first step in almost every document-AI system. Before a model can answer a question about an invoice or summarize a filing, some engine has to turn the page into text, and the quality of that text sets a ceiling on everything that follows. A pipeline that spends its evaluation budget on the model while trusting OCR by default is optimizing the part of the system least likely to be the actual bottleneck.
+## The pipeline runs in one direction
 
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: The upstream problem</summary>
-      <ol>
-        <li><a href="#the-pipeline-runs-in-one-direction">The pipeline runs in one direction</a></li>
-        <li><a href="#why-no-single-engine-wins">Why no single engine wins</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: What to do about it</summary>
-      <ol>
-        <li><a href="#route-by-document-type">Route by document type</a></li>
-        <li><a href="#a-worked-example">A worked example</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Making it durable</summary>
-      <ol>
-        <li><a href="#re-benchmarking-as-a-habit">Re-benchmarking as a habit</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+```text
+document
+    ↓
+extraction / OCR
+    ↓
+text and structure
+    ↓
+indexing and retrieval
+    ↓
+context
+    ↓
+model
+```
 
-## Act I: The upstream problem
+**An error introduced at the first step does not stay contained there.** It is preserved through indexing, it shapes what gets retrieved, and it gets amplified once a model reasons over it confidently. Retrieval cannot find a figure that was merged into the wrong cell. No prompt recovers a total that was never read correctly.
 
-### The pipeline runs in one direction
+The errors also land badly. They concentrate on the tokens that carry the most meaning: totals, dates, labels, and the relationships between cells in a table. Those are exactly the tokens a downstream answer leans on hardest, which is why a modest-looking accuracy score can still produce a badly wrong answer.
 
-Document AI runs in a fixed sequence: the document is read, then chunked and indexed, then retrieved, then answered. An error introduced at the first step does not stay contained there; it is preserved through indexing, it shapes what gets retrieved, and it gets amplified once a language model reasons over it confidently.
+If your evaluation scores the final answer but never scores the extraction step on its own, you cannot tell whether a bad answer came from reasoning or from a page that was already garbled before the model saw it.
 
-In practice, <span class="highlight">a mediocre OCR score does not translate into a proportionally smaller number of usable answers</span>, because the errors concentrate on the tokens that carry the most meaning: totals, dates, labels, and table relationships. Those are exactly the tokens a downstream model leans on hardest.
+## Why no single engine wins
 
-<aside class="callout callout-insight">
-  <p><strong>Design note.</strong> If your evaluation suite scores the final answer but never scores the OCR step in isolation, you cannot tell whether a bad answer came from reasoning or from a page that was already garbled before the model saw it.</p>
-</aside>
+It is tempting to pick whichever engine tops a public leaderboard and assume the ranking holds for your documents. It usually does not. Engines specialise. Some are tuned for clean, predictable layouts such as invoices and fixed-template forms, and lead comfortably there. The same engines can fall several places on messy, mixed-layout material, while an engine that trailed on the easy case wins the hard one.
 
-### Why no single engine wins
+### What one benchmark found
 
-It is tempting to pick whichever OCR engine tops a public leaderboard and assume the ranking holds for your documents. It usually does not. Engines specialize. Some are tuned for clean, predictable layouts, invoices, fixed-template forms, and lead comfortably there. The same engines can fall several places on messy, mixed-layout material, while an engine that trailed on the easy case wins the hard one outright. Document type, not engine reputation, is the stronger predictor of which one wins.
+Newtuple published an [OCR benchmark](https://www.newtuple.com/post/ocr-benchmark-paddleocr-docling-llamaparse-surya) comparing PaddleOCR, Docling, LlamaParse and Surya. It graded 1,600 outputs across four test sets: two invoice runs, a set of financial tables, and mixed documents drawn from the OHR-Bench corpus. Outputs were scored from 0 to 1 by a model acting as grader against fixed ground truth. One invoice run shipped without verdict labels, so its verdicts were derived from score bands calibrated against the labelled runs.
 
-## Act II: What to do about it
+**On invoice run A, Docling led at 0.98, while on the mixed set LlamaParse and PaddleOCR tied at 0.79 and Docling fell to 0.69.** On financial tables Docling and PaddleOCR tied at 0.81. **Within that benchmark no engine led every category, and the engine that led the easiest category was not the one that led the hardest.**
 
-### Route by document type
+The authors are explicit about the limits: absolute scores are most reliable within a single test set, cross-set comparison is relative ranking rather than a like-for-like measure, and the mapping from these datasets to any particular industry is indicative rather than a controlled sample. Their own recommendation is to evaluate on your own documents.
 
-The practical response is routing rather than standardizing. Match each document profile to the engine that handles it best, with a fallback for when the primary engine errors, times out, or returns low-confidence output.
+Disclosure: I work at Newtuple and contributed to the work referenced here.
+
+That result describes four engines on those four test sets. It is not a statement about OCR accuracy in general, and it is not independent validation of the argument on this page. What it does support is narrow and still useful: the ranking moved with document type, on a real graded set, which is the thing worth designing around.
+
+## Route by document type
+
+If the ranking depends on the material, the response is routing rather than standardising. Match each document profile to the engine that handles it best, with a fallback for when the primary engine errors, times out, or returns low-confidence output.
 
 <div class="table-scroll-wrap">
   <table class="comparison-table">
@@ -122,20 +124,18 @@ The practical response is routing rather than standardizing. Match each document
   </table>
 </div>
 
-This is the same logic behind [Evaluation as a Runtime Discipline](/systems/evaluation-as-a-runtime-discipline/): quality is not a property you check once at the model. It is a property you have to verify at every stage evidence passes through, OCR included.
+This table is design reasoning, not a measured result. Treat it as a starting hypothesis to test against your own documents.
 
-### A worked example
+## Re-benchmarking as a habit
 
-Newtuple ran a [structured OCR benchmark](https://www.newtuple.com/post/ocr-benchmark-paddleocr-docling-llamaparse-surya) that graded 1,600 outputs from four widely used engines against fixed ground truth across invoices, financial tables, and mixed real-world documents. The headline finding lines up with the routing argument above: no single engine led across every document type, and the engine that won the hardest category was not the one that led on the easiest.
+A benchmark result is evidence with an expiry date, not a permanent ranking. Engines and models change from one release to the next, and a comparison run on someone else's documents tells you less than the same comparison run on your own. Treat re-checking as a recurring operational habit tied to your document mix, not a one-time procurement decision.
 
-## Act III: Making it durable
+The format the extraction stage produces is itself a contract the rest of the pipeline depends on, and contracts need re-verifying as their sources change. That argument is made properly in [structured output and why it matters](/systems/structured-output-and-why-it-matters/).
 
-### Re-benchmarking as a habit
+## What this changes
 
-A benchmark result is evidence with an expiry date, not a permanent ranking. Engines and models change from one release to the next, and a comparison run on someone else's documents tells you less than the same comparison run on your own. Treat re-benchmarking as a recurring check tied to your own document mix, not a one-time procurement decision.
+Stop scoring only the final answer. Score the step that decides what the model is allowed to see.
 
-This connects directly to [Structured Output and Why It Matters](/systems/structured-output-and-why-it-matters/): the format the OCR stage produces is itself a contract the rest of the pipeline depends on, and contracts need to be re-verified as their upstream sources change.
+Keep a small set of your own documents with known-correct values, and re-run extraction against them when anything upstream changes. That set is worth more than any public ranking, because it is made of the material you actually process.
 
-### What this changes in practice
-
-Stop scoring only the final answer. Score the step that decides what the model is even allowed to see. OCR is not solved plumbing; it is the ceiling everything else in a document pipeline has to live under.
+For what happens to this text once it is extracted, see [retrieval-augmented generation in plain terms](/systems/retrieval-augmented-generation-in-plain-terms/).

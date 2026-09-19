@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:6d7845bc8e426cd83134d24654f61635edca597f3e5d10c1583cf00b47123bec
+Content snapshot: sha256:c52d0ff26511dec006ee34acfa0f837bb7f786a94e300f1d4f43505c2db59a9e
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions
@@ -14,7 +14,7 @@ Status: Read-only diagnostic of the existing article archive.
 
 | Total Articles | Green | Amber | Red | Illustrative |
 | :--- | :--- | :--- | :--- | :--- |
-| 85 | 29 | 55 | 1 | 0 |
+| 85 | 33 | 51 | 1 | 0 |
 
 ## High-Priority Review Queue (Red)
 
@@ -74,11 +74,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L67: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L87: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L133: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[Context Windows as Working Memory](../src/content/systems/context-windows-as-working-memory.mdx)** (`src/content/systems/context-windows-as-working-memory.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L76: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L89: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L111: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[Decision-Making Under Uncertainty in AI Runtimes](../src/content/systems/decision-making-under-uncertainty-in-ai-runtimes.mdx)** (`src/content/systems/decision-making-under-uncertainty-in-ai-runtimes.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L77: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -214,21 +209,11 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L72: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L88: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L139: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[Retrieval-Augmented Generation in Plain Terms](../src/content/systems/retrieval-augmented-generation-in-plain-terms.mdx)** (`src/content/systems/retrieval-augmented-generation-in-plain-terms.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L71: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L88: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L100: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[Runtime Over Model: Why Orchestration Is the Product](../src/content/systems/runtime-over-model-why-orchestration-is-the-product.mdx)** (`src/content/systems/runtime-over-model-why-orchestration-is-the-product.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L75: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L86: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L101: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[Semantic Caching for Probabilistic Systems](../src/content/systems/semantic-caching-for-probabilistic-systems.mdx)** (`src/content/systems/semantic-caching-for-probabilistic-systems.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L87: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L142: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L167: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[SEO, AEO, GEO: How Discoverability Actually Works](../src/content/systems/seo-aeo-geo-how-things-fit-together.mdx)** (`src/content/systems/seo-aeo-geo-how-things-fit-together.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L76: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -299,11 +284,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L79: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L117: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L203: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[Why OCR Quietly Breaks Document AI](../src/content/systems/why-ocr-quietly-breaks-document-ai.mdx)** (`src/content/systems/why-ocr-quietly-breaks-document-ai.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L74: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L90: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L131: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[Winning AI Search as a Discoverability System](../src/content/systems/winning-ai-search-as-a-discoverability-system.mdx)** (`src/content/systems/winning-ai-search-as-a-discoverability-system.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L72: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -350,7 +330,7 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [architecture-of-in-chat-ai-apps](../src/content/systems/architecture-of-in-chat-ai-apps.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [cloud-architecture-comparison-2026](../src/content/systems/cloud-architecture-comparison-2026.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [context-window-management-and-retrieval-pruning-strategies](../src/content/systems/context-window-management-and-retrieval-pruning-strategies.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
-| systems | [context-windows-as-working-memory](../src/content/systems/context-windows-as-working-memory.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [context-windows-as-working-memory](../src/content/systems/context-windows-as-working-memory.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [decision-making-under-uncertainty-in-ai-runtimes](../src/content/systems/decision-making-under-uncertainty-in-ai-runtimes.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [designing-reusable-ai-skills](../src/content/systems/designing-reusable-ai-skills.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [drift-decay-and-silent-failure](../src/content/systems/drift-decay-and-silent-failure.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
@@ -378,9 +358,9 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [probabilities-not-truth](../src/content/systems/probabilities-not-truth.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [prompting-is-not-the-skill-you-think-it-is](../src/content/systems/prompting-is-not-the-skill-you-think-it-is.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [resilient-integration-contracts-for-structured-outputs](../src/content/systems/resilient-integration-contracts-for-structured-outputs.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
-| systems | [retrieval-augmented-generation-in-plain-terms](../src/content/systems/retrieval-augmented-generation-in-plain-terms.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [retrieval-augmented-generation-in-plain-terms](../src/content/systems/retrieval-augmented-generation-in-plain-terms.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [runtime-over-model-why-orchestration-is-the-product](../src/content/systems/runtime-over-model-why-orchestration-is-the-product.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
-| systems | [semantic-caching-for-probabilistic-systems](../src/content/systems/semantic-caching-for-probabilistic-systems.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [semantic-caching-for-probabilistic-systems](../src/content/systems/semantic-caching-for-probabilistic-systems.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [seo-aeo-geo-how-things-fit-together](../src/content/systems/seo-aeo-geo-how-things-fit-together.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [seo-aeo-geo-in-plain-terms](../src/content/systems/seo-aeo-geo-in-plain-terms.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [skill-evaluation-and-versioning](../src/content/systems/skill-evaluation-and-versioning.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
@@ -397,6 +377,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [what-an-ai-model-actually-is](../src/content/systems/what-an-ai-model-actually-is.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [what-llms-are-optimized-for](../src/content/systems/what-llms-are-optimized-for.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [why-most-ai-projects-fail-after-the-demo-stage](../src/content/systems/why-most-ai-projects-fail-after-the-demo-stage.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
-| systems | [why-ocr-quietly-breaks-document-ai](../src/content/systems/why-ocr-quietly-breaks-document-ai.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [why-ocr-quietly-breaks-document-ai](../src/content/systems/why-ocr-quietly-breaks-document-ai.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [winning-ai-search-as-a-discoverability-system](../src/content/systems/winning-ai-search-as-a-discoverability-system.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 

@@ -1,12 +1,13 @@
 ---
-title: "Context Windows as Working Memory"
-seoTitle: "What Is a Context Window? Limits, Cost and Lost in the Middle"
+schemaVersion: "1.0"
+title: "Context Windows: What the Model Can See in One Run"
+seoTitle: "What Is a Context Window? Limits, Selection and Why Bigger Is Not Enough"
 publishDate: "2026-01-14"
-updatedAt: "2026-04-15"
-description: "A context window is working memory, not storage. Why it is capped, what it costs, why position beats volume, and how to operate one well."
+updatedAt: "2026-09-20"
+description: "A context window is the bounded information available to the model for one run. Why that is not memory, what happens when you reach the limit, and why selection still matters at any size."
 category: "Concepts"
 heroImage: '/covers/systems/context-windows-as-working-memory.svg'
-heroImageAlt: 'Container representing limited context capacity with content inside'
+heroImageAlt: 'A bounded region holding instruction, history and retrieved passages for a single run'
 tags:
   - llm
   - context
@@ -16,117 +17,92 @@ featured: true
 contentType: 'technical'
 readingTime: 6
 difficulty: 'intermediate'
-proofPoints:
-  - Core reference for context management principles
-  - Referenced in knowledge-management-as-runtime-memory.mdx
-faq:
-  - question: What is a context window in an LLM?
-    answer: A context window is the finite working memory of an LLM. It is the temporary space where the model holds all the information needed to process a request. Everything inside the window is accessible; everything outside is forgotten.
-  - question: Why does context size affect cost and latency?
-    answer: Larger contexts require more computation for the self-attention mechanism, which grows quadratically with sequence length. This means costs and response times increase faster than linearly as you add more context.
-  - question: What does lost in the middle mean?
-    answer: LLMs tend to emphasize information at the beginning and end of context more than information in the middle. Important instructions or facts placed centrally may receive less attention. Strategic placement matters; put critical information at the start or end of your context.
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Distinguish a context window from persistent memory, say what actually happens when a conversation exceeds the limit, and decide what belongs in a run rather than assuming a larger window will do it."
+thesis: "A context window is the bounded information available for one run rather than a store of what the system knows, so what gets selected into it remains a design decision at any window size."
+shortAnswer: "A context window is the bounded amount of information a model can take in for a single run, covering the instruction, the conversation so far, any retrieved material and the response being generated. It is not memory. Nothing in the window persists to the next run unless the application puts it back. Because everything competes for the same bounded space, deciding what goes in remains a design decision no matter how large the window becomes."
+
+boundary:
+  is: "An explainer of what the context window is, what it is not, and how information is chosen to occupy it."
+  isNot: "A comparison of specific model context limits or prices, and not a treatment of how candidate material is found, which belongs with retrieval."
+  mattersWhen: "A system behaves as though it forgot something, or a larger window fails to fix a quality problem."
+
+provenance:
+  primary: synthesis
+  sources: []
+  claims:
+    - statement: "A context window is the bounded information available to the model for the current run."
+      kind: synthesis
+    - statement: "Persistent memory is a separate application-level mechanism that may store information outside the run and later place selected information into that context."
+      kind: synthesis
+    - statement: "Selection and placement can matter as much as raw context size."
+      kind: synthesis
 ---
 
-> **Key takeaways**
->
-> - A context window is a finite working memory, not long-term recall.
-> - Cost and latency grow fast as context grows; large windows are expensive.
-> - "Lost in the middle" means placement matters as much as content.
-> - Good systems manage context deliberately: summarize, refresh, and prune.
+Ask an assistant something it told you yesterday and it may have no idea what you mean. Ask again in the same conversation and it answers immediately. People reach for the word memory to explain the difference, and that word causes most of the confusion here.
 
-The context window of a Large Language Model is best understood as its working memory. It is a finite, temporary space where the model holds the information it needs to process a request. Everything inside this window is accessible; everything outside is forgotten.
+## What it actually is
 
-### Why does the context window matter so much?
+**A context window is the bounded information available to the model for the current run.**
 
-The context window matters because it determines what the model can actively attend to during a task, not what it permanently knows. This page is for builders dealing with long prompts, memory pressure, or inconsistent outputs, and the real design job is managing placement, compression, and retrieval instead of just buying a bigger window.
+Everything the model works from occupies that space: the system instruction, the conversation so far, any documents the application retrieved, the current question, and the response being generated as it grows. It is measured in tokens rather than words or characters, which is why [token counts](/systems/a-simple-tokenizer/) and not page counts decide whether something fits.
 
+The important property is the one people skip. The window describes a single run. When the run finishes, nothing in it carries forward on its own.
 
-In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.
+## What it is not
 
-<aside class="callout callout-insight">
-  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
-</aside>
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: The fundamentals</summary>
-      <ol>
-        <li><a href="#the-hard-limit">The hard limit</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: The modern paradigm</summary>
-      <ol>
-        <li><a href="#the-long-context-illusion">The long-context illusion</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Principles in practice</summary>
-      <ol>
-        <li><a href="#operating-the-window">Operating the window</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+It is not memory.
 
-## Act I: The fundamentals
+**Persistent memory is a separate application-level mechanism that may store information outside the run and later place selected information into that context.** When an assistant remembers your name next week, an application wrote it down somewhere and put it back into the input before the model was called. The model did not retain it. The parameters are unchanged, which is a different page: [training, fine-tuning and inference](/systems/training-vs-inference/).
 
-### The hard limit
+This matters practically, not just terminologically. Because that memory lives in ordinary storage, you can inspect it, correct it and delete it. If the model had genuinely absorbed the information, none of those would be available to you.
 
-A context window is the maximum number of tokens a model can process at once. This includes both the input prompt and the generated output. For example, a model with a 4,096-token context window can handle a combined input and output of up to 4,096 tokens. If a conversation exceeds this limit, the oldest tokens are pushed out of memory.
+The phrase "working memory" is a reasonable analogy for the feeling of it, and this page used to lead with it. The analogy misleads on the point that matters most, which is persistence, so it is better to describe the mechanism directly and skip the metaphor.
 
-This is a hard technical constraint. The computational resources required to process context grow quadratically with the number of tokens. A longer context window requires significantly more memory and processing power, making it more expensive and slower to operate.
+## What happens at the limit
 
-<figure class="diagram">
-  <iframe src="/scenes/context-buffer.html" title="Context Window as a Finite Buffer" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>The context window is a fixed-size buffer; once full, old information is lost.</figcaption>
-</figure>
+The old version of this page said the oldest tokens are pushed out of memory. That describes what some applications choose to do, not something the model does.
 
-## Act II: The modern paradigm
+What actually happens when input exceeds the limit depends on who is handling it:
 
-### The long-context illusion
+- **The model or provider** rejects the request, or truncates it according to its own rule.
+- **The application** decides in advance what to leave out, drop, summarise or shorten.
+- **A chat interface** may silently drop or compress older turns on your behalf.
 
-Modern models feature increasingly large context windows, with some supporting over a million tokens. This seems to promise a future of infinite memory, where a model can hold entire books or codebases in its working memory. However, this is not a perfect solution.
+Three different systems, three different behaviours, and only the middle one is under your control. If your system needs specific behaviour at the boundary, the honest answer is that you have to implement it rather than assume it.
 
-Research shows that models often struggle to pay attention to information in the middle of very long contexts, a phenomenon known as the "lost in the middle" problem. The model's attention is sharpest at the very beginning and the very end of the context window. Information buried in the middle can be ignored or forgotten, even if it is still technically within the window.
+## Why a bigger window is not the whole answer
 
-Furthermore, the cost and latency of processing large contexts remain significant. Just because a large context window is available does not mean it is efficient or practical to use it for every task.
+Windows have grown enormously, which invites the conclusion that selection stopped mattering. It did not, for two reasons.
 
-### Position beats volume
+The first is cost and speed. Longer input generally means more to process, so it tends to cost more and take longer. How much more depends on the model and the provider, and the only reliable figures are the ones you measure on your own workload.
 
-Context quality is not only about "how much" but also "where." Systems often fail because teams keep adding documents while ignoring ordering. If a safety rule appears halfway through a long prompt, it competes with many unrelated tokens. If the same rule appears in a short system prefix and is repeated near decision points, compliance improves.
+The second is that filling a window is not the same as using it well. **Selection and placement can matter as much as raw context size.** You will see one version of this discussed under the name "lost in the middle". This page has not measured it, so treat the general shape as worth testing rather than as a rule: if your task depends on the model attending to one specific instruction inside a long input, verify that it does, on your own task, rather than assuming position is neutral.
 
-A practical pattern is to split context into tiers:
+What survives from all this is unglamorous. A short, relevant input is easier to get right than a long one, and it is cheaper.
 
-- **Persistent core:** identity, policy, definitions, and non-negotiable constraints.
-- **Task frame:** current objective, acceptance criteria, and known boundaries.
-- **Evidence pack:** only the documents needed for the current step.
+## A way to divide the space
 
-This tiering keeps critical information easy to attend to and reduces token waste.
+This is a PMP working heuristic rather than a standard, and it is useful mainly when a system's inputs have grown messy. Think of the window as holding three kinds of thing:
 
-## Act III: Principles in practice
+- **Persistent core.** Identity, policy, definitions, the constraints that apply to every run.
+- **Task frame.** The current objective and what counts as done.
+- **Evidence pack.** Only the material this particular step needs.
 
-### Operating the window
+The value is not the three names. It is that the categories have different lifetimes, so labelling them makes it obvious which parts should be identical on every call and which should be rebuilt each time. If your inputs are already tidy, you do not need this.
 
-Effective use of an LLM requires managing its working memory carefully. You cannot assume the model remembers everything you have ever told it. You must ensure that the information it needs to perform a task is present and prominent within the current context window.
+## Finding versus choosing
 
-This has several practical implications. For long conversations, a summary of past interactions should be included in the prompt. For knowledge-intensive tasks, Retrieval-Augmented Generation (RAG) is used to find the most relevant information from an external database and place it at the top of the context window. This technique is more efficient and reliable than simply expanding the context to include an entire library of documents.
+One distinction is worth carrying between pages.
 
-A reliable operating loop usually looks like this:
+Retrieval finds candidate material. Context assembly decides what the model actually receives. A search can surface the right passage and the assembly step can still leave it out, usually because something had to go to fit the budget.
 
-1. compress previous turns into a short state snapshot
-2. retrieve only high-relevance evidence for the active task
-3. place constraints and acceptance checks near the decision point
-4. trim stale or duplicate context before the next call
+If you are working on what gets found, that belongs to [retrieval](/systems/retrieval-augmented-generation-in-plain-terms/). If you are working on what gets included, you are working on the context window, and this is the page for it.
 
-When this loop is explicit, performance is steadier and token budgets are predictable.
+## What this changes
 
-For related systems context, see [Systems 001: Foundations](/systems/systems-001-foundations/) and [From Prompt to Production](/systems/from-prompt-to-production/). For a practical grounding pattern, see the [Local LLM References](/shelf/shared-resources/local-llm-references/) and [Retrieval-Augmented Generation in Plain Terms](/systems/retrieval-augmented-generation-in-plain-terms/).
+Stop treating the window as a store of what the system knows. It is the space for one run, and what goes into it is chosen, by you or by something you did not configure.
 
-### What this changes in practice
-
-Treat the context window as a scarce resource and place the most important information at the beginning or end of your prompt.
+Log the assembled input, not just the retrieved candidates. The difference between those two lists is where a surprising number of "it forgot" reports actually come from.
