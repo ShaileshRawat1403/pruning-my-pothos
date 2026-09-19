@@ -1,197 +1,141 @@
 ---
+schemaVersion: "1.0"
 title: "Training, Fine-Tuning, and Inference"
 publishDate: "2026-01-13"
-updatedAt: "2026-06-28"
-description: "Clarifying the AI lifecycle. Why you probably do not need to train a model, and where business value is actually created."
+updatedAt: "2026-09-19"
+description: "What changes the model itself, and what only changes what the model sees during one run. The distinction that decides whether you need training or better context."
 category: "Concepts"
 heroImage: '/covers/systems/training-vs-inference.svg'
-heroImageAlt: 'Training and inference lifecycle diagram'
+heroImageAlt: 'Three stages: pre-training, fine-tuning, and inference, with the first two changing parameters and the third using them'
 tags:
   - training
   - inference
   - fine-tuning
   - lifecycle
-proofPoints:
-  - Core lifecycle reference document
-  - Referenced in what-an-ai-model-actually-is.mdx
-faq:
-  - question: What is the difference between training and inference?
-    answer: Training is the expensive, one-time process of teaching a model language patterns from scratch by adjusting billions of weights. Inference is using the trained model to generate predictions. Most business applications use inference exclusively.
-  - question: When should I fine-tune vs use RAG?
-    answer: Fine-tune when you need consistent style, format, or domain-specific reasoning patterns that cannot be reliably injected via prompts. Use RAG when you need access to specific, changing, or private information. RAG is usually cheaper and faster to implement.
-  - question: Do models learn from my prompts?
-    answer: No. During inference, models do not learn or update their weights. Each conversation is independent from the model's perspective. Customization during inference comes from context (prompts + RAG), not model modification.
+contentType: 'technical'
+readingTime: 6
+difficulty: 'beginner'
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Decide whether a problem calls for training, fine-tuning, or simply better context supplied at request time, and say which of those changes the model itself."
+thesis: "Pre-training and fine-tuning write to a model's parameters, while inference and everything supplied at request time change only what a single run sees."
+shortAnswer: "Training and fine-tuning change a model's parameters. Inference reads those parameters without changing them, and everything supplied at request time, including instructions, conversation history and retrieved documents, changes only what that one run sees. Most requests to train a model on private documents are better served by supplying those documents as context, which is cheaper to change and easier to inspect when an answer is wrong."
+
+boundary:
+  is: "A conceptual explainer separating the stages that write model parameters from the stages that only supply input."
+  isNot: "A guide to running a training or fine-tuning job, and not a cost comparison between specific providers."
+  mattersWhen: "Someone proposes training a model on internal documents."
+
+provenance:
+  primary: synthesis
+  sources: []
+  claims:
+    - statement: "It writes to the parameters, exactly as pre-training does."
+      kind: synthesis
+    - statement: "The model reads its parameters and does not write to them."
+      kind: synthesis
+    - statement: "It does not change a single parameter."
+      kind: synthesis
 ---
 
-> **Key takeaways**
->
-> - **Training** is the expensive process of teaching a model language patterns from scratch.
-> - **Fine-tuning** is adapting an existing model to a specific style or task.
-> - **Inference** is using the model to generate text. This is where 99% of business applications live.
-> - A model does not "learn" from your prompts during inference; it only uses them as temporary context.
-> - Most business customization happens via **Context (RAG)**, not training.
+Someone asks for a model trained on their documents. Usually what they want is for the model to be able to use those documents, which is a different thing and a much cheaper one. Telling the two apart needs one distinction: what changes the model, and what only changes what the model sees.
 
 <figure class="diagram diagram-hero">
   <svg viewBox="0 0 900 260" role="img" aria-labelledby="lifecycle-hero-title lifecycle-hero-desc" style="width: 100%; height: auto; display: block;">
-    <title id="lifecycle-hero-title">The AI Lifecycle</title>
-    <desc id="lifecycle-hero-desc">Three stages: Pre-training (General Knowledge), Fine-tuning (Specialization), and Inference (Application).</desc>
+    <title id="lifecycle-hero-title">Where parameters change and where they do not</title>
+    <desc id="lifecycle-hero-desc">Three stages side by side. Pre-training and fine-tuning both write to the model parameters. Inference reads them without writing. The three differ in duration by orders of magnitude.</desc>
+    <defs>
+      <marker id="tvi-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
+      </marker>
+    </defs>
 
-    {/* Stage 1: Pre-training */}
     <g transform="translate(50, 40)">
-      <text x="100" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">STAGE 1</text>
+      <text x="100" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">WRITES PARAMETERS</text>
       <text x="100" y="40" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor" font-weight="bold">Pre-training</text>
       <rect x="20" y="60" width="160" height="100" rx="8" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" />
-      <text x="100" y="115" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">The Internet</text>
-      <text x="100" y="180" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">Months / $$$$</text>
+      <text x="100" y="115" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">very large text corpus</text>
+      <text x="100" y="180" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">weeks to months</text>
     </g>
 
-    <path d="M 220 110 H 260" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+    <path d="M 220 110 H 260" stroke="currentColor" stroke-width="2" marker-end="url(#tvi-arrow)" />
 
-    {/* Stage 2: Fine-tuning */}
     <g transform="translate(270, 40)">
-      <text x="100" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">STAGE 2</text>
+      <text x="100" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">WRITES PARAMETERS</text>
       <text x="100" y="40" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor" font-weight="bold">Fine-tuning</text>
       <rect x="20" y="60" width="160" height="100" rx="8" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
       <rect x="40" y="80" width="120" height="60" rx="4" fill="var(--color-accent)" opacity="0.1" />
-      <text x="100" y="115" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Specialized Data</text>
-      <text x="100" y="180" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">Hours / $$</text>
+      <text x="100" y="115" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">smaller curated set</text>
+      <text x="100" y="180" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">hours to days</text>
     </g>
 
-    <path d="M 440 110 H 480" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+    <path d="M 440 110 H 480" stroke="currentColor" stroke-width="2" marker-end="url(#tvi-arrow)" />
 
-    {/* Stage 3: Inference */}
     <g transform="translate(490, 40)">
-      <text x="100" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">STAGE 3</text>
+      <text x="100" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-accent)">READS ONLY</text>
       <text x="100" y="40" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor" font-weight="bold">Inference</text>
       <rect x="20" y="60" width="160" height="100" rx="8" fill="var(--color-blockquote-bg)" stroke="currentColor" stroke-width="2" />
-      <text x="100" y="115" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Your Prompt</text>
-      <text x="100" y="180" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">Milliseconds / ¢</text>
+      <text x="100" y="115" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">your input</text>
+      <text x="100" y="180" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">milliseconds to seconds</text>
     </g>
 
-    {/* Output Arrow */}
-    <path d="M 660 110 H 700" stroke="var(--color-accent)" stroke-width="2" marker-end="url(#arrowhead)" />
-    <text x="750" y="115" text-anchor="middle" font-family="var(--font-serif)" font-size="18" fill="var(--color-accent)">Value</text>
+    <path d="M 660 110 H 700" stroke="var(--color-accent)" stroke-width="2" marker-end="url(#tvi-arrow)" />
+    <text x="750" y="115" text-anchor="middle" font-family="var(--font-serif)" font-size="18" fill="var(--color-accent)">output</text>
 
   </svg>
-  <figcaption>Most organizations only ever operate in Stage 3.</figcaption>
+  <figcaption>Two stages write to the parameters. The third only reads them.</figcaption>
 </figure>
 
-There is a persistent myth that to use AI for your business, you need to "train" it on your data. This is almost always wrong.
+## Training
 
-Understanding the difference between training, fine-tuning, and inference is critical for making the right architectural decisions. It is the difference between building a car engine (Training), tuning the suspension for a race (Fine-tuning), and driving to the grocery store (Inference).
+Pre-training produces the parameters. A model is shown enormous quantities of text and repeatedly adjusts its internal numbers to get better at predicting what comes next. The output is a set of weights.
 
-### What is the difference between training, fine-tuning, and inference?
+This is the expensive stage, and almost nobody outside a handful of labs does it. It takes specialised hardware running for a long time.
 
-Training creates the base model, fine-tuning adjusts behavior, and inference is the runtime where almost all product value is delivered. This page is for teams trying to avoid expensive architectural confusion, and the key decision is usually whether a problem needs better context and retrieval rather than a new model-training effort.
+## Fine-tuning
 
+Fine-tuning continues that same process on a smaller, curated set of examples, with a narrower objective. It writes to the parameters, exactly as pre-training does. The difference is scale and intent, not mechanism.
 
-In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.
+You will see it said that fine-tuning changes behaviour rather than knowledge. Treat that as a rule of thumb rather than a law. Fine-tuning is further training, and further training on a body of material can change what a model produces about that material. The honest version is narrower: fine-tuning is usually a poor and expensive way to get specific, changing facts into a system, and it is often a good way to fix a consistent format, register or task pattern that is awkward to specify in an instruction every time.
 
-<aside class="callout callout-insight">
-  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
-</aside>
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: The fundamentals</summary>
-      <ol>
-        <li><a href="#training-building-the-brain">Training: Building the Brain</a></li>
-        <li><a href="#fine-tuning-specialized-education">Fine-Tuning: Specialized Education</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: The modern paradigm</summary>
-      <ol>
-        <li><a href="#inference-the-runtime">Inference: The Runtime</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Principles in practice</summary>
-      <ol>
-        <li><a href="#why-you-probably-dont-need-to-train">Why You Probably Don't Need to Train</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+There is also a real cost. Training further on a narrow set can make a model worse at things it used to do well.
 
-## Act I: The fundamentals
+## Inference
 
-### Training: Building the Brain
+Inference is what happens when you send input and get output. The model reads its parameters and does not write to them. The same weights that answered the last request answer this one.
 
-**Pre-training** is the process of creating a base model (like GPT-4 or Claude). It involves feeding a neural network trillions of tokens of text from the internet.
+## Context is not training
 
-- **Goal:** Teach the model the structure of language, facts about the world, and reasoning patterns.
-- **Cost:** Millions of dollars.
-- **Outcome:** A "Base Model" that can predict the next word but has no specific personality or instruction-following ability.
+Everything you supply at request time, the instruction, the conversation so far, any documents the application pasted in, is input. It shapes the output, sometimes dramatically. It does not change a single parameter.
 
-You will likely never do this.
+This is the distinction people most often lose:
 
-### Fine-Tuning: Specialized Education
+| | Changes parameters | Changes what one run sees |
+| :--- | :--- | :--- |
+| Pre-training | yes | no |
+| Fine-tuning | yes | no |
+| Prompting | no | yes |
+| Retrieval, pasted documents, conversation history | no | yes |
 
-**Fine-tuning** takes a base model and trains it further on a smaller, curated dataset.
+Four different mechanisms get flattened into the single word "learning", and that flattening is where bad architecture decisions start.
 
-- **Goal:** Adapt the model to a specific task (e.g., writing code, speaking medical jargon) or style (e.g., "always answer in JSON").
-- **Cost:** Hundreds to thousands of dollars.
-- **Outcome:** A model that is better at _one thing_ but potentially worse at general tasks.
+## Does it remember?
 
-Fine-tuning changes the model's weights. It is permanent. It is useful when you need the model to learn a new "grammar" or "behavior" that is too complex to explain in a prompt.
+Not in the file. Nothing you type adjusts the weights of a hosted model as you talk to it.
 
-## Act II: The modern paradigm
+But applications built around a model can absolutely remember, by storing what you said and putting it back into the input next time. When an assistant recalls your name a week later, some code wrote it down and some code retrieved it. That memory lives in the application, and you can inspect it, edit it and delete it, precisely because it is not in the model.
 
-### Inference: The Runtime
+One caveat so the rule stays accurate rather than absolute. Research systems and some specialised setups do update parameters during operation, and continual-learning methods exist. The point is not that run-time parameter updates are impossible. It is that mainstream hosted models do not do it, so if you are using one, assume the weights are fixed until you have specific evidence otherwise.
 
-**Inference** is what happens when you send a prompt to ChatGPT or an API. The model is "frozen." It does not change. It simply processes your input and predicts the output.
+## The decision this usually settles
 
-- **Goal:** Solve a specific problem right now.
-- **Cost:** Fractions of a cent per request.
-- **Outcome:** Immediate value.
+When you want a model to work with information it did not have, ask what kind of information it is.
 
-Crucially, **inference is stateless**. If you tell the model "My name is Sarah" in one chat, and then open a new chat, it does not know your name. It did not "learn" anything; it just held your name in its temporary working memory (context window) for that session.
+If the facts are specific, private, or liable to change, put them in the input. Retrieve them and supply them at request time. You can then update them by editing a document rather than by running a training job, and you can show the reader where the answer came from.
 
-## Act III: Principles in practice
+If the problem is that the output keeps coming back in the wrong shape or register, and no reasonable instruction fixes it, fine-tuning is worth considering.
 
-### Why You Probably Don't Need to Train
+Most of the time the request for training is really a request for better context, which is cheaper, faster to change, and easier to inspect when it goes wrong.
 
-Business leaders often say, "We need to train a model on our documents."
-
-What they usually mean is: "We need the model to _know_ about our documents."
-
-You do not achieve this by training. You achieve this by **Retrieval-Augmented Generation (RAG)**.
-
-<table class="comparison-table">
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Analogy</th>
-      <th>Best For</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Training</strong></td>
-      <td>Sending a child to school for 12 years.</td>
-      <td>Creating a new foundation of intelligence.</td>
-    </tr>
-    <tr>
-      <td><strong>Fine-Tuning</strong></td>
-      <td>Sending a graduate to medical school.</td>
-      <td>Teaching specific jargon, style, or format.</td>
-    </tr>
-    <tr>
-      <td><strong>RAG (Context)</strong></td>
-      <td>Giving a doctor a patient's file to read.</td>
-      <td>Answering questions about specific, private data.</td>
-    </tr>
-  </tbody>
-</table>
-
-For related systems context, see [Systems 001: Foundations](/systems/systems-001-foundations/) and [From Prompt to Production](/systems/from-prompt-to-production/). For the retrieval-first alternative, see [Retrieval-Augmented Generation in Plain Terms](/systems/retrieval-augmented-generation-in-plain-terms/). To see how local compute resources are configured for running inference baseline tests, review the [Ollama setup baseline experiment](/shelf/local-experiments/ollama-setup-baseline/).
-
-### What this changes in practice
-
-1.  **Stop asking for "training":** Ask for "context" or "knowledge retrieval."
-2.  **Use RAG for facts:** If you want the model to know your company policy, put the policy in the prompt (or use RAG). Do not fine-tune on it. Fine-tuning is for _behavior_, not _knowledge_.
-3.  **Treat prompts as transient:** Remember that nothing you type into the model sticks. If you want persistence, you must build it into your application layer (database), not the model layer.
+For what the file itself is doing, see [what an AI model actually is](/systems/what-an-ai-model-actually-is/). For the retrieval side of supplying context, see [retrieval-augmented generation in plain terms](/systems/retrieval-augmented-generation-in-plain-terms/).

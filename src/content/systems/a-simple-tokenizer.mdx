@@ -1,47 +1,59 @@
 ---
+schemaVersion: "1.0"
 title: 'From Text to Tokens'
 publishDate: "2026-01-13"
-updatedAt: "2026-06-28"
-description: "Explaining tokenization without the math. Why models don't read words, and why that matters for your prompts."
+updatedAt: "2026-09-19"
+description: "Models do not read words. They read a sequence of integers produced by a tokenizer. What that step does, and why token counts behave differently from character counts."
 category: 'Explanations'
 heroImage: '/covers/systems/a-simple-tokenizer.svg'
-heroImageAlt: 'Text being split into tokens with numeric encoding'
+heroImageAlt: 'The phrase AI is math split into three pieces, each piece replaced by an integer ID'
 tags:
   - tokenization
   - nlp
   - foundations
-proofPoints:
-  - Core foundational reference for tokenization mechanics
-  - Referenced in context-windows-as-working-memory.mdx
-faq:
-  - question: What is tokenization?
-    answer: Tokenization is the process of converting text into tokens (integers) that a language model can process. The model doesn't read characters or words; it sees a sequence of numbers representing these tokens. A token can be a full word, part of a word, a space, or punctuation.
-  - question: Why do models struggle with "Strawberry"?
-    answer: Tokenizers split text into subword units based on frequency in training data. Common words like "straw" might be one token while uncommon endings like "berry" might be split into multiple tokens. "Strawberry" has 3 tokens (straw-berry), making counting the 'r's across token boundaries difficult.
-  - question: Does shorter text always mean fewer tokens?
-    answer: No. Text length in characters doesn't correlate perfectly with token count. Dense, uncommon words can use more tokens than longer, common phrases. This is why estimating costs or context usage by character count is unreliable.
+contentType: 'technical'
+readingTime: 5
+difficulty: 'beginner'
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Explain why one visible word is not reliably one token, and measure token counts rather than estimating them from character length."
+thesis: "A tokenizer converts text into integers before a model sees it, which is why token counts rather than character counts govern context limits and cost."
+shortAnswer: "A tokenizer converts text into a sequence of integers before a language model receives it. A token may be a whole word, part of a word, a punctuation mark, or a space attached to the word after it, so one visible word is not reliably one token. Because context limits and per-volume pricing are counted in tokens, character count is an unreliable way to estimate either. Tokenize the actual text instead."
+
+boundary:
+  is: "An explainer of the conversion step between human text and the integer sequence a language model receives."
+  isNot: "A specification of any particular model's vocabulary, and not an established causal account of model reasoning failures."
+  mattersWhen: "Estimating whether input fits a context limit, or why a short string cost more than expected."
+
+provenance:
+  primary: synthesis
+  sources: []
+  claims:
+    - statement: "A language model never receives your sentence."
+      kind: synthesis
+    - statement: "A token is one entry in that vocabulary."
+      kind: synthesis
+    - statement: "tokenization changes how input is segmented and represented before the model sees it"
+      kind: synthesis
 ---
 
-> **Key takeaways**
->
-> - **Tokenization** is the process of converting text into numbers (tokens) that a model can process.
-> - Models do not see characters or words; they see a sequence of <span class="highlight">integers</span>.
-> - A "token" is not always a word. It can be part of a word, a space, or a punctuation mark.
-> - This abstraction explains why models struggle with spelling ("Strawberry") and simple math.
-> - "Shorter" text is not always "simpler" for a model if it uses rare tokens.
+A language model never receives your sentence. It receives a list of integers. The component that converts one into the other is the tokenizer, and knowing what it does explains a few things that otherwise look like the model being strange.
 
 <figure class="diagram diagram-hero">
   <svg viewBox="0 0 900 260" role="img" aria-labelledby="token-hero-title token-hero-desc" style="width: 100%; height: auto; display: block;">
-    <title id="token-hero-title">Text to Numbers Pipeline</title>
-    <desc id="token-hero-desc">Visualizing the transformation of the phrase 'AI is math' into tokens and then IDs.</desc>
+    <title id="token-hero-title">Text becomes integers</title>
+    <desc id="token-hero-desc">The phrase "AI is math" is split into three pieces, AI, is, and math, and each piece is replaced by an integer identifier.</desc>
+    <defs>
+      <marker id="tok-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
+      </marker>
+    </defs>
 
-    {/* Input Text */}
     <text x="100" y="135" font-family="var(--font-serif)" font-size="24" fill="currentColor">"AI is math"</text>
 
-    {/* Arrow 1 */}
-    <path d="M 220 130 H 280" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+    <path d="M 220 130 H 280" stroke="currentColor" stroke-width="2" marker-end="url(#tok-arrow)" />
 
-    {/* Tokenization (Splitting) */}
     <g transform="translate(300, 100)">
       <rect x="0" y="0" width="50" height="60" rx="4" fill="var(--color-bg)" stroke="var(--color-accent)" stroke-width="2" />
       <text x="25" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">AI</text>
@@ -53,10 +65,8 @@ faq:
       <text x="155" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">math</text>
     </g>
 
-    {/* Arrow 2 */}
-    <path d="M 500 130 H 560" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+    <path d="M 500 130 H 560" stroke="currentColor" stroke-width="2" marker-end="url(#tok-arrow)" />
 
-    {/* IDs (Integers) */}
     <g transform="translate(580, 100)">
       <rect x="0" y="0" width="60" height="60" rx="4" fill="var(--color-blockquote-bg)" stroke="currentColor" stroke-width="2" />
       <text x="30" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">1045</text>
@@ -68,108 +78,60 @@ faq:
       <text x="170" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">8921</text>
     </g>
 
-    <text x="390" y="190" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">Tokenization</text>
-    <text x="680" y="190" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">Encoding</text>
+    <text x="390" y="190" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">split</text>
+    <text x="680" y="190" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">look up ID</text>
 
   </svg>
-  <figcaption>The machine never sees the words. It only sees the IDs.</figcaption>
+  <figcaption>The IDs shown are invented for the illustration. Real vocabularies differ between models.</figcaption>
 </figure>
 
-Before a Large Language Model (LLM) can "think," it must read. But computers cannot read text; they can only process numbers. The **Tokenizer** is the bridge component that chops human language into atomic units called tokens and assigns each one a unique integer ID.
+## Why not just use letters, or just use words
 
-This seems like a trivial implementation detail, but it dictates the fundamental capabilities and limitations of the model.
+You could give every character a number. Then the vocabulary is tiny, but every sentence becomes a long sequence, and long sequences cost more to process.
 
+You could give every word a number instead. Then sequences are short, but the vocabulary has to be enormous, and it still fails the first time someone types a word that was not in it.
 
-<aside class="callout callout-insight">
-  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
-</aside>
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: The fundamentals</summary>
-      <ol>
-        <li><a href="#why-not-just-characters">Why Not Just Characters?</a></li>
-        <li><a href="#what-a-token-actually-looks-like">What a Token Actually Looks Like</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: The modern paradigm</summary>
-      <ol>
-        <li><a href="#the-reality-subword-tokenization">The Reality: Subword Tokenization</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Principles in practice</summary>
-      <ol>
-        <li><a href="#why-this-matters-for-systems">Why This Matters for Systems</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+Tokenizers sit between the two. Common words get their own token. Rarer words get split into pieces that are themselves common. The vocabulary stays a manageable size, sequences stay reasonably short, and nothing is unrepresentable, because worst case a word falls back to smaller and smaller fragments.
 
-## Act I: The fundamentals
+## What a token is
 
-### Why Not Just Characters?
+A token is one entry in that vocabulary. It might be a whole word, part of a word, a punctuation mark, or a space attached to the word that follows it.
 
-We could map `a=1`, `b=2`, `c=3`. This is simple, but inefficient.
+So a made-up word like "Smartification" might arrive as three tokens rather than one, something like `Smart`, `ifi`, `cation`. The model sees three integers in sequence, not a word it recognises.
 
-- **Context window:** If every letter is a token, the sentence "The quick brown fox" is 19 tokens.
-- **Compute cost:** Attention mechanisms scale quadratically with sequence length. Longer sequences = much slower and more expensive models.
+This is why one visible word does not reliably equal one token, and why character count is a poor predictor of token count. A short sentence of unusual words can cost more tokens than a longer sentence of ordinary ones.
 
-Conversely, we could map every _word_ to a number. But English has hundreds of thousands of words, and new ones are invented daily. The vocabulary would be too large to compute efficiently.
+## A toy version
 
-The solution is **Subword Tokenization**: break common words into whole tokens (`"apple"`) and rare words into chunks (`"un"`, `"friend"`, `"li"`, `"ness"`).
+Real tokenizers are built by algorithms such as byte pair encoding, which start from characters and repeatedly merge the most frequent adjacent pair until the vocabulary reaches a target size. The merge table is learned from data.
 
-### What a Token Actually Looks Like
-
-To a human, the word "Smart" is a single concept. To a tokenizer, it might be one token (ID: `5421`).
-
-But the word "Smartification" (a made-up word) might be split into three tokens:
-
-1.  `Smart` (ID: `5421`)
-2.  `ifi` (ID: `892`)
-3.  `cation` (ID: `1102`)
-
-The model processes these three integers in sequence. It learns that `5421` followed by `892` usually implies a transformation of the concept "Smart".
-
-Here is a **toy tokenizer** you can run locally. It is not BPE, but it shows the idea of splitting text into chunks.
+The snippet below is not that. It splits on a fixed rule and learns nothing. It is here only to make the splitting step concrete:
 
 ```python
 import re
 
 text = "Smartification!"
-tokens = re.findall(r"[A-Za-z]+|[^A-Za-z\\s]", text)
+tokens = re.findall(r"[A-Za-z]+|[^A-Za-z\s]", text)
 print(tokens)
+# ['Smartification', '!']
 ```
 
-## Act II: The modern paradigm
+Notice that it keeps "Smartification" whole, which a real subword tokenizer would not. That gap is the point. A toy splitter shows you that splitting happens; it does not tell you how any particular model will split your text. For that, use the tokenizer that ships with the model you are actually calling.
 
-### The Reality: Subword Tokenization
+## Where token counts show up in practice
 
-Real systems (like GPT-4 or Claude) use algorithms like **Byte Pair Encoding (BPE)**. BPE starts with characters and iteratively merges the most frequent adjacent pairs until a target vocabulary size is reached.
+Two places, both operational.
 
-This explains why LLMs struggle with tasks that seem easy to humans:
+**Context limits.** Models accept a bounded number of tokens per request. The bound is counted in tokens, not characters or words, so the only reliable way to know whether something fits is to tokenize it.
 
-1.  **Spelling:** The model sees the token ID `12345` for "Strawberry". It does not inherently see the letters `r-r`. It has to memorize the spelling as a separate fact.
-2.  **Math:** The number `9.11` might be tokenized as `[9, ., 11]` while `9.9` is `[9, ., 9]`. To the model, `11` is "bigger" than `9`, so it might hallucinate that 9.11 is greater than 9.9.
+**Cost and latency.** Where a provider charges by volume, it charges per token, and processing time generally grows with sequence length. Estimating either from character count will drift, in a direction that depends on what you are sending.
 
-## Act III: Principles in practice
+Both of these are reasons to measure rather than estimate. Exact limits and prices change by model and provider, so check the ones you are using rather than trusting a number in an article.
 
-### Why This Matters for Systems
+## A caution about what tokenization explains
 
-When designing systems around LLMs, tokenization creates invisible constraints:
+Tokenization is often used to explain why models miscount letters in a word, or stumble over comparing numbers. The intuition is reasonable: if a word arrives as one integer, the individual letters are not separately present in the input.
 
-- **Cost:** You pay per token. Verbose prompts cost more.
-- **Performance:** "Prompt Engineering" is often just finding words that tokenize into patterns the model recognizes more strongly.
-- **Security:** Some "jailbreaks" work by forcing the tokenizer to split forbidden words in ways that bypass safety filters (e.g., splitting "bomb" into "b-omb").
+Treat that as a plausible contributing factor rather than a settled cause. This page has not measured it, and the failures people point to usually have more than one thing going on. The safe statement is the narrow one: tokenization changes how input is segmented and represented before the model sees it. Where it goes beyond that, say less, or go and measure it.
 
-Understanding the tokenizer means understanding the raw material of the intelligence you are orchestrating.
-
-For related systems context, see [Systems 001: Foundations](/systems/systems-001-foundations/) and [From Prompt to Production](/systems/from-prompt-to-production/). You can find empirical measurements of context usage and degradation in our [Context window stress test local experiment](/shelf/local-experiments/context-window-stress/).
-
-### What this changes in practice
-
-Treat tokenization as a design constraint: it shapes cost, reliability, and the kinds of prompts your system can handle.
+For what happens after the integers reach the model, see [what an AI model actually is](/systems/what-an-ai-model-actually-is/). For how the token budget for a single run is filled, see [context windows as working memory](/systems/context-windows-as-working-memory/).

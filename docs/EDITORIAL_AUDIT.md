@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:5da91775bf565516229e9ece6ec98d0e5c14f46e00978b4fbf968f402c60d5a8
+Content snapshot: sha256:6d7845bc8e426cd83134d24654f61635edca597f3e5d10c1583cf00b47123bec
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions
@@ -14,7 +14,7 @@ Status: Read-only diagnostic of the existing article archive.
 
 | Total Articles | Green | Amber | Red | Illustrative |
 | :--- | :--- | :--- | :--- | :--- |
-| 85 | 26 | 58 | 1 | 0 |
+| 85 | 29 | 55 | 1 | 0 |
 
 ## High-Priority Review Queue (Red)
 
@@ -34,11 +34,6 @@ Articles containing first-person incident assertions or ungrounded empirical cla
 
 Articles with solid conceptual foundations that need qualified phrasing (e.g. comparative frequency assertions) or removal of legacy template constraints:
 
-- **[From Text to Tokens](../src/content/systems/a-simple-tokenizer.mdx)** (`src/content/systems/a-simple-tokenizer.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L113: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L148: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L159: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[AEO and GEO as a Retrieval Design Problem](../src/content/systems/aeo-and-geo-as-a-retrieval-design-problem.mdx)** (`src/content/systems/aeo-and-geo-as-a-retrieval-design-problem.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L77: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -284,11 +279,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L71: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L84: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L92: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[Training, Fine-Tuning, and Inference](../src/content/systems/training-vs-inference.mdx)** (`src/content/systems/training-vs-inference.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L120: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L142: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L154: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[What a Skill Is in AI Systems](../src/content/systems/what-a-skill-is-in-ai-systems.mdx)** (`src/content/systems/what-a-skill-is-in-ai-systems.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L89: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -299,11 +289,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L116: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L130: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L202: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[What an AI Model Actually Is](../src/content/systems/what-an-ai-model-actually-is.mdx)** (`src/content/systems/what-an-ai-model-actually-is.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L122: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L149: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L174: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[What Large Language Models Are Optimized For](../src/content/systems/what-llms-are-optimized-for.mdx)** (`src/content/systems/what-llms-are-optimized-for.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L71: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -355,7 +340,7 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | self | [unfinished-questions](../src/content/self/unfinished-questions.md) | 🟢 Green | Legacy | None | Clean |
 | self | [what-i-learned-running-ai-governance](../src/content/self/what-i-learned-running-ai-governance.md) | 🟢 Green | Legacy | None | Clean |
 | self | [writing-for-two-readers](../src/content/self/writing-for-two-readers.md) | 🟢 Green | Legacy | None | Clean |
-| systems | [a-simple-tokenizer](../src/content/systems/a-simple-tokenizer.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [a-simple-tokenizer](../src/content/systems/a-simple-tokenizer.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [aeo-and-geo-as-a-retrieval-design-problem](../src/content/systems/aeo-and-geo-as-a-retrieval-design-problem.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [agent-instructions-and-handoff-as-an-operating-system](../src/content/systems/agent-instructions-and-handoff-as-an-operating-system.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [agentic-orchestration-coordination](../src/content/systems/agentic-orchestration-coordination.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
@@ -406,10 +391,10 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [the-intelligence-assembly-model](../src/content/systems/the-intelligence-assembly-model.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [the-logic-void](../src/content/systems/the-logic-void.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [tool-use-when-language-triggers-actions](../src/content/systems/tool-use-when-language-triggers-actions.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
-| systems | [training-vs-inference](../src/content/systems/training-vs-inference.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [training-vs-inference](../src/content/systems/training-vs-inference.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [what-a-skill-is-in-ai-systems](../src/content/systems/what-a-skill-is-in-ai-systems.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [what-a-system-prompt-actually-is](../src/content/systems/what-a-system-prompt-actually-is.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
-| systems | [what-an-ai-model-actually-is](../src/content/systems/what-an-ai-model-actually-is.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [what-an-ai-model-actually-is](../src/content/systems/what-an-ai-model-actually-is.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [what-llms-are-optimized-for](../src/content/systems/what-llms-are-optimized-for.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [why-most-ai-projects-fail-after-the-demo-stage](../src/content/systems/why-most-ai-projects-fail-after-the-demo-stage.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [why-ocr-quietly-breaks-document-ai](../src/content/systems/why-ocr-quietly-breaks-document-ai.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
