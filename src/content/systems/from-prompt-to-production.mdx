@@ -1,204 +1,193 @@
 ---
-title: "From Prompt to Production: A Human Checklist"
+schemaVersion: "1.0"
+title: "When Is an AI System Ready for Real Use?"
+seoTitle: "AI Readiness: When Is an AI System Ready for Real Use?"
 publishDate: "2026-01-13"
-updatedAt: "2026-04-15"
-description: "A rigorous 7-step framework to move from it works on my machine to a resilient, governed AI workflow."
+updatedAt: "2026-09-20"
+description: "Readiness is a decision about exposure, not a stage a system reaches. What has to be true before you let real users depend on an AI workflow."
 category: "How-things-fit-together"
 heroImage: '/covers/systems/from-prompt-to-production.svg'
-heroImageAlt: 'Production checklist steps'
+heroImageAlt: 'A decision about how far to expose a system, weighed against the evidence and controls available'
 tags:
-  - checklist
   - deployment
-  - production
-  - safety
+  - readiness
+  - risk
+  - governance
 featured: true
 contentType: 'technical'
 readingTime: 10
 difficulty: 'advanced'
-proofPoints:
-  - 7-step production checklist covering Intent, Risk, Interface, Validate, Monitor, and Fallback
-  - Practical deployment framework used in NLPg-driven SDLC
-  - Referenced in from-ad-hoc-prompts-to-repeatable-agent-workflows.mdx
-faq:
-  - question: What are the 7 steps from prompt to production?
-    answer: "The 7 steps are: (1) Define intent and success criteria, (2) Assess risks and failure modes, (3) Design the interface boundary, (4) Validate output quality, (5) Monitor runtime behavior, (6) Implement human fallback, and (7) Document and version the workflow."
-  - question: Why is a prompt in production considered a contract?
-    answer: "A prompt in production defines what the system should do, under what conditions, and what counts as success. Unlike playground testing, production prompts cannot be easily changed mid-execution. This contract must be explicit, versioned, and tested before deployment."
-  - question: What makes guardrails essential, not optional?
-    answer: "Guardrails prevent unintended actions, contain costs, protect against prompt injection, and provide audit trails. Without guardrails, AI systems can exceed their intended scope, produce harmful outputs, or consume resources unpredictably."
+
+contentKind: explainer
+readerIntent: inspect
+readerOutcome: "Take a proposed AI release and say what exposure is being asked for, what evidence exists against the behaviour that matters, what limits the damage, and whether that is enough to say yes."
+thesis: "Readiness is not a stage a system reaches by being finished or deployed, but a judgment that the evidence and controls in hand justify a particular exposure to a particular use."
+shortAnswer: "Deployment means the software is running. Readiness means there is enough evidence and control to justify exposing it to its intended use. Those come apart constantly: a system can be live, passing its tests and approved by someone, and still be a bad thing to put in front of the people it is meant for. The question is never whether a system is ready in the abstract. It is whether this exposure, to these users, doing this job, with these consequences when it is wrong, is justified by the evidence available and the controls that limit what goes wrong."
+
+boundary:
+  is: "An explainer of the judgment that precedes letting real users depend on an AI workflow, and what has to be answered before making it."
+  isNot: "A deployment checklist, a treatment of how to evaluate a system or what to record while it runs, a guide to authorization, or a maturity model."
+  mattersWhen: "Something works in a demonstration and someone asks whether it can go live."
+
+provenance:
+  primary: synthesis
+  sources:
+    - id: pmp-websiteops-conform
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/pruning-my-pothos"
+      path: "scripts/websiteops-conform.mjs"
+      ref: "70d4378a0e84cbf996334dd2985e3952528ca70c"
+      citation: "Transactional conform and promote step: gates a staged draft before placement, and restores prior state when post-placement gates fail."
+    - id: pmp-websiteops-publish
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/pruning-my-pothos"
+      path: "scripts/websiteops-publish.mjs"
+      ref: "70d4378a0e84cbf996334dd2985e3952528ca70c"
+      citation: "Publishing script: runs the conform gate, branches, pushes and opens a pull request, with an optional auto-merge flag."
+  claims:
+    - statement: "Deployment means the software is running. Readiness means there is enough evidence and control to justify exposing it to its intended use."
+      kind: synthesis
+    - statement: "A system is not ready in general. It is ready, or not, for a particular exposure to a particular use."
+      kind: synthesis
+    - statement: "Define an explicit release criterion against an evaluation set appropriate to the intended use and its failure consequences, before exposure rather than after."
+      kind: synthesis
+    - statement: "In this repository a draft is checked before it can be placed into the published content collection, and when the checks that run after placement fail, the previous state of the affected files is restored."
+      kind: repository
+      sources:
+        - pmp-websiteops-conform
+    - statement: "By default the publishing script opens a pull request without merging it, and when a flag is supplied it can instead arm an automatic squash merge once the required conditions pass."
+      kind: repository
+      sources:
+        - pmp-websiteops-publish
+
+related:
+  - type: explainer
+    title: "What Counts as Good, and How to Check It"
+    href: /systems/evaluation-is-a-human-problem/
+    note: "Where the evidence this decision consumes comes from."
+  - type: explainer
+    title: "From Agent Intent to Governed Execution"
+    href: /systems/from-agent-intent-to-governed-execution/
+    note: "Whether an action may proceed, which is a narrower question than whether the system should be exposed."
+  - type: explainer
+    title: "Human in the Loop Is a System Design Choice"
+    href: /systems/human-in-the-loop-is-a-system-design-choice/
+    note: "What a reserved human decision requires, when the release depends on one."
 ---
 
-> **Key takeaways**
->
-> - A prompt in a playground is a prototype; a prompt in production is a <span class="highlight">contract</span>.
-> - You must define **intent** and **success criteria** before writing a single line of instruction.
-> - **Guardrails** are not optional features; they are the safety belts of the system.
-> - **Human fallback** is the ultimate error handler for probabilistic systems.
+The demonstration went well. The build is green. It is deployed behind a flag. Someone asks whether it can go live, and the room agrees that it basically works.
 
-<figure class="diagram diagram-hero">
-  <svg viewBox="0 0 900 260" role="img" aria-labelledby="checklist-hero-title checklist-hero-desc" style="width: 100%; height: auto; display: block;">
-    <title id="checklist-hero-title">The Production Path</title>
-    <desc id="checklist-hero-desc">A stepped path showing Intent, Risk, Interface, Validate, Monitor, and Fallback.</desc>
-    <line x1="100" y1="130" x2="800" y2="130" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" />
+None of those things is the answer to the question being asked.
 
-    {/* Step 1 */}
-    <circle cx="150" cy="130" r="20" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
-    <text x="150" y="135" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">1</text>
-    <text x="150" y="170" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Intent</text>
+## Deployment is not readiness
 
-    {/* Step 2 */}
-    <circle cx="270" cy="130" r="20" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
-    <text x="270" y="135" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">2</text>
-    <text x="270" y="170" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Risk</text>
+**Deployment means the software is running. Readiness means there is enough evidence and control to justify exposing it to its intended use.**
 
-    {/* Step 3 */}
-    <circle cx="390" cy="130" r="20" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
-    <text x="390" y="135" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">3</text>
-    <text x="390" y="170" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Interface</text>
+They come apart constantly, and in both directions. A system can be live and not justified. A system can be justified for a narrow use and still be sitting undeployed.
 
-    {/* Step 4 */}
-    <circle cx="510" cy="130" r="20" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
-    <text x="510" y="135" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">4</text>
-    <text x="510" y="170" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Validate</text>
+The words that get offered in place of readiness are each worth something and none of them settles it. *Tested* says something passed the checks that were written. *Approved* says somebody said yes. *Deployed* says it is running. *Observable* says you could investigate a failure. *Governed* says rules are enforced somewhere. Each is a contribution. A system that has all five can still be the wrong thing to put in front of its users.
 
-    {/* Step 5 */}
-    <circle cx="630" cy="130" r="20" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
-    <text x="630" y="135" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">5</text>
-    <text x="630" y="170" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">Monitor</text>
+That is the check worth applying to every one of these words, including the ones on this page: a thing labelled *validated* or *production* or *release* is telling you what someone called it, not what is true of it. Find what was actually checked.
 
-    {/* Step 6 */}
-    <circle cx="750" cy="130" r="20" fill="var(--color-accent)" stroke="none" />
-    <text x="750" y="135" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="#fff">6</text>
-    <text x="750" y="170" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-accent)">Fallback</text>
+## Ready for what
 
-  </svg>
-  <figcaption>Don't skip steps. The cost of fixing AI in production is 10x the cost of design.</figcaption>
-</figure>
+**A system is not ready in general. It is ready, or not, for a particular exposure to a particular use.**
 
-It is easy to get an LLM to do something cool once. It is hard to get it to do something useful 10,000 times in a row without embarrassing the company.
+So the first question is not whether to ship. It is what exposure is being requested. Which users, doing what, with what riding on the result, under what conditions, with what limit on how far the output travels.
 
-This checklist is designed for **non-technical leaders** and **product owners** who are deploying AI workflows. It forces you to slow down and think about the system, not just the magic.
+The same system can be appropriate for a team reviewing its output internally and not appropriate for customers acting on it unsupervised. It can be appropriate where it advises and not where it acts. These are different exposures, and they are not rungs on a ladder that every system climbs. A workflow may stay internal permanently because that is where it belongs.
 
-### What changes when a prompt becomes production software?
+Naming the exposure precisely is what converts an unanswerable question into one that has an answer.
 
-The moment a prompt becomes production software, it stops being a clever instruction and becomes a managed operating contract. This guide is for product teams and leaders turning prototypes into repeatable workflows, and the real shift is from isolated prompting to defined interfaces, evaluation, monitoring, and fallback.
+## What the demonstration established
 
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: The fundamentals</summary>
-      <ol>
-        <li><a href="#define-intent-the-contract">Define Intent (The Contract)</a></li>
-        <li><a href="#identify-risks-the-red-team">Identify Risks (The Red Team)</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: The modern paradigm</summary>
-      <ol>
-        <li><a href="#set-inputsoutputs-the-interface">Set Inputs/Outputs (The Interface)</a></li>
-        <li><a href="#validate-the-eval">Validate (The Eval)</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Principles in practice</summary>
-      <ol>
-        <li><a href="#monitor-drift-the-pulse">Monitor Drift (The Pulse)</a></li>
-        <li><a href="#human-fallback-the-safety-net">Human Fallback (The Safety Net)</a></li>
-        <li><a href="#related-resources">Related resources</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+A demonstration is persuasive because it compresses the system. One user, one goal, a selected input or a narrow input range, one path through, and little at stake if it fails.
 
-## Act I: The fundamentals
+That compression is useful, because a demonstration is testing a narrower question: whether this is possible at all.
 
-### Define Intent (The Contract)
+The readiness question is different. It asks about conditions the demonstration may never have exercised: input that arrives malformed or incomplete, a user with a goal the design did not anticipate, the upstream system being slow or wrong, and the cases where failing is expensive. The gap between those two questions is not evidence that the demonstration was misleading. It is evidence that it answered a narrower question than the one now being asked.
 
-Before writing a prompt, write a sentence describing exactly what the AI should do—and what it should **not** do.
+## What would matter if it went wrong
 
-- **Goal:** "Summarize customer support tickets."
-- **Constraint:** "Do not invent details. If the ticket is unclear, state 'Unclear'."
-- **Persona:** "Act as a senior support agent."
+Keep this concrete and specific to the system in front of you. What failure would actually matter here? Who or what is affected when it happens? Can the effect be undone, and by whom? Does the system act, or does it produce something a person acts on? What does it do when the context it needs is missing?
 
-### Identify Risks (The Red Team)
+That last one carries more weight than it looks like it should. A system that degrades quietly when its inputs are thin is a different proposition from one that stops, and the difference is invisible until it matters.
 
-What is the worst thing that could happen? Be specific.
+Whether a given action may proceed at all is [a separate mechanism](/systems/from-agent-intent-to-governed-execution/) with its own page. A system can enforce its authorization rules correctly, on every call, and still not be something you should expose.
 
-- **Hallucination:** Inventing a refund policy that doesn't exist.
-- **Toxicity:** Responding rudely to an angry customer.
-- **Data Leak:** Revealing one customer's data to another.
+## The evidence, and what it does not cover
 
-<aside class="callout">
-  <p><strong>Action:</strong> Create a "Red Team" document where you try to break your own prompt. Feed it confusing, angry, or malicious inputs and see what happens.</p>
-</aside>
+Readiness consumes evaluation results. It does not produce them, and this page does not explain how to produce them: what counts as good behaviour, how to check it, and what a fixed set of past failures is for belong to [evaluation](/systems/evaluation-is-a-human-problem/).
 
-## Act II: The modern paradigm
+What the readiness decision adds is a question about coverage. Given the failure modes just named, which of them does the existing evidence actually speak to? An evaluation set assembled from the cases somebody thought of will be silent about the ones nobody did. That silence is not a pass.
 
-### Set Inputs/Outputs (The Interface)
+Where a question cannot be answered, the honest move is to record that it cannot. Absence of evidence has a way of being read as evidence of absence, particularly when adjacent artifacts exist: a monitoring dashboard does not establish that anyone would notice this failure, and a rollback procedure elsewhere does not establish that this change can be undone.
 
-Natural language is fluid, but your business systems are not. Define the structure.
+## The release criterion
 
-- **Input:** "Raw text from email body, truncated to 2000 tokens."
-- **Output:** "JSON object containing `{ summary, sentiment, urgency_score }`."
+**Define an explicit release criterion against an evaluation set appropriate to the intended use and its failure consequences, before exposure rather than after.**
 
-Forcing the model to output structured data (JSON) is the single best way to make it reliable for software integration.
+Before matters for a specific reason. If the release criterion is chosen after inspecting the same results used to justify release, the rule can be fitted to those results rather than serving as an independent release condition. Exploratory evidence can perfectly well inform a criterion, provided the criterion is then tested against evidence it did not come from.
 
-Here is a simple **prompt contract** you can copy into your docs or configs:
+There is no universal number to put in it. A sample size, a percentage, a pass rate or a confidence threshold carried over from another system is a borrowed answer to a question about this one. What the criterion has to be is specific and decidable: this behaviour did not fail anywhere in the set we chose; these known failure classes stayed inside the boundary we agreed; this category always goes to a person; this integration path was verified against the real system rather than a stub.
 
-```yaml
-intent: summarize_support_ticket
-inputs:
-  - id: ticket_body
-    type: string
-outputs:
-  - id: summary
-    type: string
-  - id: sentiment
-    type: string
-constraints:
-  max_words: 120
-  pii: disallow
-```
+A criterion may combine several of those. What it cannot do is stand in for the judgment about whether they are enough, which is the part that belongs here:
 
-### Validate (The Eval)
+- evaluation asks whether the workflow met the expectation that was set
+- the release decision asks whether meeting it is sufficient to justify this exposure
 
-Do not deploy until you have run your prompt against at least 50 examples.
+A result can be methodologically sound and still not answer the second question, because sufficiency depends on who is exposed and what it costs when the system is wrong.
 
-- **Gold Set:** 50 real examples from history.
-- **Metric:** How many did it get right?
-- **Threshold:** "We will not deploy until accuracy > 90%."
+## Controls that limit the consequence
 
-## Act III: Principles in practice
+Evidence is one half. The other is what constrains the damage when the evidence turns out to have been incomplete.
 
-### Monitor Drift (The Pulse)
+This repository carries a small worked example. **In this repository a draft is checked before it can be placed into the published content collection, and when the checks that run after placement fail, the previous state of the affected files is restored.** The checks are structural: whether the declared frontmatter is valid, whether the body has the required shape, and for pages declaring the current contract, whether every consequential claim maps to the prose and whether the prose passes the house rules. Placement into the collection is conditional on those passing. A further set runs across the whole collection afterwards, and failure there restores the previous article and its cover rather than leaving a half-applied change.
 
-Once deployed, the system will degrade. Not because the code rots, but because the world changes.
+**By default the publishing script opens a pull request without merging it, and when a flag is supplied it can instead arm an automatic squash merge once the required conditions pass.** Both paths exist in the code, and describing either one as the whole mechanism would be wrong.
 
-- **Log everything:** Save every input and output.
-- **Spot checks:** Have a human review 1% of daily traffic.
-- **User feedback:** Add a "thumbs down" button. If a user clicks it, that data point goes straight to the engineering team.
+What that example does not establish is more instructive than what it does. The gates confirm declared structure. They do not confirm that the writing is any good, that a cited source supports the claim drawn from it, or that the page should be published at all. The restoration covers two specific file paths when a specific set of checks fails; it is not a general undo for anything that has been published. And nothing in the code records who judged the exposure justified. An implemented control is evidence that a control is implemented. Readiness is a separate judgment that the control is enough.
 
-### Human Fallback (The Safety Net)
+## When the system should not continue
 
-Probabilistic systems **will** fail. You need a plan for when (not if) that happens.
+The old advice here was to route to a human when the model reports low confidence. Both halves of that are worth discarding. A confidence value, where a system exposes one, is one workflow-specific signal, and it does not by itself establish readiness or define when a result should go to a person. A person is also one option among several rather than the default destination for everything a system cannot handle.
 
-<figure class="diagram">
-  <iframe src="/scenes/human-fallback-flow.html" title="Human Fallback Flow" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>The "Human in the Loop" is not a bug; it's a feature of high-reliability systems.</figcaption>
-</figure>
+The useful question is narrower: when this system should not continue normally, what safe alternative actually exists? Stopping and saying so. Declining. Leaving the prior state in place. Returning to the manual process the system replaced. Queueing the case for later. Restricting what the system will attempt. Handing it to a person. Which of these is available depends on the workflow, and some workflows genuinely have only one.
 
-If the AI's confidence score is low, or if a guardrail is triggered, the system should **fail gracefully** to a human. Do not show the user a hallucination. Show them a message: _"I'm not sure about that, let me connect you to a specialist."_
+Routing to a person is also not free of its own requirement. Whether that person can actually judge what they are being shown is [its own design problem](/systems/human-in-the-loop-is-a-system-design-choice/), and a queue nobody can act on is not a fallback.
 
-### Related resources
+## What can actually be undone
 
-- [Architecting Agent Intelligence deck](/shelf/shared-resources/architecting-agent-intelligence-deck/)
-- [Code the Omnichannel System deck](/shelf/shared-resources/code-the-omnichannel-system-deck/)
+Rollback gets treated as universal and is not. Some effects cannot be reversed: a message sent, a decision communicated, a payment made, a file deleted downstream. An advisory system may have nothing to roll back, because its output was already acted on by somebody else.
 
-### What this changes in practice
+So the question is not whether there is a rollback procedure. It is what can be stopped, reversed, corrected or contained if this exposure produces a result you cannot accept. Those are four different answers with four different costs, and a system where the honest answer is *contained, not reversed* is not thereby unready. It is a system whose exposure should be set with that in mind.
 
-Ship fewer demos and more reliable systems: lock intent, validate early, and plan for human fallback before launch.
+## Who decides, and who answers
 
----
+Two roles need names before exposure, and they are easy to assume rather than assign. Somebody owns the decision to expose. Somebody owns the response when the system behaves outside the conditions that decision assumed.
+
+These belong to people and teams. A runtime can enforce a rule and a script can block a change, and neither of them is accountable for a judgment. Where nobody can be named for either role, that is itself a finding about readiness rather than an administrative gap to tidy up later.
+
+## Can the intended users work with it
+
+A workflow can satisfy every technical check and still be the wrong thing to hand to the people expected to use it.
+
+The questions worth asking are about fit rather than attitude. Does the workflow add work to the job it was meant to help with? Can the intended users tell what they are being asked to do with the output? Do they have a way to know when it should be relied on and when it should not? Does a workable alternative remain when the system cannot continue? Is the intended use compatible with the process actually running around it?
+
+Those are answered by looking at the work and asking the people doing it, which makes them evidence. What they are not is a theory about why people accept or reject software, and readiness reasoning does not need one.
+
+## The decision, and its expiry
+
+The outcome is not restricted to yes or no. It can be to expose as proposed, to narrow who or what is exposed, to keep it internal, to require another control first, to gather the missing evidence, to defer, or to stop. Reaching for one of the middle answers is usually a sign the reasoning is working, because it means the exposure is being matched to the evidence rather than the other way round.
+
+None of this means the failure has been designed out. The decision is whether the uncertainty that remains is acceptable for this exposure, given what is known and what limits the damage. Readiness is a judgment about acceptable remaining uncertainty for an intended exposure, not proof that failure is impossible, and no score establishes otherwise.
+
+The decision also has a shelf life. A change to the model, the instructions, the retrieved corpus, a tool, a policy, the workflow, the intended users or what it costs to be wrong can undermine part of the basis the decision rested on. Not every change requires starting again. The standing obligation is narrower: when the assumptions that supported the release stop holding, the release basis is what needs revisiting, and [re-establishing the evidence](/systems/evaluation-is-a-human-problem/) is a separate job with its own methods.
+
+## What this changes
+
+Stop asking whether the system is ready. Ask what exposure is being requested, and what would have to be true to justify it.
+
+Then answer three things in writing. What evidence exists against the failures that would actually matter here. What limits the damage when that evidence turns out to be incomplete. Who owns the decision, and who answers when it goes wrong.
+
+If those three can be answered, the decision has what it needs. If they cannot, the honest finding is not that the system is unready. It is that nobody is currently in a position to say either way, which is a different problem and a more fixable one.
