@@ -1,110 +1,162 @@
 ---
+schemaVersion: "1.0"
 title: "Human-in-the-Loop Is a System Design Choice"
 publishDate: "2026-01-14"
-updatedAt: "2026-06-28"
-description: "Why oversight is a design decision, not a safety blanket."
+updatedAt: "2026-09-20"
+description: "Requiring a human decision is easy. Making sure that person can actually decide, with the context, the alternatives and a path after no, is the design work."
 category: "How-things-fit-together"
 heroImage: '/covers/systems/human-in-the-loop-is-a-system-design-choice.svg'
-heroImageAlt: 'Decision gate with human oversight'
+heroImageAlt: 'A workflow stopping at a decision that is still open, with what the reviewer receives and what they can do next'
 tags:
-  - hitl
   - oversight
-  - safety
   - governance
-proofPoints:
-  - Defines HITL/HOTL/HOOTL oversight spectrum
-  - Referenced in from-agent-intent-to-governed-execution.mdx
-faq:
-  - question: What are HITL, HOTL, and HOOTL?
-    answer: "HITL (Human-in-the-Loop) pauses for approval before action. HOTL (Human-on-the-Loop) monitors and can intervene after action. HOOTL (Human-out-of-the-Loop) runs autonomously with post-hoc review. Each represents a different speed/safety tradeoff."
-  - question: How do you choose the right oversight level?
-    answer: "Choose based on risk, regulation, and error cost. High-stakes or regulated decisions need HITL. Lower-stakes tasks with time constraints can use HOTL. Well-tested, reversible tasks at scale can use HOOTL. The choice should be explicit and documented."
-  - question: Why is oversight a design decision, not a safety blanket?
-    answer: "Adding human oversight without clear intent wastes resources and creates bottlenecks. Design oversight levels based on actual risk profiles: where can errors cause harm? Where do regulations require human review? Where does speed matter more than perfection? Answering these questions produces better systems than blanket 'always add a human'."
+  - review
+contentType: 'technical'
+readingTime: 8
+difficulty: 'intermediate'
+
+contentKind: explainer
+readerIntent: inspect
+readerOutcome: "Inspect a human review step and say what decision is reserved, who owns it, what the reviewer sees, and what happens when they decline."
+thesis: "Requiring a human signal is not the same as reserving a decision for human judgment, which needs the decision still open, an owner, enough context, real alternatives and an implemented path after refusal."
+shortAnswer: "A workflow can contain a human and still not be under human control. Three things are commonly confused: that a person is somewhere in the process, that the workflow requires their approval signal, and that the person is in a position to judge. The last one needs the decision to still be open when they see it, someone specific who owns it, enough context to evaluate it, alternatives beyond approving, and a path that actually does something when they refuse."
+
+boundary:
+  is: "An explainer of what makes a reserved human decision meaningful, and how to inspect one that already exists."
+  isNot: "A treatment of whether policy permits an action, of what evidence a decision leaves behind, or of whether a system is ready for real users."
+  mattersWhen: "A workflow has an approval step and you are trying to work out whether it is doing anything."
+
+provenance:
+  primary: synthesis
+  sources:
+    - id: pmp-websiteops-publish
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/pruning-my-pothos"
+      path: "scripts/websiteops-publish.mjs"
+      ref: "90b9ab74f5faa2d62d3f200cf07e52e5595df418"
+      citation: "Pruning My Pothos publishing script: branch, commit, push, open pull request, optional armed auto-merge."
+    - id: pmp-websiteops-conform
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/pruning-my-pothos"
+      path: "scripts/websiteops-conform.mjs"
+      ref: "90b9ab74f5faa2d62d3f200cf07e52e5595df418"
+      citation: "Pruning My Pothos conform bridge: staging, validation gates and transactional rollback on gate failure."
+    - id: pmp-deploy-workflow
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/pruning-my-pothos"
+      path: ".github/workflows/deploy-hostinger.yml"
+      ref: "90b9ab74f5faa2d62d3f200cf07e52e5595df418"
+      citation: "Deploy to Hostinger workflow, triggered by a completed CI run on main."
+  claims:
+    - statement: "By default the publishing script prepares a branch, pushes it and opens a pull request without merging it, and when a flag is supplied it can instead arm GitHub to squash-merge that pull request automatically once the required conditions pass."
+      kind: repository
+      sources:
+        - pmp-websiteops-publish
+        - pmp-websiteops-conform
+    - statement: "A successful continuous integration run on the main branch triggers the deploy workflow that publishes the site"
+      kind: repository
+      sources:
+        - pmp-deploy-workflow
+    - statement: "the script's own comments say approval happened earlier at a review gate, and this repository does not record who or what supplied it"
+      kind: repository
+      sources:
+        - pmp-websiteops-publish
+    - statement: "Requiring a human signal is not the same as reserving a decision for human judgment."
+      kind: synthesis
+    - statement: "A review step is weak when refusing has no implemented consequence."
+      kind: synthesis
 ---
 
-> **Key takeaways**
->
-> - Oversight is a design decision that trades speed for safety.
-> - HITL, HOTL, and HOOTL are distinct patterns, not one checkbox.
-> - The right level depends on risk, regulation, and error cost.
-> - Humans are part of the system; design for their limits.
+Somewhere in most AI workflows there is a screen with an Approve button. Its presence is usually cited as the reason the system is under control.
 
-"Human-in-the-loop" is not a single feature, but a spectrum of design choices for how to combine human and machine intelligence. The level of human oversight you choose is a critical decision that defines the speed, cost, and safety of your system. It is a knob, not a switch.
+Sometimes it is. Often the person pressing it has no way to tell whether they should, no option except pressing it, and no idea what happens if they do not. The button exists. The control does not.
 
-### What is human-in-the-loop oversight?
+## Three different things
 
-Human-in-the-loop (HITL) oversight is a system design pattern where an autonomous process is paused at a critical decision gate to require explicit human validation before proceeding. This pattern ensures that high-risk mutations (like database writes or financial transfers) are verified by human judgment, keeping operations safe and auditable.
+**Requiring a human signal is not the same as reserving a decision for human judgment.** It helps to separate three claims that get made interchangeably:
 
-In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.
+**A person is present.** Someone appears somewhere in the workflow. This says nothing on its own; they may be receiving a notification after the fact.
 
-<aside class="callout callout-insight">
-  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
-</aside>
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: The fundamentals</summary>
-      <ol>
-        <li><a href="#the-oversight-spectrum">The oversight spectrum</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: The modern paradigm</summary>
-      <ol>
-        <li><a href="#risk-management-by-domain">Risk management by domain</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Principles in practice</summary>
-      <ol>
-        <li><a href="#designing-for-human-limits">Designing for human limits</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+**The workflow requires their approval.** It will not proceed without a signal from them. This is a real constraint, and it is still only a constraint on sequence.
 
-## Act I: The fundamentals
+**The person can judge.** They have what they need to evaluate the specific thing being asked, and something other than yes is available to them.
 
-### The oversight spectrum
+Only the third is oversight in any useful sense. The first two are frequently mistaken for it, usually in good faith, because from an architecture diagram they look identical.
 
-The role of the human changes as the level of automation increases. There are three common patterns for human-AI collaboration:
--   **Human-in-the-loop (HITL):** The machine assists, but a human makes the final decision on every action. This is common for high-stakes tasks like medical diagnosis or approving large financial transactions. It is safe but slow and expensive.
--   **Human-on-the-loop (HOTL):** The machine acts autonomously but is supervised by a human who can intervene if something goes wrong. This is like a pilot monitoring the autopilot. The human handles exceptions and edge cases.
--   **Human-out-of-the-loop (HOOTL):** The machine operates fully autonomously based on rules and models defined by humans upfront. This is used for high-speed, low-risk decisions like ad bidding or content filtering.
+## Is the decision still open?
 
-<figure class="diagram">
-  <iframe src="/scenes/hitl-spectrum.html" title="Spectrum of Human Oversight" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>Human oversight is a spectrum, not a binary choice.</figcaption>
-</figure>
+The first test is timing, and it disqualifies more review steps than anything else.
 
-## Act II: The modern paradigm
+If the message has been sent, the file deleted, the page published or the payment made, then what a person does next is not approval. It may be monitoring, or audit, or the beginning of a correction, and those are worth having. They are not the same as deciding whether the thing should happen, because it already happened.
 
-### Risk management by domain
+So: at the moment the reviewer looks, is the outcome still undetermined? If not, be honest about what the step is. Calling after-the-fact notification an approval gate is how teams end up believing a decision was made that never was.
 
-Choosing the right level of human oversight is a risk management decision. You must weigh the cost of an error against the cost of human intervention. In regulated industries like healthcare and aviation, strict human-in-the-loop requirements are often mandated by law. In consumer applications, the cost of an occasional error (like a bad movie recommendation) is low, so more automation is acceptable.
+## Which human, and why them
 
-The design challenge is not just deciding *if* a human should be involved, but *how*. An effective human-in-the-loop system requires a well-designed user interface that provides the human with the right information and context to make an informed decision quickly. Simply showing a human a "Confirm" button without context is not effective oversight.
+"A human reviews it" is not a design. Humans are not interchangeable, and the useful questions are specific.
 
-## Act III: Principles in practice
+Who owns this decision? Not who is available, but whose call it actually is. If nobody can answer that, the review step is a diffusion of responsibility rather than a placement of it.
 
-### Designing for human limits
+Does that person have the standing to decide? Assigning review to someone without the relevant authority can produce an approval signal that does not actually settle the decision.
 
-When designing a system with human oversight, you are designing a socio-technical system. The human is part of the system, and you must account for their limitations. One of the most significant challenges is "automation bias" or "complacency." If a system is reliable 99.9% of the time, the human supervisor will naturally stop paying close attention. This means that when the system finally does make a mistake, the human may be too disengaged to catch it.
+Do they have the knowledge? A reviewer who cannot evaluate the thing in front of them is a delay, not a control.
 
-To build an effective HITL or HOTL system:
--   **Design the interface for skepticism.** Give the human reviewer the tools and information they need to quickly spot errors. Highlight uncertainty or low-confidence predictions.
--   **Keep the human engaged.** For HOTL systems, ensure the human has to perform tasks regularly enough that they maintain their skills and attention. Don't let them become a passive observer.
--   **Define clear protocols.** Create a clear, documented process for what a human should do when they encounter an error or an unexpected situation.
--   **Audit decisions.** Log both the AI's suggestion and the human's final decision. This data is crucial for understanding when the AI is failing and when the human is correctly overriding it.
+This is where the old framing of "add a human in the loop" quietly fails. It treats the human as a component type rather than a named person with authority and knowledge.
 
-You should also define explicit "escalate-to-human" triggers before launch: confidence thresholds, policy-sensitive intents, or anomaly detection events. This avoids ad hoc handoffs and keeps review load predictable during traffic spikes.
+## What the reviewer sees
 
-For related systems context, see [Systems 001: Foundations](/systems/systems-001-foundations/) and [From Prompt to Production](/systems/from-prompt-to-production/). For a detailed walk-through of policy-governed runtime kernels and human approval gates, check out the [Soothsayer MCP kernel local experiment](/shelf/local-experiments/soothsayer-mcp-kernel/). Framed as a stage inside a full interaction loop rather than a standalone feature, this maps to Intervene in the [I-7 Cognitive Loop](/systems/i-7-cognitive-loop/): the explicit authority to pause, redirect, or reject.
+A button alone is not enough to make a decision, but neither is everything the system knows. The information should be proportionate to what is actually being decided.
 
-### What this changes in practice
+For a decision about publishing something, that might be the artifact itself and what changed. For a decision about an exception, it might be the rule, the reason for departing from it, and what the departure costs. What matters is that the reviewer receives what the *reserved decision* requires, rather than a summary that describes the work without exposing the question.
 
-Instead of treating human oversight as a simple backstop, design the interaction between the human and the AI as a core feature of the system.
+The interface is part of the control design, not decoration around it, because it determines what evidence and what alternatives exist at the moment of decision. That is a narrower claim than "good UX produces good judgment", which is not something an interface can deliver.
+
+One caution about the surface itself. A review surface that repeatedly presents similar choices with little useful context gives the reviewer little basis for telling one decision from another. That is an argument for reserving fewer decisions and giving each the context its judgment needs, rather than for adding warnings to the ones already there.
+
+## What happens when they say no
+
+**A review step is weak when refusing has no implemented consequence.**
+
+This is the part most often missing. Approval paths get built carefully. Rejection paths get a toast notification.
+
+Refusal needs to be a state the system actually has. Depending on the workflow that might mean the artifact returns for revision with the reviewer's reason attached, the run stops and releases what it was holding, more evidence is requested, the decision escalates to a different owner, or the work falls back to a manual route.
+
+Not every workflow needs all of those. **If a workflow asks a human to decide, at least one meaningful non-approval transition must exist**, because if the only thing refusal does is prevent the next step until someone approves anyway, the reviewer does not have a decision. They have a delay they are responsible for.
+
+## A worked example, and what it does not show
+
+**By default the publishing script prepares a branch, pushes it and opens a pull request without merging it, and when a flag is supplied it can instead arm GitHub to squash-merge that pull request automatically once the required conditions pass.** Validation runs first either way: frontmatter, body structure, the editorial contract and the prose rules, then the collection-wide checks. If those fail after the content has been placed, the script restores the previous state rather than leaving it half-applied.
+
+What that reserves is specific. Everything up to an open pull request is automated. The decision left open is whether this becomes the live site. **A successful continuous integration run on the main branch triggers the deploy workflow that publishes the site**, so on the default path the merge is that decision.
+
+Two things this example does not establish.
+
+The script also accepts a flag that arms auto-merge, which squash-merges as soon as the checks pass. On that path nobody merges by hand.
+
+That difference is worth being exact about, because the repository supports only half of it. On the default path, the merge can itself be the human publication decision. On the auto-merge path, **the script's own comments say approval happened earlier at a review gate, and this repository does not record who or what supplied it**. The mechanism assumes a prior authorization. The code is not evidence that one occurred.
+
+What the example does show is narrower and still useful. **Automation can continue after a human decision without removing that decision from the control path.** Whether a person performs the mechanical step is a different question from whether a decision was reserved for one. This repository demonstrates the automation path. It does not establish that the assumed earlier human decision occurred.
+
+And the validation described above is machine validation. It checks rules that were written down. It does not decide whether the piece is worth publishing, and the script passing says nothing about that.
+
+## Validation answers a different question
+
+Machine checks establish that explicit rules hold. Passing them does not answer whether this should be published, whether this exception should be accepted, whether the interpretation is right, or whether the evidence justifies the decision.
+
+Those are questions someone chose to reserve. That choice is the design act, and it is separate from whether an automated check can be written. A rule that can be checked usually should be, precisely so the reserved decisions are the ones that genuinely need a person.
+
+This is also why an approval is not a readiness verdict. Someone approving one artifact has not certified that the system is fit for real users, which is a different question with [its own page](/systems/from-prompt-to-production/).
+
+## Not a universal fallback
+
+"When the system is unsure, ask a human" fails as a general rule. Review costs time, needs capacity, and needs the right person available. A workflow that escalates everything uncertain becomes a queue, and queues get approved quickly.
+
+The goal is not more human involvement. It is deliberate ownership: deciding which decisions stay with a person, and then making those decisions genuinely possible to make.
+
+## What this changes
+
+Take an approval step you already have and ask five things. What decision is actually stopping here? Who owns it? What does the reviewer see? What can they do other than approve? What happens when they decline?
+
+If any answer is missing, the gate is doing less than it appears to.
+
+Whether the action was permitted in the first place is a different question, handled in [governed execution](/systems/from-agent-intent-to-governed-execution/).

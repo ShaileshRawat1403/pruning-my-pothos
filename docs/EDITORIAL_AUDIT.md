@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:6b1c327b93b798337ad56e496b4c5ca4361d675dbbfde9a6226e237ee0172adf
+Content snapshot: sha256:2e9fb73bf72295b41eeae826d6f4942ab665d083baf1b5ff0ec80c338e131c8a
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions
@@ -14,7 +14,7 @@ Status: Read-only diagnostic of the existing article archive.
 
 | Total Articles | Green | Amber | Red | Illustrative |
 | :--- | :--- | :--- | :--- | :--- |
-| 85 | 42 | 42 | 1 | 0 |
+| 85 | 43 | 41 | 1 | 0 |
 
 ## High-Priority Review Queue (Red)
 
@@ -134,11 +134,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L116: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L138: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L174: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[Human-in-the-Loop Is a System Design Choice](../src/content/systems/human-in-the-loop-is-a-system-design-choice.mdx)** (`src/content/systems/human-in-the-loop-is-a-system-design-choice.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L70: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L84: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L92: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[I-7 Cognitive Loop: A new standard for Human-AI interaction](../src/content/systems/i-7-cognitive-loop.mdx)** (`src/content/systems/i-7-cognitive-loop.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L83: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -300,7 +295,7 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [from-ad-hoc-prompts-to-repeatable-agent-workflows](../src/content/systems/from-ad-hoc-prompts-to-repeatable-agent-workflows.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [from-agent-intent-to-governed-execution](../src/content/systems/from-agent-intent-to-governed-execution.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [from-prompt-to-production](../src/content/systems/from-prompt-to-production.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
-| systems | [human-in-the-loop-is-a-system-design-choice](../src/content/systems/human-in-the-loop-is-a-system-design-choice.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [human-in-the-loop-is-a-system-design-choice](../src/content/systems/human-in-the-loop-is-a-system-design-choice.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [i-7-cognitive-loop](../src/content/systems/i-7-cognitive-loop.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [intent-architecture-as-a-language-contract](../src/content/systems/intent-architecture-as-a-language-contract.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [knowledge-management-as-runtime-memory](../src/content/systems/knowledge-management-as-runtime-memory.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
