@@ -1,0 +1,634 @@
+{
+  "schemaVersion": "1.0",
+  "scope": "src/content/systems",
+  "sourceCount": 59,
+  "dispositionTotals": {
+    "KEEP-REWRITE": 19,
+    "KEEP-STRIP": 3,
+    "MERGE": 21,
+    "MOVE-TO-SHELF": 1,
+    "REDUCE-TO-NOTE": 6,
+    "RETIRE": 9
+  },
+  "statusTotals": {
+    "implemented": 24,
+    "pending": 4,
+    "structural-pending": 31
+  },
+  "redirectStatusTotals": {
+    "none": 1,
+    "not-applicable": 28,
+    "pending": 2,
+    "resolved": 28
+  },
+  "entries": [
+    {
+      "slug": "a-simple-tokenizer",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "aeo-and-geo-as-a-retrieval-design-problem",
+      "disposition": "RETIRE",
+      "destination": "seo-aeo-geo-in-plain-terms",
+      "redirect": "seo-aeo-geo-in-plain-terms",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "agent-instructions-and-handoff-as-an-operating-system",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "agentic-orchestration-coordination",
+      "disposition": "MERGE",
+      "destination": "agent-instructions-and-handoff-as-an-operating-system",
+      "redirect": "agent-instructions-and-handoff-as-an-operating-system",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "ai-agents-vs-ai-workflows",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "ai-architecture-explained-how-modern-llm-applications-work",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "ai-website-publishing-with-human-in-the-loop-control",
+      "disposition": "MERGE",
+      "destination": "human-in-the-loop-is-a-system-design-choice",
+      "redirect": "human-in-the-loop-is-a-system-design-choice",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "architecture-of-in-chat-ai-apps",
+      "disposition": "KEEP-STRIP",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "cloud-architecture-comparison-2026",
+      "disposition": "RETIRE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "pending",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": [
+        "redirect destination unresolved; ledger records three Shelf candidates: aws-llm-instance-baseline, azure-llm-vm-setup, gcp-llm-instance-baseline"
+      ]
+    },
+    {
+      "slug": "context-window-management-and-retrieval-pruning-strategies",
+      "disposition": "MERGE",
+      "destination": "context-windows-as-working-memory",
+      "redirect": "context-windows-as-working-memory",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "context-windows-as-working-memory",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "decision-making-under-uncertainty-in-ai-runtimes",
+      "disposition": "MERGE",
+      "destination": "from-agent-intent-to-governed-execution",
+      "redirect": "from-agent-intent-to-governed-execution",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "designing-reusable-ai-skills",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "drift-decay-and-silent-failure",
+      "disposition": "MERGE",
+      "destination": "observability-first-ai-systems",
+      "redirect": "observability-first-ai-systems",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "embeddings-explained-like-youre-human",
+      "disposition": "MERGE",
+      "destination": "retrieval-augmented-generation-in-plain-terms",
+      "redirect": "retrieval-augmented-generation-in-plain-terms",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "engineering-agentic-systems-for-reliability",
+      "disposition": "MERGE",
+      "destination": "from-agent-intent-to-governed-execution",
+      "redirect": "from-agent-intent-to-governed-execution",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "engineering-bounded-autonomy",
+      "disposition": "RETIRE",
+      "destination": "from-agent-intent-to-governed-execution",
+      "redirect": "from-agent-intent-to-governed-execution",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "enterprise-ai-at-scale",
+      "disposition": "RETIRE",
+      "destination": "from-prompt-to-production",
+      "redirect": "from-prompt-to-production",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "entity-glossary-for-ai-discoverability",
+      "disposition": "MOVE-TO-SHELF",
+      "destination": "shelf",
+      "redirect": null,
+      "redirectStatus": "pending",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": [
+        "destination is a Shelf reference artifact; exact Shelf path not yet chosen",
+        "retire rather than preserve a mostly empty glossary if little survives pruning",
+        "old Systems URL requires a redirect to the Shelf location once that path is chosen"
+      ]
+    },
+    {
+      "slug": "evaluating-non-deterministic-outputs-with-rubric-based-pipelines",
+      "disposition": "MERGE",
+      "destination": "evaluation-is-a-human-problem",
+      "redirect": "evaluation-is-a-human-problem",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "evaluation-as-a-runtime-discipline",
+      "disposition": "MERGE",
+      "destination": "evaluation-is-a-human-problem",
+      "redirect": "evaluation-is-a-human-problem",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": [
+        "primary reader intent resolves to the evaluation canonical; material also contributed to observability but one redirect must follow the dominant question"
+      ]
+    },
+    {
+      "slug": "evaluation-is-a-human-problem",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "from-ad-hoc-prompts-to-repeatable-agent-workflows",
+      "disposition": "MERGE",
+      "destination": "agent-instructions-and-handoff-as-an-operating-system",
+      "redirect": "agent-instructions-and-handoff-as-an-operating-system",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "from-agent-intent-to-governed-execution",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "from-prompt-to-production",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": [
+        "retain current featured state; discovery decision deferred to the later discovery pass"
+      ]
+    },
+    {
+      "slug": "human-in-the-loop-is-a-system-design-choice",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "i-7-cognitive-loop",
+      "disposition": "REDUCE-TO-NOTE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "pending",
+      "constraints": [
+        "retain featured:true; discovery decision deferred to the later discovery pass"
+      ]
+    },
+    {
+      "slug": "intent-architecture-as-a-language-contract",
+      "disposition": "MERGE",
+      "destination": "structured-output-and-why-it-matters",
+      "redirect": "structured-output-and-why-it-matters",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "knowledge-management-as-runtime-memory",
+      "disposition": "MERGE",
+      "destination": "retrieval-augmented-generation-in-plain-terms",
+      "redirect": "retrieval-augmented-generation-in-plain-terms",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "llm-ops-without-the-buzzwords",
+      "disposition": "MERGE",
+      "destination": "observability-first-ai-systems",
+      "redirect": "observability-first-ai-systems",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "managing-state-and-memory-handoffs-in-multi-agent-workflows",
+      "disposition": "MERGE",
+      "destination": "agent-instructions-and-handoff-as-an-operating-system",
+      "redirect": "agent-instructions-and-handoff-as-an-operating-system",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "mental-frameworks",
+      "disposition": "RETIRE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "none",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": [
+        "no-semantic-equivalent; do not force redirect"
+      ]
+    },
+    {
+      "slug": "natural-language-is-the-new-api",
+      "disposition": "RETIRE",
+      "destination": "prompting-is-not-the-skill-you-think-it-is",
+      "redirect": "prompting-is-not-the-skill-you-think-it-is",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "observability-first-ai-systems",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "policy-governed-mcp-runtimes-for-secure-tool-execution",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "probabilities-not-truth",
+      "disposition": "MERGE",
+      "destination": "what-an-ai-model-actually-is",
+      "redirect": "what-an-ai-model-actually-is",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "prompting-is-not-the-skill-you-think-it-is",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "resilient-integration-contracts-for-structured-outputs",
+      "disposition": "MERGE",
+      "destination": "structured-output-and-why-it-matters",
+      "redirect": "structured-output-and-why-it-matters",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "retrieval-augmented-generation-in-plain-terms",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "runtime-over-model-why-orchestration-is-the-product",
+      "disposition": "REDUCE-TO-NOTE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "semantic-caching-for-probabilistic-systems",
+      "disposition": "REDUCE-TO-NOTE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "seo-aeo-geo-how-things-fit-together",
+      "disposition": "MERGE",
+      "destination": "seo-aeo-geo-in-plain-terms",
+      "redirect": "seo-aeo-geo-in-plain-terms",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "seo-aeo-geo-in-plain-terms",
+      "disposition": "REDUCE-TO-NOTE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "pending",
+      "constraints": []
+    },
+    {
+      "slug": "skill-evaluation-and-versioning",
+      "disposition": "MERGE",
+      "destination": "designing-reusable-ai-skills",
+      "redirect": "designing-reusable-ai-skills",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "skills-vs-prompts-vs-agents",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "structured-output-and-why-it-matters",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "systems-001-foundations",
+      "disposition": "REDUCE-TO-NOTE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "pending",
+      "constraints": [
+        "clear featured:true when the note reduction is implemented"
+      ]
+    },
+    {
+      "slug": "tech-stack-for-nlpg-driven-ai-assisted-sdlc",
+      "disposition": "REDUCE-TO-NOTE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "pending",
+      "constraints": [
+        "NLPg is retired as a public acronym and taxonomy; name the mechanism instead"
+      ]
+    },
+    {
+      "slug": "the-intelligence-assembly-model",
+      "disposition": "RETIRE",
+      "destination": "ai-architecture-explained-how-modern-llm-applications-work",
+      "redirect": "ai-architecture-explained-how-modern-llm-applications-work",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "the-logic-void",
+      "disposition": "RETIRE",
+      "destination": "what-an-ai-model-actually-is",
+      "redirect": "what-an-ai-model-actually-is",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "tool-use-when-language-triggers-actions",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "training-vs-inference",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "what-a-skill-is-in-ai-systems",
+      "disposition": "MERGE",
+      "destination": "designing-reusable-ai-skills",
+      "redirect": "designing-reusable-ai-skills",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "what-a-system-prompt-actually-is",
+      "disposition": "KEEP-STRIP",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "what-an-ai-model-actually-is",
+      "disposition": "KEEP-REWRITE",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "what-llms-are-optimized-for",
+      "disposition": "MERGE",
+      "destination": "what-an-ai-model-actually-is",
+      "redirect": "what-an-ai-model-actually-is",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "why-most-ai-projects-fail-after-the-demo-stage",
+      "disposition": "MERGE",
+      "destination": "from-prompt-to-production",
+      "redirect": "from-prompt-to-production",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    },
+    {
+      "slug": "why-ocr-quietly-breaks-document-ai",
+      "disposition": "KEEP-STRIP",
+      "destination": null,
+      "redirect": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "winning-ai-search-as-a-discoverability-system",
+      "disposition": "RETIRE",
+      "destination": "seo-aeo-geo-in-plain-terms",
+      "redirect": "seo-aeo-geo-in-plain-terms",
+      "redirectStatus": "resolved",
+      "keepUrl": false,
+      "status": "structural-pending",
+      "constraints": []
+    }
+  ]
+}
