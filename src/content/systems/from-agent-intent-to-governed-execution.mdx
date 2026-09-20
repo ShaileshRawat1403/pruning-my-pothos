@@ -1,199 +1,127 @@
 ---
+schemaVersion: "1.0"
 title: "From Agent Intent to Governed Execution"
 publishDate: "2026-03-05"
-updatedAt: "2026-06-28"
-description: "How an agent request becomes controlled system behavior through runtime orchestration, policy gates, verification, and traceability."
+updatedAt: "2026-09-20"
+description: "What has to happen between a model asking for an action and that action changing something real, and which layer owns each failure."
 category: "How-things-fit-together"
 heroImage: '/covers/systems/from-agent-intent-to-governed-execution.svg'
-heroImageAlt: 'Governed execution pipeline'
+heroImageAlt: 'A proposed action passing a permission check before execution, with the effect verified afterwards'
 tags:
-  - mcp
   - orchestration
-  - runtime
   - policy
   - verification
-  - traceability
-proofPoints:
-  - Defines 7 control stages for agent execution
-  - Establishes governed step as the practical unit of production AI
-  - Core reference for Dual NLP framework implementation
-faq:
-  - question: What is a governed step in agent execution?
-    answer: "A governed step is the practical unit of production AI: a single action that has been authorized by runtime policy, verified for correctness, and logged for traceability. Agent reliability comes from the quality of these governed steps, not from model capability alone."
-  - question: How does the model-to-runtime responsibility shift work?
-    answer: "The model proposes; the runtime authorizes. The model generates potential actions based on intent. The runtime then checks permissions, validates the action against policy, executes if approved, and logs the outcome. This separation makes behavior auditable."
-  - question: What are the seven control stages?
-    answer: "The seven control stages are: (1) Intent parsing, (2) Policy check, (3) Permission gate, (4) Action proposal, (5) Validation, (6) Execution, and (7) Audit logging. Each stage can halt or redirect the flow if constraints are violated."
+  - reliability
+contentType: 'technical'
+readingTime: 8
+difficulty: 'intermediate'
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Trace a proposed action from request to verified effect, decide what should happen when evidence is thin, and say which layer owns a given failure."
+thesis: "Between a model requesting an action and that action changing something real, software decides whether it is permitted, runs it, and checks what actually happened, and each of those is a separate point where a system fails differently."
+shortAnswer: "A model can request an action, and something has to decide whether that request becomes an effect. That decision sequence is: check the request is well-formed, decide whether it is permitted here and now, run it, then check what actually changed. Each step fails differently. A request can be valid but not allowed, allowed but fail to run, and run successfully without producing the effect anyone wanted, which is why a tool returning success is not the end of the question."
+
+boundary:
+  is: "An explainer of the control path between a proposed action and a verified effect, and of what to do when evidence is insufficient to decide."
+  isNot: "A treatment of who chooses the next step, of who reviews a decision and what they see, or of the longer evidence trail across many runs."
+  mattersWhen: "A system can take an action that is expensive, irreversible, or visible to someone else."
+
+provenance:
+  primary: synthesis
+  sources: []
+  claims:
+    - statement: "A model can produce a request for an action. Software outside the model determines whether that request is allowed to become an effect."
+      kind: synthesis
+    - statement: "Authorization asks whether an operation is permitted, which is a different question from whether the request is well-formed."
+      kind: synthesis
+    - statement: "A successful tool call is not proof that the intended effect occurred."
+      kind: synthesis
 ---
 
-> **Key takeaways**
->
-> - Agent reliability is a runtime property, not a prompt property.
-> - The model should propose actions; the runtime should authorize execution.
-> - Deterministic contracts and structured traces make multi-step behavior auditable.
-> - The practical unit is not "a response" but "a governed step".
+A model asks to issue a refund. Somewhere between that request and money moving, a series of decisions happens. In many systems those decisions are implicit, which means they are being made by whichever code happens to run first.
 
-Most agent failures are not caused by low model capability. They come from weak orchestration boundaries between model output and system execution. A model can be correct in language and still unsafe in behavior.
+This page is about making them explicit, because each one fails in a different way and needs a different fix.
 
-### How does governed execution secure agent runtimes?
+## The path
 
-Governed execution secures agent runtimes by separating action proposal from action authorization. The language model acts as a reasoning engine to propose tool calls, while a deterministic system runtime intercepts, parses, and validates each proposed action against a strict policy contract before execution, ensuring that unsafe or unauthorized actions are blocked.
+**A model can produce a request for an action. Software outside the model determines whether that request is allowed to become an effect.**
 
-This document explains the end-to-end path from user intent to runtime-controlled execution, and why each control point exists.
+Between the two, four things happen:
 
+**Check the request.** Is it well-formed? Does it name a real operation, with arguments of the right types referring to things that exist? This is the [structured output](/systems/structured-output-and-why-it-matters/) work, applied at the moment before action.
 
-In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.
+**Decide whether it is permitted.** Separately from whether it parses, should this run, for this user, in this context, right now?
 
-<aside class="callout callout-insight">
-  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
-</aside>
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: Runtime framing</summary>
-      <ol>
-        <li><a href="#why-intent-needs-a-runtime">Why intent needs a runtime</a></li>
-        <li><a href="#the-governed-step-model">The governed-step model</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: Orchestration flow</summary>
-      <ol>
-        <li><a href="#the-seven-control-stages">The seven control stages</a></li>
-        <li><a href="#message-parts-as-runtime-signals">Message parts as runtime signals</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Production discipline</summary>
-      <ol>
-        <li><a href="#where-systems-break">Where systems break</a></li>
-        <li><a href="#operational-patterns-that-hold">Operational patterns that hold</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+**Run it.** Call the tool, with whatever limits apply.
 
-## Act I: Runtime framing
-
-### Why intent needs a runtime
-
-The model can map user intent to likely actions, but likelihood is not governance. Production systems need explicit decision boundaries where policy, risk, and verification can intervene before side effects happen.
-
-Without that boundary, the pipeline becomes:
-
-`intent -> model output -> side effect`
-
-With runtime orchestration, the pipeline becomes:
-
-`intent -> model proposal -> runtime decision -> side effect -> verification -> trace`
+**Check what happened.** Not whether the call returned, but whether the thing you wanted is now true.
 
 <figure class="diagram">
-  <iframe src="/scenes/governed-pipeline.html" title="Governed execution pipeline" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>The runtime gate is where intention becomes governed action.</figcaption>
+  <iframe src="/scenes/governed-pipeline.html" title="From proposal to verified effect" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
+  <figcaption>Each arrow is a place the sequence can stop.</figcaption>
 </figure>
 
-### The governed-step model
+That is a sequence, not an architecture. Small systems collapse it into a few lines of code, and it still helps to know which of the four a given line is doing.
 
-A governed step is one atomic unit of execution with five properties:
+## Permission is its own question
 
-1. **Context**: run-scoped identifiers and ownership.
-2. **Proposal**: model-produced next action.
-3. **Decision**: allow, deny, or ask.
-4. **Evidence**: verification signals from execution.
-5. **Trace**: structured record for replay and audit.
+**Authorization asks whether an operation is permitted, which is a different question from whether the request is well-formed.**
 
-This gives agents a controlled rhythm. Instead of an opaque conversation, you get a sequence of accountable transitions.
+This gets confused with four other things routinely:
 
-## Act II: Orchestration flow
+- **Authentication** establishes who is asking. Permission is about what they may do.
+- **Schema validation** establishes the request is well-shaped. A perfectly formed request to delete a production table is perfectly formed.
+- **Model confidence** is a property of generation. It is not a permission signal and should not be used as one.
+- **Human approval** is one way to resolve a permission question, not the same thing as having one.
 
-### The seven control stages
+In practice this layer answers questions with concrete answers: is this tool available to this caller, is this resource inside the scope they were granted, does the amount exceed a threshold that requires something extra. Keep those rules in code you can read, separate from the instruction text, because a rule inside a prompt is a request and a rule in the authorization layer is a check.
 
-A practical orchestration loop usually passes through seven stages. This is the runtime-level reading of the same shape described at the interaction level in the [I-7 Cognitive Loop](/systems/i-7-cognitive-loop/): both separate proposal from authorization, and both treat every step as something that must be observable to count as real.
+## When the answer is not obvious
 
-<div class="table-scroll-wrap">
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th>Stage</th>
-        <th>Runtime question</th>
-        <th>Output artifact</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>1. Intent capture</strong></td>
-        <td>What is the requested outcome?</td>
-        <td>Intent statement + constraints</td>
-      </tr>
-      <tr>
-        <td><strong>2. Proposal</strong></td>
-        <td>What action does the model suggest?</td>
-        <td>Structured action proposal</td>
-      </tr>
-      <tr>
-        <td><strong>3. Policy gate</strong></td>
-        <td>Is this action permitted here?</td>
-        <td>Decision (`allow|deny|ask`)</td>
-      </tr>
-      <tr>
-        <td><strong>4. Execution</strong></td>
-        <td>What happened in the tool boundary?</td>
-        <td>Tool result payload</td>
-      </tr>
-      <tr>
-        <td><strong>5. Verification</strong></td>
-        <td>Did evidence confirm completion?</td>
-        <td>Verification report</td>
-      </tr>
-      <tr>
-        <td><strong>6. Trace write</strong></td>
-        <td>Can this step be replayed or explained?</td>
-        <td>Audit/trace event</td>
-      </tr>
-      <tr>
-        <td><strong>7. Next-step decision</strong></td>
-        <td>Continue, compact, or stop?</td>
-        <td>Loop transition state</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+Sometimes the system cannot tell whether an action should proceed. Treating that as a binary produces bad outcomes at both ends: block everything useful, or let everything through.
 
-### Message parts as runtime signals
+Four responses are usually enough:
 
-When model output is split into message parts (`reasoning`, `text`, `tool`, `patch`, `step`), orchestration becomes inspectable. This turns raw generation into a timeline the runtime can evaluate and the operator can debug.
+| Mode | When | What it leaves behind |
+| :--- | :--- | :--- |
+| **allow** | Permitted, and evidence is sufficient | The action and its verification |
+| **ask** | A person needs to decide, or context is missing | A specific question, with the reason |
+| **deny** | Not permitted, or the risk is unacceptable | A reason code |
+| **defer** | Evidence is thin and the impact is high | A handoff record |
 
-<figure class="diagram">
-  <iframe src="/scenes/message-parts-timeline.html" title="Message parts timeline" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>Structured message parts let the runtime inspect progression, not just final text.</figcaption>
-</figure>
+Choosing between them comes down to three things: whether policy permits it at all, whether there is enough evidence to justify it now, and how expensive the mistake is to undo. That last one does most of the work. An action that can be reversed in a click deserves a different threshold from one that emails a customer.
 
-For an implementation case, see [Soothsayer MCP kernel: from prompts to controlled orchestration](/shelf/local-experiments/soothsayer-mcp-kernel/).
-For the framing lens behind this flow, see [Runtime Over Model: Why Orchestration Is the Product](/systems/runtime-over-model-why-orchestration-is-the-product/).
+It also helps to know what kind of uncertainty you have. Missing or conflicting inputs usually call for getting more context. Several plausible options with nothing to separate them calls for a tighter constraint or a second check. An action that will technically succeed while possibly being the wrong thing to do calls for reversibility or a person. These need different responses, so collapsing them into "the system was unsure" loses the information you need.
 
-## Act III: Production discipline
+When the answer is that a person should decide, this page hands over. Who reviews it, what they see, and whether they are positioned to say no is [human judgment](/systems/human-in-the-loop-is-a-system-design-choice/), and it is a real design problem rather than a checkbox.
 
-### Where systems break
+## The tool returned success
 
-Most breakdowns happen at boundaries, not at generation:
+**A successful tool call is not proof that the intended effect occurred.**
 
-- proposals executed without policy validation
-- tool success accepted without verification
-- unstructured logs that hide step-level causality
-- implicit session state that cannot be reconstructed
+An API can return 200 while the record it was supposed to update is unchanged, or updated in a way that gets rejected downstream a moment later. A file write can succeed to the wrong path. A message can send to an address that bounces.
 
-### Operational patterns that hold
+So verification is a separate step. A successful response establishes what the interface reports about the call. Where the thing you wanted is a change of state, check that state rather than treating the response as proof of it. Read the record. Confirm the balance.
 
-Reliable teams treat orchestration as a first-class system:
+This is the difference between a step that reports done and a step that shows done. Completion should be evidenced rather than stated, and the gap between those two is where a surprising number of confident, wrong systems live.
 
-- They require explicit run context for every stateful action.
-- They enforce deterministic response contracts where clients depend on stable fields.
-- They keep traces structured so incidents can be replayed and corrected.
-- They preserve a clean human intervention path for ambiguous or risky branches.
+## Classifying what went wrong
 
-### What this changes in practice
+Once the path is explicit, failures stop being one undifferentiated category. They fall out as:
 
-Stop designing around “better prompts” as the primary reliability strategy. Design around governed steps, explicit decision gates, and verifiable artifacts. That is how intent becomes accountable execution.
+- policy denied it
+- the tool errored
+- verification failed
+- required evidence was missing
+- it exceeded a time or cost limit
+
+Each leads somewhere different. A denial might mean the policy is too broad or correctly protective. A verification failure means the tool lied to you, or you checked the wrong thing. Without those classes, incident review turns into narrative: debugging becomes storytelling instead of engineering, and the same fix gets applied to unrelated problems.
+
+Keeping a record of each decision is what makes this possible, and what belongs in that record over time is [observability](/systems/observability-first-ai-systems/). This page only claims the narrower thing: you cannot classify a failure at a boundary you never made explicit.
+
+## What stays probabilistic
+
+None of this makes the system deterministic. The model still varies, and a policy check does not change that.
+
+What the checks give you is a dependable answer about one candidate action: given these rules and this request, permitted or not, every time. The variation stays upstream where it belongs, and the decisions about effects stop inheriting it.

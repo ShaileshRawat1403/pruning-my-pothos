@@ -1,135 +1,61 @@
 ---
-title: "Runtime Over Model: Why Orchestration Is the Product"
+schemaVersion: "1.0"
+title: "Why the Loop Outlives the Model"
 publishDate: "2026-03-05"
-updatedAt: "2026-06-28"
-description: "Reliable agents come from controlled execution loops, not model capability alone."
+updatedAt: "2026-09-20"
+description: "A note on why much of what a user experiences in an action-taking system comes from the software around the model, and why that software is what survives a model change."
 category: "Explanations"
 heroImage: '/covers/systems/runtime-over-model-why-orchestration-is-the-product.svg'
-heroImageAlt: 'Loop diagram showing orchestration cycle'
+heroImageAlt: 'A loop of surrounding software holding its shape while the model inside it is swapped'
 tags:
-  - mcp
   - orchestration
   - runtime
-  - policy
-  - verification
-  - traceability
-proofPoints:
-  - "Defines the four runtime constraints: permission, validation, scope, and rollback"
-  - "Establishes 'governed step' as the practical unit of AI execution"
-  - "Referenced in agent-instructions-and-handoff-as-an-operating-system.mdx"
-faq:
-  - question: Why is runtime more important than model quality for production AI?
-    answer: "Model capability is necessary but not sufficient. Runtime control provides the permission gates, verification, and trace logs that turn AI output into accountable system behavior. A better model without runtime control still produces unreliable systems."
-  - question: What are the four runtime constraints?
-    answer: "The four runtime constraints are: (1) Permission gates that authorize or block actions, (2) Validation that checks outputs before proceeding, (3) Scope limits that prevent unbounded execution, and (4) Rollback mechanisms that can undo completed steps."
-  - question: What is the difference between a chat loop and a control loop?
-    answer: "A chat loop is a stateless exchange where each turn is independent. A control loop maintains state across steps, can verify completion, and includes intervention points for human oversight. Production AI requires control loops, not chat loops."
+  - reliability
+contentType: 'technical'
+readingTime: 3
+difficulty: 'intermediate'
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Stop attributing every behaviour of an action-taking system to the model, and identify which part of the surrounding software produced the behaviour instead."
+thesis: "In an action-taking system much of the observed behaviour comes from the software around the model, which is also why that software survives a change of model."
+shortAnswer: "In a system that can take actions, a great deal of what a user experiences is decided by the software around the model: which tools exist, what is permitted, what state is carried, what happens on failure, and what counts as done. That software is also what persists when the model changes, because it holds the contracts. Treating every behaviour as a model property makes systems harder to debug and harder to upgrade."
+
+boundary:
+  is: "A short note on where observed behaviour in an action-taking system actually comes from."
+  isNot: "A description of the control path itself, which has its own page, and not a claim that model quality is unimportant."
+  mattersWhen: "A system behaves unexpectedly and the model is the first thing blamed or replaced."
+
+provenance:
+  primary: synthesis
+  sources: []
+  claims:
+    - statement: "Much of the behaviour a user experiences is decided by the software around the model."
+      kind: synthesis
+    - statement: "A model you cannot inspect fails as a mood. A loop you can inspect fails as a specific step with a specific reason."
+      kind: synthesis
 ---
 
-> **Key takeaways**
->
-> - Model capability is necessary, but runtime control is what creates reliability.
-> - The right architecture separates reasoning from execution.
-> - Permission gates, verification, and trace logs turn AI output into accountable system behavior.
+When an assistant refuses something, retries twice, stops halfway, or answers instantly from a cache, it is tempting to read all of that as the model's character. Usually it is not.
 
-### Why is the runtime more important than the model for reliability?
+**Much of the behaviour a user experiences is decided by the software around the model.** Which tools exist at all. What the system is permitted to do. What it remembers between steps. How many times it retries. What counts as finished. None of those live in the parameters, and all of them are visible to the user as behaviour.
 
-The runtime is more important than the model because a model's output is probabilistic, while system behavior must be deterministic. By separating model reasoning (generating ideas or proposing tool calls) from runtime execution (checking policies, verifying schemas, and logging actions), the system ensures that decisions stay safe, auditable, and controlled regardless of model variance.
+This matters for two practical reasons.
 
-Most teams begin with model quality and tool calling. That is a natural first step, but it is not enough for production behavior. The model can suggest useful actions, yet the system still needs to decide which actions are safe, valid, and complete.
+## Debugging
 
-This is the core shift: the model is not the product boundary. The runtime is.
+**A model you cannot inspect fails as a mood. A loop you can inspect fails as a specific step with a specific reason.**
 
+If you treat a bad outcome as a model problem, the available responses are vague: change the wording, try a bigger model, hope. If the surrounding software is explicit, the same failure has a location. Something was denied, or errored, or timed out, or returned a result nobody checked. You can open that and look.
 
-In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.
+Swapping models to fix a problem that lives in the loop is a common and expensive mistake, and it usually appears to work briefly.
 
-<aside class="callout callout-insight">
-  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
-</aside>
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: The shift</summary>
-      <ol>
-        <li><a href="#from-chat-loop-to-control-loop">From chat loop to control loop</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: The architecture</summary>
-      <ol>
-        <li><a href="#the-four-runtime-constraints">The four runtime constraints</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: The operating model</summary>
-      <ol>
-        <li><a href="#how-the-loop-stays-honest">How the loop stays honest</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+## Upgrading
 
-## Act I: The shift
+Models get replaced. A better one ships, a cheaper one appears, a provider changes its terms. The sensible move is to change the model without rebuilding the system around it.
 
-### From chat loop to control loop
+That is only possible when the surrounding software holds the contracts: what a step may do, what counts as done, what evidence a decision leaves behind. When those live in the loop, the model becomes a component you can exchange. When they live in prompt prose, every upgrade is a rewrite.
 
-A chat loop optimizes for response quality. A control loop optimizes for execution integrity.
+This is not an argument that model quality does not matter. It plainly does, and a weak model inside an excellent loop is still a weak system. The point is narrower: capability and behaviour are not the same property, and only one of them survives a version change.
 
-<figure class="diagram">
-  <iframe src="/scenes/chat-vs-control-loop.html" title="Chat loop versus control loop" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>The runtime gate is where reliability is created.</figcaption>
-</figure>
-
-## Act II: The architecture
-
-### The four runtime constraints
-
-A stable orchestration system usually enforces four constraints:
-
-1. **Lifecycle context**: every meaningful operation is tied to explicit run state.
-2. **Permission boundary**: model intent is filtered by policy before execution.
-3. **Verification boundary**: actions must produce evidence, not only output text.
-4. **Trace boundary**: each step is recorded as structured, queryable events.
-
-Without these constraints, agents can still be useful, but they are hard to debug and harder to trust.
-
-These constraints are also where multi-model strategies become possible. Once execution is mediated by policy and verification, the system can route simpler tasks to cheaper models and reserve expensive models for ambiguous steps. That decision happens in runtime logic, not prompt prose, which keeps the architecture adaptable as model offerings change.
-
-## Act III: The operating model
-
-### How the loop stays honest
-
-A robust loop is short and explicit:
-
-1. Capture user intent.
-2. Let the model propose the next action.
-3. Evaluate policy and risk.
-4. Execute allowed tools.
-5. Verify artifacts and outcomes.
-6. Record trace and decide next step (`continue`, `stop`, `compact`).
-
-For a concrete implementation narrative, see [Soothsayer MCP kernel: from prompts to controlled orchestration](/shelf/local-experiments/soothsayer-mcp-kernel/).
-For a deeper stage-by-stage systems view, see [From Agent Intent to Governed Execution](/systems/from-agent-intent-to-governed-execution/).
-
-In production, this loop should be instrumented with explicit failure classes:
-
-- policy denied
-- tool error
-- verification failed
-- missing evidence
-- timeout or budget exceeded
-
-Classified failures make incident review actionable and let teams improve policy, prompts, and tools independently.
-
-### Why the loop outlives the model
-
-Models get swapped. A better one ships, a cheaper one appears, a provider changes its terms, and the sensible move is to change the model without rewriting the system around it. That is only possible when the runtime, not the model, holds the contracts: what a step is allowed to do, what counts as done, and what evidence a decision leaves behind. When those live in the loop, the model becomes an interchangeable part that supplies suggestions, and the system keeps its shape across upgrades.
-
-The same property is what makes the system debuggable. A model you cannot inspect fails as a mood. A loop you can inspect fails as a specific step with a specific reason. When something goes wrong in production, you want to open a trace and see which stage denied, errored, or timed out, not re-run a prompt and hope the behaviour repeats. Orchestration is what turns a probabilistic tool into a system you can operate on a bad day.
-
-### What this changes in practice
-
-When designing AI systems, treat the runtime loop as the primary product surface. Model quality matters, but orchestration discipline determines whether the system is safe, reproducible, and operationally useful.
+For the control path this note refers to, see [from agent intent to governed execution](/systems/from-agent-intent-to-governed-execution/).

@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:58eff7ceef82bd65a67611463a6a3304361635de926b214c477a36b5af6282ab
+Content snapshot: sha256:1d4448540f4e2e7951da9018407d24944fd2f331349ff1b167ad42ea54dfcde7
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions
@@ -14,7 +14,7 @@ Status: Read-only diagnostic of the existing article archive.
 
 | Total Articles | Green | Amber | Red | Illustrative |
 | :--- | :--- | :--- | :--- | :--- |
-| 85 | 35 | 49 | 1 | 0 |
+| 85 | 38 | 46 | 1 | 0 |
 
 ## High-Priority Review Queue (Red)
 
@@ -134,11 +134,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L88: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L113: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L174: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[From Agent Intent to Governed Execution](../src/content/systems/from-agent-intent-to-governed-execution.mdx)** (`src/content/systems/from-agent-intent-to-governed-execution.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L79: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L110: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L177: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[From Prompt to Production: A Human Checklist](../src/content/systems/from-prompt-to-production.mdx)** (`src/content/systems/from-prompt-to-production.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L116: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -204,11 +199,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L72: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L88: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L139: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[Runtime Over Model: Why Orchestration Is the Product](../src/content/systems/runtime-over-model-why-orchestration-is-the-product.mdx)** (`src/content/systems/runtime-over-model-why-orchestration-is-the-product.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L75: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L86: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L101: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[SEO, AEO, GEO: How Discoverability Actually Works](../src/content/systems/seo-aeo-geo-how-things-fit-together.mdx)** (`src/content/systems/seo-aeo-geo-how-things-fit-together.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L76: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -249,11 +239,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L118: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L137: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L165: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[Tool Use: When Language Triggers Actions](../src/content/systems/tool-use-when-language-triggers-actions.mdx)** (`src/content/systems/tool-use-when-language-triggers-actions.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L71: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L84: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L92: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[What a Skill Is in AI Systems](../src/content/systems/what-a-skill-is-in-ai-systems.mdx)** (`src/content/systems/what-a-skill-is-in-ai-systems.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L89: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -333,7 +318,7 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [evaluation-as-a-runtime-discipline](../src/content/systems/evaluation-as-a-runtime-discipline.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [evaluation-is-a-human-problem](../src/content/systems/evaluation-is-a-human-problem.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [from-ad-hoc-prompts-to-repeatable-agent-workflows](../src/content/systems/from-ad-hoc-prompts-to-repeatable-agent-workflows.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
-| systems | [from-agent-intent-to-governed-execution](../src/content/systems/from-agent-intent-to-governed-execution.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [from-agent-intent-to-governed-execution](../src/content/systems/from-agent-intent-to-governed-execution.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [from-prompt-to-production](../src/content/systems/from-prompt-to-production.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [human-in-the-loop-is-a-system-design-choice](../src/content/systems/human-in-the-loop-is-a-system-design-choice.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [i-7-cognitive-loop](../src/content/systems/i-7-cognitive-loop.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
@@ -349,7 +334,7 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [prompting-is-not-the-skill-you-think-it-is](../src/content/systems/prompting-is-not-the-skill-you-think-it-is.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [resilient-integration-contracts-for-structured-outputs](../src/content/systems/resilient-integration-contracts-for-structured-outputs.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [retrieval-augmented-generation-in-plain-terms](../src/content/systems/retrieval-augmented-generation-in-plain-terms.mdx) | 🟢 Green | v1.0 | Yes | Clean |
-| systems | [runtime-over-model-why-orchestration-is-the-product](../src/content/systems/runtime-over-model-why-orchestration-is-the-product.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [runtime-over-model-why-orchestration-is-the-product](../src/content/systems/runtime-over-model-why-orchestration-is-the-product.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [semantic-caching-for-probabilistic-systems](../src/content/systems/semantic-caching-for-probabilistic-systems.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [seo-aeo-geo-how-things-fit-together](../src/content/systems/seo-aeo-geo-how-things-fit-together.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [seo-aeo-geo-in-plain-terms](../src/content/systems/seo-aeo-geo-in-plain-terms.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
@@ -360,7 +345,7 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [tech-stack-for-nlpg-driven-ai-assisted-sdlc](../src/content/systems/tech-stack-for-nlpg-driven-ai-assisted-sdlc.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [the-intelligence-assembly-model](../src/content/systems/the-intelligence-assembly-model.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [the-logic-void](../src/content/systems/the-logic-void.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
-| systems | [tool-use-when-language-triggers-actions](../src/content/systems/tool-use-when-language-triggers-actions.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [tool-use-when-language-triggers-actions](../src/content/systems/tool-use-when-language-triggers-actions.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [training-vs-inference](../src/content/systems/training-vs-inference.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [what-a-skill-is-in-ai-systems](../src/content/systems/what-a-skill-is-in-ai-systems.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [what-a-system-prompt-actually-is](../src/content/systems/what-a-system-prompt-actually-is.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
