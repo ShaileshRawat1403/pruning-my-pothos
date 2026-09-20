@@ -67,7 +67,7 @@ export default function Methodology({ systemsCount }: MethodologyProps) {
               <div className="pt-3 border-t border-[#F4F2EC] flex items-center justify-between text-[11px] font-mono text-[#7A7872]">
                 <span>Failure Mode Breakdown</span>
                 <Link
-                  href="/systems/engineering-agentic-systems-for-reliability"
+                  href="/systems/from-agent-intent-to-governed-execution/"
                   className="text-[#121212] hover:underline font-semibold"
                 >
                   Read Field Notes &rarr;

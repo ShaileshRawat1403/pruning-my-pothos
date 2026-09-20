@@ -6,10 +6,16 @@
  * goes, and where its old URL should point. This script proves the file is
  * internally consistent before anything irreversible is done with it.
  *
- * Three layers are checked:
+ * Five layers are checked:
  *   1. the manifest itself       internally consistent, no chains, no cycles
  *   2. public/.htaccess          implements exactly what the manifest intends
  *   3. surviving repository refs no content still links to an exiting URL
+ *   4. source files on disk      survivors present, retired sources absent
+ *   5. built output              survivor routes present, retired routes gone,
+ *                                sitemap correct, no rendered link to an exit
+ *
+ * Layers 4 and 5 key off `status`, not off a hardcoded end state: an exiting
+ * entry may legitimately still have its source while it is structural-pending.
  *
  * Two kinds of redirect target, validated two different ways:
  *   systems-slug  semantically, against a surviving manifest entry
@@ -32,6 +38,8 @@ const END = "# END PMP ARCHIVE REDIRECTS";
 // Where user-facing content lives. .htaccess is excluded deliberately: its
 // rule patterns name exiting URLs by design, which is the opposite of a defect.
 const CONTENT_ROOTS = ["src"];
+const SYSTEMS_DIR = path.join(ROOT, "src", "content", "systems");
+const SITEMAP = path.join(OUT, "sitemap.xml");
 
 const REDIRECT_STATUSES = ["not-applicable", "resolved", "none", "pending"];
 const TARGET_TYPES = ["systems-slug", "path"];
@@ -71,6 +79,10 @@ async function routeExists(target) {
     }
   }
   return null;
+}
+
+function resolvedForReadiness(entries) {
+  return entries.filter((e) => e.redirectStatus === "resolved");
 }
 
 async function main() {
@@ -302,7 +314,9 @@ async function main() {
       if (rel.startsWith(path.join("src", "content", "systems")) && exiting.has(base)) continue;
       const text = await fs.readFile(full, "utf8");
       text.split("\n").forEach((line, i) => {
-        const re = /\/systems\/([a-z0-9-]+)\//g;
+        // Trailing slash is optional: trailingSlash:true normalises at build
+        // time, so a source href without one still resolves to the same route.
+        const re = /\/systems\/([a-z0-9-]+)(?:\/|(?=["'`\s)\]]))/g;
         let m;
         while ((m = re.exec(line)) !== null) {
           if (exiting.has(m[1])) stale.push(`${rel}:${i + 1} links to exiting /systems/${m[1]}/`);
@@ -312,6 +326,142 @@ async function main() {
   }
   for (const root of CONTENT_ROOTS) await walk(path.join(ROOT, root));
   for (const s of stale) fail(s);
+
+  // ── layer 4: source files on disk match the manifest ─────────────────────
+  let onDisk = [];
+  try {
+    onDisk = (await fs.readdir(SYSTEMS_DIR)).filter((f) => f.endsWith(".mdx")).map((f) => f.slice(0, -4));
+  } catch {
+    fail(`cannot read ${path.relative(ROOT, SYSTEMS_DIR)}`);
+  }
+  const present = new Set(onDisk);
+  const survivors = entries.filter((e) => e.keepUrl === true);
+
+  for (const e of entries) {
+    if (e.keepUrl === true) {
+      if (!present.has(e.slug)) fail(`${e.slug}: survives, but src/content/systems/${e.slug}.mdx is missing`);
+    } else if (e.status === "implemented") {
+      if (present.has(e.slug)) fail(`${e.slug}: retired, but src/content/systems/${e.slug}.mdx still exists`);
+    }
+    // keepUrl:false + structural-pending: source may still exist, retirement pending.
+  }
+  for (const slug of onDisk) {
+    if (!bySlug.has(slug)) notes.push(`src/content/systems/${slug}.mdx is not a manifest entry (new page since migration)`);
+  }
+  if (onDisk.length !== survivors.length) {
+    const pendingExits = entries.filter((e) => e.keepUrl === false && e.status !== "implemented").length;
+    if (onDisk.length !== survivors.length + pendingExits) {
+      fail(`${onDisk.length} Systems sources on disk, but the manifest accounts for ${survivors.length} survivors plus ${pendingExits} not-yet-retired exits`);
+    }
+  }
+
+  // ── layer 5: built output ─────────────────────────────────────────────────
+  let built = true;
+  try {
+    await fs.access(OUT);
+  } catch {
+    built = false;
+  }
+
+  if (built) {
+    for (const e of entries) {
+      const route = path.join(OUT, "systems", e.slug, "index.html");
+      let exists = true;
+      try {
+        await fs.access(route);
+      } catch {
+        exists = false;
+      }
+      if (e.keepUrl === true && !exists) fail(`${e.slug}: survives, but out/systems/${e.slug}/index.html was not generated`);
+      if (e.keepUrl === false && e.status === "implemented" && exists) {
+        fail(`${e.slug}: retired, but out/systems/${e.slug}/index.html still exists`);
+      }
+    }
+
+    // Sitemap: survivors listed, exits absent.
+    let sitemap = null;
+    try {
+      sitemap = await fs.readFile(SITEMAP, "utf8");
+    } catch {
+      fail("out/sitemap.xml is missing");
+    }
+    if (sitemap) {
+      for (const e of entries) {
+        const listed = sitemap.includes(`/systems/${e.slug}/<`);
+        if (e.keepUrl === true && !listed) fail(`${e.slug}: survives, but is absent from the sitemap`);
+        if (e.keepUrl === false && e.status === "implemented" && listed) {
+          fail(`${e.slug}: retired, but still appears in the sitemap`);
+        }
+      }
+      for (const e of entries) {
+        if (e.redirectTargetType === "path" && !sitemap.includes(`${e.redirect}<`)) {
+          notes.push(`${e.redirect} is not in the sitemap (redirect destination, not required to be listed)`);
+        }
+      }
+    }
+
+    // No rendered page may still link to a retired route. This catches
+    // generated discovery surfaces that no source file greps for.
+    const retiredSlugs = new Set(entries.filter((e) => e.keepUrl === false && e.status === "implemented").map((e) => e.slug));
+    if (retiredSlugs.size > 0) {
+      const staleHtml = [];
+      async function walkOut(dir) {
+        let items;
+        try {
+          items = await fs.readdir(dir, { withFileTypes: true });
+        } catch {
+          return;
+        }
+        for (const it of items) {
+          const full = path.join(dir, it.name);
+          if (it.isDirectory()) {
+            await walkOut(full);
+            continue;
+          }
+          if (!it.name.endsWith(".html")) continue;
+          const html = await fs.readFile(full, "utf8");
+          for (const slug of retiredSlugs) {
+            for (const href of [`/systems/${slug}/`, `/systems/${slug}`]) {
+              if (html.includes(`href="${href}"`) || html.includes(`href='${href}'`)) {
+                staleHtml.push(`${path.relative(ROOT, full)} links to retired ${href}`);
+                break;
+              }
+            }
+          }
+        }
+      }
+      await walkOut(OUT);
+      for (const h of staleHtml.slice(0, 20)) fail(h);
+      if (staleHtml.length > 20) fail(`...and ${staleHtml.length - 20} more rendered links to retired routes`);
+    }
+
+    // Redirect readiness: source route gone, rule present, destination built.
+    let ready = 0;
+    for (const e of resolvedForReadiness(entries)) {
+      if (e.status !== "implemented") continue;
+      let srcGone = true;
+      try {
+        await fs.access(path.join(OUT, "systems", e.slug, "index.html"));
+        srcGone = false;
+      } catch {
+        /* absent, as required */
+      }
+      let destOk = false;
+      if (e.redirectTargetType === "systems-slug") {
+        try {
+          await fs.access(path.join(OUT, "systems", e.redirect, "index.html"));
+          destOk = true;
+        } catch {
+          /* missing */
+        }
+      } else {
+        destOk = (await routeExists(e.redirect)) !== null;
+      }
+      if (srcGone && destOk) ready++;
+      else fail(`${e.slug}: redirect not ready (source route ${srcGone ? "absent" : "STILL PRESENT"}, destination ${destOk ? "present" : "MISSING"})`);
+    }
+    if (ready > 0) notes.push(`${ready} retired route(s) absent with a rule and a live destination`);
+  }
 
   // ── report ────────────────────────────────────────────────────────────────
   const label = `${entries.length} entries, schema ${manifest.schemaVersion}`;
@@ -329,7 +479,8 @@ async function main() {
       `${counts.none || 0} none, ${counts.pending || 0} pending`
   );
   console.log(`  .htaccess: ${expected.length} managed rules match the manifest`);
-  console.log(`  references: 0 surviving files link to an exiting Systems URL\n`);
+  console.log(`  references: 0 surviving files link to an exiting Systems URL`);
+  console.log(`  sources:    ${entries.filter((e) => e.keepUrl === true).length} survivors on disk, ${entries.filter((e) => e.keepUrl === false && e.status === "implemented").length} retired sources absent\n`);
 }
 
 main().catch((e) => {

@@ -51,9 +51,9 @@ export default function StartHere() {
             </div>
           </Link>
 
-          {/* Card 2: Engineering Agentic Systems for Reliability */}
+          {/* Card 2: From Agent Intent to Governed Execution */}
           <Link
-            href="/systems/engineering-agentic-systems-for-reliability"
+            href="/systems/from-agent-intent-to-governed-execution/"
             className="group flex flex-col p-6 rounded-xl bg-white border border-[#EAE8E2] hover:border-[#121212] transition-all hover:shadow-sm text-decoration-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212]"
           >
             <div className="flex items-center justify-between mb-4">
@@ -71,11 +71,11 @@ export default function StartHere() {
               </svg>
             </div>
             <h3 className="font-heading font-bold text-lg text-[#121212] mb-2 group-hover:underline">
-              Engineering Agentic Systems for Reliability
+              From Agent Intent to Governed Execution
             </h3>
             <p className="text-xs text-[#55534E] leading-relaxed mb-6 flex-1">
-              A practical reliability model for multi-step agent trajectories built around governed
-              steps, deterministic state validation, and runtime escalation gates.
+              What has to happen between a model asking for an action and that action changing
+              something real, and which layer owns each failure along the way.
             </p>
             <div className="flex items-center justify-between pt-4 border-t border-[#F4F2EC] text-[11px] font-mono text-[#7A7872]">
               <span>Read the field notes</span>

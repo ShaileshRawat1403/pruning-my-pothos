@@ -57,15 +57,15 @@ export default function NewsletterWelcomePage() {
                   </span>
                 </div>
                 <h3 className="font-heading font-bold text-base text-[#121212]">
-                  Engineering Agentic Systems for Reliability
+                  From Agent Intent to Governed Execution
                 </h3>
                 <p className="text-xs text-[#55534E] leading-relaxed">
-                  A practical reliability model for multi-step agent trajectories built around governed steps, deterministic state validation, and runtime escalation gates.
+                  What has to happen between a model asking for an action and that action changing something real, and which layer owns each failure along the way.
                 </p>
               </div>
 
               <Link
-                href="/systems/engineering-agentic-systems-for-reliability"
+                href="/systems/from-agent-intent-to-governed-execution/"
                 className="pt-3 border-t border-[#F4F2EC] flex items-center justify-between text-xs font-mono font-semibold text-[#121212] hover:text-[#16A34A] transition-colors"
               >
                 <span>Read Breakdown</span>

@@ -11,9 +11,9 @@
     "RETIRE": 10
   },
   "statusTotals": {
-    "implemented": 28,
+    "implemented": 59,
     "pending": 0,
-    "structural-pending": 31
+    "structural-pending": 0
   },
   "redirectStatusTotals": {
     "not-applicable": 28,
@@ -41,7 +41,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -63,7 +63,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -96,7 +96,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -118,7 +118,7 @@
       "redirectTargetType": "path",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": [
         "the aggregate Shelf route preserves the original multi-provider comparison intent; redirecting to a single provider baseline would not"
       ]
@@ -131,7 +131,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -153,7 +153,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -175,7 +175,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -186,7 +186,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -197,7 +197,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -208,7 +208,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -219,7 +219,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -230,7 +230,7 @@
       "redirectTargetType": null,
       "redirectStatus": "none",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": [
         "supersedes MOVE-TO-SHELF after structural preflight found no distinct glossary artifact surviving canonical ownership",
         "no-semantic-equivalent; do not force redirect"
@@ -244,7 +244,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -255,7 +255,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": [
         "primary reader intent resolves to the evaluation canonical; material also contributed to observability but one redirect must follow the dominant question"
       ]
@@ -279,7 +279,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -338,7 +338,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -349,7 +349,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -360,7 +360,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -371,7 +371,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -382,7 +382,7 @@
       "redirectTargetType": null,
       "redirectStatus": "none",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": [
         "no-semantic-equivalent; do not force redirect"
       ]
@@ -395,7 +395,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -428,7 +428,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -450,7 +450,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -494,7 +494,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -516,7 +516,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -575,7 +575,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -586,7 +586,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -619,7 +619,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -652,7 +652,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -663,7 +663,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -685,7 +685,7 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
-      "status": "structural-pending",
+      "status": "implemented",
       "constraints": []
     }
   ]
