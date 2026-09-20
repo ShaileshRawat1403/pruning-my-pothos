@@ -1,267 +1,124 @@
 ---
-title: "Skills vs Prompts vs Agents"
+schemaVersion: "1.0"
+title: "Prompt, Skill, Workflow, Agent: Telling the Layers Apart"
 seoTitle: "Skill vs Prompt vs Agent: What Is the Difference?"
 publishDate: "2026-03-08"
-updatedAt: "2026-09-02"
-description: "A prompt is one instruction, a skill is a reusable capability, an agent decides what to do next. Here is where each belongs and how to tell which you need."
+updatedAt: "2026-09-20"
+description: "These words name different responsibilities, not stages of sophistication. What each one covers, and how to tell which you are looking at."
 category: "Explanations"
 heroImage: '/covers/systems/skills-vs-prompts-vs-agents.svg'
-heroImageAlt: 'Venn diagram showing overlapping concepts'
+heroImageAlt: 'Four labels covering different parts of one running system rather than a sequence of stages'
 tags:
   - skills
   - prompting
   - agents
   - workflow
-  - orchestration
-  - governance
-proofPoints:
-  - "This page gives the site a direct comparison surface for prompts, skills, workflows, and agents."
-  - "The comparison now links directly to reusable skill templates and the Dual NLP framework."
-shortAnswer: >-
-  A prompt is a one-step instruction. A system prompt is standing configuration
-  for a whole session. A skill is a reusable capability with defined inputs and
-  outputs. A workflow sequences skills, and an agent is the runtime actor that
-  executes them under tools, memory and policy.
+contentType: 'technical'
+readingTime: 6
+difficulty: 'beginner'
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Look at an AI system and name which layer a given piece belongs to, without treating the layers as stages of sophistication."
+thesis: "Prompt, system prompt, skill, workflow and agent-like choice name different responsibilities that commonly coexist in one system, so the useful question is which layer a given piece belongs to rather than which stage a system has reached."
+shortAnswer: "A prompt is the input package supplied to the model for one run. A system prompt is system-level instruction supplied with the model's context to shape behaviour for a task or interaction. A skill, in this publication's sense, is a reusable versioned package of instructions and declared constraints for a repeated task. A workflow has a sequence primarily defined by software or process logic, even when individual steps use models. Agent-like behaviour appears when the model receives bounded discretion over which action or step happens next. These are not stages: one system usually contains several of them at once."
+
+boundary:
+  is: "A map of five terms, naming what each covers and pointing to the page that owns each definition."
+  isNot: "A definition of agent, workflow or tool use, which are settled elsewhere, and not a maturity model."
+  mattersWhen: "A team is arguing about whether the thing they are building is an agent."
+
+provenance:
+  primary: synthesis
+  sources: []
+  claims:
+    - statement: "These terms name different responsibilities, and one system usually contains several of them at once."
+      kind: synthesis
+    - statement: "A prompt is the input package supplied to the model for a single run."
+      kind: synthesis
+    - statement: "a reusable, versioned package of instructions and declared operating constraints for a repeated task"
+      kind: synthesis
+
 analogy:
   mapping: >-
-    A prompt is a note you leave on someone's desk. A system prompt is the job
-    description taped above it. A skill is a procedure in the team handbook. A
-    workflow is the checklist that puts procedures in order. An agent is the
-    person who reads all of it and decides what to do next.
+    A note left on a colleague's desk is a prompt. The job description taped
+    above it is a system prompt. A procedure in the team handbook is a skill.
+    The checklist saying which procedures happen in what order is a workflow.
+    Someone deciding for themselves what to do next is the agent-like part.
   breaksWhen: >-
-    A person can ignore the handbook and still do the job from memory. A model
-    has no memory of the handbook at all. Nothing reaches it unless some layer
-    below the agent puts it into context on that specific turn. The analogy
-    makes the layers sound like helpful documentation. They are the only reason
-    anything is there.
-figure:
-  shows: range
-  caption: >-
-    One session, three turns. The layers differ by how much of it they touch,
-    not by how important they are.
-  alt: >-
-    A three-turn session. The prompt covers one turn only. The system prompt
-    spans all three and stays resident whether or not the turn needs it. A skill
-    is invoked inside one turn and then ends. A workflow chains one step per
-    turn across all three. A dashed frame around everything is the agent
-    runtime, holding tools, memory and policy.
+    A colleague remembers the handbook without rereading it. A model does not.
+    Nothing reaches it unless something put that text into the input for this
+    particular run. The analogy makes the layers sound like helpful
+    documentation sitting in the background. They are the only reason anything
+    is there at all.
+
 related:
   - type: explainer
-    title: What a Skill Is in AI Systems
-    href: /systems/what-a-skill-is-in-ai-systems/
-    note: The layer this page separates from the others, defined on its own terms.
+    title: "What a System Prompt Actually Is"
+    href: /systems/what-a-system-prompt-actually-is/
+    note: "The layer that shapes behaviour across an interaction."
   - type: playbook
-    title: Designing Reusable AI Skills
+    title: "Designing Reusable AI Skills"
     href: /systems/designing-reusable-ai-skills/
-    note: What to define before a repeated task counts as a skill.
-  - type: tool
-    title: Skill catalog
-    href: /tools/skill-catalog/
-    note: Paste a system prompt and see which rules want to be skills.
-faq:
-  - question: "What is the difference between a skill and a prompt?"
-    answer: "A prompt is one instruction for one interaction. A skill is a reusable capability with defined inputs, outputs and constraints. The prompt initiates work; the skill packages work so it behaves the same way every time it is invoked."
-  - question: "What is the difference between a skill and a system prompt?"
-    answer: "A system prompt sets standing behaviour for an entire session and stays in context whether or not the current task needs it. A skill is invoked for one bounded task and carries its own inputs, outputs and success criteria. If an instruction should apply to everything, it belongs in the system prompt. If it applies to one repeated task, it belongs in a skill."
-  - question: "Are agent skills different from prompts?"
-    answer: "Yes. An agent skill is a capability the agent can select and run, with a defined interface. A prompt is the language used to ask for something. An agent may use a prompt to invoke a skill, but the skill is the reusable unit, not the sentence."
-  - question: "Is a prompt template a skill?"
-    answer: "Not on its own. A template becomes a skill when reuse is actually defined: what it accepts, what it must return, what counts as a correct result and what happens when it fails. Without those boundaries it is a saved prompt, not a capability."
-  - question: "Does an agent always need skills?"
-    answer: "Not always, but any agent doing repeated work becomes more reliable when common tasks are packaged as skills instead of re-explained every time."
+    note: "How to build the reusable package this page names."
+  - type: explainer
+    title: "AI Agents vs AI Workflows"
+    href: /systems/ai-agents-vs-ai-workflows/
+    note: "Where the workflow and agent definitions come from."
 ---
 
-> **Key takeaways**
->
-> - A prompt is an instruction surface, not an operating model.
-> - A system prompt sets standing behaviour for a session; it is configuration, not a request.
-> - A skill is a reusable capability with clearer inputs, outputs, and constraints.
-> - A workflow coordinates several steps, often including multiple skills.
-> - An agent is a runtime actor executing workflows under tools, memory, and policy.
+Someone says the team is building an agent. Someone else says it is really just a workflow. A third person points out it is mostly a long system prompt. All three can be describing the same system correctly, because these words name different parts of it.
 
-One reason AI systems feel confusing right now is that teams reuse the same words for different layers of the stack. A prompt gets called a workflow. A workflow gets called an agent. A reusable task gets called a prompt template. The result is architectural ambiguity.
+The argument is usually not about definitions. It is about which part somebody is looking at.
 
-That ambiguity matters because each layer solves a different problem. If the team cannot name the layer correctly, it usually cannot govern or improve it correctly either.
+## The five words
 
-### What is the simplest way to separate these terms?
+**A prompt is the input package supplied to the model for a single run.** Not only an instruction: it can carry context, examples, retrieved material and the question itself. Whatever goes in for this run is the prompt. What that does and does not achieve is covered in [prompting is not the skill you think it is](/systems/prompting-is-not-the-skill-you-think-it-is/).
 
-A prompt is a one-step instruction. A skill is a reusable capability. A workflow is a sequence of steps. An agent is the runtime actor that executes or coordinates those steps. The layers relate to one another, but they are not interchangeable.
+**A system prompt** is system-level instruction supplied with the model's context to shape behaviour for a task or interaction. Applications and providers differ in how those instructions are represented and carried across calls. Its job is to set conditions that hold regardless of what is asked. It has [its own page](/systems/what-a-system-prompt-actually-is/), because the interesting part is what it costs and what it cannot do.
 
-In practice, <span class="highlight">clarity in naming prevents architecture drift later</span>.
+**A skill**, in the sense this publication uses the word, is a reusable, versioned package of instructions and declared operating constraints for a repeated task. It may define inputs, outputs, tool scope, success criteria, failure conditions and escalation. **Other platforms use "skill" differently**, sometimes for a tool, sometimes for a plugin, sometimes for a prompt template with a name. This is working vocabulary for explaining PMP's own architecture, not a claim about the industry.
 
-<aside class="callout callout-insight">
-  <p><strong>Design note.</strong> If you cannot point to where the prompt ends and the runtime begins, the system is usually harder to debug, evaluate, and scale.</p>
-</aside>
+**A workflow** has a sequence primarily defined by software or process logic, even when individual steps use models. **Agent-like behaviour** appears when the model receives bounded discretion over which action or step happens next. Both of those definitions belong to [AI agents vs AI workflows](/systems/ai-agents-vs-ai-workflows/), and this page adopts them rather than restating them in different words.
 
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: Why the confusion persists</summary>
-      <ol>
-        <li><a href="#same-language-different-layers">Same language, different layers</a></li>
-        <li><a href="#why-this-confusion-is-costly">Why this confusion is costly</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: A clean comparison model</summary>
-      <ol>
-        <li><a href="#the-five-layer-comparison">The five-layer comparison</a></li>
-        <li><a href="#where-does-a-system-prompt-fit">Where does a system prompt fit?</a></li>
-        <li><a href="#where-workflows-fit">Where workflows fit</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Applying the distinction</summary>
-      <ol>
-        <li><a href="#a-practical-decision-rule">A practical decision rule</a></li>
-        <li><a href="#common-misclassifications">Common misclassifications</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+## They are not stages
 
-## Act I: Why the confusion persists
+The most common mistake is reading these as a ladder, with prompts for beginners and agents for advanced teams.
 
-### Same language, different layers
+**These terms name different responsibilities, and one system usually contains several of them at once.** A single mature system can have a system prompt setting conditions, three skills packaging its repeated tasks, a workflow sequencing them, and one step where the model picks among a few options. Nothing in that list is more advanced than anything else.
 
-The confusion is understandable because all these things involve natural language:
+Reading them as stages produces a specific bad decision: teams add agent-like freedom because it sounds like progress, when a fixed sequence would have been more reliable and easier to debug.
 
-- you write prompts in language
-- you define skills in language
-- workflows are often described in language
-- agents may appear to "reason" in language
+## Telling them apart
 
-But shared medium does not mean shared role.
+Four questions separate them in practice:
 
-A prompt is closest to the request surface. It initiates a task. A skill packages a task so it can be reused. A workflow sequences tasks toward an outcome. An agent executes or coordinates tasks within a runtime that includes tools, state, and policy.
+**What is supplied for this run?** The prompt.
 
-### Why this confusion is costly
+**What is present regardless of the run?** The system prompt.
 
-When these are mixed up, teams make weak design choices:
+**What is packaged for reuse across runs?** A skill.
 
-- they try to improve workflows only by editing prompts
-- they call a reusable task a skill without defining output boundaries
-- they describe an agent as if it were just a chat surface
-- they skip governance because the architecture is still spoken about too vaguely
+**Who decides what happens after this step?** If the program decides, it is a workflow. If the model decides, that part is agent-like.
 
-This is why a comparison page matters. The vocabulary shapes the system.
+The last question is the one that changes how much can go wrong, which is why it gets a page of its own rather than a row in a table here.
 
-## Act II: A clean comparison model
+## A word about "runtime"
 
-### The five-layer comparison
+The word gets used loosely, and one usage is worth correcting because this page previously had it backwards.
 
-<div class="table-scroll-wrap">
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th>Layer</th>
-        <th>Main job</th>
-        <th>Typical scope</th>
-        <th>Failure if misused</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Prompt</strong></td>
-        <td>Initiate or shape one interaction</td>
-        <td>Single instruction</td>
-        <td>Repeated work stays informal</td>
-      </tr>
-      <tr>
-        <td><strong>System prompt</strong></td>
-        <td>Set standing behaviour for a whole session</td>
-        <td>Every interaction in one context</td>
-        <td>Behaviour changes invisibly when it is edited</td>
-      </tr>
-      <tr>
-        <td><strong>Skill</strong></td>
-        <td>Package a repeated capability for reuse</td>
-        <td>One bounded task</td>
-        <td>Behavior drifts between invocations</td>
-      </tr>
-      <tr>
-        <td><strong>Workflow</strong></td>
-        <td>Sequence steps toward an outcome</td>
-        <td>Several linked tasks</td>
-        <td>Handoffs become ambiguous</td>
-      </tr>
-      <tr>
-        <td><strong>Agent</strong></td>
-        <td>Execute or coordinate within runtime</td>
-        <td>Live system actor</td>
-        <td>Policy and tool behavior stay opaque</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+The runtime is the host program: the thing that holds credentials, calls tools, enforces limits and decides what is permitted. It is not the agent. When a model is given discretion over the next step, the runtime is the layer that constrains that discretion. Calling the agent "the runtime actor" inverts the relationship and makes the controlling layer disappear from the description.
 
-This model pairs directly with [What a Skill Is in AI Systems](/systems/what-a-skill-is-in-ai-systems/). That page defines the skill layer; this page separates it from the other layers around it.
+## Where mistakes show up
 
-### Where does a system prompt fit?
+Three recur:
 
-A system prompt is still a prompt, but it operates at a different range. An ordinary prompt shapes one interaction. A system prompt shapes every interaction inside a session or product surface, and it stays in the context window whether or not the current task needs it.
+**A saved prompt called a skill.** Naming it does not make it reusable. What makes it a skill in this sense is declaring what it takes, what it returns, what counts as success and what happens when it fails.
 
-That makes it closer to configuration than to a request. It is a good place for tone, role boundaries, refusal rules, and output conventions. It is a poor place for task logic, because task logic written into a system prompt applies even when it is irrelevant, and it competes for context with the work itself.
+**A workflow called an agent** because it makes several tool calls. Tool use is a separate question from step selection. A workflow can call many tools and still have every branch written in advance.
 
-The practical line is about range, not importance:
+**Task logic living in the system prompt.** A system prompt accumulating rules about specific tasks is usually a skill that has not been named yet, and the cost is that nobody reviews it.
 
-- if the instruction should apply to everything in this session, it belongs in the system prompt
-- if it applies to one repeated task, it belongs in a skill
+## What this changes
 
-A system prompt that keeps accumulating task-specific rules is usually a skill that has not been named yet. That is the most common version of this mistake, and it is expensive because the rules become invisible. Nobody reviews a system prompt the way they review a capability.
-
-### Where workflows fit
-
-Workflows are the bridge between skills and agents.
-
-<figure class="diagram">
-  <iframe src="/scenes/skills-staircase.html" title="Prompt to skill to workflow to agent stack" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>Workflows coordinate reusable skills, and agents execute those workflows inside a governed runtime.</figcaption>
-</figure>
-
-A workflow might include several skills:
-
-- classify incoming task
-- retrieve relevant context
-- draft a structured plan
-- validate output shape
-- escalate if risk threshold is crossed
-
-That workflow may be executed by an agent system, but the workflow itself is not the same thing as the agent. The agent is the runtime actor; the workflow is the structure it follows.
-
-If you want the practical asset layer behind this distinction, see [AI skill design templates](/shelf/shared-resources/ai-skill-design-templates/).
-
-## Act III: Applying the distinction
-
-### A practical decision rule
-
-When a team asks, "What should we build here?" the following rule helps:
-
-- if it is a one-off request, use a prompt
-- if it is a repeated bounded task, define a skill
-- if it joins several steps together, define a workflow
-- if it needs tools, memory, and policy in live execution, design the agent runtime
-
-That rule is simple, but it removes a lot of conceptual waste.
-
-It also aligns with [Dual NLP for AI-assisted SDLC](/docs/natural-language-programming-stack/). That page is strongest when read as the bridge from intent to structured capability. In that framing, the sandbox is not just a place to play with wording. It is the place where a vague request can be compiled into a more explicit skill blueprint.
-
-### Common misclassifications
-
-Several mistakes appear repeatedly:
-
-- calling a prompt template a skill even though nothing about reuse is defined
-- calling a workflow an agent because it uses several tool calls
-- calling an agent "smart" when the real improvement came from better workflow structure
-- calling a reusable task architecture "prompt engineering"
-
-These mistakes slow improvement because they focus attention on the wrong layer.
-
-For prompt-specific context, see [Prompting Is Not the Skill You Think It Is](/systems/prompting-is-not-the-skill-you-think-it-is/). For runtime execution context, see [Agent Instructions and Handoff as an Operating System](/systems/agent-instructions-and-handoff-as-an-operating-system/).
-
-### What this changes in practice
-
-You design the right thing at the right level: prompts for one-offs, skills for reusable tasks, workflows for coordination, and agents for governed runtime execution.
+When someone asks whether to build an agent, the more useful question is which layer the problem actually sits in. Most of the time the answer is a skill that needs defining or a workflow that needs writing down, and the agent question turns out not to be the decision in front of them.
