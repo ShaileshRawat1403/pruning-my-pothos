@@ -1,164 +1,62 @@
 ---
-title: "Tech Stack for NLPg-Driven AI-Assisted SDLC"
-publishDate: "2026-02-12"
-updatedAt: "2026-06-28"
-description: "A language-first SDLC design: from intent and compiled instruction to governed execution, validation, and delivery."
-category: "How-things-fit-together"
+schemaVersion: "1.0"
+title: "The Instruction Spec: Defining an AI-Assisted Software Change"
+seoTitle: "Instruction Spec for AI-Assisted Software Development"
+publishDate: "2026-03-12"
+updatedAt: "2026-09-20"
+description: "Six fields written down before an agent touches the code, and a risk category that decides which approvals the change needs."
+category: "Explanations"
 heroImage: '/covers/systems/tech-stack-for-nlpg-driven-ai-assisted-sdlc.svg'
-heroImageAlt: 'Language-first SDLC pipeline'
+heroImageAlt: 'A short specification agreed before an agent begins changing code'
 tags:
-  - nlpg
-  - ai-assisted-sdlc
+  - sdlc
+  - specification
   - governance
-  - developer-experience
-  - product
-  - stack
 contentType: 'technical'
-readingTime: 16
-difficulty: 'advanced'
-proofPoints:
-  - 16-minute deep dive on NLPg SDLC architecture
-  - Core reference for from-prompt-to-production.mdx
-  - Referenced in tech-stack documentation
-faq:
-  - question: What is NLPg SDLC?
-    answer: "NLPg (Natural Language Process Governance) SDLC is a language-first software development lifecycle where natural language is the primary artifact and code is an execution artifact. It optimizes for reliable delivery over time rather than local coding speed."
-  - question: How does NLPg differ from vibe coding?
-    answer: "Vibe coding prioritizes immediate productivity by accepting AI-generated code without systematic validation. NLPg SDLC adds governance layers including intent specification, risk assessment, interface design, validation, monitoring, and human fallback to ensure reliable delivery."
-  - question: What are the key components of an NLPg tech stack?
-    answer: "The stack includes: intent parsing (converting natural language to structured intent), instruction compilation (transforming intent to executable specifications), execution governance (runtime controls and policy gates), validation layers (output verification), and observability (runtime monitoring and drift detection)."
+readingTime: 5
+difficulty: 'intermediate'
+
+contentKind: explainer
+readerIntent: use
+readerOutcome: "Write down what an agent is about to build in a form specific enough to disagree with, and decide which approvals the change needs from what it touches."
+thesis: "Most of what goes wrong in AI-assisted development is settled before any code is written, so the useful artifact is a short specification that can be disagreed with while disagreement is still cheap."
+shortAnswer: "Before an agent changes code, six things are worth writing down: the objective, the constraints, what would count as acceptance, the risk category of the change, the points where a person has to approve, and how to undo it. None of that is ceremony. Each one is a thing that otherwise gets decided silently, usually by whichever code ran first, and discovered in review. Which approvals a change needs should follow from what it touches rather than from how large the diff turned out to be."
+
+boundary:
+  is: "A note on the short specification agreed before an AI agent changes code, and how the risk of a change decides its approvals."
+  isNot: "A development methodology, a toolchain, a definition of prompts or instructions, or an account of how approval is enforced at runtime."
+  mattersWhen: "An agent is about to change code that touches authentication, billing, data or an external service."
+
+provenance:
+  primary: synthesis
+  sources: []
+  claims:
+    - statement: "An instruction specification states the objective, the constraints, what would count as acceptance, the risk category, the points requiring approval, and how to undo the change."
+      kind: synthesis
+    - statement: "Which approvals a change needs should follow from what the change touches rather than from how large the resulting diff is."
+      kind: synthesis
+
+related:
+  - type: explainer
+    title: "Prompting Is Not the Skill You Think It Is"
+    href: /systems/prompting-is-not-the-skill-you-think-it-is/
+    note: "Why the wording of the request is the smaller half of this."
+  - type: explainer
+    title: "From Agent Intent to Governed Execution"
+    href: /systems/from-agent-intent-to-governed-execution/
+    note: "How an approval point is actually enforced rather than requested."
 ---
 
-> **Key takeaways**
->
-> - Vibe coding optimizes for local speed. NLPg SDLC optimizes for <span class="highlight">reliable delivery over time</span>.
-> - In NLPg, language is the primary artifact and code is an execution artifact.
-> - The differentiator is not model choice. It is <span class="keyword">instruction quality</span>, policy gates, and traceability.
-> - If the method does not reduce ambiguity, defect rate, and rollback frequency, it is still a concept, not a system.
+An agent is told to add role-based access control to the dashboard. It does. Along the way it also touches the billing routes, because they share a middleware file, and nobody said not to.
 
-This document defines a staged, method-aligned stack for NLPg-driven AI-assisted SDLC. The goal is to move from "prompt to deploy" toward a repeatable flow: intent, structure, execution, validation, and governed change. If you want the higher-level framing behind this page, start with [Dual NLP for AI-assisted SDLC](/docs/natural-language-programming-stack/), then return here for the stack design.
+Nothing here was a model failure. The constraint existed in somebody's head and never made it into the request.
 
-### What is NLPg-driven SDLC?
+## Six fields
 
-An NLPg-driven SDLC (Natural Language Process Governance Software Development Lifecycle) is a development methodology where natural language specifications serve as the primary source of truth, and code is treated as a compiled execution artifact. By introducing structured gates for intent, verification, and runtime policy, it prevents the fragility of ungoverned "vibe coding" and establishes repeatable quality controls for AI-generated software.
-
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: The fundamentals</summary>
-      <ol>
-        <li><a href="#why-this-is-not-vibe-coding">Why this is not vibe coding</a></li>
-        <li><a href="#altitude-analogy-blueprint-vs-bricklaying">Altitude analogy: blueprint vs bricklaying</a></li>
-        <li><a href="#the-nlpg-sdlc-loop">The NLPg SDLC loop</a></li>
-        <li><a href="#instruction-spec-as-contract">Instruction spec as contract</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: The modern paradigm</summary>
-      <ol>
-        <li><a href="#staged-rollout-plan">Staged rollout plan</a></li>
-        <li><a href="#stack-layers-method-aligned">Stack layers, method-aligned</a></li>
-        <li><a href="#workflow-diagram-intent-to-governed-delivery">Workflow diagram: intent to governed delivery</a></li>
-        <li><a href="#mindmap-nlpg-system-surface">Mindmap: NLPg system surface</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Principles in practice</summary>
-      <ol>
-        <li><a href="#governance-primitives">Governance primitives</a></li>
-        <li><a href="#risk-gate-matrix">Risk gate matrix</a></li>
-        <li><a href="#workflow-example-a-rbac-auth-risk">Workflow example A: RBAC (auth risk)</a></li>
-        <li><a href="#workflow-example-b-stripe-billing-billing-risk">Workflow example B: Stripe billing (billing risk)</a></li>
-        <li><a href="#operating-metrics-for-this-method">Operating metrics for this method</a></li>
-        <li><a href="#template-repo-shape">Template repo shape</a></li>
-        <li><a href="#minimal-cli-surface">Minimal CLI surface</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
-
-## Act I: The fundamentals
-
-### Why this is not vibe coding
-
-The distinction is not semantic. It changes where engineering control lives.
-
-<div class="table-scroll-wrap">
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th>Approach</th>
-        <th>Flow</th>
-        <th>Primary optimization</th>
-        <th>Main failure mode</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Vibe coding</td>
-        <td>Prompt -> Generate -> Ship</td>
-        <td>Local speed</td>
-        <td>Hidden assumptions ship to production</td>
-      </tr>
-      <tr>
-        <td>Surface AI-assisted SDLC</td>
-        <td>Prompt -> Code -> Fix -> Deploy</td>
-        <td>Code throughput</td>
-        <td>Governance arrives late, after behavior exists</td>
-      </tr>
-      <tr>
-        <td>NLPg-driven SDLC</td>
-        <td>Language -> Logic -> Structure -> Execution -> Validation -> Governance</td>
-        <td>Reliability over time</td>
-        <td>Overhead if teams skip compiler and gates</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-In NLPg, language is not ad hoc input. It is a <span class="keyword">structured interface</span> for system behavior. That places language above code in the design pyramid: intent first, implementation second.
-
-### Altitude analogy: blueprint vs bricklaying
-
-A useful analogy is construction. Bricklaying speed matters, but a faster crew cannot rescue a bad blueprint.
-
-- Vibe coding treats the request like a sketch on a napkin and optimizes how quickly the wall appears.
-- NLPg treats the request as a blueprint with load assumptions, safety constraints, and inspection checkpoints.
-
-Another analogy is air traffic control.
-
-- The pilot is execution.
-- Air traffic control is governance.
-- Weather radar is validation.
-- The flight plan is the instruction spec.
-
-Without the plan and checkpoints, takeoff is fast and arrival is uncertain. This is also why [Prompting Is Not the Skill You Think It Is](/systems/prompting-is-not-the-skill-you-think-it-is/) matters: prompting is only useful when it feeds a repeatable runtime instead of acting as a one-off trick.
-
-### The NLPg SDLC loop
-
-1. **Intent**
-2. **Instruction spec**
-3. **Compilation**
-4. **Execution**
-5. **Validation**
-6. **Approval**
-7. **Delivery**
-8. **Telemetry back into learning**
-
-Most software failures begin before code: ambiguity, hidden assumptions, and unstated constraints. NLPg reduces this by forcing intent into machine-interpretable structure before any file is changed.
-
-### Instruction spec as contract
-
-The minimum contract for safe execution is explicit and versionable.
+**An instruction specification states the objective, the constraints, what would count as acceptance, the risk category, the points requiring approval, and how to undo the change.**
 
 ```yaml
 objective: Add role-based access control for dashboard
-inputs:
-  - routes
-  - api_handlers
 constraints:
   - do_not_modify_billing_routes
   - preserve_existing_session_model
@@ -176,356 +74,33 @@ rollback:
   - revert_middleware
 ```
 
-<aside class="callout">
-  <p><strong>Definition.</strong> An instruction spec is the executable contract between human intent and agent execution. If it is ambiguous, the run is unsafe by default.</p>
-</aside>
+The format is unimportant. What matters is that each field is a decision that would otherwise be made silently.
 
-## Act II: The modern paradigm
+*Objective* is what is being asked for. *Constraints* are the things that must not change, and they are the easiest field to leave out, because the thing you do not want touched is not the thing on your mind when you are describing what you want. *Acceptance criteria* are specific enough to disagree with before the work starts. *Risk* decides the rest. *Approval gates* name the moments a person has to say yes. *Rollback* is the undo path, written now rather than reconstructed later under pressure.
 
-### Staged rollout plan
+## Risk decides the gates
 
-You can stage this method from documentation to runtime without overbuilding early.
+**Which approvals a change needs should follow from what the change touches rather than from how large the resulting diff is.** A three-line change to authentication is a different proposition from a three-hundred-line change to a stylesheet.
 
-<div class="table-scroll-wrap">
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th>Stage</th>
-        <th>Goal</th>
-        <th>Core deliverables</th>
-        <th>Signal of readiness</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Stage 0: Documentation-only method</td>
-        <td>Make the process usable manually</td>
-        <td>Spec format, risk taxonomy, approval gates, work-note format, examples</td>
-        <td>Two humans produce similar plans from the same intent</td>
-      </tr>
-      <tr>
-        <td>Stage 1: GitHub template repo</td>
-        <td>Create a reproducible baseline</td>
-        <td>Next.js + Supabase + Stripe + Resend + CI + policy rules + demo flows</td>
-        <td>New contributors can run the full loop in one day</td>
-      </tr>
-      <tr>
-        <td>Stage 2: CLI system</td>
-        <td>Turn method into executable workflow</td>
-        <td>Spec validation, plan compilation, approval checks, ledger, PR context</td>
-        <td>High-risk changes are auto-paused without manual policing</td>
-      </tr>
-      <tr>
-        <td>Stage 3: SaaS layer</td>
-        <td>Enable team-wide adoption</td>
-        <td>Spec UI, approval queue, policy UI, ledger browser, roles/permissions</td>
-        <td>Non-dev stakeholders can approve with full context</td>
-      </tr>
-      <tr>
-        <td>Stage 4: Agent runtime and integrations</td>
-        <td>Embed in existing work loops</td>
-        <td>GitHub app, Slack gates, preview deploy hooks, telemetry integrations</td>
-        <td>Workflow runs where teams already collaborate</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+Categorising by what is touched gives you something to attach gates to:
 
-### Stack layers, method-aligned
+| Category | Examples | Where a gate belongs | Minimum check |
+| :--- | :--- | :--- | :--- |
+| **auth-change** | role model, middleware, token or session flow | before migration, before middleware deploy | access matrix tests, regression on protected routes |
+| **billing-change** | webhook handling, entitlement checks, pricing logic | before webhook deploy, before entitlement enforcement | signature verification, replay protection |
+| **db-migration** | schema change, destructive update | before applying in staging and in production | dry run, rollback rehearsal |
+| **external-api** | new provider call, change in what data leaves | before secret registration, before live traffic | contract tests, timeout and retry behaviour |
 
-The familiar execution stack still matters. It moves down the hierarchy while language and policy move up.
+These categories are an example of the shape, not a list to adopt. The useful property is that the category is decidable at specification time, before anyone knows how big the change will be.
 
-<div class="table-scroll-wrap">
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th>Layer</th>
-        <th>Purpose</th>
-        <th>Artifacts and tools</th>
-        <th>Quality question</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Layer 1: Intent and instruction</td>
-        <td>Convert request into clear constraints</td>
-        <td><code>instruction.yaml</code>, <code>plan.yaml</code>, JSON Schema or Zod</td>
-        <td>Do we know exactly what success and failure mean?</td>
-      </tr>
-      <tr>
-        <td>Layer 2: Execution</td>
-        <td>Generate and apply change safely</td>
-        <td>Next.js, Supabase, Stripe, Resend, Vercel</td>
-        <td>Can the change be reproduced by another agent or engineer?</td>
-      </tr>
-      <tr>
-        <td>Layer 3: Governance and approvals</td>
-        <td>Pause risky actions intentionally</td>
-        <td>Risk classification, policy rules, approval checkpoints</td>
-        <td>Who is accountable for high-impact decisions?</td>
-      </tr>
-      <tr>
-        <td>Layer 4: Validation and evaluation</td>
-        <td>Verify behavior before merge</td>
-        <td>Schema checks, diff checks, tests, secret scanning, dependency checks</td>
-        <td>What objective evidence supports merge confidence?</td>
-      </tr>
-      <tr>
-        <td>Layer 5: Delivery and telemetry</td>
-        <td>Ship and learn from production</td>
-        <td>CI checks, preview deploys, telemetry feedback into spec and policy</td>
-        <td>What feedback updates next run quality?</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+The billing case shows why the category has to come first. A webhook handler that verifies signatures incorrectly is a small diff, passes its tests, and is a security defect. Nothing about its size would have triggered a gate.
 
-### Workflow diagram: intent to governed delivery
+## What this buys, and what it does not
 
-<figure class="diagram">
-  <iframe src="/scenes/nlpg-swimlane.html" title="NLPg governed workflow" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>Execution is one lane. Governance and validation are parallel lanes, not afterthoughts.</figcaption>
-</figure>
+A specification makes disagreement cheap. If the constraint about billing routes is written down, it gets argued about in a sentence rather than discovered in a diff.
 
-### Mindmap: NLPg system surface
+It does not enforce anything. A line reading `do_not_modify_billing_routes` is a request to the agent, and if the only thing standing between the agent and those routes is that sentence, there is no check. Turning an approval gate into something that actually holds is [a runtime question](/systems/from-agent-intent-to-governed-execution/) rather than a documentation one.
 
-<figure class="diagram">
-  <iframe src="/scenes/nlpg-mindmap.html" title="NLPg mindmap" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>The method scales by explicit artifacts, not by more prompts.</figcaption>
-</figure>
+## What this changes
 
-## Act III: Principles in practice
-
-### Governance primitives
-
-To keep NLPg operational, four primitives are non-negotiable.
-
-1. **Instruction schema**: objective, inputs, constraints, acceptance criteria, risk, rollback.
-2. **Prompt compiler**: natural language to structured execution plan.
-3. **Execution ledger**: what changed, why, risk score, approvals, validation outcomes.
-4. **Validation harness**: lint, schema validation, tests, static risk checks before merge.
-
-This is where many teams stall. They add an agent runtime before they define policy grammar. The result is automated output without accountable control.
-
-### Risk gate matrix
-
-<div class="table-scroll-wrap">
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th>Risk category</th>
-        <th>Examples</th>
-        <th>Mandatory gates</th>
-        <th>Minimum validation</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="keyword">auth-change</span></td>
-        <td>role model, middleware, token/session flow</td>
-        <td>Before DB migration, before middleware deploy</td>
-        <td>access matrix tests, regression on protected routes</td>
-      </tr>
-      <tr>
-        <td><span class="keyword">billing-change</span></td>
-        <td>Stripe webhook, entitlement checks, pricing logic</td>
-        <td>Before webhook deploy, before entitlement enforcement</td>
-        <td>signature verification tests, replay protection checks</td>
-      </tr>
-      <tr>
-        <td><span class="keyword">db-migration</span></td>
-        <td>schema change, destructive update</td>
-        <td>Before migration apply in staging and production</td>
-        <td>migration dry-run, rollback rehearsal</td>
-      </tr>
-      <tr>
-        <td><span class="keyword">external-api</span></td>
-        <td>new provider call, data egress change</td>
-        <td>Before secret registration and live traffic</td>
-        <td>contract tests, timeout and retry behavior</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-### Workflow example A: RBAC (auth risk)
-
-**Instruction spec**
-
-```yaml
-objective: Add role-based access control for dashboard
-scope:
-  - dashboard_routes
-  - api_route_handlers
-roles:
-  - admin
-  - editor
-  - viewer
-constraints:
-  - do_not_change_billing_routes
-  - preserve_session_model
-acceptance_criteria:
-  - unauthorized_users_receive_403
-  - role_stored_in_users_table
-risk:
-  category: auth-change
-  level: high
-approval_gates:
-  - before_db_migration
-  - before_middleware_deploy
-rollback:
-  - revert_migration
-  - revert_middleware
-```
-
-**Compiled plan**
-
-1. Add `role` column to `users`.
-2. Add role seed and defaults.
-3. Add dashboard middleware gating.
-4. Add API authorization checks.
-5. Add access-matrix tests.
-6. Verify no impact to billing routes.
-
-**Gate behavior**
-
-The run halts before migration and middleware deploy. The ledger stores risk category, approver identity, and validation traces.
-
-### Workflow example B: Stripe billing (billing risk)
-
-**Instruction spec**
-
-```yaml
-objective: Add subscription billing using Stripe
-constraints:
-  - no_secrets_committed
-  - verify_webhook_signature
-acceptance_criteria:
-  - subscription_status_stored_in_db
-  - premium_routes_gated_by_entitlement
-risk:
-  category: billing-change
-  level: high
-approval_gates:
-  - before_webhook_deploy
-  - before_entitlement_enforcement
-rollback:
-  - disable_webhook
-  - revert_entitlement_middleware
-```
-
-**Compiled plan**
-
-1. Install Stripe SDK.
-2. Create `subscriptions` table.
-3. Implement webhook endpoint with signature verification.
-4. Update entitlement state on webhook events.
-5. Gate premium routes.
-6. Add tests for verification and entitlement checks.
-
-This is the practical break from vibe coding: billing changes are treated as <span class="highlight">high-risk operations</span> with mandatory controls.
-
-### Operating metrics for this method
-
-A method is real only if outcomes move.
-
-<div class="table-scroll-wrap">
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th>Metric</th>
-        <th>Why it matters</th>
-        <th>Target trend</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Spec completeness score</td>
-        <td>Measures ambiguity before execution</td>
-        <td>Upward</td>
-      </tr>
-      <tr>
-        <td>Approval bypass incidents</td>
-        <td>Detects governance drift</td>
-        <td>Downward</td>
-      </tr>
-      <tr>
-        <td>Rollback frequency (high-risk changes)</td>
-        <td>Shows production quality under risk</td>
-        <td>Downward</td>
-      </tr>
-      <tr>
-        <td>Mean lead time from spec to merge</td>
-        <td>Balances control with throughput</td>
-        <td>Stable to downward</td>
-      </tr>
-      <tr>
-        <td>Post-merge defect rate</td>
-        <td>Core quality outcome</td>
-        <td>Downward</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-### Template repo shape
-
-```text
-nlpg-sdlc-template/
-  docs/
-    method/
-      01-intent-to-spec.md
-      02-spec-schema.md
-      03-risk-taxonomy.md
-      04-approval-gates.md
-      05-ledger-format.md
-      06-validation-harness.md
-      examples/
-        rbac.md
-        stripe-billing.md
-  nlpg/
-    schemas/
-      instruction.schema.json
-      plan.schema.json
-      ledger.schema.json
-    policy/
-      policy.yaml
-    specs/
-    plans/
-    ledger/
-  app/
-  supabase/
-    migrations/
-  .github/
-    workflows/
-      ci.yaml
-```
-
-### Minimal CLI surface
-
-```bash
-nlpg init
-nlpg spec new
-nlpg spec validate
-nlpg plan
-nlpg run
-nlpg gate
-nlpg ledger view
-nlpg pr create
-```
-
-A practical storage model is file-first: specs and plans as YAML, ledger as append-only JSONL.
-
-### What this changes in practice
-
-NLPg-assisted SDLC changes your engineering center of gravity. The differentiator is no longer how fast code appears. It is how reliably intent becomes governed, verifiable change.
-
-Treat <span class="keyword">language as contract</span>, compilation as control, and governance as default. Speed then compounds instead of amplifying risk.
-
-### Related resources
-
-- [From Prompt to Production: A Human Checklist](/systems/from-prompt-to-production/)
-- [What LLM-Ops Actually Means](/systems/llm-ops-without-the-buzzwords/)
-- [Natural Language Is the New API](/systems/natural-language-is-the-new-api/)
-- [The I-7 Reliability Standard deck](/shelf/shared-resources/i-7-reliability-standard-deck/)
-- [Everything as Code deck](/shelf/shared-resources/everything-as-code-deck/)
+Write the constraints before the objective. The objective is the part everyone can already state; the constraints are the part that exists only in someone's head, and they are what the review was going to be about anyway.

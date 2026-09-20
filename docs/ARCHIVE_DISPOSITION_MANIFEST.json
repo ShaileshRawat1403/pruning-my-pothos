@@ -11,8 +11,8 @@
     "RETIRE": 9
   },
   "statusTotals": {
-    "implemented": 24,
-    "pending": 4,
+    "implemented": 28,
+    "pending": 0,
     "structural-pending": 31
   },
   "redirectStatusTotals": {
@@ -299,7 +299,7 @@
       "redirect": null,
       "redirectStatus": "not-applicable",
       "keepUrl": true,
-      "status": "pending",
+      "status": "implemented",
       "constraints": [
         "retain featured:true; discovery decision deferred to the later discovery pass"
       ]
@@ -463,7 +463,7 @@
       "redirect": null,
       "redirectStatus": "not-applicable",
       "keepUrl": true,
-      "status": "pending",
+      "status": "implemented",
       "constraints": []
     },
     {
@@ -503,7 +503,7 @@
       "redirect": null,
       "redirectStatus": "not-applicable",
       "keepUrl": true,
-      "status": "pending",
+      "status": "implemented",
       "constraints": [
         "clear featured:true when the note reduction is implemented"
       ]
@@ -515,7 +515,7 @@
       "redirect": null,
       "redirectStatus": "not-applicable",
       "keepUrl": true,
-      "status": "pending",
+      "status": "implemented",
       "constraints": [
         "NLPg is retired as a public acronym and taxonomy; name the mechanism instead"
       ]

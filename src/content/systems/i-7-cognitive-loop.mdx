@@ -1,289 +1,123 @@
 ---
-title: 'I-7 Cognitive Loop: A new standard for Human-AI interaction'
+schemaVersion: "1.0"
+title: "The I-7 Loop: A Working Method for Delegating to AI"
+seoTitle: "I-7 Loop: A Practical Method for AI-Assisted Work"
 publishDate: "2026-02-02"
-updatedAt: "2026-06-28"
-description: "A governance-first interaction model that extends Norman's stages for AI-assisted work."
+updatedAt: "2026-09-20"
+description: "Seven named points where a person decides something before an AI agent acts, and the five-minute version that makes them usable."
 category: 'Concepts'
 heroImage: '/covers/systems/i-7-cognitive-loop.svg'
-heroImageAlt: 'Human-AI interaction loop'
+heroImageAlt: 'Seven decision points between a request and an agent acting on it'
 tags:
-  - systems
-  - hci
-  - ai
-  - agents
   - interaction
+  - agents
   - i-7
-  - governance
 featured: true
 contentType: 'deep-dive'
-readingTime: 10
+readingTime: 4
 difficulty: 'intermediate'
-proofPoints:
-  - Extends Norman cognitive loop for AI systems
-  - Defines 7 stages of human-AI interaction
-faq:
-  - question: What is the I-7 cognitive loop?
-    answer: "The I-7 cognitive loop extends Norman's classic human-computer interaction model to AI-assisted work. It adds stages for delegation, context transfer, and intervention that account for non-deterministic AI behavior that does not fit traditional direct manipulation models."
-  - question: How does I-7 differ from Norman's model?
-    answer: "Norman's model assumes deterministic execution: you act, the system responds predictably. I-7 adds stages for when the AI proposes, when context must transfer between human and AI, and when humans need visibility into and control over AI decisions. The shift is from direct manipulation to delegated execution."
-  - question: Why is visibility a design requirement in AI systems?
-    answer: "Unlike traditional software where you can trace exactly what code ran, AI systems make probabilistic decisions that are not easily explainable. Visibility requirements ensure humans can understand what the AI is doing, intervene when needed, and maintain accountability for outcomes."
+
+contentKind: explainer
+readerIntent: use
+readerOutcome: "Run a short, repeatable loop before and after delegating a task to an AI agent, and know which of its steps you are skipping."
+thesis: "I-7 names seven points where a person decides something rather than discovering it afterwards, and its value is that the short version of it can be run in a few minutes on real work."
+shortAnswer: "I-7 is a working method used in this publication, not a standard or a validated framework. It names seven points in delegating work to an AI agent: Intent, Inform, Interpret, Initiate, Inspect, Intervene, Iterate. The labels matter less than what they are for, which is to stop a vague request from turning straight into unbounded implementation. The part worth using is short: state the intent in one sentence, attach only the context the task needs, ask for the plan before execution, run with a boundary and check the result against it, and turn one correction into something reusable."
+
+boundary:
+  is: "A short account of a working method for delegating a task to an AI agent, and the compressed version of it that fits into a few minutes."
+  isNot: "A standard, a validated general framework, a model of human-computer interaction, or a definition of the governance mechanisms it points at."
+  mattersWhen: "A request is about to be handed to an agent that will start changing things."
+
+provenance:
+  primary: synthesis
+  sources:
+    - id: goatee-readme
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/GoATee"
+      path: "README.md"
+      ref: "d01f69ccccf027b42661b28b0783c962b00688c6"
+      citation: "GoATee README: documents the I-7 Operating Model and its seven stages."
+    - id: goatee-cli
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/GoATee"
+      path: "goatee/cli.py"
+      ref: "d01f69ccccf027b42661b28b0783c962b00688c6"
+      citation: "GoATee CLI: approval preconditions and baseline commit locking."
+    - id: goatee-verifier
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/GoATee"
+      path: "goatee/core/verifier.py"
+      ref: "d01f69ccccf027b42661b28b0783c962b00688c6"
+      citation: "GoATee verifier: budget gate, mutation detection and delivery receipt."
+  claims:
+    - statement: "The GoATee repository documents an I-7 operating model, grouping its seven stages into agreeing on the change, building within an approved boundary, and proving delivery."
+      kind: repository
+      sources:
+        - goatee-readme
+    - statement: "In that implementation an approved agreement and an approved build budget are both required before the baseline commit is locked."
+      kind: repository
+      sources:
+        - goatee-cli
+    - statement: "The verification step gates on a comparison of the changed files against the approved budget, and stops before running any acceptance command when deviations are found."
+      kind: repository
+      sources:
+        - goatee-verifier
+    - statement: "GoATee demonstrates one implementation of I-7. It does not establish I-7 as a standard, universal method, or empirically validated framework."
+      kind: synthesis
+
+related:
+  - type: explainer
+    title: "Human-in-the-Loop Is a System Design Choice"
+    href: /systems/human-in-the-loop-is-a-system-design-choice/
+    note: "What the Intervene point actually requires of a person."
+  - type: explainer
+    title: "From Agent Intent to Governed Execution"
+    href: /systems/from-agent-intent-to-governed-execution/
+    note: "The runtime mechanisms several of these points depend on."
 ---
 
-> **Key takeaways**
-> - I-7 does not replace Norman; it extends Norman for non-deterministic systems.
-> - The shift is from direct manipulation to delegated execution.
-> - In AI-assisted work, visibility and intervention are design requirements.
-> - The seven stages make human oversight operational, not optional.
+You describe what you want. The agent starts building. A few minutes later six files have changed, something outside the request got refactored, and you are reading a diff to work out what you agreed to.
 
-### What is the I-7 cognitive loop?
+I-7 is a set of names for the points where that could have been decided instead of discovered. It is a working method used in this publication. It is not a standard, and nothing here establishes it as one.
 
-The I-7 cognitive loop is a human-computer interaction (HCI) framework designed for builders and designers of AI systems. It extends Donald Norman's classic stages of action to account for the unique characteristics of non-deterministic, agentic software. Rather than treating interaction as direct manipulation (like clicking buttons), the I-7 loop defines how humans delegate intent, monitor agent execution, and intervene when behavior diverges from policy.
+## The seven points
 
-Norman remains the foundation. The seven stages of action still describe how people form goals, act, and evaluate outcomes. The difference is that modern AI systems can reason, choose tools, and execute intermediate steps on their own. I-7 is an advanced layer for this environment: the age of AI-assisted development, where human judgment stays central.
+**Intent.** What is actually being asked for, in one sentence, including what is out of scope.
 
+**Inform.** What context the work needs, chosen rather than dumped.
 
-In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: The shift</summary>
-      <ol>
-        <li><a href="#why-norman-needs-an-extension">Why Norman needs an extension</a></li>
-        <li><a href="#the-i-7-loop">The I-7 loop</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: The seven phases</summary>
-      <ol>
-        <li><a href="#intent">Intent</a></li>
-        <li><a href="#inform">Inform</a></li>
-        <li><a href="#interpret">Interpret</a></li>
-        <li><a href="#initiate">Initiate</a></li>
-        <li><a href="#inspect">Inspect</a></li>
-        <li><a href="#intervene">Intervene</a></li>
-        <li><a href="#iterate">Iterate</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Using the loop</summary>
-      <ol>
-        <li><a href="#ai-assisted-not-ai-generated">AI-assisted, not AI-generated</a></li>
-        <li><a href="#a-practical-run-loop">A practical run loop</a></li>
-        <li><a href="#related-systems">Related systems</a></li>
-        <li><a href="#related-resources">Related resources</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+**Interpret.** The plan and the assumptions, stated back before anything runs.
 
-## Act I: The shift
+**Initiate.** Execution inside a boundary that was agreed first.
 
-### Why Norman needs an extension
+**Inspect.** A human decision point: is this what we agreed, and may it proceed?
 
-Norman’s model was shaped around tools where execution was explicit and deterministic. You click, the system does the exact action, and you compare the result.
+**Intervene.** Implementation stays inside the boundary, and a deviation returns to the previous point rather than continuing.
 
-Agentic systems change that middle layer. Between intent and output, there is now hidden reasoning, retrieval, tool calls, and probabilistic generation. That creates a practical gap: users can still state goals, but they cannot safely trust execution unless reasoning and control points are visible.
+**Iterate.** Check what actually happened against what was declared, and keep the result.
 
-The I-7 loop addresses that gap by inserting operational checkpoints before, during, and after execution.
+The order matters more than the labels. Three of these happen before anything is built, one is a decision a person makes, and the last one is the only place you find out whether the work did what it said.
 
-<table class="comparison-table">
-  <thead>
-    <tr>
-      <th>Norman's Stage</th>
-      <th>I-7 Cognitive Stage</th>
-      <th>Nature of the Shift</th>
-      <th>Key Cognitive Demand</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Goal Formation</td>
-      <td>Intent</td>
-      <td>Vague internal states become structured intent.</td>
-      <td>Role-task alignment and explicit boundaries.</td>
-    </tr>
-    <tr>
-      <td>Intent/Specification</td>
-      <td>Inform</td>
-      <td>Focus moves from "how to click" to "what context is required."</td>
-      <td>Context engineering and attention management.</td>
-    </tr>
-    <tr>
-      <td>Execution</td>
-      <td>Initiate</td>
-      <td>The system begins action through autonomous reasoning.</td>
-      <td>Reasoning-action control and safe execution contracts.</td>
-    </tr>
-    <tr>
-      <td>Perception</td>
-      <td>Interpret</td>
-      <td>Human and agent build a shared model before execution scales.</td>
-      <td>Semantic alignment and assumption testing.</td>
-    </tr>
-    <tr>
-      <td>Interpretation</td>
-      <td>Inspect</td>
-      <td>Post-hoc reading becomes evidence-based runtime inspection.</td>
-      <td>Observability of reasoning traces and outputs.</td>
-    </tr>
-    <tr>
-      <td>Evaluation</td>
-      <td>Intervene</td>
-      <td>Evaluation becomes active pause/correct authority.</td>
-      <td>Human-in-the-loop governance and autonomy scaling.</td>
-    </tr>
-    <tr>
-      <td>Not in Norman</td>
-      <td>Iterate</td>
-      <td>Each run is folded into a learning loop for better future runs.</td>
-      <td>Golden examples, policy updates, and PDCA discipline.</td>
-    </tr>
-  </tbody>
-</table>
+## The five-minute version
 
-### The I-7 loop
+The full list is a description. This is the part that gets used:
 
-I-7 runs as a repeatable control cycle:
+1. Write the intent in one sentence, including one thing that is out of scope.
+2. Attach only the context the task needs.
+3. Ask for the plan and the assumptions before execution.
+4. Run it inside an explicit boundary, then check the result against that boundary rather than against the summary.
+5. Turn one correction into something reusable: a test, a constraint, an example.
 
-- Intent -> Inform -> Interpret -> Initiate -> Inspect -> Intervene -> Iterate
+That takes a few minutes on a real task. Step three is the one worth not skipping, because leaving it out moves the disagreement from before the work to after it.
 
-The value is not the labels alone. The value is that each label marks a decision point where responsibility is explicit.
+## One implementation
 
-<figure class="diagram">
-  <iframe src="/scenes/i7-loop-ring.html" title="The I-7 loop" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>The I-7 stages map responsibility across planning, execution, and governance.</figcaption>
-</figure>
+**The GoATee repository documents an I-7 operating model, grouping its seven stages into agreeing on the change, building within an approved boundary, and proving delivery.** The mapping and the stage names live in its documentation; the code implements the corresponding mechanisms rather than being organised around seven named stages. **In that implementation an approved agreement and an approved build budget are both required before the baseline commit is locked.** **The verification step gates on a comparison of the changed files against the approved budget, and stops before running any acceptance command when deviations are found.** Criteria that need a person to look at them stay marked as needing review rather than passing quietly.
 
-<aside class="callout">
-  <p><strong>Operational rule.</strong> If a stage cannot be observed or audited, it does not exist in production terms. Add logging, checkpoints, or human gates until it is visible.</p>
-</aside>
+**GoATee demonstrates one implementation of I-7. It does not establish I-7 as a standard, universal method, or empirically validated framework.** One codebase shows that these points can be made explicit in software. It says nothing about whether the method helps anyone else, and there is no measurement here that would support that claim.
 
-## Act II: The seven phases
+## What this changes
 
-### Intent
+Take the next task you are about to hand to an agent and spend two minutes on the first three points: what it is, what context it gets, and what the plan is. If the plan comes back different from what you meant, you have found the disagreement at the cheapest moment there is.
 
-Intent is the contract. It defines role, task, boundaries, and failure conditions.
-
-If skipped: the system optimizes for fluency over correctness.
-
-Examples:
-- **Developer:** "Refactor this module without changing the public API."
-- **Product manager:** "Draft a v1 PRD for onboarding with scope limits and non-goals."
-- **Researcher:** "Summarize only claims directly supported by cited sources."
-
-### Inform
-
-Inform is context governance. You choose what evidence the system may use.
-
-If skipped: low-signal context causes plausible but ungrounded outputs.
-
-Examples:
-- **Developer:** provide failing tests, target files, and logs.
-- **Product manager:** provide interview notes, key metrics, and constraints.
-- **Researcher:** provide canonical papers and explicit exclusions.
-
-### Interpret
-
-Interpret is pre-execution alignment. The system states plan and assumptions in plain language.
-
-If skipped: users discover misalignment only after execution side effects.
-
-Examples:
-- **Developer:** ask for a step plan before file edits.
-- **Product manager:** ask for trade-off framing before writing.
-- **Researcher:** ask for hypothesis and evidence chain before synthesis.
-
-### Initiate
-
-Initiate is guarded execution. Actions should pass schema and policy checks.
-
-If skipped: malformed tool calls and unsafe actions move into runtime.
-
-Examples:
-- **Developer:** patch only after diff preview and lint/test gate.
-- **Product manager:** ticket creation only after required fields validate.
-- **Researcher:** data queries only after schema and source checks pass.
-
-### Inspect
-
-Inspect is output verification against evidence and acceptance criteria.
-
-If skipped: hallucinations and logic drift become part of the baseline.
-
-Examples:
-- **Developer:** verify tests, type checks, and behavior diffs.
-- **Product manager:** verify PRD traceability to source interviews.
-- **Researcher:** verify every claim maps to a source fragment.
-
-### Intervene
-
-Intervene is explicit human authority to pause, redirect, or reject.
-
-If skipped: autonomy scales faster than accountability.
-
-Examples:
-- **Developer:** block migration without rollback proof.
-- **Product manager:** stop launch when success metrics are ambiguous.
-- **Researcher:** halt conclusions where evidence conflicts remain unresolved.
-
-### Iterate
-
-Iterate turns corrections into reusable system memory: tests, prompts, policies, and examples.
-
-If skipped: the same errors recur in new language.
-
-Examples:
-- **Developer:** convert incident fixes into regression tests.
-- **Product manager:** convert review feedback into template constraints.
-- **Researcher:** convert corrected citations into a retrieval benchmark set.
-
-## Act III: Using the loop
-
-### AI-assisted, not AI-generated
-
-I-7 is designed for AI-assisted development. The system contributes speed and synthesis; the human owns intent, judgment, and accountability.
-
-### A practical run loop
-
-Use this five-minute loop in any agent workflow:
-
-1. Write Intent in one sentence (role, task, boundary).
-2. Attach only required context for the task.
-3. Ask for plan and assumptions before execution.
-4. Run with explicit guardrails and inspect outputs.
-5. Save one correction as a reusable artifact.
-
-<figure class="diagram">
-  <iframe src="/scenes/i7-gates-sequence.html" title="I-7 control gates" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>Execution is fast when checkpoints are explicit.</figcaption>
-</figure>
-
-### Related systems
-
-For adjacent concepts:
-
-- [Systems 001: Foundations](/systems/systems-001-foundations/)
-- [Retrieval-Augmented Generation in plain terms](/systems/retrieval-augmented-generation-in-plain-terms/)
-- [Training vs inference](/systems/training-vs-inference/)
-- [Context windows as working memory](/systems/context-windows-as-working-memory/)
-
-For governance implementations of specific stages:
-
-- [Human-in-the-Loop Is a System Design Choice](/systems/human-in-the-loop-is-a-system-design-choice/) — the Intervene stage in practice
-- [Decision-Making Under Uncertainty in AI Runtimes](/systems/decision-making-under-uncertainty-in-ai-runtimes/) — Interpret and Inspect as allow/ask/deny/defer
-- [Agent Instructions and Handoff as an Operating System](/systems/agent-instructions-and-handoff-as-an-operating-system/) — Inform as a durable contract, not a one-off prompt
-- [Engineering Agentic Systems for Reliability](/systems/engineering-agentic-systems-for-reliability/) — Initiate and Inspect as reliability boundaries
-- [From Agent Intent to Governed Execution](/systems/from-agent-intent-to-governed-execution/) — the seven control stages, one runtime-level reading of this same loop
-- [Evaluation as a Runtime Discipline](/systems/evaluation-as-a-runtime-discipline/) — Iterate as a recurring operating habit, not a retrospective
-
-### Related resources
-
-- [The I-7 Reliability Standard deck](/shelf/shared-resources/i-7-reliability-standard-deck/)
-
-### What this changes in practice
-
-You stop treating interaction as prompt-in, answer-out. You start treating it as a governed loop with observable state transitions. That shift is the difference between impressive demos and reliable systems.
+Where a person's approval is the whole point of a step, whether they can actually judge what they are approving is [a separate design problem](/systems/human-in-the-loop-is-a-system-design-choice/), and a gate nobody can evaluate is decoration.
