@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:68e30c8e8eaab5b8b0bf2de98db13edff5d51dc8aa0eab64b60fe32c35fa8826
+Content snapshot: sha256:4150a22c919301455e0828a149f455062ae5a11abd79ec742db700463aed572d
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions
@@ -14,7 +14,7 @@ Status: Read-only diagnostic of the existing article archive.
 
 | Total Articles | Green | Amber | Red | Illustrative |
 | :--- | :--- | :--- | :--- | :--- |
-| 85 | 48 | 36 | 1 | 0 |
+| 85 | 49 | 35 | 1 | 0 |
 
 ## High-Priority Review Queue (Red)
 
@@ -49,11 +49,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L74: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L137: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L174: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[The Architecture of In-Chat AI Apps](../src/content/systems/architecture-of-in-chat-ai-apps.mdx)** (`src/content/systems/architecture-of-in-chat-ai-apps.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L71: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L115: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L135: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[Comparing Cloud Architecture in 2026: AWS vs Azure vs GCP](../src/content/systems/cloud-architecture-comparison-2026.mdx)** (`src/content/systems/cloud-architecture-comparison-2026.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L85: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -252,7 +247,7 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [ai-agents-vs-ai-workflows](../src/content/systems/ai-agents-vs-ai-workflows.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [ai-architecture-explained-how-modern-llm-applications-work](../src/content/systems/ai-architecture-explained-how-modern-llm-applications-work.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [ai-website-publishing-with-human-in-the-loop-control](../src/content/systems/ai-website-publishing-with-human-in-the-loop-control.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
-| systems | [architecture-of-in-chat-ai-apps](../src/content/systems/architecture-of-in-chat-ai-apps.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [architecture-of-in-chat-ai-apps](../src/content/systems/architecture-of-in-chat-ai-apps.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [cloud-architecture-comparison-2026](../src/content/systems/cloud-architecture-comparison-2026.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [context-window-management-and-retrieval-pruning-strategies](../src/content/systems/context-window-management-and-retrieval-pruning-strategies.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [context-windows-as-working-memory](../src/content/systems/context-windows-as-working-memory.mdx) | 🟢 Green | v1.0 | Yes | Clean |
