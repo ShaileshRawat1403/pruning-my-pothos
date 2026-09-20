@@ -1,218 +1,193 @@
 ---
-title: "Agent Instructions and Handoff as an Operating System"
+schemaVersion: "1.0"
+title: "What Has to Survive for Work to Continue"
+seoTitle: "AI Agent Handoffs: What State Must Survive Between Sessions"
 publishDate: "2026-03-05"
-updatedAt: "2026-06-28"
-description: "A practical architecture for running AI agents reliably using instruction contracts, handoff memory, and measurable quality gates."
+updatedAt: "2026-09-20"
+description: "Work that spans sessions, people and agents needs more than a record of what happened. It needs what is currently true, and someone who owns the next step."
 category: "How-things-fit-together"
 heroImage: '/covers/systems/agent-instructions-and-handoff-as-an-operating-system.svg'
-heroImageAlt: 'Instruction contract diagram with input-output gates'
+heroImageAlt: 'Work crossing a boundary, carrying what is currently true rather than the whole path taken'
 tags:
   - agents
-  - governance
-  - reliability
-  - knowledge-management
   - workflow
-  - orchestration
-proofPoints:
-  - "Instruction contract (`AGENTS.md`) and handoff memory (`docs/agent-handoff/current.md`) are now operating defaults."
-  - "Automated checks (`lint:systems`, `report:topics`, `report:gaps`) are used as repeatable quality gates."
-  - "Strategic topic seed coverage moved from thin/missing states to no thin/missing action candidates."
+  - state
+  - handoff
+contentType: 'technical'
+readingTime: 10
+difficulty: 'intermediate'
+
+contentKind: explainer
+readerIntent: use
+readerOutcome: "Look at a piece of work that crosses a session, a person or an agent boundary and say what has to be preserved for the next step to proceed, and who owns it."
+thesis: "Continuing work across a boundary needs a representation of what is currently true and an owner for the next step, which is a different problem from keeping a record of how the work got here."
+shortAnswer: "Work that outlives one session has to cross a boundary, and something has to survive the crossing. A transcript of everything that happened is rarely the useful thing, because it records every decision including the ones later reversed and marks none of them as still standing. What the next actor needs is what is currently true, which constraints still apply, and what the next step is. A handoff is the moment that changes who or what is responsible for that next step, so it succeeds or fails on whether the receiver can proceed without guessing what is still authoritative."
+
+boundary:
+  is: "An explainer of what must be preserved for work to continue across a session, an actor or a system boundary, and what a handoff actually transfers."
+  isNot: "A theory of AI memory, a guide to storage technology, a definition of instructions or skills, or an account of whether the next action is permitted."
+  mattersWhen: "Work is picked up by a different session, a different agent or a different person, and it is not obvious what still stands."
+
+provenance:
+  primary: synthesis
+  sources:
+    - id: pmp-agent-handoff-doc
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/pruning-my-pothos"
+      path: "docs/agent-handoff/current.md"
+      ref: "2c56a7562082ef3374e5bdde17531c22589394e3"
+      citation: "Long-running agent handoff document: 1,167 lines, 39 appended update sections, dated 2026-03-05 to 2026-06-29."
+    - id: pmp-agents-entrypoint
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/pruning-my-pothos"
+      path: "AGENTS.md"
+      ref: "2c56a7562082ef3374e5bdde17531c22589394e3"
+      citation: "Repository agent entry point: 17 lines, delegating to the editorial skill file."
+  claims:
+    - statement: "This repository keeps a long-running handoff document that records what changed, the decisions taken, the open risks and the suggested next actions across many separate periods of work."
+      kind: repository
+      sources:
+        - pmp-agent-handoff-doc
+    - statement: "The section of that document headed Key files touched lists thirty-five paths, and thirty-four of them do not exist at the commit this page cites."
+      kind: repository
+      sources:
+        - pmp-agent-handoff-doc
+    - statement: "The repository's own agent entry point is seventeen lines long, and most of what governs authoring sits behind a pointer to a separate skill file rather than in the entry point itself."
+      kind: repository
+      sources:
+        - pmp-agents-entrypoint
+    - statement: "Replay reconstructs a past execution from what was recorded. Continuity preserves enough current truth for work to continue from here."
+      kind: synthesis
+    - statement: "A handoff changes who or what is responsible for the next transition."
+      kind: synthesis
+
 related:
   - type: explainer
-    title: "Skills vs Prompts vs Agents"
-    href: /systems/skills-vs-prompts-vs-agents/
-    note: "Where a prompt ends, a skill begins, and an agent takes over."
+    title: "What to Record So You Can Explain What Happened"
+    href: /systems/observability-first-ai-systems/
+    note: "The backward-looking half: evidence about a run that already finished."
+  - type: explainer
+    title: "From Agent Intent to Governed Execution"
+    href: /systems/from-agent-intent-to-governed-execution/
+    note: "Whether the next step is permitted, which state does not decide."
   - type: explainer
     title: "AI Agents vs AI Workflows"
     href: /systems/ai-agents-vs-ai-workflows/
-    note: "Which of the two you are actually building."
-  - type: explainer
-    title: "Intent Architecture as a Language Contract"
-    href: /systems/intent-architecture-as-a-language-contract/
-    note: "How intent becomes something a runtime can hold."
-faq:
-  - question: "Why treat instructions and handoffs as an operating system instead of just prompts?"
-    answer: "Because prompts solve one interaction, while an operating system controls behavior across many interactions, contributors, and time periods."
-  - question: "What is the smallest useful setup?"
-    answer: "A clear instruction contract, one active handoff file, and at least one objective report script to detect drift."
+    note: "Who chooses the next step, which is a different question from what it continues from."
 ---
 
-> **Key takeaways**
->
-> - Prompt quality helps once; operating systems help repeatedly.
-> - Instruction contracts reduce ambiguity before work starts.
-> - Handoff memory prevents context reset between sessions.
-> - Quality gates convert standards from opinion into executable checks.
+Work stops. A session ends, a person hands over, a runtime restarts, a task moves from an automated step to someone reviewing it. Then it starts again, and whatever picks it up has to work out where things stand.
 
-Most people discover AI agent limits through inconsistency. One session is excellent, the next drifts in tone, scope, or quality. The root problem is rarely model intelligence. It is usually missing operations: no explicit contract, no continuity memory, and no measurable definition of done.
+The archive this page replaces treated that as a memory problem. It is better understood as three separate questions that keep getting answered with one artifact.
 
-This page explains a practical pattern that turns agent work from ad-hoc prompting into a governed workflow. It is not theory-only. It is based on what worked in this repository while scaling content quality across systems, sentences, self, shelf, and sticky-notes.
+## Three questions, not one
 
-### What is an agent operating system in practical terms?
+A record of how the work got here answers *what happened*. That is useful for investigating a past run, and it belongs to [the evidence side](/systems/observability-first-ai-systems/).
 
-An agent operating system is a lightweight layer of rules and memory that shapes behavior across sessions. It includes an instruction contract, a handoff protocol, and a small set of measurable checks. The objective is repeatability: similar quality even when time, tasks, or contributors change.
+A representation of what is currently true answers *where things stand*.
 
-In practice, <span class="highlight">consistency is an operational outcome, not a personality trait of the model</span>.
+A handoff answers *who owns the next step*.
 
-<aside class="callout callout-insight">
-  <p><strong>Design note.</strong> If quality depends on re-explaining context each day, you do not yet have a workflow system. You have a fragile conversation habit.</p>
-</aside>
+The same file, log or database may serve all three. They are still different jobs, and an artifact that does one well is not automatically doing the others. The clearest way to hold the distinction is by direction in time. **Replay reconstructs a past execution from what was recorded. Continuity preserves enough current truth for work to continue from here.**
 
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: The reliability problem</summary>
-      <ol>
-        <li><a href="#why-prompt-only-workflows-drift">Why prompt-only workflows drift</a></li>
-        <li><a href="#the-three-system-components">The three system components</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: The operating architecture</summary>
-      <ol>
-        <li><a href="#component-1-instruction-contract">Component 1: Instruction contract</a></li>
-        <li><a href="#component-2-handoff-memory">Component 2: Handoff memory</a></li>
-        <li><a href="#component-3-quality-gates">Component 3: Quality gates</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Implementation model</summary>
-      <ol>
-        <li><a href="#minimum-viable-rollout">Minimum viable rollout</a></li>
-        <li><a href="#failure-modes-and-countermeasures">Failure modes and countermeasures</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+## State is not the transcript
 
-## Act I: The reliability problem
+This distinction carries most of the page.
 
-### Why prompt-only workflows drift
+A transcript is a record of what was said or done over time. It can carry current-state markers, supersession notices or a summary of where things stand. Where it does not, it leaves statements from several different moments visible without identifying which one still governs. Reading it end to end recovers the sequence, which is not the same as being told the position.
 
-Prompt-only workflows usually fail for three reasons:
+Consider a record where none of that was done. Work has run across a long conversation, and somewhere in it a choice was made, reversed, and made differently. All three moments are in the record, in the order they occurred, with nothing distinguishing the live decision from its two predecessors. The next actor can reconstruct the sequence and still be unsure which constraint is currently in force. That is an information problem rather than a capacity problem, and it does not go away by making the transcript easier to read.
 
-- expectations are implicit
-- state is session-bound
-- quality criteria are subjective
+Length is not the defect. Ambiguity about what is current is the defect. A short transcript can be just as ambiguous.
 
-When expectations are implicit, each run reinterprets tone, format, and scope. When state is session-bound, every new session starts with memory loss. When criteria are subjective, teams debate output quality instead of measuring it.
+## What current truth might include
 
-A reliable process needs explicit defaults that survive session boundaries.
+Continuity needs something that says where the work stands. Depending on the workflow, that might carry the task and its status, the decisions that have been accepted, the constraints still in force, the artifact or version in play, anything unresolved that blocks progress, and who owns the next action.
 
-### The three system components
+That is a list of the kinds of things such a representation may need, not a schema. It can live as prose, as structured data, as rows in a database, as the state of an issue or a pull request, as a position in a workflow state machine, or anywhere else durable enough to be read by whatever comes next. The mechanism is what matters. The format follows the access pattern and the kind of state, and it should be free to change without the idea changing.
 
-A practical agent operating model can stay compact.
+## Instructions are not state
 
-<div class="table-scroll-wrap">
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th>Component</th>
-        <th>Primary job</th>
-        <th>Failure if missing</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Instruction contract</strong></td>
-        <td>Define boundaries, standards, and section-specific rules</td>
-        <td>Inconsistent style and unsafe edits</td>
-      </tr>
-      <tr>
-        <td><strong>Handoff memory</strong></td>
-        <td>Persist what changed, why, and what is next</td>
-        <td>Repeated rediscovery and context loss</td>
-      </tr>
-      <tr>
-        <td><strong>Quality gates</strong></td>
-        <td>Validate key standards with scripts and CI</td>
-        <td>Slow drift and silent regressions</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+Instructions say what should generally govern behaviour. State says what is currently true in this particular piece of work.
 
-These components are small but compounding. Together, they move workflows from conversational variability to operational consistency.
+*Approval is required before publishing* is an instruction. *This change is waiting on approval* is state. The first is stable across every piece of work in the repository. The second is true this afternoon and false tomorrow.
 
-## Act II: The operating architecture
+Conflating them produces a predictable failure: standing rules get buried inside a status note where nothing will find them again, or a piece of live status gets written into the rules, where it silently stops being true. What a system prompt or a skill is belongs to [the instruction layer](/systems/what-a-system-prompt-actually-is/) and is not restated here. The point for continuity is narrower. Instructions have to remain available across sessions while they still govern, and that is a different requirement from keeping state current.
 
-### Component 1: Instruction contract
+**The repository's own agent entry point is seventeen lines long, and most of what governs authoring sits behind a pointer to a separate skill file rather than in the entry point itself.** That arrangement is worth noticing rather than admiring: it means the entry point stays small and the governing material can change without the entry point being edited, and it also means anyone reading only the entry point has read a pointer, not the contract.
 
-Instruction contracts are not style guides alone. They are executable boundaries for agent behavior.
+## A handoff transfers responsibility
 
-In this repository, the contract sets:
+Sharing context is not a handoff. Copying a folder to someone is not a handoff. **A handoff changes who or what is responsible for the next transition.**
 
-- section-specific writing constraints
-- content schema expectations
-- non-negotiable formatting and safety rules
-- workflow conventions for edits, checks, and handoffs
+That is why the test of a handoff is not how much it contains. It is whether the receiver can proceed without having to work out what is still authoritative. The kinds of information that serve that test: what is done, what is currently true, what happens next, which constraints remain active, and what to do if the next step cannot proceed.
 
-The value is not strictness for its own sake. The value is reduced variance and faster alignment.
+Those are not mandatory fields. A workflow where the next step is obvious and the constraints are unchanged may need almost none of them written down. The question is what this receiver needs in order to act, not what a template says a handoff contains.
 
-### Component 2: Handoff memory
+Boundaries that need one are more varied than the agent-to-agent case that dominates the literature. Work crosses from an agent to a person for review, from a person to an automated step, from one session to the next, from a runtime that restarted to the task it was part-way through, and from one developer to another. The mechanism is continuation across a boundary. Whether the parties are software is incidental to it.
 
-Handoff memory should be active, concise, and operational. A good handoff file records:
+## Two ways to carry state across the boundary
 
-- what changed
-- affected files
-- decisions made
-- open risks
-- suggested next actions
+Two arrangements recur, and they are architectural choices rather than stages of maturity.
 
-This turns multi-session work into a coherent timeline. It also allows one agent to continue where another stopped without rebuilding context from scratch.
+In a **payload handoff**, the sender assembles a bounded package holding what the next step needs, and the receiver works from that package. The boundary is explicit and the receiver's input is small and inspectable.
 
-For a concrete pattern, see [The Weekly Observability Reset](/self/the-weekly-observability-reset/) and [Decision Logs Beat Memory](/self/decision-logs-beat-memory/).
+In a **shared store**, the relevant state lives in a common persisted location and each actor reads and updates the parts it needs. The full relevant state does not have to be copied into a handoff package, because the next actor can read what it needs directly from the store. A handoff across such a design may still carry something bounded, such as an identifier, a version, or a pointer to the task at hand.
 
-### Component 3: Quality gates
+Neither is better in general, and neither is protected from going stale. A payload captures a bounded package at one particular handoff, which makes it easy to inspect and fixes its contents at the moment it was assembled. A shared store lets actors read and update common persisted state, and its usefulness depends on update discipline, on what the fields are agreed to mean, and on whether what sits there is current. State that persists is not thereby state that is current. You can verify that a value was preserved without establishing that it still describes the state the workflow should continue from. Many systems use both, with a payload carrying the immediate task and a store holding the durable parts. What they have in common is more important than the difference: in each case the application is supplying state deliberately. Nothing is remembered by the model between calls, and describing agents as remembering or as knowing what happened obscures the software that actually carried it.
 
-Quality gates convert qualitative standards into repeatable checks.
+## Continuation is not the whole history
 
-In this workflow, a useful baseline includes:
+The next actor needs enough to continue. A record of the path and a statement of the position are different things, and the parts of a path that describe how a position was reached do not themselves say what it is.
 
-- `npm run lint:systems` for structural standards
-- `npm run report:topics` for cross-section coverage
-- `npm run report:gaps` for main strategic gap status
-- `npm run build` for production integrity
+The reverse claim is equally wrong, and it is worth saying plainly: shorter is not automatically better. A compact note that omits an active constraint is worse than a long record that contains it. The useful property is not brevity. It is that what is current can be found without inference.
 
-These checks do not replace editorial judgment. They protect it by catching predictable drift before publish.
+Historical detail still matters, for audit, for debugging, for explaining a decision later and for settling disputes about what was agreed. That is the [evidence](/systems/observability-first-ai-systems/) job. One store can serve both, and the two questions stay distinct even then.
 
-For related architecture views, see [Observability First: How AI Systems Learn After Launch](/systems/observability-first-ai-systems/), [Tech Stack for NLPg-Driven AI-Assisted SDLC](/systems/tech-stack-for-nlpg-driven-ai-assisted-sdlc/), and [Dual NLP for AI-assisted SDLC](/docs/natural-language-programming-stack/). The instruction contract itself is Inform from the [I-7 Cognitive Loop](/systems/i-7-cognitive-loop/): choosing what context an agent may use, made durable across sessions instead of restated every time.
+## A specimen from this repository
 
-## Act III: Implementation model
+**This repository keeps a long-running handoff document that records what changed, the decisions taken, the open risks and the suggested next actions across many separate periods of work.** It is 1,167 lines. It carries thirty-nine appended update sections, dated between March and late June 2026, which appear in the file in an order that is not their date order, so reading top to bottom does not read forward in time.
 
-### Minimum viable rollout
+It opens with a heading that presents current state, and that section is the most instructive part. **The section of that document headed Key files touched lists thirty-five paths, and thirty-four of them do not exist at the commit this page cites.** They were real when written. The repository has since moved to a different framework, and the section recording what had recently been touched was never revisited, because nothing about appending the next update requires revisiting it.
 
-You can adopt this model without heavy setup.
+There is a further gap that is easier to miss. The work actually in progress in this repository at the cited commit, a long content migration, appears nowhere in the document. The most recent thing it describes finished months earlier.
 
-1. Add one instruction contract file.
-2. Add one active handoff file with strict update rules.
-3. Add one advisory report script.
-4. Add one blocking lint gate for your highest-risk section.
-5. Add a weekly review cadence.
+None of that makes the file a mistake. It is a serviceable record of how the work got here, and useful as one. The narrow point is about the label. It is named `current.md`, its first heading offers current state, and neither of those makes its contents current. Applying that test to your own artifacts is simple and uncomfortable: open the thing that claims to hold the current position, take the first concrete assertion in it, and check whether it is still true.
 
-This sequence delivers value quickly while keeping process overhead low.
+## Staleness is the standing failure mode
 
-### Failure modes and countermeasures
+What a handoff says is true was true when it was written. The repository moved on, the ticket changed, the data underneath shifted, someone made a decision elsewhere.
 
-Common failures are predictable.
+There is no cadence that fixes this, and inventing one would be a guess. What helps is making the handoff's own position checkable: pin the commit or version it describes, date it, name the owner, and re-validate the parts that matter before continuing rather than assuming them. Those are examples of the mechanism, not a required set. The mechanism is that a claim about current state should carry enough with it for a reader to test whether it is still current.
 
-- **Overly rigid rules**
-Countermeasure: keep hard gates narrow and high-signal.
+## When the next step cannot proceed
 
-- **Documentation without enforcement**
-Countermeasure: tie standards to at least one script.
+Continuity design is incomplete if it only describes the path where everything is available. A receiver may find the state ambiguous, the constraint unsatisfiable, or the artifact gone.
 
-- **Handoff bloat**
-Countermeasure: enforce concise structure and date-scoped updates.
+The available responses are ordinary: stop and say why, return the work to the previous owner, ask for the specific missing thing, escalate, take a defined fallback, or retry from a known earlier state. Not every workflow needs all of these, and the choice depends on what it costs to be wrong.
 
-- **Noise-heavy reporting**
-Countermeasure: tune thresholds and canonicalize tags/terms.
+Two things this does not settle. Resuming work does not make the next action permitted; whether an action may proceed is [a separate check](/systems/from-agent-intent-to-governed-execution/) that runs regardless of how coherent the state is. And handing work to a person does not by itself produce [meaningful human judgment](/systems/human-in-the-loop-is-a-system-design-choice/), which depends on what that person can see and whether they can say no.
 
-For practical starting points and template files, refer to the [AI skill design templates](/shelf/shared-resources/ai-skill-design-templates/) in our shared resources library.
+## Replay and resume
 
-### What this changes in practice
+Two words that get used as though they were one operation.
 
-Agent quality becomes less fragile. Teams spend less time re-briefing context, less time debating standards, and more time improving outcomes. The system does not remove judgment; it creates conditions where judgment is reusable.
+**Replay** reconstructs or inspects a past execution from what was recorded of it, and it is bounded by what the record happens to contain.
+
+**Resume** continues work from a preserved state.
+
+Resuming does not require replaying the path. The point of preserved state is that the path does not have to be re-walked. Replaying does not authorize or perform the next step; it tells you about a run that already finished. A checkpoint sits between them, and it is worth being exact there too. A commit, a saved workflow state, an approved artifact, a status on an issue: each preserves what it actually contains and nothing else. A checkpoint is not a guarantee of recoverability.
+
+## What repeatability means here
+
+Repeatability, in this sense, is not the same prompt returning the same output. Preserving instructions and state does not make a probabilistic system deterministic, and any claim that it does will be contradicted by the next run.
+
+**Repeatability means preserving enough process, state, constraints and checks for work to continue coherently even when model outputs vary.** The operating conditions are what repeats. The generations underneath them do not have to.
+
+Persisted state also proves nothing about whether the system is ready to face real users. That judgment involves evidence and controls this page does not supply, and it is [its own question](/systems/from-prompt-to-production/).
+
+## What this changes
+
+Pick a piece of work in progress that will cross a boundary. Find the artifact that is supposed to tell the next actor where things stand, and read only that. Then ask whether someone could act from it without opening anything else, and whether its first concrete claim is still true.
+
+If the answer is no, a longer record is not the fix. What helps is separating the account of how the work got here from the statement of where it currently is, and naming who owns what happens next.

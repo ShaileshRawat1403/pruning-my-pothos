@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:18040d005b7a38f12010e74cade20cce93ebef43501bc3c4f08e30b436ac3201
+Content snapshot: sha256:7c441ccdf3600ce4b1d698da7138659fc206d2cf073c06aa3e745bee73e053f7
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions
@@ -14,7 +14,7 @@ Status: Read-only diagnostic of the existing article archive.
 
 | Total Articles | Green | Amber | Red | Illustrative |
 | :--- | :--- | :--- | :--- | :--- |
-| 85 | 45 | 39 | 1 | 0 |
+| 85 | 46 | 38 | 1 | 0 |
 
 ## High-Priority Review Queue (Red)
 
@@ -39,11 +39,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L77: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L106: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L174: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[Agent Instructions and Handoff as an Operating System](../src/content/systems/agent-instructions-and-handoff-as-an-operating-system.mdx)** (`src/content/systems/agent-instructions-and-handoff-as-an-operating-system.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L91: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L140: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L184: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[Agentic Orchestration: Designing Multi-Agent Coordination](../src/content/systems/agentic-orchestration-coordination.mdx)** (`src/content/systems/agentic-orchestration-coordination.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L115: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -262,7 +257,7 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | self | [writing-for-two-readers](../src/content/self/writing-for-two-readers.md) | 🟢 Green | Legacy | None | Clean |
 | systems | [a-simple-tokenizer](../src/content/systems/a-simple-tokenizer.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [aeo-and-geo-as-a-retrieval-design-problem](../src/content/systems/aeo-and-geo-as-a-retrieval-design-problem.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
-| systems | [agent-instructions-and-handoff-as-an-operating-system](../src/content/systems/agent-instructions-and-handoff-as-an-operating-system.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [agent-instructions-and-handoff-as-an-operating-system](../src/content/systems/agent-instructions-and-handoff-as-an-operating-system.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [agentic-orchestration-coordination](../src/content/systems/agentic-orchestration-coordination.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [ai-agents-vs-ai-workflows](../src/content/systems/ai-agents-vs-ai-workflows.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [ai-architecture-explained-how-modern-llm-applications-work](../src/content/systems/ai-architecture-explained-how-modern-llm-applications-work.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
