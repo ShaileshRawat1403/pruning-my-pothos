@@ -44,6 +44,46 @@ RewriteRule ^sticky-notes/?$ /sentiments/ [R=301,L]
 RewriteRule ^sticky-notes/.+/?$ /sentiments/ [R=301,L]
 
 # ---------------------------------------------------------------------------
+# Archive migration redirects. Generated from docs/ARCHIVE_DISPOSITION_MANIFEST.json
+# and verified by `npm run validate:archive`. Do not hand-edit: add or change a
+# disposition in the manifest instead, then regenerate.
+#
+# Two exits deliberately have no rule here, because no surviving page answers
+# their question: mental-frameworks and entity-glossary-for-ai-discoverability.
+# ---------------------------------------------------------------------------
+# BEGIN PMP ARCHIVE REDIRECTS
+RewriteRule ^systems/aeo-and-geo-as-a-retrieval-design-problem/?$ /systems/seo-aeo-geo-in-plain-terms/ [R=301,L]
+RewriteRule ^systems/agentic-orchestration-coordination/?$ /systems/agent-instructions-and-handoff-as-an-operating-system/ [R=301,L]
+RewriteRule ^systems/ai-website-publishing-with-human-in-the-loop-control/?$ /systems/human-in-the-loop-is-a-system-design-choice/ [R=301,L]
+RewriteRule ^systems/cloud-architecture-comparison-2026/?$ /shelf/local-experiments/ [R=301,L]
+RewriteRule ^systems/context-window-management-and-retrieval-pruning-strategies/?$ /systems/context-windows-as-working-memory/ [R=301,L]
+RewriteRule ^systems/decision-making-under-uncertainty-in-ai-runtimes/?$ /systems/from-agent-intent-to-governed-execution/ [R=301,L]
+RewriteRule ^systems/drift-decay-and-silent-failure/?$ /systems/observability-first-ai-systems/ [R=301,L]
+RewriteRule ^systems/embeddings-explained-like-youre-human/?$ /systems/retrieval-augmented-generation-in-plain-terms/ [R=301,L]
+RewriteRule ^systems/engineering-agentic-systems-for-reliability/?$ /systems/from-agent-intent-to-governed-execution/ [R=301,L]
+RewriteRule ^systems/engineering-bounded-autonomy/?$ /systems/from-agent-intent-to-governed-execution/ [R=301,L]
+RewriteRule ^systems/enterprise-ai-at-scale/?$ /systems/from-prompt-to-production/ [R=301,L]
+RewriteRule ^systems/evaluating-non-deterministic-outputs-with-rubric-based-pipelines/?$ /systems/evaluation-is-a-human-problem/ [R=301,L]
+RewriteRule ^systems/evaluation-as-a-runtime-discipline/?$ /systems/evaluation-is-a-human-problem/ [R=301,L]
+RewriteRule ^systems/from-ad-hoc-prompts-to-repeatable-agent-workflows/?$ /systems/agent-instructions-and-handoff-as-an-operating-system/ [R=301,L]
+RewriteRule ^systems/intent-architecture-as-a-language-contract/?$ /systems/structured-output-and-why-it-matters/ [R=301,L]
+RewriteRule ^systems/knowledge-management-as-runtime-memory/?$ /systems/retrieval-augmented-generation-in-plain-terms/ [R=301,L]
+RewriteRule ^systems/llm-ops-without-the-buzzwords/?$ /systems/observability-first-ai-systems/ [R=301,L]
+RewriteRule ^systems/managing-state-and-memory-handoffs-in-multi-agent-workflows/?$ /systems/agent-instructions-and-handoff-as-an-operating-system/ [R=301,L]
+RewriteRule ^systems/natural-language-is-the-new-api/?$ /systems/prompting-is-not-the-skill-you-think-it-is/ [R=301,L]
+RewriteRule ^systems/probabilities-not-truth/?$ /systems/what-an-ai-model-actually-is/ [R=301,L]
+RewriteRule ^systems/resilient-integration-contracts-for-structured-outputs/?$ /systems/structured-output-and-why-it-matters/ [R=301,L]
+RewriteRule ^systems/seo-aeo-geo-how-things-fit-together/?$ /systems/seo-aeo-geo-in-plain-terms/ [R=301,L]
+RewriteRule ^systems/skill-evaluation-and-versioning/?$ /systems/designing-reusable-ai-skills/ [R=301,L]
+RewriteRule ^systems/the-intelligence-assembly-model/?$ /systems/ai-architecture-explained-how-modern-llm-applications-work/ [R=301,L]
+RewriteRule ^systems/the-logic-void/?$ /systems/what-an-ai-model-actually-is/ [R=301,L]
+RewriteRule ^systems/what-a-skill-is-in-ai-systems/?$ /systems/designing-reusable-ai-skills/ [R=301,L]
+RewriteRule ^systems/what-llms-are-optimized-for/?$ /systems/what-an-ai-model-actually-is/ [R=301,L]
+RewriteRule ^systems/why-most-ai-projects-fail-after-the-demo-stage/?$ /systems/from-prompt-to-production/ [R=301,L]
+RewriteRule ^systems/winning-ai-search-as-a-discoverability-system/?$ /systems/seo-aeo-geo-in-plain-terms/ [R=301,L]
+# END PMP ARCHIVE REDIRECTS
+
+# ---------------------------------------------------------------------------
 # Legacy URLs still earning impressions. Each target is the closest live page
 # on the same search intent. Impressions are 16-month GSC figures.
 # ---------------------------------------------------------------------------
@@ -69,7 +109,7 @@ RewriteRule ^contact-page/?$ /about/ [R=301,L]
 
 # JUDGEMENT CALL, review this one: 243 impressions, no exact replacement.
 # Closest live intent is the human-in-the-loop publishing workflow piece.
-RewriteRule ^github-contribution-workflow-guide-for-writers/?$ /systems/ai-website-publishing-with-human-in-the-loop-control/ [R=301,L]
+RewriteRule ^github-contribution-workflow-guide-for-writers/?$ /systems/human-in-the-loop-is-a-system-design-choice/ [R=301,L]
 
 # JUDGEMENT CALL, review this one: 158 impressions and 5 clicks, which makes it
 # the 6th most-clicked URL on the domain despite being a 404.

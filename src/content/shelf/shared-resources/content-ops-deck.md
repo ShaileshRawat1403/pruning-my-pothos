@@ -17,4 +17,4 @@ resourceHighlights:
 ---
 
 - [Related systems doc: Systems 001: Foundations](/systems/systems-001-foundations/) - Core system primitives for operating models.
-- [Related systems doc: What LLM-Ops Actually Means](/systems/llm-ops-without-the-buzzwords/) - Governance loops and observability over time.
+- [Related systems doc: What to Record So You Can Explain What Happened](/systems/observability-first-ai-systems/) - Choosing which signals a running system preserves.

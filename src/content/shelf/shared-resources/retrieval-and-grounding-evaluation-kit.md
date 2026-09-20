@@ -29,6 +29,6 @@ The value of these resources is not the tooling itself. The value is that they f
 
 Related internal reading:
 
-- [AEO and GEO as a Retrieval Design Problem](/systems/aeo-and-geo-as-a-retrieval-design-problem/)
-- [Evaluation as a Runtime Discipline](/systems/evaluation-as-a-runtime-discipline/)
+- [What a Publisher Actually Controls](/systems/seo-aeo-geo-in-plain-terms/)
+- [What Counts as Good, and How to Check It](/systems/evaluation-is-a-human-problem/)
 - [Observability First: How AI Systems Learn After Launch](/systems/observability-first-ai-systems/)

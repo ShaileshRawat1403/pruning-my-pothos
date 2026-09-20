@@ -17,8 +17,8 @@ resourceHighlights:
   - Failure points to watch when orchestration grows faster than governance
 ---
 
-- [Related systems doc: Runtime over model: why orchestration is the product](/systems/runtime-over-model-why-orchestration-is-the-product/) - The case for designing the system, not just selecting a model.
-- [Related systems doc: The Intelligence Assembly Model](/systems/the-intelligence-assembly-model/) - A direct explanation of how models, memory, tools, and controls become one usable system.
-- [Related systems doc: Knowledge management as runtime memory](/systems/knowledge-management-as-runtime-memory/) - How memory becomes usable inside real execution loops.
-- [Related systems doc: From ad-hoc prompts to repeatable agent workflows](/systems/from-ad-hoc-prompts-to-repeatable-agent-workflows/) - A practical path from improvisation to reusable assembly.
+- [Related systems doc: Why the Loop Outlives the Model](/systems/runtime-over-model-why-orchestration-is-the-product/) - The case for designing the system, not just selecting a model.
+- [Related systems doc: How the Parts of an AI Application Depend on Each Other](/systems/ai-architecture-explained-how-modern-llm-applications-work/) - What each part establishes, and what the next one assumes.
+- [Related systems doc: Retrieval-Augmented Generation in Plain Terms](/systems/retrieval-augmented-generation-in-plain-terms/) - Getting the right material in front of the model.
+- [Related systems doc: What Has to Survive for Work to Continue](/systems/agent-instructions-and-handoff-as-an-operating-system/) - What must be preserved for work to continue across sessions and actors.
 - [Related systems doc: Skills vs prompts vs agents](/systems/skills-vs-prompts-vs-agents/) - Clarifies the parts that get composed into larger intelligent behavior.

@@ -16,5 +16,5 @@ resourceHighlights:
   - Reducing semantic drift before it reaches production behavior
 ---
 
-- [Related systems doc: Natural Language Is the New API](/systems/natural-language-is-the-new-api/) - Core language-interface framing.
+- [Related systems doc: Prompting Is Not the Skill You Think It Is](/systems/prompting-is-not-the-skill-you-think-it-is/) - What the wording of a request does and does not settle.
 - [Related systems doc: Structured output and why it matters](/systems/structured-output-and-why-it-matters/) - Turning language into dependable outputs.

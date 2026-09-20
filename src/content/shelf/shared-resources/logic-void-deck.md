@@ -18,6 +18,6 @@ resourceHighlights:
   - Strategic approaches to AI limitations
 ---
 
-- [Related systems doc: The Logic Void](/systems/the-logic-void/) - Where AI reasoning breaks down and design begins.
+- [Related systems doc: What an AI Model Actually Is](/systems/what-an-ai-model-actually-is/) - Why fluent output and correct output are different things.
 - [Related sentence: The void is not a flaw](/sentences/the-void-is-not-a-flaw/) - Acknowledging boundaries is the beginning of reliable design.
 - [Related self entry: Learning to Say I Don't Know](/self/learning-to-say-i-dont-know/) - Trust through honesty about uncertainty.

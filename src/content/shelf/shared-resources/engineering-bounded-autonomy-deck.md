@@ -18,7 +18,7 @@ resourceHighlights:
   - Monitoring and governance patterns
 ---
 
-- [Related systems doc: Engineering Bounded Autonomy](/systems/engineering-bounded-autonomy/) - Safety constraints and operational boundaries.
+- [Related systems doc: From Agent Intent to Governed Execution](/systems/from-agent-intent-to-governed-execution/) - The path from a proposed action to a verified effect.
 - [Related systems doc: Human-in-the-loop is a System Design Choice](/systems/human-in-the-loop-is-a-system-design-choice/) - Oversight and autonomy levels.
 - [Related sentence: Autonomy needs boundaries](/sentences/autonomy-needs-boundaries/) - The value of autonomy is proportional to the quality of its boundaries.
 - [Related self entry: Designing My First Safety Constraint](/self/designing-my-first-safety-constraint/) - Why safety constraints must be architectural, not configurable.

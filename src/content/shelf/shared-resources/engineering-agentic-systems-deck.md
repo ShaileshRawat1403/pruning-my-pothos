@@ -18,7 +18,7 @@ resourceHighlights:
 ---
 
 - [Related systems doc: From agent intent to governed execution](/systems/from-agent-intent-to-governed-execution/) - A direct match for control points, policy, and execution discipline.
-- [Related systems doc: Engineering Agentic Systems for Reliability](/systems/engineering-agentic-systems-for-reliability/) - A reliability model focused on blast radius, verification, and traces.
+- [Related systems doc: From Agent Intent to Governed Execution](/systems/from-agent-intent-to-governed-execution/) - The path from a proposed action to a verified effect.
 - [Related systems doc: AI agents vs AI workflows](/systems/ai-agents-vs-ai-workflows/) - Helps define where agentic behavior is useful and where it creates unnecessary risk.
 - [Related systems doc: Human-in-the-loop is a system design choice](/systems/human-in-the-loop-is-a-system-design-choice/) - Covers escalation and review boundaries for high-stakes actions.
 - [Related systems doc: Observability first AI systems](/systems/observability-first-ai-systems/) - Why agent engineering needs traces, evidence, and runtime feedback.

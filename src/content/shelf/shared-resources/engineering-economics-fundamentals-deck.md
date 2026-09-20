@@ -17,4 +17,4 @@ resourceHighlights:
 ---
 
 - [Related systems doc: Tech Stack for NLPg-Driven AI-Assisted SDLC](/systems/tech-stack-for-nlpg-driven-ai-assisted-sdlc/) - Method-aligned stack and rollout stages.
-- [Related systems doc: Drift, Decay, and Silent Failure](/systems/drift-decay-and-silent-failure/) - Hidden costs when feedback loops are weak.
+- [Related systems doc: What to Record So You Can Explain What Happened](/systems/observability-first-ai-systems/) - Making a change in behaviour locatable after the fact.

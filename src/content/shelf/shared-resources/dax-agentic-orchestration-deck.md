@@ -18,7 +18,7 @@ resourceHighlights:
   - Operational patterns for agent coordination
 ---
 
-- [Related systems doc: Agentic Orchestration](/systems/agentic-orchestration-coordination/) - Designing reliable multi-agent coordination.
+- [Related systems doc: What Has to Survive for Work to Continue](/systems/agent-instructions-and-handoff-as-an-operating-system/) - What must be preserved for work to continue across sessions and actors.
 - [Related systems doc: Agent Instructions and Handoff as an Operating System](/systems/agent-instructions-and-handoff-as-an-operating-system/) - How handoff protocols work as system design.
 - [Related sentence: Handoffs are load-bearing](/sentences/handoffs-are-load-bearing/) - Handoff protocols are the load-bearing element of orchestration.
 - [Related self entry: Debugging Multi-Agent Systems](/self/debugging-multi-agent-systems/) - Why observability is not optional in orchestration.

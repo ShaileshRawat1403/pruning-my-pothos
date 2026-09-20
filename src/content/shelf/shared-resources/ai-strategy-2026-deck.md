@@ -16,5 +16,5 @@ resourceHighlights:
   - Prioritizing architecture choices that survive rapid change
 ---
 
-- [Related systems doc: Comparing Cloud Architecture in 2026](/systems/cloud-architecture-comparison-2026/) - Provider choices and trade-offs.
+- [Related experiments: cloud provider baselines](/shelf/local-experiments/) - First-run notes from AWS, Azure and GCP instances.
 - [Related systems doc: Systems 001: Foundations](/systems/systems-001-foundations/) - Boundaries, feedback, and system behavior.

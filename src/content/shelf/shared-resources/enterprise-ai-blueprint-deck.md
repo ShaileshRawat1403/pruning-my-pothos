@@ -18,7 +18,6 @@ resourceHighlights:
   - Risk management and reliability standards
 ---
 
-- [Related systems doc: Enterprise AI at Scale](/systems/enterprise-ai-at-scale/) - From blueprint to operating reality.
-- [Related systems doc: Why Most AI Projects Fail After the Demo Stage](/systems/why-most-ai-projects-fail-after-the-demo-stage/) - Common failure modes and prevention strategies.
+- [Related systems doc: When Is an AI System Ready for Real Use?](/systems/from-prompt-to-production/) - Whether the evidence and controls justify the exposure you are about to allow.
 - [Related sentence: Governance before architecture](/sentences/governance-before-architecture/) - The governance contract defines boundaries before architecture decides them.
 - [Related self entry: What I Learned Running AI Governance at Scale](/self/what-i-learned-running-ai-governance/) - Governance contracts meet real organizational behavior.

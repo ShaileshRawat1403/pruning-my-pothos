@@ -62,6 +62,6 @@ Use this when one skill becomes part of a wider workflow.
 
 These templates work best when paired with:
 
-- [What a Skill Is in AI Systems](/systems/what-a-skill-is-in-ai-systems/)
+- [Designing Reusable AI Skills](/systems/designing-reusable-ai-skills/)
 - [Skills vs Prompts vs Agents](/systems/skills-vs-prompts-vs-agents/)
 - [Dual NLP for AI-assisted SDLC](/docs/natural-language-programming-stack/)
