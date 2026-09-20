@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:1d4448540f4e2e7951da9018407d24944fd2f331349ff1b167ad42ea54dfcde7
+Content snapshot: sha256:8f03a27048cfce800f42a2d74a73837afe9176596c1c72d40df0bc4463e745e5
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions
@@ -14,7 +14,7 @@ Status: Read-only diagnostic of the existing article archive.
 
 | Total Articles | Green | Amber | Red | Illustrative |
 | :--- | :--- | :--- | :--- | :--- |
-| 85 | 38 | 46 | 1 | 0 |
+| 85 | 39 | 45 | 1 | 0 |
 
 ## High-Priority Review Queue (Red)
 
@@ -184,11 +184,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L77: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L105: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L157: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[Policy-Governed MCP Runtimes for Secure Tool Execution](../src/content/systems/policy-governed-mcp-runtimes-for-secure-tool-execution.mdx)** (`src/content/systems/policy-governed-mcp-runtimes-for-secure-tool-execution.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L68: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L86: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L131: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[Probabilities, Not Truth](../src/content/systems/probabilities-not-truth.mdx)** (`src/content/systems/probabilities-not-truth.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L124: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -329,7 +324,7 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [mental-frameworks](../src/content/systems/mental-frameworks.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [natural-language-is-the-new-api](../src/content/systems/natural-language-is-the-new-api.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [observability-first-ai-systems](../src/content/systems/observability-first-ai-systems.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
-| systems | [policy-governed-mcp-runtimes-for-secure-tool-execution](../src/content/systems/policy-governed-mcp-runtimes-for-secure-tool-execution.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [policy-governed-mcp-runtimes-for-secure-tool-execution](../src/content/systems/policy-governed-mcp-runtimes-for-secure-tool-execution.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [probabilities-not-truth](../src/content/systems/probabilities-not-truth.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [prompting-is-not-the-skill-you-think-it-is](../src/content/systems/prompting-is-not-the-skill-you-think-it-is.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [resilient-integration-contracts-for-structured-outputs](../src/content/systems/resilient-integration-contracts-for-structured-outputs.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
