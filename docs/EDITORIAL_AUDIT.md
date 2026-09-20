@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:466d285606f144cf8cc1c5611a7993b55794c4922b84127044a6ee7f695683e5
+Content snapshot: sha256:68e30c8e8eaab5b8b0bf2de98db13edff5d51dc8aa0eab64b60fe32c35fa8826
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions
@@ -14,7 +14,7 @@ Status: Read-only diagnostic of the existing article archive.
 
 | Total Articles | Green | Amber | Red | Illustrative |
 | :--- | :--- | :--- | :--- | :--- |
-| 85 | 47 | 37 | 1 | 0 |
+| 85 | 48 | 36 | 1 | 0 |
 
 ## High-Priority Review Queue (Red)
 
@@ -44,11 +44,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L115: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L138: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L170: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[AI Architecture Explained: How Modern LLM Applications Work](../src/content/systems/ai-architecture-explained-how-modern-llm-applications-work.mdx)** (`src/content/systems/ai-architecture-explained-how-modern-llm-applications-work.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L81: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L108: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L208: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[AI Website Publishing with Human-in-the-Loop Control](../src/content/systems/ai-website-publishing-with-human-in-the-loop-control.mdx)** (`src/content/systems/ai-website-publishing-with-human-in-the-loop-control.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L74: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -255,7 +250,7 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [agent-instructions-and-handoff-as-an-operating-system](../src/content/systems/agent-instructions-and-handoff-as-an-operating-system.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [agentic-orchestration-coordination](../src/content/systems/agentic-orchestration-coordination.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [ai-agents-vs-ai-workflows](../src/content/systems/ai-agents-vs-ai-workflows.mdx) | 🟢 Green | v1.0 | Yes | Clean |
-| systems | [ai-architecture-explained-how-modern-llm-applications-work](../src/content/systems/ai-architecture-explained-how-modern-llm-applications-work.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [ai-architecture-explained-how-modern-llm-applications-work](../src/content/systems/ai-architecture-explained-how-modern-llm-applications-work.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [ai-website-publishing-with-human-in-the-loop-control](../src/content/systems/ai-website-publishing-with-human-in-the-loop-control.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [architecture-of-in-chat-ai-apps](../src/content/systems/architecture-of-in-chat-ai-apps.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [cloud-architecture-comparison-2026](../src/content/systems/cloud-architecture-comparison-2026.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |

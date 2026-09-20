@@ -1,242 +1,164 @@
 ---
-title: "AI Architecture Explained: How Modern LLM Applications Work"
+schemaVersion: "1.0"
+title: "How the Parts of an AI Application Depend on Each Other"
+seoTitle: "AI Architecture Explained: How LLM Applications Work"
 publishDate: "2026-03-14"
-updatedAt: "2026-04-15"
-description: "A practical map of the layers that make modern LLM applications reliable: model access, retrieval, orchestration, interfaces, and governance."
+updatedAt: "2026-09-20"
+description: "The boxes in an architecture diagram are the easy part. What matters is what each part establishes, and what the next part is assuming was already settled."
 category: "How-things-fit-together"
 heroImage: '/covers/systems/ai-architecture-explained-how-modern-llm-applications-work.svg'
-heroImageAlt: 'Layered architecture diagram showing stacked components'
+heroImageAlt: 'A result crossing a boundary, carrying less than the next component assumes it carries'
 tags:
   - architecture
   - llm
-  - orchestration
-  - retrieval
-  - governance
-  - ai
-proofPoints:
-  - "Architecture guidance is connected to existing runtime, observability, retrieval, and governed execution systems docs."
-  - "Soothsayer is used as a working in-repo experiment for orchestration and controlled execution."
-faq:
-  - question: "What are the main layers in a modern LLM application?"
-    answer: "Most production systems need five layers: model access, knowledge and retrieval, orchestration, interface, and governance. Reliability comes from how those layers work together, not from the model alone."
-  - question: "Why do many AI architecture diagrams feel incomplete?"
-    answer: "Because they stop at the model and UI. Production behavior depends on retrieval, policy, verification, and operational controls that sit between them."
+  - systems
+contentType: 'technical'
+readingTime: 10
+difficulty: 'intermediate'
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Look at an AI system and ask, at each boundary, what the previous part actually established and what the next part is assuming, rather than checking off a list of components."
+thesis: "The parts of an AI application each establish something narrower than the next part tends to assume, so the useful architectural question is what crosses each boundary rather than which components exist."
+shortAnswer: "An AI application is usually drawn as boxes with arrows. The boxes are the easy part, and which ones exist depends on the job. The harder and more useful question is what each box actually establishes and what the next one assumes was already settled. Retrieval establishes that something was selected, not that it is authoritative. A schema check establishes that the shape is right, not that the meaning is. A tool call returning success establishes that the call returned, not that the intended outcome happened. Failures in an assembled system can live in those gaps rather than inside any one component, where no component's own tests would find them."
+
+boundary:
+  is: "An explainer of how the responsibilities in an AI application depend on each other, and what crosses each boundary between them."
+  isNot: "A stack, a reference architecture, a definition of any individual mechanism, or a guide to deployment topology."
+  mattersWhen: "Something went wrong and every component looks like it did its job."
+
+provenance:
+  primary: synthesis
+  sources: []
+  claims:
+    - statement: "A downstream component should not assume a stronger guarantee than the upstream component actually provides."
+      kind: synthesis
+    - statement: "The model generates candidate outputs. The surrounding system supplies context, validates contracts, controls effects, preserves state, and records and evaluates behaviour."
+      kind: synthesis
+    - statement: "Each part can satisfy its own narrow contract while the workflow as a whole produces the wrong result."
+      kind: synthesis
+
+related:
+  - type: explainer
+    title: "From Agent Intent to Governed Execution"
+    href: /systems/from-agent-intent-to-governed-execution/
+    note: "The boundary between a proposed action and a real effect, in detail."
+  - type: explainer
+    title: "What Counts as Good, and How to Check It"
+    href: /systems/evaluation-is-a-human-problem/
+    note: "How the end-to-end behaviour gets judged, which no single component can do."
+  - type: explainer
+    title: "Why the Loop Outlives the Model"
+    href: /systems/runtime-over-model-why-orchestration-is-the-product/
+    note: "Why behaviour gets attributed to the model that the surrounding software produced."
 ---
 
-> **Key takeaways**
->
-> - A modern LLM application is a layered system, not a prompt attached to a model.
-> - The critical layers are model access, retrieval, orchestration, interface, and governance.
-> - Reliability usually breaks between layers, especially where policy, context, and execution meet.
-> - Good architecture makes model changes survivable because the control logic lives outside the prompt.
+AI systems get drawn as boxes with arrows. Somebody adds a box for retrieval, one for the model, one for tools, one for logging, and the diagram looks complete.
 
-This article explains a core component of modern AI systems: architecture. It focuses on how model access, retrieval, orchestration, interfaces, and governance combine into one working application.
+The boxes are the easy part. Which ones a given application needs depends on the job it does, and plenty of useful systems have three of them. What the diagram never shows is the thing that actually decides how the system behaves: what each arrow is carrying, and what the box at the other end believes it received.
 
-It is most useful for teams moving from prototype thinking to production architecture, especially when they need clearer boundaries between model behavior, retrieval, and operational control.
+## What this page is for
 
-Most teams first picture an LLM app as a simple chain: user prompt in, answer out. That picture is good enough for a demo, but it is too thin for anything that needs trust, uptime, or organizational adoption. Real systems have more layers because they need to manage state, context, tools, permissions, verification, and failure recovery.
+**The detailed pages explain individual mechanisms. This one is about where responsibility transfers between them, and which part to inspect when something goes wrong.**
 
-### What does modern AI architecture actually include?
+That is a different question from what the parts are, and it is not answerable from inside any one of them. Each component can be designed well, tested on its own terms, and correct by its own definition, while the system built from them produces a wrong answer that nobody's component is responsible for.
 
-A modern LLM application usually includes five working layers: the model layer, the retrieval layer, the orchestration layer, the interface layer, and the governance layer. The model produces proposals, but the surrounding layers decide what context is available, what actions are allowed, how results are verified, and how the system can be improved over time.
+## What the model contributes
 
-In practice, <span class="highlight">architecture quality is the difference between a fluent demo and a dependable system</span>.
+**The model generates candidate outputs. The surrounding system supplies context, validates contracts, controls effects, preserves state, and records and evaluates behaviour.**
 
-<aside class="callout callout-insight">
-  <p><strong>Design note.</strong> If one layer silently absorbs the responsibilities of another, incidents become hard to diagnose. Keep boundaries explicit even when the first version feels "simpler" without them.</p>
-</aside>
+Not every application does all of those. A system that summarises a document and shows the result to a person supplies context and does little else, and that is a complete architecture for that job.
 
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: The architecture model</summary>
-      <ol>
-        <li><a href="#why-the-chatbot-mental-model-fails">Why the chatbot mental model fails</a></li>
-        <li><a href="#the-five-working-layers">The five working layers</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: What each layer does</summary>
-      <ol>
-        <li><a href="#layer-1-model-access">Layer 1: Model access</a></li>
-        <li><a href="#layer-2-knowledge-and-retrieval">Layer 2: Knowledge and retrieval</a></li>
-        <li><a href="#layer-3-orchestration-and-runtime-control">Layer 3: Orchestration and runtime control</a></li>
-        <li><a href="#layer-4-interface-and-user-state">Layer 4: Interface and user state</a></li>
-        <li><a href="#layer-5-governance-and-operations">Layer 5: Governance and operations</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: What makes the architecture hold</summary>
-      <ol>
-        <li><a href="#how-the-layers-fail-in-practice">How the layers fail in practice</a></li>
-        <li><a href="#a-better-default-architecture">A better default architecture</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+What is worth being exact about is the model's specific contribution. It produces a candidate. Generation does not establish that the candidate is true, does not authorize anything, and does not establish that the task was accomplished. Those are three separate things that three other mechanisms may or may not be doing, and the habit of saying the model *decides* or *knows* quietly assigns them to it.
 
-## Act I: The architecture model
+The rest of the system is not a wrapper around that capability. It is where those other questions get answered, when the job requires answering them.
 
-### Why the chatbot mental model fails
+## The assumption that crosses each boundary
 
-The common mental model is:
+Here is the principle the rest of this page is an application of.
 
-`user -> prompt -> model -> response`
+**A downstream component should not assume a stronger guarantee than the upstream component actually provides.**
 
-That model hides most of the work that makes a system useful in an organization. It does not show:
+It sounds obvious stated baldly. It is easy to violate, because the violation is invisible: the upstream component returns something with a name, and the name suggests more than the thing establishes.
 
-- where context comes from
-- how source truth is refreshed
-- how tools are authorized
-- how the system recovers from uncertainty
-- how teams inspect behavior after launch
+*Retrieved* suggests relevant and current. It establishes that a selection process returned something. *Validated* suggests correct. It usually establishes that a shape matched. *Authorized* suggests appropriate. It establishes that a rule permitted it. *Stored* suggests available and true. It establishes that a write succeeded.
 
-This is why many AI implementations look impressive in a meeting and fragile a month later. The model can still answer, but the surrounding architecture cannot explain what happened or guarantee that the same quality will happen again.
+Each of those is a real guarantee and worth having. None of them is the stronger guarantee its name implies.
 
-### The five working layers
+## What each responsibility establishes
 
-<figure class="diagram">
-  <iframe src="/scenes/architecture-stack.html" title="Five-layer architecture for a modern LLM application" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>The orchestration layer is the bridge between intelligence, tools, user state, and operational control.</figcaption>
-</figure>
+This table is not a stack and not an ordering, and nothing in it ranks anything. It is a list of the claims worth checking at each boundary, for whichever of these a given system actually has.
 
-The five-layer view is a better default because it separates responsibilities clearly enough to debug and evolve them.
+| Responsibility | Establishes | Does not by itself establish |
+| :--- | :--- | :--- |
+| **Generation** | A candidate output exists | That it is true, permitted, or sufficient |
+| **Retrieval** | Material was selected and supplied | That it is current, authoritative, complete, or supports the claim made from it |
+| **Instruction** | Behaviour was shaped toward something | That the output complied |
+| **Schema validation** | The output has the expected form | That its meaning is correct |
+| **Authorization** | A rule permitted this operation | That performing it achieves the goal |
+| **Tool execution** | An operation ran and returned | That the intended change happened |
+| **State persistence** | A value was written | That it is still current |
+| **Recorded signals** | Something can be investigated later | That the behaviour was acceptable |
+| **Evaluation** | Behaviour met a stated expectation | That the expectation was the right one, or that this justifies every exposure |
 
-## Act II: What each layer does
+Read down the right-hand column and the architecture of a specific system starts to become a set of questions rather than a diagram. For each row that applies: who checks the thing in the right-hand column, and where?
 
-### Layer 1: Model access
+## A request, traced
 
-This layer manages model providers, context limits, latency profiles, and fallback choices. It should answer questions like:
+Here is an illustrative walk through one request. It is a constructed example, not a description of a particular system, and a real application may skip several of these steps or repeat others.
 
-- which model is being used for this task
-- what budget or latency threshold applies
-- when should the system switch models
-- how are output contracts enforced
+A user asks for something. The application selects material it judges relevant and supplies it with the request. The model returns a candidate. If downstream software needs a particular shape, a check confirms the shape. If the candidate proposes an action with a real effect, a separate decision determines whether that action may proceed. If it proceeds, something needs to confirm the effect rather than the response. State is updated where the work continues later. Signals are preserved where the behaviour may need investigating. The result reaches a person or another system.
 
-Teams often over-invest here because model catalogs are visible and exciting. But the model layer is only one part of the stack. It is where capability enters the system, not where reliability is created.
+Now watch one assumption cross wrongly.
 
-For a deeper explanation of model behavior itself, see [What an AI Model Actually Is](/systems/what-an-ai-model-actually-is/) and [What Large Language Models Are Optimized For](/systems/what-llms-are-optimized-for/).
+The selection step returns a document that is six months out of date. Nothing in the pipeline is broken by that. The model conditions on it and still produces a fluent, specific, well-formed answer. The schema check passes, because the shape is right. The policy check passes, because the operation is permitted. The tool call succeeds, because the API accepted it. The state update succeeds. The trace is complete and accurate.
 
-### Layer 2: Knowledge and retrieval
+And the effect is wrong, because the subsequent schema, policy and tool checks in this example were not designed to test whether the supplied context was current. A stale premise can survive several locally successful checks when those checks are testing different properties.
 
-If the application depends on current or proprietary information, it needs a knowledge layer. That means ingestion, chunking, indexing, freshness rules, retrieval logic, and citation discipline.
+## Local success is not system success
 
-This is where many teams treat "RAG" as a feature instead of a system. In reality, retrieval quality depends on:
+That example is the general case, and it is the strongest reason this page exists.
 
-- source quality
-- content segmentation
-- ranking logic
-- freshness policy
-- verification after retrieval
+**Each part can satisfy its own narrow contract while the workflow as a whole produces the wrong result.** Retrieval returned documents. The model returned parseable output. The schema matched. The API returned success. The state was written. The log entry exists. Every one of those is a true local fact, and none of them is the outcome anyone wanted.
 
-Without this layer, the system can sound competent while using stale or irrelevant evidence. For deeper treatment, continue to [Retrieval-Augmented Generation in Plain Terms](/systems/retrieval-augmented-generation-in-plain-terms/) and [Knowledge Management as Runtime Memory](/systems/knowledge-management-as-runtime-memory/).
+This is also why the end-to-end behaviour needs [judging on its own terms](/systems/evaluation-is-a-human-problem/) rather than inferred from component health. A dashboard of green components is a claim about components.
 
-### Layer 3: Orchestration and runtime control
+There is a second cost, and it is organisational rather than technical. Where responsibility at a boundary is unclear, each component can be improved against its own measures without anything addressing the boundary itself. Local component metrics can improve while end-to-end behaviour stays the same, if no check covers the boundary assumption that is failing.
 
-This is the layer most "simple" diagrams omit and the one that matters most once the system has to do real work. Orchestration decides the next step, applies policy, coordinates tools, checks evidence, and determines whether the workflow should continue, ask, compact, or stop.
+## Which seam to inspect
 
-This is why the runtime is often the real product. Once language starts triggering actions, you need governed execution, not just good prompting. That is the logic behind [Runtime Over Model: Why Orchestration Is the Product](/systems/runtime-over-model-why-orchestration-is-the-product/) and [From Agent Intent to Governed Execution](/systems/from-agent-intent-to-governed-execution/).
+The useful version of that observation is diagnostic rather than statistical. A seam is worth inspecting when one part is assuming something the previous part never established.
 
-Soothsayer is useful here as a concrete example. Its value is not that it can call tools. Its value is that tool use sits inside a controlled loop with permission boundaries, verification, and traceability. That is architecture, not interface polish.
+That converts a vague question into a short list. Was the material actually current, or only retrieved? Did anything check meaning, or only [shape](/systems/structured-output-and-why-it-matters/)? Did anything confirm the [effect](/systems/from-agent-intent-to-governed-execution/), or only the response? Was the state still true when it was read, or only present? Where a person was involved, were they [positioned to judge](/systems/human-in-the-loop-is-a-system-design-choice/), or only asked to approve?
 
-### Layer 4: Interface and user state
+Each of those points at a specific mechanism with a page of its own. What this page adds is knowing which one to open.
 
-Users never interact with the architecture diagram. They interact with workflow state, expectations, and failure recovery. The interface layer manages:
+## Where these responsibilities actually live
 
-- session state
-- task framing
-- user approvals
-- result presentation
-- handoff paths when ambiguity remains
+A boundary in a diagram is not a boundary in the software.
 
-This layer decides whether the system feels coherent. A strong runtime can still create a bad experience if the interface hides uncertainty or forces users to infer what the system is doing.
+Several of these responsibilities can live in one function. Selecting context, calling the model and checking the result can be forty lines in one file, and that file is a perfectly reasonable architecture for a small system. The responsibilities are still distinct, and the questions above still apply to it.
 
-### Layer 5: Governance and operations
+The reverse happens too. One responsibility can be spread across a library, a service and a manual step. When a conceptual responsibility spans several implementation surfaces like that, ownership of it may need to be assigned explicitly rather than inferred from where the code sits.
 
-Governance is not a final approval checkbox. It is the operating discipline that keeps the system aligned over time. This layer includes:
+So the diagram describes what the system is responsible for, not how it is deployed. A conceptual box does not imply a separately deployed service, and a single code path may still contain several of these boundaries.
 
-- policy controls
-- observability and trace review
-- evaluation loops
-- change management
-- incident response
+What crosses each boundary varies as much as where it lives: a function argument, a structured object, a row in a database, a queue message, text in a prompt, a person deciding. Making the dependency explicit does not require making it a formal contract. An ordinary function call with a well-chosen name can carry a boundary perfectly well, provided what it carries is understood.
 
-<div class="table-scroll-wrap">
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th>Layer</th>
-        <th>Primary question</th>
-        <th>Failure if missing</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Model</strong></td>
-        <td>Can the system generate a useful proposal?</td>
-        <td>Weak capability or unstable contracts</td>
-      </tr>
-      <tr>
-        <td><strong>Retrieval</strong></td>
-        <td>Is the system using the right knowledge?</td>
-        <td>Stale, irrelevant, or uncited answers</td>
-      </tr>
-      <tr>
-        <td><strong>Orchestration</strong></td>
-        <td>What happens next and under what policy?</td>
-        <td>Unsafe execution and opaque failures</td>
-      </tr>
-      <tr>
-        <td><strong>Interface</strong></td>
-        <td>Can users understand and steer the workflow?</td>
-        <td>Low trust and poor adoption</td>
-      </tr>
-      <tr>
-        <td><strong>Governance</strong></td>
-        <td>How does the system learn safely over time?</td>
-        <td>Silent drift and reactive operations</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+## It is not a pipeline
 
-For the operational view, see [Observability First: How AI Systems Learn After Launch](/systems/observability-first-ai-systems/) and [Evaluation as a Runtime Discipline](/systems/evaluation-as-a-runtime-discipline/).
+The walk above reads as a sequence, which is a property of prose rather than of systems.
 
-## Act III: What makes the architecture hold
+Real applications retrieve more than once and sometimes not at all, call no tools, branch on what came back, retry, stop and ask a person, do deterministic work between model calls, or finish at generation with nothing further. A fixed order is one possible shape rather than the definition of the architecture, and any ordering presented as the default is answering a question about someone else's system.
 
-### How the layers fail in practice
+## Replacing the model
 
-Production AI systems usually fail at their seams:
+Explicit boundaries make a component easier to change. It is worth being careful about how much easier.
 
-- a good model with bad retrieval
-- useful retrieval with no policy boundary
-- valid tool execution with no verification
-- strong controls with a weak interface and no adoption path
+Models differ in context size, in how they take tool definitions, in output tendencies, in latency, in modality support, in provider interface and in refusal behaviour. A clean boundary reduces coupling to any of these, and it does not make the model a drop-in part. The work after a swap is usually smaller and rarely zero, and calling it interchangeable sets an expectation the next migration will correct.
 
-This is why architecture discussions should start with boundaries, not vendor logos. A team does not need an elaborate diagram first. It needs a clear picture of where responsibility moves from one layer to another.
+## What this changes
 
-### A better default architecture
+When the next architecture diagram arrives, the components are the part everyone will discuss. Ask about the arrows instead.
 
-For most teams, a good default looks like this:
-
-1. Keep model access replaceable.
-2. Build retrieval around governed source truth, not only embeddings.
-3. Put orchestration between model proposals and side effects.
-4. Design interface state around approvals, uncertainty, and result review.
-5. Instrument governance from the first working loop.
-
-This sequence keeps the architecture flexible. It also makes provider or model changes much less disruptive because the system does not depend on prompt heroics to stay coherent.
-
-### What this changes in practice
-
-Treat AI architecture as the design of cooperating layers, not the selection of a model vendor. When retrieval, orchestration, interface, and governance are designed as first-class layers, modern LLM applications become easier to trust, easier to change, and easier to operate.
-
-## Related AI systems topics
-
-- [Runtime Over Model: Why Orchestration Is the Product](/systems/runtime-over-model-why-orchestration-is-the-product/)
-- [Retrieval-Augmented Generation in Plain Terms](/systems/retrieval-augmented-generation-in-plain-terms/)
-- [Observability First: How AI Systems Learn After Launch](/systems/observability-first-ai-systems/)
-- [Soothsayer MCP kernel: from prompts to controlled orchestration](/shelf/local-experiments/soothsayer-mcp-kernel/)
+For each one: what did the thing on the left actually establish, and what is the thing on the right treating as settled? Where those two differ, you have found either a gap worth closing or a check somebody already wrote. Both are worth knowing about, and neither is visible from the boxes.
