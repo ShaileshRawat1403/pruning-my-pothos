@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:2e9fb73bf72295b41eeae826d6f4942ab665d083baf1b5ff0ec80c338e131c8a
+Content snapshot: sha256:18040d005b7a38f12010e74cade20cce93ebef43501bc3c4f08e30b436ac3201
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions
@@ -14,7 +14,7 @@ Status: Read-only diagnostic of the existing article archive.
 
 | Total Articles | Green | Amber | Red | Illustrative |
 | :--- | :--- | :--- | :--- | :--- |
-| 85 | 43 | 41 | 1 | 0 |
+| 85 | 45 | 39 | 1 | 0 |
 
 ## High-Priority Review Queue (Red)
 
@@ -119,11 +119,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L76: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L110: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L166: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[Evaluation Is a Human Problem](../src/content/systems/evaluation-is-a-human-problem.mdx)** (`src/content/systems/evaluation-is-a-human-problem.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L70: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L83: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L94: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[From Ad-Hoc Prompts to Repeatable Agent Workflows](../src/content/systems/from-ad-hoc-prompts-to-repeatable-agent-workflows.mdx)** (`src/content/systems/from-ad-hoc-prompts-to-repeatable-agent-workflows.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L88: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -169,11 +164,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
   - *Excerpt*: `L91: "## Act I" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L124: "## Act II" — syntactic Act heading ('## Act I/II/III')`
   - *Excerpt*: `L143: "## Act III" — syntactic Act heading ('## Act I/II/III')`
-- **[Observability First: How AI Systems Learn After Launch](../src/content/systems/observability-first-ai-systems.mdx)** (`src/content/systems/observability-first-ai-systems.mdx`)
-  - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
-  - *Excerpt*: `L77: "## Act I" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L105: "## Act II" — syntactic Act heading ('## Act I/II/III')`
-  - *Excerpt*: `L157: "## Act III" — syntactic Act heading ('## Act I/II/III')`
 - **[Probabilities, Not Truth](../src/content/systems/probabilities-not-truth.mdx)** (`src/content/systems/probabilities-not-truth.mdx`)
   - *Issue*: Legacy Act I-III syntax template (candidate for v1 migration)
   - *Excerpt*: `L124: "## Act I" — syntactic Act heading ('## Act I/II/III')`
@@ -291,7 +281,7 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [entity-glossary-for-ai-discoverability](../src/content/systems/entity-glossary-for-ai-discoverability.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [evaluating-non-deterministic-outputs-with-rubric-based-pipelines](../src/content/systems/evaluating-non-deterministic-outputs-with-rubric-based-pipelines.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [evaluation-as-a-runtime-discipline](../src/content/systems/evaluation-as-a-runtime-discipline.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
-| systems | [evaluation-is-a-human-problem](../src/content/systems/evaluation-is-a-human-problem.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [evaluation-is-a-human-problem](../src/content/systems/evaluation-is-a-human-problem.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [from-ad-hoc-prompts-to-repeatable-agent-workflows](../src/content/systems/from-ad-hoc-prompts-to-repeatable-agent-workflows.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [from-agent-intent-to-governed-execution](../src/content/systems/from-agent-intent-to-governed-execution.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [from-prompt-to-production](../src/content/systems/from-prompt-to-production.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
@@ -303,7 +293,7 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [managing-state-and-memory-handoffs-in-multi-agent-workflows](../src/content/systems/managing-state-and-memory-handoffs-in-multi-agent-workflows.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [mental-frameworks](../src/content/systems/mental-frameworks.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [natural-language-is-the-new-api](../src/content/systems/natural-language-is-the-new-api.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
-| systems | [observability-first-ai-systems](../src/content/systems/observability-first-ai-systems.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
+| systems | [observability-first-ai-systems](../src/content/systems/observability-first-ai-systems.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [policy-governed-mcp-runtimes-for-secure-tool-execution](../src/content/systems/policy-governed-mcp-runtimes-for-secure-tool-execution.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [probabilities-not-truth](../src/content/systems/probabilities-not-truth.mdx) | 🟡 Amber | Legacy | None | Legacy Act I-III syntax template (candidate for v1 migration) |
 | systems | [prompting-is-not-the-skill-you-think-it-is](../src/content/systems/prompting-is-not-the-skill-you-think-it-is.mdx) | 🟢 Green | v1.0 | Yes | Clean |

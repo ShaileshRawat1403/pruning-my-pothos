@@ -1,189 +1,152 @@
 ---
-title: "Observability First: How AI Systems Learn After Launch"
+schemaVersion: "1.0"
+title: "What to Record So You Can Explain What Happened"
+seoTitle: "AI Observability: What to Log in an AI System"
 publishDate: "2026-03-05"
-updatedAt: "2026-06-28"
-description: "Why observability is the missing layer between model output and reliable product behavior in production AI systems."
+updatedAt: "2026-09-20"
+description: "Observability is the ability to investigate behaviour from signals a system preserves while it runs. What to keep, what monitoring and audit and replay each mean, and where a record stops being proof."
 category: "Explanations"
 heroImage: '/covers/systems/observability-first-ai-systems.svg'
-heroImageAlt: 'Signal and monitoring diagram'
+heroImageAlt: 'A run leaving behind a small set of deliberately chosen signals rather than a volume of logs'
 tags:
   - observability
   - reliability
   - evaluation
-  - orchestration
   - operations
-  - geo
-proofPoints:
-  - "Weekly observability review workflow has been documented across systems and self sections."
-  - "Decision and verification terminology is now linked to canonical glossary anchors."
-  - "Runtime observability topic now spans five sections in topic coverage reporting."
-faq:
-  - question: "What does observability add beyond logs?"
-    answer: "It links decisions, evidence, and outcomes in a replayable sequence so teams can debug behavior quality, not only infrastructure events."
-  - question: "When should observability design start?"
-    answer: "At architecture time. Retrofitting after incidents usually leaves missing rationale and weak comparability across runs."
+contentType: 'technical'
+readingTime: 9
+difficulty: 'intermediate'
+
+contentKind: explainer
+readerIntent: use
+readerOutcome: "Decide what a running system should preserve, and tell monitoring, observability, audit and replay apart when someone uses them interchangeably."
+thesis: "Observability is the ability to investigate system behaviour from signals the system preserves while it runs, which makes it a decision about what to keep rather than a quantity of logs."
+shortAnswer: "Observability is the ability to investigate system behaviour from signals the system preserves while it runs. It is a decision, taken before anything goes wrong, about which signals will still exist when someone asks why a step happened. Monitoring watches signals chosen in advance and reports that something moved. Audit preserves evidence under a defined control model. Replay rebuilds a past execution only as far as the record of it goes, which is not the same as rerunning a model and expecting the same output. None of them establish that the behaviour was any good."
+
+boundary:
+  is: "An explainer of what a running system should preserve so its behaviour can be investigated afterwards."
+  isNot: "A judgment of whether that behaviour was good, a treatment of authorization or immediate effect verification, or a guide to any particular vendor's tooling."
+  mattersWhen: "Someone asks why the system did that last Tuesday and the answer has to be reconstructed."
+
+provenance:
+  primary: synthesis
+  sources:
+    - id: pmp-historical-ops-ledger
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/pruning-my-pothos"
+      path: "docs/agent-operations/ledger.jsonl"
+      ref: "21151c07b108ab2348712a878194f32aad05bd27"
+      citation: "Historical agent operations ledger: five records from a predecessor Astro site, 28 June 2026."
+  claims:
+    - statement: "This repository keeps a historical operations ledger of five records, written on one day inside a span of about 91 minutes, in which the human decision is stored as a separate field from the publish status."
+      kind: repository
+      sources:
+        - pmp-historical-ops-ledger
+    - statement: "The evidence fields describe produced artifacts or outcomes in prose, while information about validation checks is recorded separately in checks_run."
+      kind: repository
+      sources:
+        - pmp-historical-ops-ledger
+    - statement: "Replay can reconstruct a recorded execution only to the extent that relevant events and state were preserved. It does not guarantee the same model output, the same external state, or reconstruction of information that was never recorded."
+      kind: synthesis
+    - statement: "A record of what happened is not the same thing as a judgment about whether it was good."
+      kind: synthesis
+
+related:
+  - type: explainer
+    title: "What Counts as Good, and How to Check It"
+    href: /systems/evaluation-is-a-human-problem/
+    note: "The judgment this page deliberately stops short of."
+  - type: explainer
+    title: "From Agent Intent to Governed Execution"
+    href: /systems/from-agent-intent-to-governed-execution/
+    note: "Where the decisions and verifications recorded here are made."
+  - type: explainer
+    title: "Human in the Loop Is a System Design Choice"
+    href: /systems/human-in-the-loop-is-a-system-design-choice/
+    note: "What a reviewer needs in front of them, which a record alone does not supply."
 ---
 
-> **Key takeaways**
->
-> - Observability turns "it worked once" into repeatable operational knowledge.
-> - AI incidents are usually boundary failures, so your telemetry must be boundary-aware.
-> - Runtime traces, policy decisions, and verification artifacts should be queryable as one timeline.
-> - Without observability, evaluation becomes periodic theater instead of continuous learning.
+A week after launch, someone asks why the system did that last Tuesday. The uncomfortable part is not that the answer is complicated. It is that the answer no longer exists anywhere, because the run left behind an output and nothing else.
 
-This guide is built for builders, operators, and engineering teams launching AI systems. Most teams invest early in prompts, models, and tools, then treat observability as a later concern. That sequence feels efficient, but it usually creates blind spots that are expensive to unwind. By the time failures appear, the system can no longer explain why a step was chosen, whether a policy gate was bypassed, or which evidence was used to mark a task as complete.
+## What observability is
 
-Observability is not only "logs and dashboards." In AI systems, it is the design discipline that keeps decisions inspectable after the model has produced fluent output. You need to see not just what was said, but what happened at each boundary in the execution loop.
+**Observability is the ability to investigate system behaviour from signals the system preserves while it runs.**
 
-### What is observability in an AI runtime?
+That framing puts the emphasis in an awkward but accurate place. Observability is not a volume of logs and not a product you install. It is a decision, taken before anything goes wrong, about which signals will still be there when a question arrives that nobody anticipated. Logs are one input to that. The property being described is what you can find out afterwards.
 
-Observability in AI means capturing the decision path, supporting evidence, and downstream outcome as one queryable timeline. It goes beyond raw logs by preserving why a step was allowed, how it was verified, and what changed afterward. This is what makes incident learning and safe iteration possible.
+For systems that generate text, the gap is specific. The output is the part everyone sees, and it carries very little about how the run reached it. A fluent answer looks the same whether the right document was retrieved or a plausible one was, whether a permission check ran or was skipped, whether a tool returned what was wanted or something that was never examined. What distinguishes those cases is not in the text.
 
-In practice, <span class="highlight">unobserved systems drift faster than teams can reason about them</span>.
+## Four words that are not synonyms
 
-<aside class="callout callout-insight">
-  <p><strong>Design note.</strong> If you cannot replay a critical user flow with step-level evidence, you do not yet have reliable operations, even if user-facing output looks good.</p>
-</aside>
+These get used interchangeably, and each answers a different question.
 
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: Why observability is the control surface</summary>
-      <ol>
-        <li><a href="#output-quality-vs-behavior-quality">Output quality vs behavior quality</a></li>
-        <li><a href="#the-three-questions-every-incident-asks">The three questions every incident asks</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: What to observe in AI runtimes</summary>
-      <ol>
-        <li><a href="#the-observability-stack">The observability stack</a></li>
-        <li><a href="#minimum-events-you-should-log">Minimum events you should log</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Operating model and rollout</summary>
-      <ol>
-        <li><a href="#a-safe-rollout-sequence">A safe rollout sequence</a></li>
-        <li><a href="#failure-patterns-to-catch-early">Failure patterns to catch early</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+**Monitoring** watches signals chosen in advance and reports when one of them moves. It is good at telling you something changed and structurally unable to tell you about a failure nobody thought to watch for.
 
-## Act I: Why observability is the control surface
+**Observability** is the property above: whether an unanticipated question can be answered from what was kept.
 
-### Output quality vs behavior quality
+**Audit** preserves evidence under a defined control model. The distinguishing part is the control model rather than the evidence. Who may read it, how long it is retained, whether it can be altered after the fact and whether that alteration would be detectable. A trace that engineers can edit may be entirely adequate for debugging and still not satisfy audit.
 
-An AI system can produce strong text while behaving poorly as software. These are different qualities:
+**Replay** rebuilds a past execution from the events that were recorded of it. It is worth being exact here, because the word invites a stronger reading than it can carry. **Replay can reconstruct a recorded execution only to the extent that relevant events and state were preserved. It does not guarantee the same model output, the same external state, or reconstruction of information that was never recorded.**
 
-- **Output quality**: relevance, fluency, and usefulness of generated content.
-- **Behavior quality**: whether the system followed the right policy path, used the right tools, and validated outcomes correctly.
+Three separate limits sit inside that. Rerunning a probabilistic model need not reproduce the same output. The systems a run touched may have changed since, so external state at replay time is not guaranteed to be the state the run met. And a field nobody captured cannot be recovered afterwards by any amount of replaying, which makes replay a consumer of the recording decision rather than a substitute for it.
 
-User trust depends on both. Teams often measure only output quality because it is easier to evaluate manually. But incidents usually emerge from behavior quality failures: wrong tool execution, missing verification, silent retries, stale context, or policy drift.
+## What the record has to answer
 
-That is why observability is foundational for both SEO/AEO/GEO outcomes. If your runtime cannot explain why content was generated or cited, you cannot systematically improve trust signals. Answer systems and retrieval systems reward consistency, not one-off brilliance.
+A record earns its place if it can answer three questions without anyone reconstructing them from memory.
 
-### The three questions every incident asks
+1. What was decided?
+2. What evidence supported the decision?
+3. What changed since the last run that behaved correctly?
 
-Most production issues reduce to three questions:
+The third depends on something the other two do not: knowing which earlier run behaved correctly, and having kept enough of it to compare against. It is also the one that turns an investigation into a bounded search, because without it the search starts from the whole system.
 
-1. **What decision was made?**
-2. **What evidence supported it?**
-3. **What changed since the last known-good run?**
+## A minimum record
 
-If your telemetry cannot answer these quickly, incident response becomes guesswork. Guesswork usually leads to fragile patches that hide root causes.
+The decision itself and the verification of its effect are made elsewhere. Authorization asks whether an action may proceed, and effect verification checks whether the intended change actually occurred; both belong to [governed execution](/systems/from-agent-intent-to-governed-execution/). What this page adds is that their outcomes are worth keeping in a form you can query across many runs, because a single run tells you what happened and a series tells you what is happening.
 
-<figure class="diagram">
-  <iframe src="/scenes/observability-loop.html" title="Observability feedback loop for AI runtime decisions" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>Observability closes the loop between runtime behavior and policy improvement.</figcaption>
-</figure>
-
-## Act II: What to observe in AI runtimes
-
-### The observability stack
-
-Practical observability has three layers, each with a different purpose.
-
-<div class="table-scroll-wrap">
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th>Layer</th>
-        <th>What it captures</th>
-        <th>Primary use</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Runtime events</strong></td>
-        <td>Tool calls, policy decisions, step transitions, retries</td>
-        <td>Incident debugging and workflow integrity</td>
-      </tr>
-      <tr>
-        <td><strong>Quality signals</strong></td>
-        <td>Verification pass/fail, rubric scores, regressions</td>
-        <td>Model/runtime improvement prioritization</td>
-      </tr>
-      <tr>
-        <td><strong>Outcome metrics</strong></td>
-        <td>Task success rate, latency, abandonment, citation quality</td>
-        <td>Business and trust impact tracking</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-When these layers are disconnected, teams cannot distinguish model issues from orchestration issues. You then waste time tuning prompts for problems caused by policy routing or missing verification.
-
-### Minimum events you should log
-
-At minimum, each governed step should emit:
+For each governed step, a compact record holds up well:
 
 - `run_id`, `step_id`, `parent_step_id`
-- policy decision (`allow`, `deny`, `ask`) and policy version
-- selected tool/action and scoped parameters
-- verification result and artifact identifiers
-- latency and retry metadata
-- compact reason codes for failure classes
+- the policy decision and the version of the policy that produced it
+- the selected tool or action, and the parameters it was scoped to
+- the verification result, and identifiers for whatever artifact proved it
+- timing, and retry count
+- a reason code from a fixed vocabulary when something failed
 
-This event shape makes your system explainable without exposing sensitive prompt internals. It also improves handoffs between engineering, product, and content operations teams.
+Prompt text and model output are deliberately not in that list. They are among the most sensitive material a run touches and the most expensive to retain at volume, and the three questions above can be answered without them. Keep them if you need them, but keep them as a separate decision with its own retention rule, rather than by default because they were easy to capture.
 
-For runtime framing, see [Runtime Over Model: Why Orchestration Is the Product](/systems/runtime-over-model-why-orchestration-is-the-product/). For decision-gate detail, see [From Agent Intent to Governed Execution](/systems/from-agent-intent-to-governed-execution/) and [Agent Instructions and Handoff as an Operating System](/systems/agent-instructions-and-handoff-as-an-operating-system/).
+The reason codes deserve the fixed vocabulary. Free-text failure descriptions cannot be counted, so the same failure appearing forty times reads as forty separate incidents.
 
-## Act III: Operating model and rollout
+## A specimen, and what it does not show
 
-### A safe rollout sequence
+This repository carries a small artifact worth reading as a design specimen. **This repository keeps a historical operations ledger of five records, written on one day inside a span of about 91 minutes, in which the human decision is stored as a separate field from the publish status.** It documents a predecessor site built on a different stack, not the current publication, so nothing in it describes how anything runs today.
 
-A safe rollout avoids heavy instrumentation all at once.
+Two things in its schema are worth copying. Separating the human decision from the publish status means a record can show work completed and approval still outstanding, which is exactly the state that gets lost when one field is made to carry both. And each record holds the undo path for that specific change, written at the time rather than reconstructed later under pressure.
 
-1. **Start with critical path tracing**: instrument one high-impact flow end-to-end.
-2. **Add verification evidence**: record what proved completion, not only that completion was declared.
-3. **Classify failures**: normalize error classes across model, tool, and policy boundaries.
-4. **Attach policy versions**: make governance changes diffable over time.
-5. **Review weekly**: convert recurring incident patterns into runtime guardrails.
+One thing in it is worth pausing on, and it is the more instructive half. **The evidence fields describe produced artifacts or outcomes in prose, while information about validation checks is recorded separately in checks_run.** Two of the five go further and describe the outcome in evaluative terms, calling a layout stunning and a contrast perfect.
 
-This sequence keeps implementation manageable while producing immediate debugging value.
+Nothing here says the schema is wrong, and this is one small specimen rather than a lesson about schemas in general. The narrow point is about the label. A field called `evidence` holding the word stunning is a value whose name asserts more than its content supports.
 
-### Failure patterns to catch early
+**A record of what happened is not the same thing as a judgment about whether it was good.** The moment those two are stored in the same field, the record starts asserting the judgment, and whoever reads it later inherits an opinion formatted as a fact. Whether the behaviour was good is a separate question with [its own machinery](/systems/evaluation-is-a-human-problem/).
 
-Teams should alert on patterns that indicate systemic drift:
+## What changes underneath you
 
-- increasing retries with stable inputs
-- higher "allowed" rates but lower verified success
-- tool success paired with downstream user correction
-- sudden shifts after policy or prompt template updates
-- repeated fallback to manual intervention in one workflow segment
+For teams running their own trained models, drift has a settled meaning involving retraining and held-out sets. For teams calling a hosted model, the sources of change are different: the provider updates the model, someone edits a prompt or a template, the retrieved corpus changes, or the shape of incoming requests shifts.
 
-These signals are often early warnings of quality decay before public metrics move.
+Observability does not explain any of that. What it does is make the change locatable, by keeping the policy version, the template version and the model identifier next to the behaviour they produced. Without those, a change in behaviour can be observed and not attributed, and the investigation ends in a plausible story.
 
-For related framing in discoverability systems, see [SEO, AEO, GEO: How Discoverability Actually Works](/systems/seo-aeo-geo-how-things-fit-together/) and [SEO, AEO, and GEO in Plain Terms](/systems/seo-aeo-geo-in-plain-terms/).
+Signals worth watching, without treating any of them as a diagnosis:
 
-For applied proof surfaces, review [Portfolio](/portfolio/) for operational runbook examples and [Soothsayer MCP kernel: from prompts to controlled orchestration](/shelf/local-experiments/soothsayer-mcp-kernel/) for a local runtime loop with policy and trace boundaries.
+- retries rising while the inputs stay stable
+- more actions permitted, with no matching rise in verified success
+- tool calls succeeding and users correcting the result afterwards
+- behaviour shifting soon after a policy or template change
+- one workflow segment falling back to manual handling repeatedly
 
-### What this changes in practice
+Each of those is a reason to go and look, and the looking is only possible if the record was there first.
 
-Treat observability as part of product design, not post-launch logging. When decision paths, evidence, and outcomes stay connected, your system can learn safely after launch. That is how reliability compounds, and why observability belongs in the first architecture draft, not the incident backlog.
+## What this changes
+
+Decide what a run leaves behind while you are designing the run, not after the first incident. The instinct to add logging later is reasonable and it arrives too late for the specific thing you will want, because the question that matters is the one nobody anticipated.
+
+Start with one flow that would be expensive to get wrong, record what the list above names for every governed step in it, and check that you can answer the three questions from the record alone. What that gives you is the ability to reconstruct what happened. Whether what happened was any good is the next question, and it needs a different apparatus.

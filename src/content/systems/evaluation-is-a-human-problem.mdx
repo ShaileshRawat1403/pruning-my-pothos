@@ -1,114 +1,123 @@
 ---
-title: "Evaluation Is a Human Problem"
+schemaVersion: "1.0"
+title: "What Counts as Good, and How to Check It"
+seoTitle: "AI Evaluation: How to Tell Whether a System Behaved as Expected"
 publishDate: "2026-01-14"
-updatedAt: "2026-06-28"
-description: "Why benchmarks are not enough and judgment defines quality."
+updatedAt: "2026-09-20"
+description: "Evaluation compares behaviour against an expectation someone wrote down first. What to check, which method suits which property, and what keeps a change in behaviour visible."
 category: "Explanations"
 heroImage: '/covers/systems/evaluation-is-a-human-problem.svg'
-heroImageAlt: 'Human judgment vs benchmarks'
+heroImageAlt: 'Observed behaviour being compared against an expectation written down in advance'
 tags:
   - evaluation
   - quality
-  - judgment
   - reliability
-proofPoints:
-  - Core reference for evaluation-as-a-runtime-discipline.mdx
-  - Defines rubric-based evaluation methodology
-faq:
-  - question: Why are benchmarks not enough for AI evaluation?
-    answer: Benchmarks measure performance on standardized tests, but they don't tell you if a model is good for your specific purpose. Human judgment defines what "good" means for your use case. A model can score well on benchmarks but fail at your task.
-  - question: What is a rubric in AI evaluation?
-    answer: A rubric is a structured scoring guide that encodes human judgment into repeatable criteria. It defines what good looks like across multiple dimensions (accuracy, safety, helpfulness) so different evaluators can score consistently.
-  - question: Why is evaluation a loop, not a score?
-    answer: AI systems change behavior as prompts, context, and models evolve. A single evaluation score becomes stale quickly. Continuous evaluation with regular sampling, rubric refinement, and trend tracking captures degradation before it becomes a production problem.
+contentType: 'technical'
+readingTime: 8
+difficulty: 'intermediate'
+
+contentKind: explainer
+readerIntent: use
+readerOutcome: "Name the property you are evaluating, pick a checking method that suits it, and keep a fixed set of past failures that makes a change in behaviour visible."
+thesis: "Evaluation only becomes possible once someone writes down what good means for a specific task, because every faster and cheaper check is an approximation of that written judgment."
+shortAnswer: "Evaluation compares observed behaviour against an expectation that was written down before the run. The expectation is the hard part, because good is task-specific and somebody has to decide which property is actually under test. After that the method follows the property: deterministic assertions where behaviour is exact, heuristics where it is approximate, a model-based grader where it is a matter of degree, and human review where nothing else can be trusted yet. A fixed set of real past failures, re-scored after every change, is what makes a shift in behaviour visible at all."
+
+boundary:
+  is: "An explainer of how to turn the question of whether output is good into checks you can run, and rerun."
+  isNot: "A treatment of what a running system should record, of whether a reviewer is positioned to judge a decision, or of how to test one packaged skill."
+  mattersWhen: "Output looks fine and nobody can say whether it is better or worse than it was last week."
+
+provenance:
+  primary: synthesis
+  sources: []
+  claims:
+    - statement: "Evaluation compares observed behaviour against an expectation that was written down before the run."
+      kind: synthesis
+    - statement: "Every cheaper check approximates a judgment someone made first."
+      kind: synthesis
+    - statement: "A retained metric should say what is measured, on what population, over what period, how it was produced, and which decision changes if it moves."
+      kind: synthesis
+
+related:
+  - type: explainer
+    title: "What to Record So You Can Explain What Happened"
+    href: /systems/observability-first-ai-systems/
+    note: "The other half of the loop: the evidence a failure gets diagnosed from."
+  - type: explainer
+    title: "Structured Output and Why It Matters"
+    href: /systems/structured-output-and-why-it-matters/
+    note: "Where the deterministic half of checking comes from."
+  - type: playbook
+    title: "Designing Reusable AI Skills"
+    href: /systems/designing-reusable-ai-skills/
+    note: "Testing one packaged task, which is a narrower question than this page."
 ---
 
-> **Key takeaways**
->
-> - Benchmarks compare models, but humans define what "good" means.
-> - Rubrics turn judgment into repeatable evaluation.
-> - RLHF encodes human preference, not ground truth.
-> - Evaluation is a loop, not a one-time score.
+Someone asks whether the new version is better. Answering requires something that was supposed to exist before the change: a written account of what better would mean for this task. Without it the question can only be settled by impression, and impressions of fluent text are unreliable in a specific direction: fluency is easy to perceive and correctness is not.
 
-The quality of a Large Language Model is not a number. While automated benchmarks can measure performance on standardized tests, the real measure of quality—whether a model is helpful, safe, and reliable for a specific purpose—is a matter of human judgment. Evaluation is the process of encoding that judgment into a repeatable system.
+## What evaluation compares
 
-### Why is evaluation a human problem?
+**Evaluation compares observed behaviour against an expectation that was written down before the run.**
 
-Evaluation is a human problem because quality is contextual: benchmarks measure general capabilities, but human judgment defines what "correctness" means for a specific task. To build reliable systems, we must translate subjective preferences into structured, repeatable rubrics that can evaluate outputs consistently over time.
+Both halves carry weight. Observed behaviour, rather than intended behaviour. And an expectation that already existed, because an expectation written after seeing the output has a way of describing the output.
 
-In practice, <span class="highlight">clarity at boundaries reduces downstream errors</span> more than late-stage tuning.
+A benchmark is one instance of this shape, with the expectation supplied by whoever built the benchmark and the population fixed in advance. That makes it useful for comparing models with each other. It answers a different question from whether this system does this job, which is why a model that scores better on a benchmark can land worse in the product.
 
-<aside class="callout callout-insight">
-  <p><strong>Design note.</strong> Read this page as a tradeoff map: make boundaries explicit, track feedback loops, and optimize only after constraints are clear.</p>
-</aside>
-<div id="toc-anchor"></div>
-<nav class="toc" aria-label="On-page">
-  <h2 class="toc-title">Contents</h2>
-  <div class="toc-groups">
-    <details open>
-      <summary>Act I: The fundamentals</summary>
-      <ol>
-        <li><a href="#benchmarks-and-their-limits">Benchmarks and their limits</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act II: The modern paradigm</summary>
-      <ol>
-        <li><a href="#human-rubrics-and-rlhf">Human rubrics and RLHF</a></li>
-      </ol>
-    </details>
-    <details>
-      <summary>Act III: Principles in practice</summary>
-      <ol>
-        <li><a href="#governance-and-tradeoffs">Governance and tradeoffs</a></li>
-        <li><a href="#what-this-changes-in-practice">What this changes in practice</a></li>
-      </ol>
-    </details>
-  </div>
-</nav>
+## Name the property before choosing the method
 
-## Act I: The fundamentals
+There is no way to check output quality. There is only a way to check a property.
 
-### Benchmarks and their limits
+- Does the response parse, and carry the fields something downstream depends on?
+- Is the answer supported by the document it cites?
+- Does it decline the things it is supposed to decline?
+- Does it hold the register the product committed to?
 
-Early methods for evaluating language models relied on automated metrics that compared a model's output to a "reference" or "golden" answer. Metrics like BLEU and ROUGE measure the overlap of words and phrases, which is useful for tasks like translation but fails to capture the semantic meaning or factual accuracy of a response.
+Those fail in different ways, get checked by different means, and carry different consequences. Collapsing them into a single quality score produces a number that moves without telling you which of them moved, which is the opposite of what a measurement is for.
 
-The next step was the creation of large-scale benchmarks like MMLU (Massive Multitask Language Understanding), which test a model's ability to answer multiple-choice questions across a wide range of subjects. These are valuable for comparing the general knowledge of different models, but they do not tell you if a model is suitable for your specific application.
+## Four ways to check, and what each one costs
 
-<figure class="diagram">
-  <iframe src="/scenes/eval-human-cycle.html" title="Human-in-the-Loop Evaluation Cycle" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>Evaluation is a continuous loop where human judgment is used to refine the system's behavior.</figcaption>
-</figure>
+**Deterministic assertions.** Did it parse, is the required field present, is the value inside the permitted range, does the cited identifier correspond to a document that exists. These are exact, cheap, and narrow. They cannot tell you whether an answer is any good, and they catch a class of failure that otherwise gets reported as the model behaving strangely. Well-formedness itself is [structured output](/systems/structured-output-and-why-it-matters/) work, applied here after the fact rather than before an action.
 
-## Act II: The modern paradigm
+**Heuristics.** Length bounds, presence of a required phrase, overlap with a reference answer. Word-overlap measures such as BLEU and ROUGE sit here. They are quick and they have no access to meaning, so a close paraphrase scores badly and a fluent restatement of the wrong fact can score well. Useful as a cheap tripwire, unsafe as a definition of correct.
 
-### Human rubrics and RLHF
+**Model-based graders.** A model scoring output against a rubric. It extends judgment to volumes nobody can read by hand, and it is doing the same probabilistic thing as the system under test. Three consequences follow. A grader that returns a score without a reason gives you a number you cannot audit. Graders can reward confident, well-formed writing, which may be a property the rubric never asked for. And a grader has to be compared against human labels before its scores mean anything, which makes the grader a component you also have to evaluate.
 
-The modern approach to evaluation accepts that "quality" is context-dependent. The definition of a "good" answer for a customer service bot is different from that of a "good" answer for a creative writing assistant. This has led to the rise of human-in-the-loop evaluation.
+**Human review.** The expensive one, and the one the other three are standing in for. **Every cheaper check approximates a judgment someone made first.** An assertion about citations encodes a decision about what counts as supported. A rubric row encodes a decision about what counts as the right tone. The judgment does not disappear when it is automated. It gets fixed at the moment it was encoded, and revisiting it becomes separate work that nothing prompts.
 
-This process involves:
-1.  **Defining a rubric:** A detailed set of criteria that defines what a high-quality response looks like for a specific use case. The rubric might include measures for helpfulness, honesty, harmlessness, tone, and factual accuracy.
-2.  **Human rating:** Human reviewers score the model's responses against the rubric. They provide not just a score, but also detailed feedback on why a response failed.
-3.  **Reinforcement Learning from Human Feedback (RLHF):** This feedback is used to train a "reward model" that learns to predict how a human would score a given response. This reward model is then used to fine-tune the original LLM, teaching it to produce outputs that are more aligned with human preferences.
+## Rubrics
 
-## Act III: Principles in practice
+A rubric is the written form of that decision, broken into criteria specific enough that a second person can apply them and land near the first.
 
-### Governance and tradeoffs
+That agreement is the test of a rubric, rather than how thorough it looks. Where two reviewers diverge on the same output, the disagreement is worth reading before it is resolved. Two things are worth checking first: whether the criterion is carrying two ideas that pull apart under pressure, and whether it is written in terms of a quality rather than an observable, which leaves each reviewer to supply their own definition.
 
-Evaluation is not a one-time event; it is a continuous process. As you discover new failure modes or as your requirements change, your definition of quality—and therefore your evaluation rubric—must also evolve.
+Keep the criteria to the ones that would change what you do. A rubric that scores nine dimensions produces nine numbers, and attention gets spread across all of them rather than concentrated on the ones that would change a decision.
 
-Building a good evaluation system is more of a governance and process design challenge than a purely technical one. It requires answering difficult, subjective questions:
--   Who gets to decide what "good" means?
--   How do we ensure consistency across human raters?
--   How do we handle disagreements and edge cases?
--   What tradeoffs are we willing to make between, for example, helpfulness and harmlessness?
+## A fixed set of things that already went wrong
 
-The robustness of your evaluation framework is the ultimate ceiling on the quality and safety of your AI system. An automated benchmark can tell you if your model is powerful, but only a human-centered evaluation process can tell you if it is useful.
+Keep the bad outputs. Sort them by failure mode: wrong fact, wrong tone, missed refusal, malformed structure, quiet truncation, confident answer from thin evidence. Re-score that same collection after a prompt change, a model change, or a change in what gets retrieved.
 
-One practical addition is to maintain a "failure library" of real bad outputs by category (factual, tone, policy, escalation). Re-scoring this fixed set after every major prompt or model change gives you a stable regression signal that generic benchmarks cannot provide.
+The value lives in the word same. A fresh sample each time tells you how the system did on that sample. A fixed set tells you what moved, because the only thing that changed between the two runs is the thing you changed.
 
-For related systems context, see [Systems 001: Foundations](/systems/systems-001-foundations/) and [From Prompt to Production](/systems/from-prompt-to-production/). To see how rubrics and evaluation datasets are set up for validation, explore the [retrieval and grounding evaluation kit](/shelf/shared-resources/retrieval-and-grounding-evaluation-kit/).
+It is worth being clear about what this set is not. It is not representative of production traffic and should not be read as an estimate of how often anything happens. It is a collection of failures that have occurred at least once, kept so that their return is noticed immediately rather than reported by a user.
 
-### What this changes in practice
+## Closing the loop
 
-Spend more time defining and measuring what "good" means for your specific use case than comparing your model's performance on generic industry benchmarks.
+Evaluation and the record of what happened are two halves of one cycle, and the handoff between them is where it comes apart.
+
+A run fails in production. Its record is inspected and the failure mode is named. The named failure becomes a case in the fixed set. The set is rerun. The change ships.
+
+The first two steps depend on [what the system preserved while it ran](/systems/observability-first-ai-systems/). The rest belong here. The step that gets skipped is the third: a failure is diagnosed, discussed and fixed without ever becoming a case, which leaves nothing to prevent its return except whether someone remembers.
+
+## Metrics that change a decision
+
+**A retained metric should say what is measured, on what population, over what period, how it was produced, and which decision changes if it moves.**
+
+The last of those does the filtering. A number attached to no decision still costs something: it occupies a dashboard, it gets reported, and it competes for attention with the two or three numbers that would actually change what happens next.
+
+This is also the discipline that keeps a score honest when it is quoted later. A figure repeated without its population and its method hardens into a fact about the system, and the conditions it was true under stop travelling with it.
+
+## What this changes
+
+Before the next change, write down what would count as worse. Not a target number. A description of behaviour you would not accept, concrete enough that someone else could look at an output and agree it had happened.
+
+Everything on this page is machinery for checking that description quickly and repeatedly. Without the description, the machinery has nothing to check against, and the honest answer to whether the new version is better stays the one you started with.
