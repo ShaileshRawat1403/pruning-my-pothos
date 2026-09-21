@@ -96,6 +96,15 @@ function labelLooksTruncated(labelText) {
   return DANGLING_END_WORDS.has(last);
 }
 
+// Social platforms do not render SVG og:images, so src/lib/seo/metadata.ts and
+// jsonld.ts emit a PNG sibling by swapping the extension on the cover path. That
+// URL is generated whether or not the file exists, so a missing PNG is an
+// og:image 404 that nothing else in the pipeline notices. This mirrors that exact
+// transformation rather than assuming a naming convention.
+function derivedRasterPath(coverPath) {
+  return coverPath.endsWith('.svg') ? coverPath.replace(/\.svg$/, '.png') : null;
+}
+
 async function checkCoverLabel(svgPath) {
   if (!svgPath.endsWith('.svg')) return null;
   let content;
@@ -153,6 +162,14 @@ async function main() {
       continue;
     }
 
+    const derived = derivedRasterPath(heroImage);
+    if (derived) {
+      const derivedOnDisk = path.join(PUBLIC_ROOT, derived.replace(/^\//, ''));
+      if (!(await exists(derivedOnDisk))) {
+        failures.push(`${rel}: heroImage "${heroImage}" has no PNG sibling "${derived}", but og:image and JSON-LD will emit that URL`);
+      }
+    }
+
     const title = extractTitle(raw);
     const badLabel = await checkCoverLabel(onDisk);
     if (badLabel) {
@@ -174,6 +191,15 @@ async function main() {
     const onDisk = path.join(PUBLIC_ROOT, coverUrl.replace(/^\//, ''));
     if (!(await exists(onDisk))) {
       failures.push(`${rel}: coverUrl "${coverUrl}" does not exist under public/`);
+      continue;
+    }
+
+    const derived = derivedRasterPath(coverUrl);
+    if (derived) {
+      const derivedOnDisk = path.join(PUBLIC_ROOT, derived.replace(/^\//, ''));
+      if (!(await exists(derivedOnDisk))) {
+        failures.push(`${rel}: coverUrl "${coverUrl}" has no PNG sibling "${derived}", but og:image and JSON-LD will emit that URL`);
+      }
     }
   }
 
