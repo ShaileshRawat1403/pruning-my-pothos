@@ -108,8 +108,8 @@ export default function StartHere() {
               Policy-Governed MCP Runtimes
             </h3>
             <p className="text-xs text-[#55534E] leading-relaxed mb-6 flex-1">
-              How to design isolated execution sandboxes and policy validation gates for Model Context
-              Protocol servers in autonomous workflows.
+              Where untrusted content enters a tool-connected system, where the enforcing check
+              belongs, and what isolation does and does not bound.
             </p>
             <div className="flex items-center justify-between pt-4 border-t border-[#F4F2EC] text-[11px] font-mono text-[#7A7872]">
               <span>Read the breakdown</span>

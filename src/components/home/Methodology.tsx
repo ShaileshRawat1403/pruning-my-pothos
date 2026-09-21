@@ -85,12 +85,12 @@ export default function Methodology({ systemsCount }: MethodologyProps) {
                   What is the role of Model Context Protocol (MCP) in modern workflows?
                 </h3>
                 <p className="text-xs text-[#55534E] leading-relaxed">
-                  MCP standardizes tool invocation, file system boundaries, and resource state via JSON-RPC. It replaces
-                  proprietary API harnesses with modular, sandboxed capability servers that remain model-agnostic and auditable.
+                  It provides a standard interface for connecting AI applications to tools and data, while permission
+                  and reach still depend on the surrounding system.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#F4F2EC] flex items-center justify-between text-[11px] font-mono text-[#7A7872]">
-                <span>Protocol: JSON-RPC 2.0</span>
+                <span>Focus: Trust Boundaries</span>
                 <Link
                   href="/systems/policy-governed-mcp-runtimes-for-secure-tool-execution"
                   className="text-[#121212] hover:underline font-semibold"
