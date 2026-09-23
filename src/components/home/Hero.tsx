@@ -2,11 +2,7 @@ import BotanicalLifecycle from "./BotanicalLifecycle";
 import NewsletterForm from "../NewsletterForm";
 import { SITE_POSITIONING } from "../../lib/config/site-positioning";
 
-interface HeroProps {
-  systemsCount: number;
-}
-
-export default function Hero({ systemsCount }: HeroProps) {
+export default function Hero() {
   return (
     <section id="hero" className="scroll-mt-28 w-full border-b border-[#EAE8E2] bg-[#FAF9F6]">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pt-14 pb-20 md:pt-18 md:pb-22">
@@ -14,10 +10,6 @@ export default function Hero({ systemsCount }: HeroProps) {
 
           {/* Left Column: Hero Editorial Statement */}
           <div className="lg:col-span-7 flex flex-col gap-8">
-            <div className="flex items-center gap-2 text-[11px] font-mono tracking-wider text-[#8A8780] uppercase flex-wrap">
-              <span>{systemsCount} BREAKDOWNS</span>
-            </div>
-
             <div className="flex flex-col gap-4">
               <h1 className="font-heading font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.08] text-[#121212]">
                 {SITE_POSITIONING.headline}
@@ -38,10 +30,10 @@ export default function Hero({ systemsCount }: HeroProps) {
                   What worked, what broke, and what I learned building with AI.
                 </span>
                 <a
-                  href="#breakdowns"
+                  href="#systems-map"
                   className="hover:text-[#121212] transition-colors underline underline-offset-4 decoration-[#D5D2C9] text-[11px]"
                 >
-                  Read a breakdown &rarr;
+                  Start with the systems map &rarr;
                 </a>
               </div>
             </div>

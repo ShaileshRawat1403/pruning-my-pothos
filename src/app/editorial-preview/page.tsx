@@ -111,7 +111,7 @@ export default function EditorialPreviewPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_STRUCTURED_DATA) }}
       />
-      <Hero systemsCount={systemsCount} />
+      <Hero />
       <StartHere />
       <Projects />
       <Tools />

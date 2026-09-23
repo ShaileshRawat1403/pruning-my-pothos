@@ -6,8 +6,10 @@
  * facts but remains authored locally where it is rendered.
  */
 export const SITE_POSITIONING = {
-  // Frozen primary anchor
-  headline: "Understand AI by putting it to work.",
+  // Primary anchor. Replaced during the UI/UX release pass: the previous line
+  // ("Understand AI by putting it to work.") described an activity, where this
+  // one names what the publication is for.
+  headline: "Making applied AI systems easier to understand, inspect and build.",
 
   // Candidate reader-value support line (candidate for review, not frozen)
   candidateSupportLine:

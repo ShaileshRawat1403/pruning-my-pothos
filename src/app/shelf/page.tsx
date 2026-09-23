@@ -3,6 +3,7 @@ import PlateHero from "../../components/PlateHero";
 import SceneFigure from "../../components/SceneFigure";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
+import { SHELF_CATEGORIES } from "../../lib/content/shelf";
 
 const GREENWOOD_LINES = [
   "The synth is just a very opinionated instrument. You negotiate.",
@@ -26,38 +27,7 @@ export default function ShelfIndexPage() {
     path: "/shelf"
   });
 
-  const categories = [
-    {
-      title: "Local Experiments",
-      description: "Tests, failures, and learnings from hands-on work.",
-      path: "/shelf/local-experiments"
-    },
-    {
-      title: "Notes",
-      description: "Drafts, fragments, and working lines of thought.",
-      path: "/shelf/notes"
-    },
-    {
-      title: "Music",
-      description: "Soundtracks for focus, drift, and flow.",
-      path: "/shelf/music"
-    },
-    {
-      title: "Tools",
-      description: "The stack I reach for and the trade-offs I accept.",
-      path: "/shelf/tools"
-    },
-    {
-      title: "Philosophy",
-      description: "Personal philosophies and the sources behind them.",
-      path: "/shelf/philosophy"
-    },
-    {
-      title: "Shared Resources",
-      description: "References, guides, and links I return to.",
-      path: "/shelf/shared-resources"
-    }
-  ];
+  const categories = SHELF_CATEGORIES;
 
   return (
     <div className="relative flex flex-col gap-16 py-12">
