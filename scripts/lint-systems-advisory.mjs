@@ -2,23 +2,12 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 
 const SYSTEMS_DIR = path.resolve('src/content/systems');
-const FRONTMATTER_RE = /^---\r?\n[\s\S]*?\r?\n---\r?\n?/;
-const WORD_RE = /[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*/g;
-
-function stripFrontmatter(content) {
-  return content.replace(FRONTMATTER_RE, '');
-}
 
 function countMatches(content, regex) {
   return (content.match(regex) || []).length;
 }
 
-function countWords(content) {
-  return countMatches(content, WORD_RE);
-}
-
-function analyze(raw, body) {
-  const words = countWords(body);
+function analyze(raw) {
   const internalLinks = countMatches(raw, /\[[^\]]+\]\(\/(?!\/)/g);
   const externalLinks = countMatches(raw, /\[[^\]]+\]\(https?:\/\/[^\s)]+/g);
   const tables = countMatches(raw, /<table\b/gi);
@@ -30,7 +19,6 @@ function analyze(raw, body) {
     /\[[^\]]+\]\(\/(portfolio|shelf\/local-experiments|shelf\/shared-resources)\//i.test(raw);
 
   return {
-    words,
     internalLinks,
     externalLinks,
     tables,
@@ -44,9 +32,6 @@ function analyze(raw, body) {
 function buildWarnings(file, metrics) {
   const warnings = [];
 
-  if (metrics.words < 850) {
-    warnings.push(`words close to hard floor (800): ${metrics.words}`);
-  }
   if (metrics.internalLinks < 1) {
     warnings.push('missing internal links (recommended: >= 1)');
   }
@@ -74,8 +59,7 @@ async function main() {
 
   for (const filePath of files) {
     const raw = await fs.readFile(filePath, 'utf8');
-    const body = stripFrontmatter(raw);
-    const metrics = analyze(raw, body);
+    const metrics = analyze(raw);
     const file = path.basename(filePath);
     allWarnings.push(...buildWarnings(file, metrics));
   }
