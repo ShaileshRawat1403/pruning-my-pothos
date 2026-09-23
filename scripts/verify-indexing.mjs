@@ -3,6 +3,7 @@
 import { readdir, readFile } from 'fs/promises';
 import { join } from 'path';
 import { existsSync } from 'fs';
+import yaml from 'js-yaml';
 
 const SITE_URL = process.env.SITE_URL || 'https://pruningmypothos.com';
 // Next.js static export (output: "export") writes to out/, not dist/. dist/ was
@@ -127,32 +128,109 @@ async function countFiles(dir) {
   }
 }
 
-async function checkCollectionFaq(dir) {
+// Two separate questions, deliberately not merged.
+//
+// 1. Did every Systems file enter the editorial contract at all? lint:editorial:v1
+//    only inspects documents declaring schemaVersion: "1.0", so a file omitting it
+//    is skipped by every semantic check and nothing else would notice.
+//
+// 2. Where the contract requires a direct answer, is one present? v1 requires
+//    shortAnswer for explainers only, and the Content Doctrine refuses to
+//    standardize whether a piece has one. A field note or playbook without
+//    shortAnswer is correct, not a gap.
+//
+// Neither validates the 80-700 character bound; lint:editorial:v1 owns that for
+// the documents it sees. Frontmatter is parsed, not searched: a substring test
+// counts the word anywhere in a body and misses quoted values and block scalars,
+// which is how the FAQ metric this replaces drifted unnoticed.
+function parseFrontmatter(content) {
+  if (!content.startsWith('---')) return { ok: false, reason: 'no frontmatter' };
+  const end = content.indexOf('\n---', 3);
+  if (end === -1) return { ok: false, reason: 'unterminated frontmatter' };
+  try {
+    const data = yaml.load(content.slice(3, end));
+    if (!data || typeof data !== 'object') return { ok: false, reason: 'frontmatter is not a mapping' };
+    return { ok: true, data };
+  } catch (e) {
+    return { ok: false, reason: 'frontmatter parse error: ' + e.message.split('\n')[0] };
+  }
+}
+
+async function readCollectionFrontmatter(dir) {
   try {
     const files = await readdir(dir);
-    const mdFiles = files.filter(f => f.endsWith('.md') || f.endsWith('.mdx'));
-    let withFaq = 0;
+    const mdFiles = files.filter(f => f.endsWith('.md') || f.endsWith('.mdx')).sort();
+    const docs = [];
     for (const file of mdFiles) {
       const content = await readFile(join(dir, file), 'utf8');
-      if (content.includes('faq:')) withFaq++;
+      docs.push(Object.assign({ file }, parseFrontmatter(content)));
     }
-    return { total: mdFiles.length, withFaq };
+    return docs;
   } catch {
-    return { total: 0, withFaq: 0 };
+    return [];
   }
+}
+
+function checkContractCoverage(docs) {
+  let covered = 0;
+  const gaps = [];
+  for (const doc of docs) {
+    if (!doc.ok) {
+      gaps.push(doc.file + ' (' + doc.reason + ')');
+    } else if (doc.data.schemaVersion === '1.0') {
+      covered++;
+    } else {
+      const d = doc.data.schemaVersion;
+      gaps.push(doc.file + ' (' + (d === undefined ? 'no schemaVersion' : 'schemaVersion ' + JSON.stringify(d)) + ')');
+    }
+  }
+  return { total: docs.length, covered, gaps };
+}
+
+function checkExplainerDirectAnswer(docs) {
+  let covered = 0;
+  let total = 0;
+  const gaps = [];
+  for (const doc of docs) {
+    if (!doc.ok || doc.data.contentKind !== 'explainer') continue;
+    total++;
+    const value = doc.data.shortAnswer;
+    if (typeof value !== 'string') {
+      gaps.push(doc.file + ' (' + (value === undefined ? 'no shortAnswer' : 'shortAnswer is not a string') + ')');
+    } else if (value.trim().length === 0) {
+      gaps.push(doc.file + ' (shortAnswer is empty)');
+    } else {
+      covered++;
+    }
+  }
+  return { total, covered, gaps };
 }
 
 const systemsCount = await countFiles(systemsDir);
 const sentencesCount = await countFiles(sentencesDir);
 const selfCount = await countFiles(selfDir);
 
-const systemsFaq = await checkCollectionFaq(systemsDir);
+const systemsDocs = await readCollectionFrontmatter(systemsDir);
+const systemsContract = checkContractCoverage(systemsDocs);
+const systemsAnswer = checkExplainerDirectAnswer(systemsDocs);
 
 addCheck('Systems pages', systemsCount > 0 ? 'pass' : 'fail', `${systemsCount} docs`);
 addCheck('Sentences pages', sentencesCount > 0 ? 'pass' : 'warn', `${sentencesCount} docs`);
 addCheck('Self pages', selfCount > 0 ? 'pass' : 'warn', `${selfCount} docs`);
-addCheck('Systems FAQ coverage', systemsFaq.total > 0 ? (systemsFaq.withFaq / systemsFaq.total > 0.5 ? 'pass' : 'warn') : 'fail', 
-  `${systemsFaq.withFaq}/${systemsFaq.total} have FAQ`);
+addCheck('Systems v1 contract coverage',
+  systemsContract.total === 0 ? 'fail' : (systemsContract.covered === systemsContract.total ? 'pass' : 'warn'),
+  `${systemsContract.covered}/${systemsContract.total} declare schemaVersion 1.0`);
+if (systemsContract.gaps.length > 0) {
+  console.log('\nSystems documents outside the v1 contract:');
+  for (const gap of systemsContract.gaps) console.log(`- ${gap}`);
+}
+addCheck('Systems explainer direct-answer coverage',
+  systemsAnswer.total === 0 ? 'pass' : (systemsAnswer.covered === systemsAnswer.total ? 'pass' : 'warn'),
+  systemsAnswer.total === 0 ? 'n/a (no explainers)' : `${systemsAnswer.covered}/${systemsAnswer.total} explainers have non-empty shortAnswer`);
+if (systemsAnswer.gaps.length > 0) {
+  console.log('\nSystems explainers without a direct answer:');
+  for (const gap of systemsAnswer.gaps) console.log(`- ${gap}`);
+}
 
 console.log('\n## 5. Image Alt Text (Spot Check)\n');
 
