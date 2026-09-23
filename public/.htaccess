@@ -176,7 +176,7 @@ RedirectMatch 301 ^/dual-nlp-framework/?$ /docs/natural-language-programming-sta
 RedirectMatch 301 ^/2025/03/29/(pruning-pothos-philosophy|pothos-philosophy)/?$ /about/
 RedirectMatch 301 ^/pruning-pothos-philosophy/?$ /about/
 RedirectMatch 301 ^/contact-page/?$ /about/
-RedirectMatch 301 ^/github-contribution-workflow-guide-for-writers/?$ /systems/ai-website-publishing-with-human-in-the-loop-control/
+RedirectMatch 301 ^/github-contribution-workflow-guide-for-writers/?$ /systems/human-in-the-loop-is-a-system-design-choice/
 RedirectMatch 301 ^/evading-boredom-learning-ai-with-anne-carson/?$ /self/learning-edges/
 RedirectMatch 301 ^/portfolio/.+$ /portfolio/
 RedirectMatch 301 ^/blog/?$ /systems/

@@ -261,10 +261,23 @@ async function main() {
     }
 
     // Whole-file safety: no rule anywhere may land on a page that is leaving.
+    //
+    // Both redirect mechanisms in this file have to be checked. Apache resolves
+    // mod_rewrite and mod_alias independently, so a RedirectMatch pointing at a
+    // retired page is a live defect even when a RewriteRule for the same source
+    // is correct -- which is exactly how one survived the archive migration.
+    //
+    // The destination is only recognised as literal when the slug is followed by
+    // nothing but flags or end of line -- the end-of-line case is what hid the
+    // RedirectMatch, since its destination is the final token. Substitutions
+    // like /systems/$1/ and capture patterns never match, because the slug
+    // class is [a-z0-9-] and a source pattern is anchored with ^ rather than
+    // preceded by whitespace.
     for (const line of htaccess.split("\n")) {
       const t = line.trim();
-      if (t.startsWith("#") || !t.startsWith("RewriteRule")) continue;
-      const m = t.match(/\s\/systems\/([a-z0-9-]+)\/\s/);
+      if (t.startsWith("#")) continue;
+      if (!t.startsWith("RewriteRule") && !t.startsWith("RedirectMatch")) continue;
+      const m = t.match(/\s\/systems\/([a-z0-9-]+)\/(?=\s|$)/);
       if (!m) continue;
       const dest = bySlug.get(m[1]);
       if (dest && dest.keepUrl === false) {
