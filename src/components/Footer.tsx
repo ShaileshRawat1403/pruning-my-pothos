@@ -8,12 +8,16 @@ export default function Footer() {
   const pathname = usePathname();
   const year = new Date().getFullYear();
 
-  const isEditorialHome =
-    pathname === "/" ||
-    pathname === "/editorial-preview" ||
-    pathname === "/editorial-preview/";
+  // The homepage used to end on its own newsletter block, so the footer was
+  // suppressed there. It now ends on the Shelf preview, and the footer carries
+  // the Ecosystem links -- Tools among them -- that primary navigation
+  // deliberately does not. Suppressing it left those unreachable from home.
+  // /editorial-preview keeps the old behaviour: it is a composition sandbox,
+  // not a page anyone navigates from.
+  const isEditorialPreview =
+    pathname === "/editorial-preview" || pathname === "/editorial-preview/";
 
-  if (isEditorialHome) {
+  if (isEditorialPreview) {
     return null;
   }
 

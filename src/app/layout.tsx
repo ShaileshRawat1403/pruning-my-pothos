@@ -4,7 +4,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import BackgroundGrid from "../components/BackgroundGrid";
 import ScrollAnimations from "../components/ScrollAnimations";
-import ScrollProgress from "../components/ScrollProgress";
 import ConsoleToastHost from "../components/ConsoleToastHost";
 export const metadata: Metadata = {
   title: "Pruning My Pothos | AI Systems, Learned in Public",
@@ -36,7 +35,10 @@ export default function RootLayout({
       >
         <a href="#main-content" className="skip-link">Skip to content</a>
         <ScrollAnimations />
-        <ScrollProgress />
+        {/* ScrollProgress is intentionally not mounted globally: a saturated
+            gradient bar across the top of every route is product chrome, and
+            reading progress means little on an index or a tool page. The
+            component is kept for a future article-scoped use. */}
         <BackgroundGrid />
         <Header />
         <main id="main-content" tabIndex={-1} className="relative z-10 w-full flex-grow">

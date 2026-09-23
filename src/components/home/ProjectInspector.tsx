@@ -42,21 +42,21 @@ export function ProjectCard({ project }: ProjectCardProps) {
   };
 
   return (
-    <div className="flex flex-col h-full rounded-xl bg-white border border-[#EAE8E2] overflow-hidden shadow-2xs hover:border-[#D5D2C9] transition-all">
+    <div className="flex flex-col h-full rounded-lg bg-[color:var(--card-bg)] border border-[color:var(--card-border)] overflow-hidden hover:border-[color:var(--card-border)] transition-all">
       {/* Standardized Card Header */}
-      <div className="p-5 border-b border-[#EAE8E2] flex flex-col justify-between min-h-[145px]">
+      <div className="p-5 border-b border-[color:var(--card-border)] flex flex-col justify-between min-h-[145px]">
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="font-mono text-[10px] uppercase font-bold text-[#16A34A] tracking-wider bg-[#DCFCE7] px-2 py-0.5 rounded">
+          <span className="font-mono text-[10px] uppercase font-bold text-[color:var(--accent-green)] tracking-wider bg-[#DCFCE7] px-2 py-0.5 rounded">
             {project.status}
           </span>
-          <span className="font-mono text-[10px] text-[#7A7872] uppercase tracking-wider">
+          <span className="font-mono text-[10px] text-[color:var(--text-muted)] uppercase tracking-wider">
             Repository Sourced
           </span>
         </div>
-        <h3 className="font-heading font-bold text-base text-[#121212] pt-2">
+        <h3 className="font-heading font-bold text-base text-[color:var(--text-primary)] pt-2">
           {project.title}
         </h3>
-        <p className="text-xs text-[#55534E] leading-relaxed pt-1 line-clamp-2">
+        <p className="text-xs text-[color:var(--text-secondary)] leading-relaxed pt-1 line-clamp-2">
           {project.summary}
         </p>
       </div>
@@ -72,7 +72,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               aria-pressed={activeTabIdx === idx}
               className={`px-3 py-2 text-[11px] transition-colors cursor-pointer ${
                 activeTabIdx === idx
-                  ? "text-white bg-[#2D2D2D] font-bold border-b-2 border-[#16A34A]"
+                  ? "text-white bg-[#2D2D2D] font-bold border-b-2 border-[color:var(--accent-green)]"
                   : "text-[#888888] hover:text-[#CCCCCC]"
               }`}
             >
@@ -122,25 +122,25 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Documented Boundary Callout */}
-      <div className="px-4 py-3 bg-[#FAF9F6] border-t border-[#EAE8E2] text-xs leading-relaxed">
-        <a href={currentTab.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-[#55534E] break-words">
+      <div className="px-4 py-3 bg-[color:var(--bg-color)] border-t border-[color:var(--card-border)] text-xs leading-relaxed">
+        <a href={currentTab.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-[color:var(--text-secondary)] break-words">
           Inspect source: {currentTab.filename} at {currentTab.ref} <span aria-hidden="true">↗</span>
         </a>
-        <p className="text-[#7A7872] mt-1">The excerpt above is source material. The summary and boundary are editorial interpretation.</p>
+        <p className="text-[color:var(--text-muted)] mt-1">The excerpt above is source material. The summary and boundary are editorial interpretation.</p>
       </div>
-      <div className="px-4 py-2.5 bg-[#FAF9F6] border-t border-[#EAE8E2] text-[11px] font-mono text-[#55534E] leading-relaxed">
-        <span className="font-bold text-[#121212]">Boundary: </span>
+      <div className="px-4 py-2.5 bg-[color:var(--bg-color)] border-t border-[color:var(--card-border)] text-[11px] font-mono text-[color:var(--text-secondary)] leading-relaxed">
+        <span className="font-bold text-[color:var(--text-primary)]">Boundary: </span>
         <span>{project.boundary}</span>
       </div>
 
       {/* Card Footer Link */}
-      <div className="px-4 py-3 bg-[#FAF9F6] border-t border-[#EAE8E2] flex items-center justify-between text-xs font-mono shrink-0 h-12">
-        <span className="text-[#7A7872]">{project.role}</span>
+      <div className="px-4 py-3 bg-[color:var(--bg-color)] border-t border-[color:var(--card-border)] flex items-center justify-between text-xs font-mono shrink-0 h-12">
+        <span className="text-[color:var(--text-muted)]">{project.role}</span>
         <a
           href={project.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#121212] font-semibold hover:text-[#16A34A] transition-colors flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212] rounded"
+          className="text-[color:var(--text-primary)] font-semibold hover:text-[color:var(--accent-green)] transition-colors flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--text-primary)] rounded"
         >
           <span>Inspect Repository</span>
           <span>&rarr;</span>
