@@ -2,8 +2,9 @@
 
 > A publication and working lab about understanding AI by building with it,
 > inspecting it, and explaining what holds up. Written by Shailesh Rawat.
-> Systems is where ideas are built, inspected, and explained. Sentiments is
-> where they are reflected on.
+> Systems explains how applied AI systems work. Storyboard Explainers makes
+> the ideas easier to see. Current Work shows them being tested in real
+> tools. Shelf traces the references and experiments behind all of it.
 
 Author: Shailesh Rawat, AI Systems Consultant and Technical Communicator.
 Site: https://pruningmypothos.com/
@@ -11,9 +12,14 @@ Site: https://pruningmypothos.com/
 ## Sections
 
 - [Systems](https://pruningmypothos.com/systems/): long-form explainers and breakdowns of AI systems
+- [Storyboard Explainers](https://pruningmypothos.com/storyboards/): a visual index into the diagrams inside the Systems explainers, not a separate body of content
+- [Current Work](https://pruningmypothos.com/current-work/): applied AI systems and tools being built and tested, with repository excerpts where evidence is shown
+- [Shelf](https://pruningmypothos.com/shelf/): experiments, resources, notes and references
+
+## Also published
+
 - [Sentences](https://pruningmypothos.com/sentences/): short decision rules and observations
 - [Self](https://pruningmypothos.com/self/): essays on practice, judgment and learning in public
-- [Shelf](https://pruningmypothos.com/shelf/): experiments, resources, notes and references
 - [Tools](https://pruningmypothos.com/tools/): browser-native, local-first utilities that send nothing to a server
 - [Docs](https://pruningmypothos.com/docs/): reference documentation for the working model
 - [Schema](https://pruningmypothos.com/schema/): the thinking underneath the work

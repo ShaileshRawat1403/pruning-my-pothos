@@ -33,4 +33,10 @@ jobs:
       - run: npm run lint:systems
       - run: npm run verify:covers
       - run: npm run build
+      # Reads out/, so it has to follow the build: it checks the .htaccess in
+      # the deploy artifact against public/, and resolves every redirect
+      # destination against a real built page. Without it the 29 archive
+      # redirects are unverified in automation, and deploy-hostinger.yml
+      # publishes on a green CI.
+      - run: npm run validate:archive
       - run: npm run audit
