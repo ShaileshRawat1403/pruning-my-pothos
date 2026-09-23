@@ -229,7 +229,7 @@ async function main() {
     return;
   }
 
-  console.log('OK: no missing or reused covers found.');
+  console.log(`OK: 0 blocking cover failures; ${warnings.length} advisory warning(s).`);
 }
 
 main().catch((error) => {
