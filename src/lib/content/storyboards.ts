@@ -1,119 +1,84 @@
 import { allSystems } from "content-collections";
+import type { Visual } from "../visual-types";
+import { SYSTEMS_MAP_SLUGS } from "./systems-map";
 
 // Storyboard Explainers is a derived reader surface, not a content collection.
 // Every entry below is owned by the Systems article it came from, and nothing
-// here is authored twice: the index reads whatever the article already declares
-// and renders a way in. Adding a visual to an article adds it here; removing one
-// removes it here. There is no registry to keep in sync, which is the whole
-// point -- a second list would be a second content graph.
+// here is authored twice: the index reads the article's own `visuals[]`
+// declaration and renders the same visual the article renders, through the same
+// runtime. Adding a visual to an article adds it here; removing one removes it.
+// There is no registry to keep in sync, which is the whole point -- a second
+// list would be a second content graph.
 //
-// Articles declare a visual in one of two ways today, so this reads both:
+// S3 removed the bootstrap fallback that used to parse <figure class="diagram">
+// out of MDX bodies. It existed to populate this surface before structured
+// visuals did, and it could not produce a preview, a real purpose, or a title
+// distinct from its caption. All six storyboard-bearing articles now declare
+// `visuals[]`, so the fallback had no remaining consumer here.
 //
-//   1. visuals[] in frontmatter. Structured, validated by the editorial
-//      contract, and the preferred mechanism going forward. Carries an explicit
-//      takeaway, caption and alt.
-//   2. <figure class="diagram"> in the body. Older, and metadata varies: the
-//      inline-SVG figures carry <title> and <desc>, the iframe ones carry only
-//      a <figcaption>.
-//
-// A figure that declares neither a title nor a caption is skipped rather than
-// given an invented label.
-
-export type StoryboardSource = "visuals" | "inline-svg" | "embedded-scene";
+// Note this removed the fallback from *this derivation only*. Raw
+// <figure class="diagram"> markup is still rendered in article bodies, and is
+// still used by content outside Systems; the CSS and the article pipeline that
+// support it are untouched.
 
 export interface StoryboardEntry {
   /** Owning article slug. The entry links to the article, never to itself. */
   slug: string;
   articleTitle: string;
-  /** Stable within an article; used for the deep link anchor. */
+  /** The visual's declared id, unique within its article. */
   id: string;
-  /** What the visual establishes, in one line. */
+  /** What the visual establishes, in one line. Its declared takeaway. */
   heading: string;
   /** The article's own caption for the visual. */
   caption: string;
-  /** Accessible description where the article declares one. */
-  alt?: string;
-  /** Which declaration this came from, so the surface can be honest about it. */
-  source: StoryboardSource;
-  /** visuals[] only: the declared purpose (sequence, comparison, layers, …). */
-  purpose?: string;
+  /** The declared semantic form, for reader-facing labelling. */
+  purpose: string;
+  /** The visual itself, so the surface renders it rather than describing it. */
+  visual: Visual;
+  /** True when the owning article is one of the eight Systems Map stages. */
+  isMapStage: boolean;
 }
 
-const FIGURE_RE = /<figure\s+class="[^"]*diagram[^"]*"[\s\S]*?<\/figure>/g;
-const TITLE_RE = /<title[^>]*>([\s\S]*?)<\/title>/;
-const DESC_RE = /<desc[^>]*>([\s\S]*?)<\/desc>/;
-const FIGCAPTION_RE = /<figcaption>([\s\S]*?)<\/figcaption>/;
+/** Reader-facing wording for a declared purpose. Never the renderer name. */
+const PURPOSE_LABEL: Record<string, string> = {
+  sequence: "Sequence",
+  layers: "Layers",
+  boundary: "Boundary",
+  comparison: "Comparison",
+  decision: "Decision",
+  "evidence-map": "Evidence map",
+  "state-change": "State change",
+};
 
-function clean(value: string | undefined): string {
-  return value ? value.replace(/\s+/g, " ").trim() : "";
-}
-
-/** First sentence of a caption, used as a heading when a figure has no title. */
-function firstSentence(value: string): string {
-  const match = value.match(/^[^.]+\./);
-  return clean(match ? match[0] : value);
-}
-
-function slugifyId(value: string, fallback: string): string {
-  const id = value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "")
-    .slice(0, 60);
-  return id || fallback;
+export function purposeLabel(purpose: string): string {
+  return PURPOSE_LABEL[purpose] ?? "Diagram";
 }
 
 export function getStoryboardEntries(): StoryboardEntry[] {
   const entries: StoryboardEntry[] = [];
 
   for (const system of allSystems) {
-    const slug = system._meta.path;
-    const articleTitle = system.title;
+    if (!Array.isArray(system.visuals) || system.visuals.length === 0) continue;
 
-    // 1. Structured visuals take precedence: they already carry every field
-    //    this surface needs, declared and validated.
-    if (Array.isArray(system.visuals) && system.visuals.length > 0) {
-      for (const visual of system.visuals) {
-        entries.push({
-          slug,
-          articleTitle,
-          id: visual.id,
-          heading: clean(visual.takeaway),
-          caption: clean(visual.caption),
-          alt: clean(visual.alt) || undefined,
-          source: "visuals",
-          purpose: visual.purpose,
-        });
-      }
-      continue;
-    }
-
-    // 2. Otherwise read the figures the body already declares.
-    const figures = system.content.match(FIGURE_RE) ?? [];
-    figures.forEach((figure, index) => {
-      const title = clean((figure.match(TITLE_RE) ?? [])[1]);
-      const desc = clean((figure.match(DESC_RE) ?? [])[1]);
-      const figcaption = clean((figure.match(FIGCAPTION_RE) ?? [])[1]);
-
-      // Nothing to label it with, so it is not surfaced.
-      if (!title && !figcaption) return;
-
+    for (const visual of system.visuals as Visual[]) {
       entries.push({
-        slug,
-        articleTitle,
-        id: slugifyId(title || figcaption, `figure-${index + 1}`),
-        heading: title || firstSentence(figcaption),
-        caption: figcaption || title,
-        alt: desc || undefined,
-        source: /<iframe/.test(figure) ? "embedded-scene" : "inline-svg",
+        slug: system._meta.path,
+        articleTitle: system.title,
+        id: visual.id,
+        heading: visual.takeaway,
+        caption: visual.caption,
+        purpose: visual.purpose,
+        visual,
+        isMapStage: SYSTEMS_MAP_SLUGS.includes(system._meta.path),
       });
-    });
+    }
   }
 
-  // Stable order: article title, then declaration order within the article.
-  return entries.sort((a, b) =>
-    a.articleTitle === b.articleTitle
-      ? 0
-      : a.articleTitle.localeCompare(b.articleTitle),
-  );
+  // Map stages first, so the eight-stage backbone reads as the spine of the
+  // library rather than being scattered through it alphabetically. Within each
+  // group, by article title.
+  return entries.sort((a, b) => {
+    if (a.isMapStage !== b.isMapStage) return a.isMapStage ? -1 : 1;
+    return a.articleTitle.localeCompare(b.articleTitle);
+  });
 }

@@ -12,9 +12,20 @@ import AssetVisual from "./AssetVisual";
 interface VisualBlockProps {
   visual: Visual;
   provenanceSources?: ProvenanceSource[];
+  /**
+   * Omit the takeaway line from the caption. Set where the surrounding page
+   * already states it as a heading -- /storyboards headlines each entry with
+   * its takeaway, and repeating it immediately under the visual reads as a
+   * stutter. In an article the takeaway belongs here, so this defaults off.
+   */
+  hideTakeaway?: boolean;
 }
 
-export default function VisualBlock({ visual, provenanceSources = [] }: VisualBlockProps) {
+export default function VisualBlock({
+  visual,
+  provenanceSources = [],
+  hideTakeaway = false,
+}: VisualBlockProps) {
   function renderContent() {
     switch (visual.renderAs) {
       case "generated-sequence":
@@ -55,9 +66,11 @@ export default function VisualBlock({ visual, provenanceSources = [] }: VisualBl
       </div>
 
       <figcaption className="mt-4 flex flex-col gap-1 border-t border-[color:var(--card-border)] pt-3 text-xs sm:text-sm font-mono text-[color:var(--text-muted)]">
-        <span className="font-sans font-semibold text-[color:var(--text-primary)]">
-          {visual.takeaway}
-        </span>
+        {!hideTakeaway && (
+          <span className="font-sans font-semibold text-[color:var(--text-primary)]">
+            {visual.takeaway}
+          </span>
+        )}
         <span className="leading-normal">{visual.caption}</span>
 
         {shouldRenderSources && visualSources.length > 0 && (

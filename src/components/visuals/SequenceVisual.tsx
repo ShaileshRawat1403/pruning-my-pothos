@@ -33,7 +33,11 @@ export default function SequenceVisual({ visual }: Props) {
     <VisualFrame alt={visual.alt}>
       {/* An ordered list because the order is the claim. flex-col below sm,
           flex-row from sm: one DOM order, two compositions, no duplication. */}
-      <ol className="m-0 flex list-none flex-col gap-2 p-0 sm:flex-row sm:items-stretch sm:gap-3">
+      {/* Horizontal only from lg. At sm/md a five-step sequence gives each step
+          roughly 90px, which is narrower than a two-word label can set, and the
+          text spills past its own border. Vertical is always legible, so the
+          row is the exception rather than the default. */}
+      <ol className="m-0 flex list-none flex-col gap-2 p-0 lg:flex-row lg:items-stretch lg:gap-3">
         {steps.map((step: Step, idx: number) => (
           <React.Fragment key={step.id}>
             <li className="flex min-w-0 flex-1 flex-col gap-1 rounded-sm border border-[color:var(--card-border)] bg-[color:var(--card-bg)] p-4">
@@ -49,7 +53,7 @@ export default function SequenceVisual({ visual }: Props) {
               {step.note && <Note>{step.note}</Note>}
             </li>
             {idx < steps.length - 1 && (
-              <li className="flex sm:items-center" aria-hidden="true">
+              <li className="flex lg:items-center" aria-hidden="true">
                 <FlowArrow />
               </li>
             )}

@@ -11,7 +11,20 @@ function analyze(raw) {
   const internalLinks = countMatches(raw, /\[[^\]]+\]\(\/(?!\/)/g);
   const externalLinks = countMatches(raw, /\[[^\]]+\]\(https?:\/\/[^\s)]+/g);
   const tables = countMatches(raw, /<table\b/gi);
+  // Legacy article visuals, still used by content outside Systems.
   const diagrams = countMatches(raw, /<figure\s+class=["'][^"']*diagram/gi);
+  // Structured article-owned visuals. After the S3 migration a Systems article
+  // declares its visual in `visuals[]` and places it with a marker, so the
+  // article carries no <figure> at all -- which made this advisory report the
+  // six articles with the best visuals as having none.
+  //
+  // The declaration is the existence test, not the placement marker. This is a
+  // line-anchored regex rather than a YAML parse because C3.1 deliberately
+  // removed this script's frontmatter machinery as dead code, and re-adding a
+  // parser for one boolean would widen it again; every other metric here is a
+  // regex over the raw file. Requiring a following `- id:` means an empty
+  // `visuals: []` correctly does not count.
+  const structuredVisuals = /^visuals:\s*\r?\n\s+-\s+id:/m.test(raw) ? 1 : 0;
   const callouts = countMatches(raw, /<aside\s+class=["'][^"']*callout/gi);
   const hasAudienceDeclaration =
     /\b(this article|this document|this page|this guide|for practitioners|for builders|for operators|for leaders|for teams|for organizations|for product teams|for small teams)\b/i.test(raw);
@@ -23,6 +36,7 @@ function analyze(raw) {
     externalLinks,
     tables,
     diagrams,
+    structuredVisuals,
     callouts,
     hasAudienceDeclaration,
     hasProofLink,
@@ -35,7 +49,7 @@ function buildWarnings(file, metrics) {
   if (metrics.internalLinks < 1) {
     warnings.push('missing internal links (recommended: >= 1)');
   }
-  if (metrics.tables + metrics.diagrams < 1) {
+  if (metrics.tables + metrics.diagrams + metrics.structuredVisuals < 1) {
     warnings.push('missing visual aid (table or diagram recommended: >= 1)');
   }
   if (!metrics.hasAudienceDeclaration) {

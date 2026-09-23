@@ -177,6 +177,34 @@ export default async function SystemsDetailPage({ params }: PageProps) {
         </section>
       )}
 
+      {/* Article -> Storyboard. Only for articles that own a structured visual,
+          and deliberately a pointer rather than a second render: the visual
+          itself appears below, where the argument places it. */}
+      {Array.isArray((system as { visuals?: Visual[] }).visuals) &&
+        ((system as { visuals?: Visual[] }).visuals?.length ?? 0) > 0 && (
+          <aside
+            aria-label="This explanation has a visual"
+            className="flex flex-col gap-1 border-l-2 border-[color:var(--accent-green)] pl-4"
+          >
+            <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[color:var(--text-muted)]">
+              See the system
+            </span>
+            <p className="text-sm leading-relaxed text-[color:var(--text-secondary)]">
+              This explanation carries a visual, shown below and collected with
+              the others in{" "}
+              <Link
+                href={`/storyboards/#${slug}-${
+                  (system as { visuals?: Visual[] }).visuals?.[0]?.id ?? ""
+                }`}
+                className="underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)] transition-colors"
+              >
+                Storyboard Explainers
+              </Link>
+              .
+            </p>
+          </aside>
+        )}
+
       {/* Slot 05 — the analogy, carrying its own failure point. */}
       {system.analogy && (
         <AnalogyBlock

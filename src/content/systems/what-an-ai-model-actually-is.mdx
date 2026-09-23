@@ -37,58 +37,34 @@ provenance:
       kind: synthesis
     - statement: "The tone is a pattern, not a report on the model's own reliability."
       kind: synthesis
+
+visuals:
+  - id: one-step-of-generation
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "One step of generation: input becomes a ranking, and one piece is selected from it."
+    caption: "The scores are illustrative, but the shape is real."
+    alt: "A sequence showing the phrase The sky is entering a block of learned parameters fixed after training, producing a ranking over possible next pieces, from which blue is selected."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: input
+          label: '"The sky is"'
+          note: "The text the model receives"
+        - id: parameters
+          label: "Learned parameters"
+          note: "Fixed after training; every run uses the same ones"
+        - id: ranking
+          label: "A ranking over next pieces"
+          note: "blue 85%, gray 10%, limit 1%"
+        - id: selection
+          label: '"blue"'
+          note: "One piece selected from the ranking"
 ---
 
 When you type a question and text comes back, it is easy to picture something on the other side reading it. What is actually there is a file, and a program that runs that file. This page is about what the file does, so you can tell which behaviour comes from the model and which comes from the software someone built around it.
 
-<figure class="diagram diagram-hero">
-  <svg viewBox="0 0 900 260" role="img" aria-labelledby="model-hero-title model-hero-desc" style="width: 100%; height: auto; display: block;">
-    <title id="model-hero-title">One step of generation</title>
-    <desc id="model-hero-desc">The phrase "The sky is" enters a block of learned parameters and leaves as a ranked list: blue at eighty-five percent, gray at ten percent, limit at one percent. Blue is selected.</desc>
-    <defs>
-      <marker id="wam-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-        <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
-      </marker>
-    </defs>
-
-    <text x="50" y="135" font-family="var(--font-serif)" font-size="20" fill="currentColor">"The sky is"</text>
-    <path d="M 160 130 H 220" stroke="currentColor" stroke-width="2" marker-end="url(#wam-arrow)" />
-
-    <rect x="220" y="60" width="200" height="140" rx="8" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
-    <text x="320" y="90" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">learned parameters</text>
-    <text x="320" y="110" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--color-text-muted)">fixed after training</text>
-
-    <g transform="translate(250, 130)" opacity="0.5">
-        <rect x="0" y="0" width="10" height="10" fill="currentColor" />
-        <rect x="20" y="0" width="10" height="10" fill="currentColor" opacity="0.6" />
-        <rect x="40" y="0" width="10" height="10" fill="currentColor" opacity="0.3" />
-        <rect x="0" y="20" width="10" height="10" fill="currentColor" opacity="0.8" />
-        <rect x="20" y="20" width="10" height="10" fill="currentColor" opacity="0.2" />
-        <rect x="40" y="20" width="10" height="10" fill="currentColor" opacity="0.9" />
-    </g>
-
-    <path d="M 420 130 H 480" stroke="currentColor" stroke-width="2" marker-end="url(#wam-arrow)" />
-
-    <g transform="translate(480, 60)">
-        <rect x="0" y="10" width="180" height="30" rx="4" fill="var(--color-blockquote-bg)" stroke="none" />
-        <rect x="0" y="10" width="160" height="30" rx="4" fill="var(--color-accent)" opacity="0.2" />
-        <text x="10" y="30" font-family="var(--font-mono)" font-size="14" fill="currentColor">blue (85%)</text>
-
-        <rect x="0" y="50" width="180" height="30" rx="4" fill="var(--color-blockquote-bg)" stroke="none" />
-        <rect x="0" y="50" width="40" height="30" rx="4" fill="currentColor" opacity="0.1" />
-        <text x="10" y="70" font-family="var(--font-mono)" font-size="14" fill="currentColor">gray (10%)</text>
-
-        <rect x="0" y="90" width="180" height="30" rx="4" fill="var(--color-blockquote-bg)" stroke="none" />
-        <rect x="0" y="90" width="10" height="30" rx="4" fill="currentColor" opacity="0.1" />
-        <text x="10" y="110" font-family="var(--font-mono)" font-size="14" fill="currentColor">limit (1%)</text>
-    </g>
-
-    <path d="M 670 85 H 730" stroke="var(--color-accent)" stroke-width="2" marker-end="url(#wam-arrow)" />
-    <text x="750" y="90" font-family="var(--font-serif)" font-size="20" fill="var(--color-accent)">"blue"</text>
-
-  </svg>
-  <figcaption>One step. The scores are illustrative, but the shape is real: a ranking over possible next pieces, then a selection.</figcaption>
-</figure>
+<!-- pmp:visual id="one-step-of-generation" -->
 
 ## What is in the file
 

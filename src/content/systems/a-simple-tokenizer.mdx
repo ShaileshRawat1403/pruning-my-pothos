@@ -36,54 +36,34 @@ provenance:
       kind: synthesis
     - statement: "tokenization changes how input is segmented and represented before the model sees it"
       kind: synthesis
+
+visuals:
+  - id: text-becomes-integers
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Text becomes integers before the model sees any of it."
+    caption: "The IDs shown are invented for the illustration. Real vocabularies differ between models."
+    alt: "A sequence showing the phrase AI is math split into three pieces, AI, is and math, each then replaced by an integer identifier."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: text
+          label: '"AI is math"'
+          note: "What you typed"
+        - id: split
+          label: "Split into pieces"
+          note: "AI · is · math"
+        - id: lookup
+          label: "Look up each ID"
+          note: "Every piece has a number in the vocabulary"
+        - id: integers
+          label: "1045 · 318 · 8921"
+          note: "What the model actually receives"
 ---
 
 A language model never receives your sentence. It receives a list of integers. The component that converts one into the other is the tokenizer, and knowing what it does explains a few things that otherwise look like the model being strange.
 
-<figure class="diagram diagram-hero">
-  <svg viewBox="0 0 900 260" role="img" aria-labelledby="token-hero-title token-hero-desc" style="width: 100%; height: auto; display: block;">
-    <title id="token-hero-title">Text becomes integers</title>
-    <desc id="token-hero-desc">The phrase "AI is math" is split into three pieces, AI, is, and math, and each piece is replaced by an integer identifier.</desc>
-    <defs>
-      <marker id="tok-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-        <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
-      </marker>
-    </defs>
-
-    <text x="100" y="135" font-family="var(--font-serif)" font-size="24" fill="currentColor">"AI is math"</text>
-
-    <path d="M 220 130 H 280" stroke="currentColor" stroke-width="2" marker-end="url(#tok-arrow)" />
-
-    <g transform="translate(300, 100)">
-      <rect x="0" y="0" width="50" height="60" rx="4" fill="var(--color-bg)" stroke="var(--color-accent)" stroke-width="2" />
-      <text x="25" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">AI</text>
-
-      <rect x="60" y="0" width="50" height="60" rx="4" fill="var(--color-bg)" stroke="var(--color-accent)" stroke-width="2" />
-      <text x="85" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">is</text>
-
-      <rect x="120" y="0" width="70" height="60" rx="4" fill="var(--color-bg)" stroke="var(--color-accent)" stroke-width="2" />
-      <text x="155" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">math</text>
-    </g>
-
-    <path d="M 500 130 H 560" stroke="currentColor" stroke-width="2" marker-end="url(#tok-arrow)" />
-
-    <g transform="translate(580, 100)">
-      <rect x="0" y="0" width="60" height="60" rx="4" fill="var(--color-blockquote-bg)" stroke="currentColor" stroke-width="2" />
-      <text x="30" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">1045</text>
-
-      <rect x="70" y="0" width="60" height="60" rx="4" fill="var(--color-blockquote-bg)" stroke="currentColor" stroke-width="2" />
-      <text x="100" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">318</text>
-
-      <rect x="140" y="0" width="60" height="60" rx="4" fill="var(--color-blockquote-bg)" stroke="currentColor" stroke-width="2" />
-      <text x="170" y="35" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor">8921</text>
-    </g>
-
-    <text x="390" y="190" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">split</text>
-    <text x="680" y="190" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">look up ID</text>
-
-  </svg>
-  <figcaption>The IDs shown are invented for the illustration. Real vocabularies differ between models.</figcaption>
-</figure>
+<!-- pmp:visual id="text-becomes-integers" -->
 
 ## Why not just use letters, or just use words
 

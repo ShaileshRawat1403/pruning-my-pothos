@@ -34,6 +34,27 @@ provenance:
       kind: synthesis
     - statement: "The code that reads the request is where responsibility for the effect sits."
       kind: synthesis
+
+visuals:
+  - id: tool-use-loop
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "The model emits a request; application code performs the action."
+    caption: "The step that the shorthand about a model calling a tool hides."
+    alt: "A sequence from a user prompt, to the model emitting a structured request naming a tool, to application code executing it, to the result returning and the model composing a final answer."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: prompt
+          label: "User prompt"
+        - id: request
+          label: "Model emits a request"
+          note: "Names the operation and its arguments; runs nothing"
+        - id: execute
+          label: "Application executes it"
+          note: "This code decides whether to run it at all"
+        - id: answer
+          label: "Result returns, model answers"
 ---
 
 A model can describe sending an email in perfect detail and nothing will happen. The description is text. Something else has to read it and act.
@@ -56,10 +77,7 @@ Your application receives that. It reads the name, checks the arguments, decides
 
 The shorthand "the model called the tool" is convenient and it hides the step that matters. If your implementation routes a structured request through application code, which is the usual arrangement, say so, because the difference shows up the moment something goes wrong.
 
-<figure class="diagram">
-  <iframe src="/scenes/tool-use-loop.html" title="Tool use loop" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>The model emits a request. The application performs the action and returns the result.</figcaption>
-</figure>
+<!-- pmp:visual id="tool-use-loop" -->
 
 ## Why the distinction is load-bearing
 

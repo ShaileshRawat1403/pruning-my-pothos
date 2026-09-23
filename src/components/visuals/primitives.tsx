@@ -120,8 +120,8 @@ export function FlowArrow() {
       aria-hidden="true"
       className="flex items-center justify-center text-lg leading-none text-[color:var(--text-muted)]"
     >
-      <span className="sm:hidden">&darr;</span>
-      <span className="hidden sm:inline">&rarr;</span>
+      <span className="lg:hidden">&darr;</span>
+      <span className="hidden lg:inline">&rarr;</span>
     </div>
   );
 }

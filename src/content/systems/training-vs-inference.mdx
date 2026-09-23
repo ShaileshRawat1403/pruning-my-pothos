@@ -37,55 +37,32 @@ provenance:
       kind: synthesis
     - statement: "It does not change a single parameter."
       kind: synthesis
+
+visuals:
+  - id: what-writes-the-parameters
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "Two stages write to the parameters. The third only reads them."
+    caption: "The distinction that decides whether a problem needs training at all."
+    alt: "A boundary separating the two stages that write model parameters, pre-training and fine-tuning, from inference, which only reads them."
+    evidenceRole: explanatory
+    data:
+      inside:
+        label: "Writes the parameters"
+        items:
+          - "Pre-training, over a very large text corpus, weeks to months"
+          - "Fine-tuning, over a smaller curated set, hours to days"
+      outside:
+        label: "Reads them only"
+        items:
+          - "Inference, over your input, milliseconds to seconds"
+          - "Everything supplied at request time"
+      boundaryLabel: "What changes the model"
 ---
 
 Someone asks for a model trained on their documents. Usually what they want is for the model to be able to use those documents, which is a different thing and a much cheaper one. Telling the two apart needs one distinction: what changes the model, and what only changes what the model sees.
 
-<figure class="diagram diagram-hero">
-  <svg viewBox="0 0 900 260" role="img" aria-labelledby="lifecycle-hero-title lifecycle-hero-desc" style="width: 100%; height: auto; display: block;">
-    <title id="lifecycle-hero-title">Where parameters change and where they do not</title>
-    <desc id="lifecycle-hero-desc">Three stages side by side. Pre-training and fine-tuning both write to the model parameters. Inference reads them without writing. The three differ in duration by orders of magnitude.</desc>
-    <defs>
-      <marker id="tvi-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-        <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
-      </marker>
-    </defs>
-
-    <g transform="translate(50, 40)">
-      <text x="100" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">WRITES PARAMETERS</text>
-      <text x="100" y="40" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor" font-weight="bold">Pre-training</text>
-      <rect x="20" y="60" width="160" height="100" rx="8" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" />
-      <text x="100" y="115" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">very large text corpus</text>
-      <text x="100" y="180" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">weeks to months</text>
-    </g>
-
-    <path d="M 220 110 H 260" stroke="currentColor" stroke-width="2" marker-end="url(#tvi-arrow)" />
-
-    <g transform="translate(270, 40)">
-      <text x="100" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">WRITES PARAMETERS</text>
-      <text x="100" y="40" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor" font-weight="bold">Fine-tuning</text>
-      <rect x="20" y="60" width="160" height="100" rx="8" fill="var(--color-bg)" stroke="currentColor" stroke-width="2" />
-      <rect x="40" y="80" width="120" height="60" rx="4" fill="var(--color-accent)" opacity="0.1" />
-      <text x="100" y="115" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">smaller curated set</text>
-      <text x="100" y="180" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">hours to days</text>
-    </g>
-
-    <path d="M 440 110 H 480" stroke="currentColor" stroke-width="2" marker-end="url(#tvi-arrow)" />
-
-    <g transform="translate(490, 40)">
-      <text x="100" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-accent)">READS ONLY</text>
-      <text x="100" y="40" text-anchor="middle" font-family="var(--font-mono)" font-size="14" fill="currentColor" font-weight="bold">Inference</text>
-      <rect x="20" y="60" width="160" height="100" rx="8" fill="var(--color-blockquote-bg)" stroke="currentColor" stroke-width="2" />
-      <text x="100" y="115" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="currentColor">your input</text>
-      <text x="100" y="180" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-muted)">milliseconds to seconds</text>
-    </g>
-
-    <path d="M 660 110 H 700" stroke="var(--color-accent)" stroke-width="2" marker-end="url(#tvi-arrow)" />
-    <text x="750" y="115" text-anchor="middle" font-family="var(--font-serif)" font-size="18" fill="var(--color-accent)">output</text>
-
-  </svg>
-  <figcaption>Two stages write to the parameters. The third only reads them.</figcaption>
-</figure>
+<!-- pmp:visual id="what-writes-the-parameters" -->
 
 ## Training
 

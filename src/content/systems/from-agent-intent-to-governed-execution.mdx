@@ -37,6 +37,30 @@ provenance:
       kind: synthesis
     - statement: "A successful tool call is not proof that the intended effect occurred."
       kind: synthesis
+
+visuals:
+  - id: governed-execution-pipeline
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Each step between a proposal and a verified effect is a place the sequence can stop."
+    caption: "The gate decides permission separately from whether the request parses."
+    alt: "A sequence from intent, to a model proposal, through a runtime gate evaluating policy, scope and risk, to the tool action, and finally to verification of what actually changed."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: intent
+          label: "Intent"
+        - id: proposal
+          label: "Model proposal"
+          note: "A request, not an effect"
+        - id: gate
+          label: "Runtime gate"
+          note: "Policy, scope and risk, decided here and now"
+        - id: action
+          label: "Tool action"
+        - id: verify
+          label: "Verify"
+          note: "Whether the thing you wanted is now true"
 ---
 
 A model asks to issue a refund. Somewhere between that request and money moving, a series of decisions happens. In many systems those decisions are implicit, which means they are being made by whichever code happens to run first.
@@ -57,10 +81,7 @@ Between the two, four things happen:
 
 **Check what happened.** Not whether the call returned, but whether the thing you wanted is now true.
 
-<figure class="diagram">
-  <iframe src="/scenes/governed-pipeline.html" title="From proposal to verified effect" loading="lazy" scrolling="no" style="pointer-events: none;"></iframe>
-  <figcaption>Each arrow is a place the sequence can stop.</figcaption>
-</figure>
+<!-- pmp:visual id="governed-execution-pipeline" -->
 
 That is a sequence, not an architecture. Small systems collapse it into a few lines of code, and it still helps to know which of the four a given line is doing.
 
