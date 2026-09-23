@@ -4,6 +4,9 @@ import SequenceVisual from "./SequenceVisual";
 import LayersVisual from "./LayersVisual";
 import BoundaryVisual from "./BoundaryVisual";
 import ComparisonVisual from "./ComparisonVisual";
+import DecisionVisual from "./DecisionVisual";
+import EvidenceMapVisual from "./EvidenceMapVisual";
+import StateChangeVisual from "./StateChangeVisual";
 import AssetVisual from "./AssetVisual";
 
 interface VisualBlockProps {
@@ -22,6 +25,12 @@ export default function VisualBlock({ visual, provenanceSources = [] }: VisualBl
         return <BoundaryVisual visual={visual} />;
       case "generated-comparison":
         return <ComparisonVisual visual={visual} />;
+      case "generated-decision":
+        return <DecisionVisual visual={visual} />;
+      case "generated-evidence-map":
+        return <EvidenceMapVisual visual={visual} />;
+      case "generated-state-change":
+        return <StateChangeVisual visual={visual} />;
       case "asset":
         return <AssetVisual visual={visual} />;
       default:

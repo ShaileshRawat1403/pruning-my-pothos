@@ -813,17 +813,47 @@ async function runTests() {
     `Test 64: visual marker directly adjacent to prose without separating blank lines is rejected`
   );
 
-  // Test 65: Unique SVG marker definition IDs: two sequence visuals generate unique, non-colliding DOM IDs
-  const sequenceSrc = await fs.readFile(path.resolve(ROOT, "src/components/visuals/SequenceVisual.tsx"), "utf8");
-  const hasDynamicArrowV = sequenceSrc.includes("const arrowIdV = `seq-arrow-v-${visual.id}`;");
-  const hasDynamicArrowH = sequenceSrc.includes("const arrowIdH = `seq-arrow-h-${visual.id}`;");
-  const noStaticArrowV = !sequenceSrc.includes('id="seq-arrow-v"');
-  const noStaticArrowH = !sequenceSrc.includes('id="seq-arrow-h"');
-  const usesDynamicMarkerV = sequenceSrc.includes("markerEnd={`url(#${arrowIdV})`}");
-  const usesDynamicMarkerH = sequenceSrc.includes("markerEnd={`url(#${arrowIdH})`}");
+  // Test 65: DOM ID collision safety. Two instances of the same generated visual
+  // can appear on one page, so any DOM id a renderer emits must be derived from
+  // visual.id -- a static id literal collides with itself.
+  //
+  // This asserts the invariant rather than the mechanism. The previous version
+  // required specific SVG <marker> plumbing (seq-arrow-v/h, markerEnd), which
+  // tied the contract to one implementation; when SequenceVisual moved off its
+  // fixed SVG canvas the guard failed while the property it protected was
+  // actually stronger than before. Renderers may emit ids, or none, in any
+  // markup they like, provided every id is instance-derived.
+  const GENERATED_RENDERERS = [
+    "SequenceVisual",
+    "LayersVisual",
+    "BoundaryVisual",
+    "ComparisonVisual",
+    "DecisionVisual",
+    "EvidenceMapVisual",
+    "StateChangeVisual",
+  ];
+  const collisionProne = [];
+  for (const name of GENERATED_RENDERERS) {
+    const src = await fs.readFile(
+      path.resolve(ROOT, `src/components/visuals/${name}.tsx`),
+      "utf8"
+    );
+    // A literal id attribute is unconditionally collision-prone.
+    for (const m of src.matchAll(/\bid="([^"]*)"/g)) {
+      collisionProne.push(`${name}: static id="${m[1]}"`);
+    }
+    // An expression id must reference visual.id to be unique per instance.
+    for (const m of src.matchAll(/\bid=\{([^}]*)\}/g)) {
+      if (!m[1].includes("visual.id")) {
+        collisionProne.push(`${name}: id={${m[1].trim()}} is not derived from visual.id`);
+      }
+    }
+  }
   assert(
-    hasDynamicArrowV && hasDynamicArrowH && noStaticArrowV && noStaticArrowH && usesDynamicMarkerV && usesDynamicMarkerH,
-    `Test 65: SequenceVisual generates unique DOM marker IDs derived from visual.id to prevent collision across multiple sequence visuals`
+    collisionProne.length === 0,
+    `Test 65: every DOM id emitted by a generated visual renderer is derived from visual.id, so two instances on one page cannot collide${
+      collisionProne.length ? ` (found: ${collisionProne.join("; ")})` : ""
+    }`
   );
 
   // Test 66: Reader-inspectable evidence: VisualBlock maps provenance sources and exposes repository URL/ref context

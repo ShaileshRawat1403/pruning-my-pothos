@@ -17,6 +17,9 @@ export type GeneratedSequenceVisual = Extract<Visual, { renderAs: "generated-seq
 export type GeneratedLayersVisual = Extract<Visual, { renderAs: "generated-layers" }>;
 export type GeneratedBoundaryVisual = Extract<Visual, { renderAs: "generated-boundary" }>;
 export type GeneratedComparisonVisual = Extract<Visual, { renderAs: "generated-comparison" }>;
+export type GeneratedDecisionVisual = Extract<Visual, { renderAs: "generated-decision" }>;
+export type GeneratedEvidenceMapVisual = Extract<Visual, { renderAs: "generated-evidence-map" }>;
+export type GeneratedStateChangeVisual = Extract<Visual, { renderAs: "generated-state-change" }>;
 export type AssetVisual = Extract<Visual, { renderAs: "asset" }>;
 
 export type VisualRenderMode = Visual["renderAs"];

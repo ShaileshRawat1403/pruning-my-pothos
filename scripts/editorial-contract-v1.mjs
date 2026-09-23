@@ -188,6 +188,10 @@ export const practiceSchema = z.object({
 });
 
 // ── 6. VISUAL CONTRACT V1 (DISCRIMINATED UNION) ───────────────────────────────
+// Seven semantic forms. `scale` was retired in S2: a purpose an author can
+// declare but the system cannot draw is a contract defect, not a feature
+// awaiting a renderer. If magnitude is needed later it returns as a specified
+// form with a renderer. See docs/STORYBOARD_VISUAL_GRAMMAR_V1.md §4.
 export const VISUAL_PURPOSES = [
   "sequence",
   "layers",
@@ -196,7 +200,6 @@ export const VISUAL_PURPOSES = [
   "state-change",
   "decision",
   "evidence-map",
-  "scale",
 ];
 
 export const VISUAL_RENDER_MODES = [
@@ -204,6 +207,9 @@ export const VISUAL_RENDER_MODES = [
   "generated-layers",
   "generated-boundary",
   "generated-comparison",
+  "generated-decision",
+  "generated-evidence-map",
+  "generated-state-change",
   "asset",
 ];
 
@@ -217,7 +223,6 @@ const baseVisualFields = {
     "state-change",
     "decision",
     "evidence-map",
-    "scale",
   ]),
   takeaway: z.string().min(10, "Visual must have an explicit single takeaway (min 10 chars)"),
   caption: z.string().min(5, "Visual must have a caption (min 5 chars)"),
@@ -243,8 +248,9 @@ function refineVisualEvidence(schema) {
 export const generatedSequenceVisualSchema = z.object({
   ...baseVisualFields,
   renderAs: z.literal("generated-sequence"),
+  // No `orientation`: the renderer owns it, because the reader's screen width
+  // is not an authoring decision. Removed in S2 with zero live usage.
   data: z.object({
-    orientation: z.enum(["horizontal", "vertical"]).default("horizontal"),
     steps: z
       .array(
         z.object({
@@ -308,6 +314,76 @@ export const generatedComparisonVisualSchema = z.object({
   }),
 });
 
+// ── S2 renderers ─────────────────────────────────────────────────────────────
+// All three render as reflowing HTML rather than a fixed SVG canvas, so their
+// composition changes with width while their text stays text. See
+// docs/STORYBOARD_VISUAL_GRAMMAR_V1.md §5.
+
+// Where a judgment or an authorization changes the path.
+export const generatedDecisionVisualSchema = z.object({
+  ...baseVisualFields,
+  renderAs: z.literal("generated-decision"),
+  data: z.object({
+    question: z.string().min(1, "Decision visual requires the question being decided"),
+    precondition: z.string().optional(),
+    branches: z
+      .array(
+        z.object({
+          id: z.string(),
+          label: z.string(),
+          outcome: z.string(),
+          note: z.string().optional(),
+        })
+      )
+      .min(2, "Decision visual requires at least 2 branches")
+      .max(3, "Decision visual supports at most 3 branches"),
+  }),
+});
+
+// How observations support a judgment. `strength: "absent"` exists so a visual
+// can show a judgment resting on evidence nobody collected, and `gap` is the
+// anti-overclaim affordance -- the visual's equivalent of boundary.isNot.
+export const generatedEvidenceMapVisualSchema = z.object({
+  ...baseVisualFields,
+  renderAs: z.literal("generated-evidence-map"),
+  data: z.object({
+    judgment: z.string().min(1, "Evidence map requires the judgment being supported"),
+    supports: z
+      .array(
+        z.object({
+          id: z.string(),
+          label: z.string(),
+          strength: z.enum(["direct", "partial", "absent"]).default("direct"),
+          note: z.string().optional(),
+        })
+      )
+      .min(1, "Evidence map requires at least 1 support")
+      .max(4, "Evidence map supports at most 4 supports"),
+    gap: z.string().optional(),
+  }),
+});
+
+// What persists or changes across a crossing. Distinct from comparison:
+// comparison contrasts two options a reader might choose between, this shows
+// one thing before and after an event, with the crossing as the subject.
+export const generatedStateChangeVisualSchema = z.object({
+  ...baseVisualFields,
+  renderAs: z.literal("generated-state-change"),
+  data: z.object({
+    boundary: z.string().min(1, "State change requires the boundary being crossed"),
+    before: z.object({
+      label: z.string(),
+      items: z.array(z.string()).min(1, "Before state requires at least 1 item"),
+    }),
+    after: z.object({
+      label: z.string(),
+      items: z.array(z.string()).min(1, "After state requires at least 1 item"),
+    }),
+    preserved: z.array(z.string()).optional(),
+    lost: z.array(z.string()).optional(),
+  }),
+});
+
 export const assetVisualSchema = z.object({
   ...baseVisualFields,
   renderAs: z.literal("asset"),
@@ -325,6 +401,9 @@ export const rawVisualSchema = z.discriminatedUnion("renderAs", [
   generatedLayersVisualSchema,
   generatedBoundaryVisualSchema,
   generatedComparisonVisualSchema,
+  generatedDecisionVisualSchema,
+  generatedEvidenceMapVisualSchema,
+  generatedStateChangeVisualSchema,
   assetVisualSchema,
 ]);
 
