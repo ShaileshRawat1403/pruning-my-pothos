@@ -9,15 +9,15 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
 
-  // Navigation target routing: Breakdowns to /systems, Tools & SDKs to /tools, About to /about; Projects and Methodology route to homepage sections
-  const isHome = pathname === "/" || pathname === "/editorial-preview";
-
+  // The four reader surfaces, plus About. Every destination is a real route on
+  // every page: a primary nav item that only works on the homepage is not
+  // navigation, it is a scroll link wearing navigation's clothes.
   const navLinks = [
-    { href: isHome ? "#breakdowns" : "/systems", label: "Breakdowns" },
-    { href: isHome ? "#projects" : "/#projects", label: "Projects" },
-    { href: isHome ? "#tools" : "/tools", label: "Tools & SDKs" },
-    { href: isHome ? "#methodology" : "/#methodology", label: "Methodology" },
-    { href: "/about", label: "About" },
+    { href: "/systems/", label: "Systems" },
+    { href: "/storyboards/", label: "Storyboard Explainers" },
+    { href: "/current-work/", label: "Current Work" },
+    { href: "/shelf/", label: "Shelf" },
+    { href: "/about/", label: "About" },
   ];
 
   return (
@@ -51,12 +51,9 @@ export default function Header() {
         </div>
 
         {/* Navigation Links (Desktop) */}
-        <nav aria-label="Main Navigation" className="hidden xl:flex items-center gap-5 text-xs font-mono font-medium text-[#55534E]">
+        <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-5 text-xs font-mono font-medium text-[#55534E]">
           {navLinks.map(({ href, label }) => {
-            const isCurrent =
-              (label === "Breakdowns" && pathname.startsWith("/systems")) ||
-              (label === "Tools & SDKs" && pathname.startsWith("/tools")) ||
-              (label === "About" && pathname.startsWith("/about"));
+            const isCurrent = pathname.startsWith(href.replace(/\/$/, ""));
 
             return (
               <Link
@@ -75,16 +72,10 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Subscribe CTA Button & Mobile Menu Toggle */}
-        <div className="flex items-center gap-3">
-          <Link
-            href={isHome ? "#newsletter" : "/#newsletter"}
-            className="hidden sm:inline-flex px-5 py-2 rounded-full bg-[#121212] hover:bg-[#2A2926] text-white text-xs font-mono font-semibold tracking-wide transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212]"
-          >
-            SUBSCRIBE
-          </Link>
-
-          {/* Mobile Menu Hamburger */}
+        {/* Mobile Menu Toggle. The header orients; it does not sell.
+            The wrapper itself is hidden at lg so the nav stays flush right
+            instead of floating against a zero-width flex child. */}
+        <div className="flex items-center gap-3 lg:hidden">
           <button
             ref={menuButton}
             type="button"
@@ -92,7 +83,7 @@ export default function Header() {
             aria-label="Toggle mobile navigation"
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-navigation"
-            className="xl:hidden p-3 rounded-lg border border-[#EAE8E2] bg-white text-[#121212] hover:bg-[#F4F2EC] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212]"
+            className="p-3 rounded-lg border border-[#EAE8E2] bg-white text-[#121212] hover:bg-[#F4F2EC] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212]"
           >
             {isMobileMenuOpen ? (
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -112,7 +103,7 @@ export default function Header() {
 
       {/* Responsive Mobile Drawer */}
       {isMobileMenuOpen && (
-        <nav id="mobile-navigation" aria-label="Mobile navigation" className="xl:hidden w-full max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-[#EAE8E2] bg-[#FAF9F6] px-6 py-4 flex flex-col gap-1 font-mono text-sm">
+        <nav id="mobile-navigation" aria-label="Mobile navigation" className="lg:hidden w-full max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-[#EAE8E2] bg-[#FAF9F6] px-6 py-4 flex flex-col gap-1 font-mono text-sm">
           {navLinks.map(({ href, label }) => (
             <Link
               key={label}
@@ -123,13 +114,6 @@ export default function Header() {
               {label}
             </Link>
           ))}
-          <Link
-            href={isHome ? "#newsletter" : "/#newsletter"}
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="mt-2 text-center py-2.5 rounded-full bg-[#121212] text-white font-semibold"
-          >
-            SUBSCRIBE
-          </Link>
         </nav>
       )}
     </header>

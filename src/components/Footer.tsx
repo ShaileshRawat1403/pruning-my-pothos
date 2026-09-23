@@ -52,9 +52,11 @@ export default function Footer() {
                 Ecosystem
               </h5>
               {[
-                { href: "/tools", label: "Browse Store" },
-                { href: "/canvases", label: "Interactive Canvases" },
-                { href: "/docs", label: "Command Documentation" },
+                { href: "/tools/", label: "Tools" },
+                { href: "/canvases/", label: "Interactive Canvases" },
+                { href: "/docs/", label: "Documentation" },
+                { href: "/sentences/", label: "Writing Archive" },
+                { href: "/sentiments/", label: "Sentiments" },
               ].map((l) => (
                 <Link
                   key={l.href}
@@ -104,9 +106,11 @@ export default function Footer() {
             </div>
             <div className="flex gap-5">
               {[
-                { href: "/", label: "Systems" },
-                { href: "/sentiments", label: "Sentiments" },
-                { href: "/sentences", label: "Writing Archive" },
+                { href: "/systems/", label: "Systems" },
+                { href: "/storyboards/", label: "Storyboard Explainers" },
+                { href: "/current-work/", label: "Current Work" },
+                { href: "/shelf/", label: "Shelf" },
+                { href: "/about/", label: "About" },
               ].map((l) => (
                 <Link
                   key={l.href}
