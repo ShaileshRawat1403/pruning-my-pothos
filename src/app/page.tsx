@@ -5,6 +5,7 @@ import Hero from "../components/home/Hero";
 import SystemsMap from "../components/home/SystemsMap";
 import SelectedSystems from "../components/home/SelectedSystems";
 import StoryboardPreview from "../components/home/StoryboardPreview";
+import ReferencePreview from "../components/home/ReferencePreview";
 import Projects from "../components/home/Projects";
 import ShelfPreview from "../components/home/ShelfPreview";
 
@@ -78,6 +79,7 @@ export default function HomePage() {
       <SystemsMap />
       <SelectedSystems />
       <StoryboardPreview />
+      <ReferencePreview />
       <Projects />
       <ShelfPreview />
     </div>

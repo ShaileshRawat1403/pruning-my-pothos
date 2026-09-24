@@ -934,6 +934,16 @@ async function runTests() {
     `Test 70: every cover has its own emblem and the cast appears in at most two${missingEmblems.length ? ` (no emblem: ${missingEmblems.join(", ")})` : ""}${castUses > 2 ? ` (cast used ${castUses} times)` : ""}`
   );
 
+  // Test 71: every published reference sheet has its files, and the section
+  // carries the NotebookLM disclosure.
+  const refSrc = await fs.readFile(path.resolve(ROOT, "src/lib/content/reference-sheets.ts"), "utf8");
+  const refFiles = [...refSrc.matchAll(/(?:file|thumbnail): "(\/[^"]+)"/g)].map((m) => m[1]);
+  const missingRef = refFiles.filter((f) => !existsSync(path.resolve(ROOT, "public" + f)));
+  assert(
+    missingRef.length === 0 && refSrc.includes("Drafted with NotebookLM, edited by Pruning My Pothos."),
+    `Test 71: reference sheets have their files and the disclosure${missingRef.length ? ` (missing: ${missingRef.join(", ")})` : ""}`
+  );
+
   console.log(`\nRegression Suite Results: ${passed} passed, ${failed} failed.\n`);
   if (failed > 0) {
     process.exit(1);

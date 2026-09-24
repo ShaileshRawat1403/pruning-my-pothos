@@ -4,6 +4,7 @@ import SceneFigure from "../../components/SceneFigure";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 import { SHELF_CATEGORIES } from "../../lib/content/shelf";
+import { REFERENCE_DISCLOSURE } from "../../lib/content/reference-sheets";
 
 const GREENWOOD_LINES = [
   "The synth is just a very opinionated instrument. You negotiate.",
@@ -78,6 +79,23 @@ export default function ShelfIndexPage() {
             </span>
           </SpotlightCard>
         ))}
+        <SpotlightCard href="/shelf/reference/" accent="var(--accent-cyan)" className="gap-4 justify-between">
+          <div className="flex flex-col gap-2">
+            <span className="text-[10px] font-mono" style={{ color: "var(--text-muted)" }}>DOWNLOADS</span>
+            <h2 className="font-heading text-lg font-bold" style={{ color: "var(--text-primary)" }}>
+              Reference Sheets
+            </h2>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+              Slide guides, architecture sheets and mind maps to download. {REFERENCE_DISCLOSURE}
+            </p>
+          </div>
+          <span
+            className="text-xs font-semibold self-start inline-flex items-center gap-1 transition-all duration-200 group-hover:gap-2"
+            style={{ color: "var(--accent-cyan)" }}
+          >
+            Browse Sheets ➔
+          </span>
+        </SpotlightCard>
       </section>
     </div>
   );
