@@ -7,18 +7,18 @@ export const CURRENT_WORK_PROJECTS: ProjectItem[] = [
   {
     title: "DAX: Governed Execution Workstation",
     role: "Creator · Runtime Workstation",
-    status: "v1.3.0 · Active",
+    status: "v1.4.0 · Active",
     summary:
       "Deterministic runtime contract around stochastic model execution. Sits between the operator and model providers to provide policy checks, replay, and audit logs.",
     boundary:
       "Pure proof library crates in Rust with no I/O, accompanied by JSON stdio sidecar binaries. TypeScript orchestrates; Rust decides deterministic facts.",
-    href: "https://github.com/ShaileshRawat1403/dax",
+    href: "/stack/dax/",
     tabs: [
       {
         title: "Crates",
         filename: "crates/README.md",
-        ref: "9acb5dc",
-        sourceUrl: "https://github.com/ShaileshRawat1403/dax/blob/9acb5dc/crates/README.md",
+        ref: "494354dc814377be2994292caf4dc577ede0b0b3",
+        sourceUrl: "https://github.com/ShaileshRawat1403/dax/blob/494354dc814377be2994292caf4dc577ede0b0b3/crates/README.md",
         lines: [
           "# DAX Rust Crates",
           "",
@@ -38,8 +38,8 @@ export const CURRENT_WORK_PROJECTS: ProjectItem[] = [
       {
         title: "Config",
         filename: "dax.jsonc",
-        ref: "9acb5dc",
-        sourceUrl: "https://github.com/ShaileshRawat1403/dax/blob/9acb5dc/dax.jsonc",
+        ref: "494354dc814377be2994292caf4dc577ede0b0b3",
+        sourceUrl: "https://github.com/ShaileshRawat1403/dax/blob/494354dc814377be2994292caf4dc577ede0b0b3/dax.jsonc",
         lines: [
           "{",
           '  "$schema": "https://dax.ai/config.json",',

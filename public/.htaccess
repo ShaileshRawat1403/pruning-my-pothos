@@ -30,6 +30,7 @@ RewriteRule ^ - [L]
 
 # Renamed sections.
 RewriteRule ^current-work/?$ /stack/ [R=301,L]
+RewriteRule ^dax/?$ /stack/dax/ [R=301,L]
 
 # Renamed shelf paths.
 RewriteRule ^shelf/notes-tools/?$ /shelf/notes/ [R=301,L]

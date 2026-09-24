@@ -147,11 +147,12 @@ export function ProjectCard({ project, headingLevel = 3 }: ProjectCardProps) {
         <span className="text-[color:var(--text-muted)]">{project.role}</span>
         <a
           href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
+          {...(project.href.startsWith("http")
+            ? { target: "_blank", rel: "noopener noreferrer" }
+            : {})}
           className="text-[color:var(--text-primary)] font-semibold hover:text-[color:var(--accent-green)] transition-colors flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--text-primary)] rounded"
         >
-          <span>Inspect Repository</span>
+          <span>{project.href.startsWith("http") ? "Inspect Repository" : "Open product page"}</span>
           <span>&rarr;</span>
         </a>
       </div>
