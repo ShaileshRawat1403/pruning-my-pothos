@@ -27,6 +27,8 @@ export interface Walkthrough {
   summary: string;
   /** Downloadable 4:5 PDF, rendered from the same frames. */
   pdf: string;
+  /** 1200 x 630 link-preview PNG, used by the walkthrough and its article. */
+  shareImage: string;
   frames: WalkthroughFrame[];
 }
 
@@ -37,6 +39,7 @@ const WALKTHROUGHS: Walkthrough[] = [
     summary:
       "What decides whether a model's request becomes a real effect, drawn in nine frames: the check, the gate, the run, and the part everyone skips.",
     pdf: "/storyboards/pdf/from-agent-intent-to-governed-execution.pdf",
+    shareImage: "/storyboards/og/from-agent-intent-to-governed-execution.png",
     frames: [
       {
         key: "governed-cover",

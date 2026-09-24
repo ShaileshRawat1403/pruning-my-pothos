@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * export-walkthrough-pdf.mjs — render each illustrated walkthrough to its
- * downloadable 4:5 PDF, from the same frames the website shows.
+ * downloadable 4:5 PDF, from the same frames the website shows, plus its
+ * 1200 x 630 link-preview PNG (social platforms do not render SVG previews).
  *
  *   npm run build && node scripts/export-walkthrough-pdf.mjs
  *
@@ -75,8 +76,12 @@ const port = server.address().port;
 
 const pdfDir = path.join(ROOT, "public", "storyboards", "pdf");
 const outPdfDir = path.join(OUT, "storyboards", "pdf");
+const ogDir = path.join(ROOT, "public", "storyboards", "og");
+const outOgDir = path.join(OUT, "storyboards", "og");
 fs.mkdirSync(pdfDir, { recursive: true });
 fs.mkdirSync(outPdfDir, { recursive: true });
+fs.mkdirSync(ogDir, { recursive: true });
+fs.mkdirSync(outOgDir, { recursive: true });
 
 try {
   for (const slug of slugs) {
@@ -105,6 +110,30 @@ try {
     fs.copyFileSync(target, path.join(outPdfDir, `${slug}.pdf`));
     const kb = Math.round(fs.statSync(target).size / 1024);
     console.log(`  ${slug}.pdf  ${kb} KB`);
+
+    // The 1200 x 630 link-preview PNG, from /storyboards/<slug>/share/.
+    const png = path.join(ogDir, `${slug}.png`);
+    await promisify(execFile)(
+      CHROME,
+      [
+        "--headless=new",
+        `--user-data-dir=${fs.mkdtempSync(path.join(os.tmpdir(), "pmp-og-"))}`,
+        "--disable-gpu",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "--hide-scrollbars",
+        "--force-device-scale-factor=1",
+        "--window-size=1200,630",
+        "--run-all-compositor-stages-before-draw",
+        "--virtual-time-budget=20000",
+        `--screenshot=${png}`,
+        `http://127.0.0.1:${port}/storyboards/${slug}/share/`,
+      ],
+      { timeout: 120000, maxBuffer: 16 * 1024 * 1024 },
+    );
+    if (!fs.existsSync(png)) fail(`Chrome produced no share card for ${slug}.`);
+    fs.copyFileSync(png, path.join(outOgDir, `${slug}.png`));
+    console.log(`  ${slug}.png  ${Math.round(fs.statSync(png).size / 1024)} KB`);
   }
 } finally {
   server.close();

@@ -38,7 +38,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return constructMetadata({
     title: system.seoTitle ?? system.title,
     description: system.description,
-    image: system.heroImage,
+    // An article with a walkthrough shares its drawn card, not the template cover.
+    image: getWalkthrough(slug)?.shareImage ?? system.heroImage,
     path: `/systems/${slug}`,
     ogType: "article"
   });
@@ -65,7 +66,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
     path: `/systems/${slug}`,
     datePublished: system.publishDate,
     dateModified: system.updatedAt ?? system.publishDate,
-    image: system.heroImage,
+    image: walkthrough?.shareImage ?? system.heroImage,
   });
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", path: "/" },

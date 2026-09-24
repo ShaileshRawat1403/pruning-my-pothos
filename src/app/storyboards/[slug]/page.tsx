@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return constructMetadata({
     title: `${w.title}: illustrated walkthrough`,
     description: w.summary,
+    image: w.shareImage,
     path: `/storyboards/${slug}`,
   });
 }
