@@ -42,7 +42,7 @@ export default function SelvesIndexPage() {
       />
 
       {/* Plate hero - the self, drawn in HTML, speaking on hover */}
-      <section className="grid grid-cols-1 lg:grid-cols-[54%_46%] items-center gap-10 lg:gap-14 min-h-[86vh] pt-10 lg:pt-6">
+      <section className="grid grid-cols-1 lg:grid-cols-[27fr_23fr] items-center gap-10 lg:gap-14 min-h-[86vh] pt-10 lg:pt-6">
         <div className="flex flex-col gap-5 lg:pr-8">
           <div className="flex items-center gap-2">
             <span className="h-px w-8" style={{ background: "var(--accent-pink)" }} />

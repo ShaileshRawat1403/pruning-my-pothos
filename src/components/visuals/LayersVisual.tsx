@@ -54,7 +54,7 @@ export default function LayersVisual({ visual }: Props) {
               >
                 <span
                   aria-hidden="true"
-                  className="shrink-0 font-mono text-[11px] text-[color:var(--text-muted)]"
+                  className="shrink-0 font-mono text-[12.75px] text-[color:var(--text-muted)]"
                 >
                   {layers.length - idx}
                 </span>

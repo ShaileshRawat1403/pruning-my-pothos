@@ -61,7 +61,7 @@ export default function SequenceVisual({ visual }: Props) {
               <p className="flex items-baseline gap-2 text-sm font-semibold leading-snug text-[color:var(--text-primary)]">
                 <span
                   aria-hidden="true"
-                  className="shrink-0 font-mono text-[11px] text-[color:var(--text-muted)]"
+                  className="shrink-0 font-mono text-[12.75px] text-[color:var(--text-muted)]"
                 >
                   {idx + 1}
                 </span>

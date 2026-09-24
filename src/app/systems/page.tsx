@@ -1,9 +1,11 @@
+import Link from "next/link";
 import { allSystems } from "content-collections";
 import SpotlightCard from "../../components/SpotlightCard";
 import PlateHero from "../../components/PlateHero";
-import SceneFigure from "../../components/SceneFigure";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
+import { getSystemsMap } from "../../lib/content/systems-map";
+import { getStoryboardEntries } from "../../lib/content/storyboards";
 
 const BOOLE_LINES = [
   "I took the laws of thought and wrote them as sums. Everything you click still obeys them.",
@@ -16,23 +18,46 @@ const BOOLE_LINES = [
 export const metadata = constructMetadata({
   title: "Systems",
   description:
-    "Explore operating systems, workflows, and tools built for natural language programming.",
+    "Eight questions an applied AI system has to answer, the canonical explanation of each, and everything else worth reading alongside them.",
   path: "/systems",
 });
 
 export default function SystemsIndexPage() {
-  const systems = [...allSystems].sort((a, b) => {
-    if (a.featured !== b.featured) return Number(b.featured) - Number(a.featured);
-    if (a.updatedAt && b.updatedAt) return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
-    if (a.updatedAt) return -1;
-    if (b.updatedAt) return 1;
-    return a.title.localeCompare(b.title);
-  });
+  // The map is the index's organising language now. It is derived from the same
+  // Systems Map source the homepage uses -- there is no second registry, and no
+  // stage assignment is invented here.
+  const stages = getSystemsMap();
+  const stageSlugs = new Set(stages.map((s) => s.slug));
+
+  // Which articles carry a visual, so a stage can offer its storyboard and the
+  // rest of the library can say where a visual exists. Derived, not declared.
+  const storyboards = getStoryboardEntries();
+  const firstVisualBySlug = new Map<string, string>();
+  for (const entry of storyboards) {
+    if (!firstVisualBySlug.has(entry.slug)) {
+      firstVisualBySlug.set(entry.slug, entry.id);
+    }
+  }
+
+  // Everything that is not a map anchor stays discoverable here. The old
+  // Concepts / Explanations / How-things-fit-together chips no longer organise
+  // the page; the field remains in frontmatter, it is simply not the index's
+  // language any more.
+  const rest = [...allSystems]
+    .filter((s) => !stageSlugs.has(s._meta.path))
+    .sort((a, b) => {
+      if (a.featured !== b.featured) return Number(b.featured) - Number(a.featured);
+      if (a.updatedAt && b.updatedAt)
+        return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+      if (a.updatedAt) return -1;
+      if (b.updatedAt) return 1;
+      return a.title.localeCompare(b.title);
+    });
 
   const schema = getWebPageSchema({
     title: "Systems",
     description:
-      "Explore operating systems, workflows, and tools built for natural language programming.",
+      "Eight questions an applied AI system has to answer, and the canonical explanation of each.",
     path: "/systems",
   });
 
@@ -47,7 +72,7 @@ export default function SystemsIndexPage() {
       <PlateHero
         eyebrow="Architecture"
         title="Systems"
-        intro="Architectural patterns and functional structures for governing and inspecting AI-assisted workflows. Lean on the plate and Boole will remind you whose algebra you are standing on."
+        intro="Eight questions an applied AI system has to answer, in the order the answers depend on each other. Lean on the plate and Boole will remind you whose algebra you are standing on."
         htmlSrc="/scenes/character.html?img=/images/characters/george-boole-logic-gates.jpg&fallback=/scenes/boole.html"
         alt="Oil painting of George Boole at his desk with glowing AND, OR and NOT logic gates and a binary truth table rising in the dark"
         plateLabel="Plate · boole_gates"
@@ -57,91 +82,125 @@ export default function SystemsIndexPage() {
         accent="var(--accent-purple)"
       />
 
-      <SceneFigure
-        src="/scenes/boole.html"
-        label="Figure · boole_gates"
-        accent="var(--accent-purple)"
-        caption="Thought reduced to three gates. AND, OR, and NOT, with a truth table underneath: the whole logic your systems still run on, watched as binary resolves to a single decision."
-      />
-
-      {/* Cards grid */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {systems.map((system) => (
-          <SpotlightCard
-            key={system._meta.path}
-            href={`/systems/${system._meta.path}`}
-            accent="var(--accent-purple)"
-            className="justify-between"
+      {/* The map. Ruled rows rather than tiles, matching the homepage
+          treatment, because the order is the argument. No progress, no
+          completion, no step numbering: it is a set of doors, not a course. */}
+      <section aria-labelledby="systems-map-title" className="flex flex-col gap-6">
+        <div className="flex flex-col gap-2 max-w-[760px]">
+          <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[color:var(--text-muted)]">
+            The systems map
+          </span>
+          <h2
+            id="systems-map-title"
+            className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[color:var(--text-primary)]"
           >
-            <div className="flex flex-col gap-3">
-              <div className="flex flex-wrap items-center gap-2">
-                <span
-                  className="w-1.5 h-1.5 rounded-full"
-                  style={{ background: "var(--accent-purple)" }}
-                />
-                <span
-                  className="text-[9px] font-mono font-bold uppercase tracking-[0.15em]"
-                  style={{ color: "var(--accent-purple)" }}
-                >
-                  {system.category}
-                </span>
-                {system.featured && (
-                  <span
-                    className="text-[9px] font-mono font-bold uppercase px-1.5 py-0.5"
-                    style={{
-                      color: "var(--text-primary)",
-                      background: "color-mix(in srgb, var(--accent-cyan) 16%, transparent)",
-                      border: "1px solid color-mix(in srgb, var(--accent-cyan) 26%, transparent)",
-                      borderRadius: "2px",
-                    }}
-                  >
-                    Featured
-                  </span>
-                )}
-              </div>
-              <h2
-                className="font-heading text-lg font-bold leading-snug transition-colors duration-200"
-                style={{ color: "var(--text-primary)" }}
-              >
-                {system.title}
-              </h2>
-              <p
-                className="text-sm leading-relaxed line-clamp-3"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                {system.description}
-              </p>
-            </div>
+            Where are you in the system?
+          </h2>
+          <p className="text-sm leading-relaxed text-[color:var(--text-secondary)]">
+            Each stage opens the explanation that deals with it, and every one
+            of them now has a visual explainer too. Follow the sequence, or
+            enter where the question becomes useful.
+          </p>
+        </div>
 
-            <div className="flex flex-wrap gap-1.5 mt-5">
-              {system.readingTime && (
-                <span
-                  className="text-[9px] font-mono px-2 py-1"
-                  style={{
-                    color: "var(--text-muted)",
-                    border: "1px solid var(--card-border)",
-                    borderRadius: "2px",
-                  }}
-                >
-                  {system.readingTime} min
-                </span>
-              )}
-              {system.tags?.slice(0, 3).map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[9px] font-mono px-2 py-1"
-                  style={{
-                    color: "var(--text-muted)",
-                    border: "1px solid var(--card-border)",
-                    borderRadius: "2px",
-                  }}
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          </SpotlightCard>
-        ))}
+        <ol className="list-none p-0 m-0 border-t border-[color:var(--card-border)]">
+          {stages.map((stage) => {
+            const visualId = firstVisualBySlug.get(stage.slug);
+            return (
+              <li
+                key={stage.slug}
+                className="border-b border-[color:var(--card-border)] py-5"
+              >
+                <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,15rem)_1fr] gap-1 sm:gap-8 sm:items-baseline">
+                  <span className="font-heading text-base font-bold text-[color:var(--text-primary)]">
+                    {stage.label}
+                  </span>
+                  <div className="flex flex-col gap-2">
+                    <span className="text-sm leading-relaxed text-[color:var(--text-secondary)]">
+                      {stage.orientation}
+                    </span>
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono">
+                      <Link
+                        href={stage.href}
+                        className="text-[color:var(--text-primary)] underline underline-offset-4 decoration-[color:var(--card-border)] hover:decoration-[color:var(--text-primary)] transition-colors"
+                      >
+                        {stage.title} <span aria-hidden="true">&rarr;</span>
+                      </Link>
+                      {visualId && (
+                        <Link
+                          href={`/storyboards/#${stage.slug}-${visualId}`}
+                          className="text-[color:var(--text-muted)] underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)] transition-colors"
+                        >
+                          See the storyboard
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+
+      {/* Everything that is not a map anchor. Still browsable, still complete. */}
+      <section aria-labelledby="more-systems-title" className="flex flex-col gap-6">
+        <div className="flex flex-col gap-2 max-w-[760px]">
+          <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[color:var(--text-muted)]">
+            The rest of the library
+          </span>
+          <h2
+            id="more-systems-title"
+            className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[color:var(--text-primary)]"
+          >
+            {rest.length} more explanations.
+          </h2>
+          <p className="text-sm leading-relaxed text-[color:var(--text-secondary)]">
+            Mechanisms that sit alongside the map rather than anchoring one of
+            its stages.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {rest.map((system) => {
+            const visualId = firstVisualBySlug.get(system._meta.path);
+            return (
+              <SpotlightCard
+                key={system._meta.path}
+                href={`/systems/${system._meta.path}`}
+                accent="var(--accent-purple)"
+                className="justify-between"
+              >
+                <div className="flex flex-col gap-3">
+                  <h3
+                    className="font-heading text-lg font-bold leading-snug transition-colors duration-200"
+                    style={{ color: "var(--text-primary)" }}
+                  >
+                    {system.title}
+                  </h3>
+                  <p
+                    className="text-sm leading-relaxed line-clamp-3"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    {system.description}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-5 text-[11px] font-mono text-[color:var(--text-muted)]">
+                  {system.readingTime && <span>{system.readingTime} min read</span>}
+                  {visualId && (
+                    <>
+                      <span aria-hidden="true">·</span>
+                      <span className="text-[color:var(--accent-green)]">
+                        Has a visual
+                      </span>
+                    </>
+                  )}
+                </div>
+              </SpotlightCard>
+            );
+          })}
+        </div>
       </section>
     </div>
   );

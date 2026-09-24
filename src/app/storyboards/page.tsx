@@ -13,6 +13,24 @@ export const metadata = constructMetadata({
 
 export default function StoryboardsPage() {
   const entries = getStoryboardEntries();
+  const mapStages = entries.filter((e) => e.isMapStage);
+  const additional = entries.filter((e) => !e.isMapStage);
+  const GROUPS = [
+    {
+      key: "map",
+      heading: "The systems map",
+      blurb:
+        "One visual for each stage of the map, in the order the stages depend on each other.",
+      items: mapStages,
+    },
+    {
+      key: "additional",
+      heading: "More visual explainers",
+      blurb:
+        "Mechanisms worth seeing that sit outside the map's eight questions.",
+      items: additional,
+    },
+  ];
   const schema = getWebPageSchema({
     title: "Storyboard Explainers",
     description: "The visual explainers declared by Systems articles.",
@@ -46,26 +64,33 @@ export default function StoryboardsPage() {
           No article currently declares a visual explainer.
         </p>
       ) : (
-        /* One entry per row, full readable width. The visual is the object;
+        /* Two groups, derived from the Systems Map source rather than a second
+           registry: the eight that anchor a map stage, then everything else.
+           One entry per row, full readable width. The visual is the object;
            there is no card grid to fit more of them above the fold. */
         <div className="flex flex-col gap-14">
-          {entries.map((entry) => (
+          {GROUPS.map(({ key, heading, blurb, items }) =>
+            items.length === 0 ? null : (
+              <section key={key} className="flex flex-col gap-14">
+                <header className="flex flex-col gap-2 max-w-[760px]">
+                  <h2 className="font-heading text-lg font-bold text-[color:var(--text-primary)]">
+                    {heading}
+                  </h2>
+                  <p className="text-sm leading-relaxed text-[color:var(--text-secondary)]">
+                    {blurb}
+                  </p>
+                </header>
+                {items.map((entry) => (
             <article
               key={`${entry.slug}-${entry.id}`}
               id={`${entry.slug}-${entry.id}`}
               className="scroll-mt-28 flex flex-col gap-4 border-t border-[color:var(--card-border)] pt-8"
             >
               <div className="flex flex-col gap-2">
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-mono uppercase tracking-wider text-[color:var(--text-muted)]">
-                  <span>{purposeLabel(entry.purpose)}</span>
-                  {entry.isMapStage && (
-                    <>
-                      <span aria-hidden="true">·</span>
-                      <span className="text-[color:var(--accent-green)]">
-                        Systems map
-                      </span>
-                    </>
-                  )}
+                {/* The group heading now says which half of the library this
+                    is, so the per-entry marker would repeat it. */}
+                <div className="text-xs font-mono uppercase tracking-wider text-[color:var(--text-muted)]">
+                  {purposeLabel(entry.purpose)}
                 </div>
                 <h2 className="font-heading text-xl sm:text-2xl font-bold leading-snug text-[color:var(--text-primary)] max-w-[760px]">
                   {entry.heading}
@@ -89,7 +114,10 @@ export default function StoryboardsPage() {
                 </span>
               </p>
             </article>
-          ))}
+                ))}
+              </section>
+            ),
+          )}
         </div>
       )}
 

@@ -22,9 +22,18 @@ export interface ProjectItem {
 
 interface ProjectCardProps {
   project: ProjectItem;
+  /**
+   * Which heading level the card title takes. The homepage nests these cards
+   * under a section h2, so h3 is right there; /current-work/ renders them
+   * directly under the page h1, where h3 would skip a level for a screen
+   * reader. The level is a property of the surrounding outline, not of the
+   * card, so the caller states it.
+   */
+  headingLevel?: 2 | 3;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, headingLevel = 3 }: ProjectCardProps) {
+  const Heading = (`h${headingLevel}` as const) satisfies "h2" | "h3";
   const [activeTabIdx, setActiveTabIdx] = useState(0);
   const [isCopied, setIsCopied] = useState(false);
 
@@ -53,9 +62,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             Repository Sourced
           </span>
         </div>
-        <h3 className="font-heading font-bold text-base text-[color:var(--text-primary)] pt-2">
+        <Heading className="font-heading font-bold text-base text-[color:var(--text-primary)] pt-2">
           {project.title}
-        </h3>
+        </Heading>
         <p className="text-xs text-[color:var(--text-secondary)] leading-relaxed pt-1 line-clamp-2">
           {project.summary}
         </p>
@@ -152,13 +161,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
 interface ProjectInspectorProps {
   projects: ProjectItem[];
+  headingLevel?: 2 | 3;
 }
 
-export default function ProjectInspector({ projects }: ProjectInspectorProps) {
+export default function ProjectInspector({ projects, headingLevel }: ProjectInspectorProps) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
       {projects.map((project) => (
-        <ProjectCard key={project.title} project={project} />
+        <ProjectCard key={project.title} project={project} headingLevel={headingLevel} />
       ))}
     </div>
   );

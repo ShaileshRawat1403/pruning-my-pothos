@@ -1,5 +1,6 @@
 import React from "react";
 import type { GeneratedBoundaryVisual } from "../../lib/visual-types";
+import { Crossing } from "./primitives";
 
 interface Props {
   visual: GeneratedBoundaryVisual;
@@ -62,19 +63,10 @@ export default function BoundaryVisual({ visual }: Props) {
       <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] sm:items-stretch">
         <Zone label={inside.label} items={inside.items} accent />
 
-        <div className="flex items-center justify-center gap-3 sm:flex-col sm:px-2">
-          <span
-            aria-hidden="true"
-            className="h-px flex-1 border-t border-dashed border-[color:var(--card-border)] sm:h-auto sm:w-px sm:border-t-0 sm:border-l"
-          />
-          <span className="max-w-[12rem] rounded-full border border-[color:var(--card-border)] bg-[color:var(--bg-elevated)] px-3 py-1 text-center text-[11px] font-medium text-[color:var(--text-muted)]">
-            {labelText}
-          </span>
-          <span
-            aria-hidden="true"
-            className="h-px flex-1 border-t border-dashed border-[color:var(--card-border)] sm:h-auto sm:w-px sm:border-t-0 sm:border-l"
-          />
-        </div>
+        {/* The shared primitive, not a local copy of it. This renderer carried
+            its own duplicate of exactly this markup, which is how the label
+            was left at 11px when the shared Crossing was raised to body size. */}
+        <Crossing label={labelText} />
 
         <Zone label={outside.label} items={outside.items} />
       </div>

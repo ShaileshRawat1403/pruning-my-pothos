@@ -63,9 +63,9 @@ export default function ShelfIndexPage() {
           <SpotlightCard key={idx} href={cat.path} accent="var(--accent-cyan)" className="gap-4 justify-between">
             <div className="flex flex-col gap-2">
               <span className="text-[10px] font-mono" style={{ color: "var(--text-muted)" }}>CATEGORY {idx + 1}</span>
-              <h3 className="font-heading text-lg font-bold" style={{ color: "var(--text-primary)" }}>
+              <h2 className="font-heading text-lg font-bold" style={{ color: "var(--text-primary)" }}>
                 {cat.title}
-              </h3>
+              </h2>
               <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                 {cat.description}
               </p>

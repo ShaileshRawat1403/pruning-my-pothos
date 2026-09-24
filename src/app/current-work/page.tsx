@@ -40,7 +40,7 @@ export default function CurrentWorkPage() {
         </p>
       </header>
 
-      <ProjectInspector projects={CURRENT_WORK_PROJECTS} />
+      <ProjectInspector projects={CURRENT_WORK_PROJECTS} headingLevel={2} />
 
       <p className="text-sm text-[color:var(--text-secondary)] max-w-[680px]">
         The browser utilities built alongside this work live in{" "}

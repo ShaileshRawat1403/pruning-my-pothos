@@ -91,7 +91,7 @@ export default function NewsletterWelcomePage() {
               </div>
 
               <Link
-                href="/#projects"
+                href="/current-work/"
                 className="pt-3 border-t border-[#F4F2EC] flex items-center justify-between text-xs font-mono font-semibold text-[#121212] hover:text-[#2563EB] transition-colors"
               >
                 <span>Inspect Projects</span>

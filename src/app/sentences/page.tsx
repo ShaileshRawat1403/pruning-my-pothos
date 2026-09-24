@@ -35,7 +35,7 @@ export default function SentencesIndexPage() {
       />
 
       {/* Plate hero - Nietzsche, patron of the aphorism */}
-      <section className="grid grid-cols-1 lg:grid-cols-[52%_48%] items-center gap-10 lg:gap-14 min-h-[86vh] pt-10 lg:pt-6">
+      <section className="grid grid-cols-1 lg:grid-cols-[13fr_12fr] items-center gap-10 lg:gap-14 min-h-[86vh] pt-10 lg:pt-6">
         <div className="flex flex-col gap-5 lg:pr-8">
           <div className="flex items-center gap-2">
             <span className="h-px w-8" style={{ background: "var(--accent-blue)" }} />
