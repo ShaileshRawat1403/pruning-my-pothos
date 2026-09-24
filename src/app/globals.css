@@ -365,6 +365,11 @@ h1, h2, h3, h4, h5 {
   transition: transform 0.45s cubic-bezier(0.16,1,0.3,1);
 }
 .spotlight-card:hover .spotlight-rule { transform: scaleX(1); }
+.spotlight-card:focus-visible .spotlight-rule { transform: scaleX(1); }
+.spotlight-card--compact { padding: 1rem; }
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-card, .spotlight-glow, .spotlight-rule { transition: none; }
+}
 
 /* ══ Glow card — SpotlightCard's hover for non-link surfaces (padding from utility class) ══ */
 .glow-card {

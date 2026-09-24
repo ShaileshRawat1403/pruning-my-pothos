@@ -12,6 +12,7 @@ import {
   Strike,
   Arrow,
 } from "./kit";
+import type { FrameProps } from "./templates";
 
 /**
  * The nine frames of the "From Agent Intent to Governed Execution"
@@ -22,11 +23,7 @@ import {
  * $25 auto-limit, Dave) are illustrative and never presented as observed.
  */
 
-export interface FrameProps {
-  label: string;
-  number: number;
-  total: number;
-}
+export type { FrameProps };
 
 /* 01 — Cover */
 export function GovernedCover({ label, number, total }: FrameProps) {

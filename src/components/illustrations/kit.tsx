@@ -168,15 +168,16 @@ export function Ledger({
   was = "$120",
   now = "$120",
   left = "refund #4417",
+  heading = "balance",
   ...place
-}: Place & { was?: string; now?: string; left?: string }) {
+}: Place & { was?: string; now?: string; left?: string; heading?: string }) {
   return (
     <g transform={at(place)}>
       <path d="M10 30 Q80 10 150 34 L150 190 Q80 168 10 186 Z" fill={C.card} stroke={C.ink} strokeWidth={4.5} strokeLinejoin="round" />
       <path d="M150 34 Q220 10 290 30 L290 186 Q220 168 150 190 Z" fill={C.card} stroke={C.ink} strokeWidth={4.5} strokeLinejoin="round" />
       <path d="M32 62 Q80 52 130 64 M32 90 Q80 80 130 92 M32 118 Q70 110 110 120" fill="none" stroke={C.faint} strokeWidth={3} strokeLinecap="round" />
       <text x={80} y={152} textAnchor="middle" className="ill-hand" fontSize={22} fill={C.muted}>{left}</text>
-      <text x={214} y={72} textAnchor="middle" className="ill-hand" fontSize={24} fill={C.muted}>balance</text>
+      <text x={214} y={72} textAnchor="middle" className="ill-hand" fontSize={24} fill={C.muted}>{heading}</text>
       <text x={214} y={110} textAnchor="middle" className="ill-hand" fontSize={30} fontWeight={700} fill={C.ink}>was {was}</text>
       <text x={214} y={148} textAnchor="middle" className="ill-hand" fontSize={30} fontWeight={700} fill={C.ink}>now {now}</text>
       <path d="M262 22 L262 60 L270 52 L278 60 L278 18" fill={C.accent} stroke={C.ink} strokeWidth={3} strokeLinejoin="round" />

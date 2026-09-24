@@ -54,7 +54,7 @@ export default function StoryboardsPage() {
               </Link>
               <div className="flex flex-1 flex-col gap-2">
                 <span className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[color:var(--text-muted)]">
-                  {sb.stage ? `Stage ${String(sb.stage.number).padStart(2, "0")} · ${sb.stage.label}` : "Systems"}
+                  {sb.stage ? `Stage ${String(sb.stage.number).padStart(2, "0")} · ${sb.stage.label}` : "Systems"} · {sb.frames.length} frames
                 </span>
                 <h2 className="font-heading text-xl font-extrabold leading-snug tracking-tight text-[color:var(--text-primary)]">
                   <Link href={`/storyboards/${sb.slug}/`} className="hover:underline underline-offset-4">
@@ -78,7 +78,6 @@ export default function StoryboardsPage() {
                   >
                     Read the article
                   </Link>
-                  <span className="text-[color:var(--text-muted)]">{sb.frames.length} frames</span>
                 </div>
               </div>
             </article>

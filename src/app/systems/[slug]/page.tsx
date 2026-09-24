@@ -9,6 +9,8 @@ import type { Visual } from "../../../lib/visual-types";
 import VisualBlock from "../../../components/visuals/VisualBlock";
 import { getStoryboard } from "../../../lib/content/storyboards";
 import { Frame } from "../../../components/illustrations/registry";
+import { ArticleCover } from "../../../components/illustrations/covers";
+import { coverKicker } from "../../../lib/content/covers";
 import { slugifyTag } from "../../../lib/tags";
 import ExplainerFigure from "../../../components/explainer/ExplainerFigure";
 import {
@@ -38,8 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return constructMetadata({
     title: system.seoTitle ?? system.title,
     description: system.description,
-    // An article with a storyboard shares its drawn card, not the template cover.
-    image: getStoryboard(slug)?.shareImage ?? system.heroImage,
+    image: system.heroImage,
     path: `/systems/${slug}`,
     ogType: "article"
   });
@@ -66,7 +67,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
     path: `/systems/${slug}`,
     datePublished: system.publishDate,
     dateModified: system.updatedAt ?? system.publishDate,
-    image: storyboard?.shareImage ?? system.heroImage,
+    image: system.heroImage,
   });
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", path: "/" },
@@ -96,7 +97,13 @@ export default async function SystemsDetailPage({ params }: PageProps) {
       {/* Header */}
       <header className="flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6">
         <div className="flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider">
-          <span>Systems</span> &bull; <span>{system.category}</span>
+          <span>Systems</span>
+          {coverKicker(slug) !== "SYSTEMS" && (
+            <>
+              <span>&bull;</span>
+              <span>{coverKicker(slug).replace("SYSTEMS · ", "")}</span>
+            </>
+          )}
           {system.readingTime && (
             <>
               <span>&bull;</span>
@@ -144,30 +151,19 @@ export default async function SystemsDetailPage({ params }: PageProps) {
         </div>
       </header>
 
-      {/* Hero Image. Intrinsic size is declared so the browser reserves the
-          space before the file loads, and it is fetched eagerly because it is
-          the largest element in the first viewport. */}
-      {system.heroImage && !storyboard && (
-        <figure className="w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]">
-          <img
-            src={system.heroImage}
-            alt={system.heroImageAlt ?? system.title}
-            width={1200}
-            height={675}
-            fetchPriority="high"
-            decoding="async"
-            className="w-full h-full object-cover"
-          />
-        </figure>
-      )}
+      {/* Cover. Drawn live from the same cast as the storyboards, so its
+          text stays text and it reads the same in either theme. The PNG of
+          the same drawing is only for link previews. */}
+      <figure className="m-0 w-full overflow-hidden rounded-sm border border-[#D9D4C6]">
+        <ArticleCover slug={slug} title={system.title} kicker={coverKicker(slug)} hero />
+      </figure>
 
       {/* Article -> storyboard. The storyboard is its own entity, linked
-          once, at the top. Where an article has one, its drawn cover takes the
-          hero slot: the template cover image is replaced, not stacked. */}
+          once, near the top, rather than repeated through the body. */}
       {storyboard && (
         <aside
           aria-label="Storyboard of this explanation"
-          className="grid grid-cols-[6.5rem_1fr] items-center gap-4 rounded-md border border-[color:var(--card-border)] border-l-[3px] border-l-[color:var(--accent-purple)] bg-[color:var(--card-bg)] p-4 sm:grid-cols-[11rem_1fr] sm:gap-7 sm:p-6"
+          className="grid grid-cols-[4.5rem_1fr] items-center gap-4 rounded-md border border-[color:var(--card-border)] border-l-[3px] border-l-[color:var(--accent-purple)] bg-[color:var(--card-bg)] p-4 sm:grid-cols-[6rem_1fr] sm:gap-5"
         >
           <Link
             href={`/storyboards/${storyboard.slug}/`}
@@ -186,11 +182,8 @@ export default async function SystemsDetailPage({ params }: PageProps) {
             <span className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--accent-cyan)]">
               Storyboard &middot; {storyboard.frames.length} frames
             </span>
-            <p className="m-0 font-heading text-lg font-bold leading-snug text-[color:var(--text-primary)] sm:text-2xl">
+            <p className="m-0 font-heading text-base font-bold leading-snug text-[color:var(--text-primary)] sm:text-lg">
               Prefer it drawn? This argument is also an illustrated storyboard.
-            </p>
-            <p className="m-0 hidden text-sm leading-relaxed text-[color:var(--text-secondary)] sm:block">
-              {storyboard.summary}
             </p>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-1 font-mono text-sm">
               <Link href={`/storyboards/${storyboard.slug}/`} className="font-semibold underline underline-offset-4">

@@ -106,7 +106,7 @@ export function conformFrontmatter(collection, data, slug, customDate) {
       tags,
       publishDate,
       updatedAt: toYmd(data.updatedAt) || publishDate,
-      heroImage: data.heroImage || `/covers/systems/${slug}.svg`,
+      heroImage: data.heroImage || `/covers/systems/${slug}.png`,
       heroImageAlt: data.heroImageAlt || `Cover illustration for ${data.title}`,
       proofPoints: Array.isArray(data.proofPoints) ? data.proofPoints : [],
       faq: Array.isArray(data.faq) ? data.faq : [],

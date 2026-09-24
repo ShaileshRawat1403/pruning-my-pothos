@@ -1,35 +1,21 @@
-import type { ComponentType } from "react";
-import {
-  GovernedCover,
-  GovernedPath,
-  GovernedFailures,
-  GovernedPermission,
-  GovernedUncertainty,
-  GovernedHandoff,
-  GovernedVerification,
-  GovernedFailureClasses,
-  GovernedClose,
-  type FrameProps,
-} from "./frames-governed-execution";
+import { DECKS } from "./decks";
+import type { FrameProps } from "./templates";
 
-/** Storyboard frames, keyed by the frame keys in lib/content/storyboards. */
-export const FRAMES: Record<string, ComponentType<FrameProps>> = {
-  "governed-cover": GovernedCover,
-  "governed-path": GovernedPath,
-  "governed-failures": GovernedFailures,
-  "governed-permission": GovernedPermission,
-  "governed-uncertainty": GovernedUncertainty,
-  "governed-handoff": GovernedHandoff,
-  "governed-verification": GovernedVerification,
-  "governed-failure-classes": GovernedFailureClasses,
-  "governed-close": GovernedClose,
-};
+const FRAMES = new Map(DECKS.flatMap((d) => d.frames.map((f) => [f.key, f.Render] as const)));
 
-/** Render one frame by key, failing the build loudly if it is not drawn. */
+if (FRAMES.size !== DECKS.reduce((n, d) => n + d.frames.length, 0)) {
+  throw new Error("Storyboard frame keys must be unique across all decks. Prefix each key with its deck's short name.");
+}
+
+/**
+ * Render one storyboard frame by key, failing the build loudly if it is not
+ * drawn. Frames are pure drawings with no hooks or state, so each is called as
+ * a plain function rather than chosen as a component during render.
+ */
 export function Frame({ frameKey, label, number, total }: { frameKey: string } & FrameProps) {
-  const Component = FRAMES[frameKey];
-  if (!Component) {
-    throw new Error(`Storyboard frame "${frameKey}" is declared but has no drawing in illustrations/registry.tsx`);
+  const draw = FRAMES.get(frameKey);
+  if (!draw) {
+    throw new Error(`Storyboard frame "${frameKey}" is declared but has no drawing.`);
   }
-  return <Component label={label} number={number} total={total} />;
+  return draw({ label, number, total });
 }

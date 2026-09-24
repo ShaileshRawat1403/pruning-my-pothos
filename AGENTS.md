@@ -15,3 +15,15 @@ Key rules for AI agents:
 3. **Trace consequential claims**: Every consequential claim must map to an assertion in the body and reference a declared source ID.
 4. **Immutable repository references**: Repository sources require an immutable 40-character git commit SHA (not mutable branches or tags).
 5. **Quality over formula**: No 800-word floors. No Act I/II/III headings. Structure derives from the idea.
+
+# Storyboards, covers and cards
+
+Storyboards (illustrated PDF explainers), article covers and the recurring cast
+are authored by one repeatable process:
+👉 [Storyboard and cover authoring](docs/STORYBOARD_AUTHORING.md)
+
+1. **One deck file per storyboard** in `src/components/illustrations/decks/`, built from the templates, registered in `decks/index.ts`.
+2. **Every Systems article has a cover** entry in `src/components/illustrations/covers.tsx`.
+3. **Export after drawing**: `npm run build && npm run export:storyboards`. The contract suite fails if a deck or cover has no exported file.
+4. **A drawing never claims more than its article.** Illustrative details stay illustrative.
+5. **Any card that is a link uses `SpotlightCard`.**

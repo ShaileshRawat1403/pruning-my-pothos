@@ -1,4 +1,4 @@
-import Link from "next/link";
+import SpotlightCard from "../SpotlightCard";
 import { allSystems } from "content-collections";
 
 // Three articles chosen because they cut across the map rather than sitting at
@@ -56,10 +56,7 @@ export default function SelectedSystems() {
         <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 list-none p-0 m-0">
           {selected.map((system) => (
             <li key={system._meta.path}>
-              <Link
-                href={`/systems/${system._meta.path}/`}
-                className="group flex h-full flex-col gap-3 p-6 rounded-lg bg-[color:var(--card-bg)] border border-[color:var(--card-border)] hover:border-[color:var(--text-primary)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--text-primary)]"
-              >
+              <SpotlightCard href={`/systems/${system._meta.path}/`} accent="var(--accent-purple)" className="gap-3">
                 <h3 className="font-heading text-lg font-bold text-[color:var(--text-primary)] leading-snug">
                   {system.title}
                 </h3>
@@ -69,7 +66,7 @@ export default function SelectedSystems() {
                 <span className="mt-auto pt-2 text-xs font-mono text-[color:var(--text-muted)] group-hover:text-[color:var(--text-primary)] transition-colors">
                   Read <span aria-hidden="true">&rarr;</span>
                 </span>
-              </Link>
+              </SpotlightCard>
             </li>
           ))}
         </ul>

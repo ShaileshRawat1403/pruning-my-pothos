@@ -867,6 +867,37 @@ async function runTests() {
     `Test 66: VisualBlock resolves provenance sources and renders inspectable URL, path, and commit ref context for evidence visuals`
   );
 
+  // Test 67: every registered storyboard deck belongs to a Systems article and
+  // ships its exported PDF and link preview. A deck without its files would
+  // render on the site with a dead download link. See docs/STORYBOARD_AUTHORING.md.
+  const decksIndex = await fs.readFile(path.resolve(ROOT, "src/components/illustrations/decks/index.ts"), "utf8");
+  const deckSlugs = [...decksIndex.matchAll(/from "\.\/([a-z0-9-]+)"/g)].map((m) => m[1]).filter((s) => s !== "types");
+  const deckProblems = [];
+  for (const slug of deckSlugs) {
+    if (!existsSync(path.resolve(ROOT, `src/content/systems/${slug}.mdx`))) deckProblems.push(`${slug}: no Systems article`);
+    if (!existsSync(path.resolve(ROOT, `public/storyboards/pdf/${slug}.pdf`))) deckProblems.push(`${slug}: no exported PDF`);
+    if (!existsSync(path.resolve(ROOT, `public/storyboards/og/${slug}.png`))) deckProblems.push(`${slug}: no exported share card`);
+  }
+  assert(
+    deckSlugs.length > 0 && deckProblems.length === 0,
+    `Test 67: every storyboard deck has an owning article, an exported PDF and a share card${deckProblems.length ? ` (${deckProblems.join("; ")})` : ""}`
+  );
+
+  // Test 68: every Systems article has a drawn cover entry and its exported PNG.
+  const coversSrc = await fs.readFile(path.resolve(ROOT, "src/components/illustrations/covers.tsx"), "utf8");
+  const coverKeys = new Set([...coversSrc.matchAll(/^  "([a-z0-9-]+)": \{/gm)].map((m) => m[1]));
+  const systemSlugs = (await fs.readdir(path.resolve(ROOT, "src/content/systems"))).filter((f) => f.endsWith(".mdx")).map((f) => f.replace(/\.mdx$/, ""));
+  const coverProblems = [];
+  for (const slug of systemSlugs) {
+    if (!coverKeys.has(slug)) coverProblems.push(`${slug}: no entry in covers.tsx`);
+    if (!existsSync(path.resolve(ROOT, `public/covers/systems/${slug}.png`))) coverProblems.push(`${slug}: no exported cover PNG`);
+  }
+  for (const key of coverKeys) if (!systemSlugs.includes(key)) coverProblems.push(`${key}: cover for an article that does not exist`);
+  assert(
+    coverProblems.length === 0,
+    `Test 68: every Systems article has a drawn cover and its exported PNG, and no cover is orphaned${coverProblems.length ? ` (${coverProblems.join("; ")})` : ""}`
+  );
+
   console.log(`\nRegression Suite Results: ${passed} passed, ${failed} failed.\n`);
   if (failed > 0) {
     process.exit(1);

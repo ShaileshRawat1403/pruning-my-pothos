@@ -56,7 +56,7 @@ export default function Header() {
                 key={label}
                 href={href}
                 aria-current={isCurrent ? "page" : undefined}
-                className={`transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--text-primary)] rounded px-1 ${
+                className={`transition-colors rounded px-1 ${
                   isCurrent
                     ? "text-[color:var(--text-primary)] font-semibold underline underline-offset-4 decoration-[color:var(--accent-green)]"
                     : "hover:text-[color:var(--text-primary)]"

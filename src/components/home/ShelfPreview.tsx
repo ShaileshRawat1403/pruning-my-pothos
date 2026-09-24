@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SpotlightCard from "../SpotlightCard";
 import { SHELF_CATEGORIES, getShelfCounts } from "../../lib/content/shelf";
 
 // Lightweight on purpose. The full browsing experience, with its own hero and
@@ -40,17 +41,14 @@ export default function ShelfPreview() {
             const count = counts[slug] ?? 0;
             return (
               <li key={category.path}>
-                <Link
-                  href={`${category.path}/`}
-                  className="flex h-full flex-col gap-1 p-4 rounded-lg bg-[color:var(--card-bg)] border border-[color:var(--card-border)] hover:border-[color:var(--text-primary)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--text-primary)]"
-                >
+                <SpotlightCard href={`${category.path}/`} accent="var(--accent-cyan)" compact className="gap-1">
                   <span className="text-sm font-semibold text-[color:var(--text-primary)] leading-snug">
                     {category.title}
                   </span>
                   <span className="text-[11px] font-mono text-[color:var(--text-muted)]">
                     {count} {count === 1 ? "entry" : "entries"}
                   </span>
-                </Link>
+                </SpotlightCard>
               </li>
             );
           })}
