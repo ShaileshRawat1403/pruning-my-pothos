@@ -73,6 +73,27 @@ related:
     title: "Human in the Loop Is a System Design Choice"
     href: /systems/human-in-the-loop-is-a-system-design-choice/
     note: "What a reserved human decision requires, when the release depends on one."
+
+visuals:
+  - id: ready-for-what
+    purpose: decision
+    renderAs: generated-decision
+    takeaway: "A system is not ready in general. It is ready, or not, for a particular exposure to a particular use."
+    caption: "Deployment means the software is running. Readiness is a different question."
+    alt: "A decision on whether a named exposure is justified by the evidence and controls in hand, with one branch where the exposure proceeds and one where it is narrowed or the evidence is gathered first."
+    evidenceRole: explanatory
+    data:
+      question: "Is this exposure, to these users doing this job, justified by the evidence in hand and the controls that limit what goes wrong?"
+      precondition: "An exposure named precisely: which users, doing what, with what riding on the result, and how far the output travels."
+      branches:
+        - id: justified
+          label: "Justified"
+          outcome: "This exposure proceeds, with the controls that limit what goes wrong still in place."
+          note: "Justified here does not make it justified for a wider exposure."
+        - id: not-justified
+          label: "Not justified"
+          outcome: "Narrow the exposure, or gather the evidence this one would need."
+          note: "A system can be justified for a narrow use and still be sitting undeployed."
 ---
 
 The demonstration went well. The build is green. It is deployed behind a flag. Someone asks whether it can go live, and the room agrees that it basically works.
@@ -98,6 +119,8 @@ So the first question is not whether to ship. It is what exposure is being reque
 The same system can be appropriate for a team reviewing its output internally and not appropriate for customers acting on it unsupervised. It can be appropriate where it advises and not where it acts. These are different exposures, and they are not rungs on a ladder that every system climbs. A workflow may stay internal permanently because that is where it belongs.
 
 Naming the exposure precisely is what converts an unanswerable question into one that has an answer.
+
+<!-- pmp:visual id="ready-for-what" -->
 
 ## What the demonstration established
 

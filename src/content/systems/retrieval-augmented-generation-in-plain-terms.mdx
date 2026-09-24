@@ -37,6 +37,35 @@ provenance:
       kind: synthesis
     - statement: "Two passages can be close in an embedding space and still answer different questions."
       kind: synthesis
+
+visuals:
+  - id: six-stages-to-a-grounded-answer
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Between a question and a grounded answer there are six stages, and one of them usually lost the evidence."
+    caption: "Not every system has all six as separate components; small ones collapse several into one search call."
+    alt: "A sequence of six stages between a question and a grounded answer: source material, preparation and indexing, retrieval, ranking and filtering, context assembly, and generation."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: source
+          label: "Source material"
+          note: "Documents, records, pages, tickets"
+        - id: indexing
+          label: "Preparation and indexing"
+          note: "If a document never made it in, nothing downstream can find it"
+        - id: retrieval
+          label: "Retrieval"
+          note: "Returns candidates, usually more than you will use"
+        - id: ranking
+          label: "Ranking and filtering"
+          note: "The candidates are ordered, and most are dropped"
+        - id: assembly
+          label: "Context assembly"
+          note: "What survives is placed into the input"
+        - id: generation
+          label: "Generation"
+          note: "An answer from what it was handed"
 ---
 
 A model's parameters are fixed once training ends, so anything private, recent or specific to your situation has to arrive some other way. Retrieval is that other way: fetch material when the request comes in, and put it into the input. The idea is simple. The failures are not, because they happen at several different points and look identical from the outside.
@@ -57,7 +86,11 @@ Between a question and a grounded answer there are usually six stages.
 
 **Generation.** The model produces an answer from what it was handed.
 
-Not every system has all six as separate components. Small ones collapse several into one search call. But the stages are worth separating in your head, because when the answer is wrong, exactly one of them usually lost the evidence.
+Not every system has all six as separate components.
+
+Small ones collapse several into one search call. But the stages are worth separating in your head, because when the answer is wrong, exactly one of them usually lost the evidence.
+
+<!-- pmp:visual id="six-stages-to-a-grounded-answer" -->
 
 ## Retrieval is not the same as context assembly
 

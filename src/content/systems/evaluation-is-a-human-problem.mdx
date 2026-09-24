@@ -51,6 +51,35 @@ related:
     title: "Designing Reusable AI Skills"
     href: /systems/designing-reusable-ai-skills/
     note: "Testing one packaged task, which is a narrower question than this page."
+
+visuals:
+  - id: what-each-check-establishes
+    purpose: evidence-map
+    renderAs: generated-evidence-map
+    takeaway: "Every cheaper check approximates a judgment someone made first."
+    caption: "Four ways to check, and what each one actually establishes."
+    alt: "An evidence map showing four checking methods supporting a judgment about whether behaviour met a written expectation: deterministic assertions and human review as direct support, heuristics and model-based graders as partial support."
+    evidenceRole: explanatory
+    data:
+      judgment: "Observed behaviour met the expectation that was written down before the run."
+      supports:
+        - id: assertions
+          label: "Deterministic assertions"
+          strength: direct
+          note: "Exact, cheap and narrow. They cannot tell you whether an answer is any good."
+        - id: heuristics
+          label: "Heuristics"
+          strength: partial
+          note: "No access to meaning, so a close paraphrase scores badly and a fluent restatement of the wrong fact can score well."
+        - id: graders
+          label: "Model-based graders"
+          strength: partial
+          note: "Doing the same probabilistic thing as the system under test, and it has to be compared against human labels before its scores mean anything."
+        - id: human
+          label: "Human review"
+          strength: direct
+          note: "The expensive one, and the one the other three are standing in for."
+      gap: "None of these says whether the expectation was the right one to write down. Somebody decided which property is under test, and that judgment does not disappear when it is automated."
 ---
 
 Someone asks whether the new version is better. Answering requires something that was supposed to exist before the change: a written account of what better would mean for this task. Without it the question can only be settled by impression, and impressions of fluent text are unreliable in a specific direction: fluency is easy to perceive and correctness is not.
@@ -83,6 +112,8 @@ Those fail in different ways, get checked by different means, and carry differen
 **Model-based graders.** A model scoring output against a rubric. It extends judgment to volumes nobody can read by hand, and it is doing the same probabilistic thing as the system under test. Three consequences follow. A grader that returns a score without a reason gives you a number you cannot audit. Graders can reward confident, well-formed writing, which may be a property the rubric never asked for. And a grader has to be compared against human labels before its scores mean anything, which makes the grader a component you also have to evaluate.
 
 **Human review.** The expensive one, and the one the other three are standing in for. **Every cheaper check approximates a judgment someone made first.** An assertion about citations encodes a decision about what counts as supported. A rubric row encodes a decision about what counts as the right tone. The judgment does not disappear when it is automated. It gets fixed at the moment it was encoded, and revisiting it becomes separate work that nothing prompts.
+
+<!-- pmp:visual id="what-each-check-establishes" -->
 
 ## Rubrics
 

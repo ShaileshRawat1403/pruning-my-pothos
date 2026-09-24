@@ -114,14 +114,25 @@ export function Crossing({ label }: { label: string }) {
  * arrow always agrees with the direction the composition actually reads.
  * aria-hidden: order is already carried by the DOM and by `<ol>` semantics.
  */
-export function FlowArrow() {
+export function FlowArrow({
+  horizontalFromLg = true,
+}: {
+  /** False when the caller stays vertical at every width, so the arrow does. */
+  horizontalFromLg?: boolean;
+}) {
   return (
     <div
       aria-hidden="true"
       className="flex items-center justify-center text-lg leading-none text-[color:var(--text-muted)]"
     >
-      <span className="lg:hidden">&darr;</span>
-      <span className="hidden lg:inline">&rarr;</span>
+      {horizontalFromLg ? (
+        <>
+          <span className="lg:hidden">&darr;</span>
+          <span className="hidden lg:inline">&rarr;</span>
+        </>
+      ) : (
+        <span>&darr;</span>
+      )}
     </div>
   );
 }

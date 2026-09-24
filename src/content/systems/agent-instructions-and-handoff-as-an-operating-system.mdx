@@ -74,6 +74,35 @@ related:
     title: "AI Agents vs AI Workflows"
     href: /systems/ai-agents-vs-ai-workflows/
     note: "Who chooses the next step, which is a different question from what it continues from."
+
+visuals:
+  - id: what-crosses-the-handoff
+    purpose: state-change
+    renderAs: generated-state-change
+    takeaway: "A transcript recovers the sequence. Continuity has to say which statement still governs."
+    caption: "Length is not the defect. Ambiguity about what is current is the defect."
+    alt: "A state change across a handoff boundary, contrasting a record of what happened with a representation of what is currently true, and listing what has to cross the boundary and what a transcript alone does not carry."
+    evidenceRole: explanatory
+    data:
+      boundary: "Work stops, and something else picks it up"
+      before:
+        label: "A record of what happened"
+        items:
+          - "Every moment, in the order it occurred"
+          - "Reading it end to end recovers the sequence"
+      after:
+        label: "A representation of what is currently true"
+        items:
+          - "Says where the work stands"
+          - "Names who owns the next action"
+      preserved:
+        - "The task and its status"
+        - "Decisions that have been accepted"
+        - "Constraints still in force"
+        - "Anything unresolved that blocks progress"
+      lost:
+        - "Which of several past decisions still governs, unless something marks it"
+        - "The position, which the sequence alone does not give"
 ---
 
 Work stops. A session ends, a person hands over, a runtime restarts, a task moves from an automated step to someone reviewing it. Then it starts again, and whatever picks it up has to work out where things stand.
@@ -89,6 +118,8 @@ A representation of what is currently true answers *where things stand*.
 A handoff answers *who owns the next step*.
 
 The same file, log or database may serve all three. They are still different jobs, and an artifact that does one well is not automatically doing the others. The clearest way to hold the distinction is by direction in time. **Replay reconstructs a past execution from what was recorded. Continuity preserves enough current truth for work to continue from here.**
+
+<!-- pmp:visual id="what-crosses-the-handoff" -->
 
 ## State is not the transcript
 

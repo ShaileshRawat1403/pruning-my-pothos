@@ -65,6 +65,27 @@ provenance:
       kind: synthesis
     - statement: "A review step is weak when refusing has no implemented consequence."
       kind: synthesis
+
+visuals:
+  - id: present-approval-judgment
+    purpose: layers
+    renderAs: generated-layers
+    takeaway: "Only the top layer is oversight. The two beneath it are frequently mistaken for it."
+    caption: "From an architecture diagram all three look identical."
+    alt: "Three layers of human involvement. A person is present at the base, the workflow requires their approval above it, and the person being able to judge sits at the top as the only one that constitutes oversight."
+    evidenceRole: explanatory
+    data:
+      layers:
+        - id: judge
+          label: "The person can judge"
+          note: "The decision is still open, they have what the decision requires, and something other than yes is available"
+          highlighted: true
+        - id: approval
+          label: "The workflow requires their approval"
+          note: "A real constraint, and still only a constraint on sequence"
+        - id: present
+          label: "A person is present"
+          note: "Says nothing on its own; they may be receiving a notification after the fact"
 ---
 
 Somewhere in most AI workflows there is a screen with an Approve button. Its presence is usually cited as the reason the system is under control.
@@ -81,7 +102,11 @@ Sometimes it is. Often the person pressing it has no way to tell whether they sh
 
 **The person can judge.** They have what they need to evaluate the specific thing being asked, and something other than yes is available to them.
 
-Only the third is oversight in any useful sense. The first two are frequently mistaken for it, usually in good faith, because from an architecture diagram they look identical.
+Only the third is oversight in any useful sense.
+
+The first two are frequently mistaken for it, usually in good faith, because from an architecture diagram they look identical.
+
+<!-- pmp:visual id="present-approval-judgment" -->
 
 ## Is the decision still open?
 

@@ -37,6 +37,29 @@ provenance:
       kind: synthesis
     - statement: "The skill is reading the gap between what you asked for and what came back."
       kind: synthesis
+
+visuals:
+  - id: instruction-and-contract
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "An instruction shapes what is likely. A contract gives software something it can reject."
+    caption: "Both are useful. The difference is where a failure gets caught."
+    alt: "A comparison between an instruction, which expresses intent, constraints, examples and a requested shape while narrowing the field without closing it, and a contract, which gives software a requirement it can check and a point at which a failure is caught."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "An instruction"
+        items:
+          - "Expresses intent, constraints, examples, requested shape"
+          - "Narrows the field of likely responses"
+          - "No separate step afterwards verifies the output satisfied it"
+      after:
+        label: "A contract"
+        items:
+          - "Gives software a requirement it can check"
+          - "Catches the failure at a point you chose"
+          - "Says nothing about whether the meaning is right"
+      diffNote: "The difference is where a failure gets caught, not which one is better."
 ---
 
 Write "always respond in JSON" in capitals, add "this is very important", and most of the time you will get JSON. Occasionally you will not. Nothing about the emphasis changed what the system does when the output is wrong, because nothing was checking.
@@ -72,6 +95,8 @@ The model produces a likely continuation given everything in its input, and your
 This is why adding force to the wording has diminishing returns. "Always" and "never" and "you must" are more input, and more input is not a check.
 
 **A prompt tells the model what you want. A contract gives software something it can check.**
+
+<!-- pmp:visual id="instruction-and-contract" -->
 
 The difference is where a failure gets caught. An instruction alone does not create a check, so if nothing else validates the requirement, the failure can surface downstream. A validator catches it at a point you chose.
 
