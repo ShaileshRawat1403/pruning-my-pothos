@@ -2,7 +2,7 @@
 schemaVersion: "1.0"
 title: "From Agent Intent to Governed Execution"
 publishDate: "2026-03-05"
-updatedAt: "2026-09-20"
+updatedAt: "2026-09-24"
 description: "What has to happen between a model asking for an action and that action changing something real, and which layer owns each failure."
 category: "How-things-fit-together"
 heroImage: '/covers/systems/from-agent-intent-to-governed-execution.svg'
@@ -61,11 +61,61 @@ visuals:
         - id: verify
           label: "Verify"
           note: "Whether the thing you wanted is now true"
+  - id: storybook-cast
+    purpose: sequence
+    renderAs: illustration
+    illustration: governed-cast
+    takeaway: "The Model asks, the Gate decides, the Tool does, and the Record remembers."
+    caption: "The cast of this page, in the order they act."
+    alt: "A speech bubble with legs asking for a forty dollar refund, a bespectacled clerk behind a counter, a courier holding a 200 OK receipt, and an open ledger, joined by arrows labelled asks, decides, does and remembers."
+    evidenceRole: explanatory
+  - id: storybook-permission
+    purpose: comparison
+    renderAs: illustration
+    illustration: governed-permission
+    takeaway: "Being logged in answers who is asking, not whether this may run."
+    caption: "Authentication is a real answer to a different question."
+    alt: "The Model holds up a badge reading logged in. The clerk behind the counter replies: Lovely. That's not what I asked."
+    evidenceRole: explanatory
+  - id: storybook-uncertainty
+    purpose: decision
+    renderAs: illustration
+    illustration: governed-uncertainty
+    takeaway: "Uncertainty has four useful answers, and each one leaves something different behind."
+    caption: "Allow, ask, deny and defer, with what each leaves behind."
+    alt: "A four-position dial with its needle on ask. Allow leaves a receipt, ask leaves a question and the reason, deny leaves a reason code, and defer leaves a handoff note."
+    evidenceRole: explanatory
+  - id: storybook-verification
+    purpose: state-change
+    renderAs: illustration
+    illustration: governed-verification
+    takeaway: "A successful response is not proof that the state you wanted has changed."
+    caption: "The courier reports done. The ledger still shows the old balance."
+    alt: "A grinning courier holds up a 200 OK receipt and says all done. Beside him an open ledger shows the balance was 120 dollars and is now 120 dollars, under a magnifying glass. A note asks: is it, though?"
+    evidenceRole: explanatory
+  - id: storybook-failure-classes
+    purpose: comparison
+    renderAs: illustration
+    illustration: governed-failure-classes
+    takeaway: "Named failure classes each point somewhere different; one bin labelled it broke points nowhere."
+    caption: "Five trays instead of one bin."
+    alt: "A single bin labelled it broke, crossed out, beside five labelled trays: policy denied it, the tool errored, verification failed, evidence was missing, and over time or budget, each with what to do next."
+    evidenceRole: explanatory
+  - id: storybook-close
+    purpose: boundary
+    renderAs: illustration
+    illustration: governed-close
+    takeaway: "Variation stays upstream of the checks; the decisions about effects stop inheriting it."
+    caption: "Same rules, same answer, every time."
+    alt: "Rain falls on the Model, which asks for forty dollars, or perhaps forty-one. The clerk stands between it and an umbrella that keeps the ledger dry, with the note same answer, every time."
+    evidenceRole: explanatory
 ---
 
 A model asks to issue a refund. Somewhere between that request and money moving, a series of decisions happens. In many systems those decisions are implicit, which means they are being made by whichever code happens to run first.
 
 This page is about making them explicit, because each one fails in a different way and needs a different fix.
+
+<!-- pmp:visual id="storybook-cast" -->
 
 ## The path
 
@@ -87,6 +137,8 @@ That is a sequence, not an architecture. Small systems collapse it into a few li
 
 ## Permission is its own question
 
+<!-- pmp:visual id="storybook-permission" -->
+
 **Authorization asks whether an operation is permitted, which is a different question from whether the request is well-formed.**
 
 This gets confused with four other things routinely:
@@ -99,6 +151,8 @@ This gets confused with four other things routinely:
 In practice this layer answers questions with concrete answers: is this tool available to this caller, is this resource inside the scope they were granted, does the amount exceed a threshold that requires something extra. Keep those rules in code you can read, separate from the instruction text, because a rule inside a prompt is a request and a rule in the authorization layer is a check.
 
 ## When the answer is not obvious
+
+<!-- pmp:visual id="storybook-uncertainty" -->
 
 Sometimes the system cannot tell whether an action should proceed. Treating that as a binary produces bad outcomes at both ends: block everything useful, or let everything through.
 
@@ -119,6 +173,8 @@ When the answer is that a person should decide, this page hands over. Who review
 
 ## The tool returned success
 
+<!-- pmp:visual id="storybook-verification" -->
+
 **A successful tool call is not proof that the intended effect occurred.**
 
 An API can return 200 while the record it was supposed to update is unchanged, or updated in a way that gets rejected downstream a moment later. A file write can succeed to the wrong path. A message can send to an address that bounces.
@@ -128,6 +184,8 @@ So verification is a separate step. A successful response establishes what the i
 This is the difference between a step that reports done and a step that shows done. Completion should be evidenced rather than stated, and the gap between those two is where a surprising number of confident, wrong systems live.
 
 ## Classifying what went wrong
+
+<!-- pmp:visual id="storybook-failure-classes" -->
 
 Once the path is explicit, failures stop being one undifferentiated category. They fall out as:
 
@@ -142,6 +200,8 @@ Each leads somewhere different. A denial might mean the policy is too broad or c
 Keeping a record of each decision is what makes this possible, and what belongs in that record over time is [observability](/systems/observability-first-ai-systems/). This page only claims the narrower thing: you cannot classify a failure at a boundary you never made explicit.
 
 ## What stays probabilistic
+
+<!-- pmp:visual id="storybook-close" -->
 
 None of this makes the system deterministic. The model still varies, and a policy check does not change that.
 

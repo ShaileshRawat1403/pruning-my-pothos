@@ -61,6 +61,9 @@ export function getStoryboardEntries(): StoryboardEntry[] {
     if (!Array.isArray(system.visuals) || system.visuals.length === 0) continue;
 
     for (const visual of system.visuals as Visual[]) {
+      // Chapter plates belong to their article and its walkthrough. They are
+      // not standalone diagrams, so they do not appear in the diagram library.
+      if (visual.renderAs === "illustration") continue;
       entries.push({
         slug: system._meta.path,
         articleTitle: system.title,

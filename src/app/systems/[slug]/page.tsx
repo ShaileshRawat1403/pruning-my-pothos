@@ -7,6 +7,8 @@ import { getArticleSchema, getBreadcrumbSchema, getFaqSchema } from "../../../li
 import { renderArticleSegments } from "../../../lib/visual-segments";
 import type { Visual } from "../../../lib/visual-types";
 import VisualBlock from "../../../components/visuals/VisualBlock";
+import { getWalkthrough } from "../../../lib/content/walkthroughs";
+import { Frame } from "../../../components/illustrations/registry";
 import { slugifyTag } from "../../../lib/tags";
 import ExplainerFigure from "../../../components/explainer/ExplainerFigure";
 import {
@@ -50,6 +52,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
     return notFound();
   }
 
+  const walkthrough = getWalkthrough(slug);
   const faqs = system.faq ?? [];
   const proofPoints = system.proofPoints ?? [];
 
@@ -143,7 +146,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
       {/* Hero Image. Intrinsic size is declared so the browser reserves the
           space before the file loads, and it is fetched eagerly because it is
           the largest element in the first viewport. */}
-      {system.heroImage && (
+      {system.heroImage && !walkthrough && (
         <figure className="w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]">
           <img
             src={system.heroImage}
@@ -156,6 +159,54 @@ export default async function SystemsDetailPage({ params }: PageProps) {
           />
         </figure>
       )}
+
+      {/* Article -> walkthrough. Where an article has an illustrated
+          walkthrough, its drawn cover takes the hero slot: the template cover
+          image is replaced, not stacked. Offered once, at the top; the chapter
+          plates below already carry the cast. */}
+      {walkthrough && (
+        <aside
+          aria-label="Illustrated walkthrough of this explanation"
+          className="grid grid-cols-[6.5rem_1fr] items-center gap-4 rounded-md border border-[color:var(--card-border)] border-l-[3px] border-l-[color:var(--accent-purple)] bg-[color:var(--card-bg)] p-4 sm:grid-cols-[11rem_1fr] sm:gap-7 sm:p-6"
+        >
+          <Link
+            href={`/storyboards/${walkthrough.slug}/`}
+            tabIndex={-1}
+            aria-hidden="true"
+            className="block overflow-hidden rounded-sm border border-[#D9D4C6]"
+          >
+            <Frame
+              frameKey={walkthrough.frames[0].key}
+              label={walkthrough.frames[0].title}
+              number={1}
+              total={walkthrough.frames.length}
+            />
+          </Link>
+          <div className="flex flex-col gap-2">
+            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--accent-cyan)]">
+              Walkthrough &middot; {walkthrough.frames.length} frames
+            </span>
+            <p className="m-0 font-heading text-lg font-bold leading-snug text-[color:var(--text-primary)] sm:text-2xl">
+              Prefer it drawn? This argument is also an illustrated walkthrough.
+            </p>
+            <p className="m-0 hidden text-sm leading-relaxed text-[color:var(--text-secondary)] sm:block">
+              {walkthrough.summary}
+            </p>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-1 font-mono text-sm">
+              <Link href={`/storyboards/${walkthrough.slug}/`} className="font-semibold underline underline-offset-4">
+                Open the walkthrough &rarr;
+              </Link>
+              <a
+                href={walkthrough.pdf}
+                className="text-[color:var(--text-secondary)] underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)]"
+              >
+                Download PDF
+              </a>
+            </div>
+          </div>
+        </aside>
+      )}
+
 
       {/* Slot 04 — the retrieval unit. Above the prose on purpose. */}
       {system.shortAnswer && <AnswerBlock>{system.shortAnswer}</AnswerBlock>}

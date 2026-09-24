@@ -8,6 +8,7 @@ import DecisionVisual from "./DecisionVisual";
 import EvidenceMapVisual from "./EvidenceMapVisual";
 import StateChangeVisual from "./StateChangeVisual";
 import AssetVisual from "./AssetVisual";
+import IllustrationVisual from "./IllustrationVisual";
 
 interface VisualBlockProps {
   visual: Visual;
@@ -44,6 +45,8 @@ export default function VisualBlock({
         return <StateChangeVisual visual={visual} />;
       case "asset":
         return <AssetVisual visual={visual} />;
+      case "illustration":
+        return <IllustrationVisual visual={visual} />;
       default:
         return null;
     }

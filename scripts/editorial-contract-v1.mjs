@@ -211,7 +211,23 @@ export const VISUAL_RENDER_MODES = [
   "generated-evidence-map",
   "generated-state-change",
   "asset",
+  "illustration",
 ];
+
+/**
+ * Storybook plates: hand-composed illustrations drawn from the recurring cast
+ * in src/components/illustrations/. The key names a registered plate, so an
+ * article cannot point at a drawing that does not exist; the registry is typed
+ * against this list, so a plate cannot be registered without appearing here.
+ */
+export const ILLUSTRATION_KEYS = /** @type {const} */ ([
+  "governed-cast",
+  "governed-permission",
+  "governed-uncertainty",
+  "governed-verification",
+  "governed-failure-classes",
+  "governed-close",
+]);
 
 const baseVisualFields = {
   id: z.string().regex(/^[a-z0-9-]+$/, "Visual ID must be kebab-case"),
@@ -396,6 +412,12 @@ export const assetVisualSchema = z.object({
     .optional(),
 });
 
+export const illustrationVisualSchema = z.object({
+  ...baseVisualFields,
+  renderAs: z.literal("illustration"),
+  illustration: z.enum(ILLUSTRATION_KEYS),
+});
+
 export const rawVisualSchema = z.discriminatedUnion("renderAs", [
   generatedSequenceVisualSchema,
   generatedLayersVisualSchema,
@@ -405,6 +427,7 @@ export const rawVisualSchema = z.discriminatedUnion("renderAs", [
   generatedEvidenceMapVisualSchema,
   generatedStateChangeVisualSchema,
   assetVisualSchema,
+  illustrationVisualSchema,
 ]);
 
 export const visualSchema = refineVisualEvidence(rawVisualSchema);

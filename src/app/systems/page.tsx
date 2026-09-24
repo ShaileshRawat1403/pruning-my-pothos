@@ -6,6 +6,7 @@ import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 import { getSystemsMap } from "../../lib/content/systems-map";
 import { getStoryboardEntries } from "../../lib/content/storyboards";
+import { getWalkthroughs } from "../../lib/content/walkthroughs";
 
 const BOOLE_LINES = [
   "I took the laws of thought and wrote them as sums. Everything you click still obeys them.",
@@ -32,6 +33,7 @@ export default function SystemsIndexPage() {
   // Which articles carry a visual, so a stage can offer its storyboard and the
   // rest of the library can say where a visual exists. Derived, not declared.
   const storyboards = getStoryboardEntries();
+  const walkthroughSlugs = new Set(getWalkthroughs().map((w) => w.slug));
   const firstVisualBySlug = new Map<string, string>();
   for (const entry of storyboards) {
     if (!firstVisualBySlug.has(entry.slug)) {
@@ -132,6 +134,14 @@ export default function SystemsIndexPage() {
                           className="text-[color:var(--text-muted)] underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)] transition-colors"
                         >
                           See the storyboard
+                        </Link>
+                      )}
+                      {walkthroughSlugs.has(stage.slug) && (
+                        <Link
+                          href={`/storyboards/${stage.slug}/`}
+                          className="text-[color:var(--accent-cyan)] underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)] transition-colors"
+                        >
+                          Illustrated walkthrough
                         </Link>
                       )}
                     </div>

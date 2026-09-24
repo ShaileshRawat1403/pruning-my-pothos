@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500;700&display=swap');
 @import './explainer.css';
 
 @import "tailwindcss";
@@ -980,3 +980,14 @@ h1, h2, h3, h4, h5 {
 /* ── Legacy hooks kept harmless ── */
 .glow-orb { display: none; }
 .hacker-crt-green, .hacker-crt-blue { font-family: var(--font-mono); }
+
+/* ══ Storybook illustrations ══
+   Plates and walkthrough frames are drawn on their own paper and do not
+   re-theme: like plates bound into a book, they read the same in light and
+   dark, which is what lets one drawing serve the article, the walkthrough
+   and the PDF. Only the type families come from here. Caveat is confined to
+   dialogue and marginal notes inside illustrations. */
+.ill-hand { font-family: 'Caveat', 'Comic Sans MS', cursive; }
+.ill-mono { font-family: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace; }
+.ill-sans { font-family: 'Schibsted Grotesk', 'Helvetica Neue', Helvetica, sans-serif; }
+.ill-svg { display: block; width: 100%; height: auto; }

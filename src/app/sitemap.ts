@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { allSystems, allSentences, allSelves, allShelves } from "content-collections";
 import { SITE_CONFIG } from "../lib/seo/site";
 import { slugifyTag } from "../lib/tags";
+import { getWalkthroughs } from "../lib/content/walkthroughs";
 
 export const dynamic = "force-static";
 
@@ -71,6 +72,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: knownDate(item.updatedAt, item.publishDate),
   }));
 
+  // Walkthrough viewers only. Their /print/ PDF sources stay out on purpose.
+  const walkthroughRoutes = getWalkthroughs().map((w) => ({
+    url: `${SITE_CONFIG.url}/storyboards/${w.slug}/`,
+  }));
+
   const sentenceRoutes = allSentences.map((item) => ({
     url: `${SITE_CONFIG.url}/sentences/${item._meta.path}/`,
   }));
@@ -104,6 +110,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticRoutes,
     ...systemRoutes,
+    ...walkthroughRoutes,
     ...sentenceRoutes,
     ...selfRoutes,
     ...shelfRoutes,
