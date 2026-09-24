@@ -3,7 +3,7 @@ import type { Deck } from "./types";
 import type { FrameProps } from "../templates";
 import { CoverTemplate, StepsTemplate, SceneTemplate, ContrastTemplate, CloseTemplate } from "../templates";
 import { C, Model, Hand, Arrow } from "../kit";
-import { Doc, Lens, Ranking, Stamp } from "../props";
+import { Doc, Lens, Stamp } from "../props";
 
 const SLUG = "retrieval-augmented-generation-in-plain-terms";
 const STAGE = "SYSTEMS · STAGE 02";
@@ -13,29 +13,10 @@ function Cover(p: FrameProps) {
     <CoverTemplate
       {...p}
       chapter={STAGE}
-      titleLines={["Retrieval", "in plain", "terms"]}
-      hero={<Model x={640} y={196} s={1.5} lines={["what does", "the doc say?"]} />}
-      heroLabel="THE MODEL"
-      heroQuip={["only sees what", "it's handed."]}
-      strip={
-        <g>
-          <Doc x={104} y={716} w={110} h={140} />
-          <Doc x={96} y={728} w={110} h={140} />
-          <Doc x={88} y={740} w={110} h={140} />
-          <Arrow x1={226} x2={318} y={806} verb="find" verbY={786} />
-          <Lens x={396} y={800} r={46} />
-          <Arrow x1={488} x2={574} y={806} verb="sort" verbY={786} />
-          <Ranking x={594} y={764} s={1.3} highlight={0} />
-          <Arrow x1={752} x2={822} y={806} verb="hand over" verbY={776} />
-          <Model x={836} y={712} s={0.6} lines={["", ""]} />
-          <text className="ill-mono" fontSize={17} letterSpacing={2} fill={C.muted} textAnchor="middle">
-            <tspan x={150} y={936}>SOURCE</tspan>
-            <tspan x={400} y={936}>SEARCH</tspan>
-            <tspan x={660} y={936}>RANK</tspan>
-            <tspan x={902} y={936}>INPUT</tspan>
-          </text>
-        </g>
-      }
+      slug={SLUG}
+      layout="stage"
+      titleLines={["Retrieval in", "plain terms"]}
+      quip={["it only sees", "what it's handed."]}
       summary="Retrieval fetches material when a question comes in and puts it into the model's input. Finding it and handing it over are separate steps, and either can drop the evidence."
     />
   );
@@ -198,7 +179,7 @@ export const deck: Deck = {
     {
       key: "rag-cover",
       title: "Retrieval in plain terms",
-      text: "The Model asks what the document says; it only sees what it is handed. Material goes from the source, through a search that finds candidates, through a ranking that sorts them, into the model's input. Finding it and handing it over are separate steps, and either can drop the evidence.",
+      text: "A door marked INPUT with a letterbox. One page is going through the slot; another lies on the doormat, found and dropped. The model only sees what it is handed. Finding it and handing it over are separate steps, and either can drop the evidence.",
       Render: Cover,
     },
     {

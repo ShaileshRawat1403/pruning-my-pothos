@@ -1,17 +1,19 @@
 import React from "react";
-import { C, Model, Gate, Courier, Ledger, Hand, Para, Arrow } from "./kit";
+import { C, Para } from "./kit";
+import { Emblem } from "./emblems";
 
 export const SHARE_W = 1200;
 export const SHARE_H = 630;
 
 /**
  * The 1200 x 630 link-preview card for a storyboard and its article: what
- * LinkedIn, X or Slack show when the link is shared. Same cast, same paper,
- * so the preview promises exactly what the page delivers. Exported to PNG by
+ * LinkedIn, X or Slack show when the link is shared. It carries the article's
+ * emblem, the same drawing as the storyboard's first frame, so the preview
+ * promises exactly what the page delivers. Exported to PNG by
  * scripts/export-storyboards.mjs, because social platforms do not render
  * SVG previews.
  */
-export function ShareCard({ title, frames, label }: { title: string; frames: number; label: string }) {
+export function ShareCard({ slug, title, frames, label }: { slug: string; title: string; frames: number; label: string }) {
   return (
     <svg viewBox={`0 0 ${SHARE_W} ${SHARE_H}`} className="ill-svg" role="img" aria-label={label}>
       <rect width={SHARE_W} height={SHARE_H} fill={C.paper} />
@@ -26,12 +28,7 @@ export function ShareCard({ title, frames, label }: { title: string; frames: num
         PRUNINGMYPOTHOS.COM · SYSTEMS
       </text>
 
-      <Model x={712} y={52} s={1.15} />
-      <Hand x={842} y={318} size={36} color={C.accent} anchor="middle">can only ask.</Hand>
-      <Gate x={626} y={392} s={0.66} counter="" />
-      <Arrow x1={798} x2={838} y={500} />
-      <Courier x={846} y={420} s={0.7} />
-      <Ledger x={1020} y={468} s={0.45} was="$120" now="$80" />
+      <Emblem slug={slug} x={660} y={44} />
     </svg>
   );
 }

@@ -13,20 +13,10 @@ function Cover(p: FrameProps) {
     <CoverTemplate
       {...p}
       chapter={STAGE}
-      titleLines={["When is an", "AI system", "ready for", "real use?"]}
-      hero={<Model x={640} y={196} s={1.5} lines={["can I go", "live now?"]} />}
-      heroLabel="THE SYSTEM"
-      heroQuip={["ready for what,", "exactly?"]}
-      strip={
-        <g>
-          <Slip x={90} y={726} w={250} h={84} text="tested ✓" hand size={36} color={C.muted} rotate={-4} />
-          <Slip x={410} y={736} w={270} h={84} text="approved ✓" hand size={36} color={C.muted} rotate={3} />
-          <Slip x={740} y={726} w={250} h={84} text="deployed ✓" hand size={36} color={C.muted} rotate={-3} />
-          <Hand x={540} y={900} size={36} color={C.accent} anchor="middle">
-            none of these is the answer
-          </Hand>
-        </g>
-      }
+      slug={SLUG}
+      layout="stage"
+      titleLines={["When is an AI", "system ready", "for real use?"]}
+      quip={["ready for what,", "exactly?"]}
       summary="Deployment means it's running. Readiness means the evidence and controls justify this exposure: these users, doing this job, with these consequences when it's wrong."
     />
   );
@@ -205,7 +195,7 @@ export const deck: Deck = {
     {
       key: "ready-cover",
       title: "When is an AI system ready for real use?",
-      text: "The system asks: can I go live now? Ready for what, exactly? Tested, approved and deployed are each worth something, and none of them is the answer. Readiness means the evidence and controls justify this exposure: these users, doing this job, with these consequences when it is wrong.",
+      text: "A small bridge with a sign reading tested with: bicycles, and a lorry marked PROD driving onto it. Ready for what, exactly? Tested, approved and deployed are each worth something, and none of them is the answer. Readiness means the evidence and controls justify this exposure: these users, doing this job, with these consequences when it is wrong.",
       Render: Cover,
     },
     {

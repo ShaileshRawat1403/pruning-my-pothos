@@ -151,7 +151,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
         </div>
       </header>
 
-      {/* Cover. Drawn live from the same cast as the storyboards, so its
+      {/* Cover. Drawn live from the article's emblem (the same drawing as its storyboard cover), so its
           text stays text and it reads the same in either theme. The PNG of
           the same drawing is only for link previews. */}
       <figure className="m-0 w-full overflow-hidden rounded-sm border border-[#D9D4C6]">

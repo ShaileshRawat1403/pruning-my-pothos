@@ -40,7 +40,7 @@ export default async function StoryboardSharePage({ params }: PageProps) {
   return (
     <div id="storyboard-share">
       <style dangerouslySetInnerHTML={{ __html: SHARE_CSS }} />
-      <ShareCard title={w.title} frames={w.frames.length} label={`${w.title}: a storyboard`} />
+      <ShareCard slug={slug} title={w.title} frames={w.frames.length} label={`${w.title}: a storyboard`} />
     </div>
   );
 }

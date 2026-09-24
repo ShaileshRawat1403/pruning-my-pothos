@@ -922,6 +922,18 @@ async function runTests() {
     `Test 69: no em dashes in reader-facing content, pages, components, storyboards or covers${uniqueDashHits.length ? ` (found: ${uniqueDashHits.slice(0, 8).join("; ")})` : ""}`
   );
 
+  // Test 70: the house style repeats, the subjects don't. Every covered
+  // article has its own emblem, and the recurring cast stays out of emblems
+  // except where a character genuinely is the idea (at most two).
+  const emblemSrc = await fs.readFile(path.resolve(ROOT, "src/components/illustrations/emblems.tsx"), "utf8");
+  const emblemKeys = new Set([...emblemSrc.matchAll(/^  "([a-z0-9-]+)": \(/gm)].map((m) => m[1]));
+  const missingEmblems = [...coverKeys].filter((k) => !emblemKeys.has(k));
+  const castUses = [...emblemSrc.matchAll(/<(Model|Gate|Courier|Ledger|Person)\b/g)].length;
+  assert(
+    missingEmblems.length === 0 && castUses <= 2,
+    `Test 70: every cover has its own emblem and the cast appears in at most two${missingEmblems.length ? ` (no emblem: ${missingEmblems.join(", ")})` : ""}${castUses > 2 ? ` (cast used ${castUses} times)` : ""}`
+  );
+
   console.log(`\nRegression Suite Results: ${passed} passed, ${failed} failed.\n`);
   if (failed > 0) {
     process.exit(1);

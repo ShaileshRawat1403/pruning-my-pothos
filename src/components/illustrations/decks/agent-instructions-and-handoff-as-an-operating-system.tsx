@@ -3,7 +3,7 @@ import type { Deck } from "./types";
 import type { FrameProps } from "../templates";
 import { CoverTemplate, StepsTemplate, SceneTemplate, ContrastTemplate, CloseTemplate } from "../templates";
 import { C, Person, Hand, Arrow, Strike } from "../kit";
-import { Folder, Sticky, Scroll, Doc, Slip, Checklist } from "../props";
+import { Sticky, Scroll, Doc, Slip, Checklist } from "../props";
 
 const SLUG = "agent-instructions-and-handoff-as-an-operating-system";
 const STAGE = "SYSTEMS · STAGE 07";
@@ -13,15 +13,9 @@ function Cover(p: FrameProps) {
     <CoverTemplate
       {...p}
       chapter={STAGE}
+      slug={SLUG}
       titleLines={["What has to", "survive for", "work to", "continue"]}
-      hero={
-        <g>
-          <Folder x={640} y={236} s={1.3} label="NOW" />
-          <Sticky x={820} y={386} w={180} h={116} size={28} rotate={6} lines={["next step:", "yours"]} />
-        </g>
-      }
-      heroLabel="THE HANDOFF"
-      heroQuip={["where it stands,", "not how it got here."]}
+      quip={["where it stands,", "not how it got here."]}
       strip={
         <g>
           <Scroll x={86} y={680} w={560} size={34} lines={["use Postgres", "no, SQLite", "fine, Postgres after all"]} />
@@ -196,7 +190,7 @@ export const deck: Deck = {
     {
       key: "handoff-cover",
       title: "What has to survive for work to continue",
-      text: "A folder marked NOW with a note saying next step: yours. Where things stand, not how they got here. A transcript reads: use Postgres, no, SQLite, fine, Postgres after all. Which one still stands? Continuing work needs current truth and an owner for the next step.",
+      text: "A relay baton with a tag taped to it: now, Postgres; next, yours. No replay of the race, just the baton and the note. Where things stand, not how they got here. A transcript reads: use Postgres, no, SQLite, fine, Postgres after all. Which one still stands? Continuing work needs current truth and an owner for the next step.",
       Render: Cover,
     },
     {

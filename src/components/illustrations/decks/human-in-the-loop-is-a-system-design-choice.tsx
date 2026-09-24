@@ -13,15 +13,9 @@ function Cover(p: FrameProps) {
     <CoverTemplate
       {...p}
       chapter={STAGE}
+      slug={SLUG}
       titleLines={["Human in", "the loop", "is a design", "choice"]}
-      hero={
-        <g>
-          <Person x={600} y={190} s={1.2} />
-          <ButtonDoodle x={790} y={380} w={200} label="APPROVE" />
-        </g>
-      }
-      heroLabel="A PERSON"
-      heroQuip={["present isn't the", "same as in control."]}
+      quip={["present isn't the", "same as in control."]}
       strip={
         <g>
           <rect x={140} y={690} width={800} height={250} rx={12} fill={C.card} stroke={C.ink} strokeWidth={4} />
@@ -181,7 +175,7 @@ export const deck: Deck = {
     {
       key: "hitl-cover",
       title: "Human in the loop is a design choice",
-      text: "A person stands by an Approve button. On their screen: send refunds automatically to all customers? Approve is the only option. Being present isn't the same as being in control. Oversight needs a decision still open, an owner, enough context, real alternatives, and a path that works when they say no.",
+      text: "A person holds a steering wheel whose cable hangs loose, plugged into nothing. Below, a screen asks: send refunds automatically to all customers? Approve is the only option. Being present isn't the same as being in control. Oversight needs a decision still open, an owner, enough context, real alternatives, and a path that works when they say no.",
       Render: Cover,
     },
     {

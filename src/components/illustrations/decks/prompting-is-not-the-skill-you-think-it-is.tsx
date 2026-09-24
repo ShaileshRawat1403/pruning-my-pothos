@@ -13,15 +13,9 @@ function Cover(p: FrameProps) {
     <CoverTemplate
       {...p}
       chapter={STAGE}
+      slug={SLUG}
       titleLines={["Prompting", "is not the", "skill you", "think it is"]}
-      hero={
-        <g>
-          <Model x={640} y={196} s={1.5} lines={["sure!", "(usually)"]} />
-          <Sticky x={860} y={352} w={170} h={118} size={30} rotate={8} lines={["ALWAYS", "JSON!!!"]} />
-        </g>
-      }
-      heroLabel="THE MODEL"
-      heroQuip={["asked nicely.", "never checked."]}
+      quip={["asked nicely.", "never checked."]}
       strip={
         <g>
           <Hand x={96} y={742} size={46} color={C.muted}>
@@ -207,7 +201,7 @@ export const deck: Deck = {
     {
       key: "prompt-cover",
       title: "Prompting is not the skill you think it is",
-      text: "The Model wears a sticky note saying ALWAYS JSON, and replies: sure, usually. It was asked nicely and never checked. Always, never and you must are just more input, which is not the same as a check outside the prompt that can reject a bad result.",
+      text: "A polite lawn sign says: please, always reply in JSON. Footprints cross the grass anyway. A sign isn't a fence: it was asked nicely and never checked. Always, never and you must are just more input, which is not the same as a check outside the prompt that can reject a bad result.",
       Render: Cover,
     },
     {

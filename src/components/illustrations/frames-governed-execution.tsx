@@ -1,4 +1,5 @@
 import React from "react";
+import { Emblem } from "./emblems";
 import {
   C,
   FrameShell,
@@ -40,9 +41,8 @@ export function GovernedCover({ label, number, total }: FrameProps) {
         <tspan x={76} y={508}>execution</tspan>
       </text>
 
-      <Model x={640} y={196} s={1.5} />
-      <text x={800} y={548} textAnchor="middle" className="ill-mono" fontSize={17} letterSpacing={2} fill={C.muted}>THE MODEL</text>
-      <Hand x={800} y={592} size={42} color={C.accent} anchor="middle">can only ask.</Hand>
+      <Emblem slug="from-agent-intent-to-governed-execution" x={574} y={130} s={0.86} />
+      <Hand x={76} y={592} size={42} color={C.accent}>the model can only ask.</Hand>
 
       <Gate x={76} y={650} />
       <Arrow x1={338} x2={404} y={800} verb="permits" verbY={780} />

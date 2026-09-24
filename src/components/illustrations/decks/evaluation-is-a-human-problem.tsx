@@ -2,34 +2,21 @@ import React from "react";
 import type { Deck } from "./types";
 import type { FrameProps } from "../templates";
 import { CoverTemplate, StepsTemplate, SceneTemplate, CardsTemplate, CloseTemplate } from "../templates";
-import { C, Model, Person, Hand, Arrow, Strike } from "../kit";
+import { C, Person, Hand, Strike } from "../kit";
 import { Sticky, Slip } from "../props";
 
 const SLUG = "evaluation-is-a-human-problem";
 const STAGE = "SYSTEMS · STAGE 06";
 
 function Cover(p: FrameProps) {
-  const tags = ["ASSERT", "HEURISTIC", "GRADER", "PEOPLE"];
   return (
     <CoverTemplate
       {...p}
       chapter={STAGE}
-      titleLines={["What counts", "as good,", "and how to", "check it"]}
-      hero={<Model x={640} y={196} s={1.5} lines={["is the new", "one better?"]} />}
-      heroLabel="THE QUESTION"
-      heroQuip={["better at what,", "exactly?"]}
-      strip={
-        <g>
-          <Sticky x={86} y={706} w={300} h={170} size={34} rotate={-3} lines={["good means…", "(written first)"]} />
-          <Arrow x1={404} x2={488} y={792} verb="then" verbY={772} />
-          {tags.map((t, i) => (
-            <Slip key={t} x={505 + i * 122} y={758} w={110} h={64} text={t} size={17} rotate={i % 2 ? 3 : -3} color={C.ink} />
-          ))}
-          <Hand x={745} y={884} size={30} color={C.teal} anchor="middle">
-            each check stands in for the note
-          </Hand>
-        </g>
-      }
+      slug={SLUG}
+      layout="stage"
+      titleLines={["What counts as", "good, and how", "to check it"]}
+      quip={["better at what,", "exactly?"]}
       summary="Evaluation compares behaviour against an expectation written down before the run. Every faster, cheaper check approximates that written judgment."
     />
   );
@@ -167,7 +154,7 @@ export const deck: Deck = {
     {
       key: "eval-cover",
       title: "What counts as good, and how to check it",
-      text: "The Model asks: is the new one better? Better at what, exactly? First a note is written saying what good means; then the checks follow: assertions, heuristics, graders and people. Each check stands in for that written note.",
+      text: "A trophy engraved BEST, followed by a blank nobody filled in. Better at what, exactly? Evaluation compares behaviour against an expectation written down before the run, and every faster, cheaper check approximates that written judgment.",
       Render: Cover,
     },
     {

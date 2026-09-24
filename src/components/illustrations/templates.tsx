@@ -1,4 +1,5 @@
 import React from "react";
+import { Emblem } from "./emblems";
 import { C, FrameShell, Hand, Para, Strike } from "./kit";
 import { Num } from "./props";
 
@@ -36,22 +37,32 @@ export function CoverTemplate({
   number,
   total,
   chapter,
+  slug,
+  layout = "side",
   titleLines,
-  hero,
-  heroLabel,
-  heroQuip,
+  quip,
   strip,
   summary,
 }: Base & {
+  /** The owning article: its emblem (emblems.tsx) is the cover drawing. */
+  slug: string;
+  /**
+   * "side": title left, emblem right, a strip below. "stage": title across
+   * the top, the emblem large beneath it, no strip. Alternate layouts so the
+   * library grid doesn't read as one cover repeated.
+   */
+  layout?: "side" | "stage";
   titleLines: string[];
-  /** Drawn in frame coordinates, inside roughly x 600-1004, y 180-520. */
-  hero: React.ReactNode;
-  heroLabel: string;
-  heroQuip: string[];
-  /** Drawn in frame coordinates, inside roughly y 640-980. */
-  strip: React.ReactNode;
+  /** One or two handwritten lines: the thesis said sideways. */
+  quip: string[];
+  /** "side" only. Drawn in frame coordinates, inside roughly y 660-980. */
+  strip?: React.ReactNode;
   summary: string;
 }) {
+  const titleEnd = 250 + (titleLines.length - 1) * 86;
+  const stage = layout === "stage";
+  const emblemTop = stage ? titleEnd + 56 : 150;
+  const emblemScale = stage ? Math.min(1, (996 - emblemTop) / 540) : 0.86;
   return (
     <FrameShell label={label} chapter={chapter} number={number} total={total} headline={[]}>
       <rect x={0} y={0} width={1080} height={8} fill={C.ink} />
@@ -65,16 +76,27 @@ export function CoverTemplate({
           </tspan>
         ))}
       </text>
-      {hero}
-      <text x={800} y={556} textAnchor="middle" className="ill-mono" fontSize={17} letterSpacing={2} fill={C.muted}>
-        {heroLabel}
-      </text>
-      {heroQuip.map((q, i) => (
-        <Hand key={i} x={800} y={600 + i * 40} size={40} color={C.accent} anchor="middle">
-          {q}
-        </Hand>
-      ))}
-      {strip}
+      {stage ? (
+        <>
+          <Emblem slug={slug} x={1004 - 500 * emblemScale} y={emblemTop} s={emblemScale} />
+          {quip.map((q, i) => (
+            <Hand key={i} x={76} y={emblemTop + 110 + i * 50} size={46} color={C.accent}>
+              {q}
+            </Hand>
+          ))}
+          <path d={`M78 ${emblemTop + 60} C 120 ${emblemTop + 50}, 170 ${emblemTop + 58}, 210 ${emblemTop + 52}`} fill="none" stroke={C.accent} strokeWidth={4} strokeLinecap="round" />
+        </>
+      ) : (
+        <>
+          <Emblem slug={slug} x={1004 - 500 * emblemScale} y={emblemTop} s={emblemScale} />
+          {quip.map((q, i) => (
+            <Hand key={i} x={76} y={titleEnd + 84 + i * 44} size={40} color={C.accent}>
+              {q}
+            </Hand>
+          ))}
+          {strip}
+        </>
+      )}
       <Para x={76} y={1014} w={928} h={230} size={34}>
         {summary}
       </Para>

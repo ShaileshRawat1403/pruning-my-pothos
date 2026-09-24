@@ -19,10 +19,9 @@ function Cover(p: FrameProps) {
     <CoverTemplate
       {...p}
       chapter={STAGE}
+      slug={SLUG}
       titleLines={["What an AI", "model", "actually is"]}
-      hero={<Model x={640} y={196} s={1.5} lines={["I rank what", "comes next."]} />}
-      heroLabel="THE MODEL"
-      heroQuip={["a file of numbers.", "that's it."]}
+      quip={["a file of numbers.", "that's it."]}
       strip={
         <g>
           <Hand x={540} y={712} size={34} color={C.teal} anchor="middle">
@@ -220,7 +219,7 @@ export const deck: Deck = {
     {
       key: "model-cover",
       title: "What an AI model actually is",
-      text: "The Model, a speech bubble with legs, says: I rank what comes next. It is a file of numbers, and that is it. Retrieval, tools, memory, checks and policy are separate software that people build around it.",
+      text: "A museum case, roped off, labelled Exhibit A: the model. Inside is a single file of numbers, and that is the whole exhibit. It turns input into a ranking over what comes next. Retrieval, tools, memory, checks and policy are separate software that people build around it.",
       Render: Cover,
     },
     {

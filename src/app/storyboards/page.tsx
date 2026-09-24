@@ -32,7 +32,7 @@ export default function StoryboardsPage() {
       <PlateHero
         eyebrow="See the idea"
         title="Storyboards"
-        intro="Illustrated explainers of how applied AI systems work. Each one tells a single Systems article as a short visual story, with the same small cast every time. Flip through it here, keep it as a PDF, and follow it back to the article for the whole argument. Lean on the plate and Ada will tell you who did this first."
+        intro="Illustrated explainers of how applied AI systems work. Each one tells a single Systems article as a short visual story, each drawn around its own idea. Flip through it here, keep it as a PDF, and follow it back to the article for the whole argument. Lean on the plate and Ada will tell you who did this first."
         htmlSrc="/scenes/character.html?img=/images/ada-lovelace-hero.jpg&fallback=/scenes/clarity.html"
         alt="Oil painting of Ada Lovelace in dark glasses, reclining with a quill and notebook in front of a row of screens showing code"
         plateLabel="Plate · lovelace_notes"

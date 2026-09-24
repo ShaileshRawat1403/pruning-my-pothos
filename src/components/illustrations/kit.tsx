@@ -4,9 +4,10 @@ import React from "react";
  * kit.tsx — the storybook drawing kit: palette, the recurring cast, and the
  * small set of helpers every storyboard frame is composed from.
  *
- * The cast is the shared master. Every storyboard draws the same Model, the
- * same Gate, the same Tool and the same Record, so a reader who meets a
- * character once recognises it in every storyboard after.
+ * The cast (Model, Gate, Tool, Record, Person) is for the inside of a story,
+ * where one character carries an argument across frames. It is not a mascot:
+ * covers use each article's own emblem (emblems.tsx) instead, so the house
+ * style repeats and the subjects don't.
  *
  * Illustrations carry their own paper and ink and deliberately do not re-theme
  * (see the note in globals.css). Text inside them is real SVG or HTML text,

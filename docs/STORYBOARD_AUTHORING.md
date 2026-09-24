@@ -15,10 +15,28 @@ said sideways.
 | **Cover** | The 1200 x 630 drawing at the top of every Systems article, also used as its link preview. | one entry in `src/components/illustrations/covers.tsx` |
 | **Diagram** | A structured visual inside an article body. Not covered here. | the article's `visuals[]` frontmatter |
 
-## The cast
+## Theme repeats, subjects don't
 
-Four characters recur in every storyboard and cover, so a reader learns them
-once. Never redraw them; use the components in `illustrations/kit.tsx`.
+What stays the same everywhere is the house style: the paper, the ink
+palette, Schibsted Grotesk and IBM Plex Mono, Caveat handwriting, the rails on
+every frame, and the Pruning Mark. What never repeats is the subject. Every
+article gets its own visual idea, a metaphor that belongs to it alone: a
+record player for training versus inference, a letterbox for retrieval, a
+layer cake for prompts, skills and agents. A reader scrolling the library
+should see eight different pictures, not one character eight times.
+
+**Emblems.** Each Systems article has one emblem in
+`illustrations/emblems.tsx`, drawn in a local 500 x 540 box. That single
+drawing is the article cover, the storyboard's first frame and the link
+preview. To find one: say the thesis as an everyday object or situation
+("a sign isn't a fence"), then draw the object, not a diagram of the idea.
+Words inside the drawing are part of the joke and follow the honesty rules.
+Test 70 fails if an article has no emblem, or if the cast turns up in more
+than two emblems.
+
+**The cast** (`illustrations/kit.tsx`) is for the inside of a story, when
+one character carrying an argument across frames makes it clearer. It is not
+a mascot: don't put it on covers, and don't reach for it by default.
 
 | Component | Who | Rule of thumb |
 |:--|:--|:--|
@@ -32,7 +50,8 @@ Props (`illustrations/props.tsx`): `Doc`, `Sticky`, `Stamp`, `Slip`, `Crate`,
 `Lens`, `Padlock`, `Die`, `ButtonDoodle`, `Folder`, `Envelope`, `Scroll`,
 `Ranking`, `Num`, `Checklist`, `PrunedNote`, `Cloud`. Helpers in `kit.tsx`:
 `Hand` (handwritten text), `Para` (wrapping prose), `Strike` (the Pruning
-Mark), `Arrow` (every arrow gets a verb).
+Mark), `Arrow` (every arrow gets a verb). A one-off object belongs in the
+emblem or frame that needs it, not in props.
 
 **The Pruning Mark** is a hand-drawn strike through something that was really
 refused, removed or corrected. What it strikes stays legible. Use at most one
@@ -51,7 +70,7 @@ per frame, and never as decoration.
 
    | Template | Use for |
    |:--|:--|
-   | `CoverTemplate` | frame 1: title, a hero drawing, a strip, a summary |
+   | `CoverTemplate` | frame 1: title, the article's emblem, a quip, a summary. `layout="side"` adds a strip; `layout="stage"` draws the emblem large. Alternate them across decks |
    | `StepsTemplate` | an ordered path, 2-6 rows |
    | `CardsTemplate` | 2-4 cards, any of them struck |
    | `ContrastTemplate` | two things side by side |
@@ -98,8 +117,9 @@ A 4:5 frame is read at about a third of its size in a phone feed.
 Every Systems article needs one (the contract suite fails without it).
 
 1. Add an entry to `COVERS` in `illustrations/covers.tsx`, keyed by the
-   article slug: a `quip` (one line, the thesis said sideways) and a `scene`
-   drawn in the right-hand region, roughly x 640-1150, y 40-600.
+   article slug, with a `quip` (one line, the thesis said sideways), and draw
+   the article's emblem in `illustrations/emblems.tsx` (see above). Don't
+   repeat the quip inside the emblem.
 2. The article's frontmatter `heroImage` is `/covers/systems/<slug>.png`.
 3. `npm run build && npm run export:storyboards --only=<slug>` writes the PNG.
 4. Check it on the article page and at `/cover-art/<slug>/`.
