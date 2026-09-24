@@ -982,10 +982,10 @@ h1, h2, h3, h4, h5 {
 .hacker-crt-green, .hacker-crt-blue { font-family: var(--font-mono); }
 
 /* ══ Storybook illustrations ══
-   Plates and walkthrough frames are drawn on their own paper and do not
-   re-theme: like plates bound into a book, they read the same in light and
-   dark, which is what lets one drawing serve the article, the walkthrough
-   and the PDF. Only the type families come from here. Caveat is confined to
+   Storyboard frames are drawn on their own paper and do not re-theme:
+   like plates bound into a book, they read the same in light and dark,
+   which is what lets one drawing serve both the site and the PDF. Only the
+   type families come from here. Caveat is confined to
    dialogue and marginal notes inside illustrations. */
 .ill-hand { font-family: 'Caveat', 'Comic Sans MS', cursive; }
 .ill-mono { font-family: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace; }

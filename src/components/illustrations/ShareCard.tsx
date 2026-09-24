@@ -5,10 +5,10 @@ export const SHARE_W = 1200;
 export const SHARE_H = 630;
 
 /**
- * The 1200 x 630 link-preview card for a walkthrough and its article: what
+ * The 1200 x 630 link-preview card for a storyboard and its article: what
  * LinkedIn, X or Slack show when the link is shared. Same cast, same paper,
  * so the preview promises exactly what the page delivers. Exported to PNG by
- * scripts/export-walkthrough-pdf.mjs, because social platforms do not render
+ * scripts/export-storyboards.mjs, because social platforms do not render
  * SVG previews.
  */
 export function ShareCard({ title, frames, label }: { title: string; frames: number; label: string }) {
@@ -17,7 +17,7 @@ export function ShareCard({ title, frames, label }: { title: string; frames: num
       <rect width={SHARE_W} height={SHARE_H} fill={C.paper} />
       <rect width={SHARE_W} height={8} fill={C.ink} />
       <text x={72} y={92} className="ill-mono" fontSize={18} letterSpacing={3} fill={C.accent}>
-        AN ILLUSTRATED WALKTHROUGH · {frames} FRAMES
+        A STORYBOARD IN {frames} FRAMES
       </text>
       <Para x={72} y={118} w={560} h={380} size={60} weight={800} color={C.ink} lh={1.02}>
         <span style={{ letterSpacing: -2 }}>{title}</span>

@@ -2,12 +2,11 @@ import React from "react";
 
 /**
  * kit.tsx — the storybook drawing kit: palette, the recurring cast, and the
- * small set of helpers every plate and walkthrough frame is composed from.
+ * small set of helpers every storyboard frame is composed from.
  *
- * The cast is the shared master. A chapter plate in an article and a frame in
- * a walkthrough are different compositions, but they draw the same Model, the
+ * The cast is the shared master. Every storyboard draws the same Model, the
  * same Gate, the same Tool and the same Record, so a reader who meets a
- * character once recognises it everywhere.
+ * character once recognises it in every storyboard after.
  *
  * Illustrations carry their own paper and ink and deliberately do not re-theme
  * (see the note in globals.css). Text inside them is real SVG or HTML text,
@@ -299,7 +298,7 @@ export const FRAME_W = 1080;
 export const FRAME_H = 1350;
 
 /**
- * One 4:5 walkthrough frame. Same grammar on every frame: top rail, headline,
+ * One 4:5 storyboard frame. Same grammar on every frame: top rail, headline,
  * the drawing, one supporting thought, bottom rail with frame number.
  */
 export function FrameShell({
@@ -336,16 +335,6 @@ export function FrameShell({
       <text x={1004} y={1308} textAnchor="end" className="ill-mono" fontSize={16} letterSpacing={2} fill={C.ink}>
         {String(number).padStart(2, "0")} / {String(total).padStart(2, "0")}
       </text>
-    </svg>
-  );
-}
-
-/** A landscape chapter plate, as it sits at the head of an article section. */
-export function PlateShell({ label, h, children }: { label: string; h: number; children: React.ReactNode }) {
-  return (
-    <svg viewBox={`0 0 760 ${h}`} className="ill-svg" role="img" aria-label={label}>
-      <rect width={760} height={h} fill={C.paper} />
-      {children}
     </svg>
   );
 }

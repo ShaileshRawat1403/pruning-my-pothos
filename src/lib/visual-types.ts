@@ -21,8 +21,6 @@ export type GeneratedDecisionVisual = Extract<Visual, { renderAs: "generated-dec
 export type GeneratedEvidenceMapVisual = Extract<Visual, { renderAs: "generated-evidence-map" }>;
 export type GeneratedStateChangeVisual = Extract<Visual, { renderAs: "generated-state-change" }>;
 export type AssetVisual = Extract<Visual, { renderAs: "asset" }>;
-export type IllustrationVisual = Extract<Visual, { renderAs: "illustration" }>;
-export type IllustrationKey = IllustrationVisual["illustration"];
 
 export type VisualRenderMode = Visual["renderAs"];
 export type VisualPurpose = Visual["purpose"];

@@ -20,7 +20,7 @@
     "lint:systems:advisory": "node scripts/lint-systems-advisory.mjs",
     "report:systems": "node scripts/report-topic-coverage.mjs",
     "verify:covers": "node scripts/verify-covers.mjs",
-    "export:walkthroughs": "node scripts/export-walkthrough-pdf.mjs",
+    "export:storyboards": "node scripts/export-storyboards.mjs",
     "verify:deploy": "node scripts/verify-deploy.mjs",
     "deploy:ftp": "bash scripts/deploy-ftp.sh",
     "blog:conform": "node scripts/websiteops-conform.mjs",

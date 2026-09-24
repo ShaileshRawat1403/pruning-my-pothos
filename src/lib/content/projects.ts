@@ -1,5 +1,5 @@
-// Active project material, shared by the homepage Current Work section and
-// the /current-work route so both render from one declaration rather than
+// Active project material, shared by the homepage Stack section and
+// the /stack route so both render from one declaration rather than
 // two copies that can drift. Repository excerpts carry their own commit ref.
 import type { ProjectItem } from "../../components/home/ProjectInspector";
 

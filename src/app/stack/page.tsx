@@ -5,18 +5,18 @@ import ProjectInspector from "../../components/home/ProjectInspector";
 import { CURRENT_WORK_PROJECTS } from "../../lib/content/projects";
 
 export const metadata = constructMetadata({
-  title: "Current Work",
+  title: "Stack",
   description:
     "The systems being built and tested right now, with repository excerpts and the commit each one was read at.",
-  path: "/current-work",
+  path: "/stack",
 });
 
-export default function CurrentWorkPage() {
+export default function StackPage() {
   const schema = getWebPageSchema({
-    title: "Current Work",
+    title: "Stack",
     description:
       "Active projects with repository excerpts and commit provenance.",
-    path: "/current-work",
+    path: "/stack",
   });
 
   return (
@@ -31,7 +31,7 @@ export default function CurrentWorkPage() {
           Test the idea
         </span>
         <h1 className="font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]">
-          Current Work
+          Stack
         </h1>
         <p className="text-[color:var(--text-secondary)] text-base leading-relaxed">
           Where the ideas in Systems get built and find out whether they hold.

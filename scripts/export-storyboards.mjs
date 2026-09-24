@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * export-walkthrough-pdf.mjs — render each illustrated walkthrough to its
+ * export-storyboards.mjs — render each storyboard to its
  * downloadable 4:5 PDF, from the same frames the website shows, plus its
  * 1200 x 630 link-preview PNG (social platforms do not render SVG previews).
  *
- *   npm run build && node scripts/export-walkthrough-pdf.mjs
+ *   npm run build && npm run export:storyboards
  *
  * Serves the built `out/` directory locally, prints every
  * /storyboards/<slug>/print/ page with headless Chrome (one 1080 x 1350 page
@@ -14,7 +14,7 @@
  *
  * A local, human-run step, like approving the frames themselves: CI builds the
  * site from the committed PDF and does not need a browser. Re-run it whenever
- * a walkthrough's frames change. Set CHROME_PATH to use a different browser.
+ * a storyboard's frames change. Set CHROME_PATH to use a different browser.
  */
 import http from "node:http";
 import fs from "node:fs";
@@ -41,7 +41,7 @@ const MIME = {
 };
 
 function fail(msg) {
-  console.error(`export-walkthrough-pdf: ${msg}`);
+  console.error(`export-storyboards: ${msg}`);
   process.exit(1);
 }
 

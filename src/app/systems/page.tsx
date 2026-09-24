@@ -5,8 +5,7 @@ import PlateHero from "../../components/PlateHero";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 import { getSystemsMap } from "../../lib/content/systems-map";
-import { getStoryboardEntries } from "../../lib/content/storyboards";
-import { getWalkthroughs } from "../../lib/content/walkthroughs";
+import { getStoryboards } from "../../lib/content/storyboards";
 
 const BOOLE_LINES = [
   "I took the laws of thought and wrote them as sums. Everything you click still obeys them.",
@@ -30,16 +29,8 @@ export default function SystemsIndexPage() {
   const stages = getSystemsMap();
   const stageSlugs = new Set(stages.map((s) => s.slug));
 
-  // Which articles carry a visual, so a stage can offer its storyboard and the
-  // rest of the library can say where a visual exists. Derived, not declared.
-  const storyboards = getStoryboardEntries();
-  const walkthroughSlugs = new Set(getWalkthroughs().map((w) => w.slug));
-  const firstVisualBySlug = new Map<string, string>();
-  for (const entry of storyboards) {
-    if (!firstVisualBySlug.has(entry.slug)) {
-      firstVisualBySlug.set(entry.slug, entry.id);
-    }
-  }
+  // Which articles have a storyboard, so a stage or a card can offer it.
+  const storyboardSlugs = new Set(getStoryboards().map((sb) => sb.slug));
 
   // Everything that is not a map anchor stays discoverable here. The old
   // Concepts / Explanations / How-things-fit-together chips no longer organise
@@ -99,15 +90,13 @@ export default function SystemsIndexPage() {
             Where are you in the system?
           </h2>
           <p className="text-sm leading-relaxed text-[color:var(--text-secondary)]">
-            Each stage opens the explanation that deals with it, and every one
-            of them now has a visual explainer too. Follow the sequence, or
-            enter where the question becomes useful.
+            Each stage opens the explanation that deals with it. Follow the
+            sequence, or enter where the question becomes useful.
           </p>
         </div>
 
         <ol className="list-none p-0 m-0 border-t border-[color:var(--card-border)]">
           {stages.map((stage) => {
-            const visualId = firstVisualBySlug.get(stage.slug);
             return (
               <li
                 key={stage.slug}
@@ -128,20 +117,12 @@ export default function SystemsIndexPage() {
                       >
                         {stage.title} <span aria-hidden="true">&rarr;</span>
                       </Link>
-                      {visualId && (
-                        <Link
-                          href={`/storyboards/#${stage.slug}-${visualId}`}
-                          className="text-[color:var(--text-muted)] underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)] transition-colors"
-                        >
-                          See the storyboard
-                        </Link>
-                      )}
-                      {walkthroughSlugs.has(stage.slug) && (
+                      {storyboardSlugs.has(stage.slug) && (
                         <Link
                           href={`/storyboards/${stage.slug}/`}
                           className="text-[color:var(--accent-cyan)] underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)] transition-colors"
                         >
-                          Illustrated walkthrough
+                          Storyboard
                         </Link>
                       )}
                     </div>
@@ -173,7 +154,6 @@ export default function SystemsIndexPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {rest.map((system) => {
-            const visualId = firstVisualBySlug.get(system._meta.path);
             return (
               <SpotlightCard
                 key={system._meta.path}
@@ -198,11 +178,11 @@ export default function SystemsIndexPage() {
 
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-5 text-[11px] font-mono text-[color:var(--text-muted)]">
                   {system.readingTime && <span>{system.readingTime} min read</span>}
-                  {visualId && (
+                  {storyboardSlugs.has(system._meta.path) && (
                     <>
                       <span aria-hidden="true">·</span>
-                      <span className="text-[color:var(--accent-green)]">
-                        Has a visual
+                      <span className="text-[color:var(--accent-cyan)]">
+                        Has a storyboard
                       </span>
                     </>
                   )}

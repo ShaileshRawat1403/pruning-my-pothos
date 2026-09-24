@@ -28,7 +28,6 @@ import {
   splitRenderedHtml,
 } from "./visual-markers.mjs";
 import { renderMarkdown } from "./markdown-renderer.mjs";
-import { visualSchema, ILLUSTRATION_KEYS } from "./editorial-contract-v1.mjs";
 import { spawnSync } from "node:child_process";
 import { promises as fs, existsSync } from "node:fs";
 import path from "node:path";
@@ -866,38 +865,6 @@ async function runTests() {
   assert(
     acceptsProvenanceSources && resolvesVisualSources && rendersRepoContext && exposesUrl,
     `Test 66: VisualBlock resolves provenance sources and renders inspectable URL, path, and commit ref context for evidence visuals`
-  );
-
-  // Test 67: an illustration visual naming a registered plate is valid, and
-  // carries the same accessibility floor as every other visual.
-  const plateBase = {
-    id: "storybook-plate",
-    purpose: "comparison",
-    renderAs: "illustration",
-    takeaway: "Being logged in answers who is asking.",
-    caption: "A real answer to a different question.",
-    alt: "The Model holds up a badge; the clerk replies that is not what was asked.",
-  };
-  assert(
-    visualSchema.safeParse({ ...plateBase, illustration: ILLUSTRATION_KEYS[0] }).success,
-    `Test 67: an illustration visual naming a registered plate passes the contract`
-  );
-
-  // Test 68: fail closed on a plate that is not drawn, or on missing alt text.
-  const unknownPlate = visualSchema.safeParse({ ...plateBase, illustration: "not-a-drawn-plate" });
-  const plateWithoutAlt = visualSchema.safeParse({ ...plateBase, illustration: ILLUSTRATION_KEYS[0], alt: "short" });
-  assert(
-    !unknownPlate.success && !plateWithoutAlt.success,
-    `Test 68: an illustration naming an unregistered plate, or lacking descriptive alt text, is rejected`
-  );
-
-  // Test 69: every registered plate key has a drawing, and every drawing a key.
-  const registrySrc = await fs.readFile(path.resolve(ROOT, "src/components/illustrations/registry.tsx"), "utf8");
-  const platesBlock = registrySrc.split("export const PLATES")[1]?.split("};")[0] ?? "";
-  const drawnKeys = [...platesBlock.matchAll(/"([a-z0-9-]+)":/g)].map((m) => m[1]).sort();
-  assert(
-    JSON.stringify(drawnKeys) === JSON.stringify([...ILLUSTRATION_KEYS].sort()),
-    `Test 69: the plate registry and the contract's ILLUSTRATION_KEYS name exactly the same plates`
   );
 
   console.log(`\nRegression Suite Results: ${passed} passed, ${failed} failed.\n`);

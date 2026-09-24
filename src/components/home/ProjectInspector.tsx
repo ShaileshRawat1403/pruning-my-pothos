@@ -24,7 +24,7 @@ interface ProjectCardProps {
   project: ProjectItem;
   /**
    * Which heading level the card title takes. The homepage nests these cards
-   * under a section h2, so h3 is right there; /current-work/ renders them
+   * under a section h2, so h3 is right there; /stack/ renders them
    * directly under the page h1, where h3 would skip a level for a screen
    * reader. The level is a property of the surrounding outline, not of the
    * card, so the caller states it.

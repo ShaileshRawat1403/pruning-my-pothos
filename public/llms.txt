@@ -2,8 +2,8 @@
 
 > A publication and working lab about understanding AI by building with it,
 > inspecting it, and explaining what holds up. Written by Shailesh Rawat.
-> Systems explains how applied AI systems work. Storyboard Explainers makes
-> the ideas easier to see. Current Work shows them being tested in real
+> Systems explains how applied AI systems work. Storyboards draw the same
+> ideas as illustrated PDF explainers. Stack shows them being tested in real
 > tools. Shelf traces the references and experiments behind all of it.
 
 Author: Shailesh Rawat, AI Systems Consultant and Technical Communicator.
@@ -12,8 +12,8 @@ Site: https://pruningmypothos.com/
 ## Sections
 
 - [Systems](https://pruningmypothos.com/systems/): long-form explainers and breakdowns of AI systems
-- [Storyboard Explainers](https://pruningmypothos.com/storyboards/): a visual index into the diagrams inside the Systems explainers, not a separate body of content
-- [Current Work](https://pruningmypothos.com/current-work/): applied AI systems and tools being built and tested, with repository excerpts where evidence is shown
+- [Storyboards](https://pruningmypothos.com/storyboards/): illustrated explainers, each drawing one Systems article as a short deck with a PDF download
+- [Stack](https://pruningmypothos.com/stack/): applied AI systems and tools being built and tested, with repository excerpts where evidence is shown
 - [Shelf](https://pruningmypothos.com/shelf/): experiments, resources, notes and references
 
 ## Also published

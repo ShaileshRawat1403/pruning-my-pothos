@@ -15,7 +15,7 @@ import {
 
 /**
  * The nine frames of the "From Agent Intent to Governed Execution"
- * walkthrough, drawn at the 1080 x 1350 export master.
+ * storyboard, drawn at the 1080 x 1350 export master.
  *
  * Every claim a frame makes is a claim the owning article makes. Details that
  * are only there to make the scene concrete (the $40 refund, account 88, the
@@ -34,7 +34,7 @@ export function GovernedCover({ label, number, total }: FrameProps) {
     <FrameShell label={label} chapter="SYSTEMS · STAGE 04" number={number} total={total} headline={[]}>
       <rect x={0} y={0} width={1080} height={8} fill={C.ink} />
       <text x={76} y={150} className="ill-mono" fontSize={16} letterSpacing={3} fill={C.accent}>
-        A WALKTHROUGH IN {total} FRAMES
+        A STORYBOARD IN {total} FRAMES
       </text>
       <text className="ill-sans" fontSize={84} fontWeight={800} letterSpacing={-3} fill={C.ink}>
         <tspan x={76} y={250}>From agent</tspan>

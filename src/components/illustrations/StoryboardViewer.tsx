@@ -2,14 +2,14 @@
 
 import React, { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 
-export interface WalkthroughSlide {
+export interface StoryboardSlide {
   title: string;
   text: string;
   node: React.ReactNode;
 }
 
 /**
- * The walkthrough viewer. A native horizontal scroll-snap strip, so it works
+ * The storyboard viewer. A native horizontal scroll-snap strip, so it works
  * without JavaScript and swipes naturally on a phone; the script only adds
  * buttons, arrow keys and the live position read-out.
  *
@@ -19,7 +19,7 @@ export interface WalkthroughSlide {
  */
 const noop = () => () => {};
 
-export default function WalkthroughViewer({ title, slides }: { title: string; slides: WalkthroughSlide[] }) {
+export default function StoryboardViewer({ title, slides }: { title: string; slides: StoryboardSlide[] }) {
   const track = useRef<HTMLOListElement>(null);
   const [index, setIndex] = useState(0);
   // False in the server render, true once hydrated: buttons stay disabled
@@ -79,7 +79,7 @@ export default function WalkthroughViewer({ title, slides }: { title: string; sl
   return (
     <section
       aria-roledescription="carousel"
-      aria-label={`${title}, illustrated walkthrough`}
+      aria-label={`${title}, storyboard`}
       onKeyDown={onKeyDown}
       className="flex flex-col gap-5"
     >
@@ -120,7 +120,7 @@ export default function WalkthroughViewer({ title, slides }: { title: string; sl
         ref={track}
         tabIndex={0}
         aria-label="Frames"
-        className="walkthrough-track m-0 flex list-none snap-x snap-mandatory overflow-x-auto p-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+        className="storyboard-track m-0 flex list-none snap-x snap-mandatory overflow-x-auto p-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
       >
         {slides.map((slide, i) => (
           <li

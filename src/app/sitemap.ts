@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { allSystems, allSentences, allSelves, allShelves } from "content-collections";
 import { SITE_CONFIG } from "../lib/seo/site";
 import { slugifyTag } from "../lib/tags";
-import { getWalkthroughs } from "../lib/content/walkthroughs";
+import { getStoryboards } from "../lib/content/storyboards";
 
 export const dynamic = "force-static";
 
@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/systems",
     "/storyboards",
-    "/current-work",
+    "/stack",
     "/sentences",
     "/self",
     "/schema",
@@ -72,9 +72,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: knownDate(item.updatedAt, item.publishDate),
   }));
 
-  // Walkthrough viewers only. Their /print/ PDF sources stay out on purpose.
-  const walkthroughRoutes = getWalkthroughs().map((w) => ({
-    url: `${SITE_CONFIG.url}/storyboards/${w.slug}/`,
+  // Storyboard pages only. Their /print/ and /share/ sources stay out on purpose.
+  const storyboardRoutes = getStoryboards().map((sb) => ({
+    url: `${SITE_CONFIG.url}/storyboards/${sb.slug}/`,
   }));
 
   const sentenceRoutes = allSentences.map((item) => ({
@@ -110,7 +110,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticRoutes,
     ...systemRoutes,
-    ...walkthroughRoutes,
+    ...storyboardRoutes,
     ...sentenceRoutes,
     ...selfRoutes,
     ...shelfRoutes,

@@ -28,6 +28,9 @@ RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
 
+# Renamed sections.
+RewriteRule ^current-work/?$ /stack/ [R=301,L]
+
 # Renamed shelf paths.
 RewriteRule ^shelf/notes-tools/?$ /shelf/notes/ [R=301,L]
 RewriteRule ^shelf/notes-tools/obsidian-scratchpad/?$ /shelf/notes/obsidian-scratchpad/ [R=301,L]

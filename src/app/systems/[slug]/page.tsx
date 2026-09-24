@@ -7,7 +7,7 @@ import { getArticleSchema, getBreadcrumbSchema, getFaqSchema } from "../../../li
 import { renderArticleSegments } from "../../../lib/visual-segments";
 import type { Visual } from "../../../lib/visual-types";
 import VisualBlock from "../../../components/visuals/VisualBlock";
-import { getWalkthrough } from "../../../lib/content/walkthroughs";
+import { getStoryboard } from "../../../lib/content/storyboards";
 import { Frame } from "../../../components/illustrations/registry";
 import { slugifyTag } from "../../../lib/tags";
 import ExplainerFigure from "../../../components/explainer/ExplainerFigure";
@@ -38,8 +38,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return constructMetadata({
     title: system.seoTitle ?? system.title,
     description: system.description,
-    // An article with a walkthrough shares its drawn card, not the template cover.
-    image: getWalkthrough(slug)?.shareImage ?? system.heroImage,
+    // An article with a storyboard shares its drawn card, not the template cover.
+    image: getStoryboard(slug)?.shareImage ?? system.heroImage,
     path: `/systems/${slug}`,
     ogType: "article"
   });
@@ -53,7 +53,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
     return notFound();
   }
 
-  const walkthrough = getWalkthrough(slug);
+  const storyboard = getStoryboard(slug);
   const faqs = system.faq ?? [];
   const proofPoints = system.proofPoints ?? [];
 
@@ -66,7 +66,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
     path: `/systems/${slug}`,
     datePublished: system.publishDate,
     dateModified: system.updatedAt ?? system.publishDate,
-    image: walkthrough?.shareImage ?? system.heroImage,
+    image: storyboard?.shareImage ?? system.heroImage,
   });
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", path: "/" },
@@ -147,7 +147,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
       {/* Hero Image. Intrinsic size is declared so the browser reserves the
           space before the file loads, and it is fetched eagerly because it is
           the largest element in the first viewport. */}
-      {system.heroImage && !walkthrough && (
+      {system.heroImage && !storyboard && (
         <figure className="w-full overflow-hidden rounded-sm border border-[color:var(--card-border)] max-h-[400px]">
           <img
             src={system.heroImage}
@@ -161,44 +161,43 @@ export default async function SystemsDetailPage({ params }: PageProps) {
         </figure>
       )}
 
-      {/* Article -> walkthrough. Where an article has an illustrated
-          walkthrough, its drawn cover takes the hero slot: the template cover
-          image is replaced, not stacked. Offered once, at the top; the chapter
-          plates below already carry the cast. */}
-      {walkthrough && (
+      {/* Article -> storyboard. The storyboard is its own entity, linked
+          once, at the top. Where an article has one, its drawn cover takes the
+          hero slot: the template cover image is replaced, not stacked. */}
+      {storyboard && (
         <aside
-          aria-label="Illustrated walkthrough of this explanation"
+          aria-label="Storyboard of this explanation"
           className="grid grid-cols-[6.5rem_1fr] items-center gap-4 rounded-md border border-[color:var(--card-border)] border-l-[3px] border-l-[color:var(--accent-purple)] bg-[color:var(--card-bg)] p-4 sm:grid-cols-[11rem_1fr] sm:gap-7 sm:p-6"
         >
           <Link
-            href={`/storyboards/${walkthrough.slug}/`}
+            href={`/storyboards/${storyboard.slug}/`}
             tabIndex={-1}
             aria-hidden="true"
             className="block overflow-hidden rounded-sm border border-[#D9D4C6]"
           >
             <Frame
-              frameKey={walkthrough.frames[0].key}
-              label={walkthrough.frames[0].title}
+              frameKey={storyboard.frames[0].key}
+              label={storyboard.frames[0].title}
               number={1}
-              total={walkthrough.frames.length}
+              total={storyboard.frames.length}
             />
           </Link>
           <div className="flex flex-col gap-2">
             <span className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--accent-cyan)]">
-              Walkthrough &middot; {walkthrough.frames.length} frames
+              Storyboard &middot; {storyboard.frames.length} frames
             </span>
             <p className="m-0 font-heading text-lg font-bold leading-snug text-[color:var(--text-primary)] sm:text-2xl">
-              Prefer it drawn? This argument is also an illustrated walkthrough.
+              Prefer it drawn? This argument is also an illustrated storyboard.
             </p>
             <p className="m-0 hidden text-sm leading-relaxed text-[color:var(--text-secondary)] sm:block">
-              {walkthrough.summary}
+              {storyboard.summary}
             </p>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-1 font-mono text-sm">
-              <Link href={`/storyboards/${walkthrough.slug}/`} className="font-semibold underline underline-offset-4">
-                Open the walkthrough &rarr;
+              <Link href={`/storyboards/${storyboard.slug}/`} className="font-semibold underline underline-offset-4">
+                View the storyboard &rarr;
               </Link>
               <a
-                href={walkthrough.pdf}
+                href={storyboard.pdf}
                 className="text-[color:var(--text-secondary)] underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)]"
               >
                 Download PDF
@@ -228,34 +227,6 @@ export default async function SystemsDetailPage({ params }: PageProps) {
           </dl>
         </section>
       )}
-
-      {/* Article -> Storyboard. Only for articles that own a structured visual,
-          and deliberately a pointer rather than a second render: the visual
-          itself appears below, where the argument places it. */}
-      {Array.isArray((system as { visuals?: Visual[] }).visuals) &&
-        ((system as { visuals?: Visual[] }).visuals?.length ?? 0) > 0 && (
-          <aside
-            aria-label="This explanation has a visual"
-            className="flex flex-col gap-1 border-l-2 border-[color:var(--accent-green)] pl-4"
-          >
-            <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[color:var(--text-muted)]">
-              See the system
-            </span>
-            <p className="text-sm leading-relaxed text-[color:var(--text-secondary)]">
-              This explanation carries a visual, shown below and collected with
-              the others in{" "}
-              <Link
-                href={`/storyboards/#${slug}-${
-                  (system as { visuals?: Visual[] }).visuals?.[0]?.id ?? ""
-                }`}
-                className="underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)] transition-colors"
-              >
-                Storyboard Explainers
-              </Link>
-              .
-            </p>
-          </aside>
-        )}
 
       {/* Slot 05 — the analogy, carrying its own failure point. */}
       {system.analogy && (
