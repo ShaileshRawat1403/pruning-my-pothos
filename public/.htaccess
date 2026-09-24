@@ -196,3 +196,23 @@ RedirectMatch 410 ^/sentences/sentence-[0-9]+/?$
 RedirectMatch 410 ^/systems/simple-tokenizer/?$
 RedirectMatch 410 ^/shelf/music/music-recommendation/?$
 </IfModule>
+
+# ---------------------------------------------------------------------------
+# Caching. Cloudflare sits in front of this server and a Cache Rule makes
+# pages cache-eligible, following these headers.
+# - Pages (HTML and the Next.js .txt payloads): Cloudflare may serve its copy
+#   for 10 minutes (s-maxage), so a deploy is visible everywhere within
+#   10 minutes; browsers always revalidate (max-age=0).
+# - Files (images, fonts, scripts, PDFs): one day, at the edge and in
+#   browsers. Covers keep their names when redrawn, so a year would be too long.
+# Keep this block to plain FilesMatch: LiteSpeed rejects some Apache-only
+# directives (such as <If>), and an .htaccess error takes the whole site down.
+# ---------------------------------------------------------------------------
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|txt)$">
+    Header set Cache-Control "public, max-age=0, s-maxage=600, stale-while-revalidate=60"
+  </FilesMatch>
+  <FilesMatch "\.(css|js|jpe?g|png|gif|svg|webp|avif|ico|woff2?|pdf)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+</IfModule>
