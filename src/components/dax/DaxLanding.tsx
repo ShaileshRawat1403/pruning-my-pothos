@@ -89,17 +89,17 @@ const INSTALL_BLOCKS = [
 
 const EVIDENCE = [
   {
-    src: "/dax/start-here-01-home.jpg",
+    src: "/images/dax/start-here-01-home.jpg",
     alt: "The DAX home screen, where a run starts",
     caption: "Home: where a run starts",
   },
   {
-    src: "/dax/non-dev-02-rao-approval.jpg",
+    src: "/images/dax/non-dev-02-rao-approval.jpg",
     alt: "A DAX approval prompt pausing a risky action",
     caption: "Approval: a risky action, paused",
   },
   {
-    src: "/dax/non-dev-03-diff-before-approval.jpg",
+    src: "/images/dax/non-dev-03-diff-before-approval.jpg",
     alt: "A diff shown for review before approval",
     caption: "The diff, shown before approval",
   },
