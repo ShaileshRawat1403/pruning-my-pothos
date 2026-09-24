@@ -1,8 +1,8 @@
 # Reference sheets: NotebookLM prompt kit
 
 Reference sheets are downloadable quick-reference assets (slide guides,
-architecture sheets, mind maps, cheat sheets) made in NotebookLM and hosted on
-the Shelf. This kit keeps every sheet looking like it belongs to the same
+architecture sheets, mind maps, cheat sheets) drafted in NotebookLM, reviewed
+and edited by PMP, hosted on the Shelf and showcased on the home page. This kit keeps every sheet looking like it belongs to the same
 series and keeps them inside the editorial contract.
 
 Every prompt below is built from three blocks. Paste them in this order:
@@ -59,8 +59,8 @@ CONTENT RULES:
 - Where a human decision, approval or check belongs in a system, show it.
 - Plain words. Avoid: seamless, robust, leverage, unlock, deep dive,
   cutting-edge, empower. Do not use em dashes.
-- Last page (or footer): "Pruning My Pothos · pruningmypothos.com · Made with
-  NotebookLM from the sources listed" and list the sources by title.
+- Last page: "Sources" with each source listed by title. (The PMP footer and
+  the disclosure line are added in editing, see section 6.)
 ```
 
 ---
@@ -170,13 +170,36 @@ written references on API design) or the deck will be invented.
 - [ ] Every worked example is labelled "Illustrative example".
 - [ ] No hype, no future predictions, no time/money-saved claims.
 - [ ] Text is readable at phone width (zoom the page to 50%).
-- [ ] Footer and source list are present.
+- [ ] Source list is present.
 
 Regenerate a single page by editing its prompt rather than accepting a wrong
 page. A downloaded PDF travels without its web page, so the fix has to be in
 the file.
 
-## 6. Handing it over
+## 6. Review loop and editing
+
+No sheet goes up straight out of NotebookLM.
+
+1. **Generate** with the blocks above.
+2. **Review with an agent**, page by page: paste or attach the draft and ask
+   for a critique against the checklist in section 5 plus the owning article.
+   The agent returns a list per page: keep, fix copy (with the new copy), or
+   regenerate (with a revised prompt).
+3. **Iterate** until every page is a keep. Regenerate single pages rather
+   than accepting a wrong one.
+4. **Edit** (Keynote, Figma, Canva or similar):
+   - apply the final copy fixes
+   - remove the NotebookLM badge
+   - add the PMP footer on every page: `Pruning My Pothos · pruningmypothos.com`
+   - add to the sources page: `Drafted with NotebookLM, edited by Pruning My Pothos.`
+5. **Export** PDF (and PNG for mind maps and architecture sheets).
+
+The badge can go; the disclosure stays. It sits on the sources page and on
+the sheet's Shelf page, so a downloaded file still says how it was made.
+Check NotebookLM's current terms on output attribution before the first
+upload.
+
+## 7. Handing it over
 
 Save files as `<topic-slug>--<type>.<ext>`, for example
 `designing-apis--slides.pdf`, `designing-apis--architecture.png`,
