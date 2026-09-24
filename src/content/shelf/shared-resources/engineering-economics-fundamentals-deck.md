@@ -12,7 +12,7 @@ coverAlt: "Cover illustration for Engineering economics fundamentals deck"
 pdfUrl: "/resources/presentations/Engineering_Economics_Fundamentals.pdf"
 resourceHighlights:
   - Cost of delay vs cost of defects in AI systems
-  - Where governance creates positive economic leverage
+  - Where governance saves more than it costs
   - Make-vs-buy trade-offs across stack layers
 ---
 

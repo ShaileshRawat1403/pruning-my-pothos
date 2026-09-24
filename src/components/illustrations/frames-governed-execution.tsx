@@ -57,7 +57,7 @@ export function GovernedCover({ label, number, total }: FrameProps) {
       </text>
 
       <Para x={76} y={1014} w={928} h={220} size={34}>
-        A model can ask for an action. Something else decides whether that ask becomes a real effect &mdash; and then whether it actually worked.
+        A model can ask for an action. Something else decides whether that ask becomes a real effect, and then whether it actually worked.
       </Para>
     </FrameShell>
   );
@@ -210,7 +210,7 @@ export function GovernedPermission({ label, number, total }: FrameProps) {
         strokeLinejoin="round"
       />
       <Hand x={394} y={350} size={38}>Lovely.</Hand>
-      <Hand x={394} y={394} size={36}>And may it run &#8212;</Hand>
+      <Hand x={394} y={394} size={36}>And may it run,</Hand>
       <Hand x={394} y={438} size={36} color={C.accent}>for you, here, now?</Hand>
       <Gate x={720} y={290} s={1.18} />
 

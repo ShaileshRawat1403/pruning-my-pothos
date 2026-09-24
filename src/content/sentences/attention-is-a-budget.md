@@ -28,7 +28,7 @@ We have a finite amount of attention. Every day, we are given a certain number o
   <figcaption>Attention narrows input into signal.</figcaption>
 </figure>
 
-The problem is that we often spend our attention without thinking. We let our inbox set our agenda. We let social media hijack our focus. We say yes to things that do not matter. And at the end of the day, we wonder where our attention went.
+The problem is that we often spend our attention without thinking. We let our inbox set our agenda. We let social media hijack our focus. We say yes to things that do not matter. Then, by evening, we wonder where our attention went.
 
 <figure class="content-figure figure-attention">
   <svg viewBox="0 0 480 160" role="img" aria-labelledby="attention-budget-attention-is-a-budget-title">

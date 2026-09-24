@@ -17,4 +17,4 @@ The first step is establishing strict namespace partitioning. Queries should be 
 
 Second, Time-To-Live (TTL) values must be kept conservative. While a static data cache can survive for days, a semantic cache driving RAG outputs should expire within hours, forcing a fresh model evaluation and RAG retrieval to prevent context decay.
 
-For a deeper dive into similarity matching mechanics and cache invalidation workflows, see the flagship guide [Semantic Caching for Probabilistic Systems](/systems/semantic-caching-for-probabilistic-systems/).
+For more on similarity matching mechanics and cache invalidation workflows, see the flagship guide [Semantic Caching for Probabilistic Systems](/systems/semantic-caching-for-probabilistic-systems/).

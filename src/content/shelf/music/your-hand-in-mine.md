@@ -1,6 +1,6 @@
 ---
 title: "Your Hand in Mine"
-description: "Slow build, wide horizon — a song that feels like a steady vow."
+description: "Slow build, wide horizon: a song that feels like a steady vow."
 publishDate: "2025-01-19"
 tags:
   - music

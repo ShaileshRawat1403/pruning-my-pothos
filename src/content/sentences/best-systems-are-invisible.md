@@ -26,6 +26,6 @@ When a system is working perfectly, it does not draw attention to itself. It bec
 
 This invisibility is a sign of success. It means the system has become so intuitive, so reliable, that it requires no conscious effort to use. The friction is gone. The work flows through it.
 
-The goal of a designer or a builder should be to create this kind of seamless experience. To build systems that are so effective they disappear, leaving only the task at hand.
+The goal of a designer or a builder should be this kind of invisibility. To build systems that are so effective they disappear, leaving only the task at hand.
 
 **What this changes in practice:** Design for the background, not the foreground. Aim to reduce cognitive load until your system feels like an extension of the user's own mind.

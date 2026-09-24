@@ -13,7 +13,7 @@ pdfUrl: "/resources/presentations/Deep_Thinking_AI_Jepa.pdf"
 resourceHighlights:
   - JEPA mental model in practical language
   - Representation vs token-next prediction trade-offs
-  - Implications for planning and robust behavior
+  - Implications for planning and reliable behavior
 ---
 
 - [Related systems doc: What an AI model actually is](/systems/what-an-ai-model-actually-is/) - Model behavior without hype.

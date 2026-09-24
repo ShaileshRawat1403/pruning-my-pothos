@@ -27,7 +27,7 @@ We are often distracted by the urgent. We spend our days answering emails, atten
   <figcaption>Judgment chooses a path, not just a score.</figcaption>
 </figure>
 
-The real problem is the one that, if solved, would make many of these smaller problems irrelevant. It is the systemic issue, the root cause, the unspoken constraint. Finding it requires stepping back from the noise and asking what is truly at stake.
+The real problem is the one that, if solved, would make many of these smaller problems irrelevant. It is the systemic issue, the root cause, the unspoken constraint. Finding it requires stepping back from the noise and asking what is actually at stake.
 
 This is not a comfortable process. It often means admitting that the work we have been doing is not the work that is needed. But it is the only way to make meaningful progress.
 

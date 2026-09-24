@@ -25,7 +25,7 @@ We assume that because a machine uses our words, it shares our meaning. It does 
   <figcaption>Meaning bridges experience and shared understanding.</figcaption>
 </figure>
 
-This transaction is risky. Meaning relies on shared context, history, and judgment—things a model does not have. It has only patterns. It can mimic the sound of understanding without doing the work of comprehension.
+This transaction is risky. Meaning relies on shared context, history, and judgment, none of which a model has. It has only patterns. It can mimic the sound of understanding without doing the work of comprehension.
 
 The gap between what we say and what the machine computes is where systems fail. We are outsourcing the labor of interpretation to a statistical engine that has never experienced the world it describes.
 

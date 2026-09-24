@@ -27,7 +27,7 @@ We are often so excited by a new capability that we rush to deploy it. We focus 
   <figcaption>Judgment chooses a path, not just a score.</figcaption>
 </figure>
 
-Power without policy is dangerous. It is a force without direction. It is a tool without a user manual. Before we unleash a new power, we must first establish the rules that will govern it.
+Power without policy is dangerous. It is a force without direction. It is a tool without a user manual. Before we switch on a new capability, we must first establish the rules that will govern it.
 
 <figure class="content-figure figure-judgment">
   <svg viewBox="0 0 480 180" role="img" aria-labelledby="judgment-policy-gate-title">

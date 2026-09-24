@@ -12,7 +12,7 @@ tags:
 
 <p class="lead">A single missing key in a JSON payload taught me that assumptions are the weakest link in any system integration.</p>
 
-We had built what we believed was a robust agentic workflow. The model generated clean JSON, the parsing was smooth, and the initial tests were all green. We felt confident that our prompt constraints would prevent formatting errors.
+We had built what we believed was a dependable agentic workflow. The model generated clean JSON, the parsing was smooth, and the initial tests were all green. We felt confident that our prompt constraints would prevent formatting errors.
 
 Then, we updated the system prompt to add a minor instruction. Suddenly, the model began returning a list of strings instead of a single string for one key. The parser threw an unhandled exception, and the entire pipeline stalled.
 

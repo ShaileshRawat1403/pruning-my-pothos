@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   const pathname = usePathname();
@@ -66,12 +67,14 @@ export default function Header() {
               </Link>
             );
           })}
+          <ThemeToggle />
         </nav>
 
         {/* Mobile Menu Toggle. The header orients; it does not sell.
             The wrapper itself is hidden at lg so the nav stays flush right
             instead of floating against a zero-width flex child. */}
         <div className="flex items-center gap-3 lg:hidden">
+          <ThemeToggle />
           <button
             ref={menuButton}
             type="button"

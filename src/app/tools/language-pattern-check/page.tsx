@@ -42,7 +42,7 @@ export default function LanguagePatternCheckPage() {
           Paste a draft and check it against a registry of formulaic, AI-associated writing patterns:
           delve-reliance, hedging padding, repeated sentence openers, and around forty more. This runs
           the real, live <a href="https://languageops-web.vercel.app/" target="_blank" rel="noopener noreferrer" className="link-slide" style={{ color: "var(--accent-purple)" }}>LanguageOps</a> detector,
-          not a mock. Nothing is rewritten and nothing is stored — the deterministic pass is free and
+          not a mock. Nothing is rewritten and nothing is stored. The deterministic pass is free and
           keyless by design, which is the only part of LanguageOps exposed here.
         </p>
       </section>
@@ -56,8 +56,8 @@ export default function LanguagePatternCheckPage() {
           <h2 className="font-heading text-xl font-bold" style={{ color: "var(--text-primary)" }}>What this checks, and what it doesn&rsquo;t</h2>
           <p>
             LanguageOps&rsquo; full registry has about 45 patterns. Roughly two-thirds of them are
-            deterministic — exact-match, regex, or measurable structural signals like sentence length
-            and repeated openers — and that&rsquo;s what this page scores. The rest (sycophantic agreement,
+            deterministic (exact-match, regex, or measurable structural signals like sentence length
+            and repeated openers), and that&rsquo;s what this page scores. The rest (sycophantic agreement,
             robotic empathy, conceptual vagueness, and similar) require actually judging meaning, not
             just matching text, so they need a model call. Those aren&rsquo;t evaluated here; if any would
             apply, the result says so instead of guessing.
@@ -77,7 +77,7 @@ export default function LanguagePatternCheckPage() {
             <p style={{ color: "var(--text-secondary)" }}>
               <span style={{ color: "var(--accent-green)" }}>$ </span>POST languageops-web.vercel.app/api/lint
             </p>
-            <p className="mt-2" style={{ color: "var(--text-muted)" }}># deterministic pass only — refine is admin-gated</p>
+            <p className="mt-2" style={{ color: "var(--text-muted)" }}># deterministic pass only; refine is admin-gated</p>
           </div>
         </div>
       </section>

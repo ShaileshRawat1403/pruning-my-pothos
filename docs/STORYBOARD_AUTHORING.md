@@ -90,6 +90,8 @@ A 4:5 frame is read at about a third of its size in a phone feed.
 - A repository specimen may be drawn only if the article states it, and only
   as the article states it.
 - If the article hedges, the frame hedges. "Occasionally", not "1 in 10".
+- House style: no em dashes anywhere a reader sees (Test 69 enforces it). Use a colon, a comma or a full stop.
+- No filler vocabulary: not "seamless", "robust", "leverage", "deep dive", "unlock", "in a world of". Say the specific thing.
 
 ## Add a cover
 

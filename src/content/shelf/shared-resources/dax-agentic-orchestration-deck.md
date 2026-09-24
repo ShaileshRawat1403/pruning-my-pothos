@@ -1,6 +1,6 @@
 ---
 title: "DAX Agentic Orchestration deck"
-description: "A deep dive into agent orchestration patterns, handoff protocols, and building reliable multi-agent systems."
+description: "A walk through agent orchestration patterns, handoff protocols, and building reliable multi-agent systems."
 publishDate: "2026-02-02"
 tags:
   - resources

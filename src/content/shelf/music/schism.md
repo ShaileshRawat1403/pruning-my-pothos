@@ -1,6 +1,6 @@
 ---
 title: "Schism"
-description: "Tense, angular, and hypnotic — the sound of a line breaking and reforming."
+description: "Tense, angular, and hypnotic: the sound of a line breaking and reforming."
 publishDate: "2025-01-19"
 tags:
   - music

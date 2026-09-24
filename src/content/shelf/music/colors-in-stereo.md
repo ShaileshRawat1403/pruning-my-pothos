@@ -1,6 +1,6 @@
 ---
 title: "Colors in Stereo"
-description: "Bright details, soft edges — a track that paints without shouting."
+description: "Bright details, soft edges: a track that paints without shouting."
 publishDate: "2025-01-19"
 tags:
   - music

@@ -83,7 +83,7 @@ function analyze(text: string): Finding[] {
       const union = new Set([...a, ...b]).size;
       const sim = union === 0 ? 0 : inter / union;
       if (sim > 0.7) {
-        findings.push({ severity: "err", label: "description_overlap_error", detail: `"${records[i].name}" and "${records[j].name}" descriptions are ${Math.round(sim * 100)}% similar — likely to misfire under an agent.` });
+        findings.push({ severity: "err", label: "description_overlap_error", detail: `"${records[i].name}" and "${records[j].name}" descriptions are ${Math.round(sim * 100)}% similar, so they are likely to misfire under an agent.` });
       } else if (sim > 0.5) {
         findings.push({ severity: "warn", label: "description_overlap_warning", detail: `"${records[i].name}" and "${records[j].name}" descriptions are ${Math.round(sim * 100)}% similar.` });
       }

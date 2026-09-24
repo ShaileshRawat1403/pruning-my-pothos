@@ -118,7 +118,7 @@ export default function LanguagePatternCheckClient() {
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Paste a draft, email, or post. This is sent to LanguageOps' free pattern-detection endpoint — no key, no cost, nothing rewritten or stored."
+          placeholder="Paste a draft, email, or post. This is sent to LanguageOps' free pattern-detection endpoint: no key, no cost, nothing rewritten or stored."
           className="w-full flex-grow min-h-[300px] p-4 text-xs font-mono outline-none resize-none rounded-sm"
           style={{ background: "var(--bg-color)", border: "1px solid var(--card-border)", color: "var(--text-primary)" }}
         />
@@ -189,7 +189,7 @@ export default function LanguagePatternCheckClient() {
 
               {state.result.flags.length === 0 ? (
                 <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-                  Nothing from the deterministic registry matched. Clean by that measure — this isn&rsquo;t an authorship or quality judgment, just an absence of known patterns.
+                  Nothing from the deterministic registry matched. Clean by that measure. This isn&rsquo;t an authorship or quality judgment, just an absence of known patterns.
                 </p>
               ) : (
                 <div className="flex flex-col gap-2">
@@ -220,7 +220,7 @@ export default function LanguagePatternCheckClient() {
                             style={{ color: "var(--accent-cyan)" }}
                           >
                             {f.litops.relation === "overuse"
-                              ? `This is the overused form of ${f.litops.name} — see the real craft →`
+                              ? `This is the overused form of ${f.litops.name}. See the real craft →`
                               : `Try ${f.litops.name} instead →`}
                           </a>
                         )}
@@ -235,7 +235,7 @@ export default function LanguagePatternCheckClient() {
               <p className="text-[11px] font-mono leading-relaxed" style={{ color: "var(--text-muted)" }}>
                 {`${state.result.semantic_review_required.length} additional pattern${
                   state.result.semantic_review_required.length === 1 ? "" : "s"
-                } would need real language judgment (tone, sycophancy, vagueness) to check accurately — that requires a model call, so it’s outside what this free pass evaluates.`}
+                } would need real language judgment (tone, sycophancy, vagueness) to check accurately. That requires a model call, so it’s outside what this free pass evaluates.`}
               </p>
             )}
           </div>

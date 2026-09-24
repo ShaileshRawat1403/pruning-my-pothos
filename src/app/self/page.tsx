@@ -4,14 +4,8 @@ import SpotlightCard from "../../components/SpotlightCard";
 import CharacterPlate from "../../components/CharacterPlate";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
+import { SELF_LINES } from "../../lib/content/plates";
 
-const SELF_LINES = [
-  "Thinker, tinkerer, translator. Most days, in that order.",
-  "Natural language is the new API. I am still learning to speak it well.",
-  "Models generate. Systems govern. I mostly worry about the second part.",
-  "I do not write much code. I write the intent the code should answer to.",
-  "The moat was never the model. It was the orchestration around it.",
-];
 
 export const metadata = constructMetadata({
   title: "Self Calibrations",

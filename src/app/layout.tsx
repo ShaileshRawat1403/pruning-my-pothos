@@ -28,7 +28,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="light" className="h-full">
+    <html lang="en" data-theme="light" className="h-full" suppressHydrationWarning>
+      <head>
+        {/* Apply the saved or system theme before first paint, so a dark-mode
+            reader never sees a flash of the light page. ThemeToggle keeps it
+            in sync after hydration. Light stays the no-script default. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('systems-theme');if(t!=='light'&&t!=='dark'){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)}catch(e){}",
+          }}
+        />
+      </head>
       <body
         className="min-h-full flex flex-col relative overflow-x-hidden"
         style={{ background: "var(--bg-color)", color: "var(--text-primary)" }}

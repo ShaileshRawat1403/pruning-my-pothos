@@ -8,7 +8,7 @@ tags:
   - thinking
 ---
 
-The act of writing is not just about recording our thoughts. It is about creating them. When we are forced to translate a vague idea into precise words, we discover what we truly think. The gaps in our logic are exposed. The weak points become clear.
+Writing creates our thoughts as much as it records them. When we are forced to translate a vague idea into precise words, we discover what we actually think. The gaps in our logic are exposed. The weak points become clear.
 
 <figure class="content-figure figure-meaning">
   <svg viewBox="0 0 480 160" role="img" aria-labelledby="meaning-good-writing-is-good-thinking-title">

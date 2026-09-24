@@ -3,6 +3,8 @@ import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 import { getStoryboards } from "../../lib/content/storyboards";
 import { Frame } from "../../components/illustrations/registry";
+import PlateHero from "../../components/PlateHero";
+import { ADA_LINES } from "../../lib/content/plates";
 
 export const metadata = constructMetadata({
   title: "Storyboards",
@@ -26,20 +28,19 @@ export default function StoryboardsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <header className="flex max-w-[760px] flex-col gap-4">
-        <span className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[color:var(--text-muted)]">
-          See the idea
-        </span>
-        <h1 className="font-heading text-3xl font-extrabold text-[color:var(--text-primary)] sm:text-4xl">
-          Storyboards
-        </h1>
-        <p className="text-base leading-relaxed text-[color:var(--text-secondary)]">
-          Illustrated explainers of how applied AI systems work. Each one is a
-          short deck that tells a single Systems article as a visual story, with
-          the same small cast every time. Flip through it here, download it as a
-          PDF, and follow it back to the article when you want the whole argument.
-        </p>
-      </header>
+      {/* Plate hero - Ada Lovelace, who explained a machine on paper */}
+      <PlateHero
+        eyebrow="See the idea"
+        title="Storyboards"
+        intro="Illustrated explainers of how applied AI systems work. Each one tells a single Systems article as a short visual story, with the same small cast every time. Flip through it here, keep it as a PDF, and follow it back to the article for the whole argument. Lean on the plate and Ada will tell you who did this first."
+        htmlSrc="/scenes/character.html?img=/images/ada-lovelace-hero.jpg&fallback=/scenes/clarity.html"
+        alt="Oil painting of Ada Lovelace in dark glasses, reclining with a quill and notebook in front of a row of screens showing code"
+        plateLabel="Plate · lovelace_notes"
+        caption="She explained a machine before it existed."
+        attribution="A. Lovelace"
+        quotes={ADA_LINES}
+        accent="var(--accent-cyan)"
+      />
 
       <ul className="m-0 grid list-none grid-cols-1 gap-8 p-0 sm:grid-cols-2 lg:grid-cols-3">
         {storyboards.map((sb) => (

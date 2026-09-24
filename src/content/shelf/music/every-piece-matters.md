@@ -1,6 +1,6 @@
 ---
 title: "Every Piece Matters"
-description: "Technical but tender — a track that turns precision into lift without losing warmth."
+description: "Technical but tender: a track that turns precision into lift without losing warmth."
 publishDate: "2025-01-19"
 tags:
   - music
@@ -15,4 +15,4 @@ album: "Handmade Cities"
 artist: "Plini"
 ---
 
-Bright, intricate, and clean. It feels like a well-lit workshop in motion.
+Bright, detailed, and clean. It feels like a well-lit workshop in motion.

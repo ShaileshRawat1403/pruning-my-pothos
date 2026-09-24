@@ -898,6 +898,30 @@ async function runTests() {
     `Test 68: every Systems article has a drawn cover and its exported PNG, and no cover is orphaned${coverProblems.length ? ` (${coverProblems.join("; ")})` : ""}`
   );
 
+  // Test 69: house style has no em dashes in anything a reader sees. Content,
+  // storyboard decks and covers are checked; code comments are not rendered.
+  const dashHits = [];
+  async function scanForDashes(dir) {
+    for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) await scanForDashes(full);
+      else if (/\.(mdx?|tsx)$/.test(entry.name)) {
+        const lines = (await fs.readFile(full, "utf8")).split("\n");
+        lines.forEach((line, i) => {
+          const code = line.trim();
+          if (/^(\/\/|\*|\/\*|\{\/\*)/.test(code)) return;
+          if (line.includes("\u2014") || line.includes("&mdash;") || line.includes("&#8212;")) dashHits.push(`${path.relative(ROOT, full)}:${i + 1}`);
+        });
+      }
+    }
+  }
+  for (const d of ["src/content", "src/components/illustrations", "src/app", "src/components"]) await scanForDashes(path.resolve(ROOT, d));
+  const uniqueDashHits = [...new Set(dashHits)];
+  assert(
+    uniqueDashHits.length === 0,
+    `Test 69: no em dashes in reader-facing content, pages, components, storyboards or covers${uniqueDashHits.length ? ` (found: ${uniqueDashHits.slice(0, 8).join("; ")})` : ""}`
+  );
+
   console.log(`\nRegression Suite Results: ${passed} passed, ${failed} failed.\n`);
   if (failed > 0) {
     process.exit(1);

@@ -196,8 +196,8 @@ export default function ToolsIndexPage() {
       {/* Plate hero - Hero of Alexandria, who programmed in brass */}
       <PlateHero
         eyebrow="Browser-Native Utilities"
-        title="Stack"
-        intro="The stack I reach for: stateless, browser-native utilities to design schemas, audit changes, package directories, and compile flowcharts offline. Lean on the plate and Hero of Alexandria will explain the oldest automation trick in the book."
+        title="Tools"
+        intro="The tools I reach for: stateless, browser-native utilities to design schemas, audit changes, package directories, and compile flowcharts offline. Lean on the plate and Hero of Alexandria will explain the oldest automation trick in the book."
         htmlSrc="/scenes/character.html?img=/images/characters/hero-of-alexandria-automata.jpg&fallback=/scenes/hero.html"
         alt="Oil painting of Hero of Alexandria in a workshop of brass automata with a self-moving cart and a pegged program drum"
         plateLabel="Plate · hero_automata"

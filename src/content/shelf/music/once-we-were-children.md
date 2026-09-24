@@ -1,6 +1,6 @@
 ---
 title: "Once We Were Children"
-description: "Tender and nostalgic without leaning into nostalgia — more memory than memory lane."
+description: "Tender and nostalgic without leaning into nostalgia: more memory than memory lane."
 publishDate: "2025-01-19"
 tags:
   - music

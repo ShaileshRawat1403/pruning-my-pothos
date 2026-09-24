@@ -12,7 +12,7 @@ tags:
   - geo
 ---
 
-Optimizing a system without a robust measurement baseline is a recipe for scaling noise. We often rush to improve performance before we understand what normal looks like.
+Optimizing a system without a measurement baseline you trust is a recipe for scaling noise. We often rush to improve performance before we understand what normal looks like.
 
 A reliable baseline tells us what the system does today. It registers the background noise, the normal variance, and the failure rates.
 

@@ -1,6 +1,6 @@
 ---
 title: "The Quiet Work of Rebuilding Questions"
-summary: "In a world of cheap answers, the value shifts to the quality of the question."
+summary: "When answers are cheap, the value shifts to the quality of the question."
 category: "Attention"
 tags:
   - inquiry

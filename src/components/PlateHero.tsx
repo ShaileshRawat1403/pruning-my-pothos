@@ -6,12 +6,15 @@ interface PlateHeroProps extends CharacterPlateProps {
   intro: string;
   /** color for the eyebrow tick; defaults to the plate accent */
   tick?: string;
+  /** a 4:5 portrait plate, drawn narrower than the landscape default */
+  portrait?: boolean;
 }
 
 /**
  * The shared page hero: an eyebrow + title + intro on the left,
- * a speaking CharacterPlate on the right. Keeps every section's
- * hero consistent with the homepage rhythm.
+ * a speaking CharacterPlate on the right. Every top-level section
+ * (Systems, Storyboards, Stack, Shelf, Self) opens with one; the
+ * section's own content follows below it.
  *
  * The two tracks are `fr`, not percentages. Percentage tracks resolve against
  * the grid's content box and the gap is then added on top, so `[52%_48%]` with
@@ -20,7 +23,7 @@ interface PlateHeroProps extends CharacterPlateProps {
  * raise a horizontal scrollbar between 1024px and ~1300px. 13fr/12fr is the
  * same 52:48 proportion, measured after the gap is taken out.
  */
-export default function PlateHero({ eyebrow, title, intro, tick, ...plate }: PlateHeroProps) {
+export default function PlateHero({ eyebrow, title, intro, tick, portrait = false, ...plate }: PlateHeroProps) {
   const tickColor = tick ?? plate.accent ?? "var(--accent-purple)";
   return (
     <section className="grid grid-cols-1 lg:grid-cols-[13fr_12fr] items-center gap-10 lg:gap-14 min-h-[86vh] pt-10 lg:pt-6">
@@ -38,7 +41,11 @@ export default function PlateHero({ eyebrow, title, intro, tick, ...plate }: Pla
           {intro}
         </p>
       </div>
-      <CharacterPlate {...plate} className={`w-full max-w-[540px] mx-auto lg:mx-0 lg:justify-self-end ${plate.className ?? ""}`} />
+      <CharacterPlate
+        {...plate}
+        aspect={portrait ? "4 / 5" : plate.aspect}
+        className={`w-full ${portrait ? "max-w-[420px]" : "max-w-[540px]"} mx-auto lg:mx-0 lg:justify-self-end ${plate.className ?? ""}`}
+      />
     </section>
   );
 }

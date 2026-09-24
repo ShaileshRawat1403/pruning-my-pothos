@@ -11,6 +11,6 @@ resourceHighlights:
   - Second key point this resource covers
 ---
 
-- [Resource name](https://example.com) — One-line justification.
-- [Resource name](https://example.com) — One-line justification.
-- [Resource name](https://example.com) — One-line justification.
+- [Resource name](https://example.com): One-line justification.
+- [Resource name](https://example.com): One-line justification.
+- [Resource name](https://example.com): One-line justification.

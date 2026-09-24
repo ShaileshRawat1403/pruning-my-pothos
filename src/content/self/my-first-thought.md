@@ -10,9 +10,9 @@ tags:
 
 <p class="lead">The first thought feels fast and certain. That is exactly why it needs company.</p>
 
-A <span class="highlight">first thought</span> is rarely the best one. It is an instinct, a knee-jerk reaction shaped by biases we don't fully perceive. It arrives with a feeling of clarity and authority, yet it is often just the most well-worn path in our own neural landscape. The most familiar answer, not the most considered one.
+A <span class="highlight">first thought</span> is rarely the best one. It is an instinct, a knee-jerk reaction shaped by biases we don't fully perceive. It arrives with a feeling of clarity and authority, yet it is often just the most well-worn path in our own head. The most familiar answer, not the most considered one.
 
-The real work does not begin until the <span class="highlight">second or third thought</span>. The work begins when you ask: "Why did I think that first?" This act of <span class="highlight">self-interrogation</span> is the start of genuine reflection. It moves beyond mere reaction and into the realm of reasoning.
+The real work does not begin until the <span class="highlight">second or third thought</span>. The work begins when you ask: "Why did I think that first?" This act of <span class="highlight">self-interrogation</span> is the start of genuine reflection. It moves past reaction and into reasoning.
 
 <figure class="content-figure">
 <svg viewBox="0 0 520 140" role="img" aria-labelledby="first-thought-title">

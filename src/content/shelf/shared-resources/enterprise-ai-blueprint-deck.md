@@ -1,6 +1,6 @@
 ---
 title: "The Enterprise AI Blueprint deck"
-description: "A comprehensive blueprint for building enterprise AI systems with governance, architecture, and adoption frameworks."
+description: "A blueprint for building enterprise AI systems with governance, architecture, and adoption frameworks."
 publishDate: "2026-02-02"
 tags:
   - resources

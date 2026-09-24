@@ -1,6 +1,8 @@
 import Link from "next/link";
 import GlowCard from "../../components/GlowCard";
 import SceneFigure from "../../components/SceneFigure";
+import PlateHero from "../../components/PlateHero";
+import { SELF_LINES } from "../../lib/content/plates";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema, getPersonSchema } from "../../lib/seo/jsonld";
 
@@ -20,7 +22,7 @@ export default function AboutPage() {
   });
 
   return (
-    <div className="relative flex flex-col gap-16 pt-10 pb-24">
+    <div className="relative flex flex-col gap-16 py-12 pb-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -30,55 +32,20 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(getPersonSchema()) }}
       />
 
-      {/* ── Page Header ── */}
-      <section className="relative rounded-sm overflow-hidden p-8 sm:p-12 flex flex-col gap-5"
-        style={{
-          background: "linear-gradient(135deg, color-mix(in srgb, var(--accent-purple) 9%, transparent) 0%, color-mix(in srgb, var(--accent-cyan) 5%, transparent) 100%)",
-          border: "1px solid color-mix(in srgb, var(--accent-purple) 16%, transparent)",
-        }}
-      >
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: "linear-gradient(color-mix(in srgb, var(--accent-purple) 4%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--accent-purple) 4%, transparent) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-
-        <div className="relative z-10 flex flex-col gap-5">
-          <div className="flex items-center gap-3">
-            <span
-              className="px-3 py-1 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider"
-              style={{
-                background: "color-mix(in srgb, var(--accent-cyan) 10%, transparent)",
-                border: "1px solid color-mix(in srgb, var(--accent-cyan) 24%, transparent)",
-                color: "var(--accent-cyan)",
-              }}
-            >
-              The Builder
-            </span>
-            <span className="text-[10px] font-mono" style={{ color: "var(--text-muted)" }}>
-              Credentials // Philosophy
-            </span>
-          </div>
-
-          <h1
-            className="font-heading text-4xl sm:text-5xl font-black tracking-tight leading-tight"
-            style={{ color: "var(--text-primary)" }}
-          >
-            About{" "}
-            <span className="gradient-text">Pruning My Pothos</span>
-          </h1>
-
-          <p className="text-base leading-relaxed max-w-2xl" style={{ color: "var(--text-secondary)" }}>
-            Thinker. Tinkerer. Translator. I build with AI, test what happens,
-            and explain what I learn in plain language.{" "}
-            <span className="font-heading italic" style={{ color: "var(--text-primary)" }}>
-              Clarity should survive complexity.
-            </span>
-          </p>
-        </div>
-      </section>
+      {/* Plate hero - the self portrait */}
+      <PlateHero
+        eyebrow="The builder"
+        title="Self"
+        intro="Thinker. Tinkerer. Translator. I build with AI, test what happens, and explain what I learn in plain language. Lean on the plate and the portrait will say what it thinks."
+        htmlSrc="/portrait.html"
+        alt="Shailesh Rawat, drawn as a self portrait that inks itself in"
+        plateLabel="Plate · self_portrait"
+        caption="The one running the lab."
+        attribution="Shaily"
+        quotes={SELF_LINES}
+        accent="var(--accent-pink)"
+        portrait
+      />
 
       <SceneFigure
         src="/scenes/bridge.html"

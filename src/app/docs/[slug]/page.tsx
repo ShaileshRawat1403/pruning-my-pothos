@@ -222,7 +222,7 @@ export default async function DocSubpage({ params }: PageProps) {
               <strong>2. Client IP Isolation:</strong> Custom enterprise prompt contexts, schema rules, and codebase ingestion paths containing sensitive intellectual property must remain isolated on private runner instances.
             </p>
             <p>
-              <strong>3. Reusable Standards:</strong> By isolating execution, we can publish public tools that act as clean, stateless adapters &mdash; enabling anyone to model schemas and compile diagrams without needing complex backend deployments.
+              <strong>3. Reusable Standards:</strong> By isolating execution, we can publish public tools that act as clean, stateless adapters, so anyone can model schemas and compile diagrams without needing complex backend deployments.
             </p>
           </div>
         </div>

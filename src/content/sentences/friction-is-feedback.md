@@ -8,7 +8,7 @@ tags:
   - attention
 ---
 
-We often think of friction as a problem to be solved. We want our systems to be seamless, our workflows to be smooth, our progress to be effortless. And so we spend our time trying to remove friction wherever we find it.
+We often think of friction as a problem to be solved. We want our systems to be frictionless, our workflows to be smooth, our progress to be effortless. And so we spend our time trying to remove friction wherever we find it.
 
 <figure class="content-figure figure-attention">
   <svg viewBox="0 0 480 160" role="img" aria-labelledby="attention-friction-is-feedback-title">

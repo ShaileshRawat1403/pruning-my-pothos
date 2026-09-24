@@ -1,6 +1,6 @@
 ---
 title: "From Gemini to Lynx"
-description: "A gentle orbit — calm momentum with a touch of starlight."
+description: "A gentle orbit: calm momentum with a touch of starlight."
 publishDate: "2025-01-19"
 tags:
   - music

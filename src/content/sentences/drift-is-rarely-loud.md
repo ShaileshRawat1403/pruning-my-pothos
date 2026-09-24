@@ -12,7 +12,7 @@ tags:
   - geo
 ---
 
-Major outages are rare. The more common failure mode is drift—the slow, quiet erosion of performance over time.
+Major outages are rare. The more common failure mode is drift: the slow, quiet erosion of performance over time.
 
 When models drift, they do not throw errors. They simply provide slightly less accurate, slightly less relevant, or slightly less grounded answers.
 
