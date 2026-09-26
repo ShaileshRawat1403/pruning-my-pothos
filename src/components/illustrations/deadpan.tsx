@@ -65,6 +65,9 @@ export function DeadpanDefs({ id, boil = false }: { id: string; boil?: boolean }
         <stop offset="60%" stopColor={D.paperDeep} stopOpacity={0} />
         <stop offset="100%" stopColor="#B9A67E" stopOpacity={0.45} />
       </radialGradient>
+      <pattern id={`${id}-grain-tile`} width={256} height={256} patternUnits="userSpaceOnUse">
+        <image href="/textures/paper-grain.png" width={256} height={256} />
+      </pattern>
       <pattern id={`${id}-hatch`} width={9} height={9} patternUnits="userSpaceOnUse" patternTransform="rotate(38)">
         <line x1={0} y1={0} x2={0} y2={9} stroke={D.ink} strokeWidth={1.8} opacity={0.5} />
       </pattern>
@@ -78,6 +81,9 @@ export function Paper({ id, w, h }: { id: string; w: number; h: number }) {
     <g>
       <rect width={w} height={h} fill={D.paper} />
       <rect className="ill-grain" width={w} height={h} fill="#000" filter={`url(#${id}-grain)`} />
+      {/* Print draws the grain from a small tiled image; the live filter would
+          rasterise the whole page into a huge PDF. */}
+      <rect className="ill-grain-print" width={w} height={h} fill={`url(#${id}-grain-tile)`} />
       <rect width={w} height={h} fill={`url(#${id}-vignette)`} />
     </g>
   );

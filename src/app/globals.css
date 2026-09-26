@@ -1017,8 +1017,14 @@ html.js .hero-cinema:not(.is-playing):not(.is-still) .hc-camera { visibility: hi
 /* Illustration filters (paper grain, ink wobble) rasterise when printed, which
    turned each storyboard PDF into ~100 MB. Print and the PNG export routes
    (.no-grain) draw clean paper instead; live pages keep the texture. */
+.ill-grain-print { display: none; }
 @media print {
   .ill-grain { display: none; }
+  .ill-grain-print { display: inline; }
   .ill-svg [filter] { filter: none !important; }
 }
 .no-grain .ill-grain { display: none; }
+
+/* Storyboard strip: navigation is the buttons, dots, keys and swipe. */
+.storyboard-track { scrollbar-width: none; }
+.storyboard-track::-webkit-scrollbar { display: none; }

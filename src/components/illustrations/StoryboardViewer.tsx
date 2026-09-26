@@ -13,15 +13,23 @@ export interface StoryboardSlide {
  * without JavaScript and swipes naturally on a phone; the script only adds
  * buttons, arrow keys and the live position read-out.
  *
- * Each slide pairs the drawn frame with its full text at body size. The frame
- * is a fixed 4:5 composition, the same one the PDF carries; the text beneath
- * is what keeps the explanation legible at phone width and to a screen reader.
+ * Each slide pairs the drawn frame with its full text. On wide screens the
+ * frame is sized to the viewport height and the text sits beside it, so both
+ * are visible at once; on phones they stack. "Enlarge" (or clicking the
+ * frame) opens it near full width in a dialog for reading the drawing itself.
  */
 const noop = () => () => {};
 
 export default function StoryboardViewer({ title, slides }: { title: string; slides: StoryboardSlide[] }) {
   const track = useRef<HTMLOListElement>(null);
   const [index, setIndex] = useState(0);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const [zoomed, setZoomed] = useState<number | null>(null);
+  const openZoom = (i: number) => {
+    setZoomed(i);
+    dialog.current?.showModal();
+  };
+  const closeZoom = () => dialog.current?.close();
   // False in the server render, true once hydrated: buttons stay disabled
   // until they can actually move the strip.
   const ready = useSyncExternalStore(noop, () => true, () => false);
@@ -127,17 +135,31 @@ export default function StoryboardViewer({ title, slides }: { title: string; sli
             key={i}
             aria-roledescription="slide"
             aria-label={`${i + 1} of ${total}: ${slide.title}`}
-            className="flex w-full shrink-0 snap-center flex-col items-center gap-5 px-1 pb-3"
+            className="grid w-full shrink-0 snap-center grid-cols-1 items-center justify-items-center gap-5 px-1 pb-3 lg:grid-cols-[auto_minmax(0,26rem)] lg:justify-center lg:gap-10"
           >
-            <div
-              className="w-full overflow-hidden rounded-md border border-[#D9D4C6] shadow-sm"
+            <button
+              type="button"
+              onClick={() => openZoom(i)}
+              aria-label={`Enlarge frame ${i + 1}`}
+              className="block w-full cursor-zoom-in overflow-hidden rounded-md border border-[#D9D4C6] shadow-sm lg:w-auto"
               style={{ maxWidth: "min(100%, max(320px, calc((100svh - 250px) * 0.8)))" }}
             >
-              {slide.node}
+              <div className="lg:h-[max(420px,calc(100svh-250px))] lg:aspect-[4/5]">{slide.node}</div>
+            </button>
+            <div className="flex w-full max-w-[640px] flex-col gap-3 lg:self-center">
+              <span className="hidden font-mono text-xs uppercase tracking-[0.18em] text-[color:var(--text-muted)] lg:block">
+                Frame {String(i + 1).padStart(2, "0")} of {String(total).padStart(2, "0")}
+              </span>
+              <h2 className="m-0 hidden font-heading text-2xl font-bold leading-snug text-[color:var(--text-primary)] lg:block">{slide.title}</h2>
+              <p className="m-0 text-sm leading-relaxed text-[color:var(--text-secondary)] sm:text-base lg:text-lg">{slide.text}</p>
+              <button
+                type="button"
+                onClick={() => openZoom(i)}
+                className="self-start font-mono text-xs text-[color:var(--text-secondary)] underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)]"
+              >
+                Enlarge frame &#8599;
+              </button>
             </div>
-            <p className="m-0 max-w-[640px] text-sm leading-relaxed text-[color:var(--text-secondary)] sm:text-base">
-              {slide.text}
-            </p>
           </li>
         ))}
       </ol>
@@ -161,6 +183,37 @@ export default function StoryboardViewer({ title, slides }: { title: string; sli
           </button>
         ))}
       </div>
+      <dialog
+        ref={dialog}
+        onClose={() => setZoomed(null)}
+        onClick={(e) => {
+          if (e.target === dialog.current) closeZoom();
+        }}
+        onKeyDown={(e) => {
+          if (zoomed === null) return;
+          if (e.key === "ArrowRight" && zoomed < total - 1) setZoomed(zoomed + 1);
+          if (e.key === "ArrowLeft" && zoomed > 0) setZoomed(zoomed - 1);
+        }}
+        aria-label="Enlarged frame"
+        className="storyboard-zoom m-0 h-full max-h-none w-full max-w-none bg-transparent p-0 backdrop:bg-black/85"
+      >
+        {zoomed !== null && (
+          <div className="mx-auto flex min-h-full w-[min(94vw,900px)] flex-col gap-4 py-6">
+            <div className="flex items-center justify-between font-mono text-sm text-white/80">
+              <span>
+                {String(zoomed + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} &middot; {slides[zoomed].title}
+              </span>
+              <span className="flex gap-2">
+                <button type="button" disabled={zoomed === 0} onClick={() => setZoomed(zoomed - 1)} aria-label="Previous frame" className="h-10 w-10 rounded-full border border-white/30 disabled:opacity-30">&larr;</button>
+                <button type="button" disabled={zoomed === total - 1} onClick={() => setZoomed(zoomed + 1)} aria-label="Next frame" className="h-10 w-10 rounded-full border border-white/30 disabled:opacity-30">&rarr;</button>
+                <button type="button" onClick={closeZoom} aria-label="Close" className="h-10 rounded-full border border-white/30 px-4">Close</button>
+              </span>
+            </div>
+            <div className="overflow-hidden rounded-md">{slides[zoomed].node}</div>
+            <p className="m-0 text-base leading-relaxed text-white/85">{slides[zoomed].text}</p>
+          </div>
+        )}
+      </dialog>
     </section>
   );
 }
