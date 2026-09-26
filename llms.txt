@@ -1,0 +1,31 @@
+# Pruning My Pothos
+
+> A publication and working lab about understanding AI by building with it,
+> inspecting it, and explaining what holds up. Written by Shailesh Rawat.
+> Systems explains how applied AI systems work. Storyboards draw the same
+> ideas as illustrated PDF explainers. Stack shows them being tested in real
+> tools. Shelf traces the references and experiments behind all of it.
+
+Author: Shailesh Rawat, AI Systems Consultant and Technical Communicator.
+Site: https://pruningmypothos.com/
+
+## Sections
+
+- [Systems](https://pruningmypothos.com/systems/): long-form explainers and breakdowns of AI systems
+- [Storyboards](https://pruningmypothos.com/storyboards/): illustrated explainers, each drawing one Systems article as a short deck with a PDF download
+- [Stack](https://pruningmypothos.com/stack/): applied AI systems and tools being built and tested, with repository excerpts where evidence is shown
+- [Shelf](https://pruningmypothos.com/shelf/): experiments, resources, notes and references
+
+## Also published
+
+- [Sentences](https://pruningmypothos.com/sentences/): short decision rules and observations
+- [Self](https://pruningmypothos.com/self/): essays on practice, judgment and learning in public
+- [Tools](https://pruningmypothos.com/tools/): browser-native, local-first utilities that send nothing to a server
+- [Docs](https://pruningmypothos.com/docs/): reference documentation for the working model
+- [Schema](https://pruningmypothos.com/schema/): the thinking underneath the work
+- [About](https://pruningmypothos.com/about/): who builds this and why
+
+## Machine-readable indexes
+
+- Full page index: https://pruningmypothos.com/sitemap.xml
+- Feed: https://pruningmypothos.com/rss.xml

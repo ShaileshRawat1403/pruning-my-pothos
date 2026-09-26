@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">The Intelligence Assembly deck</title>
+<desc id="d">Ink-illustration cover for The Intelligence Assembly deck</desc>
+<rect width="1200" height="675" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="1198.5" height="673.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 314.1 154.0 L 884.7 154.1 Q 899.5 154.6 900.1 169.0 L 899.9 174.8 Q 900.1 190.1 884.7 189.4 L 314.1 190.3 Q 298.7 189.4 298.6 174.8 L 299.5 169.0 Q 298.6 154.4 314.1 154.0 Z" stroke="#2a2012" stroke-width="3.90" fill="none"/>
+<text x="276.0" y="179.4" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="25.5" fill="#2a2012" text-anchor="end">RESOURCES</text>
+<path d="M 315.1 209.1 L 885.9 209.5 Q 900.1 209.5 900.6 224.1 L 900.4 231.8 Q 901.5 246.8 885.9 246.3 L 315.1 246.2 Q 300.6 247.3 299.8 231.8 L 299.5 224.1 Q 300.1 208.6 315.1 209.1 Z" stroke="#8c2f23" stroke-width="5.10" fill="none"/>
+<text x="276.0" y="235.7" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="25.5" fill="#8c2f23" text-anchor="end">ARCHITECTURE</text>
+<path d="M 315.9 268.3 L 885.7 268.8 Q 900.4 269.0 900.8 283.3 L 900.6 289.8 Q 900.9 304.8 885.7 304.3 L 315.9 304.5 Q 300.9 304.0 300.8 289.8 L 300.4 283.3 Q 300.3 268.5 315.9 268.3 Z" stroke="#2a2012" stroke-width="3.90" fill="none"/>
+<text x="276.0" y="294.8" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="25.5" fill="#2a2012" text-anchor="end">MEMORY</text>
+<path d="M 314.0 325.7 L 883.9 326.3 Q 899.4 326.1 898.6 340.7 L 898.6 345.8 Q 899.0 360.3 883.9 361.0 L 314.0 360.8 Q 298.2 360.8 298.9 345.8 L 299.4 340.7 Q 298.6 326.0 314.0 325.7 Z" stroke="#2a2012" stroke-width="3.90" fill="none"/>
+<text x="276.0" y="350.6" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="25.5" fill="#2a2012" text-anchor="end">SYSTEMS</text>
+<text x="600.0" y="465.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="37.5" fill="#2a2012" font-weight="700" text-anchor="middle">INTELLIGENCE ASSEMBLY DECK</text>
+<text x="1186" y="665" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24.0" fill="#2a2012" opacity="0.5" text-anchor="end">SHELF · SHARED RESOURCES</text>
+</svg>

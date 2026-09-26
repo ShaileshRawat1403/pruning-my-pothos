@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-label="Azure AI Foundry mental model">
+  <rect width="960" height="420" rx="24" fill="#f8fafc"/>
+  <rect x="40" y="40" width="880" height="340" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="70" y="90" fill="#0f172a" font-size="18" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Foundry governance flow</text>
+
+  <rect x="90" y="140" width="220" height="160" rx="16" fill="#eff6ff" stroke="#bfdbfe" stroke-width="2"/>
+  <text x="200" y="190" text-anchor="middle" fill="#1e3a8a" font-size="16" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700">AI Hub</text>
+  <text x="200" y="218" text-anchor="middle" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Identity</text>
+  <text x="200" y="238" text-anchor="middle" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Network</text>
+  <text x="200" y="258" text-anchor="middle" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Model access</text>
+
+  <rect x="370" y="140" width="220" height="160" rx="16" fill="#ecfeff" stroke="#a5f3fc" stroke-width="2"/>
+  <text x="480" y="190" text-anchor="middle" fill="#0f766e" font-size="16" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700">AI Project</text>
+  <text x="480" y="218" text-anchor="middle" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Quotas</text>
+  <text x="480" y="238" text-anchor="middle" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Owners</text>
+  <text x="480" y="258" text-anchor="middle" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Budgets</text>
+
+  <rect x="650" y="140" width="220" height="160" rx="16" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="2"/>
+  <text x="760" y="190" text-anchor="middle" fill="#166534" font-size="16" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700">Workloads</text>
+  <text x="760" y="218" text-anchor="middle" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Playground</text>
+  <text x="760" y="238" text-anchor="middle" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">APIs</text>
+  <text x="760" y="258" text-anchor="middle" fill="#475569" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Integrations</text>
+
+  <path d="M310 220h60" stroke="#94a3b8" stroke-width="3"/>
+  <path d="M590 220h60" stroke="#94a3b8" stroke-width="3"/>
+  <polygon points="370,220 360,214 360,226" fill="#94a3b8"/>
+  <polygon points="650,220 640,214 640,226" fill="#94a3b8"/>
+</svg>

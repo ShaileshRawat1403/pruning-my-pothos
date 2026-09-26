@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-label="Guardrails and risk handling">
+  <rect width="960" height="420" rx="24" fill="#f8fafc"/>
+  <rect x="40" y="40" width="880" height="340" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="70" y="90" fill="#0f172a" font-size="18" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Guardrails and risk</text>
+
+  <rect x="70" y="120" width="390" height="240" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="95" y="155" fill="#0f172a" font-size="13" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Guardrails</text>
+  <rect x="95" y="180" width="330" height="44" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="120" y="208" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">PII redaction</text>
+  <text x="400" y="208" fill="#10b981" font-size="12" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif">On</text>
+  <rect x="95" y="236" width="330" height="44" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="120" y="264" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Refusal tests</text>
+  <text x="400" y="264" fill="#10b981" font-size="12" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif">Required</text>
+
+  <rect x="500" y="120" width="370" height="240" rx="16" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="525" y="155" fill="#0f172a" font-size="13" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Risk notes</text>
+  <rect x="525" y="180" width="320" height="44" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="550" y="208" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Hallucination rate tracked</text>
+  <rect x="525" y="236" width="320" height="44" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="550" y="264" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Escalation for PII leaks</text>
+</svg>

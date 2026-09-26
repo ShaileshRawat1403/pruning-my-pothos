@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-label="Prompt harness results">
+  <rect width="960" height="420" rx="24" fill="#f8fafc"/>
+  <rect x="40" y="40" width="880" height="340" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="70" y="90" fill="#0f172a" font-size="18" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600">Prompt harness</text>
+
+  <rect x="70" y="120" width="820" height="80" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="100" y="165" fill="#0f172a" font-size="13" font-family="'Plus Jakarta Sans', sans-serif">Prompt: Summarize the ticket in one sentence.</text>
+
+  <rect x="70" y="220" width="820" height="120" rx="16" fill="#e0f2fe" stroke="#bae6fd" stroke-width="2"/>
+  <text x="100" y="260" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Model A: Concise, compliant summary with next steps.</text>
+  <text x="100" y="288" fill="#0f172a" font-size="12" font-family="'Plus Jakarta Sans', sans-serif">Model B: Flags missing data and asks for clarification.</text>
+</svg>

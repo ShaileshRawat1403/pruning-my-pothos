@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:I[1905,["/_next/static/chunks/1k7c5uqqbx_ju.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/0km8otwumm5s4.js","/_next/static/chunks/419nwfw2xdjw_.js"],"default"]
+3:I[97367,["/_next/static/chunks/1k7c5uqqbx_ju.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+:HL["/_next/static/chunks/3697c3az250g8.css","style"]
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"DAX: Governed Execution Workstation | Pruning My Pothos\",\"description\":\"DAX puts policy, approvals, replay and audit around a coding agent's run. Open source, MIT, v1.4.0.\",\"url\":\"https://pruningmypothos.com/stack/dax/\"}"}}],["$","$L2",null,{}]],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/3697c3az250g8.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/0km8otwumm5s4.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/419nwfw2xdjw_.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"ZOPCsptv_KihUrPn2N_MR"}
+5:null
