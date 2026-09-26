@@ -997,16 +997,76 @@ h1, h2, h3, h4, h5 {
 .ill-sans { font-family: 'Schibsted Grotesk', 'Helvetica Neue', Helvetica, sans-serif; }
 .ill-svg { display: block; width: 100%; height: auto; }
 
-/* Home plate: the pruned leaves drift, gently. Still under reduced motion. */
+/* ══ Home plate (HeroPothos) ══
+   Intro, once per load: pot fades in, vines draw on (pathLength=1), leaves and
+   tags pop in on their --d delays, the snip (SMIL, started from JS), then the
+   pruned leaves and struck tags drop and their strikes draw.
+   Afterwards: the plant leans toward the pointer (--lean), kept tags wiggle,
+   struck tags fall away on hover. Reduced motion: all of it is off. */
+.hero-pothos .hp-in {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.2, 1.3, 0.4, 1);
+  animation-delay: var(--d, 0s);
+  animation-fill-mode: backwards;
+}
+.hero-pothos .hp-in--pop { animation-name: hp-pop; }
+.hero-pothos .hp-in--fade { animation-name: hp-fade; animation-timing-function: ease-out; }
+.hero-pothos .hp-in--drop { animation-name: hp-drop; animation-duration: 0.7s; animation-timing-function: cubic-bezier(0.3, 1.5, 0.5, 1); }
+@keyframes hp-pop { from { opacity: 0; transform: scale(0.4); } }
+@keyframes hp-fade { from { opacity: 0; } }
+@keyframes hp-drop { from { opacity: 0; transform: translate(-30px, -70px) rotate(-18deg); } }
+
+.hero-pothos .hp-vine {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: hp-draw 0.9s ease-out var(--d, 0s) backwards;
+}
+@keyframes hp-draw { from { stroke-dashoffset: 1; } }
+
+.hero-pothos .hp-strike path {
+  stroke-dasharray: 160;
+  stroke-dashoffset: 0;
+  animation: hp-strike 0.45s ease-out 2.6s backwards;
+}
+@keyframes hp-strike { from { stroke-dashoffset: 160; } }
+
+.hero-pothos .hp-plant {
+  transform-box: view-box;
+  transform-origin: 240px 456px;
+  transform: rotate(var(--lean, 0deg));
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+.hero-pothos .hp-hover { transform-box: fill-box; transform-origin: 12% 50%; cursor: default; }
+.hero-pothos .hp-hover--wiggle:hover { animation: hp-wiggle 0.5s ease-in-out; }
+@keyframes hp-wiggle {
+  25% { transform: rotate(-6deg); }
+  60% { transform: rotate(4deg); }
+  85% { transform: rotate(-1.5deg); }
+}
+.hero-pothos .hp-hover--fall { transition: transform 0.7s cubic-bezier(0.5, 0, 0.7, 0.4), opacity 0.7s ease-in; }
+.hero-pothos .hp-hover--fall:hover { transform: translate(6px, 46px) rotate(16deg); opacity: 0.25; }
+
+/* The pruned leaves drift, gently, once they have landed. */
 .hero-pothos__fall {
   transform-box: fill-box;
   transform-origin: center;
-  animation: pothos-drift 5.5s ease-in-out infinite alternate;
+  animation: pothos-drift 5.5s ease-in-out 2.8s infinite alternate;
 }
 @keyframes pothos-drift {
   from { transform: translate(0, 0) rotate(0deg); }
   to { transform: translate(-6px, 8px) rotate(-3deg); }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-pothos__fall { animation: none; }
+  .hero-pothos .hp-in,
+  .hero-pothos .hp-vine,
+  .hero-pothos .hp-strike path,
+  .hero-pothos__fall,
+  .hero-pothos .hp-hover--wiggle:hover { animation: none; }
+  .hero-pothos .hp-plant,
+  .hero-pothos .hp-hover--fall { transition: none; }
+  .hero-pothos .hp-hover--fall:hover { transform: none; opacity: 1; }
 }

@@ -52,15 +52,9 @@ export default function Hero() {
             </ul>
           </div>
 
-          <figure className="m-0 w-full max-w-[520px] mx-auto lg:mx-0 lg:justify-self-end">
-            <div className="overflow-hidden rounded-sm border border-[#D9D4C6] shadow-sm">
-              <HeroPothos />
-            </div>
-            <figcaption className="mt-3 flex justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-[color:var(--text-muted)]">
-              <span>Plate · pruning_my_pothos</span>
-              <span>Keep what holds</span>
-            </figcaption>
-          </figure>
+          <div id="hero-plate" className="w-full max-w-[520px] mx-auto lg:mx-0 lg:justify-self-end">
+            <HeroPothos />
+          </div>
         </div>
       </div>
     </section>

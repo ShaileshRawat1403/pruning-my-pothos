@@ -7,6 +7,7 @@ import SelectedSystems from "../components/home/SelectedSystems";
 import ReferencePreview from "../components/home/ReferencePreview";
 import Projects from "../components/home/Projects";
 import ShelfPreview from "../components/home/ShelfPreview";
+import DriftingLeaf from "../components/home/DriftingLeaf";
 
 export const metadata: Metadata = constructMetadata({
   path: "/",
@@ -69,7 +70,7 @@ const HOME_STRUCTURED_DATA = {
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#FAF9F6]">
+    <div className="relative flex flex-col min-h-screen bg-[#FAF9F6]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_STRUCTURED_DATA) }}
@@ -80,6 +81,7 @@ export default function HomePage() {
       <ReferencePreview />
       <Projects />
       <ShelfPreview />
+      <DriftingLeaf />
     </div>
   );
 }

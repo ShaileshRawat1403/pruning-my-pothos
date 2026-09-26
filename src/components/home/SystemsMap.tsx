@@ -31,6 +31,7 @@ export default function SystemsMap() {
               className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[color:var(--text-primary)]"
             >
               Where are you in the system?
+              <span id="map-leaf-landing" aria-hidden="true" className="inline-block w-12 h-8 ml-2 align-middle" />
             </h2>
             <p className="text-sm leading-relaxed text-[color:var(--text-secondary)] mt-2">
               Eight questions an applied AI system has to answer, in the order the answers tend to
