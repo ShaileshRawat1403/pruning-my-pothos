@@ -2,6 +2,7 @@ import React from "react";
 import type { DeckFrame } from "./types";
 import { GagTemplate } from "../templates";
 import { D, LINE, Head, Torso, Legs, Limb, Sheet, Label, SleepyEye } from "../deadpan";
+import { OnCall, ThoughtLeader, SecurityGuy } from "../dank";
 
 /*
  * Deadpan gag frames, one set per deck: a visual pun, its punchline, and the
@@ -110,7 +111,8 @@ export const MODEL_GAGS = frames("SYSTEMS · STAGE 01", [
         <path d="M456 230 L470 300 L484 230" fill={D.ink} />
         {bubble(600, 120, 330, "Studies show, clearly,", 26)}
         {say(760, 250, "(no studies)", 24, D.greyLight)}
-        {[120, 190, 860].map((x) => (
+        <g transform="translate(780 424) scale(0.35)"><ThoughtLeader sign={null} /></g>
+        {[120, 190].map((x) => (
           <g key={x}>
             <Head x={x} y={540} r={40} eyes="closed" mouth="o" hair={x === 190 ? "curly" : "strands"} />
           </g>
@@ -132,19 +134,16 @@ export const RAG_GAGS = frames("SYSTEMS · STAGE 02", [
     scene: (
       <g>
         {floor}
-        <rect x={0} y={440} width={1000} height={60} fill={D.paperDeep} stroke={D.ink} strokeWidth={5} />
-        <Head x={270} y={290} r={62} eyes="tt" mouth="flat" stubble hair="messy" />
-        <Torso x={270} y={352} w={170} h={92} fill={D.grey} />
-        <Limb d="M350 400 C 400 410, 430 404, 460 392" />
-        <g transform="rotate(-6 520 380)">
-          <rect x={450} y={320} width={170} height={120} fill={D.accent} stroke={D.ink} strokeWidth={4.5} />
-          {say(535, 370, "How to roast", 24, "#fff")}
-          {say(535, 402, "a turkey", 28, "#fff")}
+        <g transform="translate(0 172) scale(0.8)"><OnCall screen={["VISA", "TURKEY", "urgent"]} /></g>
+        <g transform="translate(640 172) scale(0.8)"><SecurityGuy say={null} /></g>
+        <Limb d="M690 520 C 650 500, 620 490, 590 486" fill="#2F4A56" />
+        <g transform="rotate(-8 520 460)">
+          <rect x={420} y={390} width={190} height={140} fill={D.accent} stroke={D.ink} strokeWidth={5} />
+          {say(515, 446, "Roasting", 30, "#fff")}
+          {say(515, 486, "a Turkey", 34, "#fff")}
         </g>
-        <Head x={800} y={280} r={60} eyes="saucer" look={-1} mouth="flat" hair="curly" />
-        <Torso x={800} y={340} w={170} h={104} fill={D.teal} />
-        {bubble(630, 60, 330, "Turkey visa rules?", 28)}
-        <Label x={270} y={560} text="98% SIMILAR" size={16} color={D.accent} />
+        {bubble(60, 40, 330, "Turkish visa, please?", 28)}
+        <Label x={515} y={590} text="98% SIMILAR" size={16} color={D.accent} />
       </g>
     ),
   },
@@ -285,14 +284,7 @@ export const PROMPT_GAGS = frames("SYSTEMS · STAGE 03", [
         </g>
         <path d="M520 616 L540 470 M660 616 L640 470 M520 470 H660" {...LINE} strokeWidth={8} />
         <ellipse cx={590} cy={466} rx={80} ry={16} fill="#E2C9A0" stroke={D.ink} strokeWidth={4.5} />
-        <Head x={840} y={320} r={60} eyes="sleepy" look={-1} mouth="flat" stubble hair="strands" />
-        <Torso x={840} y={382} w={160} h={160} fill={D.grey} />
-        <path d="M800 542 L796 616 M880 542 L884 616" {...LINE} strokeWidth={6} />
-        <Limb d="M762 430 C 730 440, 716 440, 700 436" />
-        <g transform="rotate(-8 680 430)">
-          <rect x={640} y={400} width={70} height={50} fill="#fff" stroke={D.ink} strokeWidth={3} />
-          {say(675, 434, "✓ ok", 20, D.accent)}
-        </g>
+        <g transform="translate(680 172) scale(0.8)"><OnCall screen={["DELIVERED", "1 stool", "rate us ★★★★★"]} /></g>
       </g>
     ),
   },
@@ -310,9 +302,8 @@ export const GOVERNED_GAGS = frames("SYSTEMS · STAGE 04", [
     scene: (
       <g>
         {floor}
-        <rect x={500} y={400} width={500} height={220} fill={D.paperDeep} stroke={D.ink} strokeWidth={5} />
-        <Head x={760} y={310} r={60} eyes="tt" mouth="flat" stubble hair="messy" />
-        <Torso x={760} y={372} w={160} h={40} fill={D.grey} />
+        <g transform="translate(600 150) scale(0.8)"><SecurityGuy say="no." /></g>
+        <rect x={500} y={440} width={500} height={180} fill={D.paperDeep} stroke={D.ink} strokeWidth={5} />
         <g transform="rotate(-4 330 300)">
           <rect x={200} y={140} width={260} height={320} fill="#fff" stroke={D.ink} strokeWidth={4.5} />
           <text x={330} y={176} textAnchor="middle" className="ill-mono" fontSize={16} fontWeight={700} fill={D.ink}>REQUEST 4417</text>
@@ -454,21 +445,8 @@ export const HITL_GAGS = frames("SYSTEMS · STAGE 05", [
     scene: (
       <g>
         {floor}
-        <Legs x={330} y={470} floor={616} />
-        <Torso x={330} y={320} w={170} h={160} fill={D.teal} />
-        <Head x={330} y={250} r={64} eyes="saucer" look={1} mouth="o" hair="messy" />
-        <Limb d="M410 380 C 450 350, 470 320, 480 290" />
-        <g transform="rotate(8 540 260)">
-          <rect x={480} y={140} width={130} height={220} rx={16} fill={D.ink} />
-          <rect x={490} y={160} width={110} height={180} rx={6} fill="#fff" />
-          <text x={545} y={196} textAnchor="middle" className="ill-mono" fontSize={12} fontWeight={700} fill={D.ink}>FYI</text>
-          {say(545, 236, "refunded", 22)}
-          {say(545, 264, "4,000", 30, D.accent)}
-          {say(545, 292, "customers", 22)}
-          <text x={545} y={322} textAnchor="middle" className="ill-mono" fontSize={10} fontWeight={700} fill={D.greyLight}>2 hours ago</text>
-        </g>
-        <Limb d="M250 380 C 220 360, 214 330, 222 300" />
-        <path d="M200 270 H244 L240 300 Q222 310 204 300 Z" fill="#fff" stroke={D.ink} strokeWidth={4} strokeLinejoin="round" />
+        <g transform="translate(120 172) scale(0.8)"><OnCall screen={["FYI", "4,000", "refunds sent"]} /></g>
+        {say(300, 120, "(two hours ago)", 26, D.greyLight)}
         <path d="M700 616 L720 460 H880 L900 616 Z" fill={D.paperDeep} stroke={D.ink} strokeWidth={4} strokeLinejoin="round" />
         <Label x={800} y={420} text="AUTOMATION" size={16} />
         <path d="M740 400 l-10 -24 M800 390 v-26 M860 400 l10 -24" stroke={D.greyLight} strokeWidth={4} strokeLinecap="round" />
@@ -526,9 +504,8 @@ export const EVAL_GAGS = frames("SYSTEMS · STAGE 06", [
         <Torso x={300} y={342} w={160} h={80} fill={D.teal} />
         <Limb d="M372 380 C 400 380, 420 376, 440 368" />
         <path d="M440 368 L470 340" stroke={D.accent} strokeWidth={6} strokeLinecap="round" />
-        <Head x={840} y={330} r={48} eyes="tt" mouth="flat" stubble hair="bun" />
-        <Torso x={840} y={380} w={130} h={240} fill={D.grey} />
-        {say(840, 250, "(the teacher)", 24, D.greyLight)}
+        <g transform="translate(700 172) scale(0.8)"><SecurityGuy say="F." /></g>
+        {say(860, 150, "(the teacher)", 24, D.greyLight)}
       </g>
     ),
   },
@@ -642,13 +619,12 @@ export const HANDOFF_GAGS = frames("SYSTEMS · STAGE 07", [
         {say(300, 262, "“we try Postgres”", 26)}
         <path d="M260 420 L240 470 M340 420 L360 470" {...LINE} strokeWidth={6} />
         <path d="M600 470 C 600 400, 900 400, 900 470 L910 540 H590 Z" fill={D.accent} stroke={D.ink} strokeWidth={5} strokeLinejoin="round" />
-        <Head x={750} y={340} r={58} eyes="sleepy" look={-1} mouth="flat" stubble hair="strands" />
-        <Torso x={750} y={400} w={150} h={80} fill={D.grey} />
-        <ellipse cx={820} cy={430} rx={40} ry={20} fill="#fff" stroke={D.ink} strokeWidth={3.5} />
+        <g transform="translate(590 172) scale(0.8)"><OnCall screen={["DAY 9", "ep 1/312", "no plan yet"]} /></g>
+        <path d="M590 540 H910 L914 600 H586 Z" fill={D.accent} stroke={D.ink} strokeWidth={5} strokeLinejoin="round" />
+        <ellipse cx={560} cy={590} rx={40} ry={20} fill="#fff" stroke={D.ink} strokeWidth={3.5} />
         {[0, 1, 2].map((i) => (
-          <circle key={i} cx={806 + i * 12} cy={424} r={6} fill="#E8C766" stroke={D.ink} strokeWidth={2} />
+          <circle key={i} cx={546 + i * 12} cy={584} r={6} fill="#E8C766" stroke={D.ink} strokeWidth={2} />
         ))}
-        <Label x={750} y={250} text="DAY 9" size={14} color={D.greyLight} />
       </g>
     ),
   },
@@ -776,20 +752,15 @@ export const READY_GAGS = frames("SYSTEMS · STAGE 08", [
         <text x={670} y={230} textAnchor="middle" className="ill-sans" fontSize={52} fontWeight={800} fill={D.teal}>It works!</text>
         {say(670, 290, "(please don't click anything else)", 24, D.greyLight)}
         <path d="M670 390 V440 M600 440 H740" {...LINE} strokeWidth={6} />
-        <Legs x={240} y={470} floor={616} />
-        <Torso x={240} y={320} w={170} h={160} fill={D.ink} />
-        <Head x={240} y={250} r={64} eyes="saucer" look={1} mouth="grin" hair="sides" />
-        <Limb d="M320 360 C 360 330, 390 300, 410 270" fill={D.ink} />
-        <g transform="rotate(-6 140 470)">
-          <rect x={60} y={420} width={160} height={110} fill="#F6E7A8" stroke={D.ink} strokeWidth={3.5} />
-          {say(140, 456, "SCRIPT v12", 22)}
-          {say(140, 492, "click here,", 20, D.greyLight)}
-          {say(140, 516, "then here ONLY", 20, D.accent)}
+        <g transform="translate(20 172) scale(0.8)"><ThoughtLeader sign={null} /></g>
+        <Limb d="M300 520 C 350 460, 380 400, 410 330" fill={D.ink} />
+        <g transform="rotate(-6 460 560)">
+          <rect x={380} y={510} width={160} height={96} fill="#F6E7A8" stroke={D.ink} strokeWidth={3.5} />
+          {say(460, 544, "SCRIPT v12", 22)}
+          {say(460, 578, "then here ONLY", 20, D.accent)}
         </g>
-        {[560, 700, 840].map((x) => (
-          <g key={x}>
-            <Head x={x} y={560} r={38} eyes="closed" mouth="grin" hair={x === 700 ? "curly" : "strands"} />
-          </g>
+        {[640, 760, 880].map((x) => (
+          <Head key={x} x={x} y={560} r={38} eyes="closed" mouth="grin" hair={x === 760 ? "curly" : "strands"} />
         ))}
       </g>
     ),
@@ -827,19 +798,12 @@ export const READY_GAGS = frames("SYSTEMS · STAGE 08", [
     scene: (
       <g>
         {floor}
-        {[
-          { x: 200, fill: D.teal, hair: "curly" as const, arm: "M270 380 C 340 360, 400 350, 450 350" },
-          { x: 500, fill: D.shirt, hair: "sides" as const, arm: "M570 380 C 640 360, 700 350, 760 350" },
-          { x: 800, fill: D.grey, hair: "messy" as const, arm: "M730 380 C 560 300, 360 300, 260 340" },
-        ].map((p, i) => (
-          <g key={p.x}>
-            <Legs x={p.x} y={480} floor={616} />
-            <Torso x={p.x} y={330} w={150} h={160} fill={p.fill} tie={i === 1} />
-            <Head x={p.x} y={262} r={58} eyes="sleepy" look={i === 2 ? -1 : 1} mouth="flat" stubble={i !== 1} hair={p.hair} />
-            <Limb d={p.arm} fill={p.fill} />
-          </g>
-        ))}
-        <Sheet x={420} y={500} w={160} h={90} title="INCIDENT" lines={2} r={-3} />
+        <g transform="translate(-10 172) scale(0.8)"><OnCall screen={["INCIDENT", "SEV 1", "not me"]} /></g>
+        <g transform="translate(330 172) scale(0.8)"><ThoughtLeader sign={null} /></g>
+        <g transform="translate(670 172) scale(0.8)"><SecurityGuy say={null} /></g>
+        <Limb d="M230 540 C 270 528, 300 522, 336 520" w={14} fill={D.grey} />
+        <Limb d="M580 548 C 620 536, 650 530, 684 528" w={14} fill={D.ink} />
+        <Limb d="M720 560 C 690 572, 660 578, 624 580" w={14} fill="#2F4A56" />
         <Label x={500} y={110} text="OWNER: ________" size={18} color={D.accent} />
       </g>
     ),
@@ -853,18 +817,16 @@ export const READY_GAGS = frames("SYSTEMS · STAGE 08", [
     scene: (
       <g>
         {floor}
-        <path d="M380 620 V240 L420 180 H580 L620 240 V620 Z" fill="#fff" stroke={D.ink} strokeWidth={5} strokeLinejoin="round" />
-        <path d="M380 240 H620" stroke={D.ink} strokeWidth={4} />
-        <path d="M420 180 L440 140 H560 L580 180" fill="#fff" stroke={D.ink} strokeWidth={4.5} />
-        <text x={500} y={320} textAnchor="middle" className="ill-sans" fontSize={34} fontWeight={800} fill={D.teal}>RELEASE</text>
-        <text x={500} y={360} textAnchor="middle" className="ill-sans" fontSize={34} fontWeight={800} fill={D.teal}>DECISION</text>
-        <rect x={400} y={420} width={200} height={90} fill={D.paperDeep} stroke={D.ink} strokeWidth={3.5} />
-        <text x={500} y={452} textAnchor="middle" className="ill-mono" fontSize={14} fontWeight={700} fill={D.ink}>BEST BEFORE:</text>
-        {say(500, 492, "next model update", 24, D.accent)}
-        <Head x={780} y={300} r={58} eyes="sleepy" look={-1} mouth="frown" stubble hair="strands" />
-        <Torso x={780} y={360} w={150} h={150} fill={D.grey} />
-        <Legs x={780} y={510} floor={616} />
-        <path d="M700 250 q -10 -20 4 -34 M722 236 q -10 -20 4 -34" fill="none" stroke="#9FB58A" strokeWidth={4} strokeLinecap="round" />
+        <path d="M300 620 V240 L340 180 H500 L540 240 V620 Z" fill="#fff" stroke={D.ink} strokeWidth={5} strokeLinejoin="round" />
+        <path d="M300 240 H540" stroke={D.ink} strokeWidth={4} />
+        <path d="M340 180 L360 140 H480 L500 180" fill="#fff" stroke={D.ink} strokeWidth={4.5} />
+        <text x={420} y={320} textAnchor="middle" className="ill-sans" fontSize={34} fontWeight={800} fill={D.teal}>RELEASE</text>
+        <text x={420} y={360} textAnchor="middle" className="ill-sans" fontSize={34} fontWeight={800} fill={D.teal}>DECISION</text>
+        <rect x={320} y={420} width={200} height={90} fill={D.paperDeep} stroke={D.ink} strokeWidth={3.5} />
+        <text x={420} y={452} textAnchor="middle" className="ill-mono" fontSize={14} fontWeight={700} fill={D.ink}>BEST BEFORE:</text>
+        {say(420, 492, "next model update", 24, D.accent)}
+        <g transform="translate(620 172) scale(0.8)"><OnCall screen={["MODEL", "v4", "rolled out"]} /></g>
+        <path d="M560 250 q -10 -20 4 -34 M582 236 q -10 -20 4 -34" fill="none" stroke="#9FB58A" strokeWidth={4} strokeLinecap="round" />
       </g>
     ),
   },

@@ -1,5 +1,5 @@
 import React from "react";
-import { DeadpanDefs, Paper, SleepyEye, SaucerEye, Stubble } from "./deadpan";
+import { DeadpanDefs, Paper, SleepyEye, Head } from "./deadpan";
 
 /**
  * kit.tsx — the storybook drawing kit: palette, the recurring cast, and the
@@ -103,11 +103,7 @@ export function Gate({
 }: Place & { counter?: string; stamp?: boolean }) {
   return (
     <g transform={at(place)}>
-      <circle cx={120} cy={56} r={32} fill={C.card} stroke={C.ink} strokeWidth={4.5} />
-      <path d="M89 50 Q92 22 120 22 Q148 22 151 50 Q140 36 120 36 Q100 36 89 50 Z" fill={C.ink} />
-      <path d="M98 56 H114 M106 56 V64 M126 56 H142 M134 56 V64" {...stroke} strokeWidth={4.5} />
-      <path d="M112 76 L128 76" {...stroke} strokeWidth={3.5} />
-      <Stubble x={102} y={72} w={36} h={12} n={10} />
+      <Head x={120} y={56} r={32} eyes="tt" look={0} mouth="flat" stubble hair="messy" />
       <path
         d="M80 100 Q120 88 160 100 L170 160 L70 160 Z"
         fill={C.wash}
@@ -149,12 +145,9 @@ export function Courier({
       <path d="M94 150 L126 184 L140 202" {...stroke} />
       <path d="M90 100 L58 120" {...stroke} />
       <path d="M90 98 L128 76 L146 44" {...stroke} />
-      <circle cx={86} cy={52} r={27} fill={C.card} stroke={C.ink} strokeWidth={4.5} />
+      <Head x={86} y={52} r={27} eyes="saucer" look={0.3} mouth="grin" ears={false} />
       <path d="M60 48 Q86 14 112 48 Z" fill={C.teal} stroke={C.ink} strokeWidth={4} strokeLinejoin="round" />
       <path d="M108 47 L134 52" {...stroke} />
-      <SaucerEye x={78} y={56} r={7} px={1} py={1} />
-      <SaucerEye x={96} y={56} r={7} px={1} py={1} />
-      <path d="M74 67 Q88 84 104 67 Z" fill="#fff" stroke={C.ink} strokeWidth={3} strokeLinejoin="round" />
       <g transform="rotate(-8 180 12)">
         <rect x={126} y={-26} width={112} height={72} rx={4} fill={C.card} stroke={C.ink} strokeWidth={4} />
         <text x={182} y={tick ? 6 : 16} textAnchor="middle" className="ill-mono" fontSize={20} fontWeight={600} fill={receiptColor}>
@@ -195,12 +188,7 @@ export function Person({ ...place }: Place) {
   return (
     <g transform={at(place)}>
       <path d="M40 150 Q100 120 160 150 L170 230 L30 230 Z" fill="#4B4A46" stroke={C.ink} strokeWidth={4.5} strokeLinejoin="round" />
-      <circle cx={100} cy={78} r={36} fill={C.card} stroke={C.ink} strokeWidth={4.5} />
-      <path d="M66 70 Q70 36 102 38 Q132 40 136 72 Q120 54 100 56 Q80 56 66 70 Z" fill={C.ink} />
-      <SleepyEye x={87} y={80} r={9} look={0.3} />
-      <SleepyEye x={113} y={80} r={9} look={0.3} />
-      <path d="M92 101 H108" {...stroke} strokeWidth={3.5} />
-      <Stubble x={84} y={96} w={32} h={12} n={10} />
+      <Head x={100} y={78} r={36} eyes="sleepy" look={0.3} mouth="flat" stubble />
       <path d="M52 168 C 70 190, 96 196, 118 186" {...stroke} stroke="#F4F1E8" />
     </g>
   );

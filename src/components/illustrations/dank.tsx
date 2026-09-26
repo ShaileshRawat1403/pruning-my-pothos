@@ -6,6 +6,9 @@ import { D } from "./deadpan";
  * Recognisable workplace types drawn with the details that make them real:
  * heavy lids, eye bags, irises, a nose, shaded stubble, lines. (Draft, for
  * review.)
+ *
+ * The three characters are 400 x 560 busts; place them with their bottom
+ * edge on a desk or the frame's floor.
  */
 
 const INK = D.ink;
@@ -137,7 +140,7 @@ function Face({
 /* ── The cast, each in a 400 x 560 box ─────────────────────────────── */
 
 /** The on-call engineer, 03:12. Hoodie up, pager in hand, nothing left. */
-export function OnCall() {
+export function OnCall({ screen = ["PAGED", "03:12", "again"] }: { screen?: [string, string, string] } = {}) {
   return (
     <g>
       <path d="M40 560 C 40 430, 90 380, 200 376 C 310 380, 360 430, 360 560 Z" fill={D.grey} stroke={INK} strokeWidth={5} />
@@ -160,16 +163,16 @@ export function OnCall() {
       <g transform="rotate(-8 320 480)">
         <rect x={270} y={420} width={100} height={150} rx={14} fill={INK} />
         <rect x={278} y={436} width={84} height={112} rx={6} fill="#9CC7D6" />
-        <text x={320} y={474} textAnchor="middle" className="ill-mono" fontSize={13} fontWeight={700} fill={INK}>PAGED</text>
-        <text x={320} y={500} textAnchor="middle" className="ill-mono" fontSize={20} fontWeight={700} fill={D.accent}>03:12</text>
-        <text x={320} y={524} textAnchor="middle" className="ill-mono" fontSize={10} fontWeight={700} fill={INK}>again</text>
+        <text x={320} y={474} textAnchor="middle" className="ill-mono" fontSize={13} fontWeight={700} fill={INK}>{screen[0]}</text>
+        <text x={320} y={500} textAnchor="middle" className="ill-mono" fontSize={20} fontWeight={700} fill={D.accent}>{screen[1]}</text>
+        <text x={320} y={524} textAnchor="middle" className="ill-mono" fontSize={10} fontWeight={700} fill={INK}>{screen[2]}</text>
       </g>
     </g>
   );
 }
 
 /** The thought leader. Veneers, turtleneck, a headset mic, a strong take. */
-export function ThoughtLeader() {
+export function ThoughtLeader({ sign = ["AI changes", "everything.", "Agree?"] }: { sign?: [string, string, string] | null } = {}) {
   return (
     <g>
       <path d="M40 560 C 40 430, 90 380, 200 376 C 310 380, 360 430, 360 560 Z" fill={INK} stroke={INK} strokeWidth={5} />
@@ -197,18 +200,20 @@ export function ThoughtLeader() {
       <path d="M296 196 C 310 230, 290 270, 250 280" fill="none" stroke={INK} strokeWidth={3} />
       <circle cx={246} cy={282} r={6} fill={INK} />
       <path d="M294 186 q 10 0 10 14" fill="none" stroke={INK} strokeWidth={4} />
-      <g transform="rotate(4 300 470)">
-        <rect x={230} y={410} width={160} height={110} rx={4} fill="#fff" stroke={INK} strokeWidth={4} />
-        <text x={310} y={446} textAnchor="middle" className="ill-sans" fontSize={17} fontWeight={800} fill={INK}>AI changes</text>
-        <text x={310} y={468} textAnchor="middle" className="ill-sans" fontSize={17} fontWeight={800} fill={INK}>everything.</text>
-        <text x={310} y={502} textAnchor="middle" className="ill-hand" fontSize={24} fontWeight={700} fill={D.accent}>Agree?</text>
-      </g>
+      {sign && (
+        <g transform="rotate(4 300 470)">
+          <rect x={230} y={410} width={160} height={110} rx={4} fill="#fff" stroke={INK} strokeWidth={4} />
+          <text x={310} y={446} textAnchor="middle" className="ill-sans" fontSize={17} fontWeight={800} fill={INK}>{sign[0]}</text>
+          <text x={310} y={468} textAnchor="middle" className="ill-sans" fontSize={17} fontWeight={800} fill={INK}>{sign[1]}</text>
+          <text x={310} y={502} textAnchor="middle" className="ill-hand" fontSize={24} fontWeight={700} fill={D.accent}>{sign[2]}</text>
+        </g>
+      )}
     </g>
   );
 }
 
 /** Security. Arms crossed, unibrow, a badge, and the word no. */
-export function SecurityGuy() {
+export function SecurityGuy({ say = "no." }: { say?: string | null } = {}) {
   return (
     <g>
       <path d="M30 560 C 30 420, 80 370, 200 366 C 320 370, 370 420, 370 560 Z" fill="#2F4A56" stroke={INK} strokeWidth={5} />
@@ -229,7 +234,11 @@ export function SecurityGuy() {
       <path d="M170 390 L190 440 M230 390 L210 440" stroke={D.accent} strokeWidth={4} />
       <rect x={176} y={420} width={48} height={34} rx={3} fill="#fff" stroke={INK} strokeWidth={3} />
       <text x={200} y={442} textAnchor="middle" className="ill-mono" fontSize={9} fontWeight={700} fill={INK}>SECURITY</text>
-      <text x={340} y={330} textAnchor="middle" className="ill-hand" fontSize={46} fontWeight={700} fill={D.accent}>no.</text>
+      {say && (
+        <text x={340} y={330} textAnchor="middle" className="ill-hand" fontSize={46} fontWeight={700} fill={D.accent}>
+          {say}
+        </text>
+      )}
     </g>
   );
 }
