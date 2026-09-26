@@ -1,8 +1,18 @@
 import Link from "next/link";
+import SpotlightCard from "../SpotlightCard";
+import { Emblem, EMBLEM_W, EMBLEM_H } from "../illustrations/emblems";
+import { C } from "../illustrations/kit";
 import { getSystemsMap } from "../../lib/content/systems-map";
+import { getStoryboards } from "../../lib/content/storyboards";
 
+// The eight-stage map, drawn. Each stage is a door into its article and shows
+// that article's emblem, so the map doubles as the storyboard shelf: every
+// stage article has a storyboard, linked from the badge on its tile. It stays
+// an ordered list because the order is the argument: each stage assumes the
+// one before it has been settled.
 export default function SystemsMap() {
   const stages = getSystemsMap();
+  const decks = new Map(getStoryboards().map((sb) => [sb.slug, sb]));
 
   return (
     <section
@@ -11,60 +21,75 @@ export default function SystemsMap() {
       className="scroll-mt-28 w-full border-b border-[color:var(--card-border)] bg-[color:var(--bg-color)]"
     >
       <div className="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12 py-16">
-        <div className="flex flex-col gap-1 mb-8 max-w-2xl">
-          <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[color:var(--text-muted)]">
-            Systems map
-          </span>
-          <h2
-            id="systems-map-title"
-            className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[color:var(--text-primary)]"
-          >
-            Where are you in the system?
-          </h2>
-          <p className="text-sm leading-relaxed text-[color:var(--text-secondary)] mt-2">
-            Eight questions an applied AI system has to answer, in the order the
-            answers tend to depend on each other. Follow the sequence, or enter
-            where the question becomes useful.
-          </p>
+        <div className="flex justify-between items-end mb-10 flex-wrap gap-4">
+          <div className="flex flex-col gap-1 max-w-2xl">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[color:var(--text-muted)]">
+              Systems map
+            </span>
+            <h2
+              id="systems-map-title"
+              className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[color:var(--text-primary)]"
+            >
+              Where are you in the system?
+            </h2>
+            <p className="text-sm leading-relaxed text-[color:var(--text-secondary)] mt-2">
+              Eight questions an applied AI system has to answer, in the order the answers tend to
+              depend on each other. Each one is an article and a storyboard. Follow the sequence, or
+              enter where the question becomes useful.
+            </p>
+          </div>
+          <div className="flex gap-5 font-mono text-xs">
+            <Link
+              href="/systems/"
+              className="text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)] underline underline-offset-4 decoration-[color:var(--card-border)] transition-colors"
+            >
+              All articles <span aria-hidden="true">&rarr;</span>
+            </Link>
+            <Link
+              href="/storyboards/"
+              className="text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)] underline underline-offset-4 decoration-[color:var(--card-border)] transition-colors"
+            >
+              All storyboards <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
         </div>
 
-        {/* An ordered list because the order is the argument: each stage assumes
-            the one before it has been settled. Rendered as ruled rows rather
-            than tiles so the eight read as one sequence. */}
-        <ol className="list-none p-0 m-0 border-t border-[color:var(--card-border)]">
-          {stages.map((stage) => (
-            <li
-              key={stage.slug}
-              className="border-b border-[color:var(--card-border)]"
-            >
-              <Link
-                href={stage.href}
-                className="group grid grid-cols-1 sm:grid-cols-[minmax(0,15rem)_1fr] gap-1 sm:gap-8 items-baseline py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--text-primary)]"
-              >
-                <span className="font-heading text-base font-bold text-[color:var(--text-primary)]">
-                  {stage.label}
-                </span>
-                <span className="flex flex-col gap-1">
-                  <span className="text-sm text-[color:var(--text-secondary)] leading-relaxed">
-                    {stage.orientation}
+        <ol className="m-0 p-0 list-none grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+          {stages.map((stage, i) => {
+            const deck = decks.get(stage.slug);
+            const n = String(i + 1).padStart(2, "0");
+            return (
+              <li key={stage.slug} className="relative">
+                <SpotlightCard href={stage.href} accent="var(--accent-cyan)" compact className="gap-2.5">
+                  <div className="-mx-1 -mt-1 overflow-hidden rounded-sm border border-[#D9D4C6]">
+                    <svg viewBox={`0 0 ${EMBLEM_W} ${EMBLEM_H}`} className="ill-svg block w-full" aria-hidden="true">
+                      <rect width={EMBLEM_W} height={EMBLEM_H} fill={C.paper} />
+                      <Emblem slug={stage.slug} x={20} y={20} s={0.92} />
+                    </svg>
+                  </div>
+                  <span className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[color:var(--text-muted)]">
+                    {n} · {stage.label}
                   </span>
-                  <span className="text-xs font-mono text-[color:var(--text-muted)] group-hover:text-[color:var(--text-primary)] transition-colors">
+                  <h3 className="font-heading text-sm sm:text-base font-bold leading-snug text-[color:var(--text-primary)]">
+                    {stage.orientation}
+                  </h3>
+                  <span className="hidden sm:inline mt-auto pt-1 text-xs font-mono text-[color:var(--text-muted)] group-hover:text-[color:var(--text-primary)] transition-colors">
                     {stage.title} <span aria-hidden="true">&rarr;</span>
                   </span>
-                </span>
-              </Link>
-            </li>
-          ))}
+                </SpotlightCard>
+                {deck && (
+                  <Link
+                    href={`/storyboards/${deck.slug}/`}
+                    aria-label={`Storyboard: ${stage.title}, ${deck.frames.length} frames`}
+                    className="absolute right-3 top-3 sm:right-4 sm:top-4 z-20 rounded-sm border border-[#D9D4C6] bg-[#F4F1E8] px-1.5 py-0.5 sm:px-2 sm:py-1 font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.14em] text-[#1F2A36] shadow-sm hover:bg-white transition-colors"
+                  >
+                    Storyboard <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                )}
+              </li>
+            );
+          })}
         </ol>
-
-        <p className="mt-6 text-sm text-[color:var(--text-secondary)]">
-          <Link
-            href="/systems/"
-            className="underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)] transition-colors"
-          >
-            Browse all Systems articles
-          </Link>
-        </p>
       </div>
     </section>
   );

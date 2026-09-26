@@ -996,3 +996,17 @@ h1, h2, h3, h4, h5 {
 .ill-mono { font-family: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace; }
 .ill-sans { font-family: 'Schibsted Grotesk', 'Helvetica Neue', Helvetica, sans-serif; }
 .ill-svg { display: block; width: 100%; height: auto; }
+
+/* Home plate: the pruned leaves drift, gently. Still under reduced motion. */
+.hero-pothos__fall {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pothos-drift 5.5s ease-in-out infinite alternate;
+}
+@keyframes pothos-drift {
+  from { transform: translate(0, 0) rotate(0deg); }
+  to { transform: translate(-6px, 8px) rotate(-3deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-pothos__fall { animation: none; }
+}

@@ -1,4 +1,6 @@
 import SpotlightCard from "../SpotlightCard";
+import { ArticleCover } from "../illustrations/covers";
+import { coverKicker } from "../../lib/content/covers";
 import { allSystems } from "content-collections";
 
 // Three articles chosen because they cut across the map rather than sitting at
@@ -53,10 +55,13 @@ export default function SelectedSystems() {
           </h2>
         </div>
 
-        <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 list-none p-0 m-0">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0">
           {selected.map((system) => (
             <li key={system._meta.path}>
               <SpotlightCard href={`/systems/${system._meta.path}/`} accent="var(--accent-purple)" className="gap-3">
+                <div className="-mx-1 -mt-1 overflow-hidden rounded-sm border border-[#D9D4C6]" aria-hidden="true">
+                  <ArticleCover slug={system._meta.path} title={system.title} kicker={coverKicker(system._meta.path)} hero />
+                </div>
                 <h3 className="font-heading text-lg font-bold text-[color:var(--text-primary)] leading-snug">
                   {system.title}
                 </h3>
