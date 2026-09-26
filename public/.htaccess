@@ -31,6 +31,10 @@ RewriteRule ^ - [L]
 # Renamed sections.
 RewriteRule ^current-work/?$ /stack/ [R=301,L]
 RewriteRule ^dax/?$ /stack/dax/ [R=301,L]
+# Old entry points Google still requests (Search Console, 2026-09).
+RewriteRule ^home/?$ / [R=301,L]
+RewriteRule ^skills/?$ /tools/skill-catalog/ [R=301,L]
+RewriteRule ^sentiments/about/?$ /about/ [R=301,L]
 
 # Renamed shelf paths.
 RewriteRule ^shelf/notes-tools/?$ /shelf/notes/ [R=301,L]
@@ -163,6 +167,7 @@ RewriteRule ^shelf/movies(/.*)?$ - [G,L]
 RewriteRule ^sentences/sentence-[0-9]+/?$ - [G,L]
 RewriteRule ^systems/simple-tokenizer/?$ - [G,L]
 RewriteRule ^shelf/music/music-recommendation/?$ - [G,L]
+RewriteRule ^tags/(poetry|evolution|movies|narrative|aesthetics)/?$ - [G,L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
