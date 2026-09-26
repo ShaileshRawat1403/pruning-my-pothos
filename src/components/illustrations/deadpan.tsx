@@ -14,7 +14,8 @@ import React from "react";
  *   they react.
  * - One exaggeration per figure (tiny head, saucer eyes, pencil neck).
  * - Mix people and objects as the topic needs.
- * - Dark and sarcastic is fine. No sexual humour.
+ * - Dark and sarcastic is fine. No sexual humour. Blunt about habits and
+ *   roles (the hype merchant, the unread approver); never about identity.
  * - The drawing never claims more than its article.
  */
 

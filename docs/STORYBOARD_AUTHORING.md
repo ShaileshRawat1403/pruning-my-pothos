@@ -15,26 +15,54 @@ said sideways.
 | **Cover** | The 1200 x 630 drawing at the top of every Systems article, also used as its link preview. | one entry in `src/components/illustrations/covers.tsx` |
 | **Diagram** | A structured visual inside an article body. Not covered here. | the article's `visuals[]` frontmatter |
 
-## Theme repeats, subjects don't
+## The register: deadpan
 
-What stays the same everywhere is the house style: the paper, the ink
-palette, Schibsted Grotesk and IBM Plex Mono, Caveat handwriting, the rails on
-every frame, and the Pruning Mark. What never repeats is the subject. Every
-article gets its own visual idea, a metaphor that belongs to it alone: a
-record player for training versus inference, a letterbox for retrieval, a
-layer cake for prompts, skills and agents. A reader scrolling the library
-should see eight different pictures, not one character eight times.
+PMP draws in one register, **deadpan**: people and objects who have seen
+through the hype, drawn straight, with one thing wrong. Funny first, then it
+lands. The kit is `illustrations/deadpan.tsx`; the agreed reference is the
+style sheet at `/style-sheet/` (not public).
+
+**Look.**
+- Aged paper (`D.paper`) with grain and a soft vignette (`Paper`), thick ink
+  (5px) with a slight wobble (`Ink`, and `boil` when it moves).
+- Flat fills from the palette only: face, grey, shirt, teal, terracotta, leaf.
+  Scribble hatch for shade. No gradients, no glow, no 3D.
+- Faces are deadpan: half-lidded (`SleepyEye`), flat mouths, side-eye,
+  stubble. Saucer eyes (`SaucerEye`) for panic. The joke is how little they
+  react.
+- One exaggeration per figure: a tiny head, satellite ears, a pencil neck,
+  shears twice the size of the gardener.
+- People and objects, as the topic and the script need. Never the same
+  character on every cover.
+
+**Voice.**
+- Every emblem is a **visual pun**: draw the phrase literally, then undercut
+  it (a man lassoed inside a loop, sipping tea: *human in the loop*).
+- Every cover has one **quip** in `covers.tsx`: dry, relatable, usually three
+  beats, often alliterative (*Present. Polite. Powerless.*, *Found it. Filed
+  it. Forgot it.*).
+- Dark and sarcastic is welcome. **No sexual humour.**
+- Be blunt about people: their habits and the roles they play are fair game
+  (the hype merchant, the executive who approves decks unread, the engineer
+  who ships on Friday, the reviewer who reads the summary). Not who someone
+  is by birth or body: race, gender, religion, disability, nationality, looks.
+- Still honest: the pun may not claim anything the article does not.
+
+**Theme repeats, subjects don't.** The paper, ink, palette, faces and
+handwriting stay the same everywhere; the subject never does. A reader
+scrolling the library should see thirty different jokes, not one mascot.
 
 **Emblems.** Each Systems article has one emblem in
-`illustrations/emblems.tsx`, drawn in a local 500 x 540 box. That single
-drawing is the article cover, the storyboard's first frame and the link
-preview. To find one: say the thesis as an everyday object or situation
-("a sign isn't a fence"), then draw the object, not a diagram of the idea.
+`illustrations/emblems.tsx`, drawn in a local 500 x 540 box in the deadpan
+register. That single drawing is the article cover, the storyboard's first
+frame and the link preview. To find one: say the thesis as a phrase people
+already use, draw that phrase literally, then add the one wrong detail that
+makes it true.
 Words inside the drawing are part of the joke and follow the honesty rules.
 Test 70 fails if an article has no emblem, or if the cast turns up in more
 than two emblems.
 
-**The cast** (`illustrations/kit.tsx`) is for the inside of a story, when
+**The older cast** (`illustrations/kit.tsx`) is for the inside of a story, when
 one character carrying an argument across frames makes it clearer. It is not
 a mascot: don't put it on covers, and don't reach for it by default.
 
