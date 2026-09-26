@@ -27,7 +27,7 @@ function Property(p: FrameProps) {
     <CardsTemplate
       {...p}
       chapter="NAME THE PROPERTY FIRST"
-      headline={["Check a property,", "not “quality”."]}
+      headline={["“Is it good?”", "Good at what?"]}
       scene={
         <g>
           <path d="M170 470 A130 130 0 0 1 430 470" fill="none" stroke={C.line} strokeWidth={6} strokeLinecap="round" />
@@ -65,7 +65,7 @@ function FourChecks(p: FrameProps) {
       footY={1060}
       steps={[
         { title: "Deterministic assertions", note: "exact, cheap, narrow" },
-        { title: "Heuristics", note: "a tripwire, not a definition of correct" },
+        { title: "Heuristics", note: "a tripwire that catches the obvious" },
         { title: "Model-based graders", note: "judgment at volume, same probabilistic kind" },
         { title: "Human review", note: "the one the other three stand in for", accent: true },
       ]}
@@ -119,7 +119,7 @@ function Metric(p: FrameProps) {
         { title: "What is measured", note: "the property, named" },
         { title: "On what population", note: "whose runs, which cases" },
         { title: "Over what period", note: "from when, to when" },
-        { title: "How it was produced", note: "the method, not only the result" },
+        { title: "How it was produced", note: "the method behind the number" },
         { title: "Which decision changes", note: "if none would, drop the metric", accent: true },
       ]}
       footnote="A figure quoted without its population and method hardens into a fact, and the conditions it was true under stop travelling with it."
@@ -149,7 +149,7 @@ export const deck: Deck = {
   slug: SLUG,
   title: "What Counts as Good, and How to Check It",
   summary:
-    "Every check is standing in for a judgment someone wrote down first. Nine frames on naming the property before choosing the method.",
+    "Every check is standing in for a judgment someone wrote down first. Ten frames on naming the property before choosing the method.",
   frames: [
     {
       key: "eval-cover",
@@ -159,7 +159,7 @@ export const deck: Deck = {
     },
     {
       key: "eval-property",
-      title: "Check a property, not quality",
+      title: "Is it good? Good at what?",
       text: "A single quality score of 7.3 is crossed out: it moves without saying which part moved. Check properties instead. Does it parse, with the fields and types right? Is it supported by the source it cites? Does it decline what it is meant to? Does it hold the register the product committed to?",
       Render: Property,
     },
@@ -184,7 +184,7 @@ export const deck: Deck = {
     {
       key: "eval-close",
       title: "Write down what worse looks like",
-      text: "A person writes a note: worse means a confident answer with no source. Write it before the change, not after, concretely enough that someone else could agree it happened. Everything else is machinery for checking that description.",
+      text: "A person writes a note: worse means a confident answer with no source. Write it before the change, concretely enough that someone else could agree it happened. Everything else is machinery for checking that description.",
       Render: Close,
     },
   ],

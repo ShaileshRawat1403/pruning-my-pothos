@@ -69,7 +69,7 @@ function Shouting(p: FrameProps) {
     <SceneTemplate
       {...p}
       chapter="WHAT IT CANNOT DO"
-      headline={["Shouting", "isn't checking."]}
+      headline={["ALWAYS.", "(It didn't.)"]}
       prune={{ from: "“ALWAYS”", to: "a validator", y: 900, fromW: 300 }}
       footnote="“Always” and “never” are more input, and more input is not a check. If you want a step that notices and objects, you have to build it."
       footY={986}
@@ -196,7 +196,7 @@ export const deck: Deck = {
   slug: SLUG,
   title: "Prompting Is Not the Skill You Think It Is",
   summary:
-    "A prompt shapes the odds; it doesn't enforce anything. Nine frames on asking versus checking, and the skill that actually matters.",
+    "A prompt shapes the odds; it doesn't enforce anything. Seven frames on asking versus checking, and the skill that actually matters.",
   frames: [
     {
       key: "prompt-cover",
@@ -212,7 +212,7 @@ export const deck: Deck = {
     },
     {
       key: "prompt-shouting",
-      title: "Shouting isn't checking",
+      title: "ALWAYS. (It didn't.)",
       text: "An instruction says ALWAYS RESPOND IN JSON, VERY IMPORTANT. The Model says noted. Most replies are JSON, and occasionally one is plain text, and nothing notices. Emphasis is crossed out in favour of a validator: always and never are more input, and more input is not a check.",
       Render: Shouting,
     },

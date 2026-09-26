@@ -121,7 +121,7 @@ function Likely(p: FrameProps) {
     <SceneTemplate
       {...p}
       chapter="PLAUSIBLE IS NOT TRUE"
-      headline={["Likely", "isn't true."]}
+      headline={["Very likely.", "Also wrong."]}
       footnote="A confident tone is a pattern in the training text, not a report on the model's reliability. If you want a truth check, something else has to perform it."
       footY={1030}
     >
@@ -214,7 +214,7 @@ export const deck: Deck = {
   slug: SLUG,
   title: "What an AI Model Actually Is",
   summary:
-    "A file of numbers that ranks what comes next, and a lot of software built around it. Nine frames on which behaviour comes from which.",
+    "A file of numbers that ranks what comes next, and a lot of software built around it. Seven frames on which behaviour comes from which.",
   frames: [
     {
       key: "model-cover",
@@ -236,7 +236,7 @@ export const deck: Deck = {
     },
     {
       key: "model-likely",
-      title: "Likely isn't true",
+      title: "Very likely. Also wrong.",
       text: "Asked the capital of France, the same steps produce Paris, which matches the world. Asked who first walked on Mars, the same steps produce a name, and no one checked. Three things get confused: how likely the model scored it, how confident it sounds, which is crossed out as a property of the wording, and whether it is true, which nothing in the loop checks.",
       Render: Likely,
     },

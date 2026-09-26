@@ -37,7 +37,7 @@ function ThreeQuestions(p: FrameProps) {
     <StepsTemplate
       {...p}
       chapter="THREE QUESTIONS, NOT ONE"
-      headline={["Three questions,", "not one."]}
+      headline={["Three questions", "hiding in one."]}
       top={350}
       footY={920}
       steps={[
@@ -55,7 +55,7 @@ function NotState(p: FrameProps) {
     <SceneTemplate
       {...p}
       chapter="STATE IS NOT THE TRANSCRIPT"
-      headline={["A transcript", "isn't state."]}
+      headline={["All the history.", "None of the state."]}
       footnote="Length isn't the defect. Ambiguity about what's current is. A short transcript can be just as ambiguous as a long one."
       footY={900}
     >
@@ -117,7 +117,7 @@ function Stale(p: FrameProps) {
     <SceneTemplate
       {...p}
       chapter="A SPECIMEN FROM THIS REPOSITORY"
-      headline={["“Current” is a", "label, not a fact."]}
+      headline={["“Current,” it says.", "Nobody checked when."]}
       footnote="What a handoff says was true when it was written. Make its position checkable, and re-check the parts that matter before continuing."
       footY={950}
     >
@@ -158,7 +158,7 @@ function Close(p: FrameProps) {
       chapter="WHAT THIS CHANGES"
       headline={["Can the next one", "start without", "guessing?"]}
       slug={SLUG}
-      takeaway="A longer record isn't the fix. Separate how the work got here from where it currently stands, and name who owns what happens next."
+      takeaway="Writing more history won't help. Separate how the work got here from where it currently stands, and name who owns what happens next."
     >
       <Person x={120} y={380} s={1.2} />
       <Checklist
@@ -185,7 +185,7 @@ export const deck: Deck = {
   slug: SLUG,
   title: "What Has to Survive for Work to Continue",
   summary:
-    "A transcript records how the work got here. The next person needs where it stands and who owns the next step. Nine frames on the difference.",
+    "A transcript records how the work got here. The next person needs where it stands and who owns the next step. Eight frames on the difference.",
   frames: [
     {
       key: "handoff-cover",
@@ -195,13 +195,13 @@ export const deck: Deck = {
     },
     {
       key: "handoff-three-questions",
-      title: "Three questions, not one",
+      title: "Three questions hiding in one",
       text: "Three questions: what happened, which is the record and evidence for looking back; where things stand, current truth for going on; and who owns the next step, which is the handoff. One file can serve all three, but they are different jobs.",
       Render: ThreeQuestions,
     },
     {
       key: "handoff-not-state",
-      title: "A transcript isn't state",
+      title: "All the history, none of the state",
       text: "A transcript shows a choice decided, reversed and decided again, and doesn't say which one governs. A current-state card does: database Postgres, decided at 14:15, next step yours. Length isn't the defect; ambiguity about what is current is.",
       Render: NotState,
     },
@@ -213,7 +213,7 @@ export const deck: Deck = {
     },
     {
       key: "handoff-stale",
-      title: "Current is a label, not a fact",
+      title: "“Current,” it says. Nobody checked when.",
       text: "This repository's handoff document, current.md, lists thirty-five key files touched, and thirty-four of them no longer exist at the commit the article cites. They were true when written. Make a handoff's position checkable: pin the version, date it, and name the owner.",
       Render: Stale,
     },

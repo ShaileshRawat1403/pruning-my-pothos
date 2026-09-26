@@ -944,6 +944,32 @@ async function runTests() {
     `Test 71: reference sheets have their files and the disclosure${missingRef.length ? ` (missing: ${missingRef.join(", ")})` : ""}`
   );
 
+  // Test 72: no "it's not X, it's Y" in drawn copy. Headlines, punchlines,
+  // quips and takeaways say the thing plainly; the drawing carries the
+  // contrast. Article titles (titleLines) are exempt.
+  const copyFiles = [
+    "src/components/illustrations/covers.tsx",
+    "src/components/illustrations/frames-governed-execution.tsx",
+    ...(await fs.readdir(path.resolve(ROOT, "src/components/illustrations/decks"))).filter((f) => f.endsWith(".tsx")).map((f) => `src/components/illustrations/decks/${f}`),
+  ];
+  const NOT_X = /\b(isn['’]t|is not|aren['’]t|are not)\b|,\s*not\s|\.\s*Not\s|\bnot (a|an|the)\b/i;
+  const copyHits = [];
+  for (const rel of copyFiles) {
+    const src = await fs.readFile(path.resolve(ROOT, rel), "utf8");
+    const fields = [
+      ...src.matchAll(/(?:headline|quip)=\{\[([^\]]*)\]\}/g),
+      ...src.matchAll(/(?:headline|quip):\s*\[([^\]]*)\]/g),
+      ...src.matchAll(/(?:punch|quip):\s*"([^"]*)"/g),
+      ...src.matchAll(/takeaway="([^"]*)"/g),
+      ...[...src.matchAll(/^\s{6}title:\s*"([^"]*)"/gm)].filter((m) => !/you think it is/i.test(m[1])),
+    ];
+    for (const m of fields) if (NOT_X.test(m[1])) copyHits.push(`${rel.split("/").pop()}: ${m[1].slice(0, 60)}`);
+  }
+  assert(
+    copyHits.length === 0,
+    `Test 72: no "not X, Y" constructions in headlines, punchlines, quips or takeaways${copyHits.length ? ` (found: ${copyHits.slice(0, 6).join("; ")})` : ""}`
+  );
+
   console.log(`\nRegression Suite Results: ${passed} passed, ${failed} failed.\n`);
   if (failed > 0) {
     process.exit(1);

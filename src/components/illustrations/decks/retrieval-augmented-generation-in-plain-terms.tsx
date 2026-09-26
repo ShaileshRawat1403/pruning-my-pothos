@@ -130,7 +130,7 @@ function Close_(p: FrameProps) {
     <SceneTemplate
       {...p}
       chapter="SIMILAR IS NOT CORRECT"
-      headline={["Close", "isn't correct."]}
+      headline={["Close enough", "to be wrong."]}
       prune={{ from: "nearest", to: "still true?", y: 950 }}
       footnote="Two passages can sit close together in an embedding space and still answer different questions. That is retrieval working as designed."
       footY={1020}
@@ -174,7 +174,7 @@ export const deck: Deck = {
   slug: SLUG,
   title: "Retrieval-Augmented Generation in Plain Terms",
   summary:
-    "Finding the right document and handing it to the model are two different steps. Nine frames on where the evidence gets lost.",
+    "Finding the right document and handing it to the model are two different steps. Eight frames on where the evidence gets lost.",
   frames: [
     {
       key: "rag-cover",
@@ -202,7 +202,7 @@ export const deck: Deck = {
     },
     {
       key: "rag-close-not-correct",
-      title: "Close isn't correct",
+      title: "Close enough to be wrong",
       text: "In an embedding space, a refund policy that was replaced last month sits right next to the current one. They are neighbours: same subject, different answer. Nearest is crossed out in favour of still true. Two passages can be close and still answer different questions.",
       Render: Close_,
     },

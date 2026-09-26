@@ -27,7 +27,7 @@ function ReadyForWhat(p: FrameProps) {
     <SceneTemplate
       {...p}
       chapter="READY FOR WHAT"
-      headline={["Not ready in general.", "Ready for something."]}
+      headline={["Ready for", "what, exactly?"]}
       footnote="Name the exposure precisely: which users, doing what, with what riding on the result. That turns an unanswerable question into one with an answer."
       footY={900}
     >
@@ -134,7 +134,7 @@ function Undo(p: FrameProps) {
     <CardsTemplate
       {...p}
       chapter="WHAT CAN ACTUALLY BE UNDONE"
-      headline={["Rollback", "isn't universal."]}
+      headline={["Some things", "don't un-send."]}
       scene={
         <g>
           <Envelope x={110} y={318} s={1.4} stamp="SENT" />
@@ -165,7 +165,7 @@ function Close(p: FrameProps) {
       chapter="WHAT THIS CHANGES"
       headline={["Three answers,", "in writing."]}
       slug={SLUG}
-      takeaway="If those can't be answered, the finding isn't that the system is unready. It's that nobody can say yet, which is a different problem and a more fixable one."
+      takeaway="If those can't be answered, nobody can say yet whether it's ready. That's a smaller problem, and a more fixable one."
     >
       <Checklist
         x={110}
@@ -190,7 +190,7 @@ export const deck: Deck = {
   slug: SLUG,
   title: "When Is an AI System Ready for Real Use?",
   summary:
-    "Tested, approved and deployed are not the answer. Nine frames on readiness as a judgment about one exposure, for one use.",
+    "Tested, approved and deployed are not the answer. Thirteen frames on readiness as a judgment about one exposure, for one use.",
   frames: [
     {
       key: "ready-cover",
@@ -200,7 +200,7 @@ export const deck: Deck = {
     },
     {
       key: "ready-for-what",
-      title: "Not ready in general. Ready for something.",
+      title: "Ready for what, exactly?",
       text: "The same system is fine for a team reviewing its output internally, and not yet for customers acting on it. Same system, different exposure. Naming the exposure precisely, which users doing what with what riding on it, turns an unanswerable question into one with an answer.",
       Render: ReadyForWhat,
     },
@@ -218,7 +218,7 @@ export const deck: Deck = {
     },
     {
       key: "ready-undo",
-      title: "Rollback isn't universal",
+      title: "Some things don't un-send",
       text: "Some effects don't come back: a sent message, a payment made. Ask what can be stopped before more happens, reversed, corrected after the fact, or contained to limit how far it travels, and at what cost.",
       Render: Undo,
     },

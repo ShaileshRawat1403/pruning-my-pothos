@@ -69,7 +69,7 @@ export function GovernedPath({ label, number, total }: FrameProps) {
     { y: 450, title: "1. Check the request", note: "a real operation? right types? things that exist?" },
     { y: 630, title: "2. Decide if it's permitted", note: "for this caller, in this context, right now" },
     { y: 810, title: "3. Run it", note: "with whatever limits apply" },
-    { y: 990, title: "4. Check what happened", note: "not whether it returned. Whether it's true." },
+    { y: 990, title: "4. Check what happened", note: "did the change actually land?" },
   ];
   return (
     <FrameShell label={label} chapter="CHAPTER I · THE PATH" number={number} total={total} headline={["Four things happen", "before money moves."]}>
@@ -200,7 +200,7 @@ function CredentialCard({
 export function GovernedPermission({ label, number, total }: FrameProps) {
   const grey = C.line;
   return (
-    <FrameShell label={label} chapter="CHAPTER II · PERMISSION" number={number} total={total} headline={["Four things that", "are not permission."]}>
+    <FrameShell label={label} chapter="CHAPTER II · PERMISSION" number={number} total={total} headline={["Four things people", "mistake for permission."]}>
       <Model x={96} y={300} s={1.25} />
       <path
         d="M400 300 H684 Q712 300 712 328 V356 L792 344 L712 392 V440 Q712 468 684 468 H400 Q372 468 372 440 V328 Q372 300 400 300 Z"
@@ -304,7 +304,7 @@ function Quadrant({ x, y, mode, modeColor = C.ink, when, leaves }: { x: number; 
 
 export function GovernedUncertainty({ label, number, total }: FrameProps) {
   return (
-    <FrameShell label={label} chapter="CHAPTER III · UNCERTAINTY" number={number} total={total} headline={["“Not sure” isn't", "one answer."]}>
+    <FrameShell label={label} chapter="CHAPTER III · UNCERTAINTY" number={number} total={total} headline={["“Not sure”", "means several things."]}>
       <rect x={840} y={120} width={92} height={150} rx={14} fill={C.card} stroke={C.line} strokeWidth={4.5} />
       <rect x={866} y={142} width={40} height={106} rx={10} fill="#EFEBE0" stroke={C.line} strokeWidth={3.5} />
       <rect x={870} y={148} width={32} height={44} rx={7} fill={C.line} />
@@ -354,7 +354,7 @@ export function GovernedUncertainty({ label, number, total }: FrameProps) {
 /* 06 — Asking a person is a handoff */
 export function GovernedHandoff({ label, number, total }: FrameProps) {
   return (
-    <FrameShell label={label} chapter="CHAPTER III · UNCERTAINTY" number={number} total={total} headline={["“Ask a human” is a", "handoff, not a shrug."]}>
+    <FrameShell label={label} chapter="CHAPTER III · UNCERTAINTY" number={number} total={total} headline={["“Ask a human”", "has to reach one."]}>
       <Gate x={76} y={300} s={1.05} />
       <Person x={790} y={290} s={1.05} />
       <text x={895} y={582} textAnchor="middle" className="ill-mono" fontSize={17} letterSpacing={2} fill={C.muted}>A PERSON</text>
@@ -427,7 +427,7 @@ export function GovernedFailureClasses({ label, number, total }: FrameProps) {
     { y: 778, title: "Over time or budget", notes: ["raise the limit, or don't"] },
   ];
   return (
-    <FrameShell label={label} chapter="CHAPTER V · FAILURE" number={number} total={total} headline={["“It broke” is not", "a diagnosis."]}>
+    <FrameShell label={label} chapter="CHAPTER V · FAILURE" number={number} total={total} headline={["“It broke.”", "Which part?"]}>
       <g transform="translate(0 300)">
         <path d="M100 60 L320 56" stroke={C.line} strokeWidth={6} strokeLinecap="round" />
         <path d="M182 56 Q210 34 238 56" fill="none" stroke={C.line} strokeWidth={4.5} strokeLinecap="round" />

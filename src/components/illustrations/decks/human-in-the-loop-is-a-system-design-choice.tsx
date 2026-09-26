@@ -63,7 +63,7 @@ function AlreadySent(p: FrameProps) {
     <SceneTemplate
       {...p}
       chapter="IS THE DECISION STILL OPEN?"
-      headline={["Already sent?", "Then it's not approval."]}
+      headline={["Already sent?", "Then what did I approve?"]}
       prune={{ from: "approval", to: "notification", y: 790 }}
       footnote="If the outcome is decided before they look, call the step what it is: monitoring, audit, or the start of a correction. All worth having. None of them is approval."
       footY={880}
@@ -87,7 +87,7 @@ function WhichHuman(p: FrameProps) {
     <CardsTemplate
       {...p}
       chapter="WHICH HUMAN, AND WHY THEM"
-      headline={["“A human reviews it”", "isn't a design."]}
+      headline={["“A human reviews it.”", "Which human? With what?"]}
       cards={[
         { label: "Whoever's free", labelW: 236, notes: ["available isn't", "responsible"], struck: true },
         { label: "Owns the decision", notes: ["whose call it", "actually is"] },
@@ -170,7 +170,7 @@ export const deck: Deck = {
   slug: SLUG,
   title: "Human-in-the-Loop Is a System Design Choice",
   summary:
-    "An Approve button isn't oversight. Nine frames on what a person needs before their judgment actually controls anything.",
+    "An Approve button isn't oversight. Ten frames on what a person needs before their judgment actually controls anything.",
   frames: [
     {
       key: "hitl-cover",
@@ -186,13 +186,13 @@ export const deck: Deck = {
     },
     {
       key: "hitl-already-sent",
-      title: "Already sent? Then it's not approval.",
+      title: "Already sent? Then what did I approve?",
       text: "An envelope is stamped sent. Later, a person is asked to approve something that already happened. Approval is crossed out in favour of notification. If the outcome is decided before they look, the step is monitoring, audit, or the start of a correction, not approval.",
       Render: AlreadySent,
     },
     {
       key: "hitl-which-human",
-      title: "“A human reviews it” isn't a design",
+      title: "“A human reviews it.” Which human?",
       text: "Whoever's free is crossed out: available isn't responsible. The reviewer should own the decision, have the standing so their yes settles it, and know the subject, or they are a delay rather than a control.",
       Render: WhichHuman,
     },

@@ -42,19 +42,19 @@ export const deck: Deck = {
     },
     {
       key: "governed-permission",
-      title: "Four things that are not permission",
+      title: "Four things people mistake for permission",
       text: "The Model asks for its refund and the Gate replies: lovely, and may it run, for you, here, now? Four things get mistaken for permission. Being logged in tells you who is asking, not what they may do. Being well-formed: so is a request to delete production. Being 97 percent sure is a mood, not a permit. A human saying yes is a way to answer the question, not the question itself. A rule in a prompt is a request; a rule at the gate is a check.",
       Render: GovernedPermission,
     },
     {
       key: "governed-uncertainty",
-      title: "“Not sure” isn't one answer",
+      title: "“Not sure” means several things",
       text: "A yes-or-no switch either blocks the useful or waves the rest through. Four answers work better. Allow, when it is permitted and the evidence holds, leaves a receipt. Ask, when a person should decide, leaves a question and the reason. Deny, when it is not permitted or too risky, leaves a reason code. Defer, when evidence is thin and the stakes are high, leaves a handoff note. What moves the needle most is how hard the action is to undo: the bar for allowing it rises from a one-click undo to an apology email.",
       Render: GovernedUncertainty,
     },
     {
       key: "governed-handoff",
-      title: "“Ask a human” is a handoff, not a shrug",
+      title: "“Ask a human” has to reach one",
       text: "When the Gate hands a decision to a person, a note saying “can you take a look?” is no help: look at what, exactly? A useful handoff reads: refund forty dollars to account 88, over the twenty-five dollar auto-limit, order 4417 marked delivered, approve or decline? A specific question, with the reason. Who reviews it, what they see, and whether they can say no is its own design problem.",
       Render: GovernedHandoff,
     },
@@ -66,7 +66,7 @@ export const deck: Deck = {
     },
     {
       key: "governed-failure-classes",
-      title: "“It broke” is not a diagnosis",
+      title: "“It broke.” Which part?",
       text: "One bin labelled “it broke” turns incident review into storytelling. Sort failures instead. Policy denied it: was the rule right? The tool errored: fix it, or retry it. Verification failed: the tool fibbed, or you checked the wrong thing. Evidence was missing: go and get it. Over time or budget: raise the limit, or don't. You can't sort a failure at a boundary you never made explicit.",
       Render: GovernedFailureClasses,
     },

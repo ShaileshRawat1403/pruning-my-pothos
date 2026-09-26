@@ -95,7 +95,7 @@ export const MODEL_GAGS = frames("SYSTEMS · STAGE 01", [
     title: "Confidence is a writing style",
     headline: ["It sounds sure.", "It learned to."],
     punch: "Confidence is a writing style.",
-    claim: "A confident tone is a pattern in the text the model was trained on, not a report on how reliable this answer is. If you want a truth check, something else has to do it.",
+    claim: "A confident tone is a pattern in the text the model was trained on. It says nothing about how reliable this answer is; a truth check has to come from somewhere else.",
     scene: (
       <g>
         {floor}
@@ -126,9 +126,9 @@ export const RAG_GAGS = frames("SYSTEMS · STAGE 02", [
   {
     key: "rag-gag-turkey",
     title: "Close in meaning, wrong answer",
-    headline: ["Similar isn't", "the answer."],
-    punch: "Close in meaning. Wrong country.",
-    claim: "Two passages can be close in an embedding space and still answer different questions. Similar is not correct.",
+    headline: ["Turkish visa,", "please."],
+    punch: "Asked about a Turkish visa. Got a gravy recipe.",
+    claim: "Two passages can be close in an embedding space and still answer different questions.",
     scene: (
       <g>
         {floor}
@@ -151,7 +151,7 @@ export const RAG_GAGS = frames("SYSTEMS · STAGE 02", [
   {
     key: "rag-gag-citation",
     title: "Now wrong, with a citation",
-    headline: ["It didn't fix it.", "It footnoted it."],
+    headline: ["It found a source.", "The source was wrong."],
     punch: "Wrong, now with a citation.",
     claim: "Retrieval does not guarantee the evidence is relevant, current or correct, or that the model uses it well. Given a wrong document, it is wrong with a source attached, which is harder to catch.",
     scene: (
@@ -238,9 +238,9 @@ export const PROMPT_GAGS = frames("SYSTEMS · STAGE 03", [
   },
   {
     key: "prompt-gag-santa",
-    title: "A wish list is not a contract",
-    headline: ["A wish list", "isn't a contract."],
-    punch: "Dear model, please be JSON. Love, me.",
+    title: "Dear Model, please be JSON",
+    headline: ["Dear Model,", "please be JSON."],
+    punch: "Santa reads wish lists. Software reads schemas.",
     claim: "A prompt tells the model what you want. A contract gives software something it can check, and reject.",
     scene: (
       <g>
@@ -303,7 +303,7 @@ export const PROMPT_GAGS = frames("SYSTEMS · STAGE 03", [
 export const GOVERNED_GAGS = frames("SYSTEMS · STAGE 04", [
   {
     key: "governed-gag-paperwork",
-    title: "Well-formed is not allowed",
+    title: "Perfect paperwork, still denied",
     headline: ["Perfect paperwork.", "Still no."],
     punch: "Every box ticked. Every box irrelevant.",
     claim: "Authorization asks whether an operation is permitted, which is a different question from whether the request is well-formed.",
@@ -335,7 +335,7 @@ export const GOVERNED_GAGS = frames("SYSTEMS · STAGE 04", [
     key: "governed-gag-delivered",
     title: "Delivered, allegedly",
     headline: ["It said", "“delivered.”"],
-    punch: "Delivered. To a house. Not yours.",
+    punch: "Delivered. To number 12. You live at 21.",
     claim: "A successful tool call is not proof that the intended effect occurred. Checking what actually happened is its own step.",
     scene: (
       <g>
@@ -370,7 +370,7 @@ export const HITL_GAGS = frames("SYSTEMS · STAGE 05", [
     title: "Yes, or yes",
     headline: ["The choice:", "yes, or yes."],
     punch: "Approve. Or also approve.",
-    claim: "If a workflow asks a human to decide, at least one meaningful way to say no has to exist. Otherwise the person is a signal, not a decision.",
+    claim: "If a workflow asks a human to decide, at least one meaningful way to say no has to exist. Otherwise the person is only a signal.",
     scene: (
       <g>
         {floor}
@@ -445,6 +445,36 @@ export const HITL_GAGS = frames("SYSTEMS · STAGE 05", [
       </g>
     ),
   },
+  {
+    key: "hitl-gag-fyi",
+    title: "Kept in the loop, afterwards",
+    headline: ["You're in", "the loop."],
+    punch: "Kept in the loop. By email. Afterwards.",
+    claim: "A decision reserved for a person needs it still open when they see it, an owner, enough context, real alternatives, and a path that works when they refuse.",
+    scene: (
+      <g>
+        {floor}
+        <Legs x={330} y={470} floor={616} />
+        <Torso x={330} y={320} w={170} h={160} fill={D.teal} />
+        <Head x={330} y={250} r={64} eyes="saucer" look={1} mouth="o" hair="messy" />
+        <Limb d="M410 380 C 450 350, 470 320, 480 290" />
+        <g transform="rotate(8 540 260)">
+          <rect x={480} y={140} width={130} height={220} rx={16} fill={D.ink} />
+          <rect x={490} y={160} width={110} height={180} rx={6} fill="#fff" />
+          <text x={545} y={196} textAnchor="middle" className="ill-mono" fontSize={12} fontWeight={700} fill={D.ink}>FYI</text>
+          {say(545, 236, "refunded", 22)}
+          {say(545, 264, "4,000", 30, D.accent)}
+          {say(545, 292, "customers", 22)}
+          <text x={545} y={322} textAnchor="middle" className="ill-mono" fontSize={10} fontWeight={700} fill={D.greyLight}>2 hours ago</text>
+        </g>
+        <Limb d="M250 380 C 220 360, 214 330, 222 300" />
+        <path d="M200 270 H244 L240 300 Q222 310 204 300 Z" fill="#fff" stroke={D.ink} strokeWidth={4} strokeLinejoin="round" />
+        <path d="M700 616 L720 460 H880 L900 616 Z" fill={D.paperDeep} stroke={D.ink} strokeWidth={4} strokeLinejoin="round" />
+        <Label x={800} y={420} text="AUTOMATION" size={16} />
+        <path d="M740 400 l-10 -24 M800 390 v-26 M860 400 l10 -24" stroke={D.greyLight} strokeWidth={4} strokeLinecap="round" />
+      </g>
+    ),
+  },
 ]);
 
 /* ── 06 · Evaluation ───────────────────────────────────────────────── */
@@ -455,7 +485,7 @@ export const EVAL_GAGS = frames("SYSTEMS · STAGE 06", [
     title: "Goalposts moved after the kick",
     headline: ["Decide what counts", "before you look."],
     punch: "Goalposts, relocated post-kick.",
-    claim: "Evaluation compares observed behaviour against an expectation that was written down before the run. Deciding afterwards is not evaluation.",
+    claim: "Evaluation compares observed behaviour against an expectation that was written down before the run.",
     scene: (
       <g>
         {floor}
@@ -534,6 +564,31 @@ export const EVAL_GAGS = frames("SYSTEMS · STAGE 06", [
       </g>
     ),
   },
+  {
+    key: "eval-gag-thumbs",
+    title: "The vibe check",
+    headline: ["Everyone agreed", "it felt better."],
+    punch: "Five thumbs up. Zero written criteria.",
+    claim: "Evaluation only becomes possible once someone writes down what good means for this task. Every faster check approximates that written judgment.",
+    scene: (
+      <g>
+        {floor}
+        <rect x={300} y={380} width={400} height={30} fill={D.paperDeep} stroke={D.ink} strokeWidth={4.5} />
+        <path d="M340 410 V616 M660 410 V616" {...LINE} strokeWidth={6} />
+        <path d="M400 380 L420 260 H580 L600 380 Z" fill={D.greyLight} stroke={D.ink} strokeWidth={4.5} strokeLinejoin="round" />
+        {say(500, 330, "new prompt", 26, "#fff")}
+        {[120, 260, 740, 880].map((x, i) => (
+          <g key={x}>
+            <Head x={x} y={300} r={50} eyes={i % 2 ? "closed" : "sleepy"} look={x < 500 ? 1 : -1} mouth="grin" hair={(["curly", "sides", "messy", "strands"] as const)[i]} stubble={i % 2 === 0} />
+            <Torso x={x} y={352} w={120} h={150} fill={[D.teal, D.shirt, D.grey, D.accent][i]} />
+            <path d={`M${x + (x < 500 ? 50 : -50)} 400 L${x + (x < 500 ? 80 : -80)} 330`} {...LINE} strokeWidth={6} />
+            <path d={`M${x + (x < 500 ? 70 : -90)} 312 h20 v-18 q 0 -10 -8 -6 Z`} fill={D.face} stroke={D.ink} strokeWidth={3.5} />
+          </g>
+        ))}
+        <Label x={500} y={200} text="RUBRIC: (tbd)" size={16} color={D.accent} />
+      </g>
+    ),
+  },
 ]);
 
 /* ── 07 · Handoff ──────────────────────────────────────────────────── */
@@ -575,7 +630,7 @@ export const HANDOFF_GAGS = frames("SYSTEMS · STAGE 07", [
   {
     key: "handoff-gag-rerun",
     title: "Watching the rerun",
-    headline: ["The replay", "isn't the plan."],
+    headline: ["Episode 1", "of 312."],
     punch: "Watched the whole rerun. Still no plan.",
     claim: "Replay reconstructs a past execution from what was recorded. Continuity preserves enough current truth for work to continue from here.",
     scene: (
@@ -658,7 +713,7 @@ export const READY_GAGS = frames("SYSTEMS · STAGE 08", [
   {
     key: "ready-gag-target",
     title: "Target painted after",
-    headline: ["Set the bar", "before the shot."],
+    headline: ["Hit the target.", "Then drew it."],
     punch: "Bullseye. Target painted afterwards.",
     claim: "Define an explicit release criterion against an evaluation set that fits the intended use and its failure consequences, before exposure rather than after.",
     scene: (
@@ -705,6 +760,111 @@ export const READY_GAGS = frames("SYSTEMS · STAGE 08", [
         <Legs x={190} y={510} floor={616} />
         <Limb d="M264 400 C 320 390, 360 380, 400 372" />
         {say(500, 200, "click. click. click.", 30, D.greyLight)}
+      </g>
+    ),
+  },
+  {
+    key: "ready-gag-demo",
+    title: "Flawless demo",
+    headline: ["The demo", "went perfectly."],
+    punch: "Twelve rehearsals. One user. One path.",
+    claim: "A demonstration compresses the system: one user, one goal, a selected input, one path through, little at stake. It shows the thing is possible, which is a narrower question than whether it is ready.",
+    scene: (
+      <g>
+        {floor}
+        <rect x={420} y={90} width={500} height={300} rx={10} fill="#fff" stroke={D.ink} strokeWidth={5} />
+        <text x={670} y={230} textAnchor="middle" className="ill-sans" fontSize={52} fontWeight={800} fill={D.teal}>It works!</text>
+        {say(670, 290, "(please don't click anything else)", 24, D.greyLight)}
+        <path d="M670 390 V440 M600 440 H740" {...LINE} strokeWidth={6} />
+        <Legs x={240} y={470} floor={616} />
+        <Torso x={240} y={320} w={170} h={160} fill={D.ink} />
+        <Head x={240} y={250} r={64} eyes="saucer" look={1} mouth="grin" hair="sides" />
+        <Limb d="M320 360 C 360 330, 390 300, 410 270" fill={D.ink} />
+        <g transform="rotate(-6 140 470)">
+          <rect x={60} y={420} width={160} height={110} fill="#F6E7A8" stroke={D.ink} strokeWidth={3.5} />
+          {say(140, 456, "SCRIPT v12", 22)}
+          {say(140, 492, "click here,", 20, D.greyLight)}
+          {say(140, 516, "then here ONLY", 20, D.accent)}
+        </g>
+        {[560, 700, 840].map((x) => (
+          <g key={x}>
+            <Head x={x} y={560} r={38} eyes="closed" mouth="grin" hair={x === 700 ? "curly" : "strands"} />
+          </g>
+        ))}
+      </g>
+    ),
+  },
+  {
+    key: "ready-gag-queue",
+    title: "The fallback queue",
+    headline: ["If it can't continue,", "then what?"],
+    punch: "Fallback: a queue. Reader: nobody.",
+    claim: "Name the safe alternative that actually exists when the system should not continue: stop and say so, decline, keep the prior state, queue it, restrict it, or hand it to a person who can act. A queue nobody can act on doesn't count.",
+    scene: (
+      <g>
+        {floor}
+        <rect x={300} y={300} width={400} height={320} fill={D.paperDeep} stroke={D.ink} strokeWidth={5} />
+        <Label x={500} y={350} text="HUMAN REVIEW" size={20} />
+        {Array.from({ length: 14 }).map((_, i) => (
+          <g key={i} transform={`rotate(${(i % 5) * 3 - 6} 500 ${280 - i * 16})`}>
+            <rect x={340 + (i % 3) * 10} y={264 - i * 16} width={300} height={16} fill="#fff" stroke={D.ink} strokeWidth={3} />
+          </g>
+        ))}
+        <path d="M640 40 L700 40 L680 100 L720 150 M660 60 L700 90 M690 40 L660 120" fill="none" stroke={D.greyLight} strokeWidth={2} />
+        <path d="M300 460 C 250 470, 200 480, 150 470 M700 470 C 760 480, 820 470, 880 480" stroke={D.greyLight} strokeWidth={2} fill="none" />
+        {say(830, 380, "last opened:", 24, D.greyLight)}
+        {say(830, 414, "never", 32, D.accent)}
+        <Label x={140} y={560} text="4,812 WAITING" size={16} color={D.accent} r={-4} />
+      </g>
+    ),
+  },
+  {
+    key: "ready-gag-pointing",
+    title: "Whose name is on it",
+    headline: ["Who owns it", "when it breaks?"],
+    punch: "Everyone points. Nobody's name is on it.",
+    claim: "Before exposure, somebody owns the decision to expose, and somebody owns the response when it misbehaves. If nobody can be named for either, that is itself a finding about readiness.",
+    scene: (
+      <g>
+        {floor}
+        {[
+          { x: 200, fill: D.teal, hair: "curly" as const, arm: "M270 380 C 340 360, 400 350, 450 350" },
+          { x: 500, fill: D.shirt, hair: "sides" as const, arm: "M570 380 C 640 360, 700 350, 760 350" },
+          { x: 800, fill: D.grey, hair: "messy" as const, arm: "M730 380 C 560 300, 360 300, 260 340" },
+        ].map((p, i) => (
+          <g key={p.x}>
+            <Legs x={p.x} y={480} floor={616} />
+            <Torso x={p.x} y={330} w={150} h={160} fill={p.fill} tie={i === 1} />
+            <Head x={p.x} y={262} r={58} eyes="sleepy" look={i === 2 ? -1 : 1} mouth="flat" stubble={i !== 1} hair={p.hair} />
+            <Limb d={p.arm} fill={p.fill} />
+          </g>
+        ))}
+        <Sheet x={420} y={500} w={160} h={90} title="INCIDENT" lines={2} r={-3} />
+        <Label x={500} y={110} text="OWNER: ________" size={18} color={D.accent} />
+      </g>
+    ),
+  },
+  {
+    key: "ready-gag-expiry",
+    title: "Best before",
+    headline: ["The decision", "has a shelf life."],
+    punch: "Approved. Best before the next model update.",
+    claim: "A change to the model, the instructions, the retrieved corpus, a tool, the workflow or the intended users can undermine part of the basis the release decision rested on.",
+    scene: (
+      <g>
+        {floor}
+        <path d="M380 620 V240 L420 180 H580 L620 240 V620 Z" fill="#fff" stroke={D.ink} strokeWidth={5} strokeLinejoin="round" />
+        <path d="M380 240 H620" stroke={D.ink} strokeWidth={4} />
+        <path d="M420 180 L440 140 H560 L580 180" fill="#fff" stroke={D.ink} strokeWidth={4.5} />
+        <text x={500} y={320} textAnchor="middle" className="ill-sans" fontSize={34} fontWeight={800} fill={D.teal}>RELEASE</text>
+        <text x={500} y={360} textAnchor="middle" className="ill-sans" fontSize={34} fontWeight={800} fill={D.teal}>DECISION</text>
+        <rect x={400} y={420} width={200} height={90} fill={D.paperDeep} stroke={D.ink} strokeWidth={3.5} />
+        <text x={500} y={452} textAnchor="middle" className="ill-mono" fontSize={14} fontWeight={700} fill={D.ink}>BEST BEFORE:</text>
+        {say(500, 492, "next model update", 24, D.accent)}
+        <Head x={780} y={300} r={58} eyes="sleepy" look={-1} mouth="frown" stubble hair="strands" />
+        <Torso x={780} y={360} w={150} h={150} fill={D.grey} />
+        <Legs x={780} y={510} floor={616} />
+        <path d="M700 250 q -10 -20 4 -34 M722 236 q -10 -20 4 -34" fill="none" stroke="#9FB58A" strokeWidth={4} strokeLinecap="round" />
       </g>
     ),
   },

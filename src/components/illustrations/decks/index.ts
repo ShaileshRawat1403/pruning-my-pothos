@@ -25,12 +25,15 @@ function withGags(deck: Deck, gags: DeckFrame[], after: number[]): Deck {
 }
 
 export const DECKS: Deck[] = [
-  withGags(whatAModelIs, MODEL_GAGS, [1, 3, 4]),
-  withGags(rag, RAG_GAGS, [2, 3, 4]),
-  withGags(prompting, PROMPT_GAGS, [1, 2, 4]),
+  // Frame counts follow the article: one frame per idea, no fixed number.
+  withGags(whatAModelIs, [MODEL_GAGS[2]], [3]),
+  withGags(rag, [RAG_GAGS[0], RAG_GAGS[1]], [2, 3]),
+  withGags(prompting, [PROMPT_GAGS[2]], [2]),
   withGags(governedExecution, GOVERNED_GAGS, [3, 4]),
-  withGags(humanInTheLoop, HITL_GAGS, [1, 2, 3]),
-  withGags(evaluation, EVAL_GAGS, [1, 2, 4]),
-  withGags(handoff, HANDOFF_GAGS, [1, 2, 3]),
-  withGags(readiness, READY_GAGS, [1, 2, 4]),
+  withGags(humanInTheLoop, HITL_GAGS, [1, 2, 3, 4]),
+  withGags(evaluation, EVAL_GAGS, [1, 2, 3, 4]),
+  withGags(handoff, [HANDOFF_GAGS[0], HANDOFF_GAGS[1]], [1, 2]),
+  // Readiness: each gag sits after the teaching frame it jokes about.
+  // READY_GAGS order: parachute, target, undo, demo, queue, pointing, expiry.
+  withGags(readiness, [0, 3, 1, 4, 2, 5, 6].map((i) => READY_GAGS[i]), [1, 2, 3, 3, 4, 4, 4]),
 ];

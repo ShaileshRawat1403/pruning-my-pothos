@@ -376,7 +376,52 @@ type EyeStyle = "sleepy" | "saucer" | "tt" | "smug" | "closed";
 type MouthStyle = "flat" | "grin" | "o" | "frown" | "smirk";
 type HairStyle = "none" | "strands" | "messy" | "curly" | "sides" | "bun";
 
-/** A deadpan head: pick eyes, mouth, hair. Centre x, y; radius r. */
+/** Skin for the realistic faces. */
+export const SKIN = "#F1DCC4";
+
+const hash = (n: number) => {
+  const v = Math.sin(n * 12.9898) * 43758.5453;
+  return v - Math.floor(v);
+};
+/** Stubble dots in the head's local space (radius 100), under the nose. */
+const SCRUFF: [number, number][] = Array.from({ length: 240 }, (_, i) => [-80 + hash(i + 1) * 160, 18 + hash(i + 7919) * 84]);
+
+/** A tired eye in local space: lid 0..1 is how far the upper lid has given up. */
+function LocalEye({ x, lid, look, bags, wide = false }: { x: number; lid: number; look: number; bags: number; wide?: boolean }) {
+  const w = wide ? 30 : 26;
+  const h = wide ? 22 : 13;
+  const y = -8;
+  const shape = `M${x - w} ${y} Q ${x} ${y - h * 1.4} ${x + w} ${y} Q ${x} ${y + h * 1.1} ${x - w} ${y} Z`;
+  const lidY = y - h * 1.4 + (h * 2.4) * lid;
+  const cid = `hd-eye-${x < 0 ? "l" : "r"}${wide ? "w" : ""}`;
+  return (
+    <g>
+      <defs>
+        <clipPath id={cid}>
+          <path d={shape} />
+        </clipPath>
+      </defs>
+      <path d={shape} fill="#FBF8F2" />
+      <g clipPath={`url(#${cid})`}>
+        <circle cx={x + look * 9} cy={y + 1} r={wide ? 8 : 10} fill="#6B5A48" stroke={D.ink} strokeWidth={2} />
+        <circle cx={x + look * 9} cy={y + 1} r={wide ? 4 : 5} fill={D.ink} />
+        <circle cx={x + look * 9 + 3} cy={y - 3} r={2} fill="#fff" />
+        {lid > 0 && <rect x={x - w} y={y - h * 1.6} width={w * 2} height={lidY - (y - h * 1.6)} fill={SKIN} />}
+      </g>
+      <path d={shape} fill="none" stroke={D.ink} strokeWidth={3} strokeLinejoin="round" />
+      {lid > 0.05 && <path d={`M${x - w + 2} ${lidY} Q ${x} ${lidY - 5} ${x + w - 2} ${lidY}`} fill="none" stroke={D.ink} strokeWidth={6} strokeLinecap="round" />}
+      {Array.from({ length: bags }).map((_, i) => (
+        <path key={i} d={`M${x - w + 6 + i * 3} ${y + 12 + i * 8} Q ${x} ${y + 22 + i * 9} ${x + w - 6 - i * 3} ${y + 12 + i * 8}`} fill="none" stroke={i === 0 ? "#9A7F66" : "#B89C82"} strokeWidth={2.5} strokeLinecap="round" />
+      ))}
+    </g>
+  );
+}
+
+/**
+ * A realistic deadpan head: tired lids and bags, irises, a nose, lines and
+ * scattered stubble. Centre x, y; radius r. Drawn in a local space where the
+ * head has radius 100, then scaled, so it fits wherever a round head did.
+ */
 export function Head({
   x,
   y,
@@ -387,7 +432,7 @@ export function Head({
   stubble = false,
   hair = "none",
   ears = true,
-  fill = D.face,
+  fill = SKIN,
 }: {
   x: number;
   y: number;
@@ -400,77 +445,65 @@ export function Head({
   ears?: boolean;
   fill?: string;
 }) {
-  const ex = r * 0.38;
-  const ey = y - r * 0.06;
-  const er = r * 0.27;
-  const my = y + r * 0.46;
+  const s = r / 100;
+  const lid = { sleepy: 0.55, smug: 0.5, tt: 0.72, closed: 1, saucer: 0 }[eyes];
+  const bags = eyes === "saucer" ? 2 : 3;
+  const head = "M-96 -8 C -96 -80, -52 -104, 0 -104 C 52 -104, 96 -80, 96 -8 L 94 26 C 90 78, 52 104, 0 104 C -52 104, -90 78, -94 26 Z";
+  const ink = { fill: "none", stroke: D.ink, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
   return (
-    <g>
-      {hair === "bun" && <circle cx={x} cy={y - r * 1.02} r={r * 0.32} fill={D.grey} stroke={D.ink} strokeWidth={4} />}
+    <g transform={`translate(${x} ${y}) scale(${s})`}>
+      {hair === "bun" && <circle cx={0} cy={-112} r={34} fill={D.grey} stroke={D.ink} strokeWidth={8} />}
       {ears && (
-        <>
-          <ellipse cx={x - r * 0.98} cy={y + r * 0.04} rx={r * 0.16} ry={r * 0.25} fill={fill} stroke={D.ink} strokeWidth={4} />
-          <ellipse cx={x + r * 0.98} cy={y + r * 0.04} rx={r * 0.16} ry={r * 0.25} fill={fill} stroke={D.ink} strokeWidth={4} />
-        </>
-      )}
-      <circle cx={x} cy={y} r={r} fill={fill} stroke={D.ink} strokeWidth={5} />
-      {hair === "strands" && (
-        <path d={`M${x - r * 0.4} ${y - r * 0.9} c -3 -14 4 -18 8 -12 M${x - r * 0.05} ${y - r * 0.98} c 0 -16 8 -18 10 -10 M${x + r * 0.3} ${y - r * 0.93} c 4 -14 12 -12 10 -2`} fill="none" stroke={D.ink} strokeWidth={3} strokeLinecap="round" />
-      )}
-      {hair === "messy" && (
-        <path
-          d={`M${x - r * 1.02} ${y - r * 0.1} C ${x - r * 1.1} ${y - r * 0.9}, ${x - r * 0.4} ${y - r * 1.3}, ${x + r * 0.2} ${y - r * 1.15} C ${x + r * 0.8} ${y - r * 1.2}, ${x + r * 1.15} ${y - r * 0.6}, ${x + r * 1.0} ${y - r * 0.1} C ${x + r * 0.8} ${y - r * 0.5}, ${x + r * 0.5} ${y - r * 0.55}, ${x + r * 0.3} ${y - r * 0.5} L ${x + r * 0.25} ${y - r * 0.3} C ${x} ${y - r * 0.55}, ${x - r * 0.3} ${y - r * 0.5}, ${x - r * 0.5} ${y - r * 0.45} L ${x - r * 0.6} ${y - r * 0.25} C ${x - r * 0.75} ${y - r * 0.4}, ${x - r * 0.9} ${y - r * 0.3}, ${x - r * 1.02} ${y - r * 0.1} Z`}
-          fill={D.ink}
-        />
-      )}
-      {hair === "curly" && (
-        <path
-          d={`M${x - r * 0.9} ${y - r * 0.45} ${Array.from({ length: 7 }, () => `c 2 -${r * 0.3} ${r * 0.28} -${r * 0.3} ${r * 0.26} 0`).join(" ")}`}
-          fill="none"
-          stroke={D.ink}
-          strokeWidth={5}
-          strokeLinecap="round"
-        />
-      )}
-      {hair === "sides" && (
-        <path d={`M${x - r * 0.95} ${y - r * 0.2} c -12 6 -12 30 0 36 M${x + r * 0.95} ${y - r * 0.2} c 12 6 12 30 0 36`} fill={D.greyLight} stroke={D.ink} strokeWidth={4} />
-      )}
-      {eyes === "sleepy" && (
-        <>
-          <SleepyEye x={x - ex} y={ey} r={er} look={look} />
-          <SleepyEye x={x + ex} y={ey} r={er} look={look} />
-        </>
-      )}
-      {eyes === "smug" && (
-        <>
-          <SleepyEye x={x - ex} y={ey} r={er} look={look} />
-          <SleepyEye x={x + ex} y={ey} r={er} look={look} />
-          <path d={`M${x + ex - er} ${ey - er * 1.3} Q ${x + ex} ${ey - er * 2} ${x + ex + er} ${ey - er * 1.5}`} {...LINE} strokeWidth={4} />
-        </>
-      )}
-      {eyes === "saucer" && (
-        <>
-          <SaucerEye x={x - ex} y={ey} r={er * 1.25} px={look * 3} py={2} />
-          <SaucerEye x={x + ex} y={ey} r={er * 1.25} px={look * 3} py={2} />
-        </>
-      )}
-      {eyes === "tt" && (
-        <path d={`M${x - ex - er} ${ey} H${x - ex + er} M${x - ex} ${ey} V${ey + er * 0.8} M${x + ex - er} ${ey} H${x + ex + er} M${x + ex} ${ey} V${ey + er * 0.8}`} {...LINE} strokeWidth={5} />
-      )}
-      {eyes === "closed" && (
-        <path d={`M${x - ex - er} ${ey} q ${er} ${er * 0.7} ${er * 2} 0 M${x + ex - er} ${ey} q ${er} ${er * 0.7} ${er * 2} 0`} {...LINE} strokeWidth={4} />
-      )}
-      {mouth === "flat" && <path d={`M${x - r * 0.2} ${my} H${x + r * 0.2}`} {...LINE} strokeWidth={4} />}
-      {mouth === "smirk" && <path d={`M${x - r * 0.2} ${my} Q ${x + r * 0.05} ${my + 3} ${x + r * 0.25} ${my - 6}`} {...LINE} strokeWidth={4} />}
-      {mouth === "frown" && <path d={`M${x - r * 0.22} ${my + 4} Q ${x} ${my - 8} ${x + r * 0.22} ${my + 4}`} {...LINE} strokeWidth={4} />}
-      {mouth === "o" && <ellipse cx={x} cy={my} rx={r * 0.1} ry={r * 0.13} fill={D.ink} />}
-      {mouth === "grin" && (
         <g>
-          <path d={`M${x - r * 0.5} ${my - r * 0.14} C ${x - r * 0.3} ${my + r * 0.4}, ${x + r * 0.3} ${my + r * 0.4}, ${x + r * 0.5} ${my - r * 0.14} Z`} fill="#fff" stroke={D.ink} strokeWidth={4} strokeLinejoin="round" />
-          <path d={`M${x - r * 0.44} ${my} H${x + r * 0.44}`} stroke={D.ink} strokeWidth={2.5} />
+          <path d="M-94 -20 C -122 -24, -124 26, -94 30 M94 -20 C 122 -24, 124 26, 94 30" fill={fill} stroke={D.ink} strokeWidth={8} />
+          <path d="M-104 -4 C -110 4, -108 14, -100 16 M104 -4 C 110 4, 108 14, 100 16" {...ink} strokeWidth={3} />
         </g>
       )}
-      {stubble && <Stubble x={x - r * 0.45} y={my - r * 0.02} w={r * 0.9} h={r * 0.4} n={16} />}
+      <defs>
+        <clipPath id="hd-head">
+          <path d={head} />
+        </clipPath>
+      </defs>
+      <path d={head} fill={fill} stroke={D.ink} strokeWidth={9} strokeLinejoin="round" />
+      <path d="M-70 40 C -46 60, -20 64, 0 60" {...ink} stroke="#DDBFA0" strokeWidth={10} opacity={0.6} />
+      {stubble && (
+        <g clipPath="url(#hd-head)">
+          {SCRUFF.map(([a, b], i) => (
+            <circle key={i} cx={a} cy={b + (Math.abs(a) > 50 ? 0 : 6)} r={1.8} fill={D.ink} opacity={0.5} />
+          ))}
+        </g>
+      )}
+      {hair === "strands" && <path d="M-40 -100 c -6 -22 8 -30 14 -18 M-4 -104 c 0 -26 14 -28 18 -14 M30 -100 c 6 -22 20 -18 16 -4" {...ink} strokeWidth={5} />}
+      {hair === "messy" && (
+        <path d="M-100 -6 C -110 -90, -40 -130, 20 -116 C 80 -118, 116 -60, 100 -6 C 90 -44, 70 -56, 50 -54 L 46 -32 C 26 -56, 0 -58, -20 -50 L -26 -30 C -40 -48, -66 -50, -80 -38 C -90 -30, -96 -20, -100 -6 Z" fill={D.ink} />
+      )}
+      {hair === "curly" && <path d="M-90 -44 c 2 -30 28 -30 26 0 c 2 -30 28 -30 26 0 c 2 -30 28 -30 26 0 c 2 -30 28 -30 26 0 c 2 -30 28 -30 26 0 c 2 -30 28 -30 26 0 c 2 -30 28 -30 26 0" {...ink} strokeWidth={9} />}
+      {hair === "sides" && <path d="M-96 -24 c -22 8 -22 50 0 58 M96 -24 c 22 8 22 50 0 58" fill={D.greyLight} stroke={D.ink} strokeWidth={6} />}
+      <path d="M-30 -66 Q 0 -72 30 -66 M-22 -54 Q 0 -58 22 -54" {...ink} stroke="#B89C82" strokeWidth={3} />
+      {eyes === "smug" ? (
+        <path d="M-64 -36 Q -44 -42 -22 -38 M22 -44 Q 44 -58 64 -44" {...ink} strokeWidth={10} />
+      ) : eyes === "saucer" ? (
+        <path d="M-64 -46 Q -44 -58 -22 -48 M22 -48 Q 44 -58 64 -46" {...ink} strokeWidth={10} />
+      ) : (
+        <path d="M-64 -34 Q -44 -40 -22 -36 M22 -36 Q 44 -40 64 -34" {...ink} strokeWidth={10} />
+      )}
+      <LocalEye x={-40} lid={lid} look={look} bags={bags} wide={eyes === "saucer"} />
+      <LocalEye x={40} lid={lid} look={look} bags={bags} wide={eyes === "saucer"} />
+      <path d="M4 -2 C 6 18, 14 30, 14 40 C 14 50, 0 52, -10 48" {...ink} strokeWidth={5} />
+      <path d="M-30 40 C -42 52, -44 66, -38 76 M30 40 C 42 52, 44 66, 38 76" {...ink} stroke="#B89C82" strokeWidth={3.5} />
+      {mouth === "flat" && <path d="M-24 70 H26" {...ink} strokeWidth={6} />}
+      {mouth === "smirk" && <path d="M-24 72 Q 2 76 28 62" {...ink} strokeWidth={6} />}
+      {mouth === "frown" && <path d="M-26 76 Q 0 62 26 76" {...ink} strokeWidth={6} />}
+      {mouth === "o" && <ellipse cx={0} cy={72} rx={10} ry={13} fill={D.ink} />}
+      {mouth === "grin" && (
+        <g>
+          <path d="M-46 58 Q 0 106 46 58 Q 0 72 -46 58 Z" fill="#fff" stroke={D.ink} strokeWidth={6} strokeLinejoin="round" />
+          {[-30, -15, 0, 15, 30].map((tx) => (
+            <path key={tx} d={`M${tx} 62 V${tx === 0 ? 80 : 74}`} stroke={D.ink} strokeWidth={2.5} />
+          ))}
+        </g>
+      )}
+      <path d="M-22 88 Q 0 94 22 88" {...ink} stroke="#B89C82" strokeWidth={3} />
     </g>
   );
 }
