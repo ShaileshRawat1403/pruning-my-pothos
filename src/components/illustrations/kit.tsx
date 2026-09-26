@@ -1,4 +1,5 @@
 import React from "react";
+import { DeadpanDefs, Paper } from "./deadpan";
 
 /**
  * kit.tsx — the storybook drawing kit: palette, the recurring cast, and the
@@ -18,7 +19,7 @@ import React from "react";
  */
 
 export const C = {
-  paper: "#F4F1E8",
+  paper: "#EFE5CF",
   card: "#FFFFFF",
   ink: "#1F2A36",
   body: "#3D4854",
@@ -323,7 +324,8 @@ export function FrameShell({
   const step = Math.round(headlineSize * 1.03);
   return (
     <svg viewBox={`0 0 ${FRAME_W} ${FRAME_H}`} className="ill-svg" role="img" aria-label={label}>
-      <rect width={FRAME_W} height={FRAME_H} fill={C.paper} />
+      <DeadpanDefs id="fs" />
+      <Paper id="fs" w={FRAME_W} h={FRAME_H} />
       <text x={76} y={72} className="ill-mono" fontSize={15} letterSpacing={2.6} fill={C.muted}>PRUNING MY POTHOS</text>
       <text x={1004} y={72} textAnchor="end" className="ill-mono" fontSize={15} letterSpacing={2.6} fill={C.muted}>{chapter}</text>
       <text className="ill-sans" fontSize={headlineSize} fontWeight={800} letterSpacing={-2} fill={C.ink}>

@@ -1,6 +1,7 @@
 import React from "react";
 import { C, Hand, Para } from "./kit";
 import { Emblem } from "./emblems";
+import { DeadpanDefs, Paper } from "./deadpan";
 
 /**
  * covers.tsx: the 1200 x 630 cover for every Systems article. The article
@@ -22,34 +23,34 @@ interface CoverSpec {
 }
 
 export const COVERS: Record<string, CoverSpec> = {
-  "a-simple-tokenizer": { quip: "it counts tokens, not letters." },
-  "agent-instructions-and-handoff-as-an-operating-system": { quip: "where it stands, not how it got here." },
-  "ai-agents-vs-ai-workflows": { quip: "who picks the next step?" },
-  "ai-architecture-explained-how-modern-llm-applications-work": { quip: "the boxes are the easy part." },
-  "architecture-of-in-chat-ai-apps": { quip: "a button is a request, not a permission." },
-  "context-windows-as-working-memory": { quip: "what's in the window is a choice." },
-  "designing-reusable-ai-skills": { quip: "write down what it takes and returns." },
-  "evaluation-is-a-human-problem": { quip: "better at what, exactly?" },
-  "from-agent-intent-to-governed-execution": { quip: "it can only ask." },
-  "from-prompt-to-production": { quip: "ready for what, exactly?" },
-  "human-in-the-loop-is-a-system-design-choice": { quip: "a button isn't oversight." },
-  "i-7-cognitive-loop": { quip: "seven places a person decides." },
-  "observability-first-ai-systems": { quip: "decide what to keep before you need it." },
-  "policy-governed-mcp-runtimes-for-secure-tool-execution": { quip: "reading it doesn't make it an order." },
-  "prompting-is-not-the-skill-you-think-it-is": { quip: "asking isn't checking." },
-  "retrieval-augmented-generation-in-plain-terms": { quip: "it only sees what it's handed." },
-  "runtime-over-model-why-orchestration-is-the-product": { quip: "swap the model. the loop stays." },
-  "semantic-caching-for-probabilistic-systems": { quip: "similar isn't safe to reuse." },
-  "seo-aeo-geo-in-plain-terms": { quip: "control what you actually control." },
-  "skills-vs-prompts-vs-agents": { quip: "layers, not levels." },
-  "structured-output-and-why-it-matters": { quip: "a schema can say no." },
-  "systems-001-foundations": { quip: "a few good questions." },
-  "tech-stack-for-nlpg-driven-ai-assisted-sdlc": { quip: "disagree while it's cheap." },
-  "tool-use-when-language-triggers-actions": { quip: "the code that reads it owns the effect." },
-  "training-vs-inference": { quip: "only training writes to the file." },
-  "what-a-system-prompt-actually-is": { quip: "house rules, not task logic." },
-  "what-an-ai-model-actually-is": { quip: "a file of numbers. that's it." },
-  "why-ocr-quietly-breaks-document-ai": { quip: "lost at the scanner, lost for good." },
+  "a-simple-tokenizer": { quip: "Sliced. Sold. Surcharged." },
+  "agent-instructions-and-handoff-as-an-operating-system": { quip: "Full transcript. Zero clue." },
+  "ai-agents-vs-ai-workflows": { quip: "Same car. Pick who crashes it." },
+  "ai-architecture-explained-how-modern-llm-applications-work": { quip: "Every layer assumes the last one checked. None did." },
+  "architecture-of-in-chat-ai-apps": { quip: "It's a button. Not a blessing." },
+  "context-windows-as-working-memory": { quip: "Small window. Strong opinions." },
+  "designing-reusable-ai-skills": { quip: "Labelled, or it's leftovers." },
+  "evaluation-is-a-human-problem": { quip: "Graded on vibes. Shipped on hope." },
+  "from-agent-intent-to-governed-execution": { quip: "It can ask. It can't sign." },
+  "from-prompt-to-production": { quip: "Deployed. Delighted. Disowned." },
+  "human-in-the-loop-is-a-system-design-choice": { quip: "Present. Polite. Powerless." },
+  "i-7-cognitive-loop": { quip: "Decide early. Or explain later." },
+  "observability-first-ai-systems": { quip: "Logged everything. Learned nothing." },
+  "policy-governed-mcp-runtimes-for-secure-tool-execution": { quip: "Read it. Don't obey it." },
+  "prompting-is-not-the-skill-you-think-it-is": { quip: "Asked nicely. Ignored politely." },
+  "retrieval-augmented-generation-in-plain-terms": { quip: "Found it. Filed it. Forgot it." },
+  "runtime-over-model-why-orchestration-is-the-product": { quip: "New hamster. Same wheel." },
+  "semantic-caching-for-probabilistic-systems": { quip: "Close enough. Charged twice." },
+  "seo-aeo-geo-in-plain-terms": { quip: "Yelling at clouds. Ignoring the garden." },
+  "skills-vs-prompts-vs-agents": { quip: "It's a cake, not a career ladder." },
+  "structured-output-and-why-it-matters": { quip: "Wrong shape. Rightly rejected." },
+  "systems-001-foundations": { quip: "Fewer buzzwords. Better questions." },
+  "tech-stack-for-nlpg-driven-ai-assisted-sdlc": { quip: "Argue on paper. Paper's cheaper." },
+  "tool-use-when-language-triggers-actions": { quip: "The waiter shouts. The kitchen's liable." },
+  "training-vs-inference": { quip: "Pressed once. Played forever." },
+  "what-a-system-prompt-actually-is": { quip: "House rules, not homework." },
+  "what-an-ai-model-actually-is": { quip: "A file of numbers. Worshipped accordingly." },
+  "why-ocr-quietly-breaks-document-ai": { quip: "Garbage in. Confidently out." },
 };
 
 /**
@@ -61,7 +62,8 @@ export function ArticleCover({ slug, title, kicker, hero = false }: { slug: stri
   const spec = COVERS[slug];
   return (
     <svg viewBox={`0 0 ${COVER_W} ${COVER_H}`} className="ill-svg" role="img" aria-label={`Cover: ${title}. ${spec?.quip ?? ""}`}>
-      <rect width={COVER_W} height={COVER_H} fill={C.paper} />
+      <DeadpanDefs id={`cv-${slug}`} />
+      <Paper id={`cv-${slug}`} w={COVER_W} h={COVER_H} />
       <rect width={COVER_W} height={8} fill={C.ink} />
       <text x={72} y={92} className="ill-mono" fontSize={18} letterSpacing={3} fill={C.accent}>
         {kicker}

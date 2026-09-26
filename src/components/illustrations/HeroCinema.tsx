@@ -95,6 +95,7 @@ export default function HeroCinema() {
       return;
     }
 
+    let film: gsap.core.Timeline | null = null;
     const ctx = gsap.context(() => {
       // Starting positions for everything the film brings on.
       gsap.set(q(".hc-camera"), { transformOrigin: "50% 55%", scale: 1 });
@@ -117,6 +118,7 @@ export default function HeroCinema() {
       svg.classList.add("is-playing");
 
       const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+      film = tl;
       // Development only: lets the film be paused and scrubbed from the console.
       if (process.env.NODE_ENV !== "production") (window as unknown as { __heroFilm?: gsap.core.Timeline }).__heroFilm = tl;
 
@@ -188,7 +190,17 @@ export default function HeroCinema() {
       }, 6.1);
     }, svg);
 
-    return () => ctx.revert();
+    // Fail-safe: if the page is on screen but the film has not moved (no
+    // animation frames, for whatever reason), show the finished scene rather
+    // than an empty sheet of paper.
+    const guard = window.setTimeout(() => {
+      if (document.visibilityState === "visible" && film && film.time() === 0) film.progress(1);
+    }, 2500);
+
+    return () => {
+      window.clearTimeout(guard);
+      ctx.revert();
+    };
   }, []);
 
   return (

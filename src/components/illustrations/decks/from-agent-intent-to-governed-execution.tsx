@@ -25,7 +25,7 @@ export const deck: Deck = {
     {
       key: "governed-cover",
       title: "From agent intent to governed execution",
-      text: "A permission slip, filled in by the model, asking to refund order 4417 for forty dollars, with the signature line still blank: the model can only ask. Below it, the cast of this storyboard: the Gate permits, the Tool writes, and the Record keeps the balance. A model can ask for an action. Something else decides whether that ask becomes a real effect, and then whether it actually worked.",
+      text: "A permission slip asking to refund forty dollars crawls toward a clerk's desk on the back of a snail, while the grinning model waits behind a pile of more requests. It can ask. It can't sign. Below it, the cast of this storyboard: the Gate permits, the Tool writes, and the Record keeps the balance. A model can ask for an action. Something else decides whether that ask becomes a real effect, and then whether it actually worked.",
       Render: GovernedCover,
     },
     {

@@ -15,7 +15,7 @@ function Cover(p: FrameProps) {
       chapter={STAGE}
       slug={SLUG}
       titleLines={["Prompting", "is not the", "skill you", "think it is"]}
-      quip={["asked nicely.", "never checked."]}
+      quip={["Asked nicely.", "Ignored politely."]}
       strip={
         <g>
           <Hand x={96} y={742} size={46} color={C.muted}>
@@ -201,7 +201,7 @@ export const deck: Deck = {
     {
       key: "prompt-cover",
       title: "Prompting is not the skill you think it is",
-      text: "A polite lawn sign says: please, always reply in JSON. Footprints cross the grass anyway. A sign isn't a fence: it was asked nicely and never checked. Always, never and you must are just more input, which is not the same as a check outside the prompt that can reject a bad result.",
+      text: "A man yells ALWAYS JSON, please, through a megaphone at a cat sitting on a laptop whose screen reads: open brace, maybe. Asked nicely, ignored politely. Always, never and you must are just more input, which is not the same as a check outside the prompt that can reject a bad result.",
       Render: Cover,
     },
     {

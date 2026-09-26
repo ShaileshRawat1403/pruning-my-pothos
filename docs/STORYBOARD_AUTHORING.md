@@ -41,6 +41,9 @@ style sheet at `/style-sheet/` (not public).
 - Every cover has one **quip** in `covers.tsx`: dry, relatable, usually three
   beats, often alliterative (*Present. Polite. Powerless.*, *Found it. Filed
   it. Forgot it.*).
+- The point of deadpan is to be **blunt, brutal and brave**: say the truth
+  nobody says in the meeting, in a comic and weird way. Don't soften it into
+  a pleasantry. If a quip could appear on a corporate poster, it is too soft.
 - Dark and sarcastic is welcome. **No sexual humour.**
 - Be blunt about people: their habits and the roles they play are fair game
   (the hype merchant, the executive who approves decks unread, the engineer

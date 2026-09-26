@@ -15,7 +15,7 @@ function Cover(p: FrameProps) {
       chapter={STAGE}
       slug={SLUG}
       titleLines={["What has to", "survive for", "work to", "continue"]}
-      quip={["where it stands,", "not how it got here."]}
+      quip={["Full transcript.", "Zero clue."]}
       strip={
         <g>
           <Scroll x={86} y={680} w={560} size={34} lines={["use Postgres", "no, SQLite", "fine, Postgres after all"]} />
@@ -190,7 +190,7 @@ export const deck: Deck = {
     {
       key: "handoff-cover",
       title: "What has to survive for work to continue",
-      text: "A relay baton with a tag taped to it: now, Postgres; next, yours. No replay of the race, just the baton and the note. Where things stand, not how they got here. A transcript reads: use Postgres, no, SQLite, fine, Postgres after all. Which one still stands? Continuing work needs current truth and an owner for the next step.",
+      text: "One exhausted runner hands the baton to the next, and trailing from it is the entire transcript of the race, while the new runner asks: so where are we? Full transcript, zero clue. Continuing work needs where things stand, not how they got here. A transcript reads: use Postgres, no, SQLite, fine, Postgres after all. Which one still stands? Continuing work needs current truth and an owner for the next step.",
       Render: Cover,
     },
     {

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import SpotlightCard from "../SpotlightCard";
 import { Emblem, EMBLEM_W, EMBLEM_H } from "../illustrations/emblems";
-import { C } from "../illustrations/kit";
+import { DeadpanDefs, Paper } from "../illustrations/deadpan";
 import { getSystemsMap } from "../../lib/content/systems-map";
 import { getStoryboards } from "../../lib/content/storyboards";
 
@@ -64,7 +64,8 @@ export default function SystemsMap() {
                 <SpotlightCard href={stage.href} accent="var(--accent-cyan)" compact className="gap-2.5">
                   <div className="-mx-1 -mt-1 overflow-hidden rounded-sm border border-[#D9D4C6]">
                     <svg viewBox={`0 0 ${EMBLEM_W} ${EMBLEM_H}`} className="ill-svg block w-full" aria-hidden="true">
-                      <rect width={EMBLEM_W} height={EMBLEM_H} fill={C.paper} />
+                      <DeadpanDefs id={`tile-${stage.slug}`} />
+                      <Paper id={`tile-${stage.slug}`} w={EMBLEM_W} h={EMBLEM_H} />
                       <Emblem slug={stage.slug} x={20} y={20} s={0.92} />
                     </svg>
                   </div>

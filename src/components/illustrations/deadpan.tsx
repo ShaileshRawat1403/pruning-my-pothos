@@ -77,7 +77,7 @@ export function Paper({ id, w, h }: { id: string; w: number; h: number }) {
   return (
     <g>
       <rect width={w} height={h} fill={D.paper} />
-      <rect width={w} height={h} filter={`url(#${id}-grain)`} />
+      <rect className="ill-grain" width={w} height={h} fill="#000" filter={`url(#${id}-grain)`} />
       <rect width={w} height={h} fill={`url(#${id}-vignette)`} />
     </g>
   );
@@ -360,6 +360,167 @@ export function MiniPothos({ pruned = false, cut = false }: { pruned?: boolean; 
       {!cut && leaf(214, 146, 80, 0.8, pruned)}
       <path d="M62 188 H158 L148 252 H72 Z" fill={D.accent} stroke={D.ink} strokeWidth={5} strokeLinejoin="round" />
       <rect x={54} y={172} width={112} height={20} rx={4} fill={D.accent} stroke={D.ink} strokeWidth={5} />
+    </g>
+  );
+}
+
+/* ── Generic figure parts, for emblems ──────────────────────────────── */
+
+type EyeStyle = "sleepy" | "saucer" | "tt" | "smug" | "closed";
+type MouthStyle = "flat" | "grin" | "o" | "frown" | "smirk";
+type HairStyle = "none" | "strands" | "messy" | "curly" | "sides" | "bun";
+
+/** A deadpan head: pick eyes, mouth, hair. Centre x, y; radius r. */
+export function Head({
+  x,
+  y,
+  r = 50,
+  eyes = "sleepy",
+  look = 0.5,
+  mouth = "flat",
+  stubble = false,
+  hair = "none",
+  ears = true,
+  fill = D.face,
+}: {
+  x: number;
+  y: number;
+  r?: number;
+  eyes?: EyeStyle;
+  look?: number;
+  mouth?: MouthStyle;
+  stubble?: boolean;
+  hair?: HairStyle;
+  ears?: boolean;
+  fill?: string;
+}) {
+  const ex = r * 0.38;
+  const ey = y - r * 0.06;
+  const er = r * 0.27;
+  const my = y + r * 0.46;
+  return (
+    <g>
+      {hair === "bun" && <circle cx={x} cy={y - r * 1.02} r={r * 0.32} fill={D.grey} stroke={D.ink} strokeWidth={4} />}
+      {ears && (
+        <>
+          <ellipse cx={x - r * 0.98} cy={y + r * 0.04} rx={r * 0.16} ry={r * 0.25} fill={fill} stroke={D.ink} strokeWidth={4} />
+          <ellipse cx={x + r * 0.98} cy={y + r * 0.04} rx={r * 0.16} ry={r * 0.25} fill={fill} stroke={D.ink} strokeWidth={4} />
+        </>
+      )}
+      <circle cx={x} cy={y} r={r} fill={fill} stroke={D.ink} strokeWidth={5} />
+      {hair === "strands" && (
+        <path d={`M${x - r * 0.4} ${y - r * 0.9} c -3 -14 4 -18 8 -12 M${x - r * 0.05} ${y - r * 0.98} c 0 -16 8 -18 10 -10 M${x + r * 0.3} ${y - r * 0.93} c 4 -14 12 -12 10 -2`} fill="none" stroke={D.ink} strokeWidth={3} strokeLinecap="round" />
+      )}
+      {hair === "messy" && (
+        <path
+          d={`M${x - r * 1.02} ${y - r * 0.1} C ${x - r * 1.1} ${y - r * 0.9}, ${x - r * 0.4} ${y - r * 1.3}, ${x + r * 0.2} ${y - r * 1.15} C ${x + r * 0.8} ${y - r * 1.2}, ${x + r * 1.15} ${y - r * 0.6}, ${x + r * 1.0} ${y - r * 0.1} C ${x + r * 0.8} ${y - r * 0.5}, ${x + r * 0.5} ${y - r * 0.55}, ${x + r * 0.3} ${y - r * 0.5} L ${x + r * 0.25} ${y - r * 0.3} C ${x} ${y - r * 0.55}, ${x - r * 0.3} ${y - r * 0.5}, ${x - r * 0.5} ${y - r * 0.45} L ${x - r * 0.6} ${y - r * 0.25} C ${x - r * 0.75} ${y - r * 0.4}, ${x - r * 0.9} ${y - r * 0.3}, ${x - r * 1.02} ${y - r * 0.1} Z`}
+          fill={D.ink}
+        />
+      )}
+      {hair === "curly" && (
+        <path
+          d={`M${x - r * 0.9} ${y - r * 0.45} ${Array.from({ length: 7 }, () => `c 2 -${r * 0.3} ${r * 0.28} -${r * 0.3} ${r * 0.26} 0`).join(" ")}`}
+          fill="none"
+          stroke={D.ink}
+          strokeWidth={5}
+          strokeLinecap="round"
+        />
+      )}
+      {hair === "sides" && (
+        <path d={`M${x - r * 0.95} ${y - r * 0.2} c -12 6 -12 30 0 36 M${x + r * 0.95} ${y - r * 0.2} c 12 6 12 30 0 36`} fill={D.greyLight} stroke={D.ink} strokeWidth={4} />
+      )}
+      {eyes === "sleepy" && (
+        <>
+          <SleepyEye x={x - ex} y={ey} r={er} look={look} />
+          <SleepyEye x={x + ex} y={ey} r={er} look={look} />
+        </>
+      )}
+      {eyes === "smug" && (
+        <>
+          <SleepyEye x={x - ex} y={ey} r={er} look={look} />
+          <SleepyEye x={x + ex} y={ey} r={er} look={look} />
+          <path d={`M${x + ex - er} ${ey - er * 1.3} Q ${x + ex} ${ey - er * 2} ${x + ex + er} ${ey - er * 1.5}`} {...LINE} strokeWidth={4} />
+        </>
+      )}
+      {eyes === "saucer" && (
+        <>
+          <SaucerEye x={x - ex} y={ey} r={er * 1.25} px={look * 3} py={2} />
+          <SaucerEye x={x + ex} y={ey} r={er * 1.25} px={look * 3} py={2} />
+        </>
+      )}
+      {eyes === "tt" && (
+        <path d={`M${x - ex - er} ${ey} H${x - ex + er} M${x - ex} ${ey} V${ey + er * 0.8} M${x + ex - er} ${ey} H${x + ex + er} M${x + ex} ${ey} V${ey + er * 0.8}`} {...LINE} strokeWidth={5} />
+      )}
+      {eyes === "closed" && (
+        <path d={`M${x - ex - er} ${ey} q ${er} ${er * 0.7} ${er * 2} 0 M${x + ex - er} ${ey} q ${er} ${er * 0.7} ${er * 2} 0`} {...LINE} strokeWidth={4} />
+      )}
+      {mouth === "flat" && <path d={`M${x - r * 0.2} ${my} H${x + r * 0.2}`} {...LINE} strokeWidth={4} />}
+      {mouth === "smirk" && <path d={`M${x - r * 0.2} ${my} Q ${x + r * 0.05} ${my + 3} ${x + r * 0.25} ${my - 6}`} {...LINE} strokeWidth={4} />}
+      {mouth === "frown" && <path d={`M${x - r * 0.22} ${my + 4} Q ${x} ${my - 8} ${x + r * 0.22} ${my + 4}`} {...LINE} strokeWidth={4} />}
+      {mouth === "o" && <ellipse cx={x} cy={my} rx={r * 0.1} ry={r * 0.13} fill={D.ink} />}
+      {mouth === "grin" && (
+        <g>
+          <path d={`M${x - r * 0.5} ${my - r * 0.14} C ${x - r * 0.3} ${my + r * 0.4}, ${x + r * 0.3} ${my + r * 0.4}, ${x + r * 0.5} ${my - r * 0.14} Z`} fill="#fff" stroke={D.ink} strokeWidth={4} strokeLinejoin="round" />
+          <path d={`M${x - r * 0.44} ${my} H${x + r * 0.44}`} stroke={D.ink} strokeWidth={2.5} />
+        </g>
+      )}
+      {stubble && <Stubble x={x - r * 0.45} y={my - r * 0.02} w={r * 0.9} h={r * 0.4} n={16} />}
+    </g>
+  );
+}
+
+/** A torso: shoulders at y, from x-w/2 to x+w/2, down to y+h. */
+export function Torso({ x, y, w = 120, h = 150, fill = D.grey, tie = false }: { x: number; y: number; w?: number; h?: number; fill?: string; tie?: boolean }) {
+  return (
+    <g>
+      <path
+        d={`M${x - w / 2} ${y + h} L${x - w / 2 + 4} ${y + 26} C ${x - w / 2 + 8} ${y + 6}, ${x - w / 4} ${y}, ${x} ${y} C ${x + w / 4} ${y}, ${x + w / 2 - 8} ${y + 6}, ${x + w / 2 - 4} ${y + 26} L${x + w / 2} ${y + h} Z`}
+        fill={fill}
+        stroke={D.ink}
+        strokeWidth={5}
+        strokeLinejoin="round"
+      />
+      {tie && <path d={`M${x - 8} ${y + 4} H${x + 8} L${x + 5} ${y + 22} L${x + 12} ${y + h * 0.6} L${x} ${y + h * 0.72} L${x - 12} ${y + h * 0.6} L${x - 5} ${y + 22} Z`} fill={D.accent} stroke={D.ink} strokeWidth={3.5} strokeLinejoin="round" />}
+    </g>
+  );
+}
+
+/** Two stick legs with shoes, from hip y to floor y. */
+export function Legs({ x, y, floor, gap = 34 }: { x: number; y: number; floor: number; gap?: number }) {
+  return (
+    <g>
+      <path d={`M${x - gap / 2} ${y} L${x - gap / 2 - 2} ${floor} M${x + gap / 2} ${y} L${x + gap / 2 + 2} ${floor}`} {...LINE} strokeWidth={6} />
+      <path d={`M${x - gap / 2 - 20} ${floor + 2} H${x - gap / 2 + 2} M${x + gap / 2 - 2} ${floor + 2} H${x + gap / 2 + 20}`} {...LINE} strokeWidth={9} />
+    </g>
+  );
+}
+
+/** A plain sheet of paper with ruled lines, optional title. */
+export function Sheet({ x, y, w, h, title, r = 0, lines = 4 }: { x: number; y: number; w: number; h: number; title?: string; r?: number; lines?: number }) {
+  return (
+    <g transform={`rotate(${r} ${x + w / 2} ${y + h / 2})`}>
+      <rect x={x} y={y} width={w} height={h} fill="#fff" stroke={D.ink} strokeWidth={4} />
+      {title && (
+        <text x={x + w / 2} y={y + 24} textAnchor="middle" className="ill-mono" fontSize={13} fontWeight={700} fill={D.ink}>
+          {title}
+        </text>
+      )}
+      {Array.from({ length: lines }, (_, i) => (
+        <path key={i} d={`M${x + 12} ${y + (title ? 40 : 18) + i * 14} H${x + w - 12 - (i % 2) * 14}`} stroke={D.greyLight} strokeWidth={3} strokeLinecap="round" />
+      ))}
+    </g>
+  );
+}
+
+/** A mono label on a small white plate. */
+export function Label({ x, y, text, size = 14, color = D.ink, r = 0 }: { x: number; y: number; text: string; size?: number; color?: string; r?: number }) {
+  const w = text.length * size * 0.66 + 18;
+  return (
+    <g transform={`rotate(${r} ${x} ${y})`}>
+      <rect x={x - w / 2} y={y - size - 6} width={w} height={size + 14} rx={3} fill="#fff" stroke={D.ink} strokeWidth={3.5} />
+      <text x={x} y={y + 1} textAnchor="middle" className="ill-mono" fontSize={size} fontWeight={700} fill={color}>
+        {text}
+      </text>
     </g>
   );
 }

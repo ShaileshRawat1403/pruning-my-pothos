@@ -38,7 +38,7 @@ export default async function StoryboardSharePage({ params }: PageProps) {
   const w = getStoryboard(slug);
   if (!w) return notFound();
   return (
-    <div id="storyboard-share">
+    <div id="storyboard-share" className="no-grain">
       <style dangerouslySetInnerHTML={{ __html: SHARE_CSS }} />
       <ShareCard slug={slug} title={w.title} frames={w.frames.length} label={`${w.title}: a storyboard`} />
     </div>

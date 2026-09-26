@@ -1,6 +1,7 @@
 import React from "react";
 import { C, Para } from "./kit";
 import { Emblem } from "./emblems";
+import { DeadpanDefs, Paper } from "./deadpan";
 
 export const SHARE_W = 1200;
 export const SHARE_H = 630;
@@ -16,7 +17,8 @@ export const SHARE_H = 630;
 export function ShareCard({ slug, title, frames, label }: { slug: string; title: string; frames: number; label: string }) {
   return (
     <svg viewBox={`0 0 ${SHARE_W} ${SHARE_H}`} className="ill-svg" role="img" aria-label={label}>
-      <rect width={SHARE_W} height={SHARE_H} fill={C.paper} />
+      <DeadpanDefs id="sc" />
+      <Paper id="sc" w={SHARE_W} h={SHARE_H} />
       <rect width={SHARE_W} height={8} fill={C.ink} />
       <text x={72} y={92} className="ill-mono" fontSize={18} letterSpacing={3} fill={C.accent}>
         A STORYBOARD IN {frames} FRAMES

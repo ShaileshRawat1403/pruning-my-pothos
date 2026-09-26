@@ -1013,3 +1013,12 @@ html.js .hero-cinema:not(.is-playing):not(.is-still) .hc-camera { visibility: hi
 @media (prefers-reduced-motion: reduce) {
   html.js .hero-cinema .hc-camera { visibility: visible; }
 }
+
+/* Illustration filters (paper grain, ink wobble) rasterise when printed, which
+   turned each storyboard PDF into ~100 MB. Print and the PNG export routes
+   (.no-grain) draw clean paper instead; live pages keep the texture. */
+@media print {
+  .ill-grain { display: none; }
+  .ill-svg [filter] { filter: none !important; }
+}
+.no-grain .ill-grain { display: none; }

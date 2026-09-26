@@ -16,7 +16,7 @@ function Cover(p: FrameProps) {
       slug={SLUG}
       layout="stage"
       titleLines={["When is an AI", "system ready", "for real use?"]}
-      quip={["ready for what,", "exactly?"]}
+      quip={["Deployed. Delighted.", "Disowned."]}
       summary="Deployment means it's running. Readiness means the evidence and controls justify this exposure: these users, doing this job, with these consequences when it's wrong."
     />
   );
@@ -195,7 +195,7 @@ export const deck: Deck = {
     {
       key: "ready-cover",
       title: "When is an AI system ready for real use?",
-      text: "A small bridge with a sign reading tested with: bicycles, and a lorry marked PROD driving onto it. Ready for what, exactly? Tested, approved and deployed are each worth something, and none of them is the answer. Readiness means the evidence and controls justify this exposure: these users, doing this job, with these consequences when it is wrong.",
+      text: "A small bridge with a sign reading tested with: bicycles, a lorry marked PROD driving onto it, and an engineer on the far bank saluting: ship it. Deployed, delighted, disowned. Ready for what, exactly? Tested, approved and deployed are each worth something, and none of them is the answer. Readiness means the evidence and controls justify this exposure: these users, doing this job, with these consequences when it is wrong.",
       Render: Cover,
     },
     {

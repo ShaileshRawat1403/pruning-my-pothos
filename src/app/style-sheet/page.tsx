@@ -1,5 +1,8 @@
 import React from "react";
+import { allSystems } from "content-collections";
 import { constructMetadata } from "../../lib/seo/metadata";
+import { Emblem, EMBLEMS } from "../../components/illustrations/emblems";
+import { COVERS } from "../../components/illustrations/covers";
 import {
   D,
   LINE,
@@ -281,6 +284,30 @@ export default function StyleSheetPage() {
                 <figcaption className="text-sm text-[color:var(--text-secondary)]">
                   <strong className="text-[color:var(--text-primary)]">{f.beat}.</strong> {f.note}
                 </figcaption>
+              </figure>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="flex flex-col gap-6">
+        <h2 className="font-heading text-2xl font-bold text-[color:var(--text-primary)]">5 · Every emblem, redrawn</h2>
+        <p className="text-sm text-[color:var(--text-secondary)] max-w-3xl">
+          One visual pun per Systems article, with its quip. These become the article covers, storyboard covers and link previews.
+        </p>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+          {Object.keys(EMBLEMS).map((slug) => {
+            const title = allSystems.find((a) => a._meta.path === slug)?.title ?? slug;
+            const id = `all-${slug}`;
+            return (
+              <figure key={slug} className="m-0 flex flex-col gap-2">
+                <Plate id={id} w={500} h={620}>
+                  <Emblem slug={slug} x={0} y={10} />
+                  <text x={250} y={584} textAnchor="middle" className="ill-hand" fontSize={27} fontWeight={700} fill={D.accent}>
+                    {COVERS[slug]?.quip}
+                  </text>
+                </Plate>
+                <figcaption className="text-xs font-mono text-[color:var(--text-muted)]">{title}</figcaption>
               </figure>
             );
           })}

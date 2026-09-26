@@ -16,7 +16,7 @@ function Cover(p: FrameProps) {
       slug={SLUG}
       layout="stage"
       titleLines={["What counts as", "good, and how", "to check it"]}
-      quip={["better at what,", "exactly?"]}
+      quip={["Graded on vibes.", "Shipped on hope."]}
       summary="Evaluation compares behaviour against an expectation written down before the run. Every faster, cheaper check approximates that written judgment."
     />
   );
@@ -154,7 +154,7 @@ export const deck: Deck = {
     {
       key: "eval-cover",
       title: "What counts as good, and how to check it",
-      text: "A trophy engraved BEST, followed by a blank nobody filled in. Better at what, exactly? Evaluation compares behaviour against an expectation written down before the run, and every faster, cheaper check approximates that written judgment.",
+      text: "A sweating trophy engraved BEST, followed by a blank nobody filled in, and an executive holding a scorecard that reads: vibes. Graded on vibes, shipped on hope. Evaluation compares behaviour against an expectation written down before the run, and every faster, cheaper check approximates that written judgment.",
       Render: Cover,
     },
     {

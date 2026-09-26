@@ -42,7 +42,7 @@ export function GovernedCover({ label, number, total }: FrameProps) {
       </text>
 
       <Emblem slug="from-agent-intent-to-governed-execution" x={574} y={130} s={0.86} />
-      <Hand x={76} y={592} size={42} color={C.accent}>the model can only ask.</Hand>
+      <Hand x={76} y={592} size={42} color={C.accent}>It can ask. It can&#39;t sign.</Hand>
 
       <Gate x={76} y={650} />
       <Arrow x1={338} x2={404} y={800} verb="permits" verbY={780} />

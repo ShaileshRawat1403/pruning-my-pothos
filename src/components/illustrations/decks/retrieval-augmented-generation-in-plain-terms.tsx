@@ -16,7 +16,7 @@ function Cover(p: FrameProps) {
       slug={SLUG}
       layout="stage"
       titleLines={["Retrieval in", "plain terms"]}
-      quip={["it only sees", "what it's handed."]}
+      quip={["Found it. Filed it.", "Forgot it."]}
       summary="Retrieval fetches material when a question comes in and puts it into the model's input. Finding it and handing it over are separate steps, and either can drop the evidence."
     />
   );
@@ -179,7 +179,7 @@ export const deck: Deck = {
     {
       key: "rag-cover",
       title: "Retrieval in plain terms",
-      text: "A door marked INPUT with a letterbox. One page is going through the slot; another lies on the doormat, found and dropped. The model only sees what it is handed. Finding it and handing it over are separate steps, and either can drop the evidence.",
+      text: "A man feeds pages into a letterbox with teeth, on a door marked the model. Found it, fed it, it ate it. The model only sees what it is handed. Finding it and handing it over are separate steps, and either can drop the evidence.",
       Render: Cover,
     },
     {

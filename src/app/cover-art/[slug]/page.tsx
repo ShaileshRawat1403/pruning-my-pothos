@@ -39,7 +39,7 @@ export default async function CoverArtPage({ params }: PageProps) {
   const system = allSystems.find((s) => s._meta.path === slug);
   if (!system) return notFound();
   return (
-    <div id="cover-art">
+    <div id="cover-art" className="no-grain">
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
       <ArticleCover slug={slug} title={system.title} kicker={coverKicker(slug)} />
     </div>
