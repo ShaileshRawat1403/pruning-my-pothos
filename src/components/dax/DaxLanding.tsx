@@ -1,7 +1,7 @@
 "use client";
 
 import GlowCard from "../GlowCard";
-import ContractStack from "./ContractStack";
+import DaxHeroCinema from "./DaxHeroCinema";
 import RaoTour from "./RaoTour";
 import CrateCascade from "./CrateCascade";
 import CopyCommand from "./CopyCommand";
@@ -108,8 +108,8 @@ const EVIDENCE = [
 export default function DaxLanding() {
   return (
     <div className="dax-page relative w-full max-w-[1080px] mx-auto">
-      {/* Hero: PlateHero rhythm with the contract stack visual */}
-      <header className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(260px,340px)] items-center gap-10 lg:gap-14 pt-10 lg:pt-6 pb-14 border-b border-[color:var(--card-border)]">
+      {/* Hero: deadpan cinema (contract layers / ASK) */}
+      <header className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(280px,380px)] items-center gap-10 lg:gap-14 pt-10 lg:pt-6 pb-14 border-b border-[color:var(--card-border)]">
         <div className="flex flex-col gap-5 lg:pr-4 min-w-0">
           <a href="/stack/" className="self-start font-mono text-xs text-[color:var(--text-muted)] hover:text-[color:var(--text-primary)] underline-offset-4 hover:underline">
             <span aria-hidden="true">&larr;</span> Stack
@@ -155,7 +155,7 @@ export default function DaxLanding() {
             ))}
           </div>
         </div>
-        <ContractStack />
+        <DaxHeroCinema />
       </header>
 
       {/* Outcomes */}
