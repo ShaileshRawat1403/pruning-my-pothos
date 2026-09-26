@@ -3,173 +3,85 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import NewsletterForm from "./NewsletterForm";
+import { SECTIONS } from "../lib/config/sections";
 
+const ELSEWHERE = [
+  { label: "Email", href: "mailto:shailesh.rawat1403@gmail.com", external: false },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/shailesh-rawat", external: true },
+  { label: "GitHub", href: "https://github.com/ShaileshRawat1403", external: true },
+];
+
+/**
+ * One footer on every page: a site map read from lib/config/sections.ts (the
+ * same source as the header and the section sub-navigation), the newsletter,
+ * and where else to find the author. Every public page is linked from here.
+ */
 export default function Footer() {
   const pathname = usePathname();
   const year = new Date().getFullYear();
 
-  // The homepage used to end on its own newsletter block, so the footer was
-  // suppressed there. It now ends on the Shelf preview, and the footer carries
-  // the Ecosystem links -- Tools among them -- that primary navigation
-  // deliberately does not. Suppressing it left those unreachable from home.
-  // /editorial-preview keeps the old behaviour: it is a composition sandbox,
-  // not a page anyone navigates from.
-  const isEditorialPreview =
-    pathname === "/editorial-preview" || pathname === "/editorial-preview/";
-
-  if (isEditorialPreview) {
+  // /editorial-preview is a composition sandbox, not a page anyone navigates from.
+  if (pathname === "/editorial-preview" || pathname === "/editorial-preview/") {
     return null;
   }
 
-  const isSentiments =
-    pathname.startsWith("/sentiments") ||
-    pathname.startsWith("/sentences") ||
-    pathname.startsWith("/self") ||
-    pathname.startsWith("/shelf");
-
-  if (!isSentiments) {
-    return (
-      <footer
-        className="w-full mt-auto"
-        style={{ borderTop: "1px solid var(--card-border)" }}
-      >
-        <div className="app-shell pt-16 pb-12 flex flex-col gap-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col gap-3">
-              <h5
-                className="font-heading text-xs font-bold uppercase tracking-wider"
-                style={{ color: "var(--text-primary)" }}
-              >
-                Systems
-              </h5>
-              <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                Open-source utilities, visual canvases, and evaluation harness
-                templates for AI-assisted workflow development.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <h5
-                className="font-heading text-xs font-bold uppercase tracking-wider"
-                style={{ color: "var(--text-primary)" }}
-              >
-                Ecosystem
-              </h5>
-              {[
-                { href: "/tools/", label: "Tools" },
-                { href: "/canvases/", label: "Interactive Canvases" },
-                { href: "/docs/", label: "Documentation" },
-                { href: "/sentences/", label: "Writing Archive" },
-                { href: "/sentiments/", label: "Sentiments" },
-              ].map((l) => (
-                <Link
-                  key={l.href}
-                  href={l.href}
-                  className="link-slide self-start text-sm transition-colors"
-                  style={{ color: "var(--text-secondary)" }}
-                >
-                  {l.label}
-                </Link>
-              ))}
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <h5
-                className="font-heading text-xs font-bold uppercase tracking-wider"
-                style={{ color: "var(--text-primary)" }}
-              >
-                Newsletter
-              </h5>
-              <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                AI systems and news, written by one person who builds with it.
-              </p>
-              <NewsletterForm variant="footer" />
-            </div>
-          </div>
-
-          <div
-            className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8"
-            style={{ borderTop: "1px solid var(--card-border)" }}
-          >
-            <div className="flex flex-col gap-1.5">
-              <p className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.16em]" style={{ color: "var(--text-muted)" }}>
-                <span className="pulse-dot" aria-hidden />
-                Set in Schibsted Grotesk &amp; IBM Plex Mono
-              </p>
-              <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                &copy; {year} Pruning My Pothos. All rights reserved.
-                {" · "}
-                <a
-                  href="mailto:shailesh.rawat1403@gmail.com"
-                  className="link-slide font-mono"
-                  style={{ color: "var(--accent-purple)" }}
-                >
-                  shailesh.rawat1403@gmail.com
-                </a>
-              </p>
-            </div>
-            <div className="flex gap-5">
-              {[
-                { href: "/systems/", label: "Systems" },
-                { href: "/storyboards/", label: "Storyboards" },
-                { href: "/stack/", label: "Stack" },
-                { href: "/shelf/", label: "Shelf" },
-                { href: "/about/", label: "Self" },
-              ].map((l) => (
-                <Link
-                  key={l.href}
-                  href={l.href}
-                  className="link-slide text-xs font-mono transition-colors"
-                  style={{ color: "var(--text-muted)" }}
-                >
-                  {l.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </footer>
-    );
-  }
-
-  // Sentiments workspace footer
-  const links = [
-    { label: "Email", href: "mailto:shailesh.rawat1403@gmail.com", external: false },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/shailesh-rawat", external: true },
-    { label: "GitHub", href: "https://github.com/ShaileshRawat1403", external: true },
-    { label: "pruningmypothos.com", href: "https://pruningmypothos.com", external: true },
-  ];
-
   return (
-    <footer
-      className="w-full mt-auto"
-      style={{ borderTop: "1px solid var(--card-border)" }}
-    >
-      <div className="app-shell py-8 flex flex-col items-center gap-5 text-center">
-        <div className="flex flex-wrap justify-center gap-2">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noopener noreferrer" : undefined}
-              className="px-3 py-1 rounded-full text-xs font-mono transition-all"
-              style={{
-                color: "var(--text-secondary)",
-                background: "var(--card-bg)",
-                border: "1px solid var(--card-border)",
-              }}
-            >
-              {link.label}
-            </a>
+    <footer className="w-full mt-auto border-t border-[color:var(--card-border)]">
+      <div className="app-shell pt-14 pb-10 flex flex-col gap-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-[minmax(0,5fr)_minmax(0,1.6fr)] gap-x-8 gap-y-10">
+          <nav aria-label="Site map" className="col-span-2 sm:col-span-3 lg:col-span-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10">
+          {SECTIONS.map((s) => (
+            <div key={s.key} className="flex flex-col gap-2 min-w-0">
+              <Link
+                href={s.href}
+                className="font-heading text-xs font-bold uppercase tracking-wider text-[color:var(--text-primary)] hover:underline underline-offset-4"
+              >
+                {s.label}
+              </Link>
+              <p className="text-xs leading-relaxed text-[color:var(--text-muted)]">{s.blurb}</p>
+              <ul className="m-0 p-0 list-none flex flex-col gap-1.5 mt-1">
+                {s.items.flatMap((i) => i.sub ?? [i]).map((i) => (
+                  <li key={i.href + i.label}>
+                    <Link href={i.href} className="link-slide text-sm text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)] transition-colors">
+                      {i.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
+          </nav>
+
+          <div className="col-span-2 sm:col-span-3 lg:col-span-1 flex flex-col gap-3">
+            <h2 className="font-heading text-xs font-bold uppercase tracking-wider text-[color:var(--text-primary)]">Letters</h2>
+            <p className="text-sm leading-relaxed text-[color:var(--text-secondary)]">
+              What worked, what broke, and what I learned building with AI.
+            </p>
+            <NewsletterForm variant="footer" />
+          </div>
         </div>
-        <p className="text-xs leading-relaxed max-w-[56ch]" style={{ color: "var(--text-secondary)" }}>
-          PruningMyPothos is a thinking workspace on AI systems, orchestration,
-          platform integration, governance, and adoption.
-        </p>
-        <div className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>
-          &copy; {year} Shailesh Rawat. All rights reserved.
+
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-8 border-t border-[color:var(--card-border)]">
+          <div className="flex flex-col gap-1.5">
+            <p className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.16em] text-[color:var(--text-muted)]">
+              <span className="pulse-dot" aria-hidden />
+              Set in Schibsted Grotesk &amp; IBM Plex Mono
+            </p>
+            <p className="text-xs text-[color:var(--text-muted)]">&copy; {year} Shailesh Rawat. Pruning My Pothos.</p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {ELSEWHERE.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                target={l.external ? "_blank" : undefined}
+                rel={l.external ? "noopener noreferrer" : undefined}
+                className="px-3 py-1 rounded-full text-xs font-mono transition-colors border border-[color:var(--card-border)] bg-[color:var(--card-bg)] text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)]"
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

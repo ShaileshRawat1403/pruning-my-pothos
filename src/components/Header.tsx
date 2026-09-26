@@ -4,22 +4,16 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
+import { SECTIONS, locate } from "../lib/config/sections";
 
 export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
 
-  // The four reader surfaces, plus About. Every destination is a real route on
-  // every page: a primary nav item that only works on the homepage is not
-  // navigation, it is a scroll link wearing navigation's clothes.
-  const navLinks = [
-    { href: "/systems/", label: "Systems" },
-    { href: "/storyboards/", label: "Storyboards" },
-    { href: "/stack/", label: "Stack" },
-    { href: "/shelf/", label: "Shelf" },
-    { href: "/about/", label: "Self" },
-  ];
+  // The five sections (lib/config/sections.ts). A section is current on any of
+  // its pages, so Stack stays lit on /tools/ and Self on /sentences/.
+  const current = locate(pathname ?? "/")?.section.key;
 
   return (
     <header onKeyDown={(event) => {
@@ -49,8 +43,8 @@ export default function Header() {
 
         {/* Navigation Links (Desktop) */}
         <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-5 text-xs font-mono font-medium text-[color:var(--text-secondary)]">
-          {navLinks.map(({ href, label }) => {
-            const isCurrent = pathname.startsWith(href.replace(/\/$/, ""));
+          {SECTIONS.map(({ key, href, label }) => {
+            const isCurrent = current === key;
 
             return (
               <Link
@@ -103,15 +97,31 @@ export default function Header() {
       {/* Responsive Mobile Drawer */}
       {isMobileMenuOpen && (
         <nav id="mobile-navigation" aria-label="Mobile navigation" className="lg:hidden w-full max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-[color:var(--card-border)] bg-[color:var(--bg-color)] px-6 py-4 flex flex-col gap-1 font-mono text-sm">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={label}
-              href={href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="py-3 text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)] transition-colors"
-            >
-              {label}
-            </Link>
+          {SECTIONS.map(({ key, href, label, items }) => (
+            <div key={key} className="flex flex-col">
+              <Link
+                href={href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                aria-current={current === key ? "page" : undefined}
+                className={`py-3 transition-colors ${current === key ? "text-[color:var(--text-primary)] font-semibold" : "text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)]"}`}
+              >
+                {label}
+              </Link>
+              {items.length > 2 && (
+                <div className="flex flex-wrap gap-x-4 gap-y-1 pl-4 pb-2 text-xs">
+                  {items.map((i) => (
+                    <Link
+                      key={i.href + i.label}
+                      href={i.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="py-1 text-[color:var(--text-muted)] hover:text-[color:var(--text-primary)] transition-colors"
+                    >
+                      {i.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </nav>
       )}

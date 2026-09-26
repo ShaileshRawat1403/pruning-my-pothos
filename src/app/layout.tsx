@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SectionNav from "../components/SectionNav";
 import BackgroundGrid from "../components/BackgroundGrid";
 import ScrollAnimations from "../components/ScrollAnimations";
 import ConsoleToastHost from "../components/ConsoleToastHost";
@@ -52,6 +53,7 @@ export default function RootLayout({
             component is kept for a future article-scoped use. */}
         <BackgroundGrid />
         <Header />
+        <SectionNav />
         <main id="main-content" tabIndex={-1} className="relative z-10 w-full flex-grow">
           <div className="app-shell">
             {children}

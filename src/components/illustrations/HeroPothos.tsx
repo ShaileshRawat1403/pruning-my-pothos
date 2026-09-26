@@ -123,14 +123,14 @@ const reduced = () => typeof window !== "undefined" && window.matchMedia("(prefe
 
 export default function HeroPothos() {
   const svgRef = useRef<SVGSVGElement>(null);
-  const snipRefs = useRef<SVGAnimateTransformElement[]>([]);
+  const snipRefs = useRef<SVGElement[]>([]);
   const [note, setNote] = useState<string | null>(null);
 
   // The snip is SMIL (it rotates each blade about the pivot exactly), started
   // from here so the server and client render the same markup.
   useEffect(() => {
     if (reduced()) return;
-    const t = window.setTimeout(() => snipRefs.current.forEach((a) => a?.beginElement?.()), 1750);
+    const t = window.setTimeout(() => snipRefs.current.forEach((a) => (a as SVGAnimationElement | undefined)?.beginElement?.()), 1750);
     return () => window.clearTimeout(t);
   }, []);
 
