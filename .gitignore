@@ -58,3 +58,8 @@ next-env.d.ts
 # Local-only design material (never published)
 /private/
 /src/app/dank-samples/
+
+# Owner working docs (never commit)
+/docs/ARCHIVE_DISPOSITION_LEDGER.md
+/docs/CAROUSEL_VISUAL_SYSTEM_V1.md
+/docs/POST_BENCHMARK_PRODUCT_INSIGHTS.md

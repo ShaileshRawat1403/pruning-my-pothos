@@ -4,6 +4,10 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
+# Start here
+
+Current state, rules, commands and next steps: 👉 [docs/HANDOVER.md](docs/HANDOVER.md)
+
 # Editorial Governor: PMP Editorial Contract v1
 
 All content authoring and modification in `src/content/` is strictly governed by:
