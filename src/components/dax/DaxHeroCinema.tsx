@@ -20,9 +20,11 @@ import { Gate } from "../illustrations/kit";
  *   3.4  caption writes: the contract, not the chat
  *   then idle: soft clerk bob only (no stamp spam)
  *
- * Deadpan register. GSAP choreography. Reduced motion (and no-JS) show the
- * settled final frame. Claims match the product page: policy can pause a
- * risky write with ask before mutation.
+ * Visible by default: the markup is the settled frame, so no-JS, reduced
+ * motion, and any GSAP failure still show clerk / sheets / ASK / caption.
+ * Motion path resets from that settled frame inside useLayoutEffect (before
+ * paint), then plays once. A short failsafe forces the settled frame if the
+ * timeline never advances.
  */
 
 const W = 360;
@@ -38,6 +40,20 @@ const LAYERS = [
 const reduced = () =>
   typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+function forceSettled(svg: SVGSVGElement, q: (selector: string) => gsap.TweenTarget) {
+  gsap.set(q(".dhc-camera"), { clearProps: "transform,scale", scale: 1 });
+  gsap.set(q(".dhc-sheet"), { autoAlpha: 1, y: 0, clearProps: "transform" });
+  gsap.set(q(".dhc-slip"), { autoAlpha: 1, x: 28, y: 2 });
+  gsap.set(q(".dhc-gate"), { autoAlpha: 1, x: 0 });
+  gsap.set(q(".dhc-gate-body"), { y: 0 });
+  gsap.set(q(".dhc-stamp"), { autoAlpha: 1, y: 0, rotation: -12 });
+  gsap.set(q(".dhc-ask-word"), { autoAlpha: 0 });
+  gsap.set(q(".dhc-caption-mask"), { attr: { width: 280 } });
+  gsap.set(q(".dhc-shake"), { x: 0 });
+  svg.classList.add("is-still");
+  svg.classList.add("is-playing");
+}
+
 export default function DaxHeroCinema() {
   const root = useRef<SVGSVGElement>(null);
 
@@ -52,18 +68,47 @@ export default function DaxHeroCinema() {
     }
 
     let film: gsap.core.Timeline | null = null;
+    let settled = false;
+
+    const showSettled = () => {
+      if (settled) return;
+      settled = true;
+      try {
+        film?.kill();
+      } catch {
+        /* ignore */
+      }
+      forceSettled(svg, q);
+    };
+
     const ctx = gsap.context(() => {
+      // Mark playing first so any CSS hooks know we intend to animate.
+      // Opening state is set only here, in useLayoutEffect (before paint).
+      // The DOM markup remains the settled frame for no-JS and failure paths.
+      svg.classList.remove("is-still");
+      svg.classList.add("is-playing");
+
       gsap.set(q(".dhc-camera"), { transformOrigin: "50% 55%", scale: 1 });
       gsap.set(q(".dhc-sheet"), { autoAlpha: 0, y: -18 });
       gsap.set(q(".dhc-slip"), { autoAlpha: 0, x: -40, y: 12 });
       gsap.set(q(".dhc-gate"), { autoAlpha: 0, x: 48 });
-      gsap.set(q(".dhc-stamp"), { autoAlpha: 0, y: -36, rotation: -28, transformOrigin: "50% 50%" });
+      gsap.set(q(".dhc-stamp"), {
+        autoAlpha: 0,
+        y: -36,
+        rotation: -28,
+        transformOrigin: "50% 50%",
+      });
       gsap.set(q(".dhc-ask-word"), { autoAlpha: 0, scale: 0.4, transformOrigin: "50% 50%" });
       gsap.set(q(".dhc-caption-mask"), { attr: { width: 0 } });
-      svg.classList.add("is-playing");
 
-      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+      const tl = gsap.timeline({
+        defaults: { ease: "power2.out" },
+        onComplete: () => {
+          settled = true;
+        },
+      });
       film = tl;
+
       if (process.env.NODE_ENV !== "production") {
         (window as unknown as { __daxHeroFilm?: gsap.core.Timeline }).__daxHeroFilm = tl;
       }
@@ -106,13 +151,23 @@ export default function DaxHeroCinema() {
       }, 4.5);
     }, svg);
 
-    const guard = window.setTimeout(() => {
-      if (document.visibilityState === "visible" && film && film.time() === 0) film.progress(1);
-    }, 2500);
+    // Fast failsafe: if nothing has moved shortly after start, paint settled.
+    const early = window.setTimeout(() => {
+      if (!film || film.progress() < 0.02) showSettled();
+    }, 600);
+
+    // Late failsafe: stalled film (still near start) jumps to settled.
+    const late = window.setTimeout(() => {
+      if (!film || film.progress() < 0.15) showSettled();
+      else if (film.progress() < 1 && film.time() === 0) showSettled();
+    }, 2200);
 
     return () => {
-      window.clearTimeout(guard);
+      window.clearTimeout(early);
+      window.clearTimeout(late);
       ctx.revert();
+      // After revert, markup attributes are the settled frame again.
+      svg.classList.add("is-still");
     };
   }, []);
 
@@ -123,7 +178,7 @@ export default function DaxHeroCinema() {
         viewBox={`0 0 ${W} ${H}`}
         width="100%"
         height="auto"
-        className="ill-svg dax-hero-cinema"
+        className="ill-svg dax-hero-cinema is-still"
         role="img"
         aria-label="Contract layers stack on aged paper: Intent, Policy, Approval, Evidence. A propose-edit slip slides in. A policy clerk stamps ASK on Approval and the slip stops. Caption: the contract, not the chat."
       >

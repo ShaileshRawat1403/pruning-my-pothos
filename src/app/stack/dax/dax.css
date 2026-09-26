@@ -53,16 +53,9 @@
 }
 
 /* DAX hero film (DaxHeroCinema)
-   Markup is the settled final frame. With scripts, the camera stays hidden
-   until GSAP sets the opening frame and adds .is-playing. */
-html.js .dax-hero-cinema:not(.is-playing):not(.is-still) .dhc-camera {
-  visibility: hidden;
-}
-@media (prefers-reduced-motion: reduce) {
-  html.js .dax-hero-cinema .dhc-camera {
-    visibility: visible;
-  }
-}
+   Settled frame is visible by default (markup + .is-still on the svg).
+   GSAP may reset to an opening pose inside useLayoutEffect, then play.
+   Never hide .dhc-camera with CSS: an empty plate is worse than no film. */
 
 
 .dax-stage-caption {
