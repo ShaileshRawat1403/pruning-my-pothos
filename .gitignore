@@ -57,3 +57,4 @@ next-env.d.ts
 
 # Local-only design material (never published)
 /private/
+/src/app/dank-samples/
