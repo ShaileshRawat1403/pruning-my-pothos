@@ -1,8 +1,8 @@
 import React from "react";
 
 /**
- * deadpan.tsx: the second drawing register, "deadpan". Proposed, under review
- * at /style-sheet/.
+ * deadpan.tsx: the second drawing register, "deadpan". Approved; the style sheet
+ * is kept locally in private/style-sheet/ (gitignored).
  *
  * What it is: characters who have seen through the hype and are unimpressed,
  * drawn in a thick, slightly wobbly ink on aged paper. Wrong proportions tell

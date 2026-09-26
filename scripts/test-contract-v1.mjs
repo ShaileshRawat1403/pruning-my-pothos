@@ -871,7 +871,7 @@ async function runTests() {
   // ships its exported PDF and link preview. A deck without its files would
   // render on the site with a dead download link. See docs/STORYBOARD_AUTHORING.md.
   const decksIndex = await fs.readFile(path.resolve(ROOT, "src/components/illustrations/decks/index.ts"), "utf8");
-  const deckSlugs = [...decksIndex.matchAll(/from "\.\/([a-z0-9-]+)"/g)].map((m) => m[1]).filter((s) => s !== "types");
+  const deckSlugs = [...decksIndex.matchAll(/from "\.\/([a-z0-9-]+)"/g)].map((m) => m[1]).filter((s) => s !== "types" && s !== "gags");
   const deckProblems = [];
   for (const slug of deckSlugs) {
     if (!existsSync(path.resolve(ROOT, `src/content/systems/${slug}.mdx`))) deckProblems.push(`${slug}: no Systems article`);

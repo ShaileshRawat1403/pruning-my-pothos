@@ -1,6 +1,7 @@
 import React from "react";
 import { Emblem } from "./emblems";
 import { C, FrameShell, Hand, Para, Strike } from "./kit";
+import { Ink } from "./deadpan";
 import { Num } from "./props";
 
 /**
@@ -12,6 +13,7 @@ import { Num } from "./props";
  *   ContrastTemplate  two panels side by side, either may be struck
  *   SceneTemplate     a free drawing, with an optional "this -> that" line
  *   CloseTemplate     last frame: headline, a drawing, takeaway, link home
+ *   GagTemplate       a deadpan visual pun, its punchline, and the plain claim
  *
  * All coordinates are on the 1080 x 1350 master. Drawings passed in as
  * children are placed in absolute frame coordinates unless a template says it
@@ -376,6 +378,40 @@ export function CloseTemplate({
       <text x={966} y={1150} textAnchor="end" className="ill-sans" fontSize={56} fill={C.accent}>
         &rarr;
       </text>
+    </FrameShell>
+  );
+}
+
+/* ── Gag ────────────────────────────────────────────────────────────── */
+
+/**
+ * GagTemplate: the deadpan frame. A short headline, one big scene drawn as a
+ * visual pun, the punchline in hand, then the plain claim it stands for.
+ * The scene draws in a local 1000 x 640 box (floor at about y 620), placed
+ * under the headline and wrapped in the ink wobble.
+ */
+export function GagTemplate({
+  label,
+  number,
+  total,
+  chapter,
+  headline,
+  punch,
+  claim,
+  children,
+}: Base & { headline: string[]; punch: string; claim: string; children: React.ReactNode }) {
+  const top = headline.length > 1 ? 300 : 236;
+  return (
+    <FrameShell label={label} chapter={chapter} number={number} total={total} headline={headline}>
+      <g transform={`translate(40 ${top}) scale(${headline.length > 1 ? 1 : 1.06})`}>
+        <Ink id="fs">{children}</Ink>
+      </g>
+      <Hand x={540} y={1006} size={50} color={C.accent} anchor="middle">
+        {punch}
+      </Hand>
+      <Para x={FOOT.x} y={1040} w={FOOT.w} h={222} size={30}>
+        {claim}
+      </Para>
     </FrameShell>
   );
 }

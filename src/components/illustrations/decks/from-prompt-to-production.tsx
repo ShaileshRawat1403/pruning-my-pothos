@@ -190,7 +190,7 @@ export const deck: Deck = {
   slug: SLUG,
   title: "When Is an AI System Ready for Real Use?",
   summary:
-    "Tested, approved and deployed are not the answer. Six frames on readiness as a judgment about one exposure, for one use.",
+    "Tested, approved and deployed are not the answer. Nine frames on readiness as a judgment about one exposure, for one use.",
   frames: [
     {
       key: "ready-cover",

@@ -214,7 +214,7 @@ export const deck: Deck = {
   slug: SLUG,
   title: "What an AI Model Actually Is",
   summary:
-    "A file of numbers that ranks what comes next, and a lot of software built around it. Six frames on which behaviour comes from which.",
+    "A file of numbers that ranks what comes next, and a lot of software built around it. Nine frames on which behaviour comes from which.",
   frames: [
     {
       key: "model-cover",

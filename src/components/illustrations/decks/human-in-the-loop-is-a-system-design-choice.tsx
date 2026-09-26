@@ -170,7 +170,7 @@ export const deck: Deck = {
   slug: SLUG,
   title: "Human-in-the-Loop Is a System Design Choice",
   summary:
-    "An Approve button isn't oversight. Six frames on what a person needs before their judgment actually controls anything.",
+    "An Approve button isn't oversight. Nine frames on what a person needs before their judgment actually controls anything.",
   frames: [
     {
       key: "hitl-cover",

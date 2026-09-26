@@ -20,7 +20,7 @@ export const deck: Deck = {
   slug: "from-agent-intent-to-governed-execution",
   title: "From Agent Intent to Governed Execution",
   summary:
-    "What decides whether a model's request becomes a real effect, drawn in nine frames: the check, the gate, the run, and the part everyone skips.",
+    "What decides whether a model's request becomes a real effect, drawn in eleven frames: the check, the gate, the run, and the part everyone skips.",
   frames: [
     {
       key: "governed-cover",

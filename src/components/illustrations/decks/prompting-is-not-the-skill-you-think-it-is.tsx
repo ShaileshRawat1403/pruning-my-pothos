@@ -196,7 +196,7 @@ export const deck: Deck = {
   slug: SLUG,
   title: "Prompting Is Not the Skill You Think It Is",
   summary:
-    "A prompt shapes the odds; it doesn't enforce anything. Six frames on asking versus checking, and the skill that actually matters.",
+    "A prompt shapes the odds; it doesn't enforce anything. Nine frames on asking versus checking, and the skill that actually matters.",
   frames: [
     {
       key: "prompt-cover",

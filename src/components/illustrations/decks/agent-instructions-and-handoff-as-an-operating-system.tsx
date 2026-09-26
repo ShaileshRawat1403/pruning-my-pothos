@@ -185,7 +185,7 @@ export const deck: Deck = {
   slug: SLUG,
   title: "What Has to Survive for Work to Continue",
   summary:
-    "A transcript records how the work got here. The next person needs where it stands and who owns the next step. Six frames on the difference.",
+    "A transcript records how the work got here. The next person needs where it stands and who owns the next step. Nine frames on the difference.",
   frames: [
     {
       key: "handoff-cover",

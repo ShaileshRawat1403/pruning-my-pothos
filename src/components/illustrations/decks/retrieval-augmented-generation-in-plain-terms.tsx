@@ -174,7 +174,7 @@ export const deck: Deck = {
   slug: SLUG,
   title: "Retrieval-Augmented Generation in Plain Terms",
   summary:
-    "Finding the right document and handing it to the model are two different steps. Six frames on where the evidence gets lost.",
+    "Finding the right document and handing it to the model are two different steps. Nine frames on where the evidence gets lost.",
   frames: [
     {
       key: "rag-cover",

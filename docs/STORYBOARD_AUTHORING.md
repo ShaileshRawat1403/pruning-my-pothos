@@ -19,8 +19,8 @@ said sideways.
 
 PMP draws in one register, **deadpan**: people and objects who have seen
 through the hype, drawn straight, with one thing wrong. Funny first, then it
-lands. The kit is `illustrations/deadpan.tsx`; the agreed reference is the
-style sheet at `/style-sheet/` (not public).
+lands. The kit is `illustrations/deadpan.tsx`; the approved style sheet is kept
+off the site in the local, gitignored `private/style-sheet/`.
 
 **Look.**
 - Aged paper (`D.paper`) with grain and a soft vignette (`Paper`), thick ink
@@ -107,6 +107,7 @@ per frame, and never as decoration.
    | `ContrastTemplate` | two things side by side |
    | `SceneTemplate` | a free drawing, optional "this -> that" line |
    | `CloseTemplate` | last frame: takeaway plus a link to the article |
+   | `GagTemplate` | a deadpan visual pun: headline, one big scene, the punchline, then the plain claim from the article. Every deck carries two or three (`decks/gags.tsx`) |
 
 5. **Write each frame's `text`**: the frame's full meaning as prose. It is the
    accessible text, the caption under the frame on the site, and what travels

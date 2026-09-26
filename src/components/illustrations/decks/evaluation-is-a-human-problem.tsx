@@ -149,7 +149,7 @@ export const deck: Deck = {
   slug: SLUG,
   title: "What Counts as Good, and How to Check It",
   summary:
-    "Every check is standing in for a judgment someone wrote down first. Six frames on naming the property before choosing the method.",
+    "Every check is standing in for a judgment someone wrote down first. Nine frames on naming the property before choosing the method.",
   frames: [
     {
       key: "eval-cover",

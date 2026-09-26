@@ -54,3 +54,6 @@ next-env.d.ts
 # leftover cover-art preview/sample files (not linked from any page)
 /public/covers/_samples/
 /public/covers/_samples2/
+
+# Local-only design material (never published)
+/private/
