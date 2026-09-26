@@ -1,5 +1,5 @@
 import Link from "next/link";
-import HeroPothos from "../illustrations/HeroPothos";
+import HeroCinema from "../illustrations/HeroCinema";
 import { SITE_POSITIONING } from "../../lib/config/site-positioning";
 
 // The home page opening: what the site is for, two ways in, and the plate that
@@ -53,7 +53,7 @@ export default function Hero() {
           </div>
 
           <div id="hero-plate" className="w-full max-w-[520px] mx-auto lg:mx-0 lg:justify-self-end">
-            <HeroPothos />
+            <HeroCinema />
           </div>
         </div>
       </div>

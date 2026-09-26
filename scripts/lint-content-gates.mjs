@@ -40,7 +40,7 @@ const TARGET_FILES = [
   "src/components/Header.tsx",
   "src/components/NewsletterForm.tsx",
   "src/components/home/Hero.tsx",
-  "src/components/illustrations/HeroPothos.tsx",
+  "src/components/illustrations/HeroCinema.tsx",
   "src/components/home/SystemsMap.tsx",
   "src/components/home/SelectedSystems.tsx",
   "src/components/home/ReferencePreview.tsx",
