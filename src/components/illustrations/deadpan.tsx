@@ -89,6 +89,15 @@ export function Paper({ id, w, h }: { id: string; w: number; h: number }) {
   );
 }
 
+/** Drawn only while a cover film plays (films/*.ts); hidden in every still. */
+export function FilmOnly({ className, children }: { className: string; children: React.ReactNode }) {
+  return (
+    <g className={className} visibility="hidden">
+      {children}
+    </g>
+  );
+}
+
 /** Wraps line work in the ink wobble. */
 export function Ink({ id, children }: { id: string; children: React.ReactNode }) {
   return <g filter={`url(#${id}-ink)`}>{children}</g>;
@@ -383,8 +392,11 @@ const hash = (n: number) => {
   const v = Math.sin(n * 12.9898) * 43758.5453;
   return v - Math.floor(v);
 };
+/** Rounded so server and browser print the same digits: Math.sin differs in
+ *  its last bits between runtimes, which breaks hydration in client components. */
+const r2 = (n: number) => Math.round(n * 100) / 100;
 /** Stubble dots in the head's local space (radius 100), under the nose. */
-const SCRUFF: [number, number][] = Array.from({ length: 240 }, (_, i) => [-80 + hash(i + 1) * 160, 18 + hash(i + 7919) * 84]);
+const SCRUFF: [number, number][] = Array.from({ length: 240 }, (_, i) => [r2(-80 + hash(i + 1) * 160), r2(18 + hash(i + 7919) * 84)]);
 
 /** A tired eye in local space: lid 0..1 is how far the upper lid has given up. */
 function LocalEye({ x, lid, look, bags, wide = false }: { x: number; lid: number; look: number; bags: number; wide?: boolean }) {
@@ -406,7 +418,7 @@ function LocalEye({ x, lid, look, bags, wide = false }: { x: number; lid: number
         <circle cx={x + look * 9} cy={y + 1} r={wide ? 8 : 10} fill="#6B5A48" stroke={D.ink} strokeWidth={2} />
         <circle cx={x + look * 9} cy={y + 1} r={wide ? 4 : 5} fill={D.ink} />
         <circle cx={x + look * 9 + 3} cy={y - 3} r={2} fill="#fff" />
-        {lid > 0 && <rect x={x - w} y={y - h * 1.6} width={w * 2} height={lidY - (y - h * 1.6)} fill={SKIN} />}
+        {lid > 0 && <rect className="hd-lid" x={x - w} y={y - h * 1.6} width={w * 2} height={lidY - (y - h * 1.6)} fill={SKIN} />}
       </g>
       <path d={shape} fill="none" stroke={D.ink} strokeWidth={3} strokeLinejoin="round" />
       {lid > 0.05 && <path d={`M${x - w + 2} ${lidY} Q ${x} ${lidY - 5} ${x + w - 2} ${lidY}`} fill="none" stroke={D.ink} strokeWidth={6} strokeLinecap="round" />}

@@ -1,7 +1,7 @@
 import React from "react";
 import { C, Hand, Para } from "./kit";
 import { Emblem } from "./emblems";
-import { DeadpanDefs, Paper } from "./deadpan";
+import { D, DeadpanDefs, Paper } from "./deadpan";
 
 /**
  * covers.tsx: the 1200 x 630 cover for every Systems article. The article
@@ -53,10 +53,19 @@ export const COVERS: Record<string, CoverSpec> = {
   "why-ocr-quietly-breaks-document-ai": { quip: "Garbage in. Confidently out." },
 };
 
+/** A quip's beats: its sentences. A cover film lands them one per event. */
+export function quipBeats(quip: string): string[] {
+  return quip.split(/(?<=[.!?])\s+/).filter(Boolean);
+}
+
 /**
  * The cover for one Systems article. `hero` is the version drawn at the top of
  * the article itself, where the page already shows the title: the quip takes
  * the title's place. The default, with the title, is the link preview.
+ *
+ * The cf-* groups are hooks for the cover film (CoverFilm.tsx, films/): a
+ * camera around the emblem, the copy, the quip's beats and two letterbox bars.
+ * They change nothing in a still. The bars exist only while a film plays.
  */
 export function ArticleCover({ slug, title, kicker, hero = false }: { slug: string; title: string; kicker: string; hero?: boolean }) {
   const spec = COVERS[slug];
@@ -65,31 +74,47 @@ export function ArticleCover({ slug, title, kicker, hero = false }: { slug: stri
       <DeadpanDefs id={`cv-${slug}`} />
       <Paper id={`cv-${slug}`} w={COVER_W} h={COVER_H} />
       <rect width={COVER_W} height={8} fill={C.ink} />
-      <text x={72} y={92} className="ill-mono" fontSize={18} letterSpacing={3} fill={C.accent}>
-        {kicker}
-      </text>
-      {hero ? (
-        spec && (
-          <Para x={72} y={170} w={520} h={330} size={68} font="hand" weight={700} color={C.ink} lh={1.02}>
-            {spec.quip}
-          </Para>
-        )
-      ) : (
-        <>
-          <Para x={72} y={116} w={540} h={360} size={54} weight={800} color={C.ink} lh={1.04}>
-            <span style={{ letterSpacing: -1.6 }}>{title}</span>
-          </Para>
-          {spec && (
-            <Hand x={72} y={530} size={40} color={C.accent}>
-              {spec.quip}
-            </Hand>
+      <g className="cf-stage">
+        <g className="cf-copy">
+          <text x={72} y={92} className="ill-mono" fontSize={18} letterSpacing={3} fill={C.accent}>
+            {kicker}
+          </text>
+          {hero ? (
+            spec && (
+              <Para x={72} y={170} w={520} h={330} size={68} font="hand" weight={700} color={C.ink} lh={1.02}>
+                {quipBeats(spec.quip).map((beat, i) => (
+                  <span key={i} className="cf-beat">
+                    {beat}{" "}
+                  </span>
+                ))}
+              </Para>
+            )
+          ) : (
+            <>
+              <Para x={72} y={116} w={540} h={360} size={54} weight={800} color={C.ink} lh={1.04}>
+                <span style={{ letterSpacing: -1.6 }}>{title}</span>
+              </Para>
+              {spec && (
+                <Hand x={72} y={530} size={40} color={C.accent}>
+                  {spec.quip}
+                </Hand>
+              )}
+            </>
           )}
-        </>
+          <text x={72} y={586} className="ill-mono" fontSize={17} letterSpacing={2.4} fill={C.muted}>
+            PRUNINGMYPOTHOS.COM
+          </text>
+        </g>
+        <g className="cf-shake">
+          <g className="cf-camera">{spec && <Emblem slug={slug} x={660} y={44} />}</g>
+        </g>
+      </g>
+      {hero && (
+        <g className="cf-bars" visibility="hidden">
+          <rect className="cf-bar-top" width={COVER_W} height={64} fill={D.ink} />
+          <rect className="cf-bar-bot" y={COVER_H - 64} width={COVER_W} height={64} fill={D.ink} />
+        </g>
       )}
-      <text x={72} y={586} className="ill-mono" fontSize={17} letterSpacing={2.4} fill={C.muted}>
-        PRUNINGMYPOTHOS.COM
-      </text>
-      {spec && <Emblem slug={slug} x={660} y={44} />}
     </svg>
   );
 }

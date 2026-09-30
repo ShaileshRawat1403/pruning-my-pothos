@@ -62,7 +62,7 @@ export default function SystemsMap() {
             return (
               <li key={stage.slug} className="relative">
                 <SpotlightCard href={stage.href} accent="var(--accent-cyan)" compact className="gap-2.5">
-                  <div className="-mx-1 -mt-1 overflow-hidden rounded-sm border border-[#D9D4C6]">
+                  <div className="ill-lift -mx-1 -mt-1 overflow-hidden rounded-sm border border-[#D9D4C6]">
                     <svg viewBox={`0 0 ${EMBLEM_W} ${EMBLEM_H}`} className="ill-svg block w-full" aria-hidden="true">
                       <DeadpanDefs id={`tile-${stage.slug}`} />
                       <Paper id={`tile-${stage.slug}`} w={EMBLEM_W} h={EMBLEM_H} />

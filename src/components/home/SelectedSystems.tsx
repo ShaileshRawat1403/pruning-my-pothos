@@ -59,7 +59,7 @@ export default function SelectedSystems() {
           {selected.map((system) => (
             <li key={system._meta.path}>
               <SpotlightCard href={`/systems/${system._meta.path}/`} accent="var(--accent-purple)" className="gap-3">
-                <div className="-mx-1 -mt-1 overflow-hidden rounded-sm border border-[#D9D4C6]" aria-hidden="true">
+                <div className="ill-lift -mx-1 -mt-1 overflow-hidden rounded-sm border border-[#D9D4C6]" aria-hidden="true">
                   <ArticleCover slug={system._meta.path} title={system.title} kicker={coverKicker(system._meta.path)} hero />
                 </div>
                 <h3 className="font-heading text-lg font-bold text-[color:var(--text-primary)] leading-snug">
