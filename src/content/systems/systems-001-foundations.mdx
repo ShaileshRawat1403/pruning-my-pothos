@@ -38,6 +38,26 @@ provenance:
     - statement: "When a system meets a wider range of situations than it has responses for, the excess arrives as edge cases and escalations."
       kind: synthesis
 
+visuals:
+  - id: three-quiet-degradations
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Drift, a measure becoming a target, and variety mismatch each leave the system apparently working."
+    caption: "Three separate ways, in no particular order."
+    alt: "Three ways a system degrades quietly: drift, where it stops matching the conditions it was built for; a measure becoming a target; and variety mismatch, where the excess arrives as edge cases and escalations."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: drift
+          label: "Drift"
+          note: "The system gradually stops matching the conditions it was built for"
+        - id: target
+          label: "A measure becoming a target"
+          note: "The number gets better and the thing gets worse"
+        - id: variety
+          label: "Variety mismatch"
+          note: "The excess arrives as edge cases and escalations"
+
 related:
   - type: explainer
     title: "How the Parts of an AI Application Depend on Each Other"
@@ -80,6 +100,8 @@ These three are worth recognising by name, because each leaves the system appare
 **A measure becoming a target.** **A measure that becomes a target stops being a reliable measure of the thing it originally stood for.** Once people or software are optimising the proxy, the proxy improves and its relationship to what you cared about weakens. The number gets better and the thing gets worse, which is why a single improving metric is weak evidence.
 
 **Variety mismatch.** **When a system meets a wider range of situations than it has responses for, the excess arrives as edge cases and escalations.** A rising edge-case load is usually not a queue problem. It is a mismatch between the world's variety and the system's, and it gets fixed by adding responses or by admitting a case out of scope.
+
+<!-- pmp:visual id="three-quiet-degradations" -->
 
 ## The questions
 

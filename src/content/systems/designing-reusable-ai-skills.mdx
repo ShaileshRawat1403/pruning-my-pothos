@@ -46,6 +46,29 @@ provenance:
     - statement: "If two parts of a skill would be evaluated differently, they probably should not be one skill."
       kind: synthesis
 
+visuals:
+  - id: a-phrase-or-a-package
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "A saved prompt becomes reusable when what it takes, what it returns, what it may touch and when it should stop are written down."
+    caption: "The load-bearing part is that these are declared."
+    alt: "A comparison between a saved prompt, which is a phrase whose conditions were implicit when it worked, and a skill, which declares what it takes, what it returns, what it may touch and when it should stop."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "A saved prompt"
+        items:
+          - "A phrase that worked once"
+          - "Everything else was implicit when it worked"
+      after:
+        label: "A skill"
+        items:
+          - "What it takes"
+          - "What it returns"
+          - "What it may touch"
+          - "When it should stop"
+      diffNote: "What was needed was everything that was implicit when it worked the first time."
+
 related:
   - type: explainer
     title: "Prompt, Skill, Workflow, Agent"
@@ -88,6 +111,8 @@ These are design dimensions rather than required fields. A small skill may need 
 **Success criteria.** What a correct result looks like, specifically enough that someone else could judge it.
 
 **Stop conditions.** What it does instead of guessing: missing input, conflicting evidence, a request beyond its scope. A skill that never stops is either trivial or overconfident.
+
+<!-- pmp:visual id="a-phrase-or-a-package" -->
 
 ## A worked example, and its limits
 

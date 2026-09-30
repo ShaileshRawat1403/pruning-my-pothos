@@ -8,6 +8,9 @@ import DecisionVisual from "./DecisionVisual";
 import EvidenceMapVisual from "./EvidenceMapVisual";
 import StateChangeVisual from "./StateChangeVisual";
 import AssetVisual from "./AssetVisual";
+import SceneVisual from "./SceneVisual";
+import { SCENE_IDS } from "../illustrations/scenes/ids";
+import { sceneSteps } from "../../lib/scene-steps";
 
 interface VisualBlockProps {
   visual: Visual;
@@ -19,13 +22,22 @@ interface VisualBlockProps {
    * stutter. In an article the takeaway belongs here, so this defaults off.
    */
   hideTakeaway?: boolean;
+  /**
+   * Draw the visual as a pinned scroll scene where one has been drawn for it
+   * (illustrations/scenes/). Only the article page asks for this: a scene
+   * needs the height of a page to scroll through, which a list does not have.
+   */
+  scene?: boolean;
 }
 
 export default function VisualBlock({
   visual,
   provenanceSources = [],
   hideTakeaway = false,
+  scene = false,
 }: VisualBlockProps) {
+  const asScene = scene && SCENE_IDS.has(visual.id);
+
   function renderContent() {
     switch (visual.renderAs) {
       case "generated-sequence":
@@ -59,11 +71,19 @@ export default function VisualBlock({
   return (
     <figure
       id={`visual-${visual.id}`}
-      className="my-8 w-full rounded-lg border border-[color:var(--card-border)] bg-[color:var(--bg-surface)] p-4 sm:p-6"
+      className={
+        asScene
+          ? "scene-visual"
+          : "my-8 w-full rounded-lg border border-[color:var(--card-border)] bg-[color:var(--bg-surface)] p-4 sm:p-6"
+      }
     >
-      <div className="w-full flex items-center justify-center">
-        {renderContent()}
-      </div>
+      {asScene ? (
+        <SceneVisual sceneId={visual.id} alt={visual.alt} steps={sceneSteps(visual)} />
+      ) : (
+        <div className="w-full flex items-center justify-center">
+          {renderContent()}
+        </div>
+      )}
 
       <figcaption className="mt-4 flex flex-col gap-1 border-t border-[color:var(--card-border)] pt-3 text-xs sm:text-sm font-mono text-[color:var(--text-muted)]">
         {!hideTakeaway && (

@@ -65,6 +65,31 @@ provenance:
     - statement: "GoATee demonstrates one implementation of I-7. It does not establish I-7 as a standard, universal method, or empirically validated framework."
       kind: synthesis
 
+visuals:
+  - id: the-five-minute-version
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "The short version of I-7 is five steps that fit in a few minutes on a real task."
+    caption: "The full list is a description. This is the part to run."
+    alt: "A sequence of five steps: write the intent in one sentence, attach only the context the task needs, ask for the plan and the assumptions, run it inside an explicit boundary, and turn one correction into something reusable."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: intent
+          label: "Write the intent in one sentence"
+          note: "Including one thing that is out of scope"
+        - id: context
+          label: "Attach only the context the task needs"
+        - id: plan
+          label: "Ask for the plan and the assumptions"
+          note: "Before execution"
+        - id: boundary
+          label: "Run it inside an explicit boundary"
+          note: "Then check the result against that boundary rather than against the summary"
+        - id: reuse
+          label: "Turn one correction into something reusable"
+          note: "A test, a constraint, an example"
+
 related:
   - type: explainer
     title: "Human-in-the-Loop Is a System Design Choice"
@@ -109,6 +134,8 @@ The full list is a description. This is the part that gets used:
 5. Turn one correction into something reusable: a test, a constraint, an example.
 
 That takes a few minutes on a real task. Step three is the one worth not skipping, because leaving it out moves the disagreement from before the work to after it.
+
+<!-- pmp:visual id="the-five-minute-version" -->
 
 ## One implementation
 

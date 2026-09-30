@@ -34,6 +34,25 @@ provenance:
       kind: synthesis
     - statement: "Two questions can be worded almost identically and require opposite answers."
       kind: synthesis
+
+visuals:
+  - id: close-in-wording-opposite-in-answer
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Two questions can be worded almost identically and require opposite answers."
+    caption: "Similarity measures how alike two questions look."
+    alt: "A comparison of two near-identical questions about deleting a database: one wants instructions and the other wants a judgement, and a cache that treats them as the same answers the second with the first."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "How do I delete this database?"
+        items:
+          - "Wants instructions"
+      after:
+        label: "Is it safe to delete this database?"
+        items:
+          - "Wants a judgement, quite possibly the word no"
+      diffNote: "A cache tuned to treat them as the same question will answer the second with the first, immediately and confidently."
 ---
 
 An ordinary cache reuses an answer when the request is identical. That rarely helps in front of a model, because people ask the same thing in endlessly different words, and every rewording is a fresh miss.
@@ -49,6 +68,8 @@ A semantic cache loosens the match. Instead of requiring identical text, it reus
 > Is it safe to delete this database?
 
 These are close on any measure of wording. One wants instructions. The other wants a judgement, quite possibly the word no. A cache tuned to treat them as the same question will answer the second with the first, immediately and confidently.
+
+<!-- pmp:visual id="close-in-wording-opposite-in-answer" -->
 
 **Similarity measures how alike two questions look. It does not measure whether the same answer is still correct, still current, or still safe.** That gap is the whole risk, and tuning does not close it. A threshold controls which pairs are admitted. It does not establish that reusing the old answer is safe. Negations, conditions and scope qualifiers are the small words that move an answer most while moving the wording least, which is the wrong way round for a measure of wording.
 

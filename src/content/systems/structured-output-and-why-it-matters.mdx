@@ -28,6 +28,32 @@ boundary:
   isNot: "Proof of factual accuracy, authorization, or successful execution, and not a guide to any one provider's structured-output feature."
   mattersWhen: "A model response can update records, send messages, or trigger other actions."
 
+visuals:
+  - id: five-checks-each-establishing-less
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Valid structure does not mean correct meaning, factual truth, permission to act, or successful execution."
+    caption: "Five distinct things people run together."
+    alt: "A sequence of five checks on one response: parse, schema validation, meaning, authorization and execution, each answering a different question."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: parse
+          label: "Parse"
+          note: "Can the response be read at all?"
+        - id: schema
+          label: "Schema validation"
+          note: "Are the required fields present, with allowed types and values?"
+        - id: meaning
+          label: "Meaning"
+          note: "Do the values make sense for this task?"
+        - id: authorization
+          label: "Authorization"
+          note: "Is this operation permitted, for this user, right now?"
+        - id: execution
+          label: "Execution"
+          note: "Did anything actually happen?"
+
 related:
   - type: explainer
     title: "Prompting Is Not the Skill You Think It Is"
@@ -83,6 +109,8 @@ There are five distinct things people run together. They are not the same, and p
 Put together:
 
 **Valid structure does not mean correct meaning, factual truth, permission to act, or successful execution.**
+
+<!-- pmp:visual id="five-checks-each-establishing-less" -->
 
 Here is the compressed version of the same point. Both of these are valid JSON:
 

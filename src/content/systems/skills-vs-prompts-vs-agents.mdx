@@ -52,6 +52,29 @@ analogy:
     documentation sitting in the background. They are the only reason anything
     is there at all.
 
+visuals:
+  - id: four-questions-five-words
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Four questions separate the five words in practice."
+    caption: "The last question is the one that changes how much can go wrong."
+    alt: "A sequence of four questions that tell the layers apart: what is supplied for this run, what is present regardless of the run, what is packaged for reuse across runs, and who decides what happens after this step."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: prompt
+          label: "What is supplied for this run?"
+          note: "The prompt"
+        - id: system-prompt
+          label: "What is present regardless of the run?"
+          note: "The system prompt"
+        - id: skill
+          label: "What is packaged for reuse across runs?"
+          note: "A skill"
+        - id: choice
+          label: "Who decides what happens after this step?"
+          note: "If the program decides, it is a workflow. If the model decides, that part is agent-like"
+
 related:
   - type: explainer
     title: "What a System Prompt Actually Is"
@@ -100,6 +123,8 @@ Four questions separate them in practice:
 **What is packaged for reuse across runs?** A skill.
 
 **Who decides what happens after this step?** If the program decides, it is a workflow. If the model decides, that part is agent-like.
+
+<!-- pmp:visual id="four-questions-five-words" -->
 
 The last question is the one that changes how much can go wrong, which is why it gets a page of its own rather than a row in a table here.
 

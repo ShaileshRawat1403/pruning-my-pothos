@@ -36,6 +36,35 @@ provenance:
     - statement: "Which approvals a change needs should follow from what the change touches rather than from how large the resulting diff is."
       kind: synthesis
 
+visuals:
+  - id: six-fields-of-an-instruction-spec
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Each field is a decision that would otherwise be made silently."
+    caption: "The format is unimportant."
+    alt: "A sequence of the six fields of an instruction specification: objective, constraints, acceptance criteria, risk, approval gates and rollback, each with the decision it records."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: objective
+          label: "Objective"
+          note: "What is being asked for"
+        - id: constraints
+          label: "Constraints"
+          note: "The things that must not change"
+        - id: acceptance
+          label: "Acceptance criteria"
+          note: "Specific enough to disagree with before the work starts"
+        - id: risk
+          label: "Risk"
+          note: "Decides the rest"
+        - id: gates
+          label: "Approval gates"
+          note: "The moments a person has to say yes"
+        - id: rollback
+          label: "Rollback"
+          note: "The undo path, written now rather than reconstructed later under pressure"
+
 related:
   - type: explainer
     title: "Prompting Is Not the Skill You Think It Is"
@@ -77,6 +106,8 @@ rollback:
 The format is unimportant. What matters is that each field is a decision that would otherwise be made silently.
 
 *Objective* is what is being asked for. *Constraints* are the things that must not change, and they are the easiest field to leave out, because the thing you do not want touched is not the thing on your mind when you are describing what you want. *Acceptance criteria* are specific enough to disagree with before the work starts. *Risk* decides the rest. *Approval gates* name the moments a person has to say yes. *Rollback* is the undo path, written now rather than reconstructed later under pressure.
+
+<!-- pmp:visual id="six-fields-of-an-instruction-spec" -->
 
 ## Risk decides the gates
 

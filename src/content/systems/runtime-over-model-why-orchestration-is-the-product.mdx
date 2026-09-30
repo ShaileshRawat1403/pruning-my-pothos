@@ -34,6 +34,27 @@ provenance:
       kind: synthesis
     - statement: "A model you cannot inspect fails as a mood. A loop you can inspect fails as a specific step with a specific reason."
       kind: synthesis
+
+visuals:
+  - id: a-mood-or-a-step
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "A model you cannot inspect fails as a mood. A loop you can inspect fails as a specific step with a specific reason."
+    caption: "The same failure, read two ways."
+    alt: "A comparison between a model you cannot inspect, where a failure reads as a mood and the responses are vague, and a loop you can inspect, where the same failure is a specific step with a specific reason."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "A model you cannot inspect"
+        items:
+          - "Fails as a mood"
+          - "The available responses are vague: change the wording, try a bigger model, hope"
+      after:
+        label: "A loop you can inspect"
+        items:
+          - "Fails as a specific step with a specific reason"
+          - "Something was denied, or errored, or timed out, or returned a result nobody checked"
+      diffNote: "If the surrounding software is explicit, the same failure has a location."
 ---
 
 When an assistant refuses something, retries twice, stops halfway, or answers instantly from a cache, it is tempting to read all of that as the model's character. Usually it is not.
@@ -47,6 +68,8 @@ This matters for two practical reasons.
 **A model you cannot inspect fails as a mood. A loop you can inspect fails as a specific step with a specific reason.**
 
 If you treat a bad outcome as a model problem, the available responses are vague: change the wording, try a bigger model, hope. If the surrounding software is explicit, the same failure has a location. Something was denied, or errored, or timed out, or returned a result nobody checked. You can open that and look.
+
+<!-- pmp:visual id="a-mood-or-a-step" -->
 
 Swapping models to fix a problem that lives in the loop is a common and expensive mistake, and it usually appears to work briefly.
 

@@ -38,6 +38,29 @@ provenance:
     - statement: "Two rules in a long system prompt can contradict each other and never produce a visible error."
       kind: synthesis
 
+visuals:
+  - id: resident-or-invoked
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "A system prompt is resident and a skill is invoked, which is a difference of range."
+    caption: "A usable test for one rule you cannot place."
+    alt: "A comparison between a system prompt, which is resident and applies to everything in the interaction, and a skill, which is invoked for one repeated task, runs and finishes."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "A system prompt"
+        items:
+          - "Resident: nothing invokes it"
+          - "There on the turn where it matters and on the forty turns where it does not"
+          - "For what should apply to everything in this interaction"
+      after:
+        label: "A skill"
+        items:
+          - "Invoked: something decides this bounded task is now the task"
+          - "It runs, it finishes"
+          - "For one repeated task"
+      diffNote: "The difference between a system prompt and a skill is range, not importance."
+
 related:
   - type: explainer
     title: "Prompt, Skill, Workflow, Agent"
@@ -77,6 +100,8 @@ That gives a usable test:
 - if it applies to **one repeated task**, it belongs in a skill
 
 Most disagreements about this are not about definitions. They are about one specific rule someone has written and cannot place. Run it through that test and the answer is usually immediate.
+
+<!-- pmp:visual id="resident-or-invoked" -->
 
 ## What belongs
 

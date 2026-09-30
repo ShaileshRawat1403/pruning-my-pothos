@@ -47,6 +47,32 @@ provenance:
         - newtuple-ocr-benchmark
     - statement: "An error introduced at the first step does not stay contained there."
       kind: synthesis
+
+visuals:
+  - id: the-pipeline-runs-one-way
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "An error introduced at the first step does not stay contained there."
+    caption: "No prompt recovers a total that was never read correctly."
+    alt: "A one-directional sequence from document, through extraction or OCR, text and structure, indexing and retrieval, and context, to the model, showing an extraction error carried through every later stage."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: document
+          label: "Document"
+        - id: extraction
+          label: "Extraction, or OCR"
+          note: "An error introduced here does not stay contained"
+        - id: text
+          label: "Text and structure"
+        - id: retrieval
+          label: "Indexing and retrieval"
+          note: "The error is preserved through indexing, and shapes what gets retrieved"
+        - id: context
+          label: "Context"
+        - id: model
+          label: "Model"
+          note: "Reasons over it confidently"
 ---
 
 Most teams treat OCR as solved plumbing and spend their attention on the model at the end of the chain. That ordering gets the failure mode backwards.
@@ -70,6 +96,8 @@ model
 ```
 
 **An error introduced at the first step does not stay contained there.** It is preserved through indexing, it shapes what gets retrieved, and it gets amplified once a model reasons over it confidently. Retrieval cannot find a figure that was merged into the wrong cell. No prompt recovers a total that was never read correctly.
+
+<!-- pmp:visual id="the-pipeline-runs-one-way" -->
 
 The errors also land badly. They concentrate on the tokens that carry the most meaning: totals, dates, labels, and the relationships between cells in a table. Those are exactly the tokens a downstream answer leans on hardest, which is why a modest-looking accuracy score can still produce a badly wrong answer.
 

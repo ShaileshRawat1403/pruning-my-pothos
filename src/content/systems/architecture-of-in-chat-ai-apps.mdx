@@ -39,6 +39,26 @@ provenance:
     - statement: "An interactive surface can represent structured state and constrained choices directly, rather than describing them only in prose."
       kind: synthesis
 
+visuals:
+  - id: requested-done-worked
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "A request the interface accepted, an operation that ran, and an outcome the person wanted are three different states."
+    caption: "Three states worth keeping apart, because they are easy to merge."
+    alt: "A sequence of three states that are easy to merge: a request accepted by the interface, a confirmation rendered on screen, and an operation that completed, each with what it does not establish."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: requested
+          label: "A request is accepted by the interface"
+          note: "Not an operation that ran"
+        - id: confirmed
+          label: "A confirmation is rendered on screen"
+          note: "Not evidence that the effect occurred, unless it reports an authoritative result"
+        - id: completed
+          label: "The operation completes"
+          note: "Not necessarily the outcome the person wanted"
+
 related:
   - type: explainer
     title: "From Agent Intent to Governed Execution"
@@ -115,6 +135,8 @@ Three more states worth keeping apart, because they are easy to merge.
 A request accepted by the interface is not an operation that ran. A confirmation rendered on screen is not evidence that the effect occurred, unless that confirmation is reporting an authoritative result rather than the fact that a request was sent. And an operation that completed is not necessarily the outcome the person wanted, which is a judgment that gets made [somewhere else entirely](/systems/ai-architecture-explained-how-modern-llm-applications-work/).
 
 The mechanism worth holding onto: the surface should not present a requested effect as completed unless the underlying result establishes that it completed.
+
+<!-- pmp:visual id="requested-done-worked" -->
 
 Interfaces also validate, and it is worth being clear about what that establishes. Checking that a field is filled, that a number is in range, that a date parses, that something was selected: these are real checks and they are checks about the input. They do not establish that the requested operation makes sense against the current state of the system, or that it is allowed.
 

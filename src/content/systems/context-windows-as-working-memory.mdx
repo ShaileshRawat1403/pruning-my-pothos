@@ -39,6 +39,30 @@ provenance:
       kind: synthesis
     - statement: "Selection and placement can matter as much as raw context size."
       kind: synthesis
+
+visuals:
+  - id: what-is-in-the-window
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "A context window is the bounded information available for one run, and nothing in it carries forward on its own."
+    caption: "Persistent memory is a separate mechanism: an application stores information outside the run and later places selected information back in."
+    alt: "A boundary around one run. Inside it: the system instruction, the conversation so far, retrieved documents, the current question and the response being generated. Outside it: persistent memory kept by the application, and whatever was not selected into this run."
+    evidenceRole: explanatory
+    data:
+      inside:
+        label: "In the window for this run"
+        items:
+          - "The system instruction"
+          - "The conversation so far"
+          - "Documents the application retrieved"
+          - "The current question"
+          - "The response as it is generated"
+      outside:
+        label: "Outside the run"
+        items:
+          - "Persistent memory, stored by the application"
+          - "Whatever was not selected into this run"
+      boundaryLabel: "One run"
 ---
 
 Ask an assistant something it told you yesterday and it may have no idea what you mean. Ask again in the same conversation and it answers immediately. People reach for the word memory to explain the difference, and that word causes most of the confusion here.
@@ -56,6 +80,8 @@ The important property is the one people skip. The window describes a single run
 It is not memory.
 
 **Persistent memory is a separate application-level mechanism that may store information outside the run and later place selected information into that context.** When an assistant remembers your name next week, an application wrote it down somewhere and put it back into the input before the model was called. The model did not retain it. The parameters are unchanged, which is a different page: [training, fine-tuning and inference](/systems/training-vs-inference/).
+
+<!-- pmp:visual id="what-is-in-the-window" -->
 
 This matters practically, not just terminologically. Because that memory lives in ordinary storage, you can inspect it, correct it and delete it. If the model had genuinely absorbed the information, none of those would be available to you.
 

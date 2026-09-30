@@ -51,6 +51,24 @@ provenance:
     - statement: "A record of what happened is not the same thing as a judgment about whether it was good."
       kind: synthesis
 
+visuals:
+  - id: three-questions-for-a-record
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "A record earns its place if it can answer three questions without anyone reconstructing them from memory."
+    caption: "The third depends on something the other two do not."
+    alt: "A sequence of three questions a record has to answer: what was decided, what evidence supported the decision, and what changed since the last run that behaved correctly."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: decided
+          label: "What was decided?"
+        - id: evidence
+          label: "What evidence supported the decision?"
+        - id: changed
+          label: "What changed since the last run that behaved correctly?"
+          note: "Needs an earlier run known to have behaved correctly, and enough of it kept to compare against"
+
 related:
   - type: explainer
     title: "What Counts as Good, and How to Check It"
@@ -99,6 +117,8 @@ A record earns its place if it can answer three questions without anyone reconst
 3. What changed since the last run that behaved correctly?
 
 The third depends on something the other two do not: knowing which earlier run behaved correctly, and having kept enough of it to compare against. It is also the one that turns an investigation into a bounded search, because without it the search starts from the whole system.
+
+<!-- pmp:visual id="three-questions-for-a-record" -->
 
 ## A minimum record
 

@@ -38,6 +38,35 @@ provenance:
     - statement: "Each part can satisfy its own narrow contract while the workflow as a whole produces the wrong result."
       kind: synthesis
 
+visuals:
+  - id: local-success-is-not-system-success
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Each part can satisfy its own narrow contract while the workflow as a whole produces the wrong result."
+    caption: "Six true local facts from one request, and what each one leaves open."
+    alt: "A sequence of six local successes in one request: retrieval returned documents, the model returned parseable output, the schema matched, the API returned success, the state was written and the log entry exists, each with what it does not establish."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: retrieval
+          label: "Retrieval returned documents"
+          note: "Not that they are current, authoritative or complete"
+        - id: generation
+          label: "The model returned parseable output"
+          note: "Not that it is true, permitted or sufficient"
+        - id: schema
+          label: "The schema matched"
+          note: "Not that its meaning is correct"
+        - id: tool
+          label: "The API returned success"
+          note: "Not that the intended change happened"
+        - id: state
+          label: "The state was written"
+          note: "Not that it is still current"
+        - id: record
+          label: "The log entry exists"
+          note: "Not that the behaviour was acceptable"
+
 related:
   - type: explainer
     title: "From Agent Intent to Governed Execution"
@@ -120,6 +149,8 @@ And the effect is wrong, because the subsequent schema, policy and tool checks i
 That example is the general case, and it is the strongest reason this page exists.
 
 **Each part can satisfy its own narrow contract while the workflow as a whole produces the wrong result.** Retrieval returned documents. The model returned parseable output. The schema matched. The API returned success. The state was written. The log entry exists. Every one of those is a true local fact, and none of them is the outcome anyone wanted.
+
+<!-- pmp:visual id="local-success-is-not-system-success" -->
 
 This is also why the end-to-end behaviour needs [judging on its own terms](/systems/evaluation-is-a-human-problem/) rather than inferred from component health. A dashboard of green components is a claim about components.
 

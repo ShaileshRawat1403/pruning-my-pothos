@@ -35,6 +35,32 @@ provenance:
     - statement: "The controls a publisher actually holds can each be checked directly, which is what separates them from the parts of discovery that can only be inferred."
       kind: synthesis
 
+visuals:
+  - id: what-a-publisher-holds
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "A publisher controls whether a page can be reached, what it declares itself to be, and how it is structured."
+    caption: "Each of the six can be checked directly. The rest can only be inferred."
+    alt: "A boundary around the six things a publisher controls: access, identity, listing, status, linking and structure. Outside it: whether any system retrieves, ranks or cites the page."
+    evidenceRole: explanatory
+    data:
+      inside:
+        label: "What a publisher controls"
+        items:
+          - "Access: whether a crawler can fetch the page"
+          - "Identity: which URL is canonical"
+          - "Listing: whether the page appears in your sitemap"
+          - "Status: what codes your URLs return"
+          - "Linking: whether your own pages point to it"
+          - "Structure: whether the page is legible to something reading it mechanically"
+      outside:
+        label: "What it does not control"
+        items:
+          - "Whether any system retrieves it"
+          - "Whether any system ranks it"
+          - "Whether any system cites it"
+      boundaryLabel: "Checkable directly"
+
 related:
   - type: explainer
     title: "Retrieval-Augmented Generation in Plain Terms"
@@ -60,6 +86,8 @@ The list of things you do hold is short:
 - **Structure.** Whether the page is legible to something reading it mechanically: headings that describe sections, a title and description that match the content, markup that says what the page is.
 
 That is close to the whole list, and none of it is a growth tactic. It is whether the thing you published is fetchable, identifiable, listed, honest about its status, and readable.
+
+<!-- pmp:visual id="what-a-publisher-holds" -->
 
 ## Why the distinction earns its place
 
