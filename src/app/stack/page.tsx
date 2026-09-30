@@ -2,8 +2,7 @@ import Link from "next/link";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 import ProjectInspector from "../../components/home/ProjectInspector";
-import PlateHero from "../../components/PlateHero";
-import { STACK_LINES } from "../../lib/content/plates";
+import SectionHeader from "../../components/SectionHeader";
 import { CURRENT_WORK_PROJECTS } from "../../lib/content/projects";
 
 export const metadata = constructMetadata({
@@ -28,18 +27,13 @@ export default function StackPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* Plate hero - Hero of Alexandria, who tested his machines on the floor */}
-      <PlateHero
+      {/* Section header */}
+      <SectionHeader
         eyebrow="Test the idea"
         title="Stack"
-        intro="Where the ideas in Systems get built and find out whether they hold. Each excerpt below is read from its repository at a named commit, so what you see is what was there, not a description of it. Lean on the plate and Hero of Alexandria will tell you why."
-        htmlSrc="/scenes/character.html?img=/images/characters/hero-of-alexandria-automata.jpg&fallback=/scenes/hero.html"
-        alt="Oil painting of Hero of Alexandria in a workshop of brass automata with a self-moving cart and a pegged program drum"
-        plateLabel="Plate · hero_automata"
-        caption="Nothing counted until it moved."
-        attribution="Hero of Alexandria"
-        quotes={STACK_LINES}
-        accent="var(--accent-amber)"
+        intro="Where the ideas in Systems get built and find out whether they hold. Each excerpt below is read from its repository at a named commit, so what you see is what was there, not a description of it."
+        scene="stack"
+        tick="var(--accent-amber)"
       />
 
       <ProjectInspector projects={CURRENT_WORK_PROJECTS} headingLevel={2} />

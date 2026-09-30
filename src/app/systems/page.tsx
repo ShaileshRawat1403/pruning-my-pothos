@@ -1,19 +1,10 @@
 import Link from "next/link";
-import { allSystems } from "content-collections";
 import SpotlightCard from "../../components/SpotlightCard";
-import PlateHero from "../../components/PlateHero";
+import SectionHeader from "../../components/SectionHeader";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
-import { getSystemsMap } from "../../lib/content/systems-map";
+import { getSystemsIA, type IaArticle } from "../../lib/content/systems-ia";
 import { getStoryboards } from "../../lib/content/storyboards";
-
-const BOOLE_LINES = [
-  "I took the laws of thought and wrote them as sums. Everything you click still obeys them.",
-  "True and false were enough to build a universe. I only had to be patient.",
-  "People use my algebra a billion times a day and could not pick me from a crowd. I am at peace with it.",
-  "Give me AND, OR, and NOT, and I will give you every decision you will ever make.",
-  "Reason has a grammar, and it is stricter than most people hope.",
-];
 
 export const metadata = constructMetadata({
   title: "Systems",
@@ -23,29 +14,14 @@ export const metadata = constructMetadata({
 });
 
 export default function SystemsIndexPage() {
-  // The map is the index's organising language now. It is derived from the same
-  // Systems Map source the homepage uses -- there is no second registry, and no
-  // stage assignment is invented here.
-  const stages = getSystemsMap();
-  const stageSlugs = new Set(stages.map((s) => s.slug));
+  // The map is the index's organising language. Every article is placed
+  // against it in lib/content/systems-ia.ts: one flagship per stage, the
+  // companions that go deeper, and the short notes. Nothing is left in an
+  // unsorted pile, and the build fails if an article has no place.
+  const { stages, across } = getSystemsIA();
 
-  // Which articles have a storyboard, so a stage or a card can offer it.
+  // Which articles have a storyboard, so a stage can offer it.
   const storyboardSlugs = new Set(getStoryboards().map((sb) => sb.slug));
-
-  // Everything that is not a map anchor stays discoverable here. The old
-  // Concepts / Explanations / How-things-fit-together chips no longer organise
-  // the page; the field remains in frontmatter, it is simply not the index's
-  // language any more.
-  const rest = [...allSystems]
-    .filter((s) => !stageSlugs.has(s._meta.path))
-    .sort((a, b) => {
-      if (a.featured !== b.featured) return Number(b.featured) - Number(a.featured);
-      if (a.updatedAt && b.updatedAt)
-        return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
-      if (a.updatedAt) return -1;
-      if (b.updatedAt) return 1;
-      return a.title.localeCompare(b.title);
-    });
 
   const schema = getWebPageSchema({
     title: "Systems",
@@ -61,18 +37,13 @@ export default function SystemsIndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* Plate hero - George Boole, the logic under every system */}
-      <PlateHero
+      {/* Section header */}
+      <SectionHeader
         eyebrow="Architecture"
         title="Systems"
-        intro="Eight questions an applied AI system has to answer, in the order the answers depend on each other. Lean on the plate and Boole will remind you whose algebra you are standing on."
-        htmlSrc="/scenes/character.html?img=/images/characters/george-boole-logic-gates.jpg&fallback=/scenes/boole.html"
-        alt="Oil painting of George Boole at his desk with glowing AND, OR and NOT logic gates and a binary truth table rising in the dark"
-        plateLabel="Plate · boole_gates"
-        caption="Everything you click obeys him."
-        attribution="G. Boole"
-        quotes={BOOLE_LINES}
-        accent="var(--accent-purple)"
+        intro="Eight questions an applied AI system has to answer, in the order the answers depend on each other."
+        scene="systems"
+        tick="var(--accent-purple)"
       />
 
       {/* The map. Ruled rows rather than tiles, matching the homepage
@@ -104,6 +75,9 @@ export default function SystemsIndexPage() {
               >
                 <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,15rem)_1fr] gap-1 sm:gap-8 sm:items-baseline">
                   <span className="font-heading text-base font-bold text-[color:var(--text-primary)]">
+                    <span className="mr-2 font-mono text-xs font-bold text-[color:var(--text-muted)]">
+                      {String(stage.number).padStart(2, "0")}
+                    </span>
                     {stage.label}
                   </span>
                   <div className="flex flex-col gap-2">
@@ -126,6 +100,8 @@ export default function SystemsIndexPage() {
                         </Link>
                       )}
                     </div>
+                    <StageShelf label="Goes deeper" items={stage.companions} />
+                    <StageShelf label="Notes" items={stage.notes} />
                   </div>
                 </div>
               </li>
@@ -134,64 +110,57 @@ export default function SystemsIndexPage() {
         </ol>
       </section>
 
-      {/* Everything that is not a map anchor. Still browsable, still complete. */}
-      <section aria-labelledby="more-systems-title" className="flex flex-col gap-6">
+      {/* Pieces that belong to no single stage. */}
+      <section aria-labelledby="across-title" className="flex flex-col gap-6">
         <div className="flex flex-col gap-2 max-w-[760px]">
           <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[color:var(--text-muted)]">
-            The rest of the library
+            Across the map
           </span>
           <h2
-            id="more-systems-title"
+            id="across-title"
             className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[color:var(--text-primary)]"
           >
-            {rest.length} more explanations.
+            Not one stage, but all of them.
           </h2>
-          <p className="text-sm leading-relaxed text-[color:var(--text-secondary)]">
-            Mechanisms that sit alongside the map rather than anchoring one of
-            its stages.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {rest.map((system) => {
-            return (
-              <SpotlightCard
-                key={system._meta.path}
-                href={`/systems/${system._meta.path}`}
-                accent="var(--accent-purple)"
-                className="justify-between"
-              >
-                <div className="flex flex-col gap-3">
-                  <h3
-                    className="font-heading text-lg font-bold leading-snug transition-colors duration-200"
-                    style={{ color: "var(--text-primary)" }}
-                  >
-                    {system.title}
-                  </h3>
-                  <p
-                    className="text-sm leading-relaxed line-clamp-3"
-                    style={{ color: "var(--text-secondary)" }}
-                  >
-                    {system.description}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-5 text-[11px] font-mono text-[color:var(--text-muted)]">
-                  {system.readingTime && <span>{system.readingTime} min read</span>}
-                  {storyboardSlugs.has(system._meta.path) && (
-                    <>
-                      <span aria-hidden="true">·</span>
-                      <span className="text-[color:var(--accent-cyan)]">
-                        Has a storyboard
-                      </span>
-                    </>
-                  )}
-                </div>
-              </SpotlightCard>
-            );
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {across.map((item) => (
+            <SpotlightCard key={item.slug} href={item.href} accent="var(--accent-purple)" className="gap-3">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-[0.18em] text-[color:var(--text-muted)]">
+                {item.role === "note" ? "Note" : "Overview"}
+              </span>
+              <h3 className="font-heading text-lg font-bold leading-snug text-[color:var(--text-primary)]">
+                {item.title}
+              </h3>
+              <p className="text-sm leading-relaxed line-clamp-3 text-[color:var(--text-secondary)]">
+                {item.description}
+              </p>
+            </SpotlightCard>
+          ))}
         </div>
       </section>
+    </div>
+  );
+}
+
+/** One labelled line of links under a stage: its companions, or its notes. */
+function StageShelf({ label, items }: { label: string; items: IaArticle[] }) {
+  if (items.length === 0) return null;
+  return (
+    <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
+      <span className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[color:var(--text-muted)]">
+        {label}
+      </span>
+      {items.map((item) => (
+        <Link
+          key={item.slug}
+          href={item.href}
+          className="text-[color:var(--text-secondary)] underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)] hover:decoration-[color:var(--text-primary)] transition-colors"
+        >
+          {item.title}
+        </Link>
+      ))}
     </div>
   );
 }

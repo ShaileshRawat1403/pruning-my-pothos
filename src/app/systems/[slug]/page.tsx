@@ -8,10 +8,11 @@ import { renderArticleSegments } from "../../../lib/visual-segments";
 import type { Visual } from "../../../lib/visual-types";
 import VisualBlock from "../../../components/visuals/VisualBlock";
 import { getStoryboard } from "../../../lib/content/storyboards";
-import { Frame } from "../../../components/illustrations/registry";
 import { ArticleCover } from "../../../components/illustrations/covers";
+import CoverFilm from "../../../components/illustrations/CoverFilm";
 import { coverKicker } from "../../../lib/content/covers";
 import { slugifyTag } from "../../../lib/tags";
+import { placeOf } from "../../../lib/content/systems-ia";
 import ExplainerFigure from "../../../components/explainer/ExplainerFigure";
 import {
   AnswerBlock,
@@ -55,6 +56,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
   }
 
   const storyboard = getStoryboard(slug);
+  const place = placeOf(slug);
   const faqs = system.faq ?? [];
   const proofPoints = system.proofPoints ?? [];
 
@@ -153,53 +155,35 @@ export default async function SystemsDetailPage({ params }: PageProps) {
 
       {/* Cover. Drawn live from the article's emblem (the same drawing as its storyboard cover), so its
           text stays text and it reads the same in either theme. The PNG of
-          the same drawing is only for link previews. */}
+          the same drawing is only for link previews. Where the article has a
+          film (illustrations/films/), the cover plays it once, then rests. */}
       <figure className="m-0 w-full overflow-hidden rounded-sm border border-[#D9D4C6]">
-        <ArticleCover slug={slug} title={system.title} kicker={coverKicker(slug)} hero />
+        <CoverFilm slug={slug}>
+          <ArticleCover slug={slug} title={system.title} kicker={coverKicker(slug)} hero />
+        </CoverFilm>
       </figure>
 
       {/* Article -> storyboard. The storyboard is its own entity, linked
-          once, near the top, rather than repeated through the body. */}
+          once, in one line under the cover, so the prose starts sooner. */}
       {storyboard && (
-        <aside
-          aria-label="Storyboard of this explanation"
-          className="grid grid-cols-[4.5rem_1fr] items-center gap-4 rounded-md border border-[color:var(--card-border)] border-l-[3px] border-l-[color:var(--accent-purple)] bg-[color:var(--card-bg)] p-4 sm:grid-cols-[6rem_1fr] sm:gap-5"
-        >
+        <p className="m-0 -mt-4 flex flex-wrap items-baseline gap-x-5 gap-y-1 font-mono text-xs text-[color:var(--text-muted)]">
+          <span className="font-bold uppercase tracking-[0.18em]">
+            Storyboard &middot; {storyboard.frames.length} frames
+          </span>
           <Link
             href={`/storyboards/${storyboard.slug}/`}
-            tabIndex={-1}
-            aria-hidden="true"
-            className="block overflow-hidden rounded-sm border border-[#D9D4C6]"
+            className="font-semibold text-[color:var(--text-primary)] underline underline-offset-4"
           >
-            <Frame
-              frameKey={storyboard.frames[0].key}
-              label={storyboard.frames[0].title}
-              number={1}
-              total={storyboard.frames.length}
-            />
+            See this argument drawn &rarr;
           </Link>
-          <div className="flex flex-col gap-2">
-            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--accent-cyan)]">
-              Storyboard &middot; {storyboard.frames.length} frames
-            </span>
-            <p className="m-0 font-heading text-base font-bold leading-snug text-[color:var(--text-primary)] sm:text-lg">
-              Prefer it drawn? This argument is also an illustrated storyboard.
-            </p>
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-1 font-mono text-sm">
-              <Link href={`/storyboards/${storyboard.slug}/`} className="font-semibold underline underline-offset-4">
-                View the storyboard &rarr;
-              </Link>
-              <a
-                href={storyboard.pdf}
-                className="text-[color:var(--text-secondary)] underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)]"
-              >
-                Download PDF
-              </a>
-            </div>
-          </div>
-        </aside>
+          <a
+            href={storyboard.pdf}
+            className="underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)]"
+          >
+            PDF
+          </a>
+        </p>
       )}
-
 
       {/* Slot 04 — the retrieval unit. Above the prose on purpose. */}
       {system.shortAnswer && <AnswerBlock>{system.shortAnswer}</AnswerBlock>}
@@ -210,17 +194,6 @@ export default async function SystemsDetailPage({ params }: PageProps) {
           <p>{system.useValue}</p>
         </aside>
       )}
-      {system.boundary && (
-        <section aria-labelledby="concept-boundary" className="border border-[color:var(--card-border)] p-5 rounded-sm">
-          <h2 id="concept-boundary" className="font-heading font-bold mb-3">Where this helps, and where it stops</h2>
-          <dl className="grid gap-3 text-sm leading-relaxed">
-            <div><dt className="font-semibold">What it is</dt><dd>{system.boundary.is}</dd></div>
-            <div><dt className="font-semibold">What it does not guarantee</dt><dd>{system.boundary.isNot}</dd></div>
-            <div><dt className="font-semibold">When the distinction matters</dt><dd>{system.boundary.mattersWhen}</dd></div>
-          </dl>
-        </section>
-      )}
-
       {/* Slot 05 — the analogy, carrying its own failure point. */}
       {system.analogy && (
         <AnalogyBlock
@@ -256,10 +229,24 @@ export default async function SystemsDetailPage({ params }: PageProps) {
               key={segment.visual.id || idx}
               visual={segment.visual}
               provenanceSources={provenanceSources}
+              scene
             />
           )
         );
       })()}
+
+      {/* Where it stops. After the argument, where a limit means something. */}
+      {system.boundary && (
+        <section aria-labelledby="concept-boundary" className="border border-[color:var(--card-border)] p-5 rounded-sm">
+          <h2 id="concept-boundary" className="font-heading font-bold mb-3">Where this helps, and where it stops</h2>
+          <dl className="grid gap-3 text-sm leading-relaxed">
+            <div><dt className="font-semibold">What it is</dt><dd>{system.boundary.is}</dd></div>
+            <div><dt className="font-semibold">What it does not guarantee</dt><dd>{system.boundary.isNot}</dd></div>
+            <div><dt className="font-semibold">When the distinction matters</dt><dd>{system.boundary.mattersWhen}</dd></div>
+          </dl>
+        </section>
+      )}
+
 
       {/* Slot 10 — evidence. What was built, where, and what it changed. */}
       {system.evidence && (
@@ -301,6 +288,32 @@ export default async function SystemsDetailPage({ params }: PageProps) {
             </section>
           )}
         </section>
+      )}
+
+      {/* Where this sits on the Systems Map (lib/content/systems-ia.ts). */}
+      {place.stage && (
+        <nav aria-labelledby="where-this-sits" className="flex flex-col gap-3 border-t border-[color:var(--card-border)] pt-6">
+          <h2 id="where-this-sits" className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--text-muted)]">
+            Stage {String(place.stage.number).padStart(2, "0")} &middot; {place.stage.label}
+          </h2>
+          <p className="m-0 text-sm leading-relaxed text-[color:var(--text-secondary)]">{place.stage.orientation}</p>
+          <ul className="m-0 flex list-none flex-col gap-1.5 p-0 text-sm">
+            {[{ slug: place.stage.slug, title: place.stage.title, href: place.stage.href, role: "flagship" as const }, ...place.stage.companions, ...place.stage.notes].map((item) => (
+              <li key={item.slug} className="flex items-baseline gap-3">
+                <span className="w-[5.5rem] shrink-0 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[color:var(--text-muted)]">
+                  {item.role === "flagship" ? "Start here" : item.role === "note" ? "Note" : "Goes deeper"}
+                </span>
+                {item.slug === slug ? (
+                  <span className="font-semibold text-[color:var(--text-primary)]">{item.title}</span>
+                ) : (
+                  <Link href={item.href} className="text-[color:var(--text-primary)] underline underline-offset-4 decoration-[color:var(--card-border)] hover:decoration-[color:var(--text-primary)]">
+                    {item.title}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
       )}
 
       {/* Slot 12 — the internal link model, made visible. */}

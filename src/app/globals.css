@@ -606,20 +606,34 @@ h1, h2, h3, h4, h5 {
 .content-body h2,
 .content-body h3,
 .content-body h4 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
   line-height: 1.18;
+  text-wrap: balance;
 }
 .content-body h2 {
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
-  margin-top: 2rem;
+  font-size: clamp(1.45rem, 2.2vw, 1.85rem);
+  margin-top: 2.75rem;
 }
 .content-body h3 {
-  font-size: 1.15rem;
-  margin-top: 1.6rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 2rem;
 }
+/* Reading text: full ink, a size and leading meant for paragraphs, and a
+   measure of about seventy characters. Code, tables and drawings keep the
+   whole column, so they read as plates set into the text. */
 .content-body p,
 .content-body li {
-  color: var(--text-secondary);
+  color: color-mix(in srgb, var(--text-primary) 88%, var(--text-secondary));
+  font-size: 1.0625rem;
+  line-height: 1.72;
+  text-wrap: pretty;
+}
+.content-body > :where(p, ul, ol, blockquote, h2, h3, h4) {
+  max-width: 44rem;
 }
 .content-body strong {
   color: var(--text-primary);
@@ -700,12 +714,16 @@ h1, h2, h3, h4, h5 {
   padding: 1rem;
   border: 1px solid var(--card-border);
   border-radius: 4px;
-  background: #100d07;
+  /* A slip of paper in either theme. The ground was a fixed near-black with
+     theme-coloured text, which left dark text on a dark block in light mode. */
+  border-left: 3px solid var(--accent-purple);
+  background: var(--bg-elevated);
   color: var(--text-primary);
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   line-height: 1.7;
 }
+.content-body pre code { font-size: inherit; }
 .content-body code {
   font-family: var(--font-mono);
   font-size: 0.86em;
@@ -1013,6 +1031,74 @@ html.js .hero-cinema:not(.is-playing):not(.is-still) .hc-camera { visibility: hi
 @media (prefers-reduced-motion: reduce) {
   html.js .hero-cinema .hc-camera { visibility: visible; }
 }
+
+/* ══ Cover films (CoverFilm) ══
+   The markup is the still cover. With scripts on, the scene waits hidden
+   until its film starts, so the still never flashes before the opening frame.
+   If no film ever starts, the still shows itself after a few seconds. */
+.cover-film { position: relative; }
+html.js .cover-film:not([data-film]) .cf-stage { visibility: hidden; animation: cf-failsafe 0s linear 4s forwards; }
+@keyframes cf-failsafe { to { visibility: visible; } }
+.cover-film-replay {
+  position: absolute; right: 0.6rem; bottom: 0.6rem;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.3rem 0.55rem; border-radius: 3px; border: 1px solid #1B1A17; background: #FBF5E8; color: #1B1A17;
+  opacity: 0; transition: opacity 0.2s; cursor: pointer;
+}
+.cover-film[data-film="still"]:hover .cover-film-replay, .cover-film[data-film="still"] .cover-film-replay:focus-visible { opacity: 1; }
+.cover-film:not([data-film="still"]) .cover-film-replay { display: none; }
+@media (hover: none) { .cover-film[data-film="still"] .cover-film-replay { opacity: 0.85; } }
+@media (prefers-reduced-motion: reduce) {
+  html.js .cover-film .cf-stage { visibility: visible; }
+  .cover-film-replay { display: none; }
+}
+@media print { .cover-film-replay { display: none; } html.js .cover-film .cf-stage { visibility: visible !important; } }
+
+/* ══ Scroll scenes (SceneVisual) ══
+   The drawing pins; the steps scroll past it. Without scripts the steps are
+   plain text at full strength beside the first state of the drawing. */
+.scene-visual { margin: 2.5rem 0; }
+.scene-grid { display: grid; gap: 1rem; }
+.scene-pin { position: sticky; top: 5.25rem; z-index: 2; align-self: start; padding: 0.5rem 0 0.6rem; background: var(--bg-color); }
+.scene-plate { overflow: hidden; border-radius: 3px; border: 1px solid #D9D4C6; }
+.scene-count { margin: 0.45rem 0 0; font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: var(--text-muted); }
+.scene-steps { list-style: none; margin: 0; padding: 0; }
+.scene-step { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem 0 1.25rem 1.1rem; border-left: 3px solid var(--card-border); transition: opacity 0.3s, border-color 0.3s; }
+.scene-grid[data-live] .scene-step { min-height: 36vh; justify-content: center; opacity: 0.38; }
+.scene-grid[data-live] .scene-step.on { opacity: 1; border-left-color: var(--accent-purple); }
+.scene-tag { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-purple); }
+.scene-title { margin: 0; font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; color: var(--text-primary); }
+.scene-body, .scene-note { margin: 0; font-size: 0.97rem; line-height: 1.6; color: var(--text-secondary); }
+.scene-note { font-size: 0.88rem; color: var(--text-muted); }
+.scene-items { margin: 0; padding-left: 1.1rem; list-style: disc; font-size: 0.97rem; line-height: 1.6; color: var(--text-secondary); }
+.scene-visual figcaption { margin-top: 1rem; }
+@media (min-width: 768px) {
+  .scene-grid { grid-template-columns: 11fr 9fr; gap: 2rem; }
+  .scene-pin { top: 6.5rem; padding: 0; background: none; }
+  .scene-grid[data-live] .scene-step { min-height: 42vh; }
+  .scene-title { font-size: 1.35rem; }
+}
+@media print {
+  .scene-pin { position: static; }
+  .scene-grid[data-live] .scene-step { min-height: 0; opacity: 1; }
+}
+
+/* ══ Drawings at rest: alive ══
+   A drawing inside .ill-alive blinks now and then. A linked one (.ill-lift)
+   lifts off the desk under the cursor while its ink boils. Motion here is
+   small on purpose: the register is deadpan. */
+@keyframes ill-blink { 0%, 91%, 100% { transform: scaleY(1); } 94%, 96% { transform: scaleY(2.3); } }
+@keyframes ill-boil {
+  0% { transform: translate(0, 0) rotate(0); }
+  33% { transform: translate(1.6px, -1.1px) rotate(0.22deg); }
+  66% { transform: translate(-1.3px, 1.2px) rotate(-0.18deg); }
+}
+.ill-alive .hd-lid, .cover-film[data-film="still"] .hd-lid { transform-box: fill-box; transform-origin: 50% 0%; animation: ill-blink 5.2s infinite; animation-delay: var(--ill-delay, 0s); }
+.ill-lift { transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s; transform-origin: 50% 100%; }
+a:hover .ill-lift, .ill-lift:hover { transform: rotate(-0.7deg) translateY(-3px); box-shadow: 0 14px 22px -14px rgba(27, 26, 23, 0.45); }
+a:hover .ill-lift g[filter*="-ink"], .ill-lift:hover g[filter*="-ink"] { transform-box: fill-box; transform-origin: 50% 50%; animation: ill-boil 0.36s steps(1) infinite; }
+a:hover .ill-lift .hd-lid, .ill-lift:hover .hd-lid { transform-box: fill-box; transform-origin: 50% 0%; animation: ill-blink 2.6s infinite; }
+@media print { .ill-alive .hd-lid, .cover-film .hd-lid { animation: none !important; } }
 
 /* Illustration filters (paper grain, ink wobble) rasterise when printed, which
    turned each storyboard PDF into ~100 MB. Print and the PNG export routes

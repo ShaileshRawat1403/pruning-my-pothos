@@ -1,16 +1,8 @@
 import Link from "next/link";
-import PlateHero from "../../components/PlateHero";
+import SectionHeader from "../../components/SectionHeader";
 import SceneFigure from "../../components/SceneFigure";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
-
-const EUCLID_LINES = [
-  "Begin with what cannot be doubted. Build only what follows. That is the whole discipline.",
-  "I wrote the first documentation. Thirteen books, and the diagrams still hold.",
-  "There is no royal road to geometry, and no shortcut past understanding either.",
-  "A proof is a promise you can check. That is why it outlives opinion.",
-  "Define your terms before you quarrel. Most disputes die there, quietly.",
-];
 
 export const metadata = constructMetadata({
   title: "Documentation & Guides",
@@ -31,18 +23,14 @@ export default function DocsIntroPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      {/* Plate hero - Euclid, who wrote the first documentation */}
-      <PlateHero
+      {/* Section header */}
+      <SectionHeader
         eyebrow="Knowledge System"
         title="Documentation"
-        intro="Frameworks, execution loops, public-private boundaries, and prototype roadmaps for natural language programming. Lean on the plate and Euclid will insist you define your terms first."
-        htmlSrc="/scenes/character.html?img=/images/characters/euclid-elements-geometry.jpg&fallback=/scenes/euclid.html"
-        alt="Oil painting of Euclid reclining with compass and slate, glowing geometric constructions and solids above a scroll of the Elements"
-        plateLabel="Plate · euclid_elements"
-        caption="He wrote the first docs."
-        attribution="Euclid"
-        quotes={EUCLID_LINES}
-        accent="var(--accent-cyan)"
+        intro="Frameworks, execution loops, public-private boundaries, and prototype roadmaps for natural language programming."
+        scene="stack"
+        slim
+        tick="var(--accent-cyan)"
       />
 
       <SceneFigure

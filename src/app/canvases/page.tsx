@@ -1,15 +1,7 @@
-import PlateHero from "../../components/PlateHero";
+import SectionHeader from "../../components/SectionHeader";
 import SceneFigure from "../../components/SceneFigure";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
-
-const XENAKIS_LINES = [
-  "I drew the music as a building and let the mathematics decide where the notes should stand.",
-  "Give randomness a strict enough rule and it starts to sound like a decision.",
-  "A score, a blueprint, an equation. On my desk they were the same page turned three ways.",
-  "The computer did not write the piece. It held the shape while I argued with it.",
-  "People want music to be feeling. Mine was also structure, and the structure was the feeling.",
-];
 
 export const metadata = constructMetadata({
   title: "Visual Canvases",
@@ -46,18 +38,14 @@ export default function CanvasesIndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* Plate hero - Iannis Xenakis, who drew music as architecture */}
-      <PlateHero
+      {/* Section header */}
+      <SectionHeader
         eyebrow="Visual Blueprints"
         title="Canvases"
-        intro="Structured worksheets to model context pathways, validation assertions, and review boundaries. Lean on the plate and Xenakis will show you a score that is also a building."
-        htmlSrc="/scenes/character.html?img=/images/characters/iannis-xenakis-graphic-score.jpg&fallback=/scenes/xenakis.html"
-        alt="Oil painting of Iannis Xenakis before a glowing graphic score that doubles as an architectural ruled-surface blueprint"
-        plateLabel="Plate · xenakis_ruled"
-        caption="A score, a blueprint, an equation."
-        attribution="I. Xenakis"
-        quotes={XENAKIS_LINES}
-        accent="var(--accent-cyan)"
+        intro="Structured worksheets to model context pathways, validation assertions, and review boundaries."
+        scene="stack"
+        slim
+        tick="var(--accent-cyan)"
       />
 
       <SceneFigure

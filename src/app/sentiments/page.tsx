@@ -2,17 +2,9 @@ import { allSelves, allSentences, allShelves, allSystems, allStickyNotes } from 
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 import SentimentsClient from "../../components/SentimentsClient";
-import PlateHero from "../../components/PlateHero";
+import SectionHeader from "../../components/SectionHeader";
 import SceneFigure from "../../components/SceneFigure";
 import { renderMarkdown } from "../../lib/markdown";
-
-const LLULL_LINES = [
-  "I built a machine of paper wheels to turn every idea against every other. You would call it a search space.",
-  "Truth, I decided, could be spun. Give the discs a question and let them gossip.",
-  "They thought me mad for mechanizing thought. Six centuries early, apparently.",
-  "Faith and logic in the same hand. I never saw why you must drop one to hold the other.",
-  "Every combination I could name, the wheels would find. The trick was asking the right one.",
-];
 
 export const metadata = constructMetadata({
   title: "Sentiments Index",
@@ -137,18 +129,14 @@ export default function SentimentsIndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* Plate hero - Ramon Llull and his thinking wheels */}
-      <PlateHero
+      {/* Section header */}
+      <SectionHeader
         eyebrow="The Workspace"
         title="Sentiments"
-        intro="A calm, text-led repository of notes, short reflective essays, and shared collections. Lean on the plate and Ramon Llull will spin his wheels of thought for you."
-        htmlSrc="/scenes/character.html?img=/images/characters/ramon-llull-combinatorial-wheels.jpg&fallback=/scenes/llull.html"
-        alt="Oil painting of Ramon Llull turning his lettered combinatorial wheels in a candlelit study, glowing logic linking the letters"
-        plateLabel="Plate · llull_wheels"
-        caption="He mechanized thought in 1305."
-        attribution="R. Llull"
-        quotes={LLULL_LINES}
-        accent="var(--accent-purple)"
+        intro="A calm, text-led repository of notes, short reflective essays, and shared collections."
+        scene="writing"
+        slim
+        tick="var(--accent-purple)"
       />
 
       <SceneFigure

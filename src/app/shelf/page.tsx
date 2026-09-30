@@ -1,18 +1,10 @@
 import SpotlightCard from "../../components/SpotlightCard";
-import PlateHero from "../../components/PlateHero";
+import SectionHeader from "../../components/SectionHeader";
 import SceneFigure from "../../components/SceneFigure";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 import { SHELF_CATEGORIES } from "../../lib/content/shelf";
 import { REFERENCE_DISCLOSURE } from "../../lib/content/reference-sheets";
-
-const GREENWOOD_LINES = [
-  "The synth is just a very opinionated instrument. You negotiate.",
-  "Half of scoring a film is deciding what the silence is allowed to do.",
-  "I like machines that surprise me. The ones that only obey get boring fast.",
-  "A good part on paper still has to survive a real room and a nervous player.",
-  "Noise becomes music the moment someone decides where it belongs.",
-];
 
 export const metadata = constructMetadata({
   title: "Shelf",
@@ -37,18 +29,13 @@ export default function ShelfIndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* Plate hero - Jonny Greenwood, where signal becomes music */}
-      <PlateHero
+      {/* Section header */}
+      <SectionHeader
         eyebrow="Workspace"
         title="Shelf"
-        intro="A working shelf of experiments, notes, tools, philosophy, music, and shared resources. Lean on the plate and Greenwood will patch some noise into something worth keeping."
-        htmlSrc="/scenes/character.html?img=/images/characters/jonny-greenwood-ondes-martenot.jpg&fallback=/scenes/greenwood.html"
-        alt="Oil painting of a composer seen from behind playing an ondes Martenot beside a glowing modular synthesizer as a ghostly orchestra rises"
-        plateLabel="Plate · greenwood_signal"
-        caption="Noise, talked into music."
-        attribution="J. Greenwood"
-        quotes={GREENWOOD_LINES}
-        accent="var(--accent-cyan)"
+        intro="A working shelf of experiments, notes, tools, philosophy, music, and shared resources."
+        scene="shelf"
+        tick="var(--accent-cyan)"
       />
 
       <SceneFigure

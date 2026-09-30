@@ -1,16 +1,8 @@
 import SpotlightCard from "../../components/SpotlightCard";
-import PlateHero from "../../components/PlateHero";
+import SectionHeader from "../../components/SectionHeader";
 import SceneFigure from "../../components/SceneFigure";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
-
-const HERO_LINES = [
-  "I wrote programs in string and pegs, and the little theatre moved itself. No electricity required.",
-  "A door that opens on its own is only a sequence of causes, patiently arranged.",
-  "They called it magic. I called it a list of steps that happened to be brass.",
-  "Give a machine one clear instruction and it will repeat it forever, faithfully, stupidly.",
-  "I automated the temple so the priests could seem divine. The oldest use of a good demo.",
-];
 
 export const metadata = constructMetadata({
   title: "ToolSmith Playgrounds",
@@ -193,18 +185,14 @@ export default function ToolsIndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* Plate hero - Hero of Alexandria, who programmed in brass */}
-      <PlateHero
+      {/* Section header */}
+      <SectionHeader
         eyebrow="Browser-Native Utilities"
         title="Tools"
-        intro="The tools I reach for: stateless, browser-native utilities to design schemas, audit changes, package directories, and compile flowcharts offline. Lean on the plate and Hero of Alexandria will explain the oldest automation trick in the book."
-        htmlSrc="/scenes/character.html?img=/images/characters/hero-of-alexandria-automata.jpg&fallback=/scenes/hero.html"
-        alt="Oil painting of Hero of Alexandria in a workshop of brass automata with a self-moving cart and a pegged program drum"
-        plateLabel="Plate · hero_automata"
-        caption="He programmed in string and pegs."
-        attribution="Hero of Alexandria"
-        quotes={HERO_LINES}
-        accent="var(--accent-cyan)"
+        intro="The tools I reach for: stateless, browser-native utilities to design schemas, audit changes, package directories, and compile flowcharts offline."
+        scene="stack"
+        slim
+        tick="var(--accent-cyan)"
       />
 
       <SceneFigure

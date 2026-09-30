@@ -1,18 +1,10 @@
 import { allSentences } from "content-collections";
 import Link from "next/link";
 import SpotlightCard from "../../components/SpotlightCard";
-import CharacterPlate from "../../components/CharacterPlate";
+import SectionHeader from "../../components/SectionHeader";
 import SceneFigure from "../../components/SceneFigure";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
-
-const NIETZSCHE_LINES = [
-  "I wrote in fragments because the whole was too heavy to lift at once.",
-  "An aphorism is a full day's climb, pressed into a single line.",
-  "Say less, and mean it harder.",
-  "What I cannot put in one clear sentence, I do not yet understand.",
-  "They will misread me for a hundred years. I can wait.",
-];
 
 export const metadata = constructMetadata({
   title: "Sentences Archive",
@@ -34,37 +26,15 @@ export default function SentencesIndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* Plate hero - Nietzsche, patron of the aphorism */}
-      <section className="grid grid-cols-1 lg:grid-cols-[13fr_12fr] items-center gap-10 lg:gap-14 min-h-[86vh] pt-10 lg:pt-6">
-        <div className="flex flex-col gap-5 lg:pr-8">
-          <div className="flex items-center gap-2">
-            <span className="h-px w-8" style={{ background: "var(--accent-blue)" }} />
-            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
-              Writing Archive
-            </span>
-          </div>
-          <h1 className="font-heading text-4xl sm:text-5xl font-black tracking-tight leading-[0.95]" style={{ color: "var(--text-primary)" }}>
-            Sentences
-          </h1>
-          <p className="text-base leading-relaxed max-w-[460px]" style={{ color: "var(--text-secondary)" }}>
-            Short reflections, decision rules, and principles. The whole point of
-            an aphorism is that it survives being carried alone. Lean on the plate
-            and Nietzsche will say his piece.
-          </p>
-        </div>
-
-        <CharacterPlate
-          htmlSrc="/scenes/character.html?img=/images/characters/friedrich-nietzsche-eternal-return.jpg&fallback=/scenes/nietzsche.html"
-          alt="Oil painting of Friedrich Nietzsche on a mountain summit beneath a glowing ring of eternal return, pages of aphorisms drifting in the wind"
-          plateLabel="Plate · nietzsche_heights"
-          caption="He wrote in pieces, on purpose."
-          attribution="F. Nietzsche"
-          quotes={NIETZSCHE_LINES}
-          accent="var(--accent-purple)"
-          aspect="3 / 2"
-          className="w-full max-w-[540px] mx-auto lg:mx-0 lg:justify-self-end"
-        />
-      </section>
+      {/* Section header */}
+      <SectionHeader
+        eyebrow="Writing Archive"
+        title="Sentences"
+        intro="Short reflections, decision rules, and principles. The whole point of an aphorism is that it survives being carried alone."
+        scene="writing"
+        slim
+        tick="var(--accent-blue)"
+      />
 
       <SceneFigure
         src="/scenes/nietzsche.html"
