@@ -1,7 +1,7 @@
 # Handover: Pruning My Pothos (PMP)
 
 For any agent picking this repository up cold. Read this, then `AGENTS.md`,
-then `docs/STORYBOARD_AUTHORING.md`. Written 2026-09-26.
+then `docs/STORYBOARD_AUTHORING.md`. Written 2026-09-26, updated 2026-09-30.
 
 ---
 
@@ -48,7 +48,7 @@ One config drives header, section sub-nav and footer:
 
 | Section | Pages |
 |:--|:--|
-| Systems | `/systems/` explainers (28 articles), ordered by the 8-stage Systems Map (`src/lib/content/systems-map.ts`) |
+| Systems | `/systems/` explainers (28 articles). The 8-stage Systems Map (`src/lib/content/systems-map.ts`) names one flagship per stage; `src/lib/content/systems-ia.ts` places every other article under a stage as a companion or a note, or across the map. The build fails if an article is unplaced |
 | Storyboards | `/storyboards/` illustrated PDF explainers, one per stage article (8 decks) |
 | Stack | Projects `/stack/`, product pages `/stack/<product>/` (DAX at `/stack/dax/`), Tools `/tools/`, Canvases, Docs, Live lab |
 | Shelf | `/shelf/` categories, Reference sheets `/shelf/reference/` (placeholder, noindexed until the first sheet) |
@@ -79,9 +79,18 @@ Code, in `src/components/illustrations/`:
 | `templates.tsx` | frame templates: Cover, Steps, Cards, Contrast, Scene, Close, **Gag** (deadpan pun + punchline + claim) |
 | `decks/*.tsx` | one deck per stage article; `decks/gags.tsx` holds gag frames; `decks/index.ts` interleaves gags via `withGags(deck, gags, afterPositions)` |
 | `HeroCinema.tsx` | the home hero film (GSAP): gardener snips "hype", sips tea |
+| `CoverFilm.tsx`, `films/*.ts` | cover films: an article's cover plays once as a six-second, three-shot film, then rests as the still. One script per article, animating the emblem's own `fx-` groups. All 28 Systems covers have one |
+| `scenes/*.tsx`, `visuals/SceneVisual.tsx` | scroll scenes: an article's declared visual drawn as one pinned drawing that advances on scroll. Steps and words come from the visual's frontmatter (`lib/scene-steps.ts`). All 28 articles have one. Sixteen of the visuals were declared on 2026-09-30 from statements already in each article's body; they add no claim, and the owner should still read them |
+| `sections.tsx`, `components/SectionHeader.tsx` | section headers: one deadpan drawing per section (systems, storyboards, stack, shelf, writing), full on section index pages and `slim` on pages inside a section |
 
 Frame counts follow the article (readiness 13, governed 11, HITL 10,
 evaluation 10, retrieval 8, handoff 8, model 7, prompting 7).
+
+Motion rules: one thing moves at a time; a film or scene shows nothing its
+article does not say; reduced motion, print and every export get the still.
+Films and scenes cannot be judged from code. Freeze them on the local,
+gitignored contact sheets (`/dank-samples/films/`, `/dank-samples/scenes/`)
+and watch each once in a visible tab.
 
 Process for any drawing change: `npm run build && npm run export:storyboards`
 (needs Google Chrome; writes PDFs, share PNGs and cover PNGs into `public/`),
@@ -132,6 +141,31 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
   - Untracks the three owner docs above and gitignores them.
   - This handover.
   Needs the owner's go-ahead to merge to `main` (that deploys).
+- Branch **`feature/cinematic-overhaul`** (branched from `fix/gsc-404s`, not
+  merged, not deployed). The design overhaul the owner approved from mockups
+  on 2026-09-30:
+  - Cover films and scroll scenes for all 28 Systems articles (section 4).
+  - Systems IA: `/systems/` lists every article under its stage, and each
+    article ends with its stage and neighbours.
+  - Article page: prose starts sooner. The storyboard link is one line under
+    the cover, and "Where this helps, and where it stops" moved below the
+    body. Reading text is full ink at about seventy characters a line,
+    headings are bold, and code blocks are readable in light mode (they were
+    dark text on a fixed dark ground). These type rules are `.content-body`,
+    so Sentences, Calibrations and Shelf detail pages get them too.
+  - `SectionHeader` replaces the painted oil plates on nine pages. The
+    painted images, their loader page and three stale root docs
+    (`REDESIGN_HANDOFF.md`, `CHARACTER-PLATES.md`, `PLATE-PROMPTS.md`) are
+    deleted. About and Calibrations keep the self-portrait plate.
+  - `Head` stubble is rounded so it hydrates in client components.
+  - Home cards lift and boil on hover (`.ill-lift`).
+  - Theme decision: keep today's near-white page with paper plates on it.
+  Not done on this branch: the terminal toast is unchanged; the thin-line
+  HTML figures (`SceneFigure`, `public/scenes/*.html`) still sit under some
+  headers; only the tokenizer cover PNG was re-exported (its drawing gained
+  price tags), so other cover PNGs predate the stubble rounding, which is
+  below a pixel. The nineteen films added last were checked as frozen frames
+  only and still need one watch each in a visible tab.
 - Stale branches with unmerged work: `seo/tier-1-corrective`,
   `feature/pmp-editorial-contract-v1`, `feature/pmp-dark-theme`,
   `codex/learning-discovery`. Merged, safe to delete: `feature/dank-cast`,
@@ -162,3 +196,18 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
 8. **DAX page**: the peer-comparison table (Cursor, Claude Code, Codex)
    makes claims to verify or source before wide sharing.
 9. More product landing pages will follow the `/stack/<product>/` pattern.
+10. **Fewer, fuller articles.** The owner's direction (2026-09-30): the eight
+    Systems Map stage articles are the flagship pieces, each to carry a real
+    proof of concept (repository at a pinned commit, screenshots, recordings
+    or benchmarks the owner produces). The other twenty stay as companions
+    and notes, as the archive disposition decided (22 full pages, 6 notes);
+    nothing further is merged. Today every Systems article declares
+    `synthesis` as its basis. A POC is never written into existence: it is
+    added only when the owner supplies the built thing. The working plan and
+    the per-article POC list are in the local, gitignored
+    `private/flagship-plan.md`.
+11. **Section drawings and captions** in `illustrations/sections.tsx` are
+    drafts awaiting the owner's read, as are the step captions drawn inside
+    the scenes.
+12. **Remaining registers to fold in**: the terminal toast
+    (`ConsoleToastHost`) and the `SceneFigure` HTML figures.

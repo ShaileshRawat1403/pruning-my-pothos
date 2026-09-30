@@ -13,7 +13,9 @@ said sideways.
 |:--|:--|:--|
 | **Storyboard** | A short deck of 4:5 frames that draws one Systems article. Viewed at `/storyboards/<slug>/`, downloadable as a PDF. Its own entity: it links to its article and back, and neither lives inside the other. | `src/components/illustrations/decks/<article-slug>.tsx` |
 | **Cover** | The 1200 x 630 drawing at the top of every Systems article, also used as its link preview. | one entry in `src/components/illustrations/covers.tsx` |
-| **Diagram** | A structured visual inside an article body. Not covered here. | the article's `visuals[]` frontmatter |
+| **Cover film** | The same cover, played once as a six-second film before it rests. | `illustrations/films/<article-slug>.ts` |
+| **Scene** | An article's declared visual, drawn as one pinned drawing that advances on scroll. | `illustrations/scenes/<visual-id>.tsx` |
+| **Diagram** | A structured visual inside an article body. Generated from the article's `visuals[]` frontmatter; a scene replaces it on the article page where one is drawn. | the article's `visuals[]` frontmatter |
 
 ## The register: deadpan
 
@@ -155,6 +157,74 @@ Every Systems article needs one (the contract suite fails without it).
 2. The article's frontmatter `heroImage` is `/covers/systems/<slug>.png`.
 3. `npm run build && npm run export:storyboards --only=<slug>` writes the PNG.
 4. Check it on the article page and at `/cover-art/<slug>/`.
+
+## Add a cover film
+
+A cover can play as a short film the first time it is on screen, then rest as
+the still. The film animates the emblem that is already there, so its last
+frame and the still cover are the same drawing. `CoverFilm.tsx` runs it; the
+choreography is one script per article in `illustrations/films/<slug>.ts`,
+registered in `films/index.ts`. An article with no script has a still cover.
+
+1. **Find the three shots.** Wide, a close-up, wide again, about six seconds.
+   The close-up is the one moment the joke turns on (the blade, the slot, the
+   plaque). Cuts are hard cuts: `wide(at)` and `close(at, x, y, scale)`.
+2. **Hook the emblem.** In `emblems.tsx`, wrap what moves in a plain
+   `<g className="fx-...">`. Never animate an element that carries its own
+   `transform`; wrap it first. Anything that exists only during the film (the
+   word before it is cut, a parcel passing overhead) goes in `<FilmOnly>`,
+   which is invisible in every still, print and export.
+3. **Write the script** with the kit (`films/kit.ts`): `say(at, beat)` lands
+   one sentence of the quip per event, `pop`, `fade`, `shake`, `show`, `hide`,
+   and the GSAP timeline `tl` for everything else.
+4. **Pivots.** Use `transformOrigin: "50% 50%"` on anything that is also
+   moved with `x`/`y`. `svgOrigin: o(x, y)` is only for things that stay put.
+5. **End where the still is.** Every `FilmOnly` hidden again, everything else
+   back in place. `CoverFilm` then restores the markup exactly.
+6. **Look at the frames.** Films cannot be judged from code. Freeze them:
+   a local contact sheet lives at `/dank-samples/films/` (gitignored route;
+   `?only=<slug>&t=0.5,2.5,5`), and the film has to be watched once in a
+   visible browser tab before it ships.
+
+Rules:
+- One thing moves at a time. Deadpan is how little reacts.
+- A film shows nothing the still cover and its article do not already say.
+- It plays once per browser session and replays on request ("Play again").
+  Reduced motion, no scripts, print and the PNG export all get the still.
+
+## Add a scroll scene
+
+A scene draws an article's declared visual (`visuals[]` in its frontmatter)
+as one pinned drawing that advances while the reader scrolls. It replaces the
+generated diagram on the article page only; lists and previews keep the
+diagram.
+
+- The steps and their words are the visual's own data, read in the order the
+  generated renderer reads it (`lib/scene-steps.ts`). A scene needs no new
+  copy beyond the visual.
+- An article with no declared visual needs one first. Build it only from
+  statements already in the article body, in the article's own words, run the
+  Visual Decision Pass in the editorial skill, and place its
+  `<!-- pmp:visual id="..." -->` marker beside the prose it draws.
+- The drawing is `illustrations/scenes/<visual-id>.tsx`, registered in
+  `scenes/index.tsx` and listed in `scenes/ids.ts`. It receives `step` and the
+  steps, and is built from `scenes/kit.tsx`: `At` (moves things), `Lit`
+  (ink when it is this part's turn, pencil when it is not), `Plate`.
+- Nothing is redrawn between steps. The same objects move, fade or light up,
+  so the reader follows them through the mechanism.
+- Draw in 640 x 420. Nothing a reader must read under 18px; handwriting 24px
+  or more. Words in the drawing are single plain labels, or come from the
+  steps. If the visual calls its numbers illustrative, so are they here.
+- Check every step at `/dank-samples/scenes/?only=<visual-id>` (gitignored).
+
+## Section headers
+
+Every section page opens with `SectionHeader` (`components/SectionHeader.tsx`):
+eyebrow, title and intro beside the section's drawing, about a third of the
+first screen, so the page's content starts above the fold. Section index
+pages use the full form; pages inside a section pass `slim`. The drawings are
+in `illustrations/sections.tsx`, one per section, in the deadpan register.
+About and Calibrations keep the self-portrait plate.
 
 ## Hover and cards
 
