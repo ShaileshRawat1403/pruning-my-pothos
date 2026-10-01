@@ -150,53 +150,25 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
 
 ## 8. Where things stand
 
-- `main` = `9c131e68` (live). Everything through the dank cast is deployed.
-- Branch **`fix/gsc-404s`** (not merged, not deployed):
-  - `.htaccess`: `/home/`→`/`, `/skills`→`/tools/skill-catalog/`,
-    `/sentiments/about/`→`/about/`, five retired tags → 410.
-  - Untracks the three owner docs above and gitignores them.
-  - This handover.
-  Needs the owner's go-ahead to merge to `main` (that deploys).
-- Branch **`feature/cinematic-overhaul`** (branched from `fix/gsc-404s`, not
-  merged, not deployed). The design overhaul the owner approved from mockups
-  on 2026-09-30:
-  - Cover films and scroll scenes for all 28 Systems articles (section 4).
-  - Systems IA: `/systems/` lists every article under its stage, and each
-    article ends with its stage and neighbours.
-  - Article page: prose starts sooner. The storyboard link is one line under
-    the cover, and "Where this helps, and where it stops" moved below the
-    body. Reading text is full ink at about seventy characters a line,
-    headings are bold, and code blocks are readable in light mode (they were
-    dark text on a fixed dark ground). These type rules are `.content-body`,
-    so Sentences, Calibrations and Shelf detail pages get them too.
-  - `SectionHeader` replaces the painted oil plates on nine pages. The
-    painted images, their loader page and three stale root docs
-    (`REDESIGN_HANDOFF.md`, `CHARACTER-PLATES.md`, `PLATE-PROMPTS.md`) are
-    deleted. About and Calibrations keep the self-portrait plate.
-  - `Head` stubble is rounded so it hydrates in client components.
-  - Home cards lift and boil on hover (`.ill-lift`).
-  - Theme decision: keep today's near-white page with paper plates on it.
-  Not done on this branch: the terminal toast is unchanged; the thin-line
-  HTML figures (`SceneFigure`, `public/scenes/*.html`) still sit under some
-  headers; only the tokenizer cover PNG was re-exported (its drawing gained
-  price tags), so other cover PNGs predate the stubble rounding, which is
-  below a pixel. The nineteen films added last were checked as frozen frames
-  only and still need one watch each in a visible tab.
-- Branch **`chore/repo-cleanup`** (on top of `feature/cinematic-overhaul`, not
-  merged, not deployed): removed code, assets, infra and docs nothing uses,
-  retired the thin-line figures, the terminal toast and the editorial
-  sandbox, folded the still-valid parts of old docs into `HOSTING.md` and
-  `SEARCH_AND_DISTRIBUTION.md`, added `verify:redirects` and `verify:links`
-  to the audit, and merged `websiteops/dax-deadpan-v1` (/stack/dax in the
-  deadpan register).
-- Branches: only `main`, `deploy` (written by CI), `fix/gsc-404s`,
-  `feature/cinematic-overhaul`, `chore/repo-cleanup` and the remote
-  `websiteops/dax-deadpan-v1` (delete it once `chore/repo-cleanup` is on
-  GitHub). The superseded branches were deleted on 2026-10-01 after their
-  useful work was confirmed in `main` or salvaged; tips, in case one is ever
-  needed: `seo/tier-1-corrective` 453eb62a, `feature/pmp-editorial-contract-v1`
-  ae240271, `feature/pmp-dark-theme` 1da752eb, `codex/learning-discovery`
-  1323eefc, `harness/website-build-pipeline` 2ef5c7d4.
+- `main` = `fc902aba`, **live since 2026-10-01** (CI green, deploy branch
+  published, origin and Cloudflare confirmed serving it, `verify:deploy`
+  clean). It includes:
+  - the 404 fixes (`/home/`, `/skills`, `/sentiments/about/`, five retired
+    tags answer 410) and the owner docs untracked;
+  - the overhaul: cover films for all 28 Systems articles, a scroll scene
+    for every article, deadpan section headers, the Systems IA, the
+    readable article page, light-mode code blocks;
+  - the repo cleanup (unused code, assets, infra and docs removed; old
+    registers retired; `verify:redirects` and `verify:links` in the audit);
+  - `/stack/dax` in the deadpan register.
+- Branches: only `main` and `deploy` (written by CI). Every other branch was
+  merged or deleted on 2026-10-01. Tips of the deleted unmerged ones, in case
+  one is ever needed: `seo/tier-1-corrective` 453eb62a,
+  `feature/pmp-editorial-contract-v1` ae240271, `feature/pmp-dark-theme`
+  1da752eb, `codex/learning-discovery` 1323eefc,
+  `harness/website-build-pipeline` 2ef5c7d4.
+- Not yet watched in a visible browser: the 19 cover films added last
+  (checked as frozen frames only).
 - **Git history is 335 MB**, mostly slide PDFs and a video in
   `public/resources/`, and still contains the three owner docs. A history
   rewrite would fix both, but it changes every commit SHA, and Systems
@@ -208,10 +180,9 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
 
 1. **Owner decision**: the three owner docs are in public git history since
    `f19c8f11`. Purging needs a history rewrite and force-push (destructive,
-   owner's call).
+   owner's call), and re-pinning article sources first (see above).
 2. **Owner, in Search Console**: remove the stale `sitemap_index.xml`
    (Astro-era, 404s); optionally request indexing for new pages.
-3. **Deploy `fix/gsc-404s`** once approved.
 4. **Thin pages**: the 99 crawled-not-indexed are mostly very short. Merge
    short Sentences into fuller pieces or noindex the thinnest.
 5. **Storyboards next round**: give the dank characters roles in the
