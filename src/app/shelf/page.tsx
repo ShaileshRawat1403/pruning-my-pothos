@@ -3,7 +3,7 @@ import SectionHeader from "../../components/SectionHeader";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 import { SHELF_CATEGORIES } from "../../lib/content/shelf";
-import { REFERENCE_DISCLOSURE } from "../../lib/content/reference-sheets";
+import { BUILDER_SECTION } from "../../lib/content/reference-sheets";
 
 export const metadata = constructMetadata({
   title: "Shelf",
@@ -61,19 +61,19 @@ export default function ShelfIndexPage() {
         ))}
         <SpotlightCard href="/shelf/reference/" accent="var(--accent-cyan)" className="gap-4 justify-between">
           <div className="flex flex-col gap-2">
-            <span className="text-[10px] font-mono" style={{ color: "var(--text-muted)" }}>DOWNLOADS</span>
+            <span className="text-[10px] font-mono" style={{ color: "var(--text-muted)" }}>FOR BUILDERS</span>
             <h2 className="font-heading text-lg font-bold" style={{ color: "var(--text-primary)" }}>
-              Reference Sheets
+              {BUILDER_SECTION.name}
             </h2>
             <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-              Slide guides, architecture sheets and mind maps to download. {REFERENCE_DISCLOSURE}
+              {BUILDER_SECTION.tagline}
             </p>
           </div>
           <span
             className="text-xs font-semibold self-start inline-flex items-center gap-1 transition-all duration-200 group-hover:gap-2"
             style={{ color: "var(--accent-cyan)" }}
           >
-            Browse Sheets ➔
+            Open the manuals ➔
           </span>
         </SpotlightCard>
       </section>

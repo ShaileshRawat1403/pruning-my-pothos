@@ -8,6 +8,12 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 Current state, rules, commands and next steps: 👉 [docs/HANDOVER.md](docs/HANDOVER.md)
 
+# Builder track (Works On My Prompt)
+
+Material for new-age builders lives on the Shelf and is done one step at a
+time. Read the plan, do the next open step, update the plan:
+👉 [Builder track](docs/BUILDER_TRACK.md)
+
 # Editorial Governor: PMP Editorial Contract v1
 
 All content authoring and modification in `src/content/` is strictly governed by:

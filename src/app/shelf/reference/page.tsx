@@ -4,31 +4,29 @@ import { constructMetadata } from "../../../lib/seo/metadata";
 import { getWebPageSchema } from "../../../lib/seo/jsonld";
 import {
   getReferenceSheets,
+  BUILDER_SECTION,
   REFERENCE_DISCLOSURE,
   REFERENCE_TYPE_LABEL,
+  REFERENCE_TYPE_NOTE,
+  type ReferenceSheetType,
 } from "../../../lib/content/reference-sheets";
 
-const DESCRIPTION =
-  "Quick-reference sheets to download: slide guides, architecture sheets, cheat sheets and mind maps for connecting the dots across applied AI systems.";
+const DESCRIPTION = `${BUILDER_SECTION.name}: ${BUILDER_SECTION.tagline} Field manuals, cheat sheets and maps for building with AI, each linked to the Systems article that explains why.`;
 
 // Noindexed until the first sheet is published, so search engines never meet
 // an empty shelf.
 export const metadata = constructMetadata({
-  title: "Reference Sheets",
+  title: BUILDER_SECTION.name,
   description: DESCRIPTION,
   path: "/shelf/reference",
   noindex: getReferenceSheets().length === 0,
 });
 
-const COMING = [
-  { type: "Slide guide", note: "A system, step by step, ending with where it breaks." },
-  { type: "Architecture sheet", note: "Every component, every flow, every trust boundary on one page." },
-  { type: "Mind map", note: "One topic, all its branches, for connecting the dots." },
-];
+const COMING: ReferenceSheetType[] = ["manual", "mindmap", "architecture"];
 
 export default function ReferenceSheetsPage() {
   const sheets = getReferenceSheets();
-  const schema = getWebPageSchema({ title: "Reference Sheets", description: DESCRIPTION, path: "/shelf/reference" });
+  const schema = getWebPageSchema({ title: BUILDER_SECTION.name, description: DESCRIPTION, path: "/shelf/reference" });
 
   return (
     <div className="relative w-full flex flex-col gap-12 max-w-[960px] mx-auto py-12">
@@ -42,35 +40,34 @@ export default function ReferenceSheetsPage() {
           </Link>
         </div>
         <h1 className="font-heading text-3xl sm:text-4xl font-extrabold" style={{ color: "var(--text-primary)" }}>
-          Reference sheets
+          {BUILDER_SECTION.name}
         </h1>
-        <p className="text-base leading-relaxed max-w-2xl" style={{ color: "var(--text-secondary)" }}>
-          Quick-reference sheets to download and keep: slide guides, architecture sheets, cheat sheets and mind maps.
-          Each one links back to the Systems articles it connects.
+        <p className="font-heading text-lg font-bold" style={{ color: "var(--text-primary)" }}>
+          {BUILDER_SECTION.tagline}
         </p>
-        <p className="font-mono text-xs" style={{ color: "var(--text-muted)" }}>
-          {REFERENCE_DISCLOSURE}
+        <p className="text-base leading-relaxed max-w-2xl" style={{ color: "var(--text-secondary)" }}>
+          {BUILDER_SECTION.intro}
         </p>
       </section>
 
       {sheets.length === 0 ? (
         <section aria-labelledby="coming-title" className="flex flex-col gap-6">
           <h2 id="coming-title" className="font-heading text-lg font-bold" style={{ color: "var(--text-primary)" }}>
-            The first sheets are being drafted.
+            The first manuals are being written.
           </h2>
           <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-3">
-            {COMING.map((c) => (
+            {COMING.map((type) => (
               <li
-                key={c.type}
+                key={type}
                 className="flex flex-col gap-3 rounded-sm border border-dashed p-5"
                 style={{ borderColor: "var(--card-border)" }}
               >
                 <div className="aspect-[4/3] w-full rounded-sm" style={{ background: "var(--card-bg)" }} aria-hidden="true" />
                 <span className="text-[10px] font-mono font-bold uppercase tracking-[0.18em]" style={{ color: "var(--accent-cyan)" }}>
-                  {c.type}
+                  {REFERENCE_TYPE_LABEL[type]}
                 </span>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                  {c.note}
+                  {REFERENCE_TYPE_NOTE[type]}
                 </p>
               </li>
             ))}
@@ -97,6 +94,9 @@ export default function ReferenceSheetsPage() {
                 <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   {s.summary}
                 </p>
+                {s.drafted === "notebooklm" && (
+                  <p className="font-mono text-[10px]" style={{ color: "var(--text-muted)" }}>{REFERENCE_DISCLOSURE}</p>
+                )}
                 <span className="text-xs font-semibold" style={{ color: "var(--accent-cyan)" }}>
                   Download ➔
                 </span>

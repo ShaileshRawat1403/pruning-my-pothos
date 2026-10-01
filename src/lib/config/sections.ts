@@ -55,10 +55,10 @@ export const SECTIONS: Section[] = [
     key: "shelf",
     label: "Shelf",
     href: "/shelf/",
-    blurb: "What informed the work, and reference sheets to keep.",
+    blurb: "What informed the work, and field manuals for builders.",
     items: [
       { label: "The shelf", href: "/shelf/" },
-      { label: "Reference sheets", href: "/shelf/reference/" },
+      { label: "Works On My Prompt", href: "/shelf/reference/" },
     ],
   },
   {
@@ -100,7 +100,7 @@ function itemMatches(pathname: string, item: NavItem): boolean {
 /** The section a path belongs to, if any, and the item within it. */
 export function locate(pathname: string): { section: Section; item?: NavItem } | undefined {
   for (const section of SECTIONS) {
-    // Longest match wins, so /shelf/reference/ is Reference sheets, not The shelf.
+    // Longest match wins, so /shelf/reference/ is Works On My Prompt, not The shelf.
     const item = [...section.items]
       .sort((a, b) => b.href.length - a.href.length)
       .find((i) => itemMatches(pathname, i));

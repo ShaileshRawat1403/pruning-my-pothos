@@ -1,5 +1,7 @@
 # Reference sheets: NotebookLM prompt kit
 
+> These sheets now live in **Works On My Prompt**, the builder section. Its voice, type names and order of work are in [BUILDER_TRACK.md](BUILDER_TRACK.md); follow that for anything new. This kit is for NotebookLM-drafted sheets only.
+
 Reference sheets are downloadable quick-reference assets (slide guides,
 architecture sheets, mind maps, cheat sheets) drafted in NotebookLM, reviewed
 and edited by PMP, hosted on the Shelf and showcased on the home page. This kit keeps every sheet looking like it belongs to the same

@@ -51,7 +51,7 @@ One config drives header, section sub-nav and footer:
 | Systems | `/systems/` explainers (28 articles). The 8-stage Systems Map (`src/lib/content/systems-map.ts`) names one flagship per stage; `src/lib/content/systems-ia.ts` places every other article under a stage as a companion or a note, or across the map. The build fails if an article is unplaced |
 | Storyboards | `/storyboards/` illustrated PDF explainers, one per stage article (8 decks) |
 | Stack | Projects `/stack/`, product pages `/stack/<product>/` (DAX at `/stack/dax/`), Tools `/tools/`, Canvases, Docs, Live lab |
-| Shelf | `/shelf/` categories, Reference sheets `/shelf/reference/` (placeholder, noindexed until the first sheet) |
+| Shelf | `/shelf/` categories, and **Works On My Prompt** `/shelf/reference/`: field manuals for new-age builders (placeholder, noindexed until the first sheet; plan in `docs/BUILDER_TRACK.md`) |
 | Self | Work `/portfolio/`, Writing (`/sentences/`, `/sentiments/`), Schema, Calibrations `/self/`, About `/about/` |
 
 `SectionNav` shows a second row on Stack and Self pages. The footer is one
@@ -124,6 +124,7 @@ Turbopack dev cache can serve stale CSS: `rm -rf .next/dev .next/cache/turbopack
 | `STORYBOARD_AUTHORING.md` | how to draw covers, films, scenes, storyboards |
 | `STYLE_REFERENCES.md` | outside work the deadpan register learns from |
 | `SEARCH_AND_DISTRIBUTION.md` | search, structured data, cross-posting |
+| `BUILDER_TRACK.md` | Works On My Prompt: the builder section, its voice, and the step-by-step order of work |
 | `HOSTING.md` | deploys, checks, Cloudflare and Hostinger |
 | `REFERENCE_SHEETS_PROMPTS.md`, `reference-sheets/` | the NotebookLM kit |
 | `ARCHIVE_DISPOSITION_MANIFEST.json`, `EDITORIAL_AUDIT.md` | machine-read by scripts and tests |
@@ -189,7 +190,8 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
    teaching frames too (today they appear in gag frames; teaching frames use
    the realistic generic figures). Keep one idea per frame, captions true to
    the article, no "not X, Y".
-6. **Reference sheets**: prompts in `docs/reference-sheets/batch-01.md`,
+6. **Works On My Prompt** (the builder track): follow `docs/BUILDER_TRACK.md`
+   step by step. NotebookLM sheets still use the prompts in `docs/reference-sheets/batch-01.md`,
    kit and review loop in `docs/REFERENCE_SHEETS_PROMPTS.md`. When the owner
    brings NotebookLM drafts: review page by page (keep / fix copy /
    regenerate), they edit (badge off, PMP footer on), then add entries to
