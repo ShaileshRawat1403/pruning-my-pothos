@@ -1,3 +1,7 @@
+> **Frozen specimen, not current instructions.** This is the Astro-era handoff log, kept because the article
+> "What Has to Survive for Work to Continue" cites it as evidence. For the current state of the repository,
+> read [docs/HANDOVER.md](../HANDOVER.md).
+
 # Agent Handoff: Current State
 
 ## Last updated

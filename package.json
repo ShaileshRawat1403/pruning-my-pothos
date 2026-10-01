@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "audit": "npm run lint:gates && npm run lint:content && npm run lint:systems && npm run lint:editorial:v1 && npm run lint:prose:v1 && npm run lint:systems:advisory && npm run verify:covers && node scripts/verify-indexing.mjs",
+    "audit": "npm run lint:gates && npm run lint:content && npm run lint:systems && npm run lint:editorial:v1 && npm run lint:prose:v1 && npm run lint:systems:advisory && npm run verify:covers && node scripts/verify-indexing.mjs && npm run verify:redirects",
     "lint:editorial:v1": "node scripts/lint-editorial-v1.mjs",
     "lint:prose:v1": "node scripts/run-vale.mjs --v1-only",
     "audit:editorial": "node scripts/audit-editorial-integrity.mjs",
@@ -22,7 +22,7 @@
     "verify:covers": "node scripts/verify-covers.mjs",
     "export:storyboards": "node scripts/export-storyboards.mjs",
     "verify:deploy": "node scripts/verify-deploy.mjs",
-    "deploy:ftp": "bash scripts/deploy-ftp.sh",
+    "verify:redirects": "node scripts/verify-htaccess-sitemap.mjs",
     "blog:conform": "node scripts/websiteops-conform.mjs",
     "blog:publish": "node scripts/websiteops-publish.mjs"
   },

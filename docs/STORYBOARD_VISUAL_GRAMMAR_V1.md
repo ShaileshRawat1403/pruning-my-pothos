@@ -1,6 +1,6 @@
 # Storyboard Visual Grammar v1
 
-**Status**: Specification only, 2026-09-23. Nothing implemented. No schema change, renderer, migration or content is authorised by this document.
+**Status**: Written 2026-09-23 as a specification; implemented since (the S2 renderers in `src/components/visuals/` cite it). Kept as the reference for article visuals. Scroll scenes (`docs/STORYBOARD_AUTHORING.md`) draw the same `visuals[]` data and follow its phone-first and accessibility rules.
 **Scope**: The visual grammar for article-owned structured visuals (`visuals[]`) and the `/storyboards/` surface that indexes them.
 **Governed by**: [PMP_CONTENT_DOCTRINE.md](PMP_CONTENT_DOCTRINE.md) and the Editorial Contract v1 (`scripts/editorial-contract-v1.mjs`).
 **Lineage**: the phone-first rule in §3 and the accessibility floor in §6 were first written for carousel frames in an earlier local draft, `docs/CAROUSEL_VISUAL_SYSTEM_V1.md`. That draft is untracked and is **not** a dependency of this document: every rule implementation must follow is stated in full below. The citation records where the thinking came from, nothing more.

@@ -1,9 +1,6 @@
 # PMP Content Experience v1 — Architecture & Specification
 
-**Status**: Proposed Architecture — awaiting implementation approval (Pass 4.0B)
-**Target Branch**: `feature/pmp-content-experience-v1`
-**Base Commit**: `289c076f224adf6121409cc50d33cbcf6124628b` (merged Editorial Contract v1 baseline)
-**Current Branch Head**: `314fe677b0a286938f658d4cd7e7957d2328936d`
+**Status**: Implemented. Approved and built in Passes 4.1 onward (the typed visual grammar, the single-parse marker rendering and the explainer blocks are live). Kept as the reference specification for how Systems content is typed and rendered; the branch and commit lines it originally carried described the proposal stage and are dropped.
 **Scope**: Reader experience, positioning source-of-truth contract, plain-language transformation contract, typed visual explanation grammar, and single-parse placeholder rendering architecture. (No article rewrites, no UI production implementation until Pass 4.1).
 
 ---

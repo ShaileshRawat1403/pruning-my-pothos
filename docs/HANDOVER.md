@@ -113,6 +113,22 @@ npm run validate:archive
 Local static preview: `python3 -m http.server 8811 --directory out`.
 Turbopack dev cache can serve stale CSS: `rm -rf .next/dev .next/cache/turbopack`.
 
+### Docs that stay, and why
+
+| Doc | Role |
+|:--|:--|
+| `HANDOVER.md` | this file: start here |
+| `PMP_CONTENT_DOCTRINE.md` | what the content is for (locked principles) |
+| `CONTENT_EXPERIENCE_V1.md` | how Systems content is typed and rendered (implemented spec) |
+| `STORYBOARD_VISUAL_GRAMMAR_V1.md` | rules for article visuals (implemented spec) |
+| `STORYBOARD_AUTHORING.md` | how to draw covers, films, scenes, storyboards |
+| `STYLE_REFERENCES.md` | outside work the deadpan register learns from |
+| `SEARCH_AND_DISTRIBUTION.md` | search, structured data, cross-posting |
+| `HOSTING.md` | deploys, checks, Cloudflare and Hostinger |
+| `REFERENCE_SHEETS_PROMPTS.md`, `reference-sheets/` | the NotebookLM kit |
+| `ARCHIVE_DISPOSITION_MANIFEST.json`, `EDITORIAL_AUDIT.md` | machine-read by scripts and tests |
+| `agent-handoff/current.md`, `agent-operations/ledger.jsonl` | **frozen specimens.** Two articles cite them as evidence at pinned commits and say "this repository keeps" them. Do not edit, move or delete them |
+
 ## 6. Hosting (see `docs/HOSTING.md`)
 
 Visitor → Cloudflare (DNS, proxy, cache; SSL Full; Smart Tiered Cache; a
@@ -191,8 +207,10 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
    regenerate), they edit (badge off, PMP footer on), then add entries to
    `src/lib/content/reference-sheets.ts` with files in `public/reference/`.
    Disclosure line stays: "Drafted with NotebookLM, edited by Pruning My Pothos."
-7. **Legacy imagery**: Stack, Shelf and Self headers still use older
-   painted character plates; candidates for the deadpan register.
+7. **Legacy imagery**: the painted plates are gone except the self-portrait
+   (About, Calibrations). Shelf resource covers (`public/covers/shelf/`) are
+   still the older calm abstract style; when Shelf is revamped they move to
+   deadpan. Do not add new covers in the old style.
 8. **DAX page**: the peer-comparison table (Cursor, Claude Code, Codex)
    makes claims to verify or source before wide sharing.
 9. More product landing pages will follow the `/stack/<product>/` pattern.

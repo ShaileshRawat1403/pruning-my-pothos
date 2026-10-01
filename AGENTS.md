@@ -32,3 +32,4 @@ Mark); the subjects never do. See:
 3. **Export after drawing**: `npm run build && npm run export:storyboards`. The contract suite fails if a deck or cover has no exported file.
 4. **A drawing never claims more than its article.** Illustrative details stay illustrative.
 5. **Any card that is a link uses `SpotlightCard`.**
+6. **Every cover has a film and every article visual has a scroll scene** (`illustrations/films/`, `illustrations/scenes/`). A film or scene shows nothing its article does not say; reduced motion, print and exports get the still.

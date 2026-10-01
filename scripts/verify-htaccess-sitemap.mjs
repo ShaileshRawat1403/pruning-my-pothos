@@ -1,57 +1,48 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
+// verify-htaccess-sitemap.mjs: no URL in the built sitemap may be redirected
+// or answered 410 by public/.htaccess. Run after `npm run build`.
+//
+// The rules are read from .htaccess itself (every active RewriteRule that
+// redirects or answers Gone), so the check cannot drift from the file the
+// server actually uses. Rules are Apache regexes over the path without its
+// leading slash, which JavaScript's RegExp reads the same way for the
+// patterns used here.
+import fs from "node:fs/promises";
+import path from "node:path";
 
-async function main() {
-  // Next.js static export writes to out/, not dist/ (Astro-era leftover path).
-  const sitemapPath = path.resolve('out/sitemap.xml');
-  const sitemapXml = await fs.readFile(sitemapPath, 'utf8');
-  
-  // Extract all urls using regex
-  const urls = [];
-  const matches = sitemapXml.matchAll(/<loc>(https:\/\/pruningmypothos\.com)?([^<]+)<\/loc>/g);
-  for (const match of matches) {
-    urls.push(match[2]);
-  }
-  
-  console.log(`Loaded ${urls.length} URLs from sitemap.`);
+const SITEMAP = path.resolve("out/sitemap.xml");
+const HTACCESS = path.resolve("public/.htaccess");
 
-  // htaccess rules to test
-  const goneRules = [
-    /^\/shelf\/movies\/?.*$/,
-    /^\/sentences\/sentence-[0-9]+\/?$/,
-    /^\/systems\/simple-tokenizer\/?$/,
-    /^\/shelf\/music\/music-recommendation.*$/
-  ];
+const sitemap = await fs.readFile(SITEMAP, "utf8").catch(() => {
+  console.error(`No ${SITEMAP}. Run \`npm run build\` first.`);
+  process.exit(1);
+});
+const paths = [...sitemap.matchAll(/<loc>(?:https:\/\/pruningmypothos\.com)?\/?([^<]*)<\/loc>/g)].map((m) => m[1]);
 
-  const redirectRules = [
-    /^\/notes\/?$/,
-    /^\/notes\/([^/]+)\/?$/
-  ];
+const rules = [];
+for (const line of (await fs.readFile(HTACCESS, "utf8")).split("\n")) {
+  const m = line.match(/^\s*RewriteRule\s+(\S+)\s+(\S+)\s+\[([^\]]+)\]/);
+  if (!m) continue;
+  const [, pattern, target, flags] = m;
+  const kind = /\bG\b|R=410/.test(flags) ? "410" : /R=30[12]/.test(flags) ? "redirect" : null;
+  // The canonical-host rule (^(.*)$) only fires under its http/www conditions.
+  if (!kind || pattern === "^(.*)$") continue;
+  rules.push({ re: new RegExp(pattern), pattern, target, kind });
+}
 
-  let failures = 0;
-
-  for (const url of urls) {
-    // Check if any rule matches
-    for (const rule of goneRules) {
-      if (rule.test(url)) {
-        console.error(`ERROR: Sitemap URL "${url}" matches 410 Gone rule: ${rule}`);
-        failures++;
-      }
+let failures = 0;
+for (const p of paths) {
+  for (const r of rules) {
+    if (r.re.test(p)) {
+      console.error(`CONFLICT /${p} is in the sitemap but .htaccess ${r.kind === "410" ? "answers 410" : `redirects it to ${r.target}`} (${r.pattern})`);
+      failures++;
     }
-    for (const rule of redirectRules) {
-      if (rule.test(url)) {
-        console.error(`ERROR: Sitemap URL "${url}" matches 301 Redirect rule: ${rule}`);
-        failures++;
-      }
-    }
-  }
-
-  if (failures === 0) {
-    console.log("SUCCESS: No sitemap URLs are matched by the redirect or 410 rules!");
-  } else {
-    console.error(`FAILED: Found ${failures} conflicts.`);
-    process.exitCode = 1;
   }
 }
 
-main().catch(console.error);
+console.log(`Checked ${paths.length} sitemap URLs against ${rules.length} .htaccess rules.`);
+if (failures) {
+  console.error(`FAILED: ${failures} conflict(s).`);
+  process.exitCode = 1;
+} else {
+  console.log("OK: no sitemap URL is redirected or gone.");
+}

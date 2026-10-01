@@ -1,10 +1,50 @@
-# Hosting and edge setup
+# Hosting, deploys and edge setup
 
-How pruningmypothos.com is served, as configured on 2026-09-24.
+How pruningmypothos.com is built, deployed and served. Edge settings as
+configured on 2026-09-24.
 
 ```
 visitor -> Cloudflare (DNS, proxy, cache) -> Hostinger (LiteSpeed, static files from the deploy branch)
 ```
+
+## Deploys
+
+**Pushing to `main` deploys production.** Nothing else does.
+
+1. CI (`.github/workflows/ci.yml`) runs lint, the contract suite, the content
+   linters, the build and the audit on every push.
+2. When CI is green on `main`, "Deploy to Hostinger"
+   (`.github/workflows/deploy-hostinger.yml`) builds `out/` and force-publishes
+   it to the `deploy` branch. It can also be run by hand from the Actions tab.
+3. Hostinger's Git integration watches `deploy` and pulls it. Hostinger never
+   builds; it serves what it pulled.
+
+No FTP or SSH credentials are involved. The old FTP mirror script is gone;
+the `deploy` branch is the only path.
+
+**Is it live?** The `deploy` branch advancing, Hostinger pulling, and
+Cloudflare's cache expiring are three separate states. Ask the origin
+directly, bypassing Cloudflare:
+
+```
+curl -sI --resolve "pruningmypothos.com:443:82.112.239.210" https://pruningmypothos.com/ | grep -i last-modified
+```
+
+Then `SITE_URL=https://pruningmypothos.com npm run verify:deploy` compares every
+cover image with the live site and names any that are stale.
+
+## Checks
+
+| Command | What it checks | When |
+|:--|:--|:--|
+| `npm run test:contract` | the editorial contract, covers, decks, house style | CI, blocking |
+| `npm run lint:content`, `lint:systems`, `lint:gates` | frontmatter and structure of each collection, banned copy | CI, blocking |
+| `npm run verify:covers` | every cover exists and none is reused | CI, blocking |
+| `npm run audit` | all linters, then the build output: robots, sitemap, schema, and that no sitemap URL is redirected or gone (`verify:redirects`) | CI, after the build |
+| `npm run verify:deploy` | live cover files match the repository | by hand, after a deploy |
+
+Run `npm run build` before `npm run audit`: the audit reads `out/`, so an
+audit before a build inspects stale output.
 
 ## Cloudflare (zone pruningmypothos.com)
 
