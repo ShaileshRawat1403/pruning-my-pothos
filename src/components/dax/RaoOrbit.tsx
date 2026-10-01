@@ -12,24 +12,19 @@ interface RaoOrbitProps {
   active: ActiveNode;
 }
 
-/** Conceptual RAO orbit: active node synced from the product tour beats. */
+/** Flat RAO chips synced from the product tour. Replaces the old 3D orbit. */
 export default function RaoOrbit({ active }: RaoOrbitProps) {
   return (
-    <div className="dax-stage-3d dax-rao-stage" aria-hidden="true">
-      <div className="dax-stage-ground" />
-      <div className="dax-rao-ring">
-        {NODES.map((n) => (
-          <div
-            key={n.id}
-            className={`dax-rao-node${active === n.id ? " is-active" : ""}`}
-            data-node={n.id}
-          >
-            <div className="dax-rao-node-face">
-              <span>{n.label}</span>
-            </div>
+    <div className="dax-rao-strip" aria-hidden="true">
+      {NODES.map((n, i) => (
+        <div key={n.id} className="dax-rao-strip-item">
+          <div className={`dax-rao-chip${active === n.id ? " is-active" : ""}`} data-node={n.id}>
+            <span className="dax-rao-chip-idx">{String(i + 1).padStart(2, "0")}</span>
+            <span>{n.label}</span>
           </div>
-        ))}
-      </div>
+          {i < NODES.length - 1 && <span className="dax-rao-arrow" aria-hidden="true">→</span>}
+        </div>
+      ))}
     </div>
   );
 }

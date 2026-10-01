@@ -1,96 +1,43 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "framer-motion";
+import { D, DeadpanDefs, Paper, Ink, Sheet, Label } from "../illustrations/deadpan";
+import { Stamp } from "../illustrations/props";
+import { Gate } from "../illustrations/kit";
 
 const LAYERS = [
-  { layer: 0, idx: "01", label: "Intent" },
-  { layer: 1, idx: "02", label: "Policy" },
-  { layer: 2, idx: "03", label: "Approval" },
-  { layer: 3, idx: "04", label: "Evidence" },
+  { label: "Intent", y: 72, r: -4 },
+  { label: "Policy", y: 118, r: -1.5 },
+  { label: "Approval", y: 164, r: 1.5 },
+  { label: "Evidence", y: 210, r: 3.5 },
 ] as const;
 
+const W = 340;
+const H = 300;
+
 /**
- * Conceptual 3D contract stack: Intent, Policy, Approval, Evidence.
- * Pointer parallax when motion is allowed; static pose under reduced motion.
+ * Deadpan contract plate: four paper layers the run must pass, with an ASK
+ * stamp on Approval. Flat ink on aged paper. Replaces the old brass 3D stack.
+ * Claims nothing beyond the product page: policy can pause before mutation.
  */
 export default function ContractStack() {
-  const stageRef = useRef<HTMLDivElement>(null);
-  const stackRef = useRef<HTMLDivElement>(null);
-  const reduced = useReducedMotion() ?? false;
-  const [auto, setAuto] = useState(true);
-  const cur = useRef({ x: 0, y: 0 });
-  const target = useRef({ x: 0, y: 0 });
-  const raf = useRef(0);
-
-  const apply = useCallback(function step() {
-    const el = stackRef.current;
-    if (!el) return;
-    cur.current.y += (target.current.y - cur.current.y) * 0.08;
-    cur.current.x += (target.current.x - cur.current.x) * 0.08;
-    el.classList.remove("is-auto");
-    el.style.transform = `rotateX(${58 + cur.current.x}deg) rotateZ(${-18 + cur.current.y * 0.15}deg) rotateY(${cur.current.y}deg)`;
-    if (
-      Math.abs(target.current.y - cur.current.y) > 0.05 ||
-      Math.abs(target.current.x - cur.current.x) > 0.05
-    ) {
-      raf.current = requestAnimationFrame(step);
-    } else {
-      raf.current = 0;
-    }
-  }, []);
-
-  const onMove = (e: React.PointerEvent) => {
-    if (reduced || !stageRef.current) return;
-    const rect = stageRef.current.getBoundingClientRect();
-    const nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    const ny = ((e.clientY - rect.top) / rect.height) * 2 - 1;
-    target.current = { y: nx * 16, x: -ny * 8 };
-    setAuto(false);
-    if (!raf.current) raf.current = requestAnimationFrame(apply);
-  };
-
-  const onLeave = () => {
-    if (reduced) return;
-    target.current = { x: 0, y: 0 };
-    if (!raf.current) raf.current = requestAnimationFrame(apply);
-    window.setTimeout(() => {
-      if (Math.abs(cur.current.y) < 0.5 && Math.abs(cur.current.x) < 0.5 && stackRef.current) {
-        stackRef.current.style.transform = "";
-        setAuto(true);
-      }
-    }, 500);
-  };
-
-  useEffect(() => () => {
-    if (raf.current) cancelAnimationFrame(raf.current);
-  }, []);
-
   return (
-    <div
-      ref={stageRef}
-      className="dax-stage-3d dax-hero-stage"
-      aria-hidden="true"
-      onPointerMove={onMove}
-      onPointerLeave={onLeave}
-    >
-      <div className="dax-stage-ground" />
-      <div
-        ref={stackRef}
-        className={`dax-contract-stack${auto && !reduced ? " is-auto" : ""}`}
-      >
-        {LAYERS.map((l) => (
-          <div
-            key={l.label}
-            className="dax-contract-plane"
-            data-layer={l.layer}
-            data-idx={l.idx}
-          >
-            {l.label}
-          </div>
-        ))}
-      </div>
-      <p className="dax-stage-caption">Contract layers</p>
-    </div>
+    <figure className="dax-hero-plate m-0 w-full max-w-[340px] ml-auto" aria-hidden="true">
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" height="auto" role="img">
+        <title>Contract layers: Intent, Policy, Approval, Evidence</title>
+        <DeadpanDefs id="dax-contract" />
+        <Paper id="dax-contract" w={W} h={H} />
+        <Ink id="dax-contract">
+          {LAYERS.map((l) => (
+            <Sheet key={l.label} x={48} y={l.y} w={180} h={56} title={l.label} lines={2} r={l.r} />
+          ))}
+          <Stamp x={168} y={148} text="ASK" w={88} size={18} rotate={-12} color={D.accent} />
+          <g transform="translate(210 48) scale(0.42)">
+            <Gate x={0} y={0} counter="POLICY" />
+          </g>
+          <Label x={170} y={278} text="the contract, not the chat" size={13} color={D.grey} r={-1} />
+        </Ink>
+      </svg>
+      <figcaption className="dax-stage-caption">Contract layers</figcaption>
+    </figure>
   );
 }
