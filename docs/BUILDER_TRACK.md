@@ -100,7 +100,8 @@ sheets once the first sheet is published.
 
 **Review before publishing**: drafts are shown on the local, gitignored
 route `/dank-samples/sheet-sample/` (or one like it) and are published only
-after the owner reads them there.
+after the owner reads them there. Start the dev server for that review, say
+which URLs to open, and stop it after; do the work itself against the build.
 
 ## Order of work
 

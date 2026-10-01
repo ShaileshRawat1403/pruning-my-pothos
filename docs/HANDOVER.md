@@ -99,7 +99,7 @@ then look at every changed frame at `/storyboards/<slug>/print/`.
 ## 5. Commands and gates
 
 ```
-npm run dev                  # the owner often runs one on :3000; don't start a second
+npm run dev                  # only when a change is ready for the owner to review; stop it after
 npm run build
 npm run export:storyboards   # after any illustration change (--only=<slug>)
 npm run lint                 # 0 errors expected (9 known warnings)
@@ -111,6 +111,10 @@ npm run validate:archive
 ```
 
 Local static preview: `python3 -m http.server 8811 --directory out`.
+Work safely: verify with the build, the gates and the static preview above,
+and start the dev server only when a change is ready for the owner to review
+on localhost. Stop it once they have.
+
 `npm run test:contract` briefly writes and removes a test article in
 `src/content/systems/`. A running dev server picks it up and then fails the
 Systems IA check ("Not placed: test-rollback-existing-target"); restart the
