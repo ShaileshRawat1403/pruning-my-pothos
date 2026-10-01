@@ -28,6 +28,7 @@ import { film as f_what_a_system_prompt_actually_is } from "./what-a-system-prom
 import { film as f_what_an_ai_model_actually_is } from "./what-an-ai-model-actually-is";
 import { film as f_why_ocr_quietly_breaks_document_ai } from "./why-ocr-quietly-breaks-document-ai";
 import { film as f_sheet_write_it_down_or_watch_it_guess } from "./write-it-down-or-watch-it-guess";
+import { film as f_sheet_it_looked_fine_when_i_tried_it } from "./it-looked-fine-when-i-tried-it";
 
 /** One film per Systems article, keyed by the article's slug; then one per
  * Works On My Prompt sheet with its own cover art, keyed by the sheet's slug. */
@@ -62,4 +63,5 @@ export const FILMS: Record<string, FilmScript> = {
   "why-ocr-quietly-breaks-document-ai": f_why_ocr_quietly_breaks_document_ai,
 
   "write-it-down-or-watch-it-guess": f_sheet_write_it_down_or_watch_it_guess,
+  "it-looked-fine-when-i-tried-it": f_sheet_it_looked_fine_when_i_tried_it,
 };

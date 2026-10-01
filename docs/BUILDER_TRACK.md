@@ -115,7 +115,7 @@ Status: `done`, `next`, `open`, `parked`.
 | 1 | Name the section and the types; revoice the pages; per-sheet disclosure | done (2026-10-01) |
 | 2 | The sheet format: data, page, cover, type emblems, drawn steps; a draft sample on the local route | done, reviewed (2026-10-01) |
 | 3 | "Write It Down or Watch It Guess": the file your coding agent reads first (stage 7). Published in `REFERENCE_SHEETS`; its drawing is the scene `write-it-down-or-watch-it-guess`. Tool claims rechecked against each tool's docs on 2026-10-01. On the feature branch, not deployed | done (2026-10-01) |
-| 4 | A ten-case check in a spreadsheet (stage 6), using the site's csv-to-eval tool | next |
+| 4 | A ten-case check in a spreadsheet (stage 6), using the site's csv-to-eval tool. Drafted as "It Looked Fine When I Tried It" (working title) on the local route, with its cover pun, film and scene registered under that slug; promptfoo claims checked against its docs on 2026-10-01 | drafted, awaiting owner review (2026-10-01) |
 | 5 | Give an assistant your documents, and know what it can see (stage 2) | open |
 | 6 | Conspiracy Board: the builder's stack, by category, dated | open |
 | 7 | Choosing a model (stage 1), anchored on the Shelf's local and cloud baselines | open |
@@ -135,6 +135,13 @@ its step starts, approved by the owner.
   this section. The disclosure and `drafted` field are removed; the prompt
   kit (`docs/REFERENCE_SHEETS_PROMPTS.md`) is parked.
 - 2026-10-01: Sheets are pages with drawn steps, not downloads.
+- 2026-10-01: Sheet covers play as films like Systems covers: `SheetCover`
+  carries the same cf- hooks, a film script lives in `illustrations/films/`
+  under the sheet's slug, and the quip box (`fx-quip`) appears with its first
+  beat. The draft sheet's data is `src/app/dank-samples/sheet-sample/draft.ts`
+  (gitignored), which the film and scene contact sheets also read.
+- 2026-10-01: The site's CSV to Eval page says online use is limited to 10
+  rows; its code sets no such limit. The sheet does not repeat the claim.
 - 2026-10-01: A sheet's step drawing lives in `illustrations/scenes/` and is
   registered in `SCENES` under the sheet's `scene` id, but not in
   `SCENE_IDS` (that set is for article visuals). The local route

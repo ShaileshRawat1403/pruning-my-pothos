@@ -171,6 +171,45 @@ const SHEET_ART: Record<string, React.ReactNode> = {
       <g className="fx-readit">{hand(730, 168, "read it.", 34, D.greyLight)}</g>
     </g>
   ),
+  /* Tasted one spoon. Served everyone: one taste, a whole shelf of bowls. */
+  "it-looked-fine-when-i-tried-it": (
+    <g>
+      <path d="M640 560 H1150" stroke={D.ink} strokeWidth={5} strokeLinecap="round" opacity={0.6} />
+
+      {/* The pass: everything that went out on that one taste. */}
+      <rect x={836} y={196} width={314} height={14} fill={D.paperDeep} stroke={D.ink} strokeWidth={4} />
+      <g className="fx-bowls">
+        {Array.from({ length: 10 }, (_, i) => (
+          <g key={i} className="fx-bowl">
+            <path d={`M${846 + i * 30} 176 h24 q0 20 -12 20 q-12 0 -12 -20 Z`} fill="#fff" stroke={D.ink} strokeWidth={3} strokeLinejoin="round" />
+            <path d={`M${854 + i * 30} 168 q-4 -8 0 -14`} fill="none" stroke={D.greyLight} strokeWidth={2.5} strokeLinecap="round" />
+          </g>
+        ))}
+      </g>
+      {mono(993, 240, "SERVED", 20, D.greyLight)}
+
+      {/* The counter and the one pot. */}
+      <rect x={840} y={400} width={310} height={160} fill={D.paperDeep} stroke={D.ink} strokeWidth={5} />
+      <rect x={884} y={330} width={128} height={70} rx={6} fill={D.grey} stroke={D.ink} strokeWidth={5} />
+      <ellipse cx={948} cy={330} rx={70} ry={12} fill={D.ink} />
+      {mono(948, 374, "V2", 22, "#fff")}
+      <path d="M914 312 q-6 -12 0 -22 M948 306 q-6 -12 0 -22 M982 312 q-6 -12 0 -22" fill="none" stroke={D.greyLight} strokeWidth={3} strokeLinecap="round" />
+
+      {/* The cook: one spoon, to the mouth, considered. */}
+      <Legs x={740} y={478} floor={558} gap={44} />
+      <Torso x={740} y={318} w={150} h={166} fill="#fff" />
+      <path d="M700 330 V480 M780 330 V480" stroke={D.greyLight} strokeWidth={3} />
+      <path d="M710 186 C 700 140, 780 130, 770 186 Z" fill="#fff" stroke={D.ink} strokeWidth={4} strokeLinejoin="round" />
+      <Head x={740} y={250} r={58} eyes="tt" look={-0.3} mouth="flat" stubble hair="none" />
+      <g className="fx-arm">
+        <Limb d="M800 350 C 812 320, 790 300, 768 296" fill="#fff" />
+        <path d="M768 296 L742 288" stroke={D.ink} strokeWidth={5} strokeLinecap="round" />
+        <ellipse cx={738} cy={287} rx={9} ry={6} fill="#C9B593" stroke={D.ink} strokeWidth={3} />
+      </g>
+
+      <g className="fx-fine">{hand(648, 214, "fine.", 34, D.greyLight)}</g>
+    </g>
+  ),
 };
 
 /** The type's emblem on its own paper, for cards. */
@@ -230,16 +269,18 @@ export function SheetCover({ slug, type, title, promise, quip }: { slug: string;
             PRUNINGMYPOTHOS.COM
           </text>
           {quip && (
-            <g transform={`rotate(-3 ${qx} ${qy})`}>
-              <rect x={qx - qw / 2} y={qy - qs - 6} width={qw} height={qs + 14} rx={3} fill="#fff" stroke={D.ink} strokeWidth={3.5} />
-              <text x={qx} y={qy + 1} textAnchor="middle" className="ill-mono" fontSize={qs} fontWeight={700} fill={D.accent}>
-                {beats.map((b, i) => (
-                  <tspan key={i} className="cf-beat">
-                    {i > 0 ? " " : ""}
-                    {b}
-                  </tspan>
-                ))}
-              </text>
+            <g className="fx-quip">
+              <g transform={`rotate(-3 ${qx} ${qy})`}>
+                <rect x={qx - qw / 2} y={qy - qs - 6} width={qw} height={qs + 14} rx={3} fill="#fff" stroke={D.ink} strokeWidth={3.5} />
+                <text x={qx} y={qy + 1} textAnchor="middle" className="ill-mono" fontSize={qs} fontWeight={700} fill={D.accent}>
+                  {beats.map((b, i) => (
+                    <tspan key={i} className="cf-beat">
+                      {i > 0 ? " " : ""}
+                      {b}
+                    </tspan>
+                  ))}
+                </text>
+              </g>
             </g>
           )}
         </g>

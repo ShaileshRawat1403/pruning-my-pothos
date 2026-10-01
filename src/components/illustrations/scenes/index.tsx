@@ -38,4 +38,5 @@ export const SCENES: Record<string, ComponentType<SceneProps>> = {
   // Works On My Prompt sheets: the steps of a sheet, keyed by its `scene`.
   // Not article visuals, so they stay out of SCENE_IDS.
   "write-it-down-or-watch-it-guess": dynamic(() => import("./write-it-down-or-watch-it-guess")),
+  "it-looked-fine-when-i-tried-it": dynamic(() => import("./it-looked-fine-when-i-tried-it")),
 };
