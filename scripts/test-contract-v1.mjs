@@ -939,7 +939,9 @@ async function runTests() {
   const refSrc = await fs.readFile(path.resolve(ROOT, "src/lib/content/reference-sheets.ts"), "utf8");
   const sheetArticles = [...refSrc.matchAll(/^\s{4}article: "([^"]+)"/gm)].map((m) => m[1]);
   const missingArticles = sheetArticles.filter((slug) => !existsSync(path.resolve(ROOT, `src/content/systems/${slug}.mdx`)));
-  const toolDocsWithoutDate = [...refSrc.matchAll(/docs: "[^"]+",\s*\n\s*(?!asOf)/g)].length;
+  // The lookahead takes the indent itself; outside it, `\s*` would backtrack
+  // and match every dated note.
+  const toolDocsWithoutDate = [...refSrc.matchAll(/docs: "[^"]+",\s*\n(?!\s*asOf)/g)].length;
   assert(
     missingArticles.length === 0 && toolDocsWithoutDate === 0,
     `Test 71: builder sheets link to real Systems articles and date every tool note${missingArticles.length ? ` (missing: ${missingArticles.join(", ")})` : ""}`

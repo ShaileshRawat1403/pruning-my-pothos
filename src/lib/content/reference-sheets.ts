@@ -5,8 +5,9 @@
  * at /shelf/reference/<slug>/. The plan, the voice and the order of work are
  * in docs/BUILDER_TRACK.md; read it before adding or changing anything here.
  *
- * While the list is empty, /shelf/reference/ is a noindexed placeholder and
- * stays out of the sitemap.
+ * With an empty list, /shelf/reference/ is a noindexed placeholder and stays
+ * out of the sitemap. A sheet's step drawing is registered in
+ * illustrations/scenes/index.tsx under its `scene` id.
  */
 
 /** The section's name, everywhere it appears. Change copy here, not in pages. */
@@ -91,7 +92,86 @@ export interface ReferenceSheet {
   updatedAt?: string;
 }
 
-export const REFERENCE_SHEETS: ReferenceSheet[] = [];
+export const REFERENCE_SHEETS: ReferenceSheet[] = [
+  {
+    slug: "write-it-down-or-watch-it-guess",
+    title: "Write It Down or Watch It Guess",
+    quip: "Read it. Guessed anyway.",
+    type: "manual",
+    promise: "write the one file a coding agent reads before it touches your project, and know what that file cannot do.",
+    summary:
+      "A coding agent starts every session from nothing. It does not remember yesterday, your rules, or the folder you told it never to touch. Many coding agents read one plain file at the start: AGENTS.md, or CLAUDE.md for Claude Code. Write it once and you stop repeating yourself. Write it badly and it follows the bad version, carefully.",
+    article: "agent-instructions-and-handoff-as-an-operating-system",
+    steps: [
+      {
+        id: "what",
+        do: "Say what the project is in three lines: what it does, who it is for, what it is built with.",
+        check: "Paste only those lines into a fresh chat and ask for the project back in one sentence. It should match yours.",
+        fails: "It describes a different, more exciting project. Confidently.",
+      },
+      {
+        id: "never",
+        do: "List what it must never do, each one specific: a command, a folder, a file.",
+        check: "Every line names something you could point at. \"Be careful\" names nothing.",
+        fails: "A rule nobody can check. It gets read, agreed with, and stepped over.",
+      },
+      {
+        id: "done",
+        do: "Write how it proves it is done: the exact commands that have to pass.",
+        check: "Run them yourself, now. They pass.",
+        fails: "\"Done!\" with nothing run. You find out from a user.",
+      },
+      {
+        id: "where",
+        do: "Say where things live: one line for each folder that matters.",
+        check: "Ask where it would put a new page. It names the right folder.",
+        fails: "A second copy of a file you already had, in a folder you did not.",
+      },
+      {
+        id: "date",
+        do: "Date it, and change it the day a decision changes.",
+        check: "The date is recent, and the last thing you decided is in it.",
+        fails: "It follows a rule you dropped a month ago. Exactly as written.",
+      },
+    ],
+    tools: [
+      {
+        name: "AGENTS.md",
+        forWhat: "An open format: one plain file at the root of a repository, described as a README for agents. Its site lists more than twenty tools that read it.",
+        notFor: "Enforcing anything. It is a file the agent reads, nothing more.",
+        docs: "https://agents.md",
+        asOf: "2026-10-01",
+      },
+      {
+        name: "Claude Code (CLAUDE.md)",
+        forWhat: "Read at the start of every session; it can read AGENTS.md instead when there is no CLAUDE.md.",
+        notFor: "Blocking an action. Its docs call these files context, not enforced configuration, and point to hooks for that.",
+        docs: "https://code.claude.com/docs/en/memory",
+        asOf: "2026-10-01",
+      },
+      {
+        name: "Cursor",
+        forWhat: "Reads an AGENTS.md in the project root, or project rules in .cursor/rules as .mdc files.",
+        notFor: "Reading a plain .md file inside .cursor/rules. Its docs say that file is ignored.",
+        docs: "https://cursor.com/docs/context/rules",
+        asOf: "2026-10-01",
+      },
+    ],
+    stops:
+      "A file is read, not obeyed. Claude Code's own documentation calls these files context, not enforced configuration. Anything that must never happen needs a check that runs outside the agent: a permission it does not have, a branch it cannot push to, a test that fails.",
+    sources: [
+      { label: "AGENTS.md, the open format (agents.md)", url: "https://agents.md" },
+      { label: "Claude Code docs: How Claude remembers your project", url: "https://code.claude.com/docs/en/memory" },
+      { label: "Cursor docs: Rules", url: "https://cursor.com/docs/context/rules" },
+      {
+        label: "A working specimen: this site's own AGENTS.md, as of 2026-10-01",
+        url: "https://github.com/ShaileshRawat1403/pruning-my-pothos/blob/fc902abab5cd08ad5a863c929d2ea3a4f8bd5c2b/AGENTS.md",
+      },
+    ],
+    scene: "write-it-down-or-watch-it-guess",
+    publishDate: "2026-10-01",
+  },
+];
 
 export function getReferenceSheets(): ReferenceSheet[] {
   return [...REFERENCE_SHEETS].sort((a, b) => b.publishDate.localeCompare(a.publishDate));

@@ -110,9 +110,9 @@ Status: `done`, `next`, `open`, `parked`.
 | # | Step | Status |
 |:--|:--|:--|
 | 1 | Name the section and the types; revoice the pages; per-sheet disclosure | done (2026-10-01) |
-| 2 | The sheet format: data, page, cover, type emblems, drawn steps; a draft sample on the local route | done, awaiting owner review (2026-10-01) |
-| 3 | "Write It Down or Watch It Guess": the file your coding agent reads first (stage 7). Drafted as the step 2 sample; publish after review | next |
-| 4 | A ten-case check in a spreadsheet (stage 6), using the site's csv-to-eval tool | open |
+| 2 | The sheet format: data, page, cover, type emblems, drawn steps; a draft sample on the local route | done, reviewed (2026-10-01) |
+| 3 | "Write It Down or Watch It Guess": the file your coding agent reads first (stage 7). Published in `REFERENCE_SHEETS`; its drawing is the scene `write-it-down-or-watch-it-guess`. Tool claims rechecked against each tool's docs on 2026-10-01. On the feature branch, not deployed | done (2026-10-01) |
+| 4 | A ten-case check in a spreadsheet (stage 6), using the site's csv-to-eval tool | next |
 | 5 | Give an assistant your documents, and know what it can see (stage 2) | open |
 | 6 | Conspiracy Board: the builder's stack, by category, dated | open |
 | 7 | Choosing a model (stage 1), anchored on the Shelf's local and cloud baselines | open |
@@ -132,3 +132,7 @@ its step starts, approved by the owner.
   this section. The disclosure and `drafted` field are removed; the prompt
   kit (`docs/REFERENCE_SHEETS_PROMPTS.md`) is parked.
 - 2026-10-01: Sheets are pages with drawn steps, not downloads.
+- 2026-10-01: A sheet's step drawing lives in `illustrations/scenes/` and is
+  registered in `SCENES` under the sheet's `scene` id, but not in
+  `SCENE_IDS` (that set is for article visuals). The local route
+  `/dank-samples/sheet-sample/` is an empty slot for the next draft.

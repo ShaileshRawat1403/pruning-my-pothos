@@ -51,7 +51,7 @@ One config drives header, section sub-nav and footer:
 | Systems | `/systems/` explainers (28 articles). The 8-stage Systems Map (`src/lib/content/systems-map.ts`) names one flagship per stage; `src/lib/content/systems-ia.ts` places every other article under a stage as a companion or a note, or across the map. The build fails if an article is unplaced |
 | Storyboards | `/storyboards/` illustrated PDF explainers, one per stage article (8 decks) |
 | Stack | Projects `/stack/`, product pages `/stack/<product>/` (DAX at `/stack/dax/`), Tools `/tools/`, Canvases, Docs, Live lab |
-| Shelf | `/shelf/` categories, and **Works On My Prompt** `/shelf/reference/`: material for new-age builders (placeholder, noindexed until the first sheet; plan in `docs/BUILDER_TRACK.md`) |
+| Shelf | `/shelf/` categories, and **Works On My Prompt** `/shelf/reference/`: material for new-age builders (first sheet, "Write It Down or Watch It Guess", at `/shelf/reference/write-it-down-or-watch-it-guess/`; plan in `docs/BUILDER_TRACK.md`) |
 | Self | Work `/portfolio/`, Writing (`/sentences/`, `/sentiments/`), Schema, Calibrations `/self/`, About `/about/` |
 
 `SectionNav` shows a second row on Stack and Self pages. The footer is one
