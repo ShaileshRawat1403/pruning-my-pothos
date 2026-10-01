@@ -117,7 +117,6 @@ console.log('\n## 4. Content Collections\n');
 const systemsDir = './src/content/systems';
 const sentencesDir = './src/content/sentences';
 const selfDir = './src/content/self';
-const shelfDir = './src/content/shelf';
 
 async function countFiles(dir) {
   try {
@@ -242,7 +241,6 @@ let imagesWithAlt = 0;
 for (const file of filesToCheck) {
   const content = await readFile(join(systemsDir, file), 'utf8');
   const imgMatches = content.match(/!\[([^\]]*)\]\(/g) || [];
-  const altMatches = content.match(/alt="([^"]*)"/g) || [];
   
   for (const match of imgMatches) {
     const altPart = match.replace('![', '').replace('](', '');

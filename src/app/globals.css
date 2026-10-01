@@ -1000,9 +1000,6 @@ h1, h2, h3, h4, h5 {
   color: var(--accent-purple);
 }
 
-/* ── Legacy hooks kept harmless ── */
-.glow-orb { display: none; }
-.hacker-crt-green, .hacker-crt-blue { font-family: var(--font-mono); }
 
 /* ══ Storybook illustrations ══
    Storyboard frames are drawn on their own paper and do not re-theme:

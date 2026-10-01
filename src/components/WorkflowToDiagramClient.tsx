@@ -13,8 +13,8 @@ export default function WorkflowToDiagramClient() {
   const [inputText, setInputText] = useState("");
   const [mermaidCode, setMermaidCode] = useState("");
   const [diagramSvg, setDiagramSvg] = useState("");
-  const [copyMermaidText, setCopyMermaidText] = useState("Copy Mermaid");
-  const [copyJsonText, setCopyJsonText] = useState("Copy JSON");
+  const [copyMermaidText, setCopyMermaidText] = useState("MERMAID");
+  const [copyJsonText, setCopyJsonText] = useState("JSON");
 
   useEffect(() => {
     mermaid.initialize({
@@ -97,8 +97,8 @@ export default function WorkflowToDiagramClient() {
   const handleCopyMermaid = () => {
     if (!mermaidCode) return;
     navigator.clipboard.writeText(mermaidCode).then(() => {
-      setCopyMermaidText("Copied!");
-      setTimeout(() => setCopyMermaidText("Copy Mermaid"), 1500);
+      setCopyMermaidText("COPIED");
+      setTimeout(() => setCopyMermaidText("MERMAID"), 1500);
     });
   };
 
@@ -106,8 +106,8 @@ export default function WorkflowToDiagramClient() {
     if (!mermaidCode) return;
     const jsonStr = JSON.stringify({ mermaid: mermaidCode, text: inputText }, null, 2);
     navigator.clipboard.writeText(jsonStr).then(() => {
-      setCopyJsonText("Copied!");
-      setTimeout(() => setCopyJsonText("Copy JSON"), 1500);
+      setCopyJsonText("COPIED");
+      setTimeout(() => setCopyJsonText("JSON"), 1500);
     });
   };
 
@@ -181,13 +181,13 @@ export default function WorkflowToDiagramClient() {
                 onClick={handleCopyMermaid}
                 className="px-2.5 py-1 text-[10px] font-mono rounded-lg bg-accent-cyan/10 border border-accent-cyan/20 text-[color:var(--text-primary)] hover:bg-accent-cyan/20 hover:border-accent-cyan/40 transition-all cursor-pointer"
               >
-                MERMAID
+                {copyMermaidText}
               </button>
               <button
                 onClick={handleCopyJson}
                 className="px-2.5 py-1 text-[10px] font-mono rounded-lg bg-accent-pink/10 border border-accent-pink/20 text-[color:var(--text-primary)] hover:bg-accent-pink/20 hover:border-accent-pink/40 transition-all cursor-pointer"
               >
-                JSON
+                {copyJsonText}
               </button>
             </div>
           )}

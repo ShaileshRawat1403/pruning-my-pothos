@@ -47,10 +47,6 @@ export default function RootLayout({
       >
         <a href="#main-content" className="skip-link">Skip to content</a>
         <ScrollAnimations />
-        {/* ScrollProgress is intentionally not mounted globally: a saturated
-            gradient bar across the top of every route is product chrome, and
-            reading progress means little on an index or a tool page. The
-            component is kept for a future article-scoped use. */}
         <BackgroundGrid />
         <Header />
         <SectionNav />

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export interface CharacterPlateProps {
   /** raster/vector image path under /public (used when htmlSrc is absent) */
