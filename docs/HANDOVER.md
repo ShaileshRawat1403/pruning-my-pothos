@@ -182,10 +182,27 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
   price tags), so other cover PNGs predate the stubble rounding, which is
   below a pixel. The nineteen films added last were checked as frozen frames
   only and still need one watch each in a visible tab.
-- Stale branches with unmerged work: `seo/tier-1-corrective`,
-  `feature/pmp-editorial-contract-v1`, `feature/pmp-dark-theme`,
-  `codex/learning-discovery`. Merged, safe to delete: `feature/dank-cast`,
-  `feature/dank-style`, `feature/home-redesign`.
+- Branch **`chore/repo-cleanup`** (on top of `feature/cinematic-overhaul`, not
+  merged, not deployed): removed code, assets, infra and docs nothing uses,
+  retired the thin-line figures, the terminal toast and the editorial
+  sandbox, folded the still-valid parts of old docs into `HOSTING.md` and
+  `SEARCH_AND_DISTRIBUTION.md`, added `verify:redirects` and `verify:links`
+  to the audit, and merged `websiteops/dax-deadpan-v1` (/stack/dax in the
+  deadpan register).
+- Branches: only `main`, `deploy` (written by CI), `fix/gsc-404s`,
+  `feature/cinematic-overhaul`, `chore/repo-cleanup` and the remote
+  `websiteops/dax-deadpan-v1` (delete it once `chore/repo-cleanup` is on
+  GitHub). The superseded branches were deleted on 2026-10-01 after their
+  useful work was confirmed in `main` or salvaged; tips, in case one is ever
+  needed: `seo/tier-1-corrective` 453eb62a, `feature/pmp-editorial-contract-v1`
+  ae240271, `feature/pmp-dark-theme` 1da752eb, `codex/learning-discovery`
+  1323eefc, `harness/website-build-pipeline` 2ef5c7d4.
+- **Git history is 335 MB**, mostly slide PDFs and a video in
+  `public/resources/`, and still contains the three owner docs. A history
+  rewrite would fix both, but it changes every commit SHA, and Systems
+  articles pin repository evidence to SHAs of this repository (for example
+  the two frozen specimens in `docs/`). Rewriting means re-pinning those
+  sources first. Owner's call; not done.
 
 ## 9. Open items and next steps
 
