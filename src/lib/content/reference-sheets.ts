@@ -171,6 +171,73 @@ export const REFERENCE_SHEETS: ReferenceSheet[] = [
     scene: "write-it-down-or-watch-it-guess",
     publishDate: "2026-10-01",
   },
+  {
+    slug: "better-than-last-week-prove-it",
+    title: "Better Than Last Week? Prove It.",
+    quip: "Tasted one spoon. Served everyone.",
+    type: "manual",
+    promise: "tell whether a change made your AI feature better or worse, with ten rows in a spreadsheet, before a user tells you.",
+    summary:
+      "You changed the prompt, or the model, or what it gets to read. You tried it twice and it looked fine. Looking fine is a feeling about fluent text, and fluent text is exactly what these systems are good at. A short list of real inputs, each with what a passing answer must do, checked before and after the change, turns the feeling into something you can point at.",
+    article: "evaluation-is-a-human-problem",
+    steps: [
+      {
+        id: "worse",
+        do: "Before changing anything, write one sentence saying what worse would look like.",
+        check: "Show the sentence and one output to someone else. They can say yes or no without asking what you meant.",
+        fails: "You decide what good meant after reading the output. It agrees with you every time.",
+      },
+      {
+        id: "rows",
+        do: "Make ten rows of real inputs: ones that went wrong once, or ones you are nervous about. One input per row.",
+        check: "Every input could be pasted in as it is, and none of them were made up to pass.",
+        fails: "Ten polite questions it was always going to get right.",
+      },
+      {
+        id: "must",
+        do: "Next to each input, write what a passing answer must do, as something you can see: names the refund window, says no, comes back as valid JSON.",
+        check: "Two people mark the same output against the same row and agree.",
+        fails: "\"Should be helpful.\" Every answer is helpful, including the wrong ones.",
+      },
+      {
+        id: "twice",
+        do: "Run all ten on the current version and mark each pass or fail. Make the change, run the same ten, mark them again in the next column.",
+        check: "Two columns of marks on the same rows. You can point at the row that moved.",
+        fails: "New examples each time. Something changed, and nobody can say what.",
+      },
+      {
+        id: "grow",
+        do: "When something breaks for real, add it as a new row the same day.",
+        check: "The newest row is the newest failure.",
+        fails: "The same bug, fixed twice and discussed three times, never written down.",
+      },
+    ],
+    tools: [
+      {
+        name: "promptfoo",
+        forWhat: "An open-source CLI that runs your test cases against a model on your machine. It can read tests from a CSV file, with an __expected column holding checks such as contains:, is-json or llm-rubric:.",
+        notFor: "Writing the expectations. It checks the ones you give it; llm-rubric hands the judgment to a model, which has to be checked too.",
+        docs: "https://www.promptfoo.dev/docs/configuration/test-cases/",
+        asOf: "2026-10-01",
+      },
+      {
+        name: "CSV to Eval (this site)",
+        forWhat: "Turns rows with query, response and expected columns into JSONL, one line per row, in the browser.",
+        notFor: "Running anything or marking pass or fail. It formats rows; you still read the outputs. It labels every expectation contains_phrase, whatever the expectation says. Its own page calls it a local prototype.",
+        docs: "https://pruningmypothos.com/tools/csv-to-eval/",
+        asOf: "2026-10-01",
+      },
+    ],
+    stops:
+      "Ten rows show what moved on those ten. They are no estimate of how often anything goes wrong in real use, and they cannot say whether you wrote the right expectation. That part stays a person's decision, and it is the part worth rereading when a row starts failing.",
+    sources: [
+      { label: "promptfoo docs: Test cases (CSV and __expected)", url: "https://www.promptfoo.dev/docs/configuration/test-cases/" },
+      { label: "promptfoo docs: Intro (open source, runs locally)", url: "https://www.promptfoo.dev/docs/intro/" },
+      { label: "This site's CSV to Eval tool", url: "https://pruningmypothos.com/tools/csv-to-eval/" },
+    ],
+    scene: "better-than-last-week-prove-it",
+    publishDate: "2026-10-01",
+  },
 ];
 
 export function getReferenceSheets(): ReferenceSheet[] {

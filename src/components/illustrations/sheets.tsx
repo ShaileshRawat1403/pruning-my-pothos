@@ -172,7 +172,7 @@ const SHEET_ART: Record<string, React.ReactNode> = {
     </g>
   ),
   /* Tasted one spoon. Served everyone: one taste, a whole shelf of bowls. */
-  "it-looked-fine-when-i-tried-it": (
+  "better-than-last-week-prove-it": (
     <g>
       <path d="M640 560 H1150" stroke={D.ink} strokeWidth={5} strokeLinecap="round" opacity={0.6} />
 

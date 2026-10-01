@@ -5,7 +5,7 @@ import { D, Head, Torso, Limb } from "../deadpan";
 import { At, Lit, Plate, SceneProps, Show, Tick, hand, mono } from "./kit";
 
 /**
- * The steps of the Works On My Prompt sheet "It Looked Fine When I Tried It".
+ * The steps of the Works On My Prompt sheet "Better Than Last Week? Prove It.".
  * One board, every step: the note saying what worse looks like, then ten
  * inputs, then what each must do, then two runs marked side by side with the
  * row that moved ringed, then a new row for the newest failure. The marks are

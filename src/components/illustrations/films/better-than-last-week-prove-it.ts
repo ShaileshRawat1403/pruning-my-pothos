@@ -1,7 +1,7 @@
 import type { FilmScript } from "./kit";
 
 /**
- * The cover of the Works On My Prompt sheet "It Looked Fine When I Tried It".
+ * The cover of the Works On My Prompt sheet "Better Than Last Week? Prove It.".
  * SheetCover draws in cover space, so points here subtract the emblem origin
  * (660, 44). Wide: the spoon goes into the pot and comes up. Close-up: the
  * face, considering. Wide: "Tasted one spoon." The shelf fills with bowls.
