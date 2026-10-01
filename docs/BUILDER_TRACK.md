@@ -91,8 +91,11 @@ list when not yet drawn; the tools from their own docs; where it stops,
 with the article; the sources.
 
 **Drawings**: each type has an emblem (`SheetTypeEmblem`), used on cards and
-the empty state. Each sheet's steps get their own scene drawing in the
-deadpan register: the same objects change step by step, one idea per step.
+the empty state. Each sheet's cover gets its own pun (`SHEET_ART` in
+`illustrations/sheets.tsx`, keyed by slug), so the subject never repeats.
+Each sheet's steps get their own scene drawing in the deadpan register: one
+room, the same objects, one of them changing per step, the agent's arm and
+eyes going to it; labels 18px or more.
 
 **Checks**: Test 71 fails if a sheet links to a Systems article that does
 not exist or a tool note has no date. The sitemap lists the section and its
@@ -127,7 +130,7 @@ its step starts, approved by the owner.
   URL kept at `/shelf/reference/`.
 - 2026-10-01: "Field" anything (guide, notes, manual) is banned as stock
   voice. The step-by-step type is **Post-Mortem, Pre-Written**; the tagline is
-  "For everyone AI promoted to builder without asking."
+  "For everyone AI promoted to builder without asking. (Including me.)" (the owner's aside added the same day)
 - 2026-10-01: NotebookLM-drafted sheets are out of scope: they do not fit
   this section. The disclosure and `drafted` field are removed; the prompt
   kit (`docs/REFERENCE_SHEETS_PROMPTS.md`) is parked.

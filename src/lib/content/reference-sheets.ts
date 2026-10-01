@@ -13,7 +13,7 @@
 /** The section's name, everywhere it appears. Change copy here, not in pages. */
 export const BUILDER_SECTION = {
   name: "Works On My Prompt",
-  tagline: "For everyone AI promoted to builder without asking.",
+  tagline: "For everyone AI promoted to builder without asking. (Including me.)",
   intro:
     "You can build software now. Nobody checked whether you wanted to. These are the sheets for the part after the demo works: what to set up, what to check, and where it quietly breaks. Each one links back to the Systems article that explains why.",
 };

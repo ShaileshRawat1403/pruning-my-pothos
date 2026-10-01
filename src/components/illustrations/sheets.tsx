@@ -1,7 +1,7 @@
 import React from "react";
 import type { ReferenceSheetType } from "../../lib/content/reference-sheets";
 import { REFERENCE_TYPE_LABEL } from "../../lib/content/reference-sheets";
-import { D, LINE, DeadpanDefs, Paper, Ink, Head, Torso, Limb, Label } from "./deadpan";
+import { D, LINE, DeadpanDefs, Paper, Ink, Head, Torso, Limb, Legs, Label } from "./deadpan";
 
 /**
  * sheets.tsx: drawings for Works On My Prompt (docs/BUILDER_TRACK.md).
@@ -113,6 +113,55 @@ const ART: Record<ReferenceSheetType, React.ReactNode> = {
   ),
 };
 
+/**
+ * A sheet's own cover drawing, by slug, in the cover's 1200 x 630 space. The
+ * subject never repeats: a sheet with its own art drops the type emblem and
+ * the stock reader. Sheets without one keep them.
+ */
+const SHEET_ART: Record<string, React.ReactNode> = {
+  /* Read it. Guessed anyway: eyes on the rule, hand already in the drawer. */
+  "write-it-down-or-watch-it-guess": (
+    <g>
+      <path d="M640 560 H1150" stroke={D.ink} strokeWidth={5} strokeLinecap="round" opacity={0.6} />
+
+      {/* The monitor, and the note taped to it. */}
+      <rect x={860} y={112} width={256} height={196} rx={8} fill="#fff" stroke={D.ink} strokeWidth={5} />
+      <path d="M988 308 V330 M948 330 H1028" {...LINE} strokeWidth={6} />
+      <g transform="rotate(-2 988 210)">
+        <rect x={880} y={130} width={216} height={160} fill="#F6E7A8" stroke={D.ink} strokeWidth={4} />
+        <path d="M960 124 h56 v14 h-56 Z" fill="#fff" stroke={D.ink} strokeWidth={2.5} opacity={0.8} />
+        {mono(988, 170, "AGENTS.md", 22)}
+        {mono(898, 214, "NEVER:", 22, D.accent, "start")}
+        {mono(990, 214, "PROD/", 22, D.ink, "start")}
+        <path d="M988 224 H1066 M992 232 H1062" stroke={D.accent} strokeWidth={3.5} strokeLinecap="round" />
+        <path d="M898 256 H1076 M898 274 H1040" stroke={D.greyLight} strokeWidth={4} strokeLinecap="round" />
+      </g>
+
+      {/* The desk and the cabinet under it. */}
+      <rect x={820} y={330} width={330} height={20} fill={D.paperDeep} stroke={D.ink} strokeWidth={5} />
+      <path d="M838 350 V560" {...LINE} strokeWidth={7} />
+      <rect x={1010} y={350} width={130} height={210} fill="#C9B593" stroke={D.ink} strokeWidth={5} />
+      <rect x={1020} y={470} width={110} height={74} fill={D.paperDeep} stroke={D.ink} strokeWidth={4} />
+
+      {/* The agent: reading the rule, very carefully. */}
+      <Legs x={730} y={484} floor={558} gap={44} />
+      <Torso x={730} y={330} w={150} h={160} fill={D.teal} />
+      <rect x={690} y={384} width={80} height={30} rx={3} fill="#fff" stroke={D.ink} strokeWidth={3} />
+      {mono(730, 406, "AGENT", 18)}
+      <Head x={730} y={262} r={58} eyes="sleepy" look={1} mouth="flat" hair="curly" />
+      <Limb d="M796 372 C 860 388, 920 398, 984 400" fill={D.face} />
+
+      {/* The drawer it was told never to open, open, with its hand in it. */}
+      <rect x={950} y={368} width={150} height={74} fill={D.paperDeep} stroke={D.ink} strokeWidth={4} />
+      <path d="M966 368 l10 -22 l12 20 M1000 368 l8 -26 l14 24" fill="#fff" stroke={D.ink} strokeWidth={3} strokeLinejoin="round" />
+      <rect x={950} y={380} width={150} height={62} fill={D.paperDeep} stroke={D.ink} strokeWidth={4} />
+      {mono(1025, 420, "PROD/", 22)}
+
+      {hand(730, 168, "read it.", 34, D.greyLight)}
+    </g>
+  ),
+};
+
 /** The type's emblem on its own paper, for cards. */
 export function SheetTypeEmblem({ type, id }: { type: ReferenceSheetType; id?: string }) {
   const key = id ?? `sheet-${type}`;
@@ -131,6 +180,7 @@ export function SheetTypeEmblem({ type, id }: { type: ReferenceSheetType; id?: s
  */
 export function SheetCover({ slug, type, title, promise, quip }: { slug: string; type: ReferenceSheetType; title: string; promise: string; quip?: string }) {
   const id = `sheetcover-${slug}`;
+  const art = SHEET_ART[slug];
   const words = title.split(" ");
   const lines: string[] = [];
   for (const w of words) {
@@ -154,18 +204,24 @@ export function SheetCover({ slug, type, title, promise, quip }: { slug: string;
       <text x={72} y={586} className="ill-mono" fontSize={17} letterSpacing={2.4} fill={D.greyLight}>
         PRUNINGMYPOTHOS.COM
       </text>
-      <g transform="translate(700 80) scale(1.35)">
-        <Ink id={id}>{ART[type]}</Ink>
-      </g>
-      <g transform="translate(980 300)">
-        <Ink id={id}>
-          <Torso x={70} y={150} w={110} h={130} fill={D.grey} />
-          <Head x={70} y={96} r={46} eyes="sleepy" look={-1} mouth="flat" stubble hair="messy" />
-          <Limb d="M18 190 C 0 170, -10 150, -14 130" fill={D.grey} />
-        </Ink>
-      </g>
+      {art ? (
+        <Ink id={id}>{art}</Ink>
+      ) : (
+        <>
+          <g transform="translate(700 80) scale(1.35)">
+            <Ink id={id}>{ART[type]}</Ink>
+          </g>
+          <g transform="translate(980 300)">
+            <Ink id={id}>
+              <Torso x={70} y={150} w={110} h={130} fill={D.grey} />
+              <Head x={70} y={96} r={46} eyes="sleepy" look={-1} mouth="flat" stubble hair="messy" />
+              <Limb d="M18 190 C 0 170, -10 150, -14 130" fill={D.grey} />
+            </Ink>
+          </g>
+        </>
+      )}
       {quip && (
-        <g transform="translate(770 560)">
+        <g transform={art ? "translate(880 600)" : "translate(770 560)"}>
           <Label x={0} y={0} text={quip.toUpperCase()} size={13} color={D.accent} r={-3} />
         </g>
       )}
