@@ -40,7 +40,7 @@ cover image with the live site and names any that are stale.
 | `npm run test:contract` | the editorial contract, covers, decks, house style | CI, blocking |
 | `npm run lint:content`, `lint:systems`, `lint:gates` | frontmatter and structure of each collection, banned copy | CI, blocking |
 | `npm run verify:covers` | every cover exists and none is reused | CI, blocking |
-| `npm run audit` | all linters, then the build output: robots, sitemap, schema, and that no sitemap URL is redirected or gone (`verify:redirects`) | CI, after the build |
+| `npm run audit` | all linters, then the build output: robots, sitemap, schema, that no sitemap URL is redirected or gone (`verify:redirects`), and that every internal link from a Systems article reaches a page (`verify:links`) | CI, after the build |
 | `npm run verify:deploy` | live cover files match the repository | by hand, after a deploy |
 
 Run `npm run build` before `npm run audit`: the audit reads `out/`, so an
