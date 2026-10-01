@@ -43,7 +43,7 @@ export default function StoryboardsPage() {
               <Link
                 href={`/storyboards/${sb.slug}/`}
                 aria-label={`View the storyboard: ${sb.title}`}
-                className="block overflow-hidden rounded-sm border border-[#D9D4C6] shadow-sm transition-transform hover:-translate-y-0.5"
+                className="ill-lift ill-alive block overflow-hidden rounded-sm border border-[#D9D4C6] shadow-sm"
               >
                 <Frame frameKey={sb.frames[0].key} label={sb.frames[0].text} number={1} total={sb.frames.length} />
               </Link>

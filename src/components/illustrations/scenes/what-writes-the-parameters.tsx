@@ -10,6 +10,7 @@ import { At, Lit, Plate, SceneProps, mono } from "./kit";
 export default function Scene({ step, steps, id }: SceneProps) {
   const label = (steps[0]?.tag ?? "").toUpperCase();
   const reading = step >= 1;
+  const both = step >= 2;
   return (
     <Plate id={id}>
       <path d="M20 352 H620" stroke={D.ink} strokeWidth={4} strokeLinecap="round" opacity={0.6} />
@@ -17,7 +18,7 @@ export default function Scene({ step, steps, id }: SceneProps) {
       {mono(320, 44, label, 18, D.accent)}
 
       {/* Writes: the press, and the smaller tool that recuts a little. */}
-      <Lit on={!reading} off={0.4}>
+      <Lit on={!reading || both} off={0.4}>
         <At y={reading ? -12 : 0}>
           <rect x={70} y={70} width={170} height={110} rx={6} fill={D.greyLight} stroke={D.ink} strokeWidth={4.5} />
           <rect x={120} y={180} width={70} height={56} fill={D.grey} stroke={D.ink} strokeWidth={4} />
@@ -32,7 +33,7 @@ export default function Scene({ step, steps, id }: SceneProps) {
       </Lit>
 
       {/* Reads: the same disc, a needle, a listener, and tonight's request. */}
-      <Lit on={reading} off={0.4}>
+      <Lit on={reading || both} off={0.4}>
         <ellipse cx={470} cy={300} rx={120} ry={36} fill={D.shirt} stroke={D.ink} strokeWidth={4.5} />
         <ellipse cx={470} cy={294} rx={94} ry={26} fill={D.ink} />
         <ellipse cx={470} cy={294} rx={66} ry={18} fill="none" stroke="#3A4652" strokeWidth={3} />
@@ -49,8 +50,13 @@ export default function Scene({ step, steps, id }: SceneProps) {
         </At>
       </Lit>
 
-      {mono(155, 392, "THE GROOVE IS CUT", 18, reading ? D.greyLight : D.accent)}
+      {mono(155, 392, "THE GROOVE IS CUT", 18, reading && !both ? D.greyLight : D.accent)}
       {mono(470, 392, "THE GROOVE IS FOLLOWED", 18, reading ? D.accent : D.greyLight)}
+      <g style={{ opacity: both ? 1 : 0, transition: "opacity .3s" }}>
+        <rect x={262} y={196} width={116} height={40} rx={4} fill="#fff" stroke={D.accent} strokeWidth={4} />
+        {mono(320, 222, "ONE WAY", 18, D.accent)}
+        <path d="M282 252 H358 M346 242 L360 252 L346 262" fill="none" stroke={D.accent} strokeWidth={4} strokeLinecap="round" strokeLinejoin="round" />
+      </g>
     </Plate>
   );
 }

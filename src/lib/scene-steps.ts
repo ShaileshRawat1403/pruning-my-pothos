@@ -36,6 +36,9 @@ export function sceneSteps(visual: Visual): SceneStep[] {
       return [
         { id: "inside", tag: boundaryLabel, title: inside.label, items: inside.items },
         { id: "outside", title: outside.label, items: outside.items },
+        // The line itself, said once: a boundary scene needs a third beat to
+        // show both sides at once, and the visual's takeaway is that sentence.
+        { id: "line", tag: boundaryLabel, title: visual.takeaway },
       ];
     }
     case "generated-evidence-map": {

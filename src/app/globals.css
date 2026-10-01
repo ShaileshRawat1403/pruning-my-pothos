@@ -1080,6 +1080,73 @@ html.js .cover-film:not([data-film]) .cf-stage { visibility: hidden; animation: 
   .scene-grid[data-live] .scene-step { min-height: 0; opacity: 1; }
 }
 
+/* ══ Section scenes (illustrations/sections.tsx) ══
+   Each section drawing tells its joke as a four-second story when the page
+   loads, then keeps one quiet loop going. Every element ends where the
+   drawing places it, and reduced motion or print shows that drawing still. */
+.section-scene :is(.sx-say, .sx-pin, .sx-frame, .sx-book, .sx-ball, .sx-stamp, .sx-tipper, .sx-plank, .sx-pointer, .sx-pencil, .sx-machine, .sx-dial, .sx-tape, .sx-smoke, .sx-reach) {
+  transform-box: fill-box;
+}
+@keyframes sx-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes sx-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes sx-pop { from { opacity: 0; transform: scale(0.3); } to { opacity: 1; transform: none; } }
+.section-scene .sx-say { animation: sx-fade 0.5s ease both; }
+.section-scene .sx-say-1 { animation-delay: 2.7s; }
+.section-scene .sx-say-2 { animation-delay: 3.3s; }
+
+/* Systems: the string runs pin to pin, in order, and the pointer follows it. */
+@keyframes sx-sweep { 0% { transform: rotate(-6deg); } 70% { transform: rotate(9deg); } 100% { transform: none; } }
+@keyframes sx-tap { 0%, 88%, 100% { transform: none; } 92% { transform: rotate(4deg); } 96% { transform: rotate(-1deg); } }
+.sx-systems .sx-string { stroke-dasharray: 1; animation: sx-draw 2.3s ease-in-out 0.4s both; }
+.sx-systems .sx-pin { transform-origin: 50% 50%; animation: sx-pop 0.35s cubic-bezier(0.3, 1.6, 0.5, 1) both; animation-delay: calc(0.4s + var(--i) * 0.29s); }
+.sx-systems .sx-pointer { transform-origin: 0% 100%; animation: sx-sweep 2.6s ease-in-out 0.4s both, sx-tap 6s ease-in-out 4s infinite; }
+
+/* Storyboards: the frames are pegged up in order; the last one gets its tick. */
+@keyframes sx-drop { from { opacity: 0; transform: translateY(-46px) rotate(-7deg); } 70% { opacity: 1; transform: rotate(3deg); } to { opacity: 1; transform: none; } }
+@keyframes sx-sway { 0%, 100% { transform: none; } 50% { transform: rotate(1.6deg); } }
+@keyframes sx-scribble { 0%, 100% { transform: none; } 25% { transform: rotate(-4deg); } 75% { transform: rotate(3deg); } }
+.sx-storyboards .sx-frame { transform-origin: 50% 0%; animation: sx-drop 0.55s cubic-bezier(0.3, 1.4, 0.5, 1) both, sx-sway 5s ease-in-out infinite; animation-delay: calc(0.3s + var(--i) * 0.4s), calc(3.4s + var(--i) * 0.5s); }
+.sx-storyboards .sx-tick { stroke-dasharray: 1; animation: sx-draw 0.5s ease-out 2.2s both; }
+.sx-storyboards .sx-pencil { transform-origin: 0% 100%; animation: sx-scribble 0.4s ease-in-out 0.3s 5; }
+
+/* Stack: it runs, it coughs, someone has taped it, it is released anyway. */
+@keyframes sx-cough { 0%, 9%, 100% { transform: none; } 2% { transform: translate(2px, -1px) rotate(0.7deg); } 4% { transform: translate(-2px, 1px) rotate(-0.7deg); } 6% { transform: translate(1px, 0); } }
+@keyframes sx-needle { 0%, 9%, 100% { transform: none; } 3% { transform: rotate(70deg); } }
+@keyframes sx-rise { 0% { opacity: 0; transform: translateY(10px) scaleY(0.6); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(-12px) scaleY(1.05); } }
+@keyframes sx-stamp { from { opacity: 0; transform: scale(1.8); } to { opacity: 1; transform: none; } }
+.sx-stack .sx-machine { transform-origin: 50% 100%; animation: sx-cough 7s ease-in-out 0.8s infinite; }
+.sx-stack .sx-dial { transform-origin: 50% 50%; animation: sx-needle 7s ease-in-out 0.8s infinite; }
+.sx-stack .sx-tape { transform-origin: 0% 50%; animation: sx-drop 0.5s ease-out 1.6s both; }
+.sx-stack .sx-smoke { transform-origin: 50% 100%; animation: sx-rise 3.2s ease-out 1s infinite; }
+.sx-stack .sx-smoke-2 { animation-delay: 2.6s; }
+.sx-stack .sx-stamp { transform-origin: 50% 50%; animation: sx-stamp 0.18s cubic-bezier(0.6, 0, 0.9, 0.4) 2.3s both; }
+
+/* Shelf: the books go up one by one, the plank gives, the last one tips. */
+@keyframes sx-place { from { opacity: 0; transform: translateY(-60px); } to { opacity: 1; transform: none; } }
+@keyframes sx-sag { from { transform: scaleY(0.35); } to { transform: none; } }
+@keyframes sx-tip { 0% { opacity: 0; transform: rotate(-16deg); } 20% { opacity: 1; transform: rotate(-16deg); } 100% { opacity: 1; transform: none; } }
+@keyframes sx-wobble { 0%, 90%, 100% { transform: none; } 94% { transform: rotate(-3deg); } 97% { transform: rotate(1.5deg); } }
+@keyframes sx-reach { 0%, 100% { transform: none; } 50% { transform: translate(6px, -4px); } }
+.sx-shelf .sx-book { animation: sx-place 0.3s cubic-bezier(0.5, 0, 0.8, 0.4) both; animation-delay: calc(0.2s + var(--i) * 0.24s); }
+.sx-shelf .sx-plank { transform-origin: 50% 0%; animation: sx-sag 2s ease-out 0.2s both; }
+.sx-shelf .sx-tipper { transform-origin: 0% 100%; animation: sx-tip 1.2s cubic-bezier(0.5, 0, 0.7, 1.4) 1.8s both, sx-wobble 6s ease-in-out 4s infinite; }
+.sx-shelf .sx-reach { transform-origin: 0% 100%; animation: sx-reach 4.5s ease-in-out 3s infinite; }
+
+/* Writing: draft after draft goes in the bin; then the one line is written. */
+@keyframes sx-throw {
+  0% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.5); }
+  15% { opacity: 1; }
+  55% { transform: translate(calc(var(--dx) * 0.45), calc(var(--dy) * 0.45 - 70px)) scale(0.9); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes sx-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+.sx-writing .sx-ball { animation: sx-throw 0.6s ease-in both; animation-delay: calc(0.2s + var(--i) * 0.36s); }
+.sx-writing .sx-line { stroke-dasharray: 1; animation: sx-draw 0.9s ease-out 2.5s both; }
+.sx-writing .sx-cursor { animation: sx-blink 1s steps(1) 3.4s infinite; }
+
+@media (prefers-reduced-motion: reduce) { .section-scene * { animation: none !important; } }
+@media print { .section-scene * { animation: none !important; } }
+
 /* ══ Drawings at rest: alive ══
    A drawing inside .ill-alive blinks now and then. A linked one (.ill-lift)
    lifts off the desk under the cursor while its ink boils. Motion here is
