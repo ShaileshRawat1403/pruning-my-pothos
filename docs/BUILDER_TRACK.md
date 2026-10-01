@@ -98,8 +98,23 @@ room, the same objects, one of them changing per step, the agent's arm and
 eyes going to it; labels 18px or more.
 
 **Checks**: Test 71 fails if a sheet links to a Systems article that does
-not exist or a tool note has no date. The sitemap lists the section and its
-sheets once the first sheet is published.
+not exist, a tool note has no date, or the sheet has no exported cover PNG.
+The sitemap lists the section and its sheets once the first sheet is
+published.
+
+**Search and answer engines**: each sheet page carries HowTo JSON-LD (steps,
+tools, `isBasedOn` its Systems article) and a breadcrumb; the section index
+is a CollectionPage listing the sheets. The meta description is the promise.
+The share image is `public/covers/sheets/<slug>.png`, rendered from the
+noindex route `/sheet-art/<slug>/` by `npm run export:storyboards
+-- --only=<slug>` after `npm run build`. `public/llms.txt` lists the section,
+never single sheets.
+
+**Publishing a sheet, in order**: move the draft from
+`src/app/dank-samples/sheet-sample/draft.ts` into `REFERENCE_SHEETS`; its
+cover art (`SHEET_ART`), film (`films/<slug>.ts`) and scene
+(`scenes/<slug>.tsx`) are keyed by slug and registered already; set the
+draft back to null; build; export its cover; run the gates.
 
 **Review before publishing**: drafts are shown on the local, gitignored
 route `/dank-samples/sheet-sample/` (or one like it) and are published only
@@ -114,9 +129,9 @@ Status: `done`, `next`, `open`, `parked`.
 |:--|:--|:--|
 | 1 | Name the section and the types; revoice the pages; per-sheet disclosure | done (2026-10-01) |
 | 2 | The sheet format: data, page, cover, type emblems, drawn steps; a draft sample on the local route | done, reviewed (2026-10-01) |
-| 3 | "Write It Down or Watch It Guess": the file your coding agent reads first (stage 7). Published in `REFERENCE_SHEETS`; its drawing is the scene `write-it-down-or-watch-it-guess`. Tool claims rechecked against each tool's docs on 2026-10-01. On the feature branch, not deployed | done (2026-10-01) |
-| 4 | A ten-case check in a spreadsheet (stage 6), using the site's csv-to-eval tool. Drafted as "It Looked Fine When I Tried It" (working title) on the local route, with its cover pun, film and scene registered under that slug; promptfoo claims checked against its docs on 2026-10-01 | drafted, awaiting owner review (2026-10-01) |
-| 5 | Give an assistant your documents, and know what it can see (stage 2) | open |
+| 3 | "Write It Down or Watch It Guess": the file your coding agent reads first (stage 7). Cover pun, film and scene. Tool claims rechecked against each tool's docs on 2026-10-01 | done, live (2026-10-01) |
+| 4 | "Better Than Last Week? Prove It.": a ten-row check in a spreadsheet (stage 6). Title chosen by the owner. Cover pun (one spoon, everyone served), film and scene. promptfoo claims checked against its docs on 2026-10-01 | done, live (2026-10-01) |
+| 5 | Give an assistant your documents, and know what it can see (stage 2) | next |
 | 6 | Conspiracy Board: the builder's stack, by category, dated | open |
 | 7 | Choosing a model (stage 1), anchored on the Shelf's local and cloud baselines | open |
 | - | Project POCs for the flagship articles | parked until the owner's projects are finished |

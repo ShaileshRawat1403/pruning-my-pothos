@@ -1,7 +1,7 @@
 # Handover: Pruning My Pothos (PMP)
 
 For any agent picking this repository up cold. Read this, then `AGENTS.md`,
-then `docs/STORYBOARD_AUTHORING.md`. Written 2026-09-26, updated 2026-09-30.
+then `docs/STORYBOARD_AUTHORING.md`. Written 2026-09-26, updated 2026-10-01.
 
 ---
 
@@ -51,7 +51,7 @@ One config drives header, section sub-nav and footer:
 | Systems | `/systems/` explainers (28 articles). The 8-stage Systems Map (`src/lib/content/systems-map.ts`) names one flagship per stage; `src/lib/content/systems-ia.ts` places every other article under a stage as a companion or a note, or across the map. The build fails if an article is unplaced |
 | Storyboards | `/storyboards/` illustrated PDF explainers, one per stage article (8 decks) |
 | Stack | Projects `/stack/`, product pages `/stack/<product>/` (DAX at `/stack/dax/`), Tools `/tools/`, Canvases, Docs, Live lab |
-| Shelf | `/shelf/` categories, and **Works On My Prompt** `/shelf/reference/`: material for new-age builders (first sheet, "Write It Down or Watch It Guess", at `/shelf/reference/write-it-down-or-watch-it-guess/`; plan in `docs/BUILDER_TRACK.md`) |
+| Shelf | `/shelf/` categories, and **Works On My Prompt** `/shelf/reference/`: step-by-step sheets for new-age builders, each with a cover pun, a cover film and a drawn scroll scene (two live: "Write It Down or Watch It Guess", "Better Than Last Week? Prove It."; plan and publishing steps in `docs/BUILDER_TRACK.md`) |
 | Self | Work `/portfolio/`, Writing (`/sentences/`, `/sentiments/`), Schema, Calibrations `/self/`, About `/about/` |
 
 `SectionNav` shows a second row on Stack and Self pages. The footer is one
@@ -159,19 +159,30 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
 
 ## 8. Where things stand
 
-- `main` = `fc902aba`, **live since 2026-10-01** (CI green, deploy branch
-  published, origin and Cloudflare confirmed serving it, `verify:deploy`
-  clean). It includes:
-  - the 404 fixes (`/home/`, `/skills`, `/sentiments/about/`, five retired
-    tags answer 410) and the owner docs untracked;
-  - the overhaul: cover films for all 28 Systems articles, a scroll scene
-    for every article, deadpan section headers, the Systems IA, the
-    readable article page, light-mode code blocks;
-  - the repo cleanup (unused code, assets, infra and docs removed; old
-    registers retired; `verify:redirects` and `verify:links` in the audit);
-  - `/stack/dax` in the deadpan register.
-- Branches: only `main` and `deploy` (written by CI). Every other branch was
-  merged or deleted on 2026-10-01. Tips of the deleted unmerged ones, in case
+- `main` was fast-forwarded from `feature/motion-and-depth` and deployed on
+  2026-10-01 (the second deploy that day; the first was `fc902aba`). It
+  adds, on top of the overhaul:
+  - **Works On My Prompt** live with two sheets, each with its own cover
+    pun, cover film and scroll scene; tagline "For everyone AI promoted to
+    builder without asking. (Including me.)";
+  - sheet SEO: HowTo + breadcrumb JSON-LD per sheet, CollectionPage on the
+    index, the promise as meta description, a share PNG per sheet
+    (`public/covers/sheets/`, from `/sheet-art/<slug>/`), the section in
+    `llms.txt`;
+  - Test 71 fixed (its undated-tool check matched every dated note) and
+    extended to require each sheet's cover PNG;
+  - the rule to start the dev server only for owner review.
+- Sitewide SEO check at this deploy (built `out/`, every sitemap URL): 268
+  URLs, all with title, description and a self canonical; no duplicate
+  titles or descriptions; all JSON-LD parses; every local og:image exists.
+  `verify-indexing`: 26 pass, 0 warnings. The 39 advisories from
+  `lint:systems:advisory` are missing proof links, which wait on the
+  owner's POCs (never written into existence).
+- Branches: `main` and `deploy` (written by CI), plus the working branch
+  `feature/motion-and-depth` (merged; keep or delete) and
+  `origin/docs/post-deploy` (its one commit, 5405b33e, is in `main` now;
+  safe to delete, owner's call). Every other branch was merged or deleted on
+  2026-10-01. Tips of the deleted unmerged ones, in case
   one is ever needed: `seo/tier-1-corrective` 453eb62a,
   `feature/pmp-editorial-contract-v1` ae240271, `feature/pmp-dark-theme`
   1da752eb, `codex/learning-discovery` 1323eefc,
@@ -199,7 +210,9 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
    the realistic generic figures). Keep one idea per frame, captions true to
    the article, no "not X, Y".
 6. **Works On My Prompt** (the builder track): follow `docs/BUILDER_TRACK.md`
-   step by step. Every sheet is written and drawn here; NotebookLM drafting
+   step by step; step 5 (documents and what an assistant can see) is next.
+   Draft on the local route, owner reads, then publish (the order is in
+   that file). Every sheet is written and drawn here; NotebookLM drafting
    is out of scope (the old kit, `docs/REFERENCE_SHEETS_PROMPTS.md` and
    `docs/reference-sheets/`, is parked).
 7. **Legacy imagery**: the painted plates are gone except the self-portrait
@@ -222,5 +235,9 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
 11. **Section drawings and captions** in `illustrations/sections.tsx` are
     drafts awaiting the owner's read, as are the step captions drawn inside
     the scenes.
-12. **Remaining registers to fold in**: the terminal toast
+12. **CSV to Eval page** (`/tools/csv-to-eval/`) says online use is limited
+    to 10 rows; its code sets no limit. Fix the page or the code.
+13. **Sheet films** are checked as frozen frames only; watch both once in a
+    visible tab.
+14. **Remaining registers to fold in**: the terminal toast
     (`ConsoleToastHost`) and the `SceneFigure` HTML figures.

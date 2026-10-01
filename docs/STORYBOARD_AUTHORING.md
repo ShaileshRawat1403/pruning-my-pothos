@@ -192,6 +192,16 @@ Rules:
 - It plays once per browser session and replays on request ("Play again").
   Reduced motion, no scripts, print and the PNG export all get the still.
 
+### Sheet covers and films (Works On My Prompt)
+
+A builder sheet's cover is `SheetCover` (`illustrations/sheets.tsx`). A
+sheet with its own pun draws it in `SHEET_ART[slug]`, in cover space
+(1200 x 630); `SheetCover` carries the same cf- hooks as `ArticleCover`, so a
+film is a script in `films/<slug>.ts` registered in `films/index.ts` like an
+article's. Film points subtract the emblem origin (660, 44). The quip box is
+`fx-quip`: hide it at 0 and `pop` it with the first beat. The still cover
+also exports as the sheet's share PNG (see `docs/BUILDER_TRACK.md`).
+
 ## Add a scroll scene
 
 A scene draws an article's declared visual (`visuals[]` in its frontmatter)
