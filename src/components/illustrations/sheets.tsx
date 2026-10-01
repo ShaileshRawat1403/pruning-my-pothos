@@ -1,7 +1,7 @@
 import React from "react";
 import type { ReferenceSheetType } from "../../lib/content/reference-sheets";
 import { REFERENCE_TYPE_LABEL } from "../../lib/content/reference-sheets";
-import { D, LINE, DeadpanDefs, Paper, Ink, Head, Torso, Limb, Legs, Label } from "./deadpan";
+import { D, LINE, DeadpanDefs, Paper, Ink, Head, Torso, Limb, Legs } from "./deadpan";
 
 /**
  * sheets.tsx: drawings for Works On My Prompt (docs/BUILDER_TRACK.md).
@@ -117,6 +117,9 @@ const ART: Record<ReferenceSheetType, React.ReactNode> = {
  * A sheet's own cover drawing, by slug, in the cover's 1200 x 630 space. The
  * subject never repeats: a sheet with its own art drops the type emblem and
  * the stock reader. Sheets without one keep them.
+ *
+ * fx- groups are the cover film's hooks (films/<slug>.ts). They are plain
+ * wrappers with no transform of their own, so the still is untouched.
  */
 const SHEET_ART: Record<string, React.ReactNode> = {
   /* Read it. Guessed anyway: eyes on the rule, hand already in the drawer. */
@@ -133,7 +136,9 @@ const SHEET_ART: Record<string, React.ReactNode> = {
         {mono(988, 170, "AGENTS.md", 22)}
         {mono(898, 214, "NEVER:", 22, D.accent, "start")}
         {mono(990, 214, "PROD/", 22, D.ink, "start")}
-        <path d="M988 224 H1066 M992 232 H1062" stroke={D.accent} strokeWidth={3.5} strokeLinecap="round" />
+        <g className="fx-underline">
+          <path d="M988 224 H1066 M992 232 H1062" stroke={D.accent} strokeWidth={3.5} strokeLinecap="round" />
+        </g>
         <path d="M898 256 H1076 M898 274 H1040" stroke={D.greyLight} strokeWidth={4} strokeLinecap="round" />
       </g>
 
@@ -149,15 +154,21 @@ const SHEET_ART: Record<string, React.ReactNode> = {
       <rect x={690} y={384} width={80} height={30} rx={3} fill="#fff" stroke={D.ink} strokeWidth={3} />
       {mono(730, 406, "AGENT", 18)}
       <Head x={730} y={262} r={58} eyes="sleepy" look={1} mouth="flat" hair="curly" />
-      <Limb d="M796 372 C 860 388, 920 398, 984 400" fill={D.face} />
+      <g className="fx-arm">
+        <Limb d="M796 372 C 860 388, 920 398, 984 400" fill={D.face} />
+      </g>
 
       {/* The drawer it was told never to open, open, with its hand in it. */}
-      <rect x={950} y={368} width={150} height={74} fill={D.paperDeep} stroke={D.ink} strokeWidth={4} />
-      <path d="M966 368 l10 -22 l12 20 M1000 368 l8 -26 l14 24" fill="#fff" stroke={D.ink} strokeWidth={3} strokeLinejoin="round" />
-      <rect x={950} y={380} width={150} height={62} fill={D.paperDeep} stroke={D.ink} strokeWidth={4} />
-      {mono(1025, 420, "PROD/", 22)}
+      <g className="fx-drawer">
+        <rect x={950} y={368} width={150} height={74} fill={D.paperDeep} stroke={D.ink} strokeWidth={4} />
+        <g className="fx-papers">
+          <path d="M966 368 l10 -22 l12 20 M1000 368 l8 -26 l14 24" fill="#fff" stroke={D.ink} strokeWidth={3} strokeLinejoin="round" />
+        </g>
+        <rect x={950} y={380} width={150} height={62} fill={D.paperDeep} stroke={D.ink} strokeWidth={4} />
+        {mono(1025, 420, "PROD/", 22)}
+      </g>
 
-      {hand(730, 168, "read it.", 34, D.greyLight)}
+      <g className="fx-readit">{hand(730, 168, "read it.", 34, D.greyLight)}</g>
     </g>
   ),
 };
@@ -176,7 +187,13 @@ export function SheetTypeEmblem({ type, id }: { type: ReferenceSheetType; id?: s
 
 /**
  * The title card of one sheet: the type, the joke as a title, the promise,
- * and someone who has read it and is unimpressed.
+ * and either the sheet's own drawing or someone who has read it and is
+ * unimpressed.
+ *
+ * Same film hooks as ArticleCover (covers.tsx): cf-copy, a cf-camera around
+ * the drawing, the quip's cf-beats, and letterbox bars that exist only while
+ * a film plays. A still never shows them. The camera's origin is the emblem
+ * box ArticleCover uses (660, 44), so film scripts subtract it.
  */
 export function SheetCover({ slug, type, title, promise, quip }: { slug: string; type: ReferenceSheetType; title: string; promise: string; quip?: string }) {
   const id = `sheetcover-${slug}`;
@@ -188,43 +205,69 @@ export function SheetCover({ slug, type, title, promise, quip }: { slug: string;
     if (last && (last + " " + w).length <= 18) lines[lines.length - 1] = last + " " + w;
     else lines.push(w);
   }
+  const beats = quip ? quip.toUpperCase().split(/(?<=[.!?])\s+/).filter(Boolean) : [];
+  // With its own art the quip sits under the title, clear of the letterbox
+  // bars, so a film can land its beats; otherwise under the stock reader.
+  const qs = art ? 22 : 13;
+  const qw = (quip?.length ?? 0) * qs * 0.66 + 18;
+  const [qx, qy] = art ? [72 + qw / 2, 210 + Math.min(lines.length, 4) * 78] : [770, 560];
   return (
     <svg viewBox="0 0 1200 630" className="ill-svg" role="img" aria-label={`${REFERENCE_TYPE_LABEL[type]}: ${title}. After this, you can ${promise}`}>
       <DeadpanDefs id={id} />
       <Paper id={id} w={1200} h={630} />
       <rect width={1200} height={8} fill={D.ink} />
-      <text x={72} y={92} className="ill-mono" fontSize={18} letterSpacing={3} fill={D.accent}>
-        {`WORKS ON MY PROMPT · ${REFERENCE_TYPE_LABEL[type].toUpperCase()}`}
-      </text>
-      {lines.slice(0, 4).map((l, i) => (
-        <text key={i} x={72} y={196 + i * 78} className="ill-hand" fontSize={76} fontWeight={700} fill={D.ink}>
-          {l}
-        </text>
-      ))}
-      <text x={72} y={586} className="ill-mono" fontSize={17} letterSpacing={2.4} fill={D.greyLight}>
-        PRUNINGMYPOTHOS.COM
-      </text>
-      {art ? (
-        <Ink id={id}>{art}</Ink>
-      ) : (
-        <>
-          <g transform="translate(700 80) scale(1.35)">
-            <Ink id={id}>{ART[type]}</Ink>
-          </g>
-          <g transform="translate(980 300)">
-            <Ink id={id}>
-              <Torso x={70} y={150} w={110} h={130} fill={D.grey} />
-              <Head x={70} y={96} r={46} eyes="sleepy" look={-1} mouth="flat" stubble hair="messy" />
-              <Limb d="M18 190 C 0 170, -10 150, -14 130" fill={D.grey} />
-            </Ink>
-          </g>
-        </>
-      )}
-      {quip && (
-        <g transform={art ? "translate(880 600)" : "translate(770 560)"}>
-          <Label x={0} y={0} text={quip.toUpperCase()} size={13} color={D.accent} r={-3} />
+      <g className="cf-stage">
+        <g className="cf-copy">
+          <text x={72} y={92} className="ill-mono" fontSize={18} letterSpacing={3} fill={D.accent}>
+            {`WORKS ON MY PROMPT · ${REFERENCE_TYPE_LABEL[type].toUpperCase()}`}
+          </text>
+          {lines.slice(0, 4).map((l, i) => (
+            <text key={i} x={72} y={196 + i * 78} className="ill-hand" fontSize={76} fontWeight={700} fill={D.ink}>
+              {l}
+            </text>
+          ))}
+          <text x={72} y={586} className="ill-mono" fontSize={17} letterSpacing={2.4} fill={D.greyLight}>
+            PRUNINGMYPOTHOS.COM
+          </text>
+          {quip && (
+            <g transform={`rotate(-3 ${qx} ${qy})`}>
+              <rect x={qx - qw / 2} y={qy - qs - 6} width={qw} height={qs + 14} rx={3} fill="#fff" stroke={D.ink} strokeWidth={3.5} />
+              <text x={qx} y={qy + 1} textAnchor="middle" className="ill-mono" fontSize={qs} fontWeight={700} fill={D.accent}>
+                {beats.map((b, i) => (
+                  <tspan key={i} className="cf-beat">
+                    {i > 0 ? " " : ""}
+                    {b}
+                  </tspan>
+                ))}
+              </text>
+            </g>
+          )}
         </g>
-      )}
+        <g className="cf-shake">
+          <g className="cf-camera">
+            {art ? (
+              <Ink id={id}>{art}</Ink>
+            ) : (
+              <>
+                <g transform="translate(700 80) scale(1.35)">
+                  <Ink id={id}>{ART[type]}</Ink>
+                </g>
+                <g transform="translate(980 300)">
+                  <Ink id={id}>
+                    <Torso x={70} y={150} w={110} h={130} fill={D.grey} />
+                    <Head x={70} y={96} r={46} eyes="sleepy" look={-1} mouth="flat" stubble hair="messy" />
+                    <Limb d="M18 190 C 0 170, -10 150, -14 130" fill={D.grey} />
+                  </Ink>
+                </g>
+              </>
+            )}
+          </g>
+        </g>
+      </g>
+      <g className="cf-bars" visibility="hidden">
+        <rect className="cf-bar-top" width={1200} height={64} fill={D.ink} />
+        <rect className="cf-bar-bot" y={566} width={1200} height={64} fill={D.ink} />
+      </g>
     </svg>
   );
 }

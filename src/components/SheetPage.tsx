@@ -9,6 +9,7 @@ import {
 import { placeOf } from "../lib/content/systems-ia";
 import type { SceneStep } from "../lib/scene-steps";
 import { SheetCover } from "./illustrations/sheets";
+import CoverFilm from "./illustrations/CoverFilm";
 import SceneVisual from "./visuals/SceneVisual";
 import type { SceneProps } from "./illustrations/scenes/kit";
 
@@ -60,8 +61,11 @@ export default function SheetPage({ sheet, drawing }: { sheet: ReferenceSheet; d
         <p className="m-0 font-heading text-lg font-bold text-[color:var(--text-primary)]">After this, you can {sheet.promise}</p>
       </header>
 
+      {/* Where the sheet has a cover film (illustrations/films/), it plays once, then rests. */}
       <figure className="ill-alive m-0 w-full overflow-hidden rounded-sm border border-[#D9D4C6]">
-        <SheetCover slug={sheet.slug} type={sheet.type} title={sheet.title} promise={sheet.promise} quip={sheet.quip} />
+        <CoverFilm slug={sheet.slug}>
+          <SheetCover slug={sheet.slug} type={sheet.type} title={sheet.title} promise={sheet.promise} quip={sheet.quip} />
+        </CoverFilm>
       </figure>
 
       <div className="content-body">

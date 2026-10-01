@@ -27,8 +27,10 @@ import { film as f_training_vs_inference } from "./training-vs-inference";
 import { film as f_what_a_system_prompt_actually_is } from "./what-a-system-prompt-actually-is";
 import { film as f_what_an_ai_model_actually_is } from "./what-an-ai-model-actually-is";
 import { film as f_why_ocr_quietly_breaks_document_ai } from "./why-ocr-quietly-breaks-document-ai";
+import { film as f_sheet_write_it_down_or_watch_it_guess } from "./write-it-down-or-watch-it-guess";
 
-/** One film per Systems article, keyed by the article's slug. */
+/** One film per Systems article, keyed by the article's slug; then one per
+ * Works On My Prompt sheet with its own cover art, keyed by the sheet's slug. */
 export const FILMS: Record<string, FilmScript> = {
   "a-simple-tokenizer": f_a_simple_tokenizer,
   "agent-instructions-and-handoff-as-an-operating-system": f_agent_instructions_and_handoff_as_an_operating_system,
@@ -58,4 +60,6 @@ export const FILMS: Record<string, FilmScript> = {
   "what-a-system-prompt-actually-is": f_what_a_system_prompt_actually_is,
   "what-an-ai-model-actually-is": f_what_an_ai_model_actually_is,
   "why-ocr-quietly-breaks-document-ai": f_why_ocr_quietly_breaks_document_ai,
+
+  "write-it-down-or-watch-it-guess": f_sheet_write_it_down_or_watch_it_guess,
 };
