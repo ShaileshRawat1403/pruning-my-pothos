@@ -942,9 +942,12 @@ async function runTests() {
   // The lookahead takes the indent itself; outside it, `\s*` would backtrack
   // and match every dated note.
   const toolDocsWithoutDate = [...refSrc.matchAll(/docs: "[^"]+",\s*\n(?!\s*asOf)/g)].length;
+  // ...and every sheet has its exported link-preview cover (export:storyboards).
+  const sheetSlugs = [...refSrc.matchAll(/^\s{4}slug: "([^"]+)"/gm)].map((m) => m[1]);
+  const missingSheetCovers = sheetSlugs.filter((slug) => !existsSync(path.resolve(ROOT, `public/covers/sheets/${slug}.png`)));
   assert(
-    missingArticles.length === 0 && toolDocsWithoutDate === 0,
-    `Test 71: builder sheets link to real Systems articles and date every tool note${missingArticles.length ? ` (missing: ${missingArticles.join(", ")})` : ""}`
+    missingArticles.length === 0 && toolDocsWithoutDate === 0 && missingSheetCovers.length === 0,
+    `Test 71: builder sheets link to real Systems articles, date every tool note and have an exported cover${missingArticles.length ? ` (missing: ${missingArticles.join(", ")})` : ""}${missingSheetCovers.length ? ` (no cover PNG: ${missingSheetCovers.join(", ")})` : ""}`
   );
 
   // Test 72: no "it's not X, it's Y" in drawn copy. Headlines, punchlines,

@@ -4,6 +4,7 @@
  *
  *   public/storyboards/pdf/<slug>.pdf   each storyboard as a 4:5 PDF deck
  *   public/storyboards/og/<slug>.png    each storyboard's 1200 x 630 link preview
+ *   public/covers/sheets/<slug>.png     each Works On My Prompt sheet's cover
  *   public/covers/systems/<slug>.png    each Systems article's cover, for link
  *                                       previews (the page draws it live)
  *
@@ -142,7 +143,8 @@ async function pdf(url, publicRel) {
 try {
   const storyboards = slugsWith("storyboards", "print");
   const covers = slugsWith("cover-art", "");
-  if (storyboards.length === 0 && covers.length === 0) fail("nothing to export in out/.");
+  const sheets = slugsWith("sheet-art", "");
+  if (storyboards.length === 0 && covers.length === 0 && sheets.length === 0) fail("nothing to export in out/.");
 
   console.log(`Storyboards (${storyboards.length})`);
   for (const slug of storyboards) {
@@ -152,6 +154,10 @@ try {
   console.log(`Article covers (${covers.length})`);
   for (const slug of covers) {
     await screenshot(`/cover-art/${slug}/`, `covers/systems/${slug}.png`, 1200, 630);
+  }
+  console.log(`Sheet covers (${sheets.length})`);
+  for (const slug of sheets) {
+    await screenshot(`/sheet-art/${slug}/`, `covers/sheets/${slug}.png`, 1200, 630);
   }
 } finally {
   server.close();

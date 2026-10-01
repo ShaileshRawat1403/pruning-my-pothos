@@ -2,7 +2,7 @@ import Link from "next/link";
 import { SheetTypeEmblem } from "../../../components/illustrations/sheets";
 import SpotlightCard from "../../../components/SpotlightCard";
 import { constructMetadata } from "../../../lib/seo/metadata";
-import { getWebPageSchema } from "../../../lib/seo/jsonld";
+import { getBreadcrumbSchema, getCollectionSchema } from "../../../lib/seo/jsonld";
 import {
   getReferenceSheets,
   BUILDER_SECTION,
@@ -11,7 +11,7 @@ import {
   type ReferenceSheetType,
 } from "../../../lib/content/reference-sheets";
 
-const DESCRIPTION = `${BUILDER_SECTION.name}: ${BUILDER_SECTION.tagline} Post-mortems written before the incident, cheat sheets and maps for building with AI, each linked to the Systems article that explains why.`;
+const DESCRIPTION = `${BUILDER_SECTION.name}: step-by-step sheets for building with AI assistants, each with checks you can run and the Systems article that explains why.`;
 
 // Noindexed until the first sheet is published, so search engines never meet
 // an empty shelf.
@@ -19,6 +19,7 @@ export const metadata = constructMetadata({
   title: BUILDER_SECTION.name,
   description: DESCRIPTION,
   path: "/shelf/reference",
+  image: getReferenceSheets()[0] ? `/covers/sheets/${getReferenceSheets()[0].slug}.png` : undefined,
   noindex: getReferenceSheets().length === 0,
 });
 
@@ -26,11 +27,21 @@ const COMING: ReferenceSheetType[] = ["manual", "mindmap", "architecture"];
 
 export default function ReferenceSheetsPage() {
   const sheets = getReferenceSheets();
-  const schema = getWebPageSchema({ title: BUILDER_SECTION.name, description: DESCRIPTION, path: "/shelf/reference" });
+  const schema = getCollectionSchema({
+    name: BUILDER_SECTION.name,
+    description: DESCRIPTION,
+    path: "/shelf/reference",
+    items: sheets.map((s) => ({ name: s.title, path: `/shelf/reference/${s.slug}/` })),
+  });
+  const crumbs = getBreadcrumbSchema([
+    { name: "Shelf", path: "/shelf/" },
+    { name: BUILDER_SECTION.name, path: "/shelf/reference/" },
+  ]);
 
   return (
     <div className="relative w-full flex flex-col gap-12 max-w-[960px] mx-auto py-12">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
 
       <section className="flex flex-col gap-4 border-b pb-8" style={{ borderColor: "var(--card-border)" }}>
         <div className="flex items-center gap-2">

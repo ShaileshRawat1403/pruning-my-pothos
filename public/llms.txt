@@ -15,6 +15,7 @@ Site: https://pruningmypothos.com/
 - [Storyboards](https://pruningmypothos.com/storyboards/): illustrated explainers, each drawing one Systems article as a short deck with a PDF download
 - [Stack](https://pruningmypothos.com/stack/): applied AI systems and tools being built and tested, with repository excerpts where evidence is shown
 - [Shelf](https://pruningmypothos.com/shelf/): experiments, resources, notes and references
+- [Works On My Prompt](https://pruningmypothos.com/shelf/reference/): step-by-step sheets for people building with AI assistants, each with checks you can run and a link to the Systems article that explains why
 
 ## Also published
 

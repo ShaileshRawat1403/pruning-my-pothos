@@ -220,3 +220,68 @@ export function getFaqSchema({ faq }: FAQInput) {
     })),
   };
 }
+
+interface HowToInput {
+  name: string;
+  description: string;
+  path: string;
+  image?: string;
+  datePublished?: string;
+  dateModified?: string;
+  steps: { name: string; text: string }[];
+  tools?: string[];
+  /** The page that explains why; a Systems article. */
+  basedOn?: string;
+}
+
+/**
+ * A Works On My Prompt sheet: a step-by-step page, so HowTo. Each step's name
+ * is the instruction and its text adds how you know it worked, so an answer
+ * engine quoting one step quotes the check with it.
+ */
+export function getHowToSchema({ name, description, path, image, datePublished, dateModified, steps, tools, basedOn }: HowToInput) {
+  const abs = (p: string) => (p.startsWith("http") ? p : `${SITE_CONFIG.url}${p.startsWith("/") ? p : `/${p}`}`);
+  const url = abs(path.endsWith("/") ? path : `${path}/`);
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": name,
+    "description": description,
+    "url": url,
+    ...(image ? { "image": abs(image) } : {}),
+    ...(datePublished ? { "datePublished": datePublished } : {}),
+    ...(dateModified ? { "dateModified": dateModified } : {}),
+    "author": { "@type": "Person", "@id": PERSON_ID, "name": SITE_CONFIG.author, "url": `${SITE_CONFIG.url}/about/` },
+    ...(tools && tools.length ? { "tool": tools.map((t) => ({ "@type": "HowToTool", "name": t })) } : {}),
+    ...(basedOn ? { "isBasedOn": abs(basedOn) } : {}),
+    "step": steps.map((st, i) => ({
+      "@type": "HowToStep",
+      "position": i + 1,
+      "name": st.name,
+      "text": st.text,
+    })),
+  };
+}
+
+interface CollectionInput {
+  name: string;
+  description: string;
+  path: string;
+  items: { name: string; path: string }[];
+}
+
+/** A section index that lists its pages: CollectionPage with an ItemList. */
+export function getCollectionSchema({ name, description, path, items }: CollectionInput) {
+  const abs = (p: string) => `${SITE_CONFIG.url}${p.startsWith("/") ? p : `/${p}`}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": name,
+    "description": description,
+    "url": abs(path.endsWith("/") ? path : `${path}/`),
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": items.map((it, i) => ({ "@type": "ListItem", "position": i + 1, "name": it.name, "url": abs(it.path) })),
+    },
+  };
+}
