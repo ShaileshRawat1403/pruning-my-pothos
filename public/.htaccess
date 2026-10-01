@@ -1,11 +1,24 @@
 Options -Indexes
+DirectoryIndex index.html
 ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
 # ---------------------------------------------------------------------------
-# Canonical host. Must stay first.
+# LiteSpeed / Hostinger bot protection override.
+# When Hostinger enables server-level reCAPTCHA with action "deny", LiteSpeed
+# answers cache-misses with 403 ("Access to this resource on the server is
+# denied!") while Cloudflare may still HIT older copies of / and a few essays.
+# Official knobs: https://docs.litespeedtech.com/lsws/recaptcha/
+# [E=verifycaptcha:off] disables the challenge for this directory tree.
+# Must run before any [L] rule. If Trigger Sensitivity is extreme, Hostinger
+# support still has to set LsRecaptcha 0 on the vhost (not possible from here).
+# ---------------------------------------------------------------------------
+RewriteRule .* - [E=verifycaptcha:off]
+
+# ---------------------------------------------------------------------------
+# Canonical host. Must stay first among *redirect* rules.
 # Search Console shows http://www. and https://www. both indexed and taking
 # traffic, which splits homepage signals three ways. Force https + non-www.
 # ---------------------------------------------------------------------------
