@@ -1,6 +1,5 @@
 import Link from "next/link";
 import GlowCard from "../../components/GlowCard";
-import SceneFigure from "../../components/SceneFigure";
 import PlateHero from "../../components/PlateHero";
 import { SELF_LINES } from "../../lib/content/plates";
 import { constructMetadata } from "../../lib/seo/metadata";
@@ -47,12 +46,6 @@ export default function AboutPage() {
         portrait
       />
 
-      <SceneFigure
-        src="/scenes/bridge.html"
-        label="Figure · thinker_tinkerer_translator"
-        accent="var(--accent-amber)"
-        caption="Understand the friction, build the bridge, explain the system. My work sits between thinking, execution, and translation, and translation is the span that lets the other two meet."
-      />
 
       {/* ── Main Content Grid ── */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">

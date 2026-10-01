@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 import SectionNav from "../components/SectionNav";
 import BackgroundGrid from "../components/BackgroundGrid";
 import ScrollAnimations from "../components/ScrollAnimations";
-import ConsoleToastHost from "../components/ConsoleToastHost";
 export const metadata: Metadata = {
   title: "Pruning My Pothos | AI Systems, Learned in Public",
   description: "A living notebook on AI orchestration, runtime evaluation, context compaction, and systems design: written against things that were built, run, inspected, or broken.",
@@ -56,7 +55,6 @@ export default function RootLayout({
           </div>
         </main>
         <Footer />
-        <ConsoleToastHost />
       </body>
     </html>
   );

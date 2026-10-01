@@ -1,5 +1,4 @@
 import SectionHeader from "../../components/SectionHeader";
-import SceneFigure from "../../components/SceneFigure";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 
@@ -48,12 +47,6 @@ export default function CanvasesIndexPage() {
         tick="var(--accent-cyan)"
       />
 
-      <SceneFigure
-        src="/scenes/xenakis.html"
-        label="Figure · ruled_surface"
-        accent="var(--accent-cyan)"
-        caption="Straight lines bent into a curved shell, a score that is also a blueprint, and a stochastic scatter of points. Chance, ruled tightly enough that it starts to sound like a decision."
-      />
 
       <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {canvasItems.map((canvas, idx) => (

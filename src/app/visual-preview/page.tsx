@@ -9,8 +9,7 @@ import { VISUAL_FIXTURES } from "../../lib/content/visual-fixtures";
  * dataset, so a renderer change can be inspected at 390px and 1440px without
  * hunting through articles or temporarily editing content.
  *
- * Deliberately outside the public information architecture, following the
- * precedent /editorial-preview already set: noindex, absent from sitemap.ts,
+ * Deliberately outside the public information architecture: noindex, absent from sitemap.ts,
  * llms.txt, RSS, the header and the footer, and linked from nowhere. It builds
  * because the export builds every route; that is the only reason it exists in
  * out/.

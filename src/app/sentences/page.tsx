@@ -2,7 +2,6 @@ import { allSentences } from "content-collections";
 import Link from "next/link";
 import SpotlightCard from "../../components/SpotlightCard";
 import SectionHeader from "../../components/SectionHeader";
-import SceneFigure from "../../components/SceneFigure";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 
@@ -36,12 +35,6 @@ export default function SentencesIndexPage() {
         tick="var(--accent-blue)"
       />
 
-      <SceneFigure
-        src="/scenes/nietzsche.html"
-        label="Figure · eternal_return"
-        accent="var(--accent-purple)"
-        caption="The eternal return, drawn as a ring that bites its own tail. His aphorisms scatter as loose fragments, because the whole was always too heavy to carry in one line."
-      />
 
       {allSentences.length === 0 ? (
         <p className="text-sm italic" style={{ color: "var(--text-muted)" }}>No sentences archived yet.</p>

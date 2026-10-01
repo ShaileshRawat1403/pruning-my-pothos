@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import NewsletterForm from "./NewsletterForm";
 import { SECTIONS } from "../lib/config/sections";
 
@@ -17,13 +16,7 @@ const ELSEWHERE = [
  * and where else to find the author. Every public page is linked from here.
  */
 export default function Footer() {
-  const pathname = usePathname();
   const year = new Date().getFullYear();
-
-  // /editorial-preview is a composition sandbox, not a page anyone navigates from.
-  if (pathname === "/editorial-preview" || pathname === "/editorial-preview/") {
-    return null;
-  }
 
   return (
     <footer className="w-full mt-auto border-t border-[color:var(--card-border)]">

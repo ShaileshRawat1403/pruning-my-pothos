@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useSyncExternalStore } from "react";
-import { runConsole } from "./ConsoleToastHost";
 
 const subscribeToHydration = () => () => {};
 const subscribeToTheme = (notify: () => void) => {
@@ -26,15 +25,6 @@ export default function ThemeToggle() {
     const next = theme === "light" ? "dark" : "light";
     try { localStorage.setItem("systems-theme", next); } catch { /* Theme still works without persistence. */ }
     document.documentElement.setAttribute("data-theme", next);
-    runConsole("theme", next === "light"
-      ? { command: "git checkout daylight", steps: [
-          { text: "Switched to branch 'daylight'.", status: "ok" },
-          { text: "Ink stashed. Parchment restored.", status: "info" },
-        ] }
-      : { command: "git checkout midnight", steps: [
-          { text: "Switched to branch 'midnight'.", status: "ok" },
-          { text: "Parchment stashed. Back to ink.", status: "info" },
-        ] });
   };
 
   if (!mounted) {

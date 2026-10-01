@@ -3,7 +3,6 @@ import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 import SentimentsClient from "../../components/SentimentsClient";
 import SectionHeader from "../../components/SectionHeader";
-import SceneFigure from "../../components/SceneFigure";
 import { renderMarkdown } from "../../lib/markdown";
 
 export const metadata = constructMetadata({
@@ -139,12 +138,6 @@ export default function SentimentsIndexPage() {
         tick="var(--accent-purple)"
       />
 
-      <SceneFigure
-        src="/scenes/llull.html"
-        label="Figure · llull_wheels"
-        accent="var(--accent-purple)"
-        caption="Llull's combinatorial wheels: turn every idea against every other and read what the discs propose. A search space in brass and vellum, six centuries before we had a word for it."
-      />
 
       {/* Interactive client panel */}
       <SentimentsClient initialPosts={allPosts} stickyNotes={mappedStickyNotes} />

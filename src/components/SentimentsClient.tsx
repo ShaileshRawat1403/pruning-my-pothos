@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SpotlightCard from "./SpotlightCard";
-import { runConsole } from "./ConsoleToastHost";
 
 interface PostItem {
   id: string;
@@ -65,18 +64,6 @@ export default function SentimentsClient({ initialPosts, stickyNotes }: Sentimen
     activeTab === "sticky-notes"
       ? filteredStickyNotes.length
       : filteredPosts.length + (activeTab === "all" ? filteredStickyNotes.length : 0);
-
-  useEffect(() => {
-    if (searchQuery.trim() && filteredPosts.length === 0 && filteredStickyNotes.length === 0) {
-      runConsole("grep", {
-        command: `grep -r "${searchQuery.trim().slice(0, 24)}" .`,
-        steps: [
-          { text: "0 matches.", status: "warn" },
-          { text: "Meaning is not indexed here. Try feeling.", status: "info" },
-        ],
-      }, { once: true });
-    }
-  }, [searchQuery, filteredPosts.length, filteredStickyNotes.length]);
 
   return (
     <div className="flex flex-col gap-8 w-full">

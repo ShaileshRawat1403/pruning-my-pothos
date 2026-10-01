@@ -1,6 +1,5 @@
 import Link from "next/link";
 import GlowCard from "../../components/GlowCard";
-import SceneFigure from "../../components/SceneFigure";
 import I7LoopInteractive from "../../components/I7LoopInteractive";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
@@ -81,12 +80,6 @@ export default function SchemaPage() {
         </blockquote>
       </section>
 
-      <SceneFigure
-        src="/scenes/clarity.html"
-        label="Figure · clarity_through_complexity"
-        accent="var(--accent-amber)"
-        caption="A tangle of competing lines on the left. A narrow aperture in the middle, the discipline. One clean line survives and continues. That is the whole ambition: clarity that lives through complexity rather than around it."
-      />
 
       <div className="section-divider" />
 

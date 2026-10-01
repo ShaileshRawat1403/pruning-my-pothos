@@ -1,6 +1,5 @@
 import SpotlightCard from "../../components/SpotlightCard";
 import SectionHeader from "../../components/SectionHeader";
-import SceneFigure from "../../components/SceneFigure";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 
@@ -195,12 +194,6 @@ export default function ToolsIndexPage() {
         tick="var(--accent-cyan)"
       />
 
-      <SceneFigure
-        src="/scenes/hero.html"
-        label="Figure · hero_automata"
-        accent="var(--accent-cyan)"
-        caption="A program written in gears, pegs, and string. Wind the drum, and the little cart moves itself along its track. The oldest automation there is, running on nothing but patience and brass."
-      />
 
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {toolItems.map((tool, idx) => (

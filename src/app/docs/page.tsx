@@ -1,6 +1,5 @@
 import Link from "next/link";
 import SectionHeader from "../../components/SectionHeader";
-import SceneFigure from "../../components/SceneFigure";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 
@@ -33,12 +32,6 @@ export default function DocsIntroPage() {
         tick="var(--accent-cyan)"
       />
 
-      <SceneFigure
-        src="/scenes/euclid.html"
-        label="Figure · elements"
-        accent="var(--accent-cyan)"
-        caption="Proposition One: two circles and the equilateral triangle they conjure, a compass, and a solid rising above the scroll. Begin with what cannot be doubted, then build only what follows."
-      />
 
       {/* Main Content card */}
       <div className="card-glass p-6 sm:p-8 flex flex-col gap-8 bg-[color:var(--bg-color)]">

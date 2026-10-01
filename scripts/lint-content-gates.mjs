@@ -36,7 +36,6 @@ const FORBIDDEN_MARKERS = [
 
 const TARGET_FILES = [
   "src/app/page.tsx",
-  "src/app/editorial-preview/page.tsx",
   "src/components/Header.tsx",
   "src/components/NewsletterForm.tsx",
   "src/components/home/Hero.tsx",

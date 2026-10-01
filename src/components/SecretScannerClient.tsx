@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import TerminalSim, { SimStep } from "./TerminalSim";
-import { runConsole } from "./ConsoleToastHost";
 
 // Fake .env used only to demonstrate the scanner. These values are assembled at
 // browser runtime so the static export never contains credential-like literals.
@@ -97,13 +96,6 @@ export default function SecretScannerClient() {
     navigator.clipboard.writeText(result.redacted).then(() => {
       setCopyLabel("Copied");
       setTimeout(() => setCopyLabel("Copy redacted"), 1500);
-      runConsole("yank", {
-        command: "yank",
-        steps: [
-          { text: "In the clipboard, out of context.", status: "ok" },
-          { text: "Paste responsibly.", status: "info" },
-        ],
-      }, { once: true });
     });
   };
 

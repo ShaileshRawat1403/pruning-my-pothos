@@ -1,6 +1,5 @@
 import SpotlightCard from "../../components/SpotlightCard";
 import SectionHeader from "../../components/SectionHeader";
-import SceneFigure from "../../components/SceneFigure";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 import { SHELF_CATEGORIES } from "../../lib/content/shelf";
@@ -38,12 +37,6 @@ export default function ShelfIndexPage() {
         tick="var(--accent-cyan)"
       />
 
-      <SceneFigure
-        src="/scenes/greenwood.html"
-        label="Figure · signal_path"
-        accent="var(--accent-cyan)"
-        caption="A waveform patched through a rack of modules, cables looping between the jacks. Noise routed, tuned, and argued with until it becomes something worth keeping."
-      />
 
       {/* Grid List */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
