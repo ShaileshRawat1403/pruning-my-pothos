@@ -111,6 +111,10 @@ npm run validate:archive
 ```
 
 Local static preview: `python3 -m http.server 8811 --directory out`.
+`npm run test:contract` briefly writes and removes a test article in
+`src/content/systems/`. A running dev server picks it up and then fails the
+Systems IA check ("Not placed: test-rollback-existing-target"); restart the
+dev server after running the suite.
 Turbopack dev cache can serve stale CSS: `rm -rf .next/dev .next/cache/turbopack`.
 
 ### Docs that stay, and why
