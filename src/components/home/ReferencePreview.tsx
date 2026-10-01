@@ -7,6 +7,7 @@ import {
   type ReferenceSheetType,
 } from "../../lib/content/reference-sheets";
 import SpotlightCard from "../SpotlightCard";
+import { SheetTypeEmblem } from "../illustrations/sheets";
 
 // Home preview of Shelf → Works On My Prompt, read from the same list as the
 // page, so it cannot drift. Until the first sheet is published it shows what
@@ -36,7 +37,7 @@ export default function ReferencePreview() {
               {BUILDER_SECTION.tagline}
             </h2>
             <p className="text-sm leading-relaxed text-[color:var(--text-secondary)] mt-2">
-              Field manuals, cheat sheets and maps for the part after the demo works.{" "}
+              Post-mortems written before the incident, cheat sheets and maps, for the part after the demo works.{" "}
               {sheets.length === 0 ? "The first ones are being written." : ""}
             </p>
           </div>
@@ -53,8 +54,11 @@ export default function ReferencePreview() {
             ? PLACEHOLDERS.map((type) => (
                 <li
                   key={type}
-                  className="flex flex-col gap-2 rounded-sm border border-dashed p-5 border-[color:var(--card-border)]"
+                  className="flex flex-col gap-3 rounded-sm border border-dashed p-4 border-[color:var(--card-border)]"
                 >
+                  <div className="ill-alive overflow-hidden rounded-sm border border-[#D9D4C6]" aria-hidden="true">
+                    <SheetTypeEmblem type={type} id={`home-${type}`} />
+                  </div>
                   <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[color:var(--text-muted)]">
                     {REFERENCE_TYPE_LABEL[type]} · coming soon
                   </span>
@@ -63,9 +67,10 @@ export default function ReferencePreview() {
               ))
             : sheets.map((s) => (
                 <li key={s.slug}>
-                  <SpotlightCard href="/shelf/reference/" compact className="gap-3">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={s.thumbnail} alt="" className="aspect-[4/3] w-full rounded-sm object-cover" loading="lazy" />
+                  <SpotlightCard href={`/shelf/reference/${s.slug}/`} compact className="gap-3">
+                    <div className="ill-lift overflow-hidden rounded-sm border border-[#D9D4C6]" aria-hidden="true">
+                      <SheetTypeEmblem type={s.type} id={`home-${s.slug}`} />
+                    </div>
                     <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[color:var(--text-muted)]">
                       {REFERENCE_TYPE_LABEL[s.type]}
                     </span>

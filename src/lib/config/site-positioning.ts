@@ -1,8 +1,8 @@
 /**
- * site-positioning.ts — Canonical Positioning Contract for Pruning My Pothos
+ * site-positioning.ts: Canonical Positioning Contract for Pruning My Pothos
  *
  * Centralizes durable identity facts only. Contextual copy (e.g. FAQ answers,
- * About page biographical paragraphs, Methodology cards) derives from these
+ * About page biographical paragraphs) derives from these
  * facts but remains authored locally where it is rendered.
  */
 export const SITE_POSITIONING = {
@@ -17,7 +17,7 @@ export const SITE_POSITIONING = {
 
   // Canonical site description for meta tags and top-level JSON-LD WebSite schema
   canonicalDescription:
-    "Practical explainers, field notes, and architectural breakdowns of AI systems, grounded in real use and explained in plain language.",
+    "Practical explainers, storyboards and architectural breakdowns of AI systems, grounded in real use and explained in plain language.",
 
   // Audience framing (focused on mechanisms, avoiding sweeping universal claims)
   audienceFraming:

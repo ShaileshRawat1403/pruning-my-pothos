@@ -31,7 +31,7 @@ export default function NewsletterWelcomePage() {
           </p>
 
           <p className="text-xs sm:text-sm text-[#7A7872] leading-relaxed max-w-2xl pt-2">
-            New technical breakdowns and field notes arrive as they are completed.
+            New explainers and drawings arrive when they are finished, not on a schedule.
             In the meantime, here are three entry points into the systems and tools documented across this site:
           </p>
         </header>

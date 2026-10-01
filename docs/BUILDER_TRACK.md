@@ -19,6 +19,8 @@ frameworks and techniques; sarcastic, dark humour; names people relate to.
   (`BUILDER_SECTION`, `REFERENCE_TYPE_LABEL`, `REFERENCE_TYPE_NOTE`). Change
   copy there, never in the pages.
 - Entries: `REFERENCE_SHEETS` in the same file; files in `public/reference/`.
+- One sheet's page: `src/components/SheetPage.tsx`, routed at
+  `src/app/shelf/reference/[slug]/`. Drawings: `illustrations/sheets.tsx`.
 - Working notes and gap analysis: `private/content-gaps.md` (local only).
 
 ## Who it is for
@@ -31,50 +33,74 @@ hits, in the order they hit it.
 
 ## Voice
 
-Same register as the drawings (`docs/STORYBOARD_AUTHORING.md`): deadpan,
-blunt, dark, never cruel to the reader.
+Sarcasm, brutal honesty, dark humour. Same register as the drawings
+(`docs/STORYBOARD_AUTHORING.md`): deadpan, blunt, never cruel to the reader.
 
 - The joke is about the situation and the habit: shipping on Friday, the
   agent that said "done", the prompt that worked once. Never about who the
   reader is, and never about identity. No sexual humour.
-- Funny title, plain promise. The title is the joke ("Ten Ways It Lied To
-  You"); the first line under it says exactly what you will be able to do.
-- The humour never makes a claim. "It lied" is a joke about a wrong answer;
-  it is not a claim that models intend anything.
-- House rules hold: no em dashes, no filler words, no "it's not X, it's Y".
+- Funny title, plain promise. The title is the joke ("Write It Down or Watch
+  It Guess"); the line under it says exactly what you will be able to do.
+- The humour never makes a claim. "Guessed anyway" is a joke about a habit;
+  it does not say how often anything happens.
+- **Banned, because it is the stock voice this site exists to avoid:** "field
+  guide", "field notes", "field manual", "from the trenches", "deep dive",
+  "level up", "supercharge", "ultimate guide", "pro tips", "hacks",
+  "journey", "unlock", "game-changer". `npm run lint:gates` fails on most of
+  them in the builder files and the home page.
+- House rules hold: no em dashes, no "it's not X, it's Y".
 
 ### Type names
 
 | Key | Label | What it is |
 |:--|:--|:--|
-| `manual` | Field Manual | Step by step: do this, check that, here is what failure looks like |
+| `manual` | Post-Mortem, Pre-Written | Step by step: every step you will be told you should have done, in order, while it still helps |
 | `mindmap` | Conspiracy Board | One topic, every thread pinned, the string in order |
 | `architecture` | Blast Radius Map | Every part, every connection, how far one mistake travels |
 | `cheatsheet` | Things You'll Google Anyway | The one page you keep open in the other tab |
 | `slides` | The Long Way Round | A system, step by step, ending where it breaks |
 
-## How a sheet is made
+## The sheet format
 
-Visual storytelling first: every sheet is drawn before it is written.
+Every sheet is written and drawn here, and has its own page at
+`/shelf/reference/<slug>/`. No PDFs, no outside drafting tools (NotebookLM
+is out of scope; see the decisions log).
 
-1. **Pick the question** from the order of work below. Write the promise in
-   one line: "After this, you can ___" (a verb that happens off the page).
-2. **Find its Systems article.** Every sheet links to the article that
-   explains why. The sheet is the practice; the article is the reason.
-3. **Draw it.** Deadpan register, the same kit (`illustrations/deadpan.tsx`).
-   A Field Manual is a sequence of drawn steps, one idea per step.
-4. **Write it.** Steps, how to verify each, what failure looks like, where
-   it stops.
-5. **Tools.** Name a tool only to say what it is for and what it does not
-   do, linked to its own documentation and dated "as of". No rankings, no
-   "best", no prices, no comparative claims without a source.
-6. **Honesty.** A procedure is a procedure. Nothing is presented as tested
-   unless the owner tested it and says so. Illustrative examples are framed
-   as illustrative. The editorial contract applies (`AGENTS.md`).
-7. **Disclosure.** `drafted: "pmp"` for sheets written here;
-   `drafted: "notebooklm"` shows the NotebookLM line on the card.
-8. **Owner review** before it is listed. Then add the entry, export the
-   files, run the gates.
+**Data** (`ReferenceSheet` in `src/lib/content/reference-sheets.ts`):
+
+| Field | What goes in it |
+|:--|:--|
+| `title` | The joke |
+| `quip` | Optional: a short label on the cover, its own joke |
+| `type` | One of the five keys above |
+| `promise` | Finishes "After this, you can ...". A verb that happens off the page |
+| `summary` | The situation, two or three sentences |
+| `article` | The Systems article that explains why. Its stage is shown with it |
+| `steps[]` | `do` (the instruction), `check` (how you know it worked, without trusting anyone's word), `fails` (what it looks like when skipped) |
+| `tools[]` | `name`, `forWhat`, `notFor`, `docs` (the tool's own documentation), `asOf` (the date that was true) |
+| `stops` | What doing all of this still does not give you |
+| `sources[]` | Every outside claim's source, plus any specimen, pinned |
+| `scene` | The id of the drawn steps in `illustrations/scenes/`, if drawn |
+
+**Page** (`src/components/SheetPage.tsx`), top to bottom: section, type and
+stage; title; the promise; the drawn cover (`SheetCover` in
+`illustrations/sheets.tsx`: type, title, the type's emblem, someone
+unimpressed, the quip); the summary; the steps as a pinned scroll scene,
+one beat per step (Step NN, the do, "Check:", "If it fails:"), or as a plain
+list when not yet drawn; the tools from their own docs; where it stops,
+with the article; the sources.
+
+**Drawings**: each type has an emblem (`SheetTypeEmblem`), used on cards and
+the empty state. Each sheet's steps get their own scene drawing in the
+deadpan register: the same objects change step by step, one idea per step.
+
+**Checks**: Test 71 fails if a sheet links to a Systems article that does
+not exist or a tool note has no date. The sitemap lists the section and its
+sheets once the first sheet is published.
+
+**Review before publishing**: drafts are shown on the local, gitignored
+route `/dank-samples/sheet-sample/` (or one like it) and are published only
+after the owner reads them there.
 
 ## Order of work
 
@@ -83,12 +109,12 @@ Status: `done`, `next`, `open`, `parked`.
 | # | Step | Status |
 |:--|:--|:--|
 | 1 | Name the section and the types; revoice the pages; per-sheet disclosure | done (2026-10-01) |
-| 2 | The Field Manual format: data fields, the page or PDF layout, the drawn-step template | next |
-| 3 | Field Manual: the file your coding agent reads first (stage 7). Specimen: this repo's AGENTS.md and HANDOVER.md, pinned | open |
-| 4 | Field Manual: a ten-case check in a spreadsheet (stage 6), using the site's csv-to-eval tool | open |
-| 5 | Field Manual: give an assistant your documents, and know what it can see (stage 2) | open |
+| 2 | The sheet format: data, page, cover, type emblems, drawn steps; a draft sample on the local route | done, awaiting owner review (2026-10-01) |
+| 3 | "Write It Down or Watch It Guess": the file your coding agent reads first (stage 7). Drafted as the step 2 sample; publish after review | next |
+| 4 | A ten-case check in a spreadsheet (stage 6), using the site's csv-to-eval tool | open |
+| 5 | Give an assistant your documents, and know what it can see (stage 2) | open |
 | 6 | Conspiracy Board: the builder's stack, by category, dated | open |
-| 7 | Field Manual: choosing a model (stage 1), anchored on the Shelf's local and cloud baselines | open |
+| 7 | Choosing a model (stage 1), anchored on the Shelf's local and cloud baselines | open |
 | - | Project POCs for the flagship articles | parked until the owner's projects are finished |
 
 Titles for steps 3 to 7 are working titles; each gets its funny title when
@@ -96,8 +122,12 @@ its step starts, approved by the owner.
 
 ## Decisions log
 
-- 2026-10-01: Section named **Works On My Prompt**, tagline "Field manuals
-  for people AI promoted to builder without asking." Types renamed as above.
+- 2026-10-01: Section named **Works On My Prompt**. Types renamed as above.
   URL kept at `/shelf/reference/`.
-- 2026-10-01: The NotebookLM disclosure moved from the section to each sheet
-  (`drafted`), because field manuals are written here.
+- 2026-10-01: "Field" anything (guide, notes, manual) is banned as stock
+  voice. The step-by-step type is **Post-Mortem, Pre-Written**; the tagline is
+  "For everyone AI promoted to builder without asking."
+- 2026-10-01: NotebookLM-drafted sheets are out of scope: they do not fit
+  this section. The disclosure and `drafted` field are removed; the prompt
+  kit (`docs/REFERENCE_SHEETS_PROMPTS.md`) is parked.
+- 2026-10-01: Sheets are pages with drawn steps, not downloads.

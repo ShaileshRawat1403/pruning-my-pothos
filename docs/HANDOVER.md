@@ -7,7 +7,7 @@ then `docs/STORYBOARD_AUTHORING.md`. Written 2026-09-26, updated 2026-09-30.
 
 ## 1. What this is
 
-**pruningmypothos.com**: a field guide to applied AI systems by Shailesh
+**pruningmypothos.com**: applied AI systems, explained and drawn, by Shailesh
 Rawat. Static Next.js site (App Router, `output: "export"`, trailing slashes),
 content in MDX via content-collections, Tailwind, a Zod "editorial contract".
 
@@ -51,7 +51,7 @@ One config drives header, section sub-nav and footer:
 | Systems | `/systems/` explainers (28 articles). The 8-stage Systems Map (`src/lib/content/systems-map.ts`) names one flagship per stage; `src/lib/content/systems-ia.ts` places every other article under a stage as a companion or a note, or across the map. The build fails if an article is unplaced |
 | Storyboards | `/storyboards/` illustrated PDF explainers, one per stage article (8 decks) |
 | Stack | Projects `/stack/`, product pages `/stack/<product>/` (DAX at `/stack/dax/`), Tools `/tools/`, Canvases, Docs, Live lab |
-| Shelf | `/shelf/` categories, and **Works On My Prompt** `/shelf/reference/`: field manuals for new-age builders (placeholder, noindexed until the first sheet; plan in `docs/BUILDER_TRACK.md`) |
+| Shelf | `/shelf/` categories, and **Works On My Prompt** `/shelf/reference/`: material for new-age builders (placeholder, noindexed until the first sheet; plan in `docs/BUILDER_TRACK.md`) |
 | Self | Work `/portfolio/`, Writing (`/sentences/`, `/sentiments/`), Schema, Calibrations `/self/`, About `/about/` |
 
 `SectionNav` shows a second row on Stack and Self pages. The footer is one
@@ -191,12 +191,9 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
    the realistic generic figures). Keep one idea per frame, captions true to
    the article, no "not X, Y".
 6. **Works On My Prompt** (the builder track): follow `docs/BUILDER_TRACK.md`
-   step by step. NotebookLM sheets still use the prompts in `docs/reference-sheets/batch-01.md`,
-   kit and review loop in `docs/REFERENCE_SHEETS_PROMPTS.md`. When the owner
-   brings NotebookLM drafts: review page by page (keep / fix copy /
-   regenerate), they edit (badge off, PMP footer on), then add entries to
-   `src/lib/content/reference-sheets.ts` with files in `public/reference/`.
-   Disclosure line stays: "Drafted with NotebookLM, edited by Pruning My Pothos."
+   step by step. Every sheet is written and drawn here; NotebookLM drafting
+   is out of scope (the old kit, `docs/REFERENCE_SHEETS_PROMPTS.md` and
+   `docs/reference-sheets/`, is parked).
 7. **Legacy imagery**: the painted plates are gone except the self-portrait
    (About, Calibrations). Shelf resource covers (`public/covers/shelf/`) are
    still the older calm abstract style; when Shelf is revamped they move to

@@ -1,7 +1,7 @@
 # Pruning My Pothos
 
-Source for [pruningmypothos.com](https://pruningmypothos.com): a field guide to
-applied AI systems, by Shailesh Rawat. A static Next.js site (App Router,
+Source for [pruningmypothos.com](https://pruningmypothos.com): applied AI
+systems, explained and drawn, by Shailesh Rawat. A static Next.js site (App Router,
 static export), content in MDX, drawings in hand-built SVG.
 
 ## Start here

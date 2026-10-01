@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { type ComponentType, useEffect, useRef, useState } from "react";
 import type { SceneStep } from "../../lib/scene-steps";
 import { SCENES } from "../illustrations/scenes";
+import type { SceneProps } from "../illustrations/scenes/kit";
 
 /**
  * A declared visual, drawn as a scene: the drawing pins while its steps
@@ -11,10 +12,10 @@ import { SCENES } from "../illustrations/scenes";
  * Without scripts the drawing shows its first state and every step is plain
  * text beside it. The words are the visual's own (lib/scene-steps.ts).
  */
-export default function SceneVisual({ sceneId, alt, steps }: { sceneId: string; alt: string; steps: SceneStep[] }) {
+export default function SceneVisual({ sceneId, alt, steps, drawing }: { sceneId: string; alt: string; steps: SceneStep[]; drawing?: ComponentType<SceneProps> }) {
   const wrap = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState(0);
-  const Scene = SCENES[sceneId];
+  const Scene = drawing ?? SCENES[sceneId];
 
   useEffect(() => {
     const el = wrap.current;

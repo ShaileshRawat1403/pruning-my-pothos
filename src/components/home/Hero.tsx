@@ -14,7 +14,7 @@ export default function Hero() {
             <div className="flex items-center gap-2">
               <span className="h-px w-8 bg-[color:var(--accent-cyan)]" />
               <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[color:var(--text-muted)]">
-                A field guide to applied AI systems
+                How applied AI systems actually work
               </span>
             </div>
 

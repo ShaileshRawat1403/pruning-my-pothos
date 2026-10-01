@@ -78,7 +78,7 @@ export const SITE_POSITIONING = {
 
   // Canonical site description for meta tags and top-level JSON-LD WebSite schema
   canonicalDescription:
-    "Practical explainers, field notes, and architectural breakdowns of AI systems, grounded in real use and explained in plain language.",
+    "Practical explainers, storyboards and architectural breakdowns of AI systems, grounded in real use and explained in plain language.",
 
   // Audience framing (focused on mechanisms, avoiding sweeping universal claims)
   audienceFraming:

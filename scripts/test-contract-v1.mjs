@@ -934,14 +934,15 @@ async function runTests() {
     `Test 70: every cover has its own emblem and the cast appears in at most two${missingEmblems.length ? ` (no emblem: ${missingEmblems.join(", ")})` : ""}${castUses > 2 ? ` (cast used ${castUses} times)` : ""}`
   );
 
-  // Test 71: every published reference sheet has its files, and the section
-  // carries the NotebookLM disclosure.
+  // Test 71: every Works On My Prompt sheet links to a Systems article that
+  // exists, and every sheet cites a source for what it says about tools.
   const refSrc = await fs.readFile(path.resolve(ROOT, "src/lib/content/reference-sheets.ts"), "utf8");
-  const refFiles = [...refSrc.matchAll(/(?:file|thumbnail): "(\/[^"]+)"/g)].map((m) => m[1]);
-  const missingRef = refFiles.filter((f) => !existsSync(path.resolve(ROOT, "public" + f)));
+  const sheetArticles = [...refSrc.matchAll(/^\s{4}article: "([^"]+)"/gm)].map((m) => m[1]);
+  const missingArticles = sheetArticles.filter((slug) => !existsSync(path.resolve(ROOT, `src/content/systems/${slug}.mdx`)));
+  const toolDocsWithoutDate = [...refSrc.matchAll(/docs: "[^"]+",\s*\n\s*(?!asOf)/g)].length;
   assert(
-    missingRef.length === 0 && refSrc.includes("Drafted with NotebookLM, edited by Pruning My Pothos."),
-    `Test 71: reference sheets have their files and the disclosure${missingRef.length ? ` (missing: ${missingRef.join(", ")})` : ""}`
+    missingArticles.length === 0 && toolDocsWithoutDate === 0,
+    `Test 71: builder sheets link to real Systems articles and date every tool note${missingArticles.length ? ` (missing: ${missingArticles.join(", ")})` : ""}`
   );
 
   // Test 72: no "it's not X, it's Y" in drawn copy. Headlines, punchlines,

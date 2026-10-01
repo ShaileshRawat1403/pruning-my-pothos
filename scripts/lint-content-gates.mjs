@@ -22,6 +22,8 @@ const FORBIDDEN_MARKERS = [
   { pattern: /\bVERIFIED TOOLS\b/g, label: "Unsubstantiated verification badge (VERIFIED TOOLS)" },
   { pattern: /\bVerified Repo\b/g, label: "Unsubstantiated verification badge (Verified Repo)" },
   { pattern: /\bgame-changing\b/gi, label: "Marketing buzzword (game-changing)" },
+  { pattern: /\bfield (guide|notes?|manuals?)\b/gi, label: "Stock phrase (field guide / notes / manual): say what it is" },
+  { pattern: /\b(deep dive|level up|supercharge|ultimate guide|pro tips?|from the trenches)\b/gi, label: "Stock phrase (deep dive, level up, ultimate guide, ...)" },
   { pattern: /\bcutting-edge\b/gi, label: "Marketing buzzword (cutting-edge)" },
   { pattern: /\bseamless\b/gi, label: "Marketing buzzword (seamless)" },
   { pattern: /\brevolutionary\b/gi, label: "Marketing buzzword (revolutionary)" },
@@ -44,12 +46,14 @@ const TARGET_FILES = [
   "src/components/home/SelectedSystems.tsx",
   "src/components/home/ReferencePreview.tsx",
   "src/components/home/ShelfPreview.tsx",
-  "src/components/home/StartHere.tsx",
   "src/components/home/Projects.tsx",
   "src/components/home/ProjectInspector.tsx",
-  "src/components/home/Tools.tsx",
-  "src/components/home/ToolGrid.tsx",
-  "src/components/home/Methodology.tsx",
+  "src/lib/config/site-positioning.ts",
+  "src/lib/config/sections.ts",
+  "src/lib/content/reference-sheets.ts",
+  "src/app/shelf/page.tsx",
+  "src/app/shelf/reference/page.tsx",
+  "src/app/newsletter/welcome/page.tsx",
 ];
 
 for (const relPath of TARGET_FILES) {

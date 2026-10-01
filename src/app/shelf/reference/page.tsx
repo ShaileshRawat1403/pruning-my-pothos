@@ -1,17 +1,17 @@
 import Link from "next/link";
+import { SheetTypeEmblem } from "../../../components/illustrations/sheets";
 import SpotlightCard from "../../../components/SpotlightCard";
 import { constructMetadata } from "../../../lib/seo/metadata";
 import { getWebPageSchema } from "../../../lib/seo/jsonld";
 import {
   getReferenceSheets,
   BUILDER_SECTION,
-  REFERENCE_DISCLOSURE,
   REFERENCE_TYPE_LABEL,
   REFERENCE_TYPE_NOTE,
   type ReferenceSheetType,
 } from "../../../lib/content/reference-sheets";
 
-const DESCRIPTION = `${BUILDER_SECTION.name}: ${BUILDER_SECTION.tagline} Field manuals, cheat sheets and maps for building with AI, each linked to the Systems article that explains why.`;
+const DESCRIPTION = `${BUILDER_SECTION.name}: ${BUILDER_SECTION.tagline} Post-mortems written before the incident, cheat sheets and maps for building with AI, each linked to the Systems article that explains why.`;
 
 // Noindexed until the first sheet is published, so search engines never meet
 // an empty shelf.
@@ -62,7 +62,9 @@ export default function ReferenceSheetsPage() {
                 className="flex flex-col gap-3 rounded-sm border border-dashed p-5"
                 style={{ borderColor: "var(--card-border)" }}
               >
-                <div className="aspect-[4/3] w-full rounded-sm" style={{ background: "var(--card-bg)" }} aria-hidden="true" />
+                <div className="ill-alive overflow-hidden rounded-sm border border-[#D9D4C6]" aria-hidden="true">
+                  <SheetTypeEmblem type={type} />
+                </div>
                 <span className="text-[10px] font-mono font-bold uppercase tracking-[0.18em]" style={{ color: "var(--accent-cyan)" }}>
                   {REFERENCE_TYPE_LABEL[type]}
                 </span>
@@ -81,25 +83,19 @@ export default function ReferenceSheetsPage() {
         <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">
           {sheets.map((s) => (
             <li key={s.slug}>
-              <SpotlightCard href={s.file} accent="var(--accent-cyan)" className="gap-3">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={s.thumbnail} alt="" className="aspect-[4/3] w-full rounded-sm object-cover" loading="lazy" />
+              <SpotlightCard href={`/shelf/reference/${s.slug}/`} accent="var(--accent-cyan)" className="gap-3">
+                <div className="ill-lift overflow-hidden rounded-sm border border-[#D9D4C6]" aria-hidden="true">
+                  <SheetTypeEmblem type={s.type} id={`card-${s.slug}`} />
+                </div>
                 <span className="text-[10px] font-mono font-bold uppercase tracking-[0.18em]" style={{ color: "var(--accent-cyan)" }}>
                   {REFERENCE_TYPE_LABEL[s.type]}
-                  {s.pages ? ` · ${s.pages} pages` : ""}
                 </span>
                 <h2 className="font-heading text-lg font-bold" style={{ color: "var(--text-primary)" }}>
                   {s.title}
                 </h2>
                 <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                  {s.summary}
+                  After this, you can {s.promise}
                 </p>
-                {s.drafted === "notebooklm" && (
-                  <p className="font-mono text-[10px]" style={{ color: "var(--text-muted)" }}>{REFERENCE_DISCLOSURE}</p>
-                )}
-                <span className="text-xs font-semibold" style={{ color: "var(--accent-cyan)" }}>
-                  Download ➔
-                </span>
               </SpotlightCard>
             </li>
           ))}

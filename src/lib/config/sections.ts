@@ -55,7 +55,7 @@ export const SECTIONS: Section[] = [
     key: "shelf",
     label: "Shelf",
     href: "/shelf/",
-    blurb: "What informed the work, and field manuals for builders.",
+    blurb: "What informed the work, and the instructions builders skip.",
     items: [
       { label: "The shelf", href: "/shelf/" },
       { label: "Works On My Prompt", href: "/shelf/reference/" },

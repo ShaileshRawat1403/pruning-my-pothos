@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { allSystems, allSentences, allSelves, allShelves } from "content-collections";
 import { SITE_CONFIG } from "../lib/seo/site";
+import { getReferenceSheets } from "../lib/content/reference-sheets";
 import { slugifyTag } from "../lib/tags";
 import { getStoryboards } from "../lib/content/storyboards";
 
@@ -95,6 +96,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
+  // Works On My Prompt: the section and each sheet, once there is a sheet.
+  // While the list is empty the section page is a noindexed placeholder.
+  const sheets = getReferenceSheets();
+  const builderRoutes = sheets.length
+    ? [
+        { url: `${SITE_CONFIG.url}/shelf/reference/` },
+        ...sheets.map((s) => ({ url: `${SITE_CONFIG.url}/shelf/reference/${s.slug}/`, lastModified: knownDate(s.updatedAt ?? s.publishDate) })),
+      ]
+    : [];
+
   // Match the tag page's existing indexability policy. Count documents once,
   // even when two labels on a document normalize to the same slug.
   const tagCounts = new Map<string, number>();
@@ -115,6 +126,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...sentenceRoutes,
     ...selfRoutes,
     ...shelfRoutes,
+    ...builderRoutes,
     ...topicRoutes,
   ];
 }
