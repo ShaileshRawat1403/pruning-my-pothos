@@ -39,5 +39,5 @@ export const SCENES: Record<string, ComponentType<SceneProps>> = {
   // Not article visuals, so they stay out of SCENE_IDS.
   "write-it-down-or-watch-it-guess": dynamic(() => import("./write-it-down-or-watch-it-guess")),
   "better-than-last-week-prove-it": dynamic(() => import("./better-than-last-week-prove-it")),
-  "it-read-the-folder-allegedly": dynamic(() => import("./it-read-the-folder-allegedly")),
+  "upload-everything-read-nothing": dynamic(() => import("./upload-everything-read-nothing")),
 };

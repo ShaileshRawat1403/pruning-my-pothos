@@ -5,7 +5,7 @@ import { D, Head, Torso, Limb } from "../deadpan";
 import { At, Lit, Page, Plate, SceneProps, Show, Tick, hand, mono } from "./kit";
 
 /**
- * The steps of the Works On My Prompt sheet "It Read the Folder. Allegedly."
+ * The steps of the Works On My Prompt sheet "Upload Everything, Read Nothing"
  * One desk, every step: the questions you can check pinned on the left; the
  * tray of uploads, with the old copy going in the bin; one page held up to
  * see whether its text arrived; the quote matched to its line in the file;

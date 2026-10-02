@@ -238,6 +238,72 @@ export const REFERENCE_SHEETS: ReferenceSheet[] = [
     scene: "better-than-last-week-prove-it",
     publishDate: "2026-10-01",
   },
+  {
+    slug: "upload-everything-read-nothing",
+    title: "Upload Everything, Read Nothing",
+    quip: "Cited page 12. There is no page 12.",
+    type: "manual",
+    promise: "give an assistant your documents and check, with five questions, whether what you uploaded is what it answers from.",
+    summary:
+      "You uploaded the folder and asked a question. The answer sounded like your documents, and it might have been. Between your files and the answer, a document can fail to be read, lose to an older copy, never get picked for this question, or get picked and ignored, and every one of those looks the same from the chat box. A few questions whose answers you already know show which one happened.",
+    article: "retrieval-augmented-generation-in-plain-terms",
+    steps: [
+      {
+        id: "questions",
+        do: "Before uploading, write three questions you already know the answers to, with the file and page each answer is on.",
+        check: "You can open the file and point at each answer.",
+        fails: "You test it with questions it could answer without your files, and it passes.",
+      },
+      {
+        id: "one-copy",
+        do: "Upload one current copy of each document. Take out the old versions and the duplicates first.",
+        check: "Every file appears once, and you could say which version is the current one.",
+        fails: "It answers from last year's policy, which sits right next to this year's and says nearly the same thing.",
+      },
+      {
+        id: "arrived",
+        do: "Ask it to quote one line from a table and one from a scanned page.",
+        check: "Both quotes match the file, word for word and number for number.",
+        fails: "The scan came through as nothing, or as text that is almost right. Nobody mentions it.",
+      },
+      {
+        id: "quote",
+        do: "Ask your three questions. For each, ask for the exact passage it used and the file it came from.",
+        check: "Search that file for the passage. It is there, and it says what the answer says.",
+        fails: "A tidy quote with a file name and a page number, from a page that does not exist.",
+      },
+      {
+        id: "absent",
+        do: "Ask one question whose answer is only in a document you did not upload.",
+        check: "It says it cannot find that in your files, or answers and tells you the answer is not from them.",
+        fails: "It answers anyway, in the same voice, and you cannot tell where it came from.",
+      },
+    ],
+    tools: [
+      {
+        name: "Claude Projects",
+        forWhat: "A project's knowledge: documents you upload once and every chat in the project can draw on. Its help page says that as project knowledge approaches the context limit, it switches to a retrieval mode.",
+        notFor: "Showing you which passages it read for a given answer. Ask for the quote and check it.",
+        docs: "https://support.claude.com/en/articles/9517075-what-are-projects",
+        asOf: "2026-10-02",
+      },
+      {
+        name: "OpenAI file search (API)",
+        forWhat: "For apps you build: the model searches files you uploaded, by meaning and by keyword, and its answers carry citations naming the file.",
+        notFor: "Promising the cited passage supports the answer. A citation names where it looked; whether it read it right is still yours to check.",
+        docs: "https://developers.openai.com/api/docs/guides/tools-file-search",
+        asOf: "2026-10-02",
+      },
+    ],
+    stops:
+      "Five questions show whether the evidence reached it for those five. They cannot tell you which passages it will pick for the next question, and an answer that quotes the right page can still draw the wrong conclusion from it. When a check fails, the article below walks the stages in order to find where the document was lost.",
+    sources: [
+      { label: "Claude Help Center: What are projects?", url: "https://support.claude.com/en/articles/9517075-what-are-projects" },
+      { label: "OpenAI API docs: File search", url: "https://developers.openai.com/api/docs/guides/tools-file-search" },
+    ],
+    scene: "upload-everything-read-nothing",
+    publishDate: "2026-10-02",
+  },
 ];
 
 export function getReferenceSheets(): ReferenceSheet[] {

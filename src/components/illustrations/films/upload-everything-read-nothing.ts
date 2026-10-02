@@ -1,7 +1,7 @@
 import type { FilmScript } from "./kit";
 
 /**
- * The cover of the Works On My Prompt sheet "It Read the Folder. Allegedly."
+ * The cover of the Works On My Prompt sheet "Upload Everything, Read Nothing"
  * SheetCover draws in cover space, so points here subtract the emblem origin
  * (660, 44). Wide: the uploads land on the desk, one by one. Close-up: the
  * assistant reads the folder, by its label. Wide: "Cited page 12." The

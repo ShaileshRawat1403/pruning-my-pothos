@@ -131,7 +131,7 @@ Status: `done`, `next`, `open`, `parked`.
 | 2 | The sheet format: data, page, cover, type emblems, drawn steps; a draft sample on the local route | done, reviewed (2026-10-01) |
 | 3 | "Write It Down or Watch It Guess": the file your coding agent reads first (stage 7). Cover pun, film and scene. Tool claims rechecked against each tool's docs on 2026-10-01 | done, live (2026-10-01) |
 | 4 | "Better Than Last Week? Prove It.": a ten-row check in a spreadsheet (stage 6). Title chosen by the owner. Cover pun (one spoon, everyone served), film and scene. promptfoo claims checked against its docs on 2026-10-01 | done, live (2026-10-01) |
-| 5 | Give an assistant your documents, and know what it can see (stage 2). Drafted as "It Read the Folder. Allegedly." (working title) with cover pun, film and scene; Claude Projects and OpenAI file search claims checked against their docs on 2026-10-02 | drafted, awaiting owner review (2026-10-02) |
+| 5 | "Upload Everything, Read Nothing": give an assistant your documents and check what it answers from (stage 2). Title chosen by the owner. Cover pun, film and scene; Claude Projects and OpenAI file search claims checked against their docs on 2026-10-02 | done (2026-10-02) |
 | 6 | Conspiracy Board: the builder's stack, by category, dated | next |
 | 7 | Choosing a model (stage 1), anchored on the Shelf's local and cloud baselines | open |
 | - | Project POCs for the flagship articles | parked until the owner's projects are finished |

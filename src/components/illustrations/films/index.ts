@@ -29,7 +29,7 @@ import { film as f_what_an_ai_model_actually_is } from "./what-an-ai-model-actua
 import { film as f_why_ocr_quietly_breaks_document_ai } from "./why-ocr-quietly-breaks-document-ai";
 import { film as f_sheet_write_it_down_or_watch_it_guess } from "./write-it-down-or-watch-it-guess";
 import { film as f_sheet_better_than_last_week_prove_it } from "./better-than-last-week-prove-it";
-import { film as f_sheet_it_read_the_folder_allegedly } from "./it-read-the-folder-allegedly";
+import { film as f_sheet_upload_everything_read_nothing } from "./upload-everything-read-nothing";
 
 /** One film per Systems article, keyed by the article's slug; then one per
  * Works On My Prompt sheet with its own cover art, keyed by the sheet's slug. */
@@ -65,5 +65,5 @@ export const FILMS: Record<string, FilmScript> = {
 
   "write-it-down-or-watch-it-guess": f_sheet_write_it_down_or_watch_it_guess,
   "better-than-last-week-prove-it": f_sheet_better_than_last_week_prove_it,
-  "it-read-the-folder-allegedly": f_sheet_it_read_the_folder_allegedly,
+  "upload-everything-read-nothing": f_sheet_upload_everything_read_nothing,
 };

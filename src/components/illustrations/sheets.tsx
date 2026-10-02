@@ -212,7 +212,7 @@ const SHEET_ART: Record<string, React.ReactNode> = {
   ),
 
   /* Cited page 12. There is no page 12: the folder, read by its label. */
-  "it-read-the-folder-allegedly": (
+  "upload-everything-read-nothing": (
     <g>
       <path d="M640 560 H1150" stroke={D.ink} strokeWidth={5} strokeLinecap="round" opacity={0.6} />
 
