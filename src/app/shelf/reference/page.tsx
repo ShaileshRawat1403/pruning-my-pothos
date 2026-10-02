@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SheetTypeEmblem } from "../../../components/illustrations/sheets";
+import { SheetCover, SheetTypeEmblem } from "../../../components/illustrations/sheets";
 import SpotlightCard from "../../../components/SpotlightCard";
 import { constructMetadata } from "../../../lib/seo/metadata";
 import { getBreadcrumbSchema, getCollectionSchema } from "../../../lib/seo/jsonld";
@@ -96,7 +96,7 @@ export default function ReferenceSheetsPage() {
             <li key={s.slug}>
               <SpotlightCard href={`/shelf/reference/${s.slug}/`} accent="var(--accent-cyan)" className="gap-3">
                 <div className="ill-lift overflow-hidden rounded-sm border border-[#D9D4C6]" aria-hidden="true">
-                  <SheetTypeEmblem type={s.type} id={`card-${s.slug}`} />
+                  <SheetCover slug={s.slug} type={s.type} title={s.title} promise={s.promise} quip={s.quip} />
                 </div>
                 <span className="text-[10px] font-mono font-bold uppercase tracking-[0.18em]" style={{ color: "var(--accent-cyan)" }}>
                   {REFERENCE_TYPE_LABEL[s.type]}

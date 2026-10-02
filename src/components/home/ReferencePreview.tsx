@@ -7,7 +7,7 @@ import {
   type ReferenceSheetType,
 } from "../../lib/content/reference-sheets";
 import SpotlightCard from "../SpotlightCard";
-import { SheetTypeEmblem } from "../illustrations/sheets";
+import { SheetCover, SheetTypeEmblem } from "../illustrations/sheets";
 
 // Home preview of Shelf → Works On My Prompt, read from the same list as the
 // page, so it cannot drift. Until the first sheet is published it shows what
@@ -69,7 +69,7 @@ export default function ReferencePreview() {
                 <li key={s.slug}>
                   <SpotlightCard href={`/shelf/reference/${s.slug}/`} compact className="gap-3">
                     <div className="ill-lift overflow-hidden rounded-sm border border-[#D9D4C6]" aria-hidden="true">
-                      <SheetTypeEmblem type={s.type} id={`home-${s.slug}`} />
+                      <SheetCover slug={s.slug} type={s.type} title={s.title} promise={s.promise} quip={s.quip} />
                     </div>
                     <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[color:var(--text-muted)]">
                       {REFERENCE_TYPE_LABEL[s.type]}

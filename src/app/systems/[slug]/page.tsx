@@ -12,7 +12,10 @@ import { ArticleCover } from "../../../components/illustrations/covers";
 import CoverFilm from "../../../components/illustrations/CoverFilm";
 import { coverKicker } from "../../../lib/content/covers";
 import { slugifyTag } from "../../../lib/tags";
-import { placeOf } from "../../../lib/content/systems-ia";
+import { getSystemsIA, placeOf } from "../../../lib/content/systems-ia";
+import { BUILDER_SECTION, REFERENCE_SHEETS, REFERENCE_TYPE_LABEL } from "../../../lib/content/reference-sheets";
+import SpotlightCard from "../../../components/SpotlightCard";
+import { SheetCover } from "../../../components/illustrations/sheets";
 import ExplainerFigure from "../../../components/explainer/ExplainerFigure";
 import {
   AnswerBlock,
@@ -57,6 +60,9 @@ export default async function SystemsDetailPage({ params }: PageProps) {
 
   const storyboard = getStoryboard(slug);
   const place = placeOf(slug);
+  // Works On My Prompt sheets built on this article, and the next stage on the map.
+  const sheets = REFERENCE_SHEETS.filter((sh) => sh.article === slug);
+  const nextStage = place.stage ? getSystemsIA().stages.find((st) => st.number === place.stage!.number + 1) : undefined;
   const faqs = system.faq ?? [];
   const proofPoints = system.proofPoints ?? [];
 
@@ -316,6 +322,29 @@ export default async function SystemsDetailPage({ params }: PageProps) {
         </nav>
       )}
 
+      {/* Do it yourself: the sheets that turn this article into steps. */}
+      {sheets.length > 0 && (
+        <section aria-labelledby="try-it" className="flex flex-col gap-4 border-t border-[color:var(--card-border)] pt-6">
+          <h2 id="try-it" className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--text-muted)]">
+            Do it yourself &middot; {BUILDER_SECTION.name}
+          </h2>
+          <ul className="m-0 grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2">
+            {sheets.map((sh) => (
+              <li key={sh.slug}>
+                <SpotlightCard href={`/shelf/reference/${sh.slug}/`} accent="var(--accent-cyan)" compact className="gap-3">
+                  <div className="ill-lift overflow-hidden rounded-sm border border-[#D9D4C6]" aria-hidden="true">
+                    <SheetCover slug={sh.slug} type={sh.type} title={sh.title} promise={sh.promise} quip={sh.quip} />
+                  </div>
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[color:var(--text-muted)]">{REFERENCE_TYPE_LABEL[sh.type]}</span>
+                  <h3 className="m-0 font-heading text-base font-bold text-[color:var(--text-primary)]">{sh.title}</h3>
+                  <p className="m-0 text-xs leading-relaxed text-[color:var(--text-secondary)]">After this, you can {sh.promise}</p>
+                </SpotlightCard>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       {/* Slot 12 — the internal link model, made visible. */}
       {system.related && system.related.length > 0 && (
         <RelatedThree items={system.related} />
@@ -323,12 +352,18 @@ export default async function SystemsDetailPage({ params }: PageProps) {
 
       {/* Continue Navigation footer */}
       <div className="border-t border-[color:var(--card-border)] pt-8 mt-8 flex flex-wrap gap-4 justify-between items-center text-xs font-mono">
-        <Link href="/" className="text-[color:var(--text-primary)] hover:underline font-semibold">
-          &larr; Back to Home
-        </Link>
         <Link href="/systems" className="text-[color:var(--text-primary)] hover:underline font-semibold">
-          Systems Index &rarr;
+          &larr; Systems Index
         </Link>
+        {nextStage ? (
+          <Link href={nextStage.href} className="text-right text-[color:var(--text-primary)] hover:underline font-semibold">
+            Next on the map &middot; Stage {String(nextStage.number).padStart(2, "0")}: {nextStage.title}{" "}&rarr;
+          </Link>
+        ) : (
+          <Link href="/" className="text-[color:var(--text-primary)] hover:underline font-semibold">
+            Home &rarr;
+          </Link>
+        )}
       </div>
     </article>
   );

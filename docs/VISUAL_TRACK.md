@@ -56,9 +56,9 @@ Status: `done`, `next`, `open`, `parked`.
 | # | Step | Status |
 |:--|:--|:--|
 | 1 | Hero plate gets "Play again"; cover-film replay visible at rest | done (2026-10-02) |
-| 2 | **Logo**: three drawn concepts on a local review page; owner picks; then header, favicon, share cards | next |
-| 3 | **Linking**: each Systems article shows the Works On My Prompt sheets built on it; each sheet already links back. Then a "next on the map" link at the end of every stage article | open |
-| 4 | **No blob, flagships first**: for the two worst articles (handoff, 2,272 words; readiness, 2,020), add inline visuals until no run passes ~400 words, and lengthen the main scene to cover the whole mechanism. Owner reviews one article before the pattern repeats | open |
+| 2 | **Logo**: three drawn concepts on the local page `/dank-samples/logo/` (A The Snip, B The Deadpan Leaf, C The Pruned Pot); owner picks; then header, favicon, share cards | concepts drawn, awaiting owner pick (2026-10-02) |
+| 3 | **Linking**: each Systems article shows the Works On My Prompt sheets built on it ("Do it yourself"), and ends with "Next on the map" to the following stage's flagship. Sheet cards everywhere show the sheet's own cover instead of the shared type emblem | done (2026-10-02) |
+| 4 | **No blob, flagships first**: for the two worst articles (handoff, 2,272 words; readiness, 2,020), add inline visuals until no run passes ~400 words, and lengthen the main scene to cover the whole mechanism. Owner reviews one article before the pattern repeats | next |
 | 5 | No blob, the other six stage articles | open |
 | 6 | No blob, the twenty companions and notes | open |
 | 7 | **Motion everywhere**: a small drawn, moving header or spot for Self, Sentences, Tools, About, 404 (template-driven, one drawing per page type, not per page) | open |
