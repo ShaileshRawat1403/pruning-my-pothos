@@ -133,6 +133,7 @@ Turbopack dev cache can serve stale CSS: `rm -rf .next/dev .next/cache/turbopack
 | `STYLE_REFERENCES.md` | outside work the deadpan register learns from |
 | `SEARCH_AND_DISTRIBUTION.md` | search, structured data, cross-posting |
 | `BUILDER_TRACK.md` | Works On My Prompt: the builder section, its voice, and the step-by-step order of work |
+| `VISUAL_TRACK.md` | the visual program: logo, motion everywhere, no text blob without a visual, longer scenes, UI/UX and linking, step by step |
 | `HOSTING.md` | deploys, checks, Cloudflare and Hostinger |
 | `REFERENCE_SHEETS_PROMPTS.md`, `reference-sheets/` | the NotebookLM kit |
 | `ARCHIVE_DISPOSITION_MANIFEST.json`, `EDITORIAL_AUDIT.md` | machine-read by scripts and tests |

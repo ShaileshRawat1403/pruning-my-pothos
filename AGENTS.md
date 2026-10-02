@@ -14,6 +14,13 @@ Material for new-age builders lives on the Shelf and is done one step at a
 time. Read the plan, do the next open step, update the plan:
 👉 [Builder track](docs/BUILDER_TRACK.md)
 
+# Visual track (the site tells it in pictures)
+
+Visual storytelling, motion across the site, no text blob without a visual,
+the logo, UI/UX and linking are done one step at a time. Read the plan, do the
+next open step, update the plan:
+👉 [Visual track](docs/VISUAL_TRACK.md)
+
 # Editorial Governor: PMP Editorial Contract v1
 
 All content authoring and modification in `src/content/` is strictly governed by:
