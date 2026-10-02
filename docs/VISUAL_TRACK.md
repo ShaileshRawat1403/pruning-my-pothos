@@ -56,7 +56,7 @@ Status: `done`, `next`, `open`, `parked`.
 | # | Step | Status |
 |:--|:--|:--|
 | 1 | Hero plate gets "Play again"; cover-film replay visible at rest | done (2026-10-02) |
-| 2 | **Logo**: three drawn concepts on the local page `/dank-samples/logo/` (A The Snip, B The Deadpan Leaf, C The Pruned Pot); owner picks; then header, favicon, share cards | concepts drawn, awaiting owner pick (2026-10-02) |
+| 2 | **Logo**: the Deadpan Leaf (`src/components/brand/DeadpanLeaf.tsx`), chosen by the owner from three concepts. In the header (on a paper disc), the favicon and the default share card; both images render from `/brand-art/` with `npm run export:storyboards -- --only=brand` | done (2026-10-02) |
 | 3 | **Linking**: each Systems article shows the Works On My Prompt sheets built on it ("Do it yourself"), and ends with "Next on the map" to the following stage's flagship. Sheet cards everywhere show the sheet's own cover instead of the shared type emblem | done (2026-10-02) |
 | 4 | **No blob, flagships first**: for the two worst articles (handoff, 2,272 words; readiness, 2,020), add inline visuals until no run passes ~400 words, and lengthen the main scene to cover the whole mechanism. Owner reviews one article before the pattern repeats | next |
 | 5 | No blob, the other six stage articles | open |
@@ -67,5 +67,8 @@ Status: `done`, `next`, `open`, `parked`.
 
 ## Decisions log
 
+- 2026-10-02: Logo: the Deadpan Leaf (B), over The Snip and The Pruned Pot.
+  The favicon and default share card were the owner's self-portrait; the
+  portrait stays on About and Calibrations.
 - 2026-10-02: Program started from the owner's direction above. Measured
   baseline recorded under "Where it stands".

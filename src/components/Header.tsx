@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 import { SECTIONS, locate } from "../lib/config/sections";
+import DeadpanLeaf from "./brand/DeadpanLeaf";
 
 export default function Header() {
   const pathname = usePathname();
@@ -29,12 +30,9 @@ export default function Header() {
             href="/"
             className="flex items-center gap-3 text-decoration-none group focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--text-primary)] rounded-lg p-1"
           >
-            <div className="w-8 h-8 rounded-full bg-[color:var(--text-primary)] text-white flex items-center justify-center transition-transform group-hover:scale-105">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
-                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
-              </svg>
-            </div>
+            <span className="flex items-center justify-center transition-transform group-hover:scale-105 group-hover:-rotate-6" aria-hidden="true">
+              <DeadpanLeaf size={36} disc title="" />
+            </span>
             <span className="font-heading font-extrabold text-lg tracking-tight text-[color:var(--text-primary)]">
               Pruning My Pothos
             </span>

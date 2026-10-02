@@ -4,6 +4,7 @@
  *
  *   public/storyboards/pdf/<slug>.pdf   each storyboard as a 4:5 PDF deck
  *   public/storyboards/og/<slug>.png    each storyboard's 1200 x 630 link preview
+ *   public/favicon.png, og-default.png  the logo and the default share card
  *   public/covers/sheets/<slug>.png     each Works On My Prompt sheet's cover
  *   public/covers/systems/<slug>.png    each Systems article's cover, for link
  *                                       previews (the page draws it live)
@@ -144,7 +145,8 @@ try {
   const storyboards = slugsWith("storyboards", "print");
   const covers = slugsWith("cover-art", "");
   const sheets = slugsWith("sheet-art", "");
-  if (storyboards.length === 0 && covers.length === 0 && sheets.length === 0) fail("nothing to export in out/.");
+  const brand = (!ONLY || ONLY === "brand") && fs.existsSync(path.join(OUT, "brand-art", "icon", "index.html"));
+  if (storyboards.length === 0 && covers.length === 0 && sheets.length === 0 && !brand) fail("nothing to export in out/.");
 
   console.log(`Storyboards (${storyboards.length})`);
   for (const slug of storyboards) {
@@ -154,6 +156,13 @@ try {
   console.log(`Article covers (${covers.length})`);
   for (const slug of covers) {
     await screenshot(`/cover-art/${slug}/`, `covers/systems/${slug}.png`, 1200, 630);
+  }
+  // The brand: favicon and the default share card, from /brand-art/.
+  // Alone: --only=brand.
+  if (brand) {
+    console.log("Brand");
+    await screenshot("/brand-art/icon/", "favicon.png", 512, 512);
+    await screenshot("/brand-art/card/", "og-default.png", 1200, 630);
   }
   console.log(`Sheet covers (${sheets.length})`);
   for (const slug of sheets) {
