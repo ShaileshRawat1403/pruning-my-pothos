@@ -976,6 +976,23 @@ async function runTests() {
     `Test 72: no "not X, Y" constructions in headlines, punchlines, quips or takeaways${copyHits.length ? ` (found: ${copyHits.slice(0, 6).join("; ")})` : ""}`
   );
 
+  // Test 73: the browser tools' CSV reader reads what a spreadsheet exports.
+  // Unquoted cells with spaces, empty cells, quoted commas, escaped quotes and
+  // line breaks inside quotes all survive. (It once kept only the last word of
+  // an unquoted cell and dropped empty ones.) esbuild comes with
+  // content-collections; it is hoisted in package-lock.json.
+  const { transformSync } = await import("esbuild");
+  const csvTs = await fs.readFile(path.resolve(ROOT, "src/lib/tools/csv.ts"), "utf8");
+  const csvJs = transformSync(csvTs, { loader: "ts", format: "esm" }).code;
+  const { parseCsv } = await import(`data:text/javascript;base64,${Buffer.from(csvJs).toString("base64")}`);
+  const csvCases = [
+    ["how do refunds work,You get 30 days,x", [["how do refunds work", "You get 30 days", "x"]]],
+    ['"a, b",,"he said ""hi"""', [["a, b", "", 'he said "hi"']]],
+    ['"one\ntwo",b\r\nc,d', [["one\ntwo", "b"], ["c", "d"]]],
+  ];
+  const csvBad = csvCases.filter(([input, want]) => JSON.stringify(parseCsv(input)) !== JSON.stringify(want)).map(([input]) => JSON.stringify(input));
+  assert(csvBad.length === 0, `Test 73: the CSV reader keeps spaces, empty cells, quoted commas, escaped quotes and quoted line breaks${csvBad.length ? ` (wrong for: ${csvBad.join("; ")})` : ""}`);
+
   console.log(`\nRegression Suite Results: ${passed} passed, ${failed} failed.\n`);
   if (failed > 0) {
     process.exit(1);

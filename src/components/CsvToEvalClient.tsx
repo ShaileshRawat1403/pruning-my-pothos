@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { csvRecords } from "../lib/tools/csv";
 
 const SAMPLE_CSV = `query,response,expected_criteria
 "Does the reply match the schema?","The response follows the requested JSON schema.","Must state schema compliance"
@@ -10,67 +11,42 @@ export default function CsvToEvalClient() {
   const [inputText, setInputText] = useState("");
   const [outputJsonl, setOutputJsonl] = useState("");
   const [copyText, setCopyText] = useState("Copy JSONL");
+  const [error, setError] = useState("");
 
   const loadSample = () => {
     setInputText(SAMPLE_CSV);
   };
 
   const handleCompile = () => {
+    setError("");
     const rawValue = inputText.trim();
     if (!rawValue) {
-      alert("Please paste some CSV data first.");
+      setError("Paste some CSV first: a header row, then one row per case.");
       return;
     }
 
     try {
-      const lines = rawValue.split("\n");
-      if (lines.length < 2) {
-        alert("Invalid CSV: Needs at least a header row and one data row.");
-        return;
-      }
-
-      // Simple CSV cell splitter (handles quotes)
-      const parseRow = (text: string) => {
-        const matches = text.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || text.split(",");
-        return matches.map((c) => c.replace(/^["']|["']$/g, "").trim());
-      };
-
-      const headers = parseRow(lines[0]);
-      const jsonlEntries: string[] = [];
-
-      for (let i = 1; i < lines.length; i++) {
-        if (!lines[i].trim()) continue;
-        const row = parseRow(lines[i]);
-        const entry: Record<string, string> = {};
-        headers.forEach((h, index) => {
-          entry[h] = row[index] || "";
-        });
-
-        // Structure as a canonical evaluation unit
-        jsonlEntries.push(
-          JSON.stringify(
-            {
-              input: entry.query || entry.input || "",
-              output: entry.response || entry.output || "",
-              evaluation_rubric: {
-                assertions: [
-                  {
-                    type: "contains_phrase",
-                    expected:
-                      entry.expected_criteria ||
-                      entry.expected ||
-                      "Must provide accurate context",
-                  },
-                ],
+      const { records } = csvRecords(rawValue);
+      // One JSONL line per row. The expectation is carried as written; it is
+      // labelled contains_phrase, so edit the type before another tool relies on it.
+      const jsonlEntries = records.map((entry) =>
+        JSON.stringify({
+          input: entry.query || entry.input || "",
+          output: entry.response || entry.output || "",
+          evaluation_rubric: {
+            assertions: [
+              {
+                type: "contains_phrase",
+                expected: entry.expected_criteria || entry.expected || "",
               },
-            }
-          )
-        );
-      }
-
+            ],
+          },
+        })
+      );
       setOutputJsonl(jsonlEntries.join("\n"));
     } catch (e: unknown) {
-      alert("Error parsing CSV: " + (e instanceof Error ? e.message : "Invalid input"));
+      setOutputJsonl("");
+      setError(e instanceof Error ? e.message : "That did not read as CSV.");
     }
   };
 
@@ -105,7 +81,7 @@ export default function CsvToEvalClient() {
           <textarea
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            placeholder="Paste CSV rows here (must include headers on the first line)...&#10;Example:&#10;query,response,expected&#10;'how to build a loop','use a transition table','should mention trigger-action flow'"
+            placeholder="Paste CSV here, header row first. Columns: query (or input), response (or output), expected (or expected_criteria). Example:&#10;query,response,expected&#10;How long do refunds take?,Refunds arrive within 30 days.,names the 30-day window"
             className="w-full flex-grow min-h-[300px] bg-[color:var(--bg-color)] border border-[color:var(--card-border)] rounded-sm p-4 text-xs font-mono text-[color:var(--text-primary)] focus:border-accent-orange/60 focus:bg-[color:var(--bg-color)] outline-none resize-none transition-all duration-300 placeholder:text-[color:var(--text-muted)]"
           />
         </div>
@@ -116,6 +92,11 @@ export default function CsvToEvalClient() {
         >
           Compile Evaluation Dataset
         </button>
+        {error && (
+          <p role="alert" className="m-0 text-xs font-mono text-[color:var(--accent-pink)]">
+            {error}
+          </p>
+        )}
       </div>
 
       {/* Output Panel */}

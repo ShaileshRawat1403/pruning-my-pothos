@@ -51,7 +51,16 @@ export default function CsvToEvalPage() {
         <div className="lg:col-span-8 flex flex-col gap-6 text-sm text-[color:var(--text-secondary)]">
           <h2 className="font-heading text-xl font-bold text-[color:var(--text-primary)]">How It Works</h2>
           <p className="leading-relaxed">
-            This prototype acts as an offline helper compiling raw query logs. It normalizes comma-separated structures, auto-detects input vs expected headers, and maps them to standard assertion objects suitable for validation loops.
+            Paste a CSV with a header row: <code>query</code> (or <code>input</code>), <code>response</code> (or <code>output</code>) and <code>expected</code> (or <code>expected_criteria</code>). Each row becomes one JSONL line holding the input, the output and the expectation as you wrote it. It reads what a spreadsheet exports: quoted cells, commas and line breaks inside quotes, empty cells.
+          </p>
+          <p className="leading-relaxed">
+            It formats; it does not run a model or mark anything pass or fail. Every expectation is labelled <code>contains_phrase</code> whatever it says, so change the type before another tool relies on it.
+          </p>
+          <p className="leading-relaxed">
+            Using it to check whether a change made things better or worse:{" "}
+            <Link href="/shelf/reference/better-than-last-week-prove-it/" className="underline underline-offset-4 text-[color:var(--text-primary)]">
+              Better Than Last Week? Prove It.
+            </Link>
           </p>
 
           <h3 className="font-heading text-base font-bold text-[color:var(--text-primary)]">Use Cases</h3>
@@ -106,9 +115,9 @@ export default function CsvToEvalPage() {
           </div>
 
           <div className="card-glass p-5 bg-[color:var(--card-bg)] text-xs text-[color:var(--text-secondary)]">
-            <h5 className="font-heading font-bold text-xs uppercase tracking-wider text-[color:var(--text-primary)] mb-2">Browser Limits</h5>
+            <h5 className="font-heading font-bold text-xs uppercase tracking-wider text-[color:var(--text-primary)] mb-2">In the browser</h5>
             <p className="leading-relaxed">
-              Online uploads are restricted to 10 rows. Local CLI executions run offline with zero restrictions.
+              Runs in your browser; nothing you paste is sent anywhere. No row limit. One expectation per row.
             </p>
           </div>
         </div>
