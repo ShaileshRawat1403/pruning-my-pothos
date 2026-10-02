@@ -104,7 +104,7 @@ npm run build
 npm run export:storyboards   # after any illustration change (--only=<slug>)
 npm run lint                 # 0 errors expected (9 known warnings)
 npm run lint:gates           # copy rules on home components
-npm run test:contract        # 72 tests, all must pass
+npm run test:contract        # 73 tests, all must pass
 npm run audit
 npm run verify:covers
 npm run validate:archive
@@ -178,11 +178,8 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
   `verify-indexing`: 26 pass, 0 warnings. The 39 advisories from
   `lint:systems:advisory` are missing proof links, which wait on the
   owner's POCs (never written into existence).
-- Branches: `main` and `deploy` (written by CI), plus the working branch
-  `feature/motion-and-depth` (merged; keep or delete) and
-  `origin/docs/post-deploy` (its one commit, 5405b33e, is in `main` now;
-  safe to delete, owner's call). Every other branch was merged or deleted on
-  2026-10-01. Tips of the deleted unmerged ones, in case
+- Branches: only `main` and `deploy` (written by CI). Sprint work happens on
+  a `sprint/<date>` branch merged into `main` when the owner says ship. Tips of the deleted unmerged ones, in case
   one is ever needed: `seo/tier-1-corrective` 453eb62a,
   `feature/pmp-editorial-contract-v1` ae240271, `feature/pmp-dark-theme`
   1da752eb, `codex/learning-discovery` 1323eefc,
@@ -235,9 +232,7 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
 11. **Section drawings and captions** in `illustrations/sections.tsx` are
     drafts awaiting the owner's read, as are the step captions drawn inside
     the scenes.
-12. **CSV to Eval page** (`/tools/csv-to-eval/`) says online use is limited
-    to 10 rows; its code sets no limit. Fix the page or the code.
-13. **Sheet films** are checked as frozen frames only; watch both once in a
+12. **Sheet films** are checked as frozen frames only; watch both once in a
     visible tab.
-14. **Remaining registers to fold in**: the terminal toast
+13. **Remaining registers to fold in**: the terminal toast
     (`ConsoleToastHost`) and the `SceneFigure` HTML figures.
