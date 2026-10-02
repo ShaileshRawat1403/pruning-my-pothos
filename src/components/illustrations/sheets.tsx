@@ -210,6 +210,46 @@ const SHEET_ART: Record<string, React.ReactNode> = {
       <g className="fx-fine">{hand(648, 214, "fine.", 34, D.greyLight)}</g>
     </g>
   ),
+
+  /* Cited page 12. There is no page 12: the folder, read by its label. */
+  "it-read-the-folder-allegedly": (
+    <g>
+      <path d="M640 560 H1150" stroke={D.ink} strokeWidth={5} strokeLinecap="round" opacity={0.6} />
+
+      {/* The desk, and everything that was uploaded, in a pile. */}
+      <rect x={840} y={392} width={310} height={18} fill={D.paperDeep} stroke={D.ink} strokeWidth={5} />
+      <path d="M858 410 V560 M1132 410 V560" {...LINE} strokeWidth={7} />
+      <g className="fx-pile">
+        {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+          <g key={i} className="fx-sheet">
+            <rect x={900 + (i % 3) * 6 - 6} y={364 - i * 26} width={190} height={24} rx={3} fill={i % 2 ? "#E8C77A" : "#fff"} stroke={D.ink} strokeWidth={3.5} />
+          </g>
+        ))}
+      </g>
+      {mono(996, 196, "UPLOADS", 20, D.greyLight)}
+
+      {/* The assistant, studying the label of one closed folder. */}
+      <Legs x={730} y={484} floor={558} gap={44} />
+      <Torso x={730} y={330} w={150} h={160} fill={D.teal} />
+      <Head x={730} y={262} r={58} eyes="sleepy" look={0} mouth="flat" hair="curly" />
+      <Limb d="M676 380 C 660 352, 676 334, 700 330" fill={D.teal} />
+      <Limb d="M784 380 C 800 352, 784 334, 760 330" fill={D.teal} />
+      <g transform="rotate(-4 730 330)">
+        <rect x={664} y={300} width={132} height={88} rx={4} fill="#E8C77A" stroke={D.ink} strokeWidth={4.5} />
+        <path d="M672 300 v-14 h46 l8 14" fill="#E8C77A" stroke={D.ink} strokeWidth={4} strokeLinejoin="round" />
+        {mono(730, 352, "FOLDER", 20)}
+      </g>
+
+      {/* The answer it gave, with a source. */}
+      <g className="fx-slip">
+        <g transform="rotate(6 940 470)">
+          <rect x={880} y={440} width={150} height={62} fill="#fff" stroke={D.ink} strokeWidth={3.5} />
+          {mono(955, 466, "ANSWER", 18, D.greyLight)}
+          {mono(955, 492, "SOURCE: P.12", 18, D.accent)}
+        </g>
+      </g>
+    </g>
+  ),
 };
 
 /** The type's emblem on its own paper, for cards. */
