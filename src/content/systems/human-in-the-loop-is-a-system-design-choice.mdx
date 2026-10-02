@@ -86,6 +86,92 @@ visuals:
         - id: present
           label: "A person is present"
           note: "Says nothing on its own; they may be receiving a notification after the fact"
+  - id: is-it-still-open
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "If the outcome has already happened, what a person does next is not approval."
+    caption: "The first test is timing, and it disqualifies more review steps than anything else."
+    alt: "A comparison of a review step where the outcome is still undetermined when the reviewer looks, which makes what they do a decision, with one where the message has been sent, the file deleted, the page published or the payment made, which makes what follows monitoring, audit or correction."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Still undetermined when the reviewer looks"
+        items:
+          - "What they do decides whether it happens"
+      after:
+        label: "Already happened"
+        items:
+          - "The message sent, the file deleted, the page published, the payment made"
+          - "What follows is monitoring, audit, or the start of a correction"
+      diffNote: "Calling after-the-fact notification an approval gate is how teams end up believing a decision was made that never was."
+  - id: which-human
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Humans are not interchangeable: the reviewer is a named person with the authority and the knowledge."
+    caption: "A human reviews it is not a design."
+    alt: "Three questions about the reviewer, in order: whose call it actually is rather than who is available; whether that person has the standing to decide; and whether they have the knowledge to evaluate what is in front of them."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: owns
+          label: "Who owns this decision?"
+          note: "Not who is available, but whose call it actually is."
+        - id: standing
+          label: "Do they have the standing to decide?"
+          note: "Without it, the approval signal does not settle the decision."
+        - id: knowledge
+          label: "Do they have the knowledge?"
+          note: "A reviewer who cannot evaluate the thing in front of them is a delay, not a control."
+  - id: what-no-does
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "If a workflow asks a human to decide, at least one meaningful non-approval transition must exist."
+    caption: "Approval paths get built carefully. Rejection paths get a toast notification."
+    alt: "A boundary between refusals that are states the system actually has, returning the artifact for revision with the reason attached, stopping and releasing what the run was holding, requesting more evidence, escalating to a different owner, or falling back to a manual route, and refusals that are not decisions: a toast notification, or waiting until someone approves anyway."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "When the reviewer says no"
+      inside:
+        label: "A state the system actually has"
+        items:
+          - "Return it for revision, with the reason attached"
+          - "Stop the run and release what it was holding"
+          - "Ask for more evidence, or escalate to a different owner"
+          - "Fall back to a manual route"
+      outside:
+        label: "Not a decision"
+        items:
+          - "A toast notification"
+          - "Waiting until someone approves anyway"
+  - id: what-the-merge-reserves
+    purpose: evidence-map
+    renderAs: generated-evidence-map
+    takeaway: "Automation can continue after a human decision without removing that decision from the control path."
+    caption: "This repository's publishing script, and which half of the claim it supports."
+    alt: "An evidence map for the judgment that a person decides whether a change goes live. On the default path the script opens a pull request without merging it, so the merge can be that decision. Validation checks written rules only. On the auto-merge path nobody merges by hand, and the script assumes an earlier approval that the repository does not record."
+    evidenceRole: evidence
+    sources:
+      - pmp-websiteops-publish
+    data:
+      judgment: "A person decides whether this becomes the live site."
+      supports:
+        - id: default
+          label: "Default path: a pull request, not merged"
+          strength: direct
+          note: "The merge can itself be the publication decision."
+        - id: validation
+          label: "Validation runs first either way"
+          strength: partial
+          note: "It checks rules that were written down, not whether the piece is worth publishing."
+        - id: automerge
+          label: "Auto-merge path: nobody merges by hand"
+          strength: absent
+          note: "The script's comments say approval happened earlier."
+        - id: record
+          label: "Who supplied that earlier approval"
+          strength: absent
+          note: "This repository does not record it."
+      gap: "The code shows the automation path. It does not establish that the assumed human decision occurred."
 ---
 
 Somewhere in most AI workflows there is a screen with an Approve button. Its presence is usually cited as the reason the system is under control.
@@ -116,6 +202,8 @@ If the message has been sent, the file deleted, the page published or the paymen
 
 So: at the moment the reviewer looks, is the outcome still undetermined? If not, be honest about what the step is. Calling after-the-fact notification an approval gate is how teams end up believing a decision was made that never was.
 
+<!-- pmp:visual id="is-it-still-open" -->
+
 ## Which human, and why them
 
 "A human reviews it" is not a design. Humans are not interchangeable, and the useful questions are specific.
@@ -127,6 +215,8 @@ Does that person have the standing to decide? Assigning review to someone withou
 Do they have the knowledge? A reviewer who cannot evaluate the thing in front of them is a delay, not a control.
 
 This is where the old framing of "add a human in the loop" quietly fails. It treats the human as a component type rather than a named person with authority and knowledge.
+
+<!-- pmp:visual id="which-human" -->
 
 ## What the reviewer sees
 
@@ -148,6 +238,8 @@ Refusal needs to be a state the system actually has. Depending on the workflow t
 
 Not every workflow needs all of those. **If a workflow asks a human to decide, at least one meaningful non-approval transition must exist**, because if the only thing refusal does is prevent the next step until someone approves anyway, the reviewer does not have a decision. They have a delay they are responsible for.
 
+<!-- pmp:visual id="what-no-does" -->
+
 ## A worked example, and what it does not show
 
 **By default the publishing script prepares a branch, pushes it and opens a pull request without merging it, and when a flag is supplied it can instead arm GitHub to squash-merge that pull request automatically once the required conditions pass.** Validation runs first either way: frontmatter, body structure, the editorial contract and the prose rules, then the collection-wide checks. If those fail after the content has been placed, the script restores the previous state rather than leaving it half-applied.
@@ -163,6 +255,8 @@ That difference is worth being exact about, because the repository supports only
 What the example does show is narrower and still useful. **Automation can continue after a human decision without removing that decision from the control path.** Whether a person performs the mechanical step is a different question from whether a decision was reserved for one. This repository demonstrates the automation path. It does not establish that the assumed earlier human decision occurred.
 
 And the validation described above is machine validation. It checks rules that were written down. It does not decide whether the piece is worth publishing, and the script passing says nothing about that.
+
+<!-- pmp:visual id="what-the-merge-reserves" -->
 
 ## Validation answers a different question
 

@@ -47,4 +47,8 @@ export const SCENE_IDS = new Set([
   "safe-ways-to-stop",
   "what-can-be-undone",
   "the-decision-expires",
+  "is-it-still-open",
+  "which-human",
+  "what-no-does",
+  "what-the-merge-reserves",
 ]);
