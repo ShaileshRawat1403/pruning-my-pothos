@@ -58,4 +58,7 @@ export const SCENE_IDS = new Set([
   "permission-is-its-own-question",
   "what-kind-of-unsure",
   "two-hundred-and-unchanged",
+  "lookup-or-continuation",
+  "likely-confident-true",
+  "model-or-application",
 ]);

@@ -60,6 +60,65 @@ visuals:
         - id: selection
           label: '"blue"'
           note: "One piece selected from the ranking"
+  - id: lookup-or-continuation
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "The run produces a likely continuation either way, and the machinery is identical in both cases."
+    caption: "Nothing in those four steps checks whether anyone has walked on Mars."
+    alt: "A comparison of a database, which looks for a row and returns an error when the row is missing, with a language model, which has no lookup and produces the continuation its parameters score highest: Paris for the capital of France, correctly, and still a name for the first person to walk on Mars."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Ask a database"
+        items:
+          - "It looks for a row"
+          - "The capital of France: Paris"
+          - "If the row is missing, you get an error"
+      after:
+        label: "Ask a language model"
+        items:
+          - "There is no lookup: it produces the highest-scoring continuation"
+          - "The capital of France: Paris, correct, because the pattern matches the world"
+          - "The first person to walk on Mars: a name still scores highest"
+      diffNote: "Nothing in the run checks whether the continuation is true."
+  - id: likely-confident-true
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "Ordinary generation does not measure whether it is true. If you want a truth check, something else has to perform it."
+    caption: "Three separate things get confused here."
+    alt: "A boundary around what ordinary generation produces: how likely the model scored a continuation, which a separate calibration mechanism can estimate, and how confident it sounds, which is a property of the wording. Outside it: whether the continuation is true, which ordinary generation does not measure at all."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "Ordinary generation"
+      inside:
+        label: "What it gives you"
+        items:
+          - "How likely the model scored the continuation"
+          - "How confident it sounds: a pattern in the wording, not a report on its reliability"
+      outside:
+        label: "What it does not measure"
+        items:
+          - "Whether it is true"
+  - id: model-or-application
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "When the output is wrong, the model is one suspect among several, and often not the right one."
+    caption: "The model contributes one thing. Everything else is ordinary software someone built."
+    alt: "A boundary between the model, which contributes a ranking over what comes next given the input it was handed, and the application around it, which fetches documents into the input, calls tools and runs actions, keeps state between sessions, validates output against a schema, applies policy and evaluates the result."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "Which part did it?"
+      inside:
+        label: "The model"
+        items:
+          - "Given the input it was handed, a ranking over what comes next"
+      outside:
+        label: "The application someone built"
+        items:
+          - "Fetching documents and putting them in the input"
+          - "Calling tools and running actions"
+          - "Keeping state between sessions"
+          - "Validating output, applying policy, evaluating the result"
 ---
 
 When you type a question and text comes back, it is easy to picture something on the other side reading it. What is actually there is a file, and a program that runs that file. This page is about what the file does, so you can tell which behaviour comes from the model and which comes from the software someone built around it.
@@ -94,6 +153,8 @@ Ask a language model and there is no lookup. It produces the continuation its pa
 
 Now ask it who the first person to walk on Mars was. A name still scores highest. Nothing in those four steps checks whether anyone has walked on Mars. The run produces a likely continuation either way, and the machinery is identical in both cases.
 
+<!-- pmp:visual id="lookup-or-continuation" -->
+
 Three separate things get confused here, and it is worth keeping them apart:
 
 - **How likely** the model scored that continuation.
@@ -103,6 +164,8 @@ Three separate things get confused here, and it is worth keeping them apart:
 The second one misleads people most. Most text the model learned from is written in a confident register, so a confident register is the likely continuation. The tone is a pattern, not a report on the model's own reliability.
 
 A system can estimate the first of those three with a separate calibration or scoring mechanism. Ordinary generation does not measure the third at all. If you want a truth check, something else has to perform it.
+
+<!-- pmp:visual id="likely-confident-true" -->
 
 One consequence is worth seeing directly: a question with a false premise still has a likely continuation. Ask which year the Treaty of Ipswich ended the Anglo-Danish War and you will probably get a year, because the shape of the question makes a year the likely next thing. Being asked a malformed question does not, by itself, produce an objection.
 
@@ -120,6 +183,8 @@ These are separate mechanisms that someone builds:
 - evaluating whether the result was any good
 
 The model contributes one thing: given the input it was handed, a ranking over what comes next. Everything else in the list is ordinary software, and each part can be inspected, tested and fixed on its own. That is the useful consequence of this whole page. When the output is wrong, the model is one suspect among several, and often not the right one.
+
+<!-- pmp:visual id="model-or-application" -->
 
 ## What this changes
 
