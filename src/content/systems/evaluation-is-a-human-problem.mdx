@@ -80,6 +80,64 @@ visuals:
           strength: direct
           note: "The expensive one, and the one the other three are standing in for."
       gap: "None of these says whether the expectation was the right one to write down. Somebody decided which property is under test, and that judgment does not disappear when it is automated."
+  - id: property-not-quality
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "There is no way to check output quality. There is only a way to check a property."
+    caption: "Those fail in different ways, get checked by different means, and carry different consequences."
+    alt: "A comparison of a single quality score, which moves without telling you which property moved, with one check per property: does the response parse and carry the fields something downstream depends on; is the answer supported by the document it cites; does it decline what it should decline; does it hold the register the product committed to."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "One quality score"
+        items:
+          - "A number that moves"
+          - "Without telling you which property moved"
+      after:
+        label: "One check per property"
+        items:
+          - "Does it parse, with the fields downstream depends on?"
+          - "Is the answer supported by the document it cites?"
+          - "Does it decline what it is supposed to decline?"
+          - "Does it hold the register the product committed to?"
+      diffNote: "Collapsing them into a single score is the opposite of what a measurement is for."
+  - id: the-fixed-set
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "A fixed set tells you what moved, because the only thing that changed between the two runs is the thing you changed."
+    caption: "The value lives in the word same."
+    alt: "A sequence: keep the bad outputs; sort them by failure mode, such as wrong fact, wrong tone, missed refusal, malformed structure, quiet truncation and a confident answer from thin evidence; re-score that same collection after a prompt, model or retrieval change."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: keep
+          label: "Keep the bad outputs"
+        - id: sort
+          label: "Sort them by failure mode"
+          note: "Wrong fact, wrong tone, missed refusal, malformed structure, quiet truncation, confident answer from thin evidence."
+        - id: rescore
+          label: "Re-score that same set after every change"
+          note: "Not an estimate of how often anything happens: a collection of failures that have occurred at least once."
+  - id: close-the-loop
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "The step that gets skipped is the third: a failure is fixed without ever becoming a case."
+    caption: "Evaluation and the record of what happened are two halves of one cycle."
+    alt: "A five-step cycle: a run fails in production; its record is inspected and the failure mode named; the named failure becomes a case in the fixed set; the set is rerun; the change ships. The third step is the one that gets skipped."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: fails
+          label: "A run fails in production"
+        - id: named
+          label: "Its record is inspected, and the failure mode named"
+        - id: case
+          label: "The named failure becomes a case in the fixed set"
+          note: "The step that gets skipped."
+        - id: rerun
+          label: "The set is rerun"
+        - id: ships
+          label: "The change ships"
 ---
 
 Someone asks whether the new version is better. Answering requires something that was supposed to exist before the change: a written account of what better would mean for this task. Without it the question can only be settled by impression, and impressions of fluent text are unreliable in a specific direction: fluency is easy to perceive and correctness is not.
@@ -102,6 +160,8 @@ There is no way to check output quality. There is only a way to check a property
 - Does it hold the register the product committed to?
 
 Those fail in different ways, get checked by different means, and carry different consequences. Collapsing them into a single quality score produces a number that moves without telling you which of them moved, which is the opposite of what a measurement is for.
+
+<!-- pmp:visual id="property-not-quality" -->
 
 ## Four ways to check, and what each one costs
 
@@ -131,6 +191,8 @@ The value lives in the word same. A fresh sample each time tells you how the sys
 
 It is worth being clear about what this set is not. It is not representative of production traffic and should not be read as an estimate of how often anything happens. It is a collection of failures that have occurred at least once, kept so that their return is noticed immediately rather than reported by a user.
 
+<!-- pmp:visual id="the-fixed-set" -->
+
 ## Closing the loop
 
 Evaluation and the record of what happened are two halves of one cycle, and the handoff between them is where it comes apart.
@@ -138,6 +200,8 @@ Evaluation and the record of what happened are two halves of one cycle, and the 
 A run fails in production. Its record is inspected and the failure mode is named. The named failure becomes a case in the fixed set. The set is rerun. The change ships.
 
 The first two steps depend on [what the system preserved while it ran](/systems/observability-first-ai-systems/). The rest belong here. The step that gets skipped is the third: a failure is diagnosed, discussed and fixed without ever becoming a case, which leaves nothing to prevent its return except whether someone remembers.
+
+<!-- pmp:visual id="close-the-loop" -->
 
 ## Metrics that change a decision
 

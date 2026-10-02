@@ -61,4 +61,7 @@ export const SCENE_IDS = new Set([
   "lookup-or-continuation",
   "likely-confident-true",
   "model-or-application",
+  "property-not-quality",
+  "the-fixed-set",
+  "close-the-loop",
 ]);
