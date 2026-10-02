@@ -55,4 +55,7 @@ export const SCENE_IDS = new Set([
   "lexical-or-vector",
   "close-and-outdated",
   "where-it-was-lost",
+  "permission-is-its-own-question",
+  "what-kind-of-unsure",
+  "two-hundred-and-unchanged",
 ]);
