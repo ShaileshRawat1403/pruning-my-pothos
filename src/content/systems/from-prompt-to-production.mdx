@@ -94,6 +94,178 @@ visuals:
           label: "Not justified"
           outcome: "Narrow the exposure, or gather the evidence this one would need."
           note: "A system can be justified for a narrow use and still be sitting undeployed."
+  - id: five-words-for-ready
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "Each word is a contribution. A system that has all five can still be the wrong thing to put in front of its users."
+    caption: "The words that get offered in place of readiness, and what each one actually says."
+    alt: "A boundary between five words offered in place of readiness, tested, approved, deployed, observable and governed, each with what it actually says, and readiness itself, which is enough evidence and control to justify exposing the system to its intended use."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "Find what was actually checked"
+      outside:
+        label: "Offered in its place"
+        items:
+          - "Tested: something passed the checks that were written"
+          - "Approved: somebody said yes"
+          - "Deployed: it is running"
+          - "Observable: you could investigate a failure"
+          - "Governed: rules are enforced somewhere"
+      inside:
+        label: "Readiness"
+        items:
+          - "Enough evidence and control to justify exposing it to its intended use"
+  - id: demo-or-readiness
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "The demonstration answered a narrower question: whether this is possible at all."
+    caption: "The gap is not evidence that the demonstration misled. It answered a different question."
+    alt: "A comparison of what a demonstration compresses, one user, one goal, a selected input and one path with little at stake, with the conditions the readiness question asks about: malformed or incomplete input, a goal the design did not anticipate, a slow or wrong upstream system, and cases where failing is expensive."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "What the demonstration had"
+        items:
+          - "One user, one goal"
+          - "A selected input or a narrow input range"
+          - "One path through, and little at stake"
+      after:
+        label: "What readiness asks about"
+        items:
+          - "Input that arrives malformed or incomplete"
+          - "A user with a goal the design did not anticipate"
+          - "The upstream system being slow or wrong"
+          - "The cases where failing is expensive"
+      diffNote: "A demonstration tests whether this is possible at all."
+  - id: adjacent-is-not-evidence
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Silence in the evidence is not a pass."
+    caption: "Absence of evidence has a way of being read as evidence of absence, particularly when adjacent artifacts exist."
+    alt: "A comparison of artifacts that exist, an evaluation set built from the cases somebody thought of, a monitoring dashboard and a rollback procedure elsewhere, with what each does not establish: the cases nobody thought of, that anyone would notice this failure, and that this change can be undone."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "What exists"
+        items:
+          - "An evaluation set of the cases somebody thought of"
+          - "A monitoring dashboard"
+          - "A rollback procedure elsewhere"
+      after:
+        label: "What it does not establish"
+        items:
+          - "Anything about the cases nobody thought of"
+          - "That anyone would notice this failure"
+          - "That this change can be undone"
+      diffNote: "Where a question cannot be answered, record that it cannot."
+  - id: criterion-before-or-after
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Chosen after the results, a release rule can be fitted to them instead of serving as an independent condition."
+    caption: "Before matters for a specific reason."
+    alt: "A comparison of a release criterion defined before exposure, specific and decidable and tested against evidence it did not come from, with one chosen after inspecting the same results used to justify release, which can be fitted to those results."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Defined before exposure"
+        items:
+          - "Specific and decidable"
+          - "Tested against evidence it did not come from"
+          - "An independent release condition"
+      after:
+        label: "Chosen after inspecting the results"
+        items:
+          - "Can be fitted to those results"
+          - "Stops serving as an independent release condition"
+      diffNote: "Evaluation asks whether the workflow met the expectation. The release decision asks whether meeting it is sufficient for this exposure."
+  - id: what-the-gates-establish
+    purpose: evidence-map
+    renderAs: generated-evidence-map
+    takeaway: "An implemented control is evidence that a control is implemented."
+    caption: "This repository's own publishing gates, and what they do and do not establish."
+    alt: "An evidence map for the judgment that this repository's publishing controls are enough. Directly: a draft is checked before it can be placed into the published collection. Partly: when later checks fail, the previous state of two specific files is restored. Not at all: whether the writing is good or a source supports its claim, and who judged the exposure justified."
+    evidenceRole: evidence
+    sources:
+      - pmp-websiteops-conform
+    data:
+      judgment: "The control is enough to justify publishing."
+      supports:
+        - id: checked
+          label: "A draft is checked before placement"
+          strength: direct
+          note: "Structure, shape, claims mapped to prose, house rules."
+        - id: restored
+          label: "Failed later checks restore the previous state"
+          strength: partial
+          note: "Two specific file paths, when a specific set of checks fails. Not a general undo."
+        - id: quality
+          label: "Whether the writing is good, or a source supports its claim"
+          strength: absent
+          note: "The gates confirm declared structure."
+        - id: who
+          label: "Who judged the exposure justified"
+          strength: absent
+          note: "Nothing in the code records it."
+      gap: "Readiness is a separate judgment that the control is enough."
+  - id: safe-ways-to-stop
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "When it should not continue normally, what safe alternative actually exists?"
+    caption: "A person is one option among several, not the default destination."
+    alt: "A boundary between safe alternatives when a system should not continue normally, stopping and saying so, declining, leaving the prior state in place, returning to the manual process, queueing the case, restricting what it attempts, or handing it to a person, and things that are not a fallback: a confidence value on its own, and a queue nobody can act on."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "When it should not continue normally"
+      inside:
+        label: "Safe alternatives"
+        items:
+          - "Stop and say so, or decline"
+          - "Leave the prior state in place"
+          - "Return to the manual process it replaced"
+          - "Queue the case, or restrict what it attempts"
+          - "Hand it to a person who can judge it"
+      outside:
+        label: "Not a fallback"
+        items:
+          - "A confidence value, on its own"
+          - "A queue nobody can act on"
+  - id: what-can-be-undone
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Stopped, reversed, corrected or contained: four different answers with four different costs."
+    caption: "Rollback gets treated as universal and is not."
+    alt: "A comparison of what a rollback procedure assumes, that the effect can be reversed, with effects that cannot be: a message sent, a decision communicated, a payment made, a file deleted downstream, or advisory output already acted on by somebody else."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "What a rollback assumes"
+        items:
+          - "The effect can be reversed"
+      after:
+        label: "Effects that cannot be"
+        items:
+          - "A message sent, a decision communicated"
+          - "A payment made, a file deleted downstream"
+          - "Advice already acted on by somebody else"
+      diffNote: "Contained, not reversed, is not thereby unready. It sets the exposure."
+  - id: the-decision-expires
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "When the assumptions behind the release stop holding, the release basis needs revisiting."
+    caption: "The decision has a shelf life."
+    alt: "A sequence: a decision to expose is made on what is known; something it rested on changes, such as the model, the instructions, the retrieved corpus, a tool, a policy, the workflow, the users or the cost of being wrong; the release basis is revisited, and re-establishing the evidence is a separate job."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: decided
+          label: "The exposure is decided"
+          note: "On the evidence, the controls and the owners at the time."
+        - id: changed
+          label: "Something it rested on changes"
+          note: "The model, the instructions, the corpus, a tool, a policy, the workflow, the users, or the cost of being wrong."
+        - id: revisit
+          label: "The release basis is revisited"
+          note: "Not every change means starting again. Re-establishing the evidence is its own job."
 ---
 
 The demonstration went well. The build is green. It is deployed behind a flag. Someone asks whether it can go live, and the room agrees that it basically works.
@@ -109,6 +281,8 @@ They come apart constantly, and in both directions. A system can be live and not
 The words that get offered in place of readiness are each worth something and none of them settles it. *Tested* says something passed the checks that were written. *Approved* says somebody said yes. *Deployed* says it is running. *Observable* says you could investigate a failure. *Governed* says rules are enforced somewhere. Each is a contribution. A system that has all five can still be the wrong thing to put in front of its users.
 
 That is the check worth applying to every one of these words, including the ones on this page: a thing labelled *validated* or *production* or *release* is telling you what someone called it, not what is true of it. Find what was actually checked.
+
+<!-- pmp:visual id="five-words-for-ready" -->
 
 ## Ready for what
 
@@ -130,6 +304,8 @@ That compression is useful, because a demonstration is testing a narrower questi
 
 The readiness question is different. It asks about conditions the demonstration may never have exercised: input that arrives malformed or incomplete, a user with a goal the design did not anticipate, the upstream system being slow or wrong, and the cases where failing is expensive. The gap between those two questions is not evidence that the demonstration was misleading. It is evidence that it answered a narrower question than the one now being asked.
 
+<!-- pmp:visual id="demo-or-readiness" -->
+
 ## What would matter if it went wrong
 
 Keep this concrete and specific to the system in front of you. What failure would actually matter here? Who or what is affected when it happens? Can the effect be undone, and by whom? Does the system act, or does it produce something a person acts on? What does it do when the context it needs is missing?
@@ -146,6 +322,8 @@ What the readiness decision adds is a question about coverage. Given the failure
 
 Where a question cannot be answered, the honest move is to record that it cannot. Absence of evidence has a way of being read as evidence of absence, particularly when adjacent artifacts exist: a monitoring dashboard does not establish that anyone would notice this failure, and a rollback procedure elsewhere does not establish that this change can be undone.
 
+<!-- pmp:visual id="adjacent-is-not-evidence" -->
+
 ## The release criterion
 
 **Define an explicit release criterion against an evaluation set appropriate to the intended use and its failure consequences, before exposure rather than after.**
@@ -161,6 +339,8 @@ A criterion may combine several of those. What it cannot do is stand in for the 
 
 A result can be methodologically sound and still not answer the second question, because sufficiency depends on who is exposed and what it costs when the system is wrong.
 
+<!-- pmp:visual id="criterion-before-or-after" -->
+
 ## Controls that limit the consequence
 
 Evidence is one half. The other is what constrains the damage when the evidence turns out to have been incomplete.
@@ -171,6 +351,8 @@ This repository carries a small worked example. **In this repository a draft is 
 
 What that example does not establish is more instructive than what it does. The gates confirm declared structure. They do not confirm that the writing is any good, that a cited source supports the claim drawn from it, or that the page should be published at all. The restoration covers two specific file paths when a specific set of checks fails; it is not a general undo for anything that has been published. And nothing in the code records who judged the exposure justified. An implemented control is evidence that a control is implemented. Readiness is a separate judgment that the control is enough.
 
+<!-- pmp:visual id="what-the-gates-establish" -->
+
 ## When the system should not continue
 
 The old advice here was to route to a human when the model reports low confidence. Both halves of that are worth discarding. A confidence value, where a system exposes one, is one workflow-specific signal, and it does not by itself establish readiness or define when a result should go to a person. A person is also one option among several rather than the default destination for everything a system cannot handle.
@@ -179,11 +361,15 @@ The useful question is narrower: when this system should not continue normally, 
 
 Routing to a person is also not free of its own requirement. Whether that person can actually judge what they are being shown is [its own design problem](/systems/human-in-the-loop-is-a-system-design-choice/), and a queue nobody can act on is not a fallback.
 
+<!-- pmp:visual id="safe-ways-to-stop" -->
+
 ## What can actually be undone
 
 Rollback gets treated as universal and is not. Some effects cannot be reversed: a message sent, a decision communicated, a payment made, a file deleted downstream. An advisory system may have nothing to roll back, because its output was already acted on by somebody else.
 
 So the question is not whether there is a rollback procedure. It is what can be stopped, reversed, corrected or contained if this exposure produces a result you cannot accept. Those are four different answers with four different costs, and a system where the honest answer is *contained, not reversed* is not thereby unready. It is a system whose exposure should be set with that in mind.
+
+<!-- pmp:visual id="what-can-be-undone" -->
 
 ## Who decides, and who answers
 
@@ -206,6 +392,8 @@ The outcome is not restricted to yes or no. It can be to expose as proposed, to 
 None of this means the failure has been designed out. The decision is whether the uncertainty that remains is acceptable for this exposure, given what is known and what limits the damage. Readiness is a judgment about acceptable remaining uncertainty for an intended exposure, not proof that failure is impossible, and no score establishes otherwise.
 
 The decision also has a shelf life. A change to the model, the instructions, the retrieved corpus, a tool, a policy, the workflow, the intended users or what it costs to be wrong can undermine part of the basis the decision rested on. Not every change requires starting again. The standing obligation is narrower: when the assumptions that supported the release stop holding, the release basis is what needs revisiting, and [re-establishing the evidence](/systems/evaluation-is-a-human-problem/) is a separate job with its own methods.
+
+<!-- pmp:visual id="the-decision-expires" -->
 
 ## What this changes
 

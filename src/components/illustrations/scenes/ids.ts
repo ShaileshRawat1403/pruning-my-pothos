@@ -39,4 +39,12 @@ export const SCENE_IDS = new Set([
   "a-file-called-current",
   "when-the-next-step-cannot-proceed",
   "replay-or-resume",
+  "five-words-for-ready",
+  "demo-or-readiness",
+  "adjacent-is-not-evidence",
+  "criterion-before-or-after",
+  "what-the-gates-establish",
+  "safe-ways-to-stop",
+  "what-can-be-undone",
+  "the-decision-expires",
 ]);
