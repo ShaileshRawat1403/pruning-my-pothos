@@ -66,6 +66,86 @@ visuals:
         - id: generation
           label: "Generation"
           note: "An answer from what it was handed"
+  - id: rank-four-of-three
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Retrieval finds candidate material. Context assembly decides what the model actually receives."
+    caption: "Retrieval succeeded. The model never saw it."
+    alt: "A sequence: a search returns the correct passage at rank four; the assembly step keeps only the top three; the model answers without the passage, and nothing in the search engine's logs looks wrong."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: rank
+          label: "The search returns the correct passage, at rank four"
+          note: "Retrieval succeeded."
+        - id: cut
+          label: "Assembly keeps the top three"
+        - id: unseen
+          label: "The model never sees it"
+          note: "Nothing in the search engine's logs looks wrong, because nothing about the search was wrong."
+  - id: lexical-or-vector
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "The two fail in different places, which is why hybrid retrieval runs both."
+    caption: "Neither weakness is a bug; they are properties of what each method compares."
+    alt: "A comparison of lexical retrieval, which matches the words themselves, finds an error code, part number or surname, and misses a paraphrase, with vector retrieval, which compares embeddings, lets a query about a small dog reach a passage that says puppy, and misses an exact identifier, returning something topically adjacent instead."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Lexical retrieval"
+        items:
+          - "Matches the words themselves"
+          - "Finds an error code, a part number, a surname"
+          - "Misses a paraphrase"
+      after:
+        label: "Vector retrieval"
+        items:
+          - "Compares embeddings"
+          - "A query about a small dog reaches a passage that says puppy"
+          - "Misses an exact identifier, and returns something adjacent instead"
+      diffNote: "Hybrid retrieval runs both and combines the results."
+  - id: close-and-outdated
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Two passages can be close in an embedding space and still answer different questions."
+    caption: "That is the retrieval working as designed, and it is also how a system serves a confidently outdated answer."
+    alt: "A comparison of a policy replaced last month and the policy that replaced it: both are about the same subject, so they sit near each other in an embedding space, and the outdated one can be returned for a question that the current one answers."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "The policy replaced last month"
+        items:
+          - "About the same subject"
+          - "Close in the embedding space"
+          - "No longer true"
+      after:
+        label: "The policy that replaced it"
+        items:
+          - "About the same subject"
+          - "Close in the embedding space"
+          - "Current"
+      diffNote: "Proximity reflects patterns, which is not relevance to your question, and not truth."
+  - id: where-it-was-lost
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Only the last of these is a model problem. The rest are retrieval and assembly problems."
+    caption: "When a grounded answer comes back wrong, walk the stages in order."
+    alt: "Five places the needed evidence can be lost, in order: it was never indexed; it was indexed but the search did not return it; it was returned but ranked below the cut; it survived ranking but was dropped during assembly; it reached the model and the model did not use it."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: indexed
+          label: "Never indexed"
+        - id: returned
+          label: "Indexed, but the search did not return it"
+        - id: ranked
+          label: "Returned, but ranked below the cut"
+        - id: assembled
+          label: "Survived ranking, dropped during assembly"
+          note: "For length, or another reason."
+        - id: used
+          label: "Reached the model, and the model did not use it"
+          note: "The only model problem of the five."
 ---
 
 A model's parameters are fixed once training ends, so anything private, recent or specific to your situation has to arrive some other way. Retrieval is that other way: fetch material when the request comes in, and put it into the input. The idea is simple. The failures are not, because they happen at several different points and look identical from the outside.
@@ -102,6 +182,8 @@ A search can return the correct passage at rank four, and the assembly step can 
 
 Keeping these apart changes the first question you ask when an answer is bad. Not "why did the model get this wrong", but "did the evidence reach it at all".
 
+<!-- pmp:visual id="rank-four-of-three" -->
+
 ## What "search" means here
 
 RAG is often described as though it means a vector database. It does not. Vector search is one retrieval mechanism among several, and the choice between them is a real design decision.
@@ -116,11 +198,15 @@ RAG is often described as though it means a vector database. It does not. Vector
 
 Lexical search misses a paraphrase. Vector search misses an exact identifier, and will happily return something topically adjacent instead of admitting it found nothing. Neither weakness is a bug; they are properties of what each method compares.
 
+<!-- pmp:visual id="lexical-or-vector" -->
+
 ## Similar is not correct
 
 Vector retrieval ranks by proximity in an embedding space. Proximity reflects patterns in whatever the embedding model was trained on, which is not the same as relevance to your question and is certainly not the same as truth.
 
 **Two passages can be close in an embedding space and still answer different questions.** A policy that was replaced last month sits near the policy that replaced it, because they are about the same subject. That is the retrieval working as designed, and it is also how a system serves a confidently outdated answer.
+
+<!-- pmp:visual id="close-and-outdated" -->
 
 Treat the embedding model as a replaceable component rather than a fixed source of truth. Different models arrange the space differently, so the right one is the one whose near neighbours match your material, measured on your own queries rather than on a public leaderboard.
 
@@ -141,6 +227,8 @@ When a grounded answer comes back wrong, walk the stages in order:
 - it reached the model and the model did not use it
 
 Only the last of those is a model problem. The rest are retrieval and assembly problems, and they are fixable with ordinary engineering. This page owns one question: was the needed evidence indexed, retrieved, ranked and selected? Whether the final answer was any good is a separate question, and it is answered by [evaluation](/systems/evaluation-is-a-human-problem/) rather than here.
+
+<!-- pmp:visual id="where-it-was-lost" -->
 
 ## Keeping the material worth retrieving
 

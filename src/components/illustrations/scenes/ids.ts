@@ -51,4 +51,8 @@ export const SCENE_IDS = new Set([
   "which-human",
   "what-no-does",
   "what-the-merge-reserves",
+  "rank-four-of-three",
+  "lexical-or-vector",
+  "close-and-outdated",
+  "where-it-was-lost",
 ]);
