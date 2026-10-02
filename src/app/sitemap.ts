@@ -4,6 +4,7 @@ import { SITE_CONFIG } from "../lib/seo/site";
 import { getReferenceSheets } from "../lib/content/reference-sheets";
 import { slugifyTag } from "../lib/tags";
 import { getStoryboards } from "../lib/content/storyboards";
+import { NOINDEX_SHELF_SINGLES } from "../lib/content/shelf";
 
 export const dynamic = "force-static";
 
@@ -88,7 +89,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: knownDate(item.publishDate),
   }));
 
-  const shelfRoutes = allShelves.map((item) => {
+  // Shelf singles kept out of search stay out of the sitemap too.
+  const shelfRoutes = allShelves.filter((item) => !NOINDEX_SHELF_SINGLES.has(item._meta.directory)).map((item) => {
     const slug = item._meta.fileName.replace(/\.mdx?$/, "");
     return {
       url: `${SITE_CONFIG.url}/shelf/${item._meta.directory}/${slug}/`,

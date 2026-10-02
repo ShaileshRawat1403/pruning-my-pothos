@@ -200,8 +200,13 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
    owner's call), and re-pinning article sources first (see above).
 2. **Owner, in Search Console**: remove the stale `sitemap_index.xml`
    (Astro-era, 404s); optionally request indexing for new pages.
-4. **Thin pages**: the 99 crawled-not-indexed are mostly very short. Merge
-   short Sentences into fuller pieces or noindex the thinnest.
+4. **Thin pages** (measured 2026-10-02 from the build: 106 of 268 sitemap
+   pages under 150 words). Done: single pages under Shelf music, tools,
+   notes, philosophy and books (34) are noindex and out of the sitemap
+   (`NOINDEX_SHELF_SINGLES` in `src/lib/content/shelf.ts`); their category
+   pages stay indexed. Owner kept short Sentences and Self essays indexed.
+   Next: give each of the 23 shared-resource deck pages a short summary
+   drawn from its own PDF (they front PDFs with search traffic).
 5. **Storyboards next round**: give the dank characters roles in the
    teaching frames too (today they appear in gag frames; teaching frames use
    the realistic generic figures). Keep one idea per frame, captions true to

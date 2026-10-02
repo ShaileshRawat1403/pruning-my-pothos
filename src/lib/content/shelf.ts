@@ -57,3 +57,11 @@ export function getShelfCounts(): Record<string, number> {
   }
   return counts;
 }
+
+/**
+ * Shelf categories whose single pages are kept out of search (noindex, and
+ * absent from the sitemap) while staying up and linked. Their category pages
+ * stay indexable and list them. Owner's decision, 2026-10-02: these singles
+ * run 40 to 150 words, too short to stand as search results.
+ */
+export const NOINDEX_SHELF_SINGLES = new Set(["music", "tools", "notes", "philosophy", "books"]);

@@ -6,6 +6,7 @@ import { constructMetadata } from "../../../../lib/seo/metadata";
 import { getBreadcrumbSchema, getWebPageSchema } from "../../../../lib/seo/jsonld";
 import { renderMarkdown } from "../../../../lib/markdown";
 import ResourceLinks from "../../../../components/ResourceLinks";
+import { NOINDEX_SHELF_SINGLES } from "../../../../lib/content/shelf";
 
 interface PageProps {
   params: Promise<{ category: string; slug: string }>;
@@ -37,7 +38,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: item.description,
     image: item.coverUrl,
     path: `/shelf/${category}/${slug}`,
-    ogType: "article"
+    ogType: "article",
+    noindex: NOINDEX_SHELF_SINGLES.has(category),
   });
 }
 
