@@ -58,7 +58,7 @@ Status: `done`, `next`, `open`, `parked`.
 | 1 | Hero plate gets "Play again"; cover-film replay visible at rest | done (2026-10-02) |
 | 2 | **Logo**: the Deadpan Leaf (`src/components/brand/DeadpanLeaf.tsx`), chosen by the owner from three concepts. In the header (on a paper disc), the favicon and the default share card; both images render from `/brand-art/` with `npm run export:storyboards -- --only=brand` | done (2026-10-02) |
 | 3 | **Linking**: each Systems article shows the Works On My Prompt sheets built on it ("Do it yourself"), and ends with "Next on the map" to the following stage's flagship. Sheet cards everywhere show the sheet's own cover instead of the shared type emblem | done (2026-10-02) |
-| 4 | **No blob, flagships first**: for the two worst articles (handoff, 2,272 words; readiness, 2,020), add inline visuals until no run passes ~400 words, and lengthen the main scene to cover the whole mechanism. Owner reviews one article before the pattern repeats | next |
+| 4 | **No blob, flagships first**: the handoff article (stage 7) gets seven inline visuals, each a drawn scroll scene built from its own paragraph: a decision made three times; instruction or state; what makes it a handoff; payload or shared store; a file called current (evidence, from the repository specimen); when the next step cannot proceed; replay or resume. Longest text run 2,272 words, now 419. Readiness (2,020) next, once the owner has read this one | handoff done, awaiting owner review (2026-10-02) |
 | 5 | No blob, the other six stage articles | open |
 | 6 | No blob, the twenty companions and notes | open |
 | 7 | **Motion everywhere**: a small drawn, moving header or spot for Self, Sentences, Tools, About, 404 (template-driven, one drawing per page type, not per page) | open |
@@ -67,6 +67,12 @@ Status: `done`, `next`, `open`, `parked`.
 
 ## Decisions log
 
+- 2026-10-02: The pattern for "no blob": declare visuals in the article's
+  frontmatter from statements already in its body (the editorial gate checks
+  them), place each marker right after the paragraph it draws, and give
+  each a scene in `illustrations/scenes/` registered in `SCENES` and
+  `SCENE_IDS`. Regenerate `docs/EDITORIAL_AUDIT.md` (`npm run
+  audit:editorial`) after any article change, or Test 42 fails.
 - 2026-10-02: Logo: the Deadpan Leaf (B), over The Snip and The Pruned Pot.
   The favicon and default share card were the owner's self-portrait; the
   portrait stays on About and Calibrations.

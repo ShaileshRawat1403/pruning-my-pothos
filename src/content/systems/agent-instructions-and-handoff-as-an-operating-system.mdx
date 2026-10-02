@@ -103,6 +103,153 @@ visuals:
       lost:
         - "Which of several past decisions still governs, unless something marks it"
         - "The position, which the sequence alone does not give"
+  - id: a-decision-made-three-times
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "All three moments are in the record, and nothing marks which one still governs."
+    caption: "The next actor can reconstruct the sequence and still be unsure which constraint is in force."
+    alt: "A sequence of three moments in one long record: a choice is made, the choice is reversed, and the choice is made differently. All three stay visible in the order they happened, with nothing distinguishing the live decision from its two predecessors."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: made
+          label: "A choice is made"
+          note: "It goes into the record."
+        - id: reversed
+          label: "The choice is reversed"
+          note: "Also in the record, after it."
+        - id: remade
+          label: "It is made differently"
+          note: "In the record too, with nothing distinguishing it from its two predecessors."
+  - id: instruction-or-state
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "An instruction is stable across every piece of work. State is true this afternoon and false tomorrow."
+    caption: "Approval is required before publishing is an instruction. This change is waiting on approval is state."
+    alt: "A comparison of an instruction and a piece of state. The instruction, approval is required before publishing, says what should generally govern behaviour and is stable across every piece of work. The state, this change is waiting on approval, says what is currently true in this piece of work and is true this afternoon and false tomorrow."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Instruction: Approval is required before publishing"
+        items:
+          - "Says what should generally govern behaviour"
+          - "Stable across every piece of work in the repository"
+      after:
+        label: "State: This change is waiting on approval"
+        items:
+          - "Says what is currently true in this piece of work"
+          - "True this afternoon and false tomorrow"
+      diffNote: "Conflating them buries standing rules in a status note, or writes live status into the rules, where it silently stops being true."
+  - id: what-makes-it-a-handoff
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "A handoff changes who or what is responsible for the next transition."
+    caption: "The test is whether the receiver can proceed without working out what is still authoritative."
+    alt: "A boundary between things that are not a handoff, sharing context and copying a folder to someone, and a handoff, which changes who or what is responsible for the next transition and is tested by whether the receiver can proceed without working out what is still authoritative."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "Responsibility for the next step"
+      outside:
+        label: "Not a handoff"
+        items:
+          - "Sharing context"
+          - "Copying a folder to someone"
+      inside:
+        label: "A handoff"
+        items:
+          - "Changes who or what is responsible for the next transition"
+          - "The receiver can proceed without working out what is still authoritative"
+  - id: payload-or-shared-store
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Neither is better in general, and neither is protected from going stale."
+    caption: "Two architectural choices, not stages of maturity. Many systems use both."
+    alt: "A comparison of a payload handoff, where the sender assembles a bounded package that is easy to inspect and fixed at the moment it was assembled, with a shared store, where actors read and update common persisted state whose usefulness depends on update discipline and on whether what sits there is current."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Payload handoff"
+        items:
+          - "The sender assembles a bounded package of what the next step needs"
+          - "Small and inspectable"
+          - "Its contents are fixed at the moment it was assembled"
+      after:
+        label: "Shared store"
+        items:
+          - "State lives in a common persisted location"
+          - "Each actor reads and updates the parts it needs"
+          - "Useful only as far as update discipline keeps it current"
+      diffNote: "State that persists is not thereby state that is current."
+  - id: a-file-called-current
+    purpose: evidence-map
+    renderAs: generated-evidence-map
+    takeaway: "It is named current.md, its first heading offers current state, and neither makes its contents current."
+    caption: "The repository's own long-running handoff document, at the commit this page cites."
+    alt: "An evidence map for the claim that a file called current.md holds the current position. Its name and its first heading point that way. Against it: its section headed Key files touched lists thirty-five paths, thirty-four of which no longer exist at the cited commit, and the work actually in progress appears nowhere in it."
+    evidenceRole: evidence
+    sources:
+      - pmp-agent-handoff-doc
+    data:
+      judgment: "The file describes where the work currently stands."
+      supports:
+        - id: name
+          label: "It is named current.md"
+          strength: partial
+          note: "A name, which says nothing about whether the contents are still true."
+        - id: heading
+          label: "Its first heading presents current state"
+          strength: partial
+          note: "A heading, written once and never revisited."
+        - id: files
+          label: "Key files touched: thirty-five paths"
+          strength: absent
+          note: "Thirty-four of them do not exist at the commit this page cites."
+        - id: migration
+          label: "The work actually in progress"
+          strength: absent
+          note: "A long content migration, which appears nowhere in the document."
+      gap: "None of that makes the file a mistake. It is a serviceable record of how the work got here."
+  - id: when-the-next-step-cannot-proceed
+    purpose: decision
+    renderAs: generated-decision
+    takeaway: "The responses are ordinary, and the choice depends on what it costs to be wrong."
+    caption: "Continuity design is incomplete if it only describes the path where everything is available."
+    alt: "A decision for a receiver that cannot proceed. If something specific is missing, ask for it or return the work to the previous owner. If the state is ambiguous or a constraint cannot be satisfied, stop and say why, or escalate. If the artifact is gone, take a defined fallback or retry from a known earlier state."
+    evidenceRole: explanatory
+    data:
+      precondition: "The receiver finds it cannot continue"
+      question: "What is wrong with what it was handed?"
+      branches:
+        - id: missing
+          label: "Something is missing"
+          outcome: "Ask for the specific missing thing, or return the work to the previous owner"
+        - id: ambiguous
+          label: "The state is ambiguous, or a constraint cannot be satisfied"
+          outcome: "Stop and say why, or escalate"
+        - id: gone
+          label: "The artifact is gone"
+          outcome: "Take a defined fallback, or retry from a known earlier state"
+          note: "Resuming does not make the next action permitted; that is a separate check."
+  - id: replay-or-resume
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Replay tells you about a run that already finished. Resume continues work from a preserved state."
+    caption: "Two words that get used as though they were one operation."
+    alt: "A comparison of replay, which reconstructs or inspects a past execution from what was recorded and is bounded by what the record contains, with resume, which continues work from a preserved state without re-walking the path. A checkpoint sits between them and preserves only what it actually contains."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Replay"
+        items:
+          - "Reconstructs or inspects a past execution from what was recorded"
+          - "Bounded by what the record happens to contain"
+          - "Does not authorize or perform the next step"
+      after:
+        label: "Resume"
+        items:
+          - "Continues work from a preserved state"
+          - "Does not require re-walking the path"
+      diffNote: "A checkpoint sits between them, and preserves what it actually contains and nothing else."
 ---
 
 Work stops. A session ends, a person hands over, a runtime restarts, a task moves from an automated step to someone reviewing it. Then it starts again, and whatever picks it up has to work out where things stand.
@@ -131,6 +278,8 @@ Consider a record where none of that was done. Work has run across a long conver
 
 Length is not the defect. Ambiguity about what is current is the defect. A short transcript can be just as ambiguous.
 
+<!-- pmp:visual id="a-decision-made-three-times" -->
+
 ## What current truth might include
 
 Continuity needs something that says where the work stands. Depending on the workflow, that might carry the task and its status, the decisions that have been accepted, the constraints still in force, the artifact or version in play, anything unresolved that blocks progress, and who owns the next action.
@@ -143,6 +292,8 @@ Instructions say what should generally govern behaviour. State says what is curr
 
 *Approval is required before publishing* is an instruction. *This change is waiting on approval* is state. The first is stable across every piece of work in the repository. The second is true this afternoon and false tomorrow.
 
+<!-- pmp:visual id="instruction-or-state" -->
+
 Conflating them produces a predictable failure: standing rules get buried inside a status note where nothing will find them again, or a piece of live status gets written into the rules, where it silently stops being true. What a system prompt or a skill is belongs to [the instruction layer](/systems/what-a-system-prompt-actually-is/) and is not restated here. The point for continuity is narrower. Instructions have to remain available across sessions while they still govern, and that is a different requirement from keeping state current.
 
 **The repository's own agent entry point is seventeen lines long, and most of what governs authoring sits behind a pointer to a separate skill file rather than in the entry point itself.** That arrangement is worth noticing rather than admiring: it means the entry point stays small and the governing material can change without the entry point being edited, and it also means anyone reading only the entry point has read a pointer, not the contract.
@@ -152,6 +303,8 @@ Conflating them produces a predictable failure: standing rules get buried inside
 Sharing context is not a handoff. Copying a folder to someone is not a handoff. **A handoff changes who or what is responsible for the next transition.**
 
 That is why the test of a handoff is not how much it contains. It is whether the receiver can proceed without having to work out what is still authoritative. The kinds of information that serve that test: what is done, what is currently true, what happens next, which constraints remain active, and what to do if the next step cannot proceed.
+
+<!-- pmp:visual id="what-makes-it-a-handoff" -->
 
 Those are not mandatory fields. A workflow where the next step is obvious and the constraints are unchanged may need almost none of them written down. The question is what this receiver needs in order to act, not what a template says a handoff contains.
 
@@ -166,6 +319,8 @@ In a **payload handoff**, the sender assembles a bounded package holding what th
 In a **shared store**, the relevant state lives in a common persisted location and each actor reads and updates the parts it needs. The full relevant state does not have to be copied into a handoff package, because the next actor can read what it needs directly from the store. A handoff across such a design may still carry something bounded, such as an identifier, a version, or a pointer to the task at hand.
 
 Neither is better in general, and neither is protected from going stale. A payload captures a bounded package at one particular handoff, which makes it easy to inspect and fixes its contents at the moment it was assembled. A shared store lets actors read and update common persisted state, and its usefulness depends on update discipline, on what the fields are agreed to mean, and on whether what sits there is current. State that persists is not thereby state that is current. You can verify that a value was preserved without establishing that it still describes the state the workflow should continue from. Many systems use both, with a payload carrying the immediate task and a store holding the durable parts. What they have in common is more important than the difference: in each case the application is supplying state deliberately. Nothing is remembered by the model between calls, and describing agents as remembering or as knowing what happened obscures the software that actually carried it.
+
+<!-- pmp:visual id="payload-or-shared-store" -->
 
 ## Continuation is not the whole history
 
@@ -185,6 +340,8 @@ There is a further gap that is easier to miss. The work actually in progress in 
 
 None of that makes the file a mistake. It is a serviceable record of how the work got here, and useful as one. The narrow point is about the label. It is named `current.md`, its first heading offers current state, and neither of those makes its contents current. Applying that test to your own artifacts is simple and uncomfortable: open the thing that claims to hold the current position, take the first concrete assertion in it, and check whether it is still true.
 
+<!-- pmp:visual id="a-file-called-current" -->
+
 ## Staleness is the standing failure mode
 
 What a handoff says is true was true when it was written. The repository moved on, the ticket changed, the data underneath shifted, someone made a decision elsewhere.
@@ -197,6 +354,8 @@ Continuity design is incomplete if it only describes the path where everything i
 
 The available responses are ordinary: stop and say why, return the work to the previous owner, ask for the specific missing thing, escalate, take a defined fallback, or retry from a known earlier state. Not every workflow needs all of these, and the choice depends on what it costs to be wrong.
 
+<!-- pmp:visual id="when-the-next-step-cannot-proceed" -->
+
 Two things this does not settle. Resuming work does not make the next action permitted; whether an action may proceed is [a separate check](/systems/from-agent-intent-to-governed-execution/) that runs regardless of how coherent the state is. And handing work to a person does not by itself produce [meaningful human judgment](/systems/human-in-the-loop-is-a-system-design-choice/), which depends on what that person can see and whether they can say no.
 
 ## Replay and resume
@@ -208,6 +367,8 @@ Two words that get used as though they were one operation.
 **Resume** continues work from a preserved state.
 
 Resuming does not require replaying the path. The point of preserved state is that the path does not have to be re-walked. Replaying does not authorize or perform the next step; it tells you about a run that already finished. A checkpoint sits between them, and it is worth being exact there too. A commit, a saved workflow state, an approved artifact, a status on an issue: each preserves what it actually contains and nothing else. A checkpoint is not a guarantee of recoverability.
+
+<!-- pmp:visual id="replay-or-resume" -->
 
 ## What repeatability means here
 

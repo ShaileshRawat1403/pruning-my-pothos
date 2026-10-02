@@ -34,6 +34,13 @@ export const SCENES: Record<string, ComponentType<SceneProps>> = {
   "six-fields-of-an-instruction-spec": dynamic(() => import("./six-fields-of-an-instruction-spec")),
   "resident-or-invoked": dynamic(() => import("./resident-or-invoked")),
   "the-pipeline-runs-one-way": dynamic(() => import("./the-pipeline-runs-one-way")),
+  "a-decision-made-three-times": dynamic(() => import("./a-decision-made-three-times")),
+  "instruction-or-state": dynamic(() => import("./instruction-or-state")),
+  "what-makes-it-a-handoff": dynamic(() => import("./what-makes-it-a-handoff")),
+  "payload-or-shared-store": dynamic(() => import("./payload-or-shared-store")),
+  "a-file-called-current": dynamic(() => import("./a-file-called-current")),
+  "when-the-next-step-cannot-proceed": dynamic(() => import("./when-the-next-step-cannot-proceed")),
+  "replay-or-resume": dynamic(() => import("./replay-or-resume")),
 
   // Works On My Prompt sheets: the steps of a sheet, keyed by its `scene`.
   // Not article visuals, so they stay out of SCENE_IDS.

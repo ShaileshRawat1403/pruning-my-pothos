@@ -32,4 +32,11 @@ export const SCENE_IDS = new Set([
   "six-fields-of-an-instruction-spec",
   "resident-or-invoked",
   "the-pipeline-runs-one-way",
+  "a-decision-made-three-times",
+  "instruction-or-state",
+  "what-makes-it-a-handoff",
+  "payload-or-shared-store",
+  "a-file-called-current",
+  "when-the-next-step-cannot-proceed",
+  "replay-or-resume",
 ]);
