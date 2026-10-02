@@ -1042,7 +1042,17 @@ html.js .cover-film:not([data-film]) .cf-stage { visibility: hidden; animation: 
   padding: 0.3rem 0.55rem; border-radius: 3px; border: 1px solid #1B1A17; background: #FBF5E8; color: #1B1A17;
   opacity: 0; transition: opacity 0.2s; cursor: pointer;
 }
+.cover-film[data-film="still"] .cover-film-replay { opacity: 0.55; }
 .cover-film[data-film="still"]:hover .cover-film-replay, .cover-film[data-film="still"] .cover-film-replay:focus-visible { opacity: 1; }
+/* The home hero's replay, same look; it appears once the film has played. */
+.hero-replay {
+  position: absolute; right: 0.6rem; bottom: 0.6rem;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.3rem 0.55rem; border-radius: 3px; border: 1px solid #1B1A17; background: #FBF5E8; color: #1B1A17;
+  opacity: 0.55; transition: opacity 0.2s; cursor: pointer;
+}
+.hero-cinema-frame:hover .hero-replay, .hero-replay:focus-visible { opacity: 1; }
+@media print { .hero-replay { display: none; } }
 .cover-film:not([data-film="still"]) .cover-film-replay { display: none; }
 @media (hover: none) { .cover-film[data-film="still"] .cover-film-replay { opacity: 0.85; } }
 @media (prefers-reduced-motion: reduce) {

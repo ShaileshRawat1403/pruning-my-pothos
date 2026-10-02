@@ -84,6 +84,9 @@ const reduced = () => typeof window !== "undefined" && window.matchMedia("(prefe
 export default function HeroCinema() {
   const root = useRef<SVGSVGElement>(null);
   const [note, setNote] = useState<string | null>(null);
+  // Each take replays the film from its first frame; `done` shows the replay control.
+  const [take, setTake] = useState(0);
+  const [done, setDone] = useState(false);
 
   useLayoutEffect(() => {
     const svg = root.current;
@@ -177,16 +180,20 @@ export default function HeroCinema() {
       // The caption writes itself.
       tl.to(q(".hc-caption-mask"), { attr: { width: 320 }, duration: 1.1, ease: "power1.inOut" }, 5.0);
 
-      // Idle: blink, sway.
+      // Idle: blink, sway. Added to the context, so a replay or unmount
+      // reverts them instead of stacking a second set.
       tl.add(() => {
-        gsap.to(q(".hc-eyes"), {
-          keyframes: [{ scaleY: 0.1, duration: 0.07 }, { scaleY: 1, duration: 0.1 }],
-          transformOrigin: "50% 50%",
-          repeat: -1,
-          repeatDelay: 3.6,
-          delay: 1.2,
+        ctx.add(() => {
+          gsap.to(q(".hc-eyes"), {
+            keyframes: [{ scaleY: 0.1, duration: 0.07 }, { scaleY: 1, duration: 0.1 }],
+            transformOrigin: "50% 50%",
+            repeat: -1,
+            repeatDelay: 3.6,
+            delay: 1.2,
+          });
+          gsap.to(q(".hc-plant"), { rotation: 1.2, svgOrigin: "200 410", duration: 2.8, yoyo: true, repeat: -1, ease: "sine.inOut" });
         });
-        gsap.to(q(".hc-plant"), { rotation: 1.2, svgOrigin: "200 410", duration: 2.8, yoyo: true, repeat: -1, ease: "sine.inOut" });
+        setDone(true);
       }, 6.1);
     }, svg);
 
@@ -201,11 +208,11 @@ export default function HeroCinema() {
       window.clearTimeout(guard);
       ctx.revert();
     };
-  }, []);
+  }, [take]);
 
   return (
     <figure className="m-0 w-full">
-      <div className="overflow-hidden rounded-sm border border-[#D9CDB2] shadow-sm">
+      <div className="hero-cinema-frame relative overflow-hidden rounded-sm border border-[#D9CDB2] shadow-sm">
         <svg
           ref={root}
           viewBox={`0 0 ${W} ${H}`}
@@ -347,6 +354,20 @@ export default function HeroCinema() {
             </g>
           </g>
         </svg>
+        {done && (
+          <button
+            type="button"
+            className="hero-replay"
+            onClick={() => {
+              setDone(false);
+              setNote(null);
+              setTake((t) => t + 1);
+            }}
+            aria-label="Play the opening film again"
+          >
+            Play again
+          </button>
+        )}
       </div>
       <figcaption className="mt-3 flex justify-between gap-4 font-mono text-[10px] uppercase tracking-[0.18em] text-[color:var(--text-muted)]">
         <span className="shrink-0">Plate · pruning_my_pothos</span>
