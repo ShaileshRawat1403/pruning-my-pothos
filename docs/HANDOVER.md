@@ -160,6 +160,14 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
 
 ## 8. Where things stand
 
+- **2026-10-02 deploy** (`sprint/2026-10-02` fast-forwarded into `main`):
+  the LiteSpeed reCAPTCHA 403 fix (`.htaccess`, `verifycaptcha:off`); CSV to
+  Eval's parser fixed (Test 73); 34 thin Shelf singles noindex; sheet 3
+  "Upload Everything, Read Nothing"; a replay control on the home hero;
+  articles link to their sheets and to the next stage; sheet cards show
+  their own covers; the visual track (`docs/VISUAL_TRACK.md`) started.
+  Logo concepts are on the local page `/dank-samples/logo/`, awaiting the
+  owner's pick (not deployed).
 - `main` was fast-forwarded from `feature/motion-and-depth` and deployed on
   2026-10-01 (the second deploy that day; the first was `fc902aba`). It
   adds, on top of the overhaul:
