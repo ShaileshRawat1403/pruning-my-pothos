@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">Winning AI Search deck</title>
+<desc id="d">Ink-illustration cover for Winning AI Search deck</desc>
+<rect width="1200" height="675" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="1198.5" height="673.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 578.8 232.7 Q 570.6 261.6 563.5 293.4 Q 535.8 309.1 510.7 327.2 Q 477.7 325.1 449.1 327.7 Q 422.6 307.7 398.5 292.0 Q 389.9 261.7 378.0 232.7 Q 387.9 204.2 401.8 175.9 Q 425.0 157.2 447.9 133.8 Q 479.3 138.5 510.3 139.4 Q 537.6 156.7 563.3 172.2 Q 572.9 201.6 578.8 232.7 Z" stroke="#8c2f23" stroke-width="6.00" fill="none"/>
+<path d="M 552.9 305.6 Q 615.9 345.9 672.9 373.1" stroke="#8c2f23" stroke-width="7.20" fill="none" stroke-linecap="round"/>
+<path d="M 574.4 113.8 Q 582.2 96.1 594.5 88.4" stroke="#9a7322" stroke-width="3.60" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 616.8 166.7 Q 633.7 154.8 645.9 152.6" stroke="#9a7322" stroke-width="3.60" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 631.9 232.7 Q 647.2 236.7 664.3 232.7" stroke="#9a7322" stroke-width="3.60" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 616.8 298.8 Q 635.0 301.4 645.9 312.9" stroke="#9a7322" stroke-width="3.60" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 574.4 351.7 Q 581.0 365.3 594.5 377.1" stroke="#9a7322" stroke-width="3.60" fill="none" stroke-linecap="round" opacity="0.8"/>
+<text x="480.0" y="394.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="31.5" fill="#8c2f23" font-weight="700" text-anchor="middle">RETRIEVE</text>
+<text x="840.0" y="232.7" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="31.5" fill="#9a7322" text-anchor="middle">SEARCH DECK</text>
+<text x="600.0" y="465.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="37.5" fill="#2a2012" font-weight="700" text-anchor="middle">WINNING AI SEARCH DECK</text>
+<text x="1186" y="665" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24.0" fill="#2a2012" opacity="0.5" text-anchor="end">SHELF · SHARED RESOURCES</text>
+</svg>

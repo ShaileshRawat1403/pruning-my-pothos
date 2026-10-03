@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">The Logic Void deck</title>
+<desc id="d">Ink-illustration cover for The Logic Void deck</desc>
+<rect width="1200" height="675" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="1198.5" height="673.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 343.2 214.1 Q 547.7 273.7 719.6 319.3" stroke="#9a7322" stroke-width="3.30" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 719.6 319.3 Q 784.5 291.4 814.1 252.6" stroke="#9a7322" stroke-width="3.30" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 814.1 252.6 Q 807.3 275.2 838.5 348.5" stroke="#9a7322" stroke-width="3.30" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 838.5 348.5 Q 862.5 346.6 851.6 340.9" stroke="#9a7322" stroke-width="3.30" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 865.2 348.5 Q 864.0 356.6 859.9 366.5 Q 851.9 371.2 843.4 376.6 Q 835.3 375.6 824.1 373.3 Q 817.8 367.4 812.4 357.9 Q 812.9 347.6 812.2 338.9 Q 817.8 329.0 824.2 323.7 Q 832.2 324.6 843.2 321.5 Q 851.7 324.6 859.6 330.7 Q 861.3 338.3 865.2 348.5 Z" stroke="#2a2012" stroke-width="4.20" fill="none" stroke-linecap="round"/>
+<path d="M 861.5 340.9 Q 859.8 343.4 858.7 346.9 Q 854.9 346.7 853.2 350.2 Q 852.0 351.1 847.0 349.0 Q 843.6 344.5 842.7 344.2 Q 840.9 339.0 842.5 337.6 Q 842.7 333.0 846.6 332.3 Q 851.5 332.6 853.2 331.7 Q 855.4 331.0 858.6 335.0 Q 860.5 336.2 861.5 340.9 Z" stroke="#2a2012" stroke-width="4.20" fill="none" stroke-linecap="round"/>
+<path d="M 733.9 319.3 Q 730.3 326.2 730.5 328.5 Q 727.6 331.4 722.2 334.0 Q 715.0 332.5 712.2 332.1 Q 706.9 328.3 705.3 324.5 Q 707.1 318.8 705.4 314.1 Q 708.0 308.1 712.1 306.4 Q 715.7 307.3 722.1 305.0 Q 725.4 308.3 731.4 309.4 Q 731.4 313.7 733.9 319.3 Z" stroke="#8c2f23" stroke-width="5.40" fill="none" stroke-linecap="round"/>
+<circle cx="719.6" cy="319.3" r="6.00" fill="#8c2f23"/>
+<path d="M 823.9 252.6 Q 822.0 254.9 821.7 259.0 Q 816.6 263.0 815.9 262.8 Q 810.2 263.3 808.9 261.5 Q 804.9 258.5 805.0 255.9 Q 807.0 253.6 805.1 249.3 Q 808.1 245.5 809.1 244.1 Q 814.0 243.8 815.8 242.8 Q 817.2 246.2 821.7 246.2 Q 824.4 251.4 823.9 252.6 Z" stroke="#2a2012" stroke-width="4.20" fill="none" stroke-linecap="round"/>
+<path d="M 359.0 214.1 Q 359.1 217.1 354.9 223.9 Q 351.3 228.4 345.9 229.4 Q 339.7 229.3 335.8 226.9 Q 330.2 222.8 328.7 219.3 Q 329.7 211.9 329.0 208.9 Q 333.4 204.4 335.8 201.3 Q 339.5 198.8 345.8 199.2 Q 348.9 200.7 354.4 204.7 Q 358.3 207.0 359.0 214.1 Z" stroke="#2a2012" stroke-width="4.20" fill="none" stroke-linecap="round"/>
+<text x="600.0" y="465.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="37.5" fill="#2a2012" font-weight="700" text-anchor="middle">LOGIC VOID DECK</text>
+<text x="1186" y="665" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24.0" fill="#2a2012" opacity="0.5" text-anchor="end">SHELF · SHARED RESOURCES</text>
+</svg>

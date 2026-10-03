@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">Ollama setup: local baseline</title>
+<desc id="d">Ink-illustration cover for Ollama setup: local baseline</desc>
+<rect width="1200" height="675" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="1198.5" height="673.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 315.6 151.1 L 885.9 151.1 Q 900.2 150.9 900.8 166.1 L 901.2 172.8 Q 900.2 187.6 885.9 187.7 L 315.6 188.0 Q 300.7 188.1 301.1 172.8 L 300.7 166.1 Q 300.9 151.0 315.6 151.1 Z" stroke="#2a2012" stroke-width="3.90" fill="none"/>
+<text x="276.0" y="177.3" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="25.5" fill="#2a2012" text-anchor="end">EXPERIMENTS</text>
+<path d="M 314.3 210.7 L 886.1 211.3 Q 900.6 210.3 900.5 225.7 L 900.8 232.3 Q 901.6 247.7 886.1 247.2 L 314.3 247.0 Q 300.0 247.1 299.5 232.3 L 299.3 225.7 Q 299.4 210.3 314.3 210.7 Z" stroke="#8c2f23" stroke-width="5.10" fill="none"/>
+<text x="276.0" y="237.2" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="25.5" fill="#8c2f23" text-anchor="end">LOCAL LLM</text>
+<path d="M 313.9 265.0 L 884.4 265.5 Q 900.1 265.5 898.8 280.0 L 899.0 286.7 Q 899.6 302.3 884.4 301.6 L 313.9 301.1 Q 299.0 301.3 298.7 286.7 L 299.1 280.0 Q 298.1 265.1 313.9 265.0 Z" stroke="#2a2012" stroke-width="3.90" fill="none"/>
+<text x="276.0" y="291.5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="25.5" fill="#2a2012" text-anchor="end">OLLAMA</text>
+<path d="M 316.0 323.5 L 885.9 323.4 Q 901.2 323.4 901.4 338.5 L 900.6 342.4 Q 901.6 357.0 885.9 357.6 L 316.0 356.9 Q 301.7 358.0 301.2 342.4 L 301.2 338.5 Q 301.2 323.5 316.0 323.5 Z" stroke="#2a2012" stroke-width="3.90" fill="none"/>
+<text x="276.0" y="348.5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="25.5" fill="#2a2012" text-anchor="end">SETUP</text>
+<text x="600.0" y="465.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="37.5" fill="#2a2012" font-weight="700" text-anchor="middle">OLLAMA SETUP</text>
+<text x="1186" y="665" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24.0" fill="#2a2012" opacity="0.5" text-anchor="end">SHELF · LOCAL EXPERIMENTS</text>
+</svg>

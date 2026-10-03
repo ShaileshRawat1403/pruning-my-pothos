@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">Engineering Bounded Autonomy deck</title>
+<desc id="d">Ink-illustration cover for Engineering Bounded Autonomy deck</desc>
+<rect width="1200" height="675" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="1198.5" height="673.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 442.0 144.3 L 451.1 144.4 Q 460.1 144.2 460.5 153.3 L 460.2 357.8 Q 460.1 367.2 451.1 366.9 L 442.0 367.0 Q 433.8 366.6 433.5 357.8 L 433.1 153.3 Q 432.9 144.0 442.0 144.3 Z" stroke="#2a2012" stroke-width="4.80" fill="none"/>
+<path d="M 749.3 144.9 L 758.4 144.5 Q 768.0 144.6 767.5 153.9 L 767.2 359.1 Q 767.6 368.0 758.4 368.5 L 749.3 368.2 Q 741.1 368.1 740.9 359.1 L 740.7 153.9 Q 741.1 144.3 749.3 144.9 Z" stroke="#2a2012" stroke-width="4.80" fill="none"/>
+<path d="M 240.0 256.5 Q 324.2 264.6 432.0 256.5" stroke="#9a7322" stroke-width="3.90" fill="none" stroke-linecap="round"/>
+<path d="M 768.0 256.5 Q 859.7 252.2 960.0 258.9" stroke="#9a7322" stroke-width="3.90" fill="none" stroke-linecap="round"/>
+<path d="M 611.2 256.5 Q 610.1 262.6 606.6 264.7 Q 600.8 265.5 597.6 266.9 Q 591.9 263.3 590.0 261.3 Q 591.6 254.1 589.8 251.6 Q 595.3 251.0 597.5 245.6 Q 602.6 244.9 606.5 248.3 Q 608.6 250.4 611.2 256.5 Z" stroke="#8c2f23" stroke-width="5.40" fill="#8c2f23"/>
+<text x="240.0" y="232.5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="25.5" fill="#9a7322" text-anchor="middle">REQUEST</text>
+<text x="600.0" y="220.5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="27.0" fill="#8c2f23" font-weight="700" text-anchor="middle">REVIEW</text>
+<text x="960.0" y="232.5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="25.5" fill="#9a7322" text-anchor="middle">ACT</text>
+<text x="600.0" y="465.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="37.5" fill="#2a2012" font-weight="700" text-anchor="middle">ENGINEERING BOUNDED AUTONOMY</text>
+<text x="1186" y="665" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24.0" fill="#2a2012" opacity="0.5" text-anchor="end">SHELF · SHARED RESOURCES</text>
+</svg>

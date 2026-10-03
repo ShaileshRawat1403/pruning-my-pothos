@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">Azure setup: first cloud pass</title>
+<desc id="d">Ink-illustration cover for Azure setup: first cloud pass</desc>
+<rect width="1200" height="675" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="1198.5" height="673.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 288.0 256.5 Q 427.6 253.3 600.0 259.6" stroke="#2a2012" stroke-width="4.80" fill="none" stroke-linecap="round"/>
+<path d="M 600.0 259.6 Q 765.6 215.0 912.0 126.0" stroke="#8c2f23" stroke-width="4.80" fill="none" stroke-linecap="round"/>
+<path d="M 600.0 259.6 Q 766.4 331.0 912.0 387.0" stroke="#9a7322" stroke-width="4.20" fill="none" stroke-linecap="round" opacity="0.85"/>
+<path d="M 299.6 256.5 Q 296.2 262.3 295.2 265.5 Q 289.5 267.6 285.3 268.3 Q 279.2 263.8 277.3 261.6 Q 278.1 258.3 277.2 251.3 Q 281.9 247.1 285.3 244.6 Q 288.0 246.0 295.2 247.5 Q 298.7 250.1 299.6 256.5 Z" stroke="#2a2012" stroke-width="3.90" fill="none"/>
+<path d="M 614.6 259.6 Q 610.1 265.5 609.1 271.0 Q 602.7 274.1 596.6 274.4 Q 589.9 269.2 586.6 266.0 Q 585.4 258.5 586.2 252.9 Q 589.2 248.5 596.6 244.8 Q 605.0 248.4 609.0 248.3 Q 611.9 252.8 614.6 259.6 Z" stroke="#8c2f23" stroke-width="3.90" fill="none"/>
+<path d="M 922.8 126.0 Q 920.9 129.8 918.8 134.5 Q 914.6 137.2 909.6 136.4 Q 903.8 134.9 902.2 130.7 Q 902.2 124.8 902.0 121.2 Q 906.9 116.8 909.6 115.3 Q 912.4 115.0 918.9 117.4 Q 922.6 123.0 922.8 126.0 Z" stroke="#2a2012" stroke-width="3.90" fill="none"/>
+<path d="M 923.1 387.0 Q 923.0 391.0 918.6 395.3 Q 916.1 395.0 909.6 397.7 Q 907.9 395.5 902.1 391.8 Q 900.9 387.6 902.1 382.2 Q 905.7 380.9 909.7 376.9 Q 915.6 375.3 918.9 378.3 Q 919.6 381.2 923.1 387.0 Z" stroke="#9a7322" stroke-width="3.90" fill="none"/>
+<text x="600.0" y="465.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="37.5" fill="#2a2012" font-weight="700" text-anchor="middle">AZURE SETUP</text>
+<text x="1186" y="665" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24.0" fill="#2a2012" opacity="0.5" text-anchor="end">SHELF · LOCAL EXPERIMENTS</text>
+</svg>

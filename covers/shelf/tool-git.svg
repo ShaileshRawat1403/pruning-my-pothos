@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">Tools: Git</title>
+<desc id="d">Ink-illustration cover for Tools: Git</desc>
+<rect width="1200" height="675" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="1198.5" height="673.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 288.0 256.5 Q 455.1 269.5 600.0 254.1" stroke="#2a2012" stroke-width="4.80" fill="none" stroke-linecap="round"/>
+<path d="M 600.0 254.1 Q 763.6 195.5 912.0 126.0" stroke="#8c2f23" stroke-width="4.80" fill="none" stroke-linecap="round"/>
+<path d="M 600.0 254.1 Q 753.7 336.4 912.0 387.0" stroke="#9a7322" stroke-width="4.20" fill="none" stroke-linecap="round" opacity="0.85"/>
+<path d="M 299.7 256.5 Q 296.1 259.6 295.5 265.9 Q 292.8 267.0 285.2 268.7 Q 283.3 264.8 277.3 261.7 Q 275.0 258.2 277.2 251.3 Q 280.7 249.0 285.2 244.4 Q 288.1 243.8 295.6 247.0 Q 299.1 253.0 299.7 256.5 Z" stroke="#2a2012" stroke-width="3.90" fill="none"/>
+<path d="M 615.5 254.1 Q 613.9 260.3 609.5 266.1 Q 603.4 268.0 596.7 268.5 Q 593.7 265.8 586.4 260.7 Q 585.7 254.0 586.4 247.5 Q 592.9 243.2 596.6 239.3 Q 604.3 239.7 609.3 242.5 Q 614.2 246.5 615.5 254.1 Z" stroke="#8c2f23" stroke-width="3.90" fill="none"/>
+<path d="M 922.4 126.0 Q 918.8 130.3 918.9 134.7 Q 914.0 133.3 909.6 136.3 Q 905.5 131.7 902.0 130.8 Q 902.0 126.8 901.9 121.1 Q 907.6 117.4 909.5 115.2 Q 914.4 116.5 919.0 117.2 Q 922.2 120.2 922.4 126.0 Z" stroke="#2a2012" stroke-width="3.90" fill="none"/>
+<path d="M 923.0 387.0 Q 919.4 391.2 918.6 395.3 Q 914.9 394.0 909.7 397.1 Q 903.5 394.6 902.0 391.8 Q 902.6 387.9 902.1 382.2 Q 904.9 380.6 909.6 376.7 Q 912.5 376.7 918.8 378.4 Q 922.2 383.1 923.0 387.0 Z" stroke="#9a7322" stroke-width="3.90" fill="none"/>
+<text x="600.0" y="465.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="37.5" fill="#2a2012" font-weight="700" text-anchor="middle">TOOLS</text>
+<text x="1186" y="665" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24.0" fill="#2a2012" opacity="0.5" text-anchor="end">SHELF · TOOLS</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">Notes/Tools: a plaintext logbook</title>
+<desc id="d">Ink-illustration cover for Notes/Tools: a plaintext logbook</desc>
+<rect width="1200" height="675" fill="#f4ecd8"/>
+<rect x="0.75" y="0.75" width="1198.5" height="673.5" fill="none" stroke="#e3d6b8" stroke-width="1.5"/>
+<path d="M 581.2 232.7 Q 572.8 263.3 562.7 292.8 Q 536.8 308.1 510.1 325.3 Q 480.0 328.3 447.7 332.1 Q 424.3 313.1 396.8 293.2 Q 388.9 263.5 376.8 232.7 Q 384.8 200.6 395.7 171.5 Q 422.5 151.7 447.4 132.5 Q 478.3 134.6 510.2 139.9 Q 536.2 154.2 562.8 172.6 Q 573.7 200.3 581.2 232.7 Z" stroke="#8c2f23" stroke-width="6.00" fill="none"/>
+<path d="M 552.9 305.6 Q 621.1 345.3 672.9 373.1" stroke="#8c2f23" stroke-width="7.20" fill="none" stroke-linecap="round"/>
+<path d="M 574.4 113.8 Q 582.7 101.4 594.5 88.4" stroke="#9a7322" stroke-width="3.60" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 616.8 166.7 Q 633.4 160.4 645.9 152.6" stroke="#9a7322" stroke-width="3.60" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 631.9 232.7 Q 647.6 232.2 664.3 232.7" stroke="#9a7322" stroke-width="3.60" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 616.8 298.8 Q 636.6 307.8 645.9 312.9" stroke="#9a7322" stroke-width="3.60" fill="none" stroke-linecap="round" opacity="0.8"/>
+<path d="M 574.4 351.7 Q 589.9 365.9 594.5 377.1" stroke="#9a7322" stroke-width="3.60" fill="none" stroke-linecap="round" opacity="0.8"/>
+<text x="480.0" y="394.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="31.5" fill="#8c2f23" font-weight="700" text-anchor="middle">RETRIEVE</text>
+<text x="840.0" y="232.7" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="31.5" fill="#9a7322" text-anchor="middle">PLAINTEXT</text>
+<text x="600.0" y="465.0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="37.5" fill="#2a2012" font-weight="700" text-anchor="middle">NOTES TOOLS</text>
+<text x="1186" y="665" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24.0" fill="#2a2012" opacity="0.5" text-anchor="end">SHELF · NOTES</text>
+</svg>
