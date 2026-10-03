@@ -64,4 +64,7 @@ export const SCENE_IDS = new Set([
   "property-not-quality",
   "the-fixed-set",
   "close-the-loop",
+  "narrow-not-closed",
+  "read-the-gap",
+  "prompt-like-code",
 ]);
