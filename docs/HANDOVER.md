@@ -160,6 +160,14 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
 
 ## 8. Where things stand
 
+- **2026-10-03 deploy** (`sprint/2026-10-02b` into `main`): the Deadpan
+  Leaf logo (header, favicon, default share card, from `/brand-art/`);
+  35 new drawn scroll scenes across the eight stage articles, each declared
+  from its own paragraph, so no stage article runs past ~460 words without
+  a visual (it was up to 2,272). The visual track (`docs/VISUAL_TRACK.md`)
+  is at step 6: the twenty companions and notes, worst first. Owner had
+  not yet reviewed these scenes one by one; they asked to ship and review
+  all at once.
 - **2026-10-02 deploy** (`sprint/2026-10-02` fast-forwarded into `main`):
   the LiteSpeed reCAPTCHA 403 fix (`.htaccess`, `verifycaptcha:off`); CSV to
   Eval's parser fixed (Test 73); 34 thin Shelf singles noindex; sheet 3
