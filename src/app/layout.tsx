@@ -41,6 +41,7 @@ export default function RootLayout({
               "document.documentElement.classList.add('js');try{var t=localStorage.getItem('systems-theme');if(t!=='light'&&t!=='dark'){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)}catch(e){}",
           }}
         />
+        <Analytics />
       </head>
       <body
         className="min-h-full flex flex-col relative overflow-x-hidden"
@@ -58,7 +59,6 @@ export default function RootLayout({
         </main>
         <Footer />
         <ConsentBanner />
-        <Analytics />
       </body>
     </html>
   );
