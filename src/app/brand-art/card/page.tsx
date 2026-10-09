@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { D, DeadpanDefs, Paper } from "../../../components/illustrations/deadpan";
-import { DeadpanLeafArt } from "../../../components/brand/DeadpanLeaf";
+import { StruckPArt } from "../../../components/brand/StruckP";
 
 /**
  * /brand-art/card — source for /og-default.png (1200 x 630), the share card
@@ -26,8 +26,8 @@ export default function BrandCard() {
         <DeadpanDefs id="brand-card" />
         <Paper id="brand-card" w={1200} h={630} />
         <rect width={1200} height={8} fill={D.ink} />
-        <g transform="translate(96 150) scale(5.2)">
-          <DeadpanLeafArt />
+        <g transform="translate(110 150) scale(5.2)">
+          <StruckPArt ink={D.ink} ground={D.paper} />
         </g>
         <text x={520} y={250} style={{ fontFamily: "var(--font-heading)" }} fontSize={64} fontWeight={800} fill={D.ink} letterSpacing={-1.2}>
           Pruning My Pothos

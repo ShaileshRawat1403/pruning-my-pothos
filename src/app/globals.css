@@ -1094,7 +1094,7 @@ html.js .cover-film:not([data-film]) .cf-stage { visibility: hidden; animation: 
    Each section drawing tells its joke as a four-second story when the page
    loads, then keeps one quiet loop going. Every element ends where the
    drawing places it, and reduced motion or print shows that drawing still. */
-.section-scene :is(.sx-say, .sx-pin, .sx-frame, .sx-book, .sx-ball, .sx-stamp, .sx-tipper, .sx-plank, .sx-pointer, .sx-pencil, .sx-machine, .sx-dial, .sx-tape, .sx-smoke, .sx-reach) {
+.section-scene :is(.sx-say, .sx-pin, .sx-frame, .sx-book, .sx-ball, .sx-stamp, .sx-tipper, .sx-plank, .sx-pointer, .sx-pencil, .sx-machine, .sx-dial, .sx-tape, .sx-smoke, .sx-reach, .sx-tag, .sx-fall, .sx-shears) {
   transform-box: fill-box;
 }
 @keyframes sx-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
@@ -1153,6 +1153,13 @@ html.js .cover-film:not([data-film]) .cf-stage { visibility: hidden; animation: 
 .sx-writing .sx-ball { animation: sx-throw 0.6s ease-in both; animation-delay: calc(0.2s + var(--i) * 0.36s); }
 .sx-writing .sx-line { stroke-dasharray: 1; animation: sx-draw 0.9s ease-out 2.5s both; }
 .sx-writing .sx-cursor { animation: sx-blink 1s steps(1) 3.4s infinite; }
+
+/* Lost (404): snip, the leaf drops, the tag keeps swinging. */
+@keyframes sx-snip { 0%, 100% { transform: none; } 50% { transform: rotate(-14deg); } }
+@keyframes sx-leaf-fall { from { opacity: 0; transform: translate(-4px, -190px) rotate(-60deg); } 15% { opacity: 1; } to { opacity: 1; transform: none; } }
+.sx-lost .sx-shears { transform-origin: 0% 100%; animation: sx-snip 0.3s ease-in-out 0.6s 3; }
+.sx-lost .sx-fall { transform-origin: 50% 50%; animation: sx-leaf-fall 1.4s cubic-bezier(0.4, 0, 0.6, 1) 1.5s both; }
+.sx-lost .sx-tag { transform-origin: 50% 0%; animation: sx-sway 3.6s ease-in-out 1.5s infinite; }
 
 @media (prefers-reduced-motion: reduce) { .section-scene * { animation: none !important; } }
 @media print { .section-scene * { animation: none !important; } }

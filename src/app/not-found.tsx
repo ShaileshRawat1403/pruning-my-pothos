@@ -1,31 +1,25 @@
 import Link from "next/link";
-import TerminalSim from "../components/TerminalSim";
+import { SectionScene } from "../components/illustrations/sections";
 
 export default function NotFound() {
   return (
-    <div className="min-h-[72vh] flex flex-col items-center justify-center gap-8 py-20 text-center">
-      <div className="w-full max-w-lg text-left">
-        <TerminalSim
-          command="sudo prove-existence /404"
-          steps={[
-            { text: "Validating biological footprint...", status: "ok" },
-            { text: "Querying the void for this page...", status: "warn", ms: 800 },
-            { text: "Not found. It may never have existed.", status: "err", ms: 800 },
-            { text: "Identity verified. Welcome back, chemical machine #48291.", status: "info" },
-          ]}
-        />
-      </div>
-
-      <div className="flex flex-col gap-3 items-center">
-        <h1 className="font-heading text-6xl font-black tracking-tight" style={{ color: "var(--text-primary)" }}>404</h1>
-        <p className="text-base max-w-md" style={{ color: "var(--text-secondary)" }}>
-          The page you asked for is not here. Reality distortion field detected in buffer.
+    <div className="min-h-[72vh] grid grid-cols-1 items-center gap-10 py-16 lg:grid-cols-[10fr_13fr] lg:gap-14">
+      <div className="flex flex-col gap-5">
+        <div className="flex items-center gap-2">
+          <span className="h-px w-8" style={{ background: "var(--accent-pink)" }} />
+          <span className="text-[10px] font-mono font-bold uppercase tracking-[0.18em] text-[color:var(--text-muted)]">Error 404</span>
+        </div>
+        <h1 className="font-heading text-5xl font-black tracking-tight leading-[0.95] text-[color:var(--text-primary)]">This page was pruned.</h1>
+        <p className="max-w-md text-base leading-relaxed text-[color:var(--text-secondary)]">
+          Or it never existed. Either way, the link you followed ends here. The map still works.
         </p>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/" className="btn-premium btn-primary">Home</Link>
+          <Link href="/systems/" className="btn-premium btn-secondary">The Systems map &rarr;</Link>
+        </div>
       </div>
-
-      <div className="flex flex-wrap gap-3 justify-center">
-        <Link href="/" className="btn-premium btn-primary">Back to safety</Link>
-        <Link href="/tools" className="btn-premium btn-secondary">Open the Stack &rarr;</Link>
+      <div className="ill-alive mx-auto w-full max-w-[520px] overflow-hidden rounded-sm border border-[#D9D4C6]">
+        <SectionScene name="lost" />
       </div>
     </div>
   );

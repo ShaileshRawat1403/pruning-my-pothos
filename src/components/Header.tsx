@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 import { SECTIONS, locate } from "../lib/config/sections";
-import DeadpanLeaf from "./brand/DeadpanLeaf";
+import StruckP from "./brand/StruckP";
 
 export default function Header() {
   const pathname = usePathname();
@@ -30,8 +30,8 @@ export default function Header() {
             href="/"
             className="flex items-center gap-3 text-decoration-none group focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--text-primary)] rounded-lg p-1"
           >
-            <span className="flex items-center justify-center transition-transform group-hover:scale-105 group-hover:-rotate-6" aria-hidden="true">
-              <DeadpanLeaf size={36} disc title="" />
+            <span className="flex items-center justify-center transition-transform group-hover:scale-105" aria-hidden="true">
+              <StruckP size={34} title="" />
             </span>
             <span className="font-heading font-extrabold text-lg tracking-tight text-[color:var(--text-primary)]">
               Pruning My Pothos

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import DeadpanLeaf from "./brand/DeadpanLeaf";
+import StruckP from "./brand/StruckP";
 
 /**
  * Asks once whether the site may use analytics cookies (Google Analytics,
@@ -51,7 +51,9 @@ export default function ConsentBanner() {
 
   return (
     <div role="dialog" aria-live="polite" aria-label="Cookie preferences" className="consent-banner">
-      <DeadpanLeaf size={40} disc title="" />
+      <span className="text-[color:var(--text-primary)]" style={{ ["--bg-color" as string]: "var(--card-bg)" }}>
+        <StruckP size={36} title="" />
+      </span>
       <p className="m-0 text-sm leading-relaxed">
         We count visits and see where people click, with Google Analytics and Microsoft Clarity. No ads, nothing sold.{" "}
         <Link href="/privacy/" className="underline underline-offset-4">

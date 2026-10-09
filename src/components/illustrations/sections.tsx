@@ -19,7 +19,7 @@ import { D, LINE, DeadpanDefs, Paper, Ink, Head, Torso, Limb, Label } from "./de
 export const SECTION_W = 640;
 export const SECTION_H = 470;
 
-export type SectionSceneName = "systems" | "storyboards" | "stack" | "shelf" | "writing";
+export type SectionSceneName = "systems" | "storyboards" | "stack" | "shelf" | "writing" | "lost";
 
 const hand = (x: number, y: number, t: string, size = 28, color: string = D.ink) => (
   <text x={x} y={y} textAnchor="middle" className="ill-hand" fontSize={size} fontWeight={700} fill={color}>
@@ -206,6 +206,40 @@ const SCENES: Record<SectionSceneName, { alt: string; art: React.ReactNode }> = 
         <Limb d="M182 304 C 214 300, 248 292, 290 282" fill={D.shirt} />
         <g className="sx-say sx-say-1">{hand(440, 96, "one sentence.")}</g>
         <g className="sx-say sx-say-2">{hand(440, 128, "(forty drafts)", 22, D.greyLight)}</g>
+      </g>
+    ),
+  },
+
+  /* Lost (the 404 page): the stem you followed ends in a clean cut. */
+  lost: {
+    alt: "A pothos on a stand whose longest stem ends in a clean cut with a tag reading 404, beside a tired gardener holding shears",
+    art: (
+      <g>
+        {floor}
+        <path d="M380 430 V330 M330 430 L380 330 L430 430" {...LINE} strokeWidth={6} />
+        <path d="M330 270 H430 L418 330 H342 Z" fill={D.accent} stroke={D.ink} strokeWidth={4.5} strokeLinejoin="round" />
+        <path d="M366 272 C 360 230, 330 200, 300 190 M392 272 C 400 220, 440 170, 520 150 C 556 142, 580 150, 596 168" fill="none" stroke={D.leaf} strokeWidth={6} strokeLinecap="round" />
+        {[[300, 190, -20], [342, 219, 40], [429, 199, -15], [476, 165, 30], [549, 147, 10]].map(([x, y, r], i) => (
+          <path key={i} d={`M${x} ${y} c -18 -6 -26 -24 -18 -38 c 16 2 24 18 18 38 z`} fill={D.leaf} stroke={D.ink} strokeWidth={3} strokeLinejoin="round" transform={`rotate(${r} ${x} ${y})`} />
+        ))}
+        <path d="M590 162 L602 174" stroke={D.ink} strokeWidth={4} strokeLinecap="round" />
+        <g className="sx-tag">
+          <path d="M598 172 V196" stroke={D.ink} strokeWidth={2.5} />
+          <rect x={572} y={196} width={54} height={30} rx={4} fill="#fff" stroke={D.ink} strokeWidth={3} />
+          <text x={599} y={218} textAnchor="middle" className="ill-mono" fontSize={18} fontWeight={700} fill={D.accent}>404</text>
+        </g>
+        <g className="sx-fall">
+          <path d="M600 380 c -18 -6 -26 -24 -18 -38 c 16 2 24 18 18 38 z" fill={D.leaf} stroke={D.ink} strokeWidth={3} strokeLinejoin="round" transform="rotate(70 600 380)" />
+        </g>
+        <Torso x={124} y={264} w={130} h={166} fill={D.teal} />
+        <Head x={124} y={206} r={50} eyes="sleepy" look={1} mouth="flat" stubble hair="sides" />
+        <g className="sx-shears">
+          <Limb d="M182 304 C 206 296, 222 280, 230 262" fill={D.teal} />
+          <path d="M226 268 L262 232 M232 274 L270 244" stroke={D.grey} strokeWidth={5} strokeLinecap="round" />
+          <circle cx={226} cy={270} r={7} fill="none" stroke={D.ink} strokeWidth={3} />
+        </g>
+        <g className="sx-say sx-say-1">{hand(470, 64, "pruned.")}</g>
+        <g className="sx-say sx-say-2">{hand(470, 96, "(or it never grew)", 22, D.greyLight)}</g>
       </g>
     ),
   },

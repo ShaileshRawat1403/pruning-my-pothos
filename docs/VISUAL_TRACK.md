@@ -56,17 +56,19 @@ Status: `done`, `next`, `open`, `parked`.
 | # | Step | Status |
 |:--|:--|:--|
 | 1 | Hero plate gets "Play again"; cover-film replay visible at rest | done (2026-10-02) |
-| 2 | **Logo**: the Deadpan Leaf (`src/components/brand/DeadpanLeaf.tsx`), chosen by the owner from three concepts. In the header (on a paper disc), the favicon and the default share card; both images render from `/brand-art/` with `npm run export:storyboards -- --only=brand` | done, deployed (2026-10-03) |
+| 2 | **Logo**: the Struck P (`src/components/brand/StruckP.tsx`): a geometric P whose counter is a pothos leaf, struck through at the foot with the house's Pruning Mark. Chosen by the owner on 2026-10-09 over The Cut, Bracketed and Pruned Stem; it replaced the Deadpan Leaf, which the owner found childish. Header (no disc; the leaf takes the page background), consent banner, favicon (paper tile) and default share card; images render from `/brand-art/` with `npm run export:storyboards -- --only=brand` | done (2026-10-09) |
 | 3 | **Linking**: each Systems article shows the Works On My Prompt sheets built on it ("Do it yourself"), and ends with "Next on the map" to the following stage's flagship. Sheet cards everywhere show the sheet's own cover instead of the shared type emblem | done (2026-10-02) |
 | 4 | **No blob, flagships first**: the handoff article (stage 7) gets seven inline visuals, each a drawn scroll scene built from its own paragraph: a decision made three times; instruction or state; what makes it a handoff; payload or shared store; a file called current (evidence, from the repository specimen); when the next step cannot proceed; replay or resume. Longest text run 2,272 words, now 419. Readiness (stage 8) gets eight: five words for ready; demo or readiness; adjacent is not evidence; criterion before or after (the target painted around the arrows); what the gates establish (evidence, from the repository); safe ways to stop; what can be undone; the decision expires. 2,020 words, now 456 | done, deployed (2026-10-03) |
 | 5 | No blob, the other six stage articles: human-in-the-loop (4 scenes, 1,312 to 388 words), retrieval (4, 976 to 351), governed execution (3, 948 to 346), what a model is (3, 850 to 349), evaluation (3, 772 to 385), prompting (3, 616 to 323). All eight stage articles now stay under ~460 words between visuals | done, deployed (2026-10-03) |
 | 6 | No blob, the twenty companions and notes: every remaining Systems article now has scenes declared from its own paragraphs (78 new across 17 articles on 2026-10-09). The longest run between visuals anywhere is about 500 words, counting end matter | done (2026-10-09), not yet deployed |
-| 7 | **Motion everywhere**: a small drawn, moving header or spot for Self, Sentences, Tools, About, 404 (template-driven, one drawing per page type, not per page) | next |
-| 8 | **UI/UX tightening**: header, mobile menu, spacing and type rhythm, card consistency, footer; audited page by page against a short checklist | open |
+| 7 | **Motion everywhere**: section headers (Sentences, Tools, Stack, Shelf, Systems, Storyboards) already play a story and Self/About have the inking portrait, so the gap was the 404: it now has the `lost` section scene (snip, the leaf drops, the 404 tag keeps swinging) | done (2026-10-09) |
+| 8 | **UI/UX tightening**: header, mobile menu, spacing and type rhythm, card consistency, footer; audited page by page against a short checklist | next |
 | 9 | Home hero: a second look once the logo and motion system settle | open |
 
 ## Decisions log
 
+- 2026-10-09: Logo: the Struck P (B) replaces the Deadpan Leaf. The house
+  face stays in the drawings; the mark is flat and grown-up.
 - 2026-10-09: Scenes need at least three beats. A comparison without a
   `diffNote`, or a two-layer `layers` visual, gives two; add a diffNote
   from the article's own words or use a boundary. Insert visuals with a

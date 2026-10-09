@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import DeadpanLeaf from "../../../components/brand/DeadpanLeaf";
+import StruckP from "../../../components/brand/StruckP";
 
 /**
  * /brand-art/icon — source for /favicon.png (512 x 512), not a reader surface.
@@ -20,7 +20,7 @@ export default function BrandIcon() {
   return (
     <div id="brand-icon" className="no-grain">
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
-      <DeadpanLeaf size={512} disc />
+      <StruckP size={512} tile />
     </div>
   );
 }
