@@ -59,6 +59,103 @@ visuals:
           label: "The operation completes"
           note: "Not necessarily the outcome the person wanted"
 
+  - id: prose-or-surface
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "An interactive surface can represent structured state and constrained choices directly, rather than describing them only in prose."
+    caption: "Text does carry workflows. The difference is what a surface can lay out and constrain."
+    alt: "A comparison of prose, which already carries workflows (a numbered list with reply 1, 2 or 3 is a selector, a typed command is an action, a yes-or-no question is a confirmation), with an interactive surface, which lays out options so they are comparable at a glance, constrains a choice to what is selectable, and updates a value as an input changes."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Prose"
+        items:
+          - "A numbered list and reply with 1, 2 or 3: a selector"
+          - "A typed command: an action"
+          - "A yes-or-no question: a confirmation"
+      after:
+        label: "An interactive surface"
+        items:
+          - "Options comparable at a glance, not read in sequence"
+          - "A choice constrained to what is selectable"
+          - "A value that updates as an input changes"
+      diffNote: "A question with one answer does not need a card."
+  - id: the-label-is-a-view
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Where a decision depends on a value being current, re-establish it at the moment of the decision."
+    caption: "A rendered value came from somewhere at some moment."
+    alt: "A sequence: a value is fetched and rendered with a label such as available; the underlying record changes; the screen still shows the old label unless something was built to update it, so a decision that depends on the value has to re-establish it at the moment of the decision."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: rendered
+          label: "The value is fetched and rendered: Available"
+        - id: changed
+          label: "The underlying record changes"
+          note: "Nothing about the screen updates on its own."
+        - id: recheck
+          label: "At the moment of the decision, re-establish it"
+          note: "Not read off the last render."
+  - id: a-button-is-a-request
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "A visible control expresses something the interface will let a person request. Whether that request becomes an effect is determined elsewhere."
+    caption: "A button that exists is read as a button that will work."
+    alt: "A boundary between what the interface decides, which is what it offers a person to request, and what is decided elsewhere: whether the operation is permitted right now, for this person, in this state, and whether the operation is reachable through other paths when a control is hidden or disabled."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "The interface"
+      inside:
+        label: "What it decides"
+        items:
+          - "What a person is offered to request"
+      outside:
+        label: "Decided elsewhere"
+        items:
+          - "Whether it is permitted right now, for this person, in this state"
+          - "Whether the operation is reachable by other paths when the control is hidden"
+  - id: the-slot-was-taken
+    purpose: decision
+    renderAs: generated-decision
+    takeaway: "Do not confirm the requested slot unless the current authoritative result establishes that the booking succeeded."
+    caption: "A constructed example: the path the happy-path version never shows."
+    alt: "A decision in a constructed booking example. Only reached when the slot was taken between the render and the click. The system may refuse and say so, refresh the options or offer alternatives, or add the person to a waitlist or ask them to choose again. It should not confirm the slot unless the authoritative result says the booking succeeded."
+    evidenceRole: explanatory
+    data:
+      precondition: "Between the render and the click, the slot was taken"
+      question: "What does the system do with the request?"
+      branches:
+        - id: refuse
+          label: "Refuse"
+          outcome: "Say the slot is gone"
+        - id: refresh
+          label: "Refresh"
+          outcome: "Show current options, or offer alternatives"
+        - id: wait
+          label: "Wait"
+          outcome: "Add them to a waitlist, or ask them to choose again"
+          note: "The surface has to be able to show this branch to present it faithfully."
+  - id: interactive-not-acting
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "Which of these a component is depends on what it was wired to, and that is not visible from the fact that it is interactive."
+    caption: "A rendered component is not inherently connected to anything."
+    alt: "A boundary between components wired to something that acts, and interactive components connected to nothing beyond the interface: a read-only card, a selector that changes only what is displayed, a form whose values go nowhere until submitted, and a chart of data already fetched."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "Wired to an effect"
+      inside:
+        label: "Connected to something that acts"
+        items:
+          - "Whatever it was wired to call"
+      outside:
+        label: "Interactive, connected to nothing"
+        items:
+          - "A read-only card"
+          - "A selector that changes only what is displayed"
+          - "A form whose values go nowhere until submitted"
+          - "A chart of data already fetched"
 related:
   - type: explainer
     title: "From Agent Intent to Governed Execution"
@@ -96,6 +193,8 @@ Text does carry workflows. A numbered list of options and *reply with 1, 2 or 3*
 
 Whether that is worth building depends on the task. A question with one answer does not need a card, and a rendered component is not an improvement on a sentence that was already doing the job.
 
+<!-- pmp:visual id="prose-or-surface" -->
+
 ## What is on screen is a view
 
 **An interaction surface represents state and available choices to a person. It does not by itself establish that the state is current or that the choices are permitted.**
@@ -106,6 +205,8 @@ It matters for the words interfaces use, because those words assert conditions. 
 
 The practical consequence is small and specific: where a decision depends on a value being current, the value has to be re-established at the moment of the decision, not read off the last render.
 
+<!-- pmp:visual id="the-label-is-a-view" -->
+
 ## A control is a request
 
 **A visible control expresses something the interface will let a person request. Whether that request becomes an effect is determined elsewhere.**
@@ -113,6 +214,8 @@ The practical consequence is small and specific: where a decision depends on a v
 This distinction collapses in a particular direction: a button that exists is read as a button that will work.
 
 Two consequences follow. A control being visible does not mean the operation behind it is permitted right now, for this person, in this state. And hiding or disabling a control changes what the interface offers. It does not by itself enforce permission or make the underlying operation unavailable through other paths. Where permission actually gets decided is [a separate layer of the system](/systems/from-agent-intent-to-governed-execution/), and this page does not restate how it works.
+
+<!-- pmp:visual id="a-button-is-a-request" -->
 
 ## The booking, traced
 
@@ -127,6 +230,8 @@ The interface may have accurately represented the availability it received at re
 What happens next is a workflow decision rather than a single right answer. The system may refuse, refresh the options, offer alternatives, add the person to a waitlist, or ask them to choose again. What it should not do is confirm the requested slot unless the current authoritative result establishes that the booking succeeded.
 
 That puts a requirement on the surface rather than on the check. If the surface cannot represent refusal or changed state, it cannot faithfully present that branch of the interaction.
+
+<!-- pmp:visual id="the-slot-was-taken" -->
 
 ## Requested, done, and worked
 
@@ -149,6 +254,8 @@ A card can be entirely read-only. A selector can change nothing but what the int
 Which of those a given component is depends on what it was wired to, and that is not visible from the fact that it is interactive. Assuming an interface element implies an external effect gets the system wrong in one direction; assuming it does not gets it wrong in the other, more expensive one.
 
 It is also worth naming the actor precisely. Saying *the assistant opens the app* describes an outcome, not a mechanism. What selects a component may be the model, the host application, a deterministic rule, a tool definition, or the person choosing directly, and implementations differ. The surface does not have to own that choice.
+
+<!-- pmp:visual id="interactive-not-acting" -->
 
 ## What reuse does and does not buy
 

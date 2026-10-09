@@ -72,4 +72,9 @@ export const SCENE_IDS = new Set([
   "where-the-rule-lives",
   "what-isolation-bounds",
   "the-way-back",
+  "prose-or-surface",
+  "the-label-is-a-view",
+  "a-button-is-a-request",
+  "the-slot-was-taken",
+  "interactive-not-acting",
 ]);

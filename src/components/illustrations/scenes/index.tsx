@@ -74,6 +74,11 @@ export const SCENES: Record<string, ComponentType<SceneProps>> = {
   "where-the-rule-lives": dynamic(() => import("./where-the-rule-lives")),
   "what-isolation-bounds": dynamic(() => import("./what-isolation-bounds")),
   "the-way-back": dynamic(() => import("./the-way-back")),
+  "prose-or-surface": dynamic(() => import("./prose-or-surface")),
+  "the-label-is-a-view": dynamic(() => import("./the-label-is-a-view")),
+  "a-button-is-a-request": dynamic(() => import("./a-button-is-a-request")),
+  "the-slot-was-taken": dynamic(() => import("./the-slot-was-taken")),
+  "interactive-not-acting": dynamic(() => import("./interactive-not-acting")),
 
   // Works On My Prompt sheets: the steps of a sheet, keyed by its `scene`.
   // Not article visuals, so they stay out of SCENE_IDS.
