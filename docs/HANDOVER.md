@@ -160,6 +160,12 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
 
 ## 8. Where things stand
 
+- **2026-10-09 deploy** (`sprint/2026-10-09` into `main`): 78 more drawn
+  scroll scenes across the 17 remaining Systems articles (visual track step
+  6), so every Systems article now runs at most about 500 words between
+  visuals, counting end matter. `scripts/screenshot.mjs` (headless Chrome
+  over CDP) is how scene frames are checked. Next: step 7, motion on the
+  page types that have none.
 - **2026-10-03 deploy** (`sprint/2026-10-02b` into `main`): the Deadpan
   Leaf logo (header, favicon, default share card, from `/brand-art/`);
   35 new drawn scroll scenes across the eight stage articles, each declared
