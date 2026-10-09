@@ -54,6 +54,87 @@ visuals:
           label: "Execution"
           note: "Did anything actually happen?"
 
+  - id: what-validation-can-reject
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "Silence from a validator is not approval. It means no rule applied."
+    caption: "Validation can reject what it can recognise."
+    alt: "A boundary between what a validator can recognise and reject, an identifier missing from your catalogue or an amount that is not numeric or out of range, and what passes through untouched: whether it is the identifier the customer meant, whether the invoice is real, and anything outside the rules you wrote."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "The rules you wrote"
+      inside:
+        label: "What it can recognise"
+        items:
+          - "The identifier appears in your catalogue"
+          - "The amount is numeric and within a range"
+      outside:
+        label: "What passes untouched"
+        items:
+          - "Whether it is the identifier the customer meant"
+          - "Whether the invoice is real"
+          - "Anything outside the rules"
+  - id: the-repair-loop
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Retry until it validates is not a policy. Decide the ceiling, and what happens when it is reached."
+    caption: "A bounded repair loop: a useful mechanism, not a guarantee."
+    alt: "A bounded repair loop: a candidate output is validated; the exact validation error, naming the field, the rule and the value, is returned; a correction is requested; the correction is validated again; and at a limit set by the application, the loop falls back, stops, or sends the case to a person."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: candidate
+          label: "A candidate comes back"
+        - id: validate
+          label: "Validate it"
+        - id: error
+          label: "Return the exact error"
+          note: "The field, the rule, and the value that failed."
+        - id: correct
+          label: "Request a correction, and validate again"
+        - id: limit
+          label: "At the limit you set: fall back, stop, or send it to a person"
+  - id: what-the-failure-rate-says
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Validation telemetry describes validator outcomes."
+    caption: "A rise is a signal worth chasing. A flat line is not proof that anything is right."
+    alt: "A comparison of what a rise in validation failures tells you, that something probably changed, such as a model update, a prompt edit or a new kind of input, with what a flat line does not measure: model quality, factual accuracy, or whether users got what they needed."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "A rise in rejections"
+        items:
+          - "Something probably changed"
+          - "A model update, a prompt edit, a new kind of input"
+      after:
+        label: "What it does not measure"
+        items:
+          - "Model quality"
+          - "Factual accuracy"
+          - "Whether users got what they needed"
+      diffNote: "It can only see the rules it has."
+  - id: prose-or-shape
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "The requirement moved out of the instruction, where nothing was watching, and into a validator, where something is."
+    caption: "Asking for a defined shape fixes one particular problem."
+    alt: "A comparison of asking in prose for an invoice amount, which returns a sentence that software has to parse and whose phrasing changes between runs, with asking for a defined shape, which returns invoice_id, amount and currency fields that software can read, and which code can reject when something else comes back."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Ask in prose"
+        items:
+          - "A sentence comes back"
+          - "The phrasing changes between runs"
+          - "Nothing checks it"
+      after:
+        label: "Ask for a shape"
+        items:
+          - "invoice_id, amount, currency"
+          - "Software reads the amount without parsing English"
+          - "Code can reject anything else"
+      diffNote: "The machine-enforceable contract begins where software can validate explicit rules."
 related:
   - type: explainer
     title: "Prompting Is Not the Skill You Think It Is"
@@ -89,6 +170,8 @@ Say you need an invoice amount out of an email. Ask in prose and you get a sente
 ```
 
 Now software can read the amount without parsing English. More importantly, if the model returns something else, code can **reject** it. That is the real shift. The requirement moved out of the instruction, where nothing was watching, and into a validator, where something is.
+
+<!-- pmp:visual id="prose-or-shape" -->
 
 This is the boundary the [prompting page](/systems/prompting-is-not-the-skill-you-think-it-is/) stops at. **The machine-enforceable contract begins where software can validate explicit rules.**
 
@@ -127,6 +210,8 @@ Machine-checkable meaning constraints are genuinely useful, and they have a ceil
 
 **Validation can reject what it can recognise.** Anything outside the rules you wrote passes through untouched. Silence from a validator is not approval. It means no rule applied.
 
+<!-- pmp:visual id="what-validation-can-reject" -->
+
 ## The model stays probabilistic
 
 One thing that gets muddled. **A validator can be deterministic while the generation it checks is not.** Given the same candidate and the same rules, the validator returns the same verdict every time. That is a property of the validator.
@@ -151,11 +236,15 @@ The detail that makes it work is the word *exact*. A generic "that was wrong" is
 
 Two cautions. This is a useful mechanism, not a guarantee, and some candidates will fail again. And the loop needs a limit set by your application, because "retry until it validates" is not a policy. Decide the ceiling, and decide what happens when it is reached: fall back, stop, or send it to a person.
 
+<!-- pmp:visual id="the-repair-loop" -->
+
 ## Failure rates tell you something narrower than you want
 
 Counting rejections is worth doing. A sudden rise usually means something changed: a model update, a prompt edit, a new kind of input.
 
 Be careful what you read into it. **Validation telemetry describes validator outcomes.** It tells you how often output failed the rules you wrote. It does not by itself measure model quality, factual accuracy, or whether users got what they needed, because it can only see the rules it has. A rise is a signal worth chasing. A flat line is not proof that anything is right.
+
+<!-- pmp:visual id="what-the-failure-rate-says" -->
 
 ## Version the schema with the prompt
 

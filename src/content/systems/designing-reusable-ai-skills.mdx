@@ -69,6 +69,96 @@ visuals:
           - "When it should stop"
       diffNote: "What was needed was everything that was implicit when it worked the first time."
 
+  - id: what-the-validator-checks
+    purpose: evidence-map
+    renderAs: generated-evidence-map
+    takeaway: "Automation verifies the contract while the author remains accountable for the claim."
+    caption: "This repository's own editorial skill and its validator, read for what passing establishes."
+    alt: "An evidence map for the judgment that writing which passes the skill's validator is good and true. In part: the validator confirms that an incident is declared as observed, that a claim maps to prose, and that a repository source carries an immutable commit reference. Not at all: that the observation happened, or that a cited source supports the interpretation drawn from it."
+    evidenceRole: evidence
+    sources:
+      - pmp-editorial-skill
+    data:
+      judgment: "Writing that passes the validator is good, and its claims are true."
+      supports:
+        - id: observed
+          label: "An incident is declared as observed"
+          strength: partial
+          note: "That it is declared, not that it happened."
+        - id: maps
+          label: "Each claim maps to the prose"
+          strength: partial
+        - id: pinned
+          label: "Repository sources carry an immutable commit"
+          strength: partial
+        - id: supports
+          label: "The source supports the interpretation"
+          strength: absent
+          note: "No validator checks this."
+      gap: "Passing means the declared structure holds. It does not mean the writing is any good."
+  - id: split-or-keep
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "If two parts of a skill would be evaluated differently, they probably should not be one skill."
+    caption: "The most common design question is whether to split."
+    alt: "A comparison of when to split a skill, when its parts serve different objectives, carry different risk, feed different consumers or need different tool permissions, and when to keep it whole, when its steps share one objective, the same inputs, the same definition of done and the same reasons to stop."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Split it when the parts"
+        items:
+          - "Serve different objectives"
+          - "Carry different risk"
+          - "Feed different consumers"
+          - "Need different tool permissions"
+      after:
+        label: "Keep it whole when the steps"
+        items:
+          - "Serve one objective"
+          - "Share the same inputs"
+          - "Share the same definition of done"
+          - "Stop for the same reasons"
+      diffNote: "The test: would they be evaluated differently?"
+  - id: four-cases
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Four cases you actually run beat forty you intend to write."
+    caption: "A small set of cases, kept stable, is enough to notice most drift."
+    alt: "Four stable test cases for a reusable skill: normal, does it still do the job on ordinary input; borderline, does it stay sensible when input is thin or ambiguous; failure, does it fail clearly when it cannot proceed; escalation, does it stop when it should."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: normal
+          label: "Normal"
+          note: "Does it still do the job on ordinary input?"
+        - id: borderline
+          label: "Borderline"
+          note: "Does it stay sensible when the input is thin or ambiguous?"
+        - id: failure
+          label: "Failure"
+          note: "Does it fail clearly when it cannot proceed?"
+        - id: escalation
+          label: "Escalation"
+          note: "Does it stop when it should, rather than continuing?"
+  - id: version-on-behaviour
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Version when behaviour changes, not when wording does."
+    caption: "Record what changed in behaviour rather than what changed in text."
+    alt: "A comparison of a tidy-up, a clearer instruction producing the same results, with changes worth a new version even when nothing downstream has to move: changed instructions, a widened tool scope, or a weakened stop condition."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "A tidy-up"
+        items:
+          - "A clearer instruction, the same results"
+      after:
+        label: "Worth a version"
+        items:
+          - "Changed instructions"
+          - "A widened tool scope"
+          - "A weakened stop condition"
+      diffNote: "A version number attached to a diff nobody can interpret is bookkeeping."
 related:
   - type: explainer
     title: "Prompt, Skill, Workflow, Agent"
@@ -122,6 +212,8 @@ The interesting part is the line the skill draws itself. Its own wording is that
 
 That is a useful thing to copy and a precise thing not to overstate. It shows one way to package and check a skill. **It does not establish a universal skill format**, and the validator passing does not mean the writing is any good. It means the declared structure holds.
 
+<!-- pmp:visual id="what-the-validator-checks" -->
+
 ## One skill or two
 
 The most common design question is whether to split.
@@ -131,6 +223,8 @@ The most common design question is whether to split.
 Split it when the parts serve different objectives, carry different risk, produce outputs consumed by different things, or need different tool permissions.
 
 Keep it whole when the steps are tightly coupled to one objective, share the same inputs, share the same definition of done, and stop for the same reasons.
+
+<!-- pmp:visual id="split-or-keep" -->
 
 ## Changing it without breaking it
 
@@ -147,6 +241,8 @@ A small set of cases, kept stable, is enough to notice most drift:
 
 Four cases you actually run beat forty you intend to write. The point is not coverage; it is that a behaviour change becomes visible instead of arriving as a complaint weeks later.
 
+<!-- pmp:visual id="four-cases" -->
+
 Signals worth watching after a change: output no longer matches its declared shape, escalation happens less often with no drop in risk, callers start correcting results by hand, or the skill needs more context than it used to.
 
 This is scoped to one question: does this revised package still do what it claims? How to evaluate AI output more generally, and what to record over time, belongs to [evaluation](/systems/evaluation-is-a-human-problem/) and [observability](/systems/observability-first-ai-systems/).
@@ -158,6 +254,8 @@ Version when behaviour changes, not when wording does.
 A materially changed skill package should remain distinguishable from the version it replaced. Whether a caller has to do anything differently tells you about interface compatibility, not whether the package changed enough to version. A clearer instruction producing the same results is a tidy-up. Changed instructions, a widened tool scope or a weakened stop condition are worth being able to tell apart later, even when nothing downstream has to move.
 
 Whatever scheme you use matters less than being consistent about that line, and recording what changed in behaviour rather than what changed in text. A version number attached to a diff nobody can interpret is bookkeeping.
+
+<!-- pmp:visual id="version-on-behaviour" -->
 
 ## What this changes
 

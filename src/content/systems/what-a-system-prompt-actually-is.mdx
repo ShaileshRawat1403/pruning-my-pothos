@@ -61,6 +61,82 @@ visuals:
           - "For one repeated task"
       diffNote: "The difference between a system prompt and a skill is range, not importance."
 
+  - id: the-prompt-that-grew
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "That is a structural outcome rather than a discipline failure."
+    caption: "It follows from treating a configuration file as though it were a conversation."
+    alt: "A sequence: a system prompt starts small, with a role sentence, a note on tone and a rule about not inventing facts; it works, so it stays; months later it is several hundred words, four people have added to it, nobody has removed anything, and nobody has read it end to end since the first version."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: small
+          label: "It starts small"
+          note: "A role sentence, a note about tone, a rule about not inventing facts."
+        - id: stays
+          label: "It works, so it stays"
+        - id: grown
+          label: "Months later: several hundred words, four authors"
+          note: "Nobody has removed anything, or read it end to end since the first version."
+  - id: what-belongs
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "They are the conditions, not the work."
+    caption: "Things that hold regardless of the request belong. Task logic does not."
+    alt: "A boundary around what belongs in a system prompt, who the model acts as and on whose behalf, what it should refuse or escalate, output conventions that apply to everything, and tone where it is a product decision, and what does not: task logic, steps, and anything shaped like when the user asks for X, do Y."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "Holds regardless of the request"
+      inside:
+        label: "Belongs"
+        items:
+          - "Who it acts as, and on whose behalf"
+          - "What it refuses, and what it escalates"
+          - "Conventions for everything: format, units, citations"
+          - "Tone, where tone is a product decision"
+      outside:
+        label: "Does not"
+        items:
+          - "Task logic and steps"
+          - "When the user asks for X, do Y"
+  - id: influence-or-enforce
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "System prompts influence model behaviour. They do not enforce runtime policy."
+    caption: "Both can be worth having. Only one of them is a constraint."
+    alt: "A comparison of never delete files written in the system instructions, which is still an instruction to the model, with a runtime check that prevents an unauthorized deletion, which holds whether or not the model was persuaded otherwise."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "'Never delete files' in the system prompt"
+        items:
+          - "An instruction to the model"
+          - "Influences behaviour"
+      after:
+        label: "A runtime check before the deletion"
+        items:
+          - "Enforcement"
+          - "Holds whether or not the model was persuaded"
+      diffNote: "Only one of them is a constraint."
+  - id: the-quiet-contradiction
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Two rules in a long system prompt can contradict each other and never produce a visible error."
+    caption: "The model picks one, plausibly and quietly, and continues."
+    alt: "A sequence: two people add two rules weeks apart, a few hundred words from each other; the rules disagree; the model picks one without raising an error; the output stays fluent; the inconsistency gets blamed on the model being non-deterministic. Naming the rules as skills makes the disagreement visible."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: two
+          label: "Two rules, written weeks apart by two people"
+        - id: picks
+          label: "The model picks one, quietly"
+          note: "No exception. The output stays fluent."
+        - id: blamed
+          label: "It gets blamed on non-determinism"
+        - id: visible
+          label: "As two skills, the disagreement is visible"
+          note: "A governance argument, not a performance one."
 related:
   - type: explainer
     title: "Prompt, Skill, Workflow, Agent"
@@ -75,6 +151,8 @@ related:
 A system prompt starts small. A role sentence, a note about tone, a rule about not inventing facts. It works, so it stays.
 
 Some months later it is several hundred words, four people have added to it, nobody has removed anything, and the last person to read it end to end was whoever wrote the first version. That is a structural outcome rather than a discipline failure, and it follows from treating a configuration file as though it were a conversation.
+
+<!-- pmp:visual id="the-prompt-that-grew" -->
 
 ## What it is
 
@@ -114,6 +192,8 @@ Things that hold regardless of the request:
 
 None of these change based on what is being asked. They are the conditions, not the work.
 
+<!-- pmp:visual id="what-belongs" -->
+
 ## What does not
 
 Task logic. Steps. Anything shaped like *when the user asks for X, do Y*.
@@ -134,6 +214,8 @@ Write *never delete files* in system instructions and it is still an instruction
 
 Both can be worth having. Only one of them is a constraint. Where that distinction gets serious, and what it means when the content being processed may be adversarial, is [trust boundaries for tool execution](/systems/policy-governed-mcp-runtimes-for-secure-tool-execution/).
 
+<!-- pmp:visual id="influence-or-enforce" -->
+
 ## The failure nobody catches
 
 **Two rules in a long system prompt can contradict each other and never produce a visible error.**
@@ -143,6 +225,8 @@ The model does not raise an exception when its instructions disagree. It picks o
 Often it is not the model. It is two sentences written weeks apart by two people, sitting a few hundred words from each other in a file neither has reread.
 
 Naming those rules as skills does not make the model better. It makes the contradiction visible, because a skill has a boundary and two skills that disagree can be seen to disagree. That is the argument for the split, and it is a governance argument rather than a performance one.
+
+<!-- pmp:visual id="the-quiet-contradiction" -->
 
 ## What this changes
 

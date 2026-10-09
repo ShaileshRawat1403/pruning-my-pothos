@@ -58,6 +58,61 @@ visuals:
           - "Inference, over your input, milliseconds to seconds"
           - "Everything supplied at request time"
       boundaryLabel: "What changes the model"
+  - id: fine-tuning-good-and-poor
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Fine-tuning is usually a poor way to get specific, changing facts into a system, and often a good way to fix a consistent format or register."
+    caption: "Treat 'it changes behaviour, not knowledge' as a rule of thumb rather than a law."
+    alt: "A comparison of what fine-tuning is usually poor at, getting specific, changing facts into a system, which is expensive and can make a model worse at what it used to do well, with what it is often good at, fixing a consistent format, register or task pattern that is awkward to specify in an instruction every time."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Usually a poor fit"
+        items:
+          - "Specific, changing facts"
+          - "Expensive, and can make the model worse at what it did well"
+      after:
+        label: "Often a good fit"
+        items:
+          - "A consistent format or register"
+          - "A task pattern awkward to specify every time"
+      diffNote: "It writes to the parameters, exactly as pre-training does."
+  - id: where-memory-lives
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "That memory lives in the application, and you can inspect, edit and delete it, precisely because it is not in the model."
+    caption: "When an assistant recalls your name a week later, some code wrote it down and some code retrieved it."
+    alt: "A boundary between the model's parameters, which a mainstream hosted model does not change as you talk to it, and the application around it, which stores what you said and puts it back into the input next time, and whose memory you can inspect, edit and delete."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "Where it remembers"
+      inside:
+        label: "The application"
+        items:
+          - "Stores what you said"
+          - "Puts it back into the input next time"
+          - "You can inspect it, edit it, delete it"
+      outside:
+        label: "The parameters"
+        items:
+          - "Not changed by what you type, for mainstream hosted models"
+  - id: context-or-tuning
+    purpose: decision
+    renderAs: generated-decision
+    takeaway: "Most of the time the request for training is really a request for better context."
+    caption: "When you want a model to work with information it did not have, ask what kind of information it is."
+    alt: "A decision on how to give a model something it did not have. If the facts are specific, private or liable to change, put them in the input: retrieve and supply them at request time, update by editing a document, and show where the answer came from. If the output keeps coming back in the wrong shape or register and no reasonable instruction fixes it, consider fine-tuning."
+    evidenceRole: explanatory
+    data:
+      question: "What kind of information is it?"
+      branches:
+        - id: facts
+          label: "Specific, private, or liable to change"
+          outcome: "Put it in the input: retrieve and supply it at request time"
+          note: "Update a document instead of running a training job."
+        - id: shape
+          label: "The output keeps coming back in the wrong shape or register"
+          outcome: "Fine-tuning is worth considering"
 ---
 
 Someone asks for a model trained on their documents. Usually what they want is for the model to be able to use those documents, which is a different thing and a much cheaper one. Telling the two apart needs one distinction: what changes the model, and what only changes what the model sees.
@@ -77,6 +132,8 @@ Fine-tuning continues that same process on a smaller, curated set of examples, w
 You will see it said that fine-tuning changes behaviour rather than knowledge. Treat that as a rule of thumb rather than a law. Fine-tuning is further training, and further training on a body of material can change what a model produces about that material. The honest version is narrower: fine-tuning is usually a poor and expensive way to get specific, changing facts into a system, and it is often a good way to fix a consistent format, register or task pattern that is awkward to specify in an instruction every time.
 
 There is also a real cost. Training further on a narrow set can make a model worse at things it used to do well.
+
+<!-- pmp:visual id="fine-tuning-good-and-poor" -->
 
 ## Inference
 
@@ -105,6 +162,8 @@ But applications built around a model can absolutely remember, by storing what y
 
 One caveat so the rule stays accurate rather than absolute. Research systems and some specialised setups do update parameters during operation, and continual-learning methods exist. The point is not that run-time parameter updates are impossible. It is that mainstream hosted models do not do it, so if you are using one, assume the weights are fixed until you have specific evidence otherwise.
 
+<!-- pmp:visual id="where-memory-lives" -->
+
 ## The decision this usually settles
 
 When you want a model to work with information it did not have, ask what kind of information it is.
@@ -114,5 +173,7 @@ If the facts are specific, private, or liable to change, put them in the input. 
 If the problem is that the output keeps coming back in the wrong shape or register, and no reasonable instruction fixes it, fine-tuning is worth considering.
 
 Most of the time the request for training is really a request for better context, which is cheaper, faster to change, and easier to inspect when it goes wrong.
+
+<!-- pmp:visual id="context-or-tuning" -->
 
 For what the file itself is doing, see [what an AI model actually is](/systems/what-an-ai-model-actually-is/). For the retrieval side of supplying context, see [retrieval-augmented generation in plain terms](/systems/retrieval-augmented-generation-in-plain-terms/).

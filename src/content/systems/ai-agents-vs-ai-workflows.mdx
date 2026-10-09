@@ -58,6 +58,45 @@ visuals:
           - "The set of possible paths is larger than you can enumerate"
       diffNote: "Freedom to choose the next step is the distinction."
 
+  - id: enumerable-or-not
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Once the model selects steps, the set of possible runs is larger than you can enumerate."
+    caption: "Each one's advantage is the same property viewed from the other side."
+    alt: "A comparison of a workflow, whose every path was written by someone and can be tested, reviewed as a diff and reasoned about, and which fails at an identifiable step but stops or hands off on unanticipated input, with agent-like freedom, which suits paths that cannot be written in advance but whose runs cannot be reviewed as a list, are harder to reproduce, and have less predictable cost and latency."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "A workflow"
+        items:
+          - "Every path written, tested, reviewable as a diff"
+          - "Fails at an identifiable step"
+          - "Unanticipated input stops, or goes to a person"
+      after:
+        label: "Agent-like freedom"
+        items:
+          - "For paths that cannot be written in advance"
+          - "Runs harder to reproduce"
+          - "Cost and latency less predictable"
+      diffNote: "Rigidity and enumerability are the same property."
+  - id: a-pocket-of-freedom
+    purpose: layers
+    renderAs: generated-layers
+    takeaway: "The common shape is an outer sequence you control with a pocket of freedom inside it."
+    caption: "Grant freedom at the smallest scope that solves the problem."
+    alt: "Three nested layers in the common shape of a working system: the overall lifecycle and its checkpoints, fixed by your program; one step inside it; and within that step, the model choosing among a handful of allowed operations."
+    evidenceRole: explanatory
+    data:
+      layers:
+        - id: lifecycle
+          label: "The lifecycle and its checkpoints"
+          note: "Fixed, by your program."
+        - id: step
+          label: "One step inside it"
+        - id: pocket
+          label: "The model chooses among a few allowed operations"
+          note: "Freedom over which of four tools, not over what the task is."
+          highlighted: true
 language:
   profile: sans-serif-sentiments
   recipe: pmp-systems-explainer
@@ -99,11 +138,15 @@ Agent-like freedom earns its place when the path genuinely cannot be written in 
 
 The cost is the same property viewed from the other side. Once the model selects steps, the set of possible runs is larger than you can enumerate, so you cannot review it as a list of paths. Failures become harder to reproduce, and cost and latency stop being predictable.
 
+<!-- pmp:visual id="enumerable-or-not" -->
+
 ## Most systems are somewhere in between
 
 **Most working systems sit somewhere between the two rather than at either end.**
 
 The common shape is an outer sequence you control with a pocket of freedom inside it. The overall lifecycle and its checkpoints are fixed; within one step, the model may choose among a handful of allowed operations. This is neither a pure workflow nor an unconstrained agent, and describing it as one or the other loses the information you need.
+
+<!-- pmp:visual id="a-pocket-of-freedom" -->
 
 So the question worth asking about a design is not "is this an agent". It is **where is choice genuinely valuable, and where does it cost more than it returns**.
 

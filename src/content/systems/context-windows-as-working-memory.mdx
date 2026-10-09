@@ -63,6 +63,65 @@ visuals:
           - "Persistent memory, stored by the application"
           - "Whatever was not selected into this run"
       boundaryLabel: "One run"
+  - id: who-handles-the-limit
+    purpose: decision
+    renderAs: generated-decision
+    takeaway: "Three different systems, three different behaviours, and only the application's is under your control."
+    caption: "What happens at the limit depends on who is handling it."
+    alt: "A decision for input that exceeds the context limit. If the model or provider handles it, the request is rejected or truncated by its own rule. If the application handles it, it decides in advance what to leave out, drop, summarise or shorten. If a chat interface handles it, it may silently drop or compress older turns."
+    evidenceRole: explanatory
+    data:
+      precondition: "The input exceeds the limit"
+      question: "Who is handling it?"
+      branches:
+        - id: provider
+          label: "The model or provider"
+          outcome: "Rejects the request, or truncates it by its own rule"
+        - id: application
+          label: "The application"
+          outcome: "Decides in advance what to leave out, drop, summarise or shorten"
+          note: "The only one under your control."
+        - id: interface
+          label: "A chat interface"
+          outcome: "May silently drop or compress older turns"
+  - id: bigger-or-better
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Selection and placement can matter as much as raw context size."
+    caption: "Filling a window is not the same as using it well."
+    alt: "A comparison of a long, full input, which generally costs more and takes longer and whose positions should be verified rather than assumed neutral, with a short, relevant input, which is easier to get right and cheaper."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "A long, full input"
+        items:
+          - "Generally costs more and takes longer"
+          - "Position is worth verifying, not assuming neutral"
+      after:
+        label: "A short, relevant input"
+        items:
+          - "Easier to get right"
+          - "Cheaper"
+      diffNote: "The only reliable cost figures are the ones you measure on your own workload."
+  - id: three-kinds-of-thing
+    purpose: layers
+    renderAs: generated-layers
+    takeaway: "The categories have different lifetimes, so labelling them shows which parts stay identical on every call and which are rebuilt each time."
+    caption: "A PMP working heuristic rather than a standard; useful when inputs have grown messy."
+    alt: "Three kinds of thing held in a context window, by lifetime: a persistent core of identity, policy, definitions and constraints that applies to every run; a task frame with the current objective and what counts as done; and an evidence pack of only the material this particular step needs."
+    evidenceRole: explanatory
+    data:
+      layers:
+        - id: core
+          label: "Persistent core"
+          note: "Identity, policy, definitions, constraints: the same on every run."
+        - id: frame
+          label: "Task frame"
+          note: "The current objective, and what counts as done."
+        - id: evidence
+          label: "Evidence pack"
+          note: "Only the material this step needs, rebuilt each time."
+          highlighted: true
 ---
 
 Ask an assistant something it told you yesterday and it may have no idea what you mean. Ask again in the same conversation and it answers immediately. People reach for the word memory to explain the difference, and that word causes most of the confusion here.
@@ -99,6 +158,8 @@ What actually happens when input exceeds the limit depends on who is handling it
 
 Three different systems, three different behaviours, and only the middle one is under your control. If your system needs specific behaviour at the boundary, the honest answer is that you have to implement it rather than assume it.
 
+<!-- pmp:visual id="who-handles-the-limit" -->
+
 ## Why a bigger window is not the whole answer
 
 Windows have grown enormously, which invites the conclusion that selection stopped mattering. It did not, for two reasons.
@@ -109,6 +170,8 @@ The second is that filling a window is not the same as using it well. **Selectio
 
 What survives from all this is unglamorous. A short, relevant input is easier to get right than a long one, and it is cheaper.
 
+<!-- pmp:visual id="bigger-or-better" -->
+
 ## A way to divide the space
 
 This is a PMP working heuristic rather than a standard, and it is useful mainly when a system's inputs have grown messy. Think of the window as holding three kinds of thing:
@@ -118,6 +181,8 @@ This is a PMP working heuristic rather than a standard, and it is useful mainly 
 - **Evidence pack.** Only the material this particular step needs.
 
 The value is not the three names. It is that the categories have different lifetimes, so labelling them makes it obvious which parts should be identical on every call and which should be rebuilt each time. If your inputs are already tidy, you do not need this.
+
+<!-- pmp:visual id="three-kinds-of-thing" -->
 
 ## Finding versus choosing
 

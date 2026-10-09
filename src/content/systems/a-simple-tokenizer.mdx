@@ -59,6 +59,62 @@ visuals:
         - id: integers
           label: "1045 · 318 · 8921"
           note: "What the model actually receives"
+  - id: letters-words-pieces
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Tokenizers sit between characters and words: common words whole, rarer words in common pieces."
+    caption: "Nothing is unrepresentable, because worst case a word falls back to smaller and smaller fragments."
+    alt: "A comparison of two extremes: a number per character gives a tiny vocabulary but long sequences that cost more to process; a number per word gives short sequences but an enormous vocabulary that still fails on a word it has not seen. Tokenizers sit between, giving common words their own token and splitting rarer words into common pieces."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "A number per character"
+        items:
+          - "A tiny vocabulary"
+          - "Long sequences, which cost more"
+      after:
+        label: "A number per word"
+        items:
+          - "Short sequences"
+          - "An enormous vocabulary that still fails on a new word"
+      diffNote: "Tokenizers sit between: common words whole, rarer words in common pieces."
+  - id: one-word-three-tokens
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "One visible word does not reliably equal one token."
+    caption: "An illustrative split: the model sees three integers in sequence, not a word it recognises."
+    alt: "A sequence for a made-up word: Smartification arrives; it is split into pieces such as Smart, ifi and cation; the model receives three integers in sequence rather than one word."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: word
+          label: "Smartification"
+        - id: pieces
+          label: "Smart · ifi · cation"
+          note: "Something like this: an illustrative split."
+        - id: integers
+          label: "Three integers, in sequence"
+          note: "Character count is a poor predictor of token count."
+  - id: measure-not-estimate
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "Context limits, cost and latency are counted in tokens, so measure rather than estimate."
+    caption: "Exact limits and prices change by model and provider: check the ones you are using."
+    alt: "A boundary between what is counted in tokens, the context limit per request and, where a provider charges by volume, the cost, with processing time growing with sequence length, and what does not tell you either reliably: character count and word count."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "Counted in tokens"
+      inside:
+        label: "Tokenize it to know"
+        items:
+          - "Whether it fits the context limit"
+          - "What it costs, where priced by volume"
+          - "Roughly how long it takes"
+      outside:
+        label: "Drifts if you estimate from"
+        items:
+          - "Character count"
+          - "Word count"
 ---
 
 A language model never receives your sentence. It receives a list of integers. The component that converts one into the other is the tokenizer, and knowing what it does explains a few things that otherwise look like the model being strange.
@@ -73,6 +129,8 @@ You could give every word a number instead. Then sequences are short, but the vo
 
 Tokenizers sit between the two. Common words get their own token. Rarer words get split into pieces that are themselves common. The vocabulary stays a manageable size, sequences stay reasonably short, and nothing is unrepresentable, because worst case a word falls back to smaller and smaller fragments.
 
+<!-- pmp:visual id="letters-words-pieces" -->
+
 ## What a token is
 
 A token is one entry in that vocabulary. It might be a whole word, part of a word, a punctuation mark, or a space attached to the word that follows it.
@@ -80,6 +138,8 @@ A token is one entry in that vocabulary. It might be a whole word, part of a wor
 So a made-up word like "Smartification" might arrive as three tokens rather than one, something like `Smart`, `ifi`, `cation`. The model sees three integers in sequence, not a word it recognises.
 
 This is why one visible word does not reliably equal one token, and why character count is a poor predictor of token count. A short sentence of unusual words can cost more tokens than a longer sentence of ordinary ones.
+
+<!-- pmp:visual id="one-word-three-tokens" -->
 
 ## A toy version
 
@@ -107,6 +167,8 @@ Two places, both operational.
 **Cost and latency.** Where a provider charges by volume, it charges per token, and processing time generally grows with sequence length. Estimating either from character count will drift, in a direction that depends on what you are sending.
 
 Both of these are reasons to measure rather than estimate. Exact limits and prices change by model and provider, so check the ones you are using rather than trusting a number in an article.
+
+<!-- pmp:visual id="measure-not-estimate" -->
 
 ## A caution about what tokenization explains
 

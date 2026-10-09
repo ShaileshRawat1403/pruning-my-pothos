@@ -75,6 +75,86 @@ visuals:
           label: "Who decides what happens after this step?"
           note: "If the program decides, it is a workflow. If the model decides, that part is agent-like"
 
+  - id: not-a-ladder
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "These terms name different responsibilities, and one system usually contains several of them at once."
+    caption: "Nothing in that list is more advanced than anything else."
+    alt: "A comparison of the common misreading, a ladder from prompts for beginners up to agents for advanced teams, with one mature system holding several parts at once: a system prompt setting conditions, three skills packaging repeated tasks, a workflow sequencing them, and one step where the model picks among a few options."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Read as a ladder"
+        items:
+          - "Prompts, for beginners"
+          - "Agents, for advanced teams"
+      after:
+        label: "One system, several parts at once"
+        items:
+          - "A system prompt setting conditions"
+          - "Three skills packaging repeated tasks"
+          - "A workflow sequencing them"
+          - "One step where the model picks"
+      diffNote: "Reading them as stages adds agent-like freedom where a fixed sequence would have been more reliable."
+  - id: the-runtime-constrains
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "When a model is given discretion over the next step, the runtime is the layer that constrains that discretion."
+    caption: "Calling the agent the runtime inverts the relationship."
+    alt: "A boundary drawn by the runtime, the host program that holds credentials, calls tools, enforces limits and decides what is permitted, around the model's discretion over which step happens next."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "The runtime: the host program"
+      inside:
+        label: "The model's discretion"
+        items:
+          - "Which step happens next, among what it is allowed"
+      outside:
+        label: "What the runtime holds"
+        items:
+          - "The credentials"
+          - "The tool calls"
+          - "The limits, and what is permitted"
+  - id: three-mislabels
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Naming it does not make it what it is called."
+    caption: "Three mistakes recur."
+    alt: "A comparison of three things as they get called with what they actually are: a saved prompt called a skill, which is a skill only once it declares inputs, outputs, success and failure; a workflow called an agent because it makes tool calls, though tool use is separate from step selection; and task logic living in the system prompt, which is usually an unnamed skill nobody reviews."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "What it gets called"
+        items:
+          - "A saved prompt: a skill"
+          - "Several tool calls: an agent"
+          - "Task rules: the system prompt"
+      after:
+        label: "What it actually is"
+        items:
+          - "A skill once it declares inputs, outputs, success, failure"
+          - "A workflow, with every branch written in advance"
+          - "An unnamed skill nobody reviews"
+      diffNote: "A system prompt accumulating rules about specific tasks is usually a skill that has not been named yet."
+  - id: this-run-or-every-run
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "A prompt is the input package for one run. A system prompt sets conditions that hold regardless of what is asked."
+    caption: "Two of the five words, which get used as one."
+    alt: "A comparison of a prompt, the input package supplied to the model for a single run, which can carry instruction, context, examples, retrieved material and the question, with a system prompt, system-level instruction that sets conditions holding regardless of what is asked."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "A prompt"
+        items:
+          - "The input package for a single run"
+          - "Instruction, context, examples, retrieved material, the question"
+      after:
+        label: "A system prompt"
+        items:
+          - "System-level instruction"
+          - "Sets conditions that hold regardless of what is asked"
+      diffNote: "Applications differ in how those instructions are carried across calls."
 related:
   - type: explainer
     title: "What a System Prompt Actually Is"
@@ -100,6 +180,8 @@ The argument is usually not about definitions. It is about which part somebody i
 
 **A system prompt** is system-level instruction supplied with the model's context to shape behaviour for a task or interaction. Applications and providers differ in how those instructions are represented and carried across calls. Its job is to set conditions that hold regardless of what is asked. It has [its own page](/systems/what-a-system-prompt-actually-is/), because the interesting part is what it costs and what it cannot do.
 
+<!-- pmp:visual id="this-run-or-every-run" -->
+
 **A skill**, in the sense this publication uses the word, is a reusable, versioned package of instructions and declared operating constraints for a repeated task. It may define inputs, outputs, tool scope, success criteria, failure conditions and escalation. **Other platforms use "skill" differently**, sometimes for a tool, sometimes for a plugin, sometimes for a prompt template with a name. This is working vocabulary for explaining PMP's own architecture, not a claim about the industry.
 
 **A workflow** has a sequence primarily defined by software or process logic, even when individual steps use models. **Agent-like behaviour** appears when the model receives bounded discretion over which action or step happens next. Both of those definitions belong to [AI agents vs AI workflows](/systems/ai-agents-vs-ai-workflows/), and this page adopts them rather than restating them in different words.
@@ -111,6 +193,8 @@ The most common mistake is reading these as a ladder, with prompts for beginners
 **These terms name different responsibilities, and one system usually contains several of them at once.** A single mature system can have a system prompt setting conditions, three skills packaging its repeated tasks, a workflow sequencing them, and one step where the model picks among a few options. Nothing in that list is more advanced than anything else.
 
 Reading them as stages produces a specific bad decision: teams add agent-like freedom because it sounds like progress, when a fixed sequence would have been more reliable and easier to debug.
+
+<!-- pmp:visual id="not-a-ladder" -->
 
 ## Telling them apart
 
@@ -134,6 +218,8 @@ The word gets used loosely, and one usage is worth correcting because this page 
 
 The runtime is the host program: the thing that holds credentials, calls tools, enforces limits and decides what is permitted. It is not the agent. When a model is given discretion over the next step, the runtime is the layer that constrains that discretion. Calling the agent "the runtime actor" inverts the relationship and makes the controlling layer disappear from the description.
 
+<!-- pmp:visual id="the-runtime-constrains" -->
+
 ## Where mistakes show up
 
 Three recur:
@@ -143,6 +229,8 @@ Three recur:
 **A workflow called an agent** because it makes several tool calls. Tool use is a separate question from step selection. A workflow can call many tools and still have every branch written in advance.
 
 **Task logic living in the system prompt.** A system prompt accumulating rules about specific tasks is usually a skill that has not been named yet, and the cost is that nobody reviews it.
+
+<!-- pmp:visual id="three-mislabels" -->
 
 ## What this changes
 
