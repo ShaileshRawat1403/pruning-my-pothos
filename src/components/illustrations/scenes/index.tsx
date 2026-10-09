@@ -120,6 +120,15 @@ export const SCENES: Record<string, ComponentType<SceneProps>> = {
   "enumerable-or-not": dynamic(() => import("./enumerable-or-not")),
   "a-pocket-of-freedom": dynamic(() => import("./a-pocket-of-freedom")),
   "prose-or-shape": dynamic(() => import("./prose-or-shape")),
+  "where-the-edges-are": dynamic(() => import("./where-the-edges-are")),
+  "what-the-feedback-does": dynamic(() => import("./what-the-feedback-does")),
+  "the-unsaid-constraint": dynamic(() => import("./the-unsaid-constraint")),
+  "size-or-category": dynamic(() => import("./size-or-category")),
+  "request-or-check": dynamic(() => import("./request-or-check")),
+  "before-anything-runs": dynamic(() => import("./before-anything-runs")),
+  "narrow-or-general": dynamic(() => import("./narrow-or-general")),
+  "the-stale-snapshot": dynamic(() => import("./the-stale-snapshot")),
+  "two-kinds-of-cache": dynamic(() => import("./two-kinds-of-cache")),
 
   // Works On My Prompt sheets: the steps of a sheet, keyed by its `scene`.
   // Not article visuals, so they stay out of SCENE_IDS.

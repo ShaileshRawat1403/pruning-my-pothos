@@ -53,6 +53,43 @@ visuals:
         items:
           - "Wants a judgement, quite possibly the word no"
       diffNote: "A cache tuned to treat them as the same question will answer the second with the first, immediately and confidently."
+  - id: the-stale-snapshot
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Expiry guarantees the answer is recent, not that it is right."
+    caption: "A stored answer is a snapshot."
+    alt: "A sequence: an answer is stored in the cache; the material behind it changes; the cache keeps serving the old answer until something removes it; so invalidation has to be tied on purpose to the thing the answers depend on, such as an update to the document store reaching the cache."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: stored
+          label: "An answer is stored"
+        - id: changed
+          label: "The material behind it changes"
+        - id: served
+          label: "The cache keeps serving the old one"
+          note: "And serves it to other people, without asking the model again."
+        - id: invalidate
+          label: "Invalidate on purpose, tied to what the answers depend on"
+  - id: two-kinds-of-cache
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Only the application's cache can serve the wrong answer to a different question."
+    caption: "Often discussed under the same word."
+    alt: "A comparison of provider caching, which reuses computation over a repeated prefix of the input to reduce cost or latency inside the request path and still runs the model, with an application's semantic cache, which skips the model entirely and decides that a new question deserves an old answer."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Provider caching"
+        items:
+          - "Reuses computation over a repeated prefix"
+          - "Inside the request path; the model still answers"
+      after:
+        label: "A semantic cache in your application"
+        items:
+          - "Skips the model entirely"
+          - "Decides a new question deserves an old answer"
+      diffNote: "If you use one: scope it to stable material, decide what invalidates an entry, and log what was served from it."
 ---
 
 An ordinary cache reuses an answer when the request is identical. That rarely helps in front of a model, because people ask the same thing in endlessly different words, and every rewording is a fresh miss.
@@ -81,11 +118,15 @@ So a cache needs a way to be invalidated on purpose, tied to the thing the answe
 
 There is a sharper version of this. Whatever gets written into the cache will be served to other people later, so a wrong or manipulated answer stored once is reused without the model being consulted again.
 
+<!-- pmp:visual id="the-stale-snapshot" -->
+
 ## Not the same as provider caching
 
 Providers offer their own caching, which reuses computation over a repeated prefix of the input to reduce cost or latency. That is a mechanism inside the request path, and it does not decide that your new question deserves an old answer.
 
 The cache described here is your application choosing to skip the model entirely. Only the second one can serve the wrong answer to a different question. Worth keeping the two apart, because they are often discussed under the same word.
+
+<!-- pmp:visual id="two-kinds-of-cache" -->
 
 ## If you use one
 

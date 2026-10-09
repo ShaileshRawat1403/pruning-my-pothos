@@ -58,6 +58,45 @@ visuals:
           label: "Variety mismatch"
           note: "The excess arrives as edge cases and escalations"
 
+  - id: where-the-edges-are
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "Locating the edges does much of the work of understanding a system."
+    caption: "The boundary is where responsibility changes hands."
+    alt: "A boundary showing what crosses it as an interface, designed or not: a function signature, a database row, a queue message, a person deciding something; and the constraints that limit what can cross, some chosen deliberately and some accidental facts about how the thing was built."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "Where responsibility changes hands"
+      inside:
+        label: "What crosses: an interface, designed or not"
+        items:
+          - "A function signature, a database row"
+          - "A queue message"
+          - "A person deciding something"
+      outside:
+        label: "What limits it: constraints"
+        items:
+          - "Some chosen deliberately"
+          - "Some accidents of how it was built"
+  - id: what-the-feedback-does
+    purpose: decision
+    renderAs: generated-decision
+    takeaway: "When this behaves badly, does anything about that fact reach the thing that caused it?"
+    caption: "Feedback is whether the result of something affects what happens next."
+    alt: "A decision on what happens to a deviation. If it feeds back in a way that reduces it, the system corrects itself and small errors stay small. If it feeds back in a way that amplifies it, the same small error grows. If nothing reaches the cause at all, there is no loop."
+    evidenceRole: explanatory
+    data:
+      question: "Where does a deviation go?"
+      branches:
+        - id: reduce
+          label: "It feeds back and reduces"
+          outcome: "Small errors stay small"
+        - id: amplify
+          label: "It feeds back and amplifies"
+          outcome: "The error grows, and the growth is the first thing noticed"
+        - id: none
+          label: "Nothing reaches the cause"
+          outcome: "No loop at all: an absence, not a defect"
 related:
   - type: explainer
     title: "How the Parts of an AI Application Depend on Each Other"
@@ -83,6 +122,8 @@ A constraint is whatever limits what can cross. Some constraints are deliberate,
 
 Locating the edges does much of the work of understanding a system, because behaviour comes from how the parts are connected at least as much as from any one of them. For AI applications specifically, [that boundary question has its own page](/systems/ai-architecture-explained-how-modern-llm-applications-work/).
 
+<!-- pmp:visual id="where-the-edges-are" -->
+
 ## What the feedback does
 
 Feedback is whether the result of something affects what happens next.
@@ -90,6 +131,8 @@ Feedback is whether the result of something affects what happens next.
 Where a deviation feeds back in a way that reduces it, the system corrects itself and small errors stay small. Where it feeds back in a way that amplifies it, the same small error grows, and the growth is often the first thing anyone notices.
 
 The question worth asking is narrow: when this behaves badly, does anything about that fact reach the thing that caused it? Some systems have no path at all, which is an absence of a loop rather than a defect in one.
+
+<!-- pmp:visual id="what-the-feedback-does" -->
 
 ## Three ways things degrade quietly
 

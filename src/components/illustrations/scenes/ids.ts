@@ -118,4 +118,13 @@ export const SCENE_IDS = new Set([
   "enumerable-or-not",
   "a-pocket-of-freedom",
   "prose-or-shape",
+  "where-the-edges-are",
+  "what-the-feedback-does",
+  "the-unsaid-constraint",
+  "size-or-category",
+  "request-or-check",
+  "before-anything-runs",
+  "narrow-or-general",
+  "the-stale-snapshot",
+  "two-kinds-of-cache",
 ]);

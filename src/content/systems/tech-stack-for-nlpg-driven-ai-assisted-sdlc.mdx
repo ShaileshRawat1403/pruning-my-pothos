@@ -65,6 +65,62 @@ visuals:
           label: "Rollback"
           note: "The undo path, written now rather than reconstructed later under pressure"
 
+  - id: the-unsaid-constraint
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Nothing here was a model failure. The constraint existed in somebody's head and never made it into the request."
+    caption: "An illustrative opening: one request, one shared file."
+    alt: "A sequence: an agent is told to add role-based access control to the dashboard; it does; along the way it also touches the billing routes, because they share a middleware file; and nobody had said not to, because the constraint was only in someone's head."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: asked
+          label: "Add role-based access control to the dashboard"
+        - id: done
+          label: "It does"
+        - id: billing
+          label: "It also touches the billing routes"
+          note: "They share a middleware file."
+        - id: unsaid
+          label: "Nobody said not to"
+          note: "The constraint was in somebody's head, not in the request."
+  - id: size-or-category
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Which approvals a change needs should follow from what the change touches rather than from how large the resulting diff is."
+    caption: "The category is decidable at specification time, before anyone knows how big the change will be."
+    alt: "A comparison of gating by the size of the diff, which treats a three-line authentication change as minor and lets a small, test-passing webhook handler that verifies signatures incorrectly through, with gating by what the change touches, where auth, billing, migrations and external APIs each get their gates before the work starts."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Gate by diff size"
+        items:
+          - "A three-line auth change looks minor"
+          - "A small webhook handler that verifies signatures wrongly passes its tests"
+      after:
+        label: "Gate by what it touches"
+        items:
+          - "auth-change, billing-change, db-migration, external-api"
+          - "Decided at specification time"
+      diffNote: "Nothing about its size would have triggered a gate."
+  - id: request-or-check
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "A specification makes disagreement cheap. It does not enforce anything."
+    caption: "Turning an approval gate into something that holds is a runtime question rather than a documentation one."
+    alt: "A comparison of what a written specification buys, that a constraint about billing routes gets argued about in a sentence rather than discovered in a diff, with what it does not: a line reading do not modify billing routes is a request to the agent, not a check."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "What a specification buys"
+        items:
+          - "Disagreement in a sentence, not discovered in a diff"
+      after:
+        label: "What it does not"
+        items:
+          - "'do_not_modify_billing_routes' is a request to the agent"
+          - "If that sentence is all that stands in the way, there is no check"
+      diffNote: "Write the constraints before the objective."
 related:
   - type: explainer
     title: "Prompting Is Not the Skill You Think It Is"
@@ -79,6 +135,8 @@ related:
 An agent is told to add role-based access control to the dashboard. It does. Along the way it also touches the billing routes, because they share a middleware file, and nobody said not to.
 
 Nothing here was a model failure. The constraint existed in somebody's head and never made it into the request.
+
+<!-- pmp:visual id="the-unsaid-constraint" -->
 
 ## Six fields
 
@@ -126,11 +184,15 @@ These categories are an example of the shape, not a list to adopt. The useful pr
 
 The billing case shows why the category has to come first. A webhook handler that verifies signatures incorrectly is a small diff, passes its tests, and is a security defect. Nothing about its size would have triggered a gate.
 
+<!-- pmp:visual id="size-or-category" -->
+
 ## What this buys, and what it does not
 
 A specification makes disagreement cheap. If the constraint about billing routes is written down, it gets argued about in a sentence rather than discovered in a diff.
 
 It does not enforce anything. A line reading `do_not_modify_billing_routes` is a request to the agent, and if the only thing standing between the agent and those routes is that sentence, there is no check. Turning an approval gate into something that actually holds is [a runtime question](/systems/from-agent-intent-to-governed-execution/) rather than a documentation one.
+
+<!-- pmp:visual id="request-or-check" -->
 
 ## What this changes
 

@@ -55,6 +55,46 @@ visuals:
           note: "This code decides whether to run it at all"
         - id: answer
           label: "Result returns, model answers"
+  - id: before-anything-runs
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "You are deciding what your code does when it receives a request it should not honour."
+    caption: "The receiving code has work to do before anything runs."
+    alt: "Four checks the receiving code makes before a tool request runs: is this a tool actually exposed, since a name in the response is not proof it exists; do the arguments hold up in type, range and referenced identifiers; should it run at all, now, for this user; and what happens when the tool fails, times out or returns a partial result."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: exposed
+          label: "Is this a tool I actually expose?"
+          note: "A name in the response is not proof it exists."
+        - id: arguments
+          label: "Do the arguments hold up?"
+          note: "Types, ranges, referenced identifiers."
+        - id: permitted
+          label: "Should this run at all, now, for this user?"
+        - id: failure
+          label: "What happens when the tool fails?"
+          note: "Timeouts, errors and partial results are ordinary."
+  - id: narrow-or-general
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "A narrow tool is easier to validate, authorise and reason about than a general one that can express anything."
+    caption: "A vague description produces a plausible wrong choice rather than an error."
+    alt: "A comparison of one flexible operation that takes a query and does whatever is needed, which can express anything and is hard to validate, with a narrow tool with three arguments, which is easier to validate, to authorise, and to reason about afterwards."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "One flexible operation"
+        items:
+          - "Takes a query, does whatever is needed"
+          - "Can express anything"
+      after:
+        label: "A narrow tool, three arguments"
+        items:
+          - "Easier to validate"
+          - "Easier to authorise"
+          - "Easier to reason about afterwards"
+      diffNote: "The model chooses using the descriptions you wrote: a documentation problem in the costume of a model problem."
 ---
 
 A model can describe sending an email in perfect detail and nothing will happen. The description is text. Something else has to read it and act.
@@ -94,11 +134,15 @@ Concretely, the receiving code has work to do before anything runs:
 - **Should this run at all, now, for this user?** Permission is a separate question from whether the request is well-formed, and it has its own page.
 - **What happens when the tool fails?** Timeouts, errors and partial results are ordinary, and the system needs an answer for each.
 
+<!-- pmp:visual id="before-anything-runs" -->
+
 ## The part that surprises people
 
 Describing your tools well matters more than it sounds. The model chooses among them using the descriptions you wrote, so a vague description produces a plausible wrong choice rather than an error. That is a documentation problem wearing the costume of a model problem.
 
 The other surprise is scope. It is tempting to expose one flexible operation that takes a query and does whatever is needed. A narrow tool with three arguments is easier to validate, easier to authorise and easier to reason about afterwards than a general one that can express anything.
+
+<!-- pmp:visual id="narrow-or-general" -->
 
 ## Where this goes next
 
