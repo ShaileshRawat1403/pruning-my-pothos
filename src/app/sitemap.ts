@@ -38,6 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/live-lab",
     "/sentiments",
     "/about",
+    "/privacy",
     "/portfolio",
     "/stack/dax",
     "/shelf",

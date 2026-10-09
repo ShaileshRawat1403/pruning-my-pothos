@@ -1188,3 +1188,21 @@ a:hover .ill-lift .hd-lid, .ill-lift:hover .hd-lid { transform-box: fill-box; tr
 /* Storyboard strip: navigation is the buttons, dots, keys and swipe. */
 .storyboard-track { scrollbar-width: none; }
 .storyboard-track::-webkit-scrollbar { display: none; }
+
+/* ══ Consent banner (ConsentBanner) ══ */
+.consent-banner {
+  position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 60; max-width: 560px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem;
+  padding: 0.9rem 1rem; border: 1px solid var(--card-border); border-radius: 6px;
+  background: var(--card-bg); color: var(--text-primary); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+.consent-banner p { flex: 1 1 260px; }
+.consent-actions { display: flex; gap: 0.5rem; margin-left: auto; }
+.consent-btn {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
+  padding: 0.45rem 0.9rem; border-radius: 4px; border: 1px solid var(--card-border);
+  background: transparent; color: var(--text-primary); cursor: pointer;
+}
+.consent-btn--yes { background: var(--text-primary); color: var(--bg-color); border-color: var(--text-primary); }
+.consent-btn:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 2px; }
+@media print { .consent-banner { display: none; } }

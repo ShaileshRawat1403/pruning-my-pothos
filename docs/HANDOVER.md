@@ -164,8 +164,13 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
   Microsoft Clarity (`lqscm7xayr`, heatmaps and recordings) load from
   `src/components/Analytics.tsx` in the root layout, after hydration and only
   on `pruningmypothos.com`, so local builds and export routes send nothing.
-  The standalone `/technical-marketing-portfolio/` app is not tracked. No
-  cookie banner yet: owner's call if EU/UK visitors matter.
+  The standalone `/technical-marketing-portfolio/` app is not tracked; the
+  owner plans to retire it once the main work is done. Consent: a banner
+  (`ConsentBanner.tsx`) asks once; Google Consent Mode v2 and Clarity
+  ConsentV2 default analytics storage to denied in the EEA, UK and
+  Switzerland and granted elsewhere; ad storage is always denied. Footer has
+  Privacy and Cookie settings; `/privacy/` says what is measured. Keep that
+  page in step with `Analytics.tsx`.
 - **2026-10-09 deploy** (`sprint/2026-10-09` into `main`): 78 more drawn
   scroll scenes across the 17 remaining Systems articles (visual track step
   6), so every Systems article now runs at most about 500 words between

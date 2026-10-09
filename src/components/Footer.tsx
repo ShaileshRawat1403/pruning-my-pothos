@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import CookieSettingsLink from "./CookieSettingsLink";
 import NewsletterForm from "./NewsletterForm";
 import { SECTIONS } from "../lib/config/sections";
 
@@ -61,6 +62,10 @@ export default function Footer() {
               Set in Schibsted Grotesk &amp; IBM Plex Mono
             </p>
             <p className="text-xs text-[color:var(--text-muted)]">&copy; {year} Shailesh Rawat. Pruning My Pothos.</p>
+            <p className="flex gap-3 text-xs text-[color:var(--text-muted)]">
+              <Link href="/privacy/" className="underline underline-offset-4 hover:text-[color:var(--text-primary)]">Privacy</Link>
+              <CookieSettingsLink className="underline underline-offset-4 hover:text-[color:var(--text-primary)] cursor-pointer" />
+            </p>
           </div>
           <div className="flex flex-wrap gap-2">
             {ELSEWHERE.map((l) => (
