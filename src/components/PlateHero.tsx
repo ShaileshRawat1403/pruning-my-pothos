@@ -26,7 +26,7 @@ interface PlateHeroProps extends CharacterPlateProps {
 export default function PlateHero({ eyebrow, title, intro, tick, portrait = false, ...plate }: PlateHeroProps) {
   const tickColor = tick ?? plate.accent ?? "var(--accent-purple)";
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-[13fr_12fr] items-center gap-10 lg:gap-14 min-h-[86vh] pt-10 lg:pt-6">
+    <section className="grid grid-cols-1 lg:grid-cols-[13fr_12fr] items-center gap-10 lg:gap-14 pt-2">
       <div className="flex flex-col gap-5 lg:pr-8">
         <div className="flex items-center gap-2">
           <span className="h-px w-8" style={{ background: tickColor }} />

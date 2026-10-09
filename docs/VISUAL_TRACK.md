@@ -62,8 +62,8 @@ Status: `done`, `next`, `open`, `parked`.
 | 5 | No blob, the other six stage articles: human-in-the-loop (4 scenes, 1,312 to 388 words), retrieval (4, 976 to 351), governed execution (3, 948 to 346), what a model is (3, 850 to 349), evaluation (3, 772 to 385), prompting (3, 616 to 323). All eight stage articles now stay under ~460 words between visuals | done, deployed (2026-10-03) |
 | 6 | No blob, the twenty companions and notes: every remaining Systems article now has scenes declared from its own paragraphs (78 new across 17 articles on 2026-10-09). The longest run between visuals anywhere is about 500 words, counting end matter | done (2026-10-09), not yet deployed |
 | 7 | **Motion everywhere**: section headers (Sentences, Tools, Stack, Shelf, Systems, Storyboards) already play a story and Self/About have the inking portrait, so the gap was the 404: it now has the `lost` section scene (snip, the leaf drops, the 404 tag keeps swinging) | done (2026-10-09) |
-| 8 | **UI/UX tightening**: header, mobile menu, spacing and type rhythm, card consistency, footer; audited page by page against a short checklist | next |
-| 9 | Home hero: a second look once the logo and motion system settle | open |
+| 8 | **UI/UX tightening**: ten pages checked at 1300px and 390px (home, Systems, an article, Storyboards, Stack, Shelf, Self, About, Tools, Sentences). Fixed: About was titled "Self"; Self and About forced an 86vh hero that left a screen of empty space above the title | done (2026-10-09) |
+| 9 | Home hero: looked at again with the Struck P in the header; the plate, replay and CTAs hold at both widths, no change needed | done (2026-10-09) |
 
 ## Decisions log
 

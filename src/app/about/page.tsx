@@ -34,7 +34,7 @@ export default function AboutPage() {
       {/* Plate hero - the self portrait */}
       <PlateHero
         eyebrow="The builder"
-        title="Self"
+        title="About"
         intro="Thinker. Tinkerer. Translator. I build with AI, test what happens, and explain what I learn in plain language. Lean on the plate and the portrait will say what it thinks."
         htmlSrc="/portrait.html"
         alt="Shailesh Rawat, drawn as a self portrait that inks itself in"
