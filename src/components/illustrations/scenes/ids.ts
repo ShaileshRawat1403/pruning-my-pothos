@@ -78,4 +78,9 @@ export const SCENE_IDS = new Set([
   "the-slot-was-taken",
   "interactive-not-acting",
   "what-the-surface-is-for",
+  "candidate-and-the-rest",
+  "the-name-suggests-more",
+  "the-stale-premise",
+  "which-seam",
+  "a-box-is-not-a-service",
 ]);

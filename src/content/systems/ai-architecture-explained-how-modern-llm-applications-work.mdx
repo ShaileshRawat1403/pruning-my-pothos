@@ -67,6 +67,115 @@ visuals:
           label: "The log entry exists"
           note: "Not that the behaviour was acceptable"
 
+  - id: candidate-and-the-rest
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "The model generates candidate outputs. The surrounding system supplies context, validates contracts, controls effects, preserves state, and records and evaluates behaviour."
+    caption: "Not every application does all of those, and a summariser that only supplies context is a complete architecture for that job."
+    alt: "A boundary between the model's contribution, a candidate output, which does not establish that it is true, authorize anything, or accomplish the task, and the surrounding system, which supplies context, validates contracts, controls effects, preserves state, and records and evaluates behaviour when the job requires it."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "The model"
+      inside:
+        label: "What the model contributes"
+        items:
+          - "A candidate output"
+      outside:
+        label: "What the surrounding system may do"
+        items:
+          - "Supply context"
+          - "Validate contracts"
+          - "Control effects"
+          - "Preserve state; record and evaluate behaviour"
+  - id: the-name-suggests-more
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "A downstream component should not assume a stronger guarantee than the upstream component actually provides."
+    caption: "The upstream component returns something with a name, and the name suggests more than the thing establishes."
+    alt: "A comparison of what four words suggest with what each establishes: retrieved suggests relevant and current but establishes that a selection process returned something; validated suggests correct but establishes that a shape matched; authorized suggests appropriate but establishes that a rule permitted it; stored suggests available and true but establishes that a write succeeded."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "What the name suggests"
+        items:
+          - "Retrieved: relevant and current"
+          - "Validated: correct"
+          - "Authorized: appropriate"
+          - "Stored: available and true"
+      after:
+        label: "What it establishes"
+        items:
+          - "A selection process returned something"
+          - "A shape matched"
+          - "A rule permitted it"
+          - "A write succeeded"
+      diffNote: "Each is a real guarantee. None is the stronger guarantee its name implies."
+  - id: the-stale-premise
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "A stale premise can survive several locally successful checks when those checks are testing different properties."
+    caption: "An illustrative, constructed request, with one assumption crossing wrongly."
+    alt: "A constructed sequence: the selection step returns a document six months out of date; the model produces a fluent, specific, well-formed answer; the schema check passes because the shape is right; the policy check passes because the operation is permitted; the tool call and state update succeed and the trace is complete; and the effect is wrong."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: stale
+          label: "Retrieval returns a document six months out of date"
+        - id: fluent
+          label: "The model answers fluently and specifically"
+        - id: schema
+          label: "The schema check passes: the shape is right"
+        - id: policy
+          label: "The policy check passes: the operation is permitted"
+        - id: tool
+          label: "The tool call and the state update succeed; the trace is complete"
+        - id: wrong
+          label: "The effect is wrong"
+          note: "None of those checks tested whether the context was current."
+  - id: which-seam
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "A seam is worth inspecting when one part is assuming something the previous part never established."
+    caption: "That converts a vague question into a short list."
+    alt: "A comparison of what the previous part established and what the next part may be assuming: retrieved, or actually current; shape, or meaning; the response, or the effect; present, or still true when read; asked to approve, or positioned to judge."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Only established"
+        items:
+          - "Retrieved"
+          - "The shape"
+          - "The response"
+          - "Present"
+          - "Asked to approve"
+      after:
+        label: "Assumed downstream"
+        items:
+          - "Current"
+          - "The meaning"
+          - "The effect"
+          - "Still true when it was read"
+          - "Positioned to judge"
+      diffNote: "Each of those points at a specific mechanism with a page of its own."
+  - id: a-box-is-not-a-service
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "The diagram describes what the system is responsible for, not how it is deployed."
+    caption: "A boundary in a diagram is not a boundary in the software."
+    alt: "A comparison of two ways responsibilities map onto software: several responsibilities in one function, such as selecting context, calling the model and checking the result in forty lines of one file; and one responsibility spread across a library, a service and a manual step, where ownership may need assigning explicitly."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Several responsibilities, one function"
+        items:
+          - "Select context, call the model, check the result: forty lines in one file"
+          - "Still distinct responsibilities"
+      after:
+        label: "One responsibility, several places"
+        items:
+          - "A library, a service and a manual step"
+          - "Ownership may need assigning explicitly"
+      diffNote: "A conceptual box does not imply a separately deployed service."
 related:
   - type: explainer
     title: "From Agent Intent to Governed Execution"
@@ -102,6 +211,8 @@ What is worth being exact about is the model's specific contribution. It produce
 
 The rest of the system is not a wrapper around that capability. It is where those other questions get answered, when the job requires answering them.
 
+<!-- pmp:visual id="candidate-and-the-rest" -->
+
 ## The assumption that crosses each boundary
 
 Here is the principle the rest of this page is an application of.
@@ -113,6 +224,8 @@ It sounds obvious stated baldly. It is easy to violate, because the violation is
 *Retrieved* suggests relevant and current. It establishes that a selection process returned something. *Validated* suggests correct. It usually establishes that a shape matched. *Authorized* suggests appropriate. It establishes that a rule permitted it. *Stored* suggests available and true. It establishes that a write succeeded.
 
 Each of those is a real guarantee and worth having. None of them is the stronger guarantee its name implies.
+
+<!-- pmp:visual id="the-name-suggests-more" -->
 
 ## What each responsibility establishes
 
@@ -144,6 +257,8 @@ The selection step returns a document that is six months out of date. Nothing in
 
 And the effect is wrong, because the subsequent schema, policy and tool checks in this example were not designed to test whether the supplied context was current. A stale premise can survive several locally successful checks when those checks are testing different properties.
 
+<!-- pmp:visual id="the-stale-premise" -->
+
 ## Local success is not system success
 
 That example is the general case, and it is the strongest reason this page exists.
@@ -164,6 +279,8 @@ That converts a vague question into a short list. Was the material actually curr
 
 Each of those points at a specific mechanism with a page of its own. What this page adds is knowing which one to open.
 
+<!-- pmp:visual id="which-seam" -->
+
 ## Where these responsibilities actually live
 
 A boundary in a diagram is not a boundary in the software.
@@ -173,6 +290,8 @@ Several of these responsibilities can live in one function. Selecting context, c
 The reverse happens too. One responsibility can be spread across a library, a service and a manual step. When a conceptual responsibility spans several implementation surfaces like that, ownership of it may need to be assigned explicitly rather than inferred from where the code sits.
 
 So the diagram describes what the system is responsible for, not how it is deployed. A conceptual box does not imply a separately deployed service, and a single code path may still contain several of these boundaries.
+
+<!-- pmp:visual id="a-box-is-not-a-service" -->
 
 What crosses each boundary varies as much as where it lives: a function argument, a structured object, a row in a database, a queue message, text in a prompt, a person deciding. Making the dependency explicit does not require making it a formal contract. An ordinary function call with a well-chosen name can carry a boundary perfectly well, provided what it carries is understood.
 
