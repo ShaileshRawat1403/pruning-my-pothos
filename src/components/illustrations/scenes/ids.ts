@@ -83,4 +83,9 @@ export const SCENE_IDS = new Set([
   "the-stale-premise",
   "which-seam",
   "a-box-is-not-a-service",
+  "the-output-hides-the-run",
+  "what-replay-rebuilds",
+  "a-minimum-record",
+  "the-evidence-field",
+  "locatable-change",
 ]);

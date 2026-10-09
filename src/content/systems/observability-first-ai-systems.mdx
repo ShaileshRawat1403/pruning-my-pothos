@@ -69,6 +69,115 @@ visuals:
           label: "What changed since the last run that behaved correctly?"
           note: "Needs an earlier run known to have behaved correctly, and enough of it kept to compare against"
 
+  - id: the-output-hides-the-run
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "What distinguishes those cases is not in the text."
+    caption: "The output is the part everyone sees, and it carries very little about how the run reached it."
+    alt: "A boundary between what the output carries, a fluent answer that looks the same either way, and what it does not show: whether the right document was retrieved or only a plausible one, whether a permission check ran or was skipped, and whether a tool returned what was wanted or something nobody examined."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "The output"
+      inside:
+        label: "In the text"
+        items:
+          - "A fluent answer, the same either way"
+      outside:
+        label: "Not in the text"
+        items:
+          - "The right document, or a plausible one?"
+          - "A permission check that ran, or one skipped?"
+          - "What the tool returned, or what nobody examined?"
+  - id: what-replay-rebuilds
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "Replay is a consumer of the recording decision rather than a substitute for it."
+    caption: "The word invites a stronger reading than it can carry."
+    alt: "A boundary around what replay can rebuild, the events and state that were recorded and preserved, and what it does not guarantee: the same model output on a rerun, the same external state the run met, or any information that was never recorded."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "Replay"
+      inside:
+        label: "What it can rebuild"
+        items:
+          - "The events that were recorded"
+          - "The state that was preserved"
+      outside:
+        label: "What it does not guarantee"
+        items:
+          - "The same model output"
+          - "The same external state"
+          - "Anything that was never recorded"
+  - id: a-minimum-record
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "The three questions can be answered without prompt text or model output, so keep those by a separate decision."
+    caption: "For each governed step, a compact record holds up well."
+    alt: "A boundary around a minimum record for each governed step: run, step and parent step identifiers; the policy decision and the policy version; the selected tool and its scoped parameters; the verification result and artifact identifiers; timing, retries and a reason code from a fixed vocabulary. Kept separately, by its own decision and retention rule: prompt text and model output."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "The minimum record"
+      inside:
+        label: "Every governed step"
+        items:
+          - "run_id, step_id, parent_step_id"
+          - "The policy decision, and the policy version"
+          - "The tool or action, and its scoped parameters"
+          - "The verification result, and what proved it"
+          - "Timing, retries, a reason code from a fixed list"
+      outside:
+        label: "A separate decision"
+        items:
+          - "Prompt text"
+          - "Model output"
+  - id: the-evidence-field
+    purpose: evidence-map
+    renderAs: generated-evidence-map
+    takeaway: "A record of what happened is not the same thing as a judgment about whether it was good."
+    caption: "A small historical ledger in this repository, from a predecessor site, read as a design specimen."
+    alt: "An evidence map for the judgment that the ledger records evidence of what happened. Directly: the human decision is stored separately from the publish status, and each record holds the undo path for that change. In part: the evidence fields describe outcomes in prose, while validation checks are recorded separately in checks_run. Not supported: two records describe the outcome in evaluative words, calling a layout stunning."
+    evidenceRole: evidence
+    sources:
+      - pmp-historical-ops-ledger
+    data:
+      judgment: "The record holds evidence of what happened."
+      supports:
+        - id: decision
+          label: "The human decision, separate from the publish status"
+          strength: direct
+          note: "Work done and approval outstanding can both be true."
+        - id: undo
+          label: "The undo path, written at the time"
+          strength: direct
+        - id: prose
+          label: "Evidence fields in prose; checks kept in checks_run"
+          strength: partial
+        - id: stunning
+          label: "Two say the layout was stunning"
+          strength: absent
+          note: "An opinion formatted as a fact."
+      gap: "Whether the behaviour was good is a separate question with its own machinery."
+  - id: locatable-change
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Observability does not explain the change. It makes it locatable."
+    caption: "For a hosted model, the sources of change are the provider, a prompt or template edit, the corpus, and the shape of incoming requests."
+    alt: "A comparison of behaviour recorded without version information, where a change can be observed but not attributed and the investigation ends in a plausible story, with behaviour recorded next to the policy version, the template version and the model identifier that produced it, which makes the change locatable."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Without versions in the record"
+        items:
+          - "The change is observed"
+          - "It cannot be attributed"
+          - "The investigation ends in a plausible story"
+      after:
+        label: "With versions next to the behaviour"
+        items:
+          - "The policy version"
+          - "The template version"
+          - "The model identifier"
+      diffNote: "Each warning signal is a reason to go and look, and the looking needs the record first."
 related:
   - type: explainer
     title: "What Counts as Good, and How to Check It"
@@ -94,6 +203,8 @@ That framing puts the emphasis in an awkward but accurate place. Observability i
 
 For systems that generate text, the gap is specific. The output is the part everyone sees, and it carries very little about how the run reached it. A fluent answer looks the same whether the right document was retrieved or a plausible one was, whether a permission check ran or was skipped, whether a tool returned what was wanted or something that was never examined. What distinguishes those cases is not in the text.
 
+<!-- pmp:visual id="the-output-hides-the-run" -->
+
 ## Four words that are not synonyms
 
 These get used interchangeably, and each answers a different question.
@@ -107,6 +218,8 @@ These get used interchangeably, and each answers a different question.
 **Replay** rebuilds a past execution from the events that were recorded of it. It is worth being exact here, because the word invites a stronger reading than it can carry. **Replay can reconstruct a recorded execution only to the extent that relevant events and state were preserved. It does not guarantee the same model output, the same external state, or reconstruction of information that was never recorded.**
 
 Three separate limits sit inside that. Rerunning a probabilistic model need not reproduce the same output. The systems a run touched may have changed since, so external state at replay time is not guaranteed to be the state the run met. And a field nobody captured cannot be recovered afterwards by any amount of replaying, which makes replay a consumer of the recording decision rather than a substitute for it.
+
+<!-- pmp:visual id="what-replay-rebuilds" -->
 
 ## What the record has to answer
 
@@ -135,6 +248,8 @@ For each governed step, a compact record holds up well:
 
 Prompt text and model output are deliberately not in that list. They are among the most sensitive material a run touches and the most expensive to retain at volume, and the three questions above can be answered without them. Keep them if you need them, but keep them as a separate decision with its own retention rule, rather than by default because they were easy to capture.
 
+<!-- pmp:visual id="a-minimum-record" -->
+
 The reason codes deserve the fixed vocabulary. Free-text failure descriptions cannot be counted, so the same failure appearing forty times reads as forty separate incidents.
 
 ## A specimen, and what it does not show
@@ -148,6 +263,8 @@ One thing in it is worth pausing on, and it is the more instructive half. **The 
 Nothing here says the schema is wrong, and this is one small specimen rather than a lesson about schemas in general. The narrow point is about the label. A field called `evidence` holding the word stunning is a value whose name asserts more than its content supports.
 
 **A record of what happened is not the same thing as a judgment about whether it was good.** The moment those two are stored in the same field, the record starts asserting the judgment, and whoever reads it later inherits an opinion formatted as a fact. Whether the behaviour was good is a separate question with [its own machinery](/systems/evaluation-is-a-human-problem/).
+
+<!-- pmp:visual id="the-evidence-field" -->
 
 ## What changes underneath you
 
@@ -164,6 +281,8 @@ Signals worth watching, without treating any of them as a diagnosis:
 - one workflow segment falling back to manual handling repeatedly
 
 Each of those is a reason to go and look, and the looking is only possible if the record was there first.
+
+<!-- pmp:visual id="locatable-change" -->
 
 ## What this changes
 
