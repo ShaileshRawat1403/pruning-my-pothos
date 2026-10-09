@@ -160,6 +160,12 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
 
 ## 8. Where things stand
 
+- **Analytics** (2026-10-09): Google Analytics 4 (`G-EQ4JMFY925`) and
+  Microsoft Clarity (`lqscm7xayr`, heatmaps and recordings) load from
+  `src/components/Analytics.tsx` in the root layout, after hydration and only
+  on `pruningmypothos.com`, so local builds and export routes send nothing.
+  The standalone `/technical-marketing-portfolio/` app is not tracked. No
+  cookie banner yet: owner's call if EU/UK visitors matter.
 - **2026-10-09 deploy** (`sprint/2026-10-09` into `main`): 78 more drawn
   scroll scenes across the 17 remaining Systems articles (visual track step
   6), so every Systems article now runs at most about 500 words between
