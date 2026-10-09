@@ -90,6 +90,9 @@ export const SCENES: Record<string, ComponentType<SceneProps>> = {
   "a-minimum-record": dynamic(() => import("./a-minimum-record")),
   "the-evidence-field": dynamic(() => import("./the-evidence-field")),
   "locatable-change": dynamic(() => import("./locatable-change")),
+  "where-errors-land": dynamic(() => import("./where-errors-land")),
+  "ranking-moved": dynamic(() => import("./ranking-moved")),
+  "route-by-type": dynamic(() => import("./route-by-type")),
 
   // Works On My Prompt sheets: the steps of a sheet, keyed by its `scene`.
   // Not article visuals, so they stay out of SCENE_IDS.

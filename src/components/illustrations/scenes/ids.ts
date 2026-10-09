@@ -88,4 +88,7 @@ export const SCENE_IDS = new Set([
   "a-minimum-record",
   "the-evidence-field",
   "locatable-change",
+  "where-errors-land",
+  "ranking-moved",
+  "route-by-type",
 ]);
