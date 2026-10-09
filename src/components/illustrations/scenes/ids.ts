@@ -67,4 +67,9 @@ export const SCENE_IDS = new Set([
   "narrow-not-closed",
   "read-the-gap",
   "prompt-like-code",
+  "where-content-crosses-in",
+  "quality-or-security",
+  "where-the-rule-lives",
+  "what-isolation-bounds",
+  "the-way-back",
 ]);
