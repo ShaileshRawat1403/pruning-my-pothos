@@ -77,4 +77,5 @@ export const SCENE_IDS = new Set([
   "a-button-is-a-request",
   "the-slot-was-taken",
   "interactive-not-acting",
+  "what-the-surface-is-for",
 ]);
