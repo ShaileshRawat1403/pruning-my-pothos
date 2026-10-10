@@ -23,7 +23,7 @@ If context windows are new, start with [Context windows as working memory](/syst
   <h2 class="toc-title">Contents</h2>
   <div class="toc-groups">
     <details open>
-      <summary>Act I: Orientation</summary>
+      <summary>Orientation</summary>
       <ol>
         <li><a href="#architecture-map">Architecture map</a></li>
         <li><a href="#what-happened">What happened</a></li>
@@ -31,14 +31,14 @@ If context windows are new, start with [Context windows as working memory](/syst
       </ol>
     </details>
     <details>
-      <summary>Act II: Experiment</summary>
+      <summary>Experiment</summary>
       <ol>
         <li><a href="#experiment-walkthrough">Experiment walkthrough</a></li>
         <li><a href="#first-time-config">First-time config</a></li>
       </ol>
     </details>
     <details>
-      <summary>Act III: Verification</summary>
+      <summary>Verification</summary>
       <ol>
         <li><a href="#quick-checks">Quick checks</a></li>
         <li><a href="#failure-modes">Failure modes</a></li>
@@ -57,18 +57,18 @@ The experiment is a loop: fixed documents in, fixed prompt, outputs out. The onl
   <svg viewBox="0 0 1200 360" role="img" aria-labelledby="context-loop-title context-loop-desc">
     <title id="context-loop-title">Context test loop</title>
     <desc id="context-loop-desc">Documents feed a prompt, model output is scored, and the loop repeats.</desc>
-    <rect width="1200" height="360" fill="#0f172a"/>
-    <rect x="100" y="120" width="220" height="120" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
-    <rect x="390" y="120" width="220" height="120" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
-    <rect x="680" y="120" width="220" height="120" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
-    <rect x="970" y="120" width="120" height="120" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
-    <path d="M320 180 L390 180" stroke="#38bdf8" stroke-width="6"/>
-    <path d="M610 180 L680 180" stroke="#38bdf8" stroke-width="6"/>
-    <path d="M900 180 L970 180" stroke="#38bdf8" stroke-width="6"/>
-    <text x="210" y="190" fill="#cbd5f5" font-size="16" text-anchor="middle" font-family="var(--font-mono)">Docs</text>
-    <text x="500" y="190" fill="#cbd5f5" font-size="16" text-anchor="middle" font-family="var(--font-mono)">Prompt</text>
-    <text x="790" y="190" fill="#cbd5f5" font-size="16" text-anchor="middle" font-family="var(--font-mono)">Model</text>
-    <text x="1030" y="190" fill="#cbd5f5" font-size="16" text-anchor="middle" font-family="var(--font-mono)">Score</text>
+    <rect width="1200" height="360" fill="#EFE5CF"/>
+    <rect x="100" y="120" width="220" height="120" rx="16" fill="#FFFFFF" stroke="#1B1A17" stroke-width="3"/>
+    <rect x="390" y="120" width="220" height="120" rx="16" fill="#FFFFFF" stroke="#1B1A17" stroke-width="3"/>
+    <rect x="680" y="120" width="220" height="120" rx="16" fill="#FFFFFF" stroke="#1B1A17" stroke-width="3"/>
+    <rect x="970" y="120" width="120" height="120" rx="16" fill="#FFFFFF" stroke="#1B1A17" stroke-width="3"/>
+    <path d="M320 180 L390 180" stroke="#2A6F7F" stroke-width="6"/>
+    <path d="M610 180 L680 180" stroke="#2A6F7F" stroke-width="6"/>
+    <path d="M900 180 L970 180" stroke="#2A6F7F" stroke-width="6"/>
+    <text x="210" y="190" fill="#1B1A17" font-size="23" text-anchor="middle" font-family="var(--font-mono)">Docs</text>
+    <text x="500" y="190" fill="#1B1A17" font-size="23" text-anchor="middle" font-family="var(--font-mono)">Prompt</text>
+    <text x="790" y="190" fill="#1B1A17" font-size="23" text-anchor="middle" font-family="var(--font-mono)">Model</text>
+    <text x="1030" y="190" fill="#1B1A17" font-size="23" text-anchor="middle" font-family="var(--font-mono)">Score</text>
   </svg>
   <figcaption>The only variable is context length; everything else stays fixed.</figcaption>
 </figure>

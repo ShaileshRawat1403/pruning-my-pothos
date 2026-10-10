@@ -26,7 +26,7 @@ The core lesson was simple: model reasoning is probabilistic, but system executi
   <h2 class="toc-title">Contents</h2>
   <div class="toc-groups">
     <details open>
-      <summary>Act I: Orientation</summary>
+      <summary>Orientation</summary>
       <ol>
         <li><a href="#architecture-map">Architecture map</a></li>
         <li><a href="#what-happened">What happened</a></li>
@@ -35,14 +35,14 @@ The core lesson was simple: model reasoning is probabilistic, but system executi
       </ol>
     </details>
     <details>
-      <summary>Act II: Build</summary>
+      <summary>Build</summary>
       <ol>
         <li><a href="#setup-walkthrough">Setup walkthrough</a></li>
         <li><a href="#first-time-config">First-time config</a></li>
       </ol>
     </details>
     <details>
-      <summary>Act III: Verification</summary>
+      <summary>Verification</summary>
       <ol>
         <li><a href="#quick-checks">Quick checks</a></li>
         <li><a href="#failure-modes">Failure modes</a></li>

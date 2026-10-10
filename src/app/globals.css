@@ -891,6 +891,9 @@ h1, h2, h3, h4, h5 {
   color: var(--text-primary);
   font-weight: 700;
 }
+/* Shelf diagrams (local experiments) sit on the same paper card. */
+.content-body .diagram { padding: 0.9rem; border: 1px solid #D9D4C6; border-radius: 2px; background: #EFE5CF; }
+.content-body .diagram figcaption { color: #6B675E; font-family: 'Caveat', cursive; font-size: 1.15rem; font-weight: 700; text-align: center; }
 /* Hand-made inline figures (Self essays) wear the house style: paper,
    ink, one orange accent. Fixed colours in both themes, like every other
    drawing on the site. */
@@ -1240,3 +1243,32 @@ a:hover .ill-lift .hd-lid, .ill-lift:hover .hd-lid { transform-box: fill-box; tr
 .consent-btn--yes { background: var(--text-primary); color: var(--bg-color); border-color: var(--text-primary); }
 .consent-btn:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 2px; }
 @media print { .consent-banner { display: none; } }
+
+/* ══ Live lab ledger: a paper sheet, not a glowing terminal ══ */
+.ledger-sheet {
+  display: flex; flex-direction: column; gap: 1.4rem; padding: 1.6rem 1.6rem 1.3rem;
+  background: #EFE5CF; color: #1B1A17; border: 1px solid #D9D4C6; border-radius: 2px;
+  box-shadow: inset 0 0 70px rgba(120, 90, 40, 0.14);
+}
+.ledger-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #1B1A17; padding-bottom: 0.6rem; }
+.ledger-head h2 { color: #1B1A17; margin: 0; }
+.ledger-stamp {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+  color: #C0663C; border: 2.5px solid #C0663C; padding: 0.15rem 0.55rem; transform: rotate(-4deg);
+}
+.ledger-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+@media (min-width: 640px) { .ledger-grid { grid-template-columns: repeat(4, 1fr); } }
+.ledger-cell { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.8rem; background: #fff; border: 2.5px solid #1B1A17; text-align: center; }
+.ledger-cell span { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #4B4A46; }
+.ledger-cell strong { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: #1B1A17; }
+.ledger-log {
+  display: flex; flex-direction: column; gap: 0.35rem; padding: 0.9rem 1rem; background: #fff; border: 2.5px solid #1B1A17;
+  font-family: var(--font-mono); font-size: 12.5px; color: #1B1A17;
+  background-image: repeating-linear-gradient(transparent 0 25px, rgba(42, 111, 127, 0.14) 25px 26px);
+}
+.ledger-log p { margin: 0; display: flex; gap: 0.7rem; }
+.ledger-log p span { width: 1.4rem; flex-shrink: 0; color: #9A968C; font-weight: 700; }
+.ledger-log .is-cmd { color: #4B4A46; }
+.ledger-log .is-ok span { color: #2A6F7F; }
+.ledger-log .is-wait { font-family: 'Caveat', cursive; font-size: 1.25rem; font-weight: 700; color: #C0663C; }
+.ledger-note { margin: 0; font-size: 0.8rem; line-height: 1.55; color: #4B4A46; }

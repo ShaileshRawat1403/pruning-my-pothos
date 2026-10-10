@@ -67,6 +67,12 @@ Status: `done`, `next`, `open`, `parked`.
 
 ## Decisions log
 
+- 2026-10-10: No old-style visuals left. Shelf items get drawn covers from
+  one template (`shelf-covers.tsx`, exported with
+  `npm run export:storyboards -- --only=shelf`); Self figures and Shelf
+  diagrams sit on paper in ink and one accent; Shelf categories and Live
+  lab open with the drawn header; Live lab's cockpit is a paper ledger
+  labelled as a sample. Act I/II/III labels removed from Shelf contents.
 - 2026-10-09: Logo: the Struck P (B) replaces the Deadpan Leaf. The house
   face stays in the drawings; the mark is flat and grown-up.
 - 2026-10-09: Scenes need at least three beats. A comparison without a

@@ -24,7 +24,7 @@ This experiment is about a new entry point: `ollama launch`. Instead of wiring a
   <h2 class="toc-title">Contents</h2>
   <div class="toc-groups">
     <details open>
-      <summary>Act I: Orientation</summary>
+      <summary>Orientation</summary>
       <ol>
         <li><a href="#architecture-map">Architecture map</a></li>
         <li><a href="#what-happened">What happened</a></li>
@@ -32,14 +32,14 @@ This experiment is about a new entry point: `ollama launch`. Instead of wiring a
       </ol>
     </details>
     <details>
-      <summary>Act II: Setup</summary>
+      <summary>Setup</summary>
       <ol>
         <li><a href="#setup-walkthrough">Setup walkthrough</a></li>
         <li><a href="#first-time-config">First-time config</a></li>
       </ol>
     </details>
     <details>
-      <summary>Act III: Verification</summary>
+      <summary>Verification</summary>
       <ol>
         <li><a href="#quick-checks">Quick checks</a></li>
         <li><a href="#failure-modes">Failure modes</a></li>
@@ -58,18 +58,18 @@ This experiment is about a new entry point: `ollama launch`. Instead of wiring a
   <svg viewBox="0 0 1200 420" role="img" aria-labelledby="ollama-launch-arch-title ollama-launch-arch-desc">
     <title id="ollama-launch-arch-title">Ollama launch handoff</title>
     <desc id="ollama-launch-arch-desc">Ollama launch selects an integration, then hands a model into the tool session.</desc>
-    <rect width="1200" height="420" fill="#0f172a"/>
-    <rect x="120" y="140" width="220" height="140" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
-    <rect x="430" y="140" width="260" height="140" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
-    <rect x="780" y="90" width="260" height="100" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
-    <rect x="780" y="230" width="260" height="100" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
-    <path d="M340 210 L430 210" stroke="#38bdf8" stroke-width="6"/>
-    <path d="M690 190 L780 140" stroke="#38bdf8" stroke-width="6"/>
-    <path d="M690 230 L780 280" stroke="#38bdf8" stroke-width="6"/>
-    <text x="230" y="215" fill="#cbd5f5" font-size="16" text-anchor="middle" font-family="var(--font-mono)">Ollama</text>
-    <text x="560" y="215" fill="#cbd5f5" font-size="16" text-anchor="middle" font-family="var(--font-mono)">Launch menu</text>
-    <text x="910" y="150" fill="#cbd5f5" font-size="14" text-anchor="middle" font-family="var(--font-mono)">Tool A</text>
-    <text x="910" y="290" fill="#cbd5f5" font-size="14" text-anchor="middle" font-family="var(--font-mono)">Tool B</text>
+    <rect width="1200" height="420" fill="#EFE5CF"/>
+    <rect x="120" y="140" width="220" height="140" rx="16" fill="#FFFFFF" stroke="#1B1A17" stroke-width="3"/>
+    <rect x="430" y="140" width="260" height="140" rx="16" fill="#FFFFFF" stroke="#1B1A17" stroke-width="3"/>
+    <rect x="780" y="90" width="260" height="100" rx="16" fill="#FFFFFF" stroke="#1B1A17" stroke-width="3"/>
+    <rect x="780" y="230" width="260" height="100" rx="16" fill="#FFFFFF" stroke="#1B1A17" stroke-width="3"/>
+    <path d="M340 210 L430 210" stroke="#2A6F7F" stroke-width="6"/>
+    <path d="M690 190 L780 140" stroke="#2A6F7F" stroke-width="6"/>
+    <path d="M690 230 L780 280" stroke="#2A6F7F" stroke-width="6"/>
+    <text x="230" y="215" fill="#1B1A17" font-size="23" text-anchor="middle" font-family="var(--font-mono)">Ollama</text>
+    <text x="560" y="215" fill="#1B1A17" font-size="23" text-anchor="middle" font-family="var(--font-mono)">Launch menu</text>
+    <text x="910" y="150" fill="#1B1A17" font-size="20" text-anchor="middle" font-family="var(--font-mono)">Tool A</text>
+    <text x="910" y="290" fill="#1B1A17" font-size="20" text-anchor="middle" font-family="var(--font-mono)">Tool B</text>
   </svg>
   <figcaption>A small handoff layer: choose the tool, then the model.</figcaption>
 </figure>

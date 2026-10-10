@@ -23,7 +23,7 @@ This run was about understanding GCP's platform shape, not performance. If you w
   <h2 class="toc-title">Contents</h2>
   <div class="toc-groups">
     <details open>
-      <summary>Act I: Orientation</summary>
+      <summary>Orientation</summary>
       <ol>
         <li><a href="#architecture-map">Architecture map</a></li>
         <li><a href="#what-happened">What happened</a></li>
@@ -31,14 +31,14 @@ This run was about understanding GCP's platform shape, not performance. If you w
       </ol>
     </details>
     <details>
-      <summary>Act II: Portal setup</summary>
+      <summary>Portal setup</summary>
       <ol>
         <li><a href="#portal-walkthrough">Portal walkthrough</a></li>
         <li><a href="#first-time-config">First-time config</a></li>
       </ol>
     </details>
     <details>
-      <summary>Act III: Verification</summary>
+      <summary>Verification</summary>
       <ol>
         <li><a href="#quick-checks">Quick checks</a></li>
         <li><a href="#failure-modes">Failure modes</a></li>
@@ -57,17 +57,17 @@ GCP centers around projects. Everything inherits IAM and network rules from the 
   <svg viewBox="0 0 1200 520" role="img" aria-labelledby="gcp-arch-title gcp-arch-desc">
     <title id="gcp-arch-title">GCP baseline map</title>
     <desc id="gcp-arch-desc">A project boundary containing compute and database, with IAM and firewall as control planes.</desc>
-    <rect width="1200" height="520" fill="#0f172a"/>
-    <rect x="120" y="80" width="960" height="360" rx="20" fill="#111827" stroke="#334155" stroke-width="2"/>
-    <rect x="200" y="150" width="320" height="140" rx="16" fill="#0f1f33" stroke="#38bdf8" stroke-width="2"/>
-    <rect x="620" y="150" width="320" height="140" rx="16" fill="#0f1f33" stroke="#38bdf8" stroke-width="2"/>
-    <text x="360" y="230" fill="#cbd5f5" font-size="16" text-anchor="middle" font-family="var(--font-mono)">GPU instance</text>
-    <text x="780" y="230" fill="#cbd5f5" font-size="16" text-anchor="middle" font-family="var(--font-mono)">Postgres</text>
-    <rect x="200" y="320" width="320" height="90" rx="12" fill="#0f1f33" stroke="#38bdf8" stroke-width="2"/>
-    <rect x="620" y="320" width="320" height="90" rx="12" fill="#0f1f33" stroke="#38bdf8" stroke-width="2"/>
-    <text x="360" y="375" fill="#cbd5f5" font-size="14" text-anchor="middle" font-family="var(--font-mono)">Firewall rules</text>
-    <text x="780" y="375" fill="#cbd5f5" font-size="14" text-anchor="middle" font-family="var(--font-mono)">IAM</text>
-    <text x="150" y="110" fill="#94a3b8" font-size="14" font-family="var(--font-mono)">Project boundary</text>
+    <rect width="1200" height="520" fill="#EFE5CF"/>
+    <rect x="120" y="80" width="960" height="360" rx="20" fill="#FFFFFF" stroke="#1B1A17" stroke-width="3"/>
+    <rect x="200" y="150" width="320" height="140" rx="16" fill="#FFFFFF" stroke="#2A6F7F" stroke-width="3"/>
+    <rect x="620" y="150" width="320" height="140" rx="16" fill="#FFFFFF" stroke="#2A6F7F" stroke-width="3"/>
+    <text x="360" y="230" fill="#1B1A17" font-size="23" text-anchor="middle" font-family="var(--font-mono)">GPU instance</text>
+    <text x="780" y="230" fill="#1B1A17" font-size="23" text-anchor="middle" font-family="var(--font-mono)">Postgres</text>
+    <rect x="200" y="320" width="320" height="90" rx="12" fill="#FFFFFF" stroke="#2A6F7F" stroke-width="3"/>
+    <rect x="620" y="320" width="320" height="90" rx="12" fill="#FFFFFF" stroke="#2A6F7F" stroke-width="3"/>
+    <text x="360" y="375" fill="#1B1A17" font-size="20" text-anchor="middle" font-family="var(--font-mono)">Firewall rules</text>
+    <text x="780" y="375" fill="#1B1A17" font-size="20" text-anchor="middle" font-family="var(--font-mono)">IAM</text>
+    <text x="150" y="110" fill="#4B4A46" font-size="20" font-family="var(--font-mono)">Project boundary</text>
   </svg>
   <figcaption>Project boundary with IAM and firewall rules as the two control planes.</figcaption>
 </figure>

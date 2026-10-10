@@ -23,7 +23,7 @@ I wanted a fair baseline for local models on an M1 machine. The surprise was not
   <h2 class="toc-title">Contents</h2>
   <div class="toc-groups">
     <details open>
-      <summary>Act I: Orientation</summary>
+      <summary>Orientation</summary>
       <ol>
         <li><a href="#architecture-map">Architecture map</a></li>
         <li><a href="#what-happened">What happened</a></li>
@@ -31,14 +31,14 @@ I wanted a fair baseline for local models on an M1 machine. The surprise was not
       </ol>
     </details>
     <details>
-      <summary>Act II: Setup</summary>
+      <summary>Setup</summary>
       <ol>
         <li><a href="#setup-walkthrough">Setup walkthrough</a></li>
         <li><a href="#first-time-config">First-time config</a></li>
       </ol>
     </details>
     <details>
-      <summary>Act III: Verification</summary>
+      <summary>Verification</summary>
       <ol>
         <li><a href="#quick-checks">Quick checks</a></li>
         <li><a href="#failure-modes">Failure modes</a></li>
@@ -57,11 +57,11 @@ The system is simple: model runtime, the host machine, and the environment aroun
   <svg viewBox="0 0 1200 420" role="img" aria-labelledby="m1-arch-title m1-arch-desc">
     <title id="m1-arch-title">Local runtime and host boundary</title>
     <desc id="m1-arch-desc">A model runtime sits inside a host boundary with thermal limits.</desc>
-    <rect width="1200" height="420" fill="#0f172a"/>
-    <rect x="140" y="80" width="920" height="260" rx="20" fill="#111827" stroke="#334155" stroke-width="2"/>
-    <rect x="340" y="150" width="520" height="140" rx="16" fill="#0f1f33" stroke="#38bdf8" stroke-width="2"/>
-    <text x="600" y="230" fill="#cbd5f5" font-size="18" text-anchor="middle" font-family="var(--font-mono)">Model runtime</text>
-    <text x="170" y="120" fill="#94a3b8" font-size="14" font-family="var(--font-mono)">Host boundary</text>
+    <rect width="1200" height="420" fill="#EFE5CF"/>
+    <rect x="140" y="80" width="920" height="260" rx="20" fill="#FFFFFF" stroke="#1B1A17" stroke-width="3"/>
+    <rect x="340" y="150" width="520" height="140" rx="16" fill="#FFFFFF" stroke="#2A6F7F" stroke-width="3"/>
+    <text x="600" y="230" fill="#1B1A17" font-size="26" text-anchor="middle" font-family="var(--font-mono)">Model runtime</text>
+    <text x="170" y="120" fill="#4B4A46" font-size="20" font-family="var(--font-mono)">Host boundary</text>
   </svg>
   <figcaption>The host boundary decides how stable your baseline really is.</figcaption>
 </figure>
