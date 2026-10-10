@@ -100,15 +100,17 @@ here: a clear comparison question, answered plainly, ranks.
 
 ### Phase 1: take what already works (now to Dec 2026)
 
-1. The skills page: put back the four sections Google still links
+1. Done 2026-10-10. The skills page: put back the four sections Google still links
    (system prompt fit, the comparison, the decision rule, where workflows
    fit) as anchors on the matching sections; answer "skill vs prompt" in
    the first lines; title and description aimed at that exact query.
-2. A cluster around it, one question per page: skill vs prompt (short,
-   direct), skill vs system prompt, prompt vs agent, AI skill templates
-   (promote the Shelf page into a proper guide). Each links to the skills
-   page and back.
-3. Leaks: 410 for `/scenes/nietzsche.html` (off-topic, keep it gone); 301
+2. Done 2026-10-10: strengthen, don't split. The skills page answers
+   "skill vs prompt" and "prompt vs agent" directly; the system-prompt
+   page's "skill vs system prompt" section says so in its heading; the AI
+   skill templates guide was rebuilt (fields explained, filled example).
+   Separate pages for those questions would compete with the skills page
+   and break the one-question rule.
+3. Done 2026-10-10. Leaks: 410 for `/scenes/nietzsche.html` (off-topic, keep it gone); 301
    or 410 for `/systems/mental-frameworks/` to the nearest real answer.
 4. Next tier CTR: titles and descriptions for training vs inference,
    context windows, structured output; find why structured output sits at
