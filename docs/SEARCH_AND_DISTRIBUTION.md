@@ -58,3 +58,71 @@ Work on the first list; do not write copy for the second.
 - Look at it a week later for crawl and index problems, and a month later for
   anything resembling a trend. A movement inside a month is not evidence.
 - A ranking or a citation is never claimed in copy as an outcome of anything.
+
+## Growth plan to 1M impressions a month (set 2026-10-10)
+
+Goal: a steady 1M Google Search impressions a month. No deadline; the
+checkpoints below are targets to steer by, not predictions.
+
+### Baseline (Search Console, 7 Jul to 6 Oct 2026)
+
+- 15.2k impressions, 138 clicks, CTR 0.9%, average position 12.1.
+- About 5k a month (about 170 a day), flat since July; down to about 100 a
+  day in the two weeks after the archive pruning (expected while redirects
+  settle).
+- One page carries the site: `/systems/skills-vs-prompts-vs-agents/` has
+  8.6k of 16.3k page impressions (53%), position 7.9, CTR 1.1%. Its queries
+  ("skill vs prompt", "prompt vs skill", "skills vs system prompt",
+  "prompt vs skill vs agent") are a cluster nobody owns yet.
+- Next tier, each 200 to 600: AI skill design templates (Shelf), training vs
+  inference, Ollama notes, prompting is not the skill (position 30),
+  structured output (position 61), context windows.
+- Leaks: `/scenes/nietzsche.html` (424 impressions, off-topic, now 404) and
+  `/systems/mental-frameworks/` (74, now 404). Google also still shows four
+  section links into the skills page whose headings no longer exist.
+- Analytics: GA4 and Clarity live from 2026-10-09; nothing to read yet.
+
+### What the target means
+
+1M a month is 200 times the baseline. Sites of this kind get there with
+roughly 500+ indexed pages averaging 1-2k impressions each, plus a few dozen
+pages on page one for head terms. The skills page shows the pattern works
+here: a clear comparison question, answered plainly, ranks.
+
+### Checkpoints (monthly impressions)
+
+| By | Target | Mainly from |
+| :--- | :--- | :--- |
+| Dec 2026 | 15k | Fix the leaks; win the skills cluster (top 3); CTR on the next tier |
+| Mar 2027 | 50k | A comparison series built on the skills pattern; steady cadence |
+| Sep 2027 | 250k | 2-3 pages a week; links earned from distribution; AI citations |
+| 2028 | 1M | 500+ quality pages; flagship pages on head terms |
+
+### Phase 1: take what already works (now to Dec 2026)
+
+1. The skills page: put back the four sections Google still links
+   (system prompt fit, the comparison, the decision rule, where workflows
+   fit) as anchors on the matching sections; answer "skill vs prompt" in
+   the first lines; title and description aimed at that exact query.
+2. A cluster around it, one question per page: skill vs prompt (short,
+   direct), skill vs system prompt, prompt vs agent, AI skill templates
+   (promote the Shelf page into a proper guide). Each links to the skills
+   page and back.
+3. Leaks: 410 for `/scenes/nietzsche.html` (off-topic, keep it gone); 301
+   or 410 for `/systems/mental-frameworks/` to the nearest real answer.
+4. Next tier CTR: titles and descriptions for training vs inference,
+   context windows, structured output; find why structured output sits at
+   61 and prompting at 30 (likely the intent does not match the page).
+5. Request indexing for the 17 articles that gained drawn scenes.
+
+### Phase 2: a repeatable engine (2027)
+
+- Publishing: comparison and definition pages chosen from Search Console
+  queries where the site already appears at positions 8 to 30.
+- Every article gets a cross-post (LinkedIn first, with one drawn scene),
+  a newsletter mention, and, for the strongest, Hacker News or Reddit.
+- Monthly review: the checkpoint table, the top 50 queries, pages that
+  slipped. One change per page per month, logged with its date.
+
+Editorial rules still hold: one page answers one question, no manufactured
+experience, no claims of ranking in copy.
