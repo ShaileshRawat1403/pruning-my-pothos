@@ -19,7 +19,9 @@
   outline: 2px solid var(--accent-green);
   outline-offset: 4px;
 }
-#main-content, .content-body :is(h2, h3, h4) { scroll-margin-top: 6rem; }
+#main-content, .content-body :is(h2, h3, h4), .anchor-alias { scroll-margin-top: 6rem; }
+/* Old section links kept alive (search engines still show them). */
+.anchor-alias { display: block; height: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

@@ -3,8 +3,8 @@ schemaVersion: "1.0"
 title: "Prompt, Skill, Workflow, Agent: Telling the Layers Apart"
 seoTitle: "Skill vs Prompt vs Agent: What Is the Difference?"
 publishDate: "2026-03-08"
-updatedAt: "2026-09-20"
-description: "These words name different responsibilities, not stages of sophistication. What each one covers, and how to tell which you are looking at."
+updatedAt: "2026-10-10"
+description: "Skill vs prompt: a prompt is the input for one run; a skill is a reusable, versioned package for a repeated task; an agent chooses its own next step. Where system prompts and workflows fit."
 category: "Explanations"
 heroImage: '/covers/systems/skills-vs-prompts-vs-agents.png'
 heroImageAlt: 'Four labels covering different parts of one running system rather than a sequence of stages'
@@ -174,15 +174,21 @@ Someone says the team is building an agent. Someone else says it is really just 
 
 The argument is usually not about definitions. It is about which part somebody is looking at.
 
+<span id="the-five-layer-comparison" className="anchor-alias" />
+
 ## The five words
 
 **A prompt is the input package supplied to the model for a single run.** Not only an instruction: it can carry context, examples, retrieved material and the question itself. Whatever goes in for this run is the prompt. What that does and does not achieve is covered in [prompting is not the skill you think it is](/systems/prompting-is-not-the-skill-you-think-it-is/).
+
+<span id="where-does-a-system-prompt-fit" className="anchor-alias" />
 
 **A system prompt** is system-level instruction supplied with the model's context to shape behaviour for a task or interaction. Applications and providers differ in how those instructions are represented and carried across calls. Its job is to set conditions that hold regardless of what is asked. It has [its own page](/systems/what-a-system-prompt-actually-is/), because the interesting part is what it costs and what it cannot do.
 
 <!-- pmp:visual id="this-run-or-every-run" -->
 
 **A skill**, in the sense this publication uses the word, is a reusable, versioned package of instructions and declared operating constraints for a repeated task. It may define inputs, outputs, tool scope, success criteria, failure conditions and escalation. **Other platforms use "skill" differently**, sometimes for a tool, sometimes for a plugin, sometimes for a prompt template with a name. This is working vocabulary for explaining PMP's own architecture, not a claim about the industry.
+
+<span id="where-workflows-fit" className="anchor-alias" />
 
 **A workflow** has a sequence primarily defined by software or process logic, even when individual steps use models. **Agent-like behaviour** appears when the model receives bounded discretion over which action or step happens next. Both of those definitions belong to [AI agents vs AI workflows](/systems/ai-agents-vs-ai-workflows/), and this page adopts them rather than restating them in different words.
 
@@ -195,6 +201,8 @@ The most common mistake is reading these as a ladder, with prompts for beginners
 Reading them as stages produces a specific bad decision: teams add agent-like freedom because it sounds like progress, when a fixed sequence would have been more reliable and easier to debug.
 
 <!-- pmp:visual id="not-a-ladder" -->
+
+<span id="a-practical-decision-rule" className="anchor-alias" />
 
 ## Telling them apart
 

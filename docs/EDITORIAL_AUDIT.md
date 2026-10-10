@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:a1af5e589b4392cfec912011f427b7711360a7629c5c74b4922702ab05da2336
+Content snapshot: sha256:3e6f58d09ca5bef881bb56e65690baa05599a08d36244cce9be79ce721340599
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions

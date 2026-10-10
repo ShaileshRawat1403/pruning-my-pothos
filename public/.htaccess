@@ -212,6 +212,10 @@ RedirectMatch 410 ^/wp-(admin|login|json)
 RedirectMatch 410 ^/shelf/movies/
 RedirectMatch 410 ^/sentences/sentence-[0-9]+/?$
 RedirectMatch 410 ^/systems/simple-tokenizer/?$
+# Retired with no surviving answer (2026-10-10): off-topic scene, and a
+# page the archive disposition left without a successor.
+RedirectMatch 410 ^/scenes/nietzsche\.html$
+RedirectMatch 410 ^/systems/(mental-frameworks|entity-glossary-for-ai-discoverability)/?$
 RedirectMatch 410 ^/shelf/music/music-recommendation/?$
 </IfModule>
 
