@@ -9,7 +9,7 @@ export const metadata = constructMetadata({
   title: "Shelf",
   description: "A curated shelf of local experiments, notes, tools, philosophy, music, and shared AI resources.",
   path: "/shelf",
-  image: "/covers/shelf/shared-agent-intelligence.svg"
+  image: "/og-default.png"
 });
 
 export default function ShelfIndexPage() {

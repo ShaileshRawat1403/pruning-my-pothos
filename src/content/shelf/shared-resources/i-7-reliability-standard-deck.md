@@ -7,7 +7,7 @@ tags:
   - i-7
   - reliability
   - governance
-coverUrl: "/covers/shelf/shared-i7-reliability.svg"
+coverUrl: "/covers/shelf/items/shared-resources/i-7-reliability-standard-deck.png"
 coverAlt: "Cover illustration for The I-7 Reliability Standard deck"
 pdfUrl: "/resources/presentations/The_I-7_Reliability_Standard.pdf"
 resourceHighlights:

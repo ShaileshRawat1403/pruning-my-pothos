@@ -1,3 +1,4 @@
+import SectionHeader from "../../components/SectionHeader";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 
@@ -21,14 +22,13 @@ export default function LiveLabIndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <section className="flex flex-col gap-2">
-        <h1 className="font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]">
-          Systems Telemetry
-        </h1>
-        <p className="text-[color:var(--text-secondary)] text-base leading-relaxed max-w-[700px]">
-          Execution logs, runtime audits, and system status checkers showing the health of offline engineering pipelines.
-        </p>
-      </section>
+      <SectionHeader
+        eyebrow="Live lab"
+        title="Systems Telemetry"
+        intro="Execution logs, runtime audits, and system status checkers showing the health of offline engineering pipelines."
+        scene="stack"
+        slim
+      />
 
       <section className="card-glass p-8 flex flex-col gap-8 bg-[color:var(--bg-color)] border-accent-purple/20 shadow-none relative overflow-hidden">
         {/* Subtle grid background */}

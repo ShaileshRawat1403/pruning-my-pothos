@@ -5,7 +5,7 @@ publishDate: "YYYY-MM-DD"
 tags:
   - notes
   - tools
-coverUrl: "/covers/notes-tools-obsidian.svg"
+coverUrl: "/covers/shelf/items/notes/<slug>.png"  # exported by npm run export:storyboards -- --only=shelf
 ---
 
 Working notes. Subject to change.

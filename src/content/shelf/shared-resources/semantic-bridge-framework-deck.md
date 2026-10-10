@@ -7,7 +7,7 @@ tags:
   - semantics
   - language
   - systems
-coverUrl: "/covers/shelf/shared-semantic-bridge.svg"
+coverUrl: "/covers/shelf/items/shared-resources/semantic-bridge-framework-deck.png"
 coverAlt: "Cover illustration for The Semantic Bridge Framework deck"
 pdfUrl: "/resources/presentations/The_Semantic_Bridge_Framework.pdf"
 resourceHighlights:

@@ -8,7 +8,7 @@ tags:
   - orchestration
   - policy
   - reliability
-coverUrl: "/covers/shelf/local-soothsayer-mcp-kernel.svg"
+coverUrl: "/covers/shelf/items/local-experiments/soothsayer-mcp-kernel.png"
 coverAlt: "Cover illustration for Soothsayer MCP kernel: from prompts to controlled orchestration"
 ---
 

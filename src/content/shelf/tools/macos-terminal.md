@@ -6,7 +6,7 @@ tags:
   - tools
   - terminal
   - macos
-coverUrl: "/covers/shelf/tool-terminal.svg"
+coverUrl: "/covers/shelf/items/tools/macos-terminal.png"
 coverAlt: "Cover illustration for Tools: macOS Terminal"
 ---
 

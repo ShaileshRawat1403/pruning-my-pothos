@@ -5,7 +5,7 @@ publishDate: "YYYY-MM-DD"
 tags:
   - experiments
   - local-llm
-coverUrl: "/covers/local-experiments-ollama.svg"
+coverUrl: "/covers/shelf/items/local-experiments/<slug>.png"  # exported by npm run export:storyboards -- --only=shelf
 ---
 
 What I tried: 

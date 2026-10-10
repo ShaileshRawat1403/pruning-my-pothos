@@ -6,7 +6,7 @@ tags:
   - tools
   - azure
   - cloud
-coverUrl: "/covers/shelf/tool-azure.svg"
+coverUrl: "/covers/shelf/items/tools/azure.png"
 coverAlt: "Cover illustration for Tools: Azure"
 ---
 

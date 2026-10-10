@@ -6,7 +6,7 @@ tags:
   - culture
   - inspiration
   - community
-coverUrl: "/covers/shelf/culture-shared-signals.svg"
+coverUrl: "/covers/shelf/items/culture/culture-post-1.png"
 coverAlt: "Cover illustration for Culture as shared memory"
 ---
 

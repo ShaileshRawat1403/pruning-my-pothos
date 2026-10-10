@@ -7,7 +7,7 @@ tags:
   - local-llm
   - documentation
   - tooling
-coverUrl: "/covers/shelf/shared-local-llm.svg"
+coverUrl: "/covers/shelf/items/shared-resources/local-llm-references.png"
 coverAlt: "Cover illustration for Local LLM references I keep open"
 ---
 

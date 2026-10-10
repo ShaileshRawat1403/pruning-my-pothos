@@ -8,7 +8,7 @@ tags:
   - architecture
   - governance
   - adoption
-coverUrl: "/covers/shelf/shared-enterprise-ai-blueprint.svg"
+coverUrl: "/covers/shelf/items/shared-resources/enterprise-ai-blueprint-deck.png"
 coverAlt: "Cover illustration for The Enterprise AI Blueprint deck"
 pdfUrl: "/resources/presentations/The_Enterprise_AI_Blueprint_(2).pdf"
 resourceHighlights:

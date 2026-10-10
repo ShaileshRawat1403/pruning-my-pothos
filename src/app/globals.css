@@ -891,6 +891,31 @@ h1, h2, h3, h4, h5 {
   color: var(--text-primary);
   font-weight: 700;
 }
+/* Hand-made inline figures (Self essays) wear the house style: paper,
+   ink, one orange accent. Fixed colours in both themes, like every other
+   drawing on the site. */
+.content-body .content-figure {
+  padding: 1.1rem 1rem 0.9rem;
+  border: 1px solid #D9D4C6;
+  border-radius: 2px;
+  background: #EFE5CF;
+  box-shadow: inset 0 0 60px rgba(120, 90, 40, 0.12);
+}
+.content-body .content-figure svg { color: #1B1A17; }
+.content-body .content-figure svg text:not([fill]) { fill: #1B1A17; }
+.content-body .content-figure .figure-stroke { stroke: #1B1A17; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.content-body .content-figure :is(rect, circle, ellipse, polygon).figure-stroke { fill: #fff; }
+.content-body .content-figure .figure-fill { fill: #F6E7A8; stroke: #1B1A17; stroke-width: 3; }
+.content-body .content-figure .figure-accent { stroke: #C0663C; fill: #C0663C; }
+.content-body .content-figure .figure-dot { fill: #C0663C; }
+.content-body .content-figure .figure-label {
+  fill: #4A4740; color: #4A4740; font-family: var(--font-mono);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.content-body .content-figure .figure-label-strong { fill: #1B1A17; color: #1B1A17; font-weight: 700; }
+.content-body .content-figure figcaption {
+  color: #6B675E; font-family: 'Caveat', cursive; font-size: 1.15rem; font-weight: 700; text-align: center;
+}
 @media (max-width: 640px) {
   .content-body {
     font-size: 0.98rem;

@@ -6,7 +6,7 @@ tags:
   - tools
   - vscode
   - editor
-coverUrl: "/covers/shelf/tool-vscode.svg"
+coverUrl: "/covers/shelf/items/tools/vscode.png"
 coverAlt: "Cover illustration for Tools: VS Code"
 ---
 

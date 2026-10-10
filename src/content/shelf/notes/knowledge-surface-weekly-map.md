@@ -7,7 +7,7 @@ tags:
   - knowledge-management
   - workflow
   - retrieval
-coverUrl: "/covers/shelf/knowledge-surface-weekly-map.svg"
+coverUrl: "/covers/shelf/items/notes/knowledge-surface-weekly-map.png"
 coverAlt: "Cover illustration for Notes: Knowledge Surface Weekly Map"
 ---
 

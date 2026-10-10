@@ -7,7 +7,7 @@ tags:
   - local-llm
   - evaluation
   - context
-coverUrl: "/covers/shelf/local-context-stress.svg"
+coverUrl: "/covers/shelf/items/local-experiments/context-window-stress.png"
 coverAlt: "Cover illustration for Context window stress test"
 ---
 

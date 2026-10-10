@@ -6,7 +6,7 @@ tags:
   - notes
   - plaintext
   - workflow
-coverUrl: "/covers/shelf/notes-plaintext.svg"
+coverUrl: "/covers/shelf/items/notes/plaintext-logbook.png"
 coverAlt: "Cover illustration for Notes/Tools: a plaintext logbook"
 ---
 

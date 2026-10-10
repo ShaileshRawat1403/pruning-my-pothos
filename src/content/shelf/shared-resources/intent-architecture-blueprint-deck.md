@@ -8,7 +8,7 @@ tags:
   - intent
   - language
   - semantics
-coverUrl: "/covers/shelf/shared-intent-architecture-blueprint.svg"
+coverUrl: "/covers/shelf/items/shared-resources/intent-architecture-blueprint-deck.png"
 coverAlt: "Cover illustration for The Intent Architecture Blueprint deck"
 pdfUrl: "/resources/presentations/The_Intent_Architecture_Blueprint.pdf"
 resourceHighlights:

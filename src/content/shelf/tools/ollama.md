@@ -6,7 +6,7 @@ tags:
   - tools
   - ollama
   - local-llm
-coverUrl: "/covers/shelf/tool-ollama.svg"
+coverUrl: "/covers/shelf/items/tools/ollama.png"
 coverAlt: "Cover illustration for Tools: Ollama"
 ---
 

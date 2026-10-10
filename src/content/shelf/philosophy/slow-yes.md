@@ -5,7 +5,7 @@ publishDate: "2026-01-27"
 tags:
   - philosophy
   - clarity
-coverUrl: "/covers/shelf/philosophy-slow-yes.svg"
+coverUrl: "/covers/shelf/items/philosophy/slow-yes.png"
 coverAlt: "Cover illustration for A slow yes beats a fast maybe"
 ---
 

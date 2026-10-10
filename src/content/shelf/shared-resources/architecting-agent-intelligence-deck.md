@@ -7,7 +7,7 @@ tags:
   - agents
   - architecture
   - reliability
-coverUrl: "/covers/shelf/shared-agent-intelligence.svg"
+coverUrl: "/covers/shelf/items/shared-resources/architecting-agent-intelligence-deck.png"
 coverAlt: "Cover illustration for Architecting Agent Intelligence deck"
 pdfUrl: "/resources/presentations/Architecting_Agent_Intelligence.pdf"
 resourceHighlights:

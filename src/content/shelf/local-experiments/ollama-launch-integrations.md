@@ -8,7 +8,7 @@ tags:
   - local-llm
   - ollama
   - workflow
-coverUrl: "/covers/shelf/local-ollama-launch.svg"
+coverUrl: "/covers/shelf/items/local-experiments/ollama-launch-integrations.png"
 coverAlt: "Cover illustration for Ollama launch: integration handoff"
 ---
 

@@ -7,7 +7,7 @@ tags:
   - tooling
   - governance
   - workflow
-coverUrl: "/covers/shelf/shared-everything-as-code.svg"
+coverUrl: "/covers/shelf/items/shared-resources/everything-as-code-deck.png"
 coverAlt: "Cover illustration for Everything as Code deck"
 pdfUrl: "/resources/presentations/Everything_as_Code.pdf"
 resourceHighlights:

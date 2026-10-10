@@ -7,7 +7,7 @@ tags:
   - architecture
   - systems
   - integration
-coverUrl: "/covers/shelf/shared-omnichannel-system.svg"
+coverUrl: "/covers/shelf/items/shared-resources/code-the-omnichannel-system-deck.png"
 coverAlt: "Cover illustration for Code the Omnichannel System deck"
 pdfUrl: "/resources/presentations/Code_The_Omnichannel_System.pdf"
 resourceHighlights:

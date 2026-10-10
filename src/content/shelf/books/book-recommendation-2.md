@@ -6,7 +6,7 @@ tags:
   - books
   - curiosity
   - thinking
-coverUrl: "/covers/shelf/books-reading-stack.svg"
+coverUrl: "/covers/shelf/items/books/book-recommendation-2.png"
 coverAlt: "Cover illustration for Books that slow the first answer"
 ---
 

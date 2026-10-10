@@ -9,7 +9,7 @@ tags:
   - workflow
   - prompting
   - governance
-coverUrl: "/covers/shelf/shared-semantic-bridge.svg"
+coverUrl: "/covers/shelf/items/shared-resources/ai-skill-design-templates.png"
 coverAlt: "Cover illustration for AI skill design templates"
 resourceHighlights:
   - "Skill definition template for reusable task boundaries."

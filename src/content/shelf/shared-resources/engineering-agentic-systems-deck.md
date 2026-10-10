@@ -8,7 +8,7 @@ tags:
   - engineering
   - reliability
   - governance
-coverUrl: "/covers/shelf/shared-engineering-agentic-systems.svg"
+coverUrl: "/covers/shelf/items/shared-resources/engineering-agentic-systems-deck.png"
 coverAlt: "Cover illustration for Engineering Agentic Systems deck"
 pdfUrl: "/resources/presentations/Engineering_Agentic_Systems.pdf"
 resourceHighlights:

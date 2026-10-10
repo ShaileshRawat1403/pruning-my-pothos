@@ -7,7 +7,7 @@ tags:
   - cloud
   - aws
   - setup
-coverUrl: "/covers/shelf/local-aws-baseline.svg"
+coverUrl: "/covers/shelf/items/local-experiments/aws-llm-instance-baseline.png"
 coverAlt: "Cover illustration for AWS GPU instance baseline"
 ---
 

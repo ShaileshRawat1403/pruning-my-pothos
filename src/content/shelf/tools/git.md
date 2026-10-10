@@ -6,7 +6,7 @@ tags:
   - tools
   - git
   - workflow
-coverUrl: "/covers/shelf/tool-git.svg"
+coverUrl: "/covers/shelf/items/tools/git.png"
 coverAlt: "Cover illustration for Tools: Git"
 ---
 

@@ -6,7 +6,7 @@ tags:
   - books
   - ideas
   - culture
-coverUrl: "/covers/shelf/books-reading-stack.svg"
+coverUrl: "/covers/shelf/items/books/book-recommendation-3.png"
 coverAlt: "Cover illustration for Books I revisit for language and design"
 ---
 

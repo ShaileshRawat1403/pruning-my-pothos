@@ -6,7 +6,7 @@ tags:
   - tools
   - cli
   - ai
-coverUrl: "/covers/shelf/tool-cli-ai.svg"
+coverUrl: "/covers/shelf/items/tools/cli-ai-tools.png"
 coverAlt: "Cover illustration for Tools: AI CLIs"
 ---
 

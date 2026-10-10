@@ -6,7 +6,7 @@ tags:
   - tools
   - homebrew
   - macos
-coverUrl: "/covers/shelf/tool-homebrew.svg"
+coverUrl: "/covers/shelf/items/tools/homebrew.png"
 coverAlt: "Cover illustration for Tools: Homebrew"
 ---
 

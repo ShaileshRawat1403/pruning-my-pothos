@@ -6,7 +6,7 @@ tags:
   - books
   - learning
   - culture
-coverUrl: "/covers/shelf/books-reading-stack.svg"
+coverUrl: "/covers/shelf/items/books/book-recommendation.png"
 coverAlt: "Cover illustration for Books that improve systems judgment"
 ---
 

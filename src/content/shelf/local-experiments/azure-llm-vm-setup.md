@@ -7,7 +7,7 @@ tags:
   - cloud
   - azure
   - setup
-coverUrl: "/covers/shelf/local-azure-setup.svg"
+coverUrl: "/covers/shelf/items/local-experiments/azure-llm-vm-setup.png"
 coverAlt: "Cover illustration for Azure setup: first cloud pass"
 ---
 

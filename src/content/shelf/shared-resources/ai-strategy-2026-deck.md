@@ -7,7 +7,7 @@ tags:
   - strategy
   - cloud
   - ai
-coverUrl: "/covers/shelf/shared-ai-strategy-2026.svg"
+coverUrl: "/covers/shelf/items/shared-resources/ai-strategy-2026-deck.png"
 coverAlt: "Cover illustration for AI Strategy 2026 deck"
 pdfUrl: "/resources/presentations/AI_Strategy_2026.pdf"
 resourceHighlights:

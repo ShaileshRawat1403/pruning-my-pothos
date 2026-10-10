@@ -6,7 +6,7 @@ tags:
   - tools
   - aws
   - cloud
-coverUrl: "/covers/shelf/tool-aws.svg"
+coverUrl: "/covers/shelf/items/tools/aws.png"
 coverAlt: "Cover illustration for Tools: AWS"
 ---
 

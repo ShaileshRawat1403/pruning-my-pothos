@@ -5,7 +5,7 @@ publishDate: "2026-01-27"
 tags:
   - philosophy
   - attention
-coverUrl: "/covers/shelf/philosophy-attention.svg"
+coverUrl: "/covers/shelf/items/philosophy/attention-is-the-asset.png"
 coverAlt: "Cover illustration for Attention is the real asset"
 ---
 

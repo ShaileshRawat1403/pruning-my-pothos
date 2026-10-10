@@ -5,7 +5,7 @@ publishDate: "2026-01-27"
 tags:
   - philosophy
   - constraints
-coverUrl: "/covers/shelf/philosophy-constraints.svg"
+coverUrl: "/covers/shelf/items/philosophy/constraints-clarify.png"
 coverAlt: "Cover illustration for Constraints create clarity"
 ---
 

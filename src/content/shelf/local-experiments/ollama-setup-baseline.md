@@ -7,7 +7,7 @@ tags:
   - local-llm
   - ollama
   - setup
-coverUrl: "/covers/shelf/local-ollama-setup.svg"
+coverUrl: "/covers/shelf/items/local-experiments/ollama-setup-baseline.png"
 coverAlt: "Cover illustration for Ollama setup: local baseline"
 ---
 

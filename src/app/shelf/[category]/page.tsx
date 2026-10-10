@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Metadata } from "next";
 import SpotlightCard from "../../../components/SpotlightCard";
+import SectionHeader from "../../../components/SectionHeader";
 import { constructMetadata } from "../../../lib/seo/metadata";
 import { getWebPageSchema } from "../../../lib/seo/jsonld";
 
@@ -49,6 +50,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
+const INTROS: Record<string, string> = {
+  books: "Books that slowed down the first answer, and the ones that keep being reopened.",
+  culture: "Signals from outside the work that ended up inside it.",
+  "local-experiments": "Things run on a laptop or a small cloud box to see what actually happens.",
+  music: "What was playing while the rest of the shelf got written.",
+  notes: "Drafts, fragments and working notes, kept because they were useful once.",
+  philosophy: "The ideas underneath the decisions, and where they came from.",
+  "shared-resources": "Decks, templates and kits, free to take and adapt.",
+  tools: "The tools in daily use, and what each one is actually good for.",
+};
+
 export default async function ShelfCategoryIndexPage({ params }: PageProps) {
   const { category } = await params;
   if (!VALID_CATEGORIES.includes(category)) {
@@ -84,20 +96,14 @@ export default async function ShelfCategoryIndexPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <section className="flex flex-col gap-4 border-b pb-8" style={{ borderColor: "var(--card-border)" }}>
-        <div className="flex items-center gap-2">
-          <span className="h-px w-8" style={{ background: "var(--accent-cyan)" }} />
-          <span className="text-[10px] font-mono font-bold uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
-            Shelf Category
-          </span>
-        </div>
-        <h1 className="font-heading text-3xl sm:text-4xl font-extrabold" style={{ color: "var(--text-primary)" }}>
-          {currentTitle}
-        </h1>
-        <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-          Index of items under the {category} catalog directory.
-        </p>
-      </section>
+      <SectionHeader
+        eyebrow="Shelf"
+        title={currentTitle}
+        intro={INTROS[category] ?? "What sits on this part of the shelf."}
+        scene="shelf"
+        slim
+        tick="var(--accent-cyan)"
+      />
 
       {items.length === 0 ? (
         <p className="text-sm italic" style={{ color: "var(--text-muted)" }}>No entries published in this category yet.</p>

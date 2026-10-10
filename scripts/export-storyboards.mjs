@@ -5,6 +5,7 @@
  *   public/storyboards/pdf/<slug>.pdf   each storyboard as a 4:5 PDF deck
  *   public/storyboards/og/<slug>.png    each storyboard's 1200 x 630 link preview
  *   public/favicon.png, og-default.png  the logo and the default share card
+ *   public/covers/shelf/items/<cat>/<slug>.png  each Shelf item's cover (not music)
  *   public/covers/sheets/<slug>.png     each Works On My Prompt sheet's cover
  *   public/covers/systems/<slug>.png    each Systems article's cover, for link
  *                                       previews (the page draws it live)
@@ -146,7 +147,8 @@ try {
   const covers = slugsWith("cover-art", "");
   const sheets = slugsWith("sheet-art", "");
   const brand = (!ONLY || ONLY === "brand") && fs.existsSync(path.join(OUT, "brand-art", "icon", "index.html"));
-  if (storyboards.length === 0 && covers.length === 0 && sheets.length === 0 && !brand) fail("nothing to export in out/.");
+  const hasShelf = fs.existsSync(path.join(OUT, "shelf-art"));
+  if (storyboards.length === 0 && covers.length === 0 && sheets.length === 0 && !brand && !hasShelf) fail("nothing to export in out/.");
 
   console.log(`Storyboards (${storyboards.length})`);
   for (const slug of storyboards) {
@@ -163,6 +165,19 @@ try {
     console.log("Brand");
     await screenshot("/brand-art/icon/", "favicon.png", 512, 512);
     await screenshot("/brand-art/card/", "og-default.png", 1200, 630);
+  }
+  // Shelf item covers: /shelf-art/<category>/<slug>/ -> covers/shelf/items/<category>/<slug>.png
+  const shelfBase = path.join(OUT, "shelf-art");
+  const shelfItems = fs.existsSync(shelfBase)
+    ? fs.readdirSync(shelfBase, { withFileTypes: true }).filter((d) => d.isDirectory()).flatMap((c) =>
+        fs.readdirSync(path.join(shelfBase, c.name), { withFileTypes: true })
+          .filter((d) => d.isDirectory() && fs.existsSync(path.join(shelfBase, c.name, d.name, "index.html")))
+          .map((d) => [c.name, d.name]))
+        .filter(([, s]) => !ONLY || s === ONLY || ONLY === "shelf")
+    : [];
+  console.log(`Shelf covers (${shelfItems.length})`);
+  for (const [cat, slug] of shelfItems) {
+    await screenshot(`/shelf-art/${cat}/${slug}/`, `covers/shelf/items/${cat}/${slug}.png`, 1200, 675);
   }
   console.log(`Sheet covers (${sheets.length})`);
   for (const slug of sheets) {

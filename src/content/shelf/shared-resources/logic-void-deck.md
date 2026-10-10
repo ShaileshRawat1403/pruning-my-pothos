@@ -8,7 +8,7 @@ tags:
   - reasoning
   - boundaries
   - design
-coverUrl: "/covers/shelf/shared-logic-void.svg"
+coverUrl: "/covers/shelf/items/shared-resources/logic-void-deck.png"
 coverAlt: "Cover illustration for The Logic Void deck"
 pdfUrl: "/resources/presentations/The_Logic_Void.pdf"
 resourceHighlights:

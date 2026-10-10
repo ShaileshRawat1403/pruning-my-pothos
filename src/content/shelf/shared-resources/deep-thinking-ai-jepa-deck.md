@@ -7,7 +7,7 @@ tags:
   - models
   - reasoning
   - concepts
-coverUrl: "/covers/shelf/shared-deep-thinking-jepa.svg"
+coverUrl: "/covers/shelf/items/shared-resources/deep-thinking-ai-jepa-deck.png"
 coverAlt: "Cover illustration for Deep Thinking AI (JEPA) deck"
 pdfUrl: "/resources/presentations/Deep_Thinking_AI_Jepa.pdf"
 resourceHighlights:

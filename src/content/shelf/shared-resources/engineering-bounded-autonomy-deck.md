@@ -8,7 +8,7 @@ tags:
   - safety
   - engineering
   - reliability
-coverUrl: "/covers/shelf/shared-bounded-autonomy.svg"
+coverUrl: "/covers/shelf/items/shared-resources/engineering-bounded-autonomy-deck.png"
 coverAlt: "Cover illustration for Engineering Bounded Autonomy deck"
 pdfUrl: "/resources/presentations/Engineering_Bounded_Autonomy_(2).pdf"
 resourceHighlights:

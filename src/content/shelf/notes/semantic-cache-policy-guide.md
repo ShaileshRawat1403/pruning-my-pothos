@@ -2,7 +2,7 @@
 title: "Semantic Cache Policy Guide"
 description: "Best practices for defining caching policies, setting TTLs, and scoping namespaces in similarity-based cache structures."
 publishDate: "2026-06-25"
-coverUrl: "/covers/shelf/note-semantic-cache-policy-guide.svg"
+coverUrl: "/covers/shelf/items/notes/semantic-cache-policy-guide.png"
 coverAlt: "Cover illustration for Semantic Cache Policy Guide"
 tags:
   - caching

@@ -7,7 +7,7 @@ tags:
   - observability
   - workflow
   - reliability
-coverUrl: "/covers/shelf/observability-logbook-pattern.svg"
+coverUrl: "/covers/shelf/items/notes/observability-logbook-pattern.png"
 coverAlt: "Cover illustration for Notes: Observability Logbook Pattern"
 ---
 

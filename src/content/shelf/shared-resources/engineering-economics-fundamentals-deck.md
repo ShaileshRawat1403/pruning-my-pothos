@@ -7,7 +7,7 @@ tags:
   - strategy
   - economics
   - architecture
-coverUrl: "/covers/shelf/shared-engineering-economics.svg"
+coverUrl: "/covers/shelf/items/shared-resources/engineering-economics-fundamentals-deck.png"
 coverAlt: "Cover illustration for Engineering economics fundamentals deck"
 pdfUrl: "/resources/presentations/Engineering_Economics_Fundamentals.pdf"
 resourceHighlights:

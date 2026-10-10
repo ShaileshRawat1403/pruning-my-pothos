@@ -7,7 +7,7 @@ tags:
   - cloud
   - gcp
   - setup
-coverUrl: "/covers/shelf/local-gcp-baseline.svg"
+coverUrl: "/covers/shelf/items/local-experiments/gcp-llm-instance-baseline.png"
 coverAlt: "Cover illustration for GCP GPU instance baseline"
 ---
 

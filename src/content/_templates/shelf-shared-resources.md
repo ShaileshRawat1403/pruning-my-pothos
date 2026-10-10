@@ -4,7 +4,7 @@ description: "One-line reason these links matter."
 publishDate: "YYYY-MM-DD"
 tags:
   - resources
-coverUrl: "/covers/shelf/shared-your-resource-title.svg"
+coverUrl: "/covers/shelf/items/shared-resources/<slug>.png"  # exported by npm run export:storyboards -- --only=shelf
 pdfUrl: "/resources/presentations/Your_Deck.pdf"
 resourceHighlights:
   - First key point this resource covers

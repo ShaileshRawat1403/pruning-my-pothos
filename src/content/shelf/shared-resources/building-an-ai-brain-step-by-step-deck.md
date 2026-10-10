@@ -7,7 +7,7 @@ tags:
   - architecture
   - agents
   - systems
-coverUrl: "/covers/shelf/shared-ai-brain-step-by-step.svg"
+coverUrl: "/covers/shelf/items/shared-resources/building-an-ai-brain-step-by-step-deck.png"
 coverAlt: "Cover illustration for Building an AI Brain, step by step"
 pdfUrl: "/resources/presentations/Building_An_AI_Brain_Step_By_Step.pdf"
 resourceHighlights:

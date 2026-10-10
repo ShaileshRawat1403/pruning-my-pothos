@@ -7,7 +7,7 @@ tags:
   - local-llm
   - ollama
   - performance
-coverUrl: "/covers/shelf/local-ollama-m1.svg"
+coverUrl: "/covers/shelf/items/local-experiments/ollama-m1-baseline.png"
 coverAlt: "Cover illustration for Ollama on M1: thermal baseline"
 ---
 

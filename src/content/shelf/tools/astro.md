@@ -6,7 +6,7 @@ tags:
   - tools
   - astro
   - web
-coverUrl: "/covers/shelf/tool-astro.svg"
+coverUrl: "/covers/shelf/items/tools/astro.png"
 coverAlt: "Cover illustration for Tools: Astro"
 ---
 

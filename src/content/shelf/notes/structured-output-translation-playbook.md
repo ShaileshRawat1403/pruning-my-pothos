@@ -7,7 +7,7 @@ tags:
   - schemas
   - notes
   - reliability
-coverUrl: '/covers/shelf/shared-dax-orchestration.svg'
+coverUrl: "/covers/shelf/items/notes/structured-output-translation-playbook.png"
 coverAlt: 'Cover illustration for Structured Output Translation Playbook'
 ---
 

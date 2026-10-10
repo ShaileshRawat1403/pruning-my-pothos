@@ -7,7 +7,7 @@ tags:
   - operations
   - governance
   - documentation
-coverUrl: "/covers/shelf/shared-content-ops.svg"
+coverUrl: "/covers/shelf/items/shared-resources/content-ops-deck.png"
 coverAlt: "Cover illustration for ContentOps deck"
 pdfUrl: "/resources/presentations/ContentOpsPDF.pdf"
 resourceHighlights:

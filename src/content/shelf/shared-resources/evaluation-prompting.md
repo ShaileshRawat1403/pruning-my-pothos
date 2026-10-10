@@ -7,7 +7,7 @@ tags:
   - evaluation
   - prompting
   - safety
-coverUrl: "/covers/shelf/shared-eval.svg"
+coverUrl: "/covers/shelf/items/shared-resources/evaluation-prompting.png"
 coverAlt: "Cover illustration for Evaluation and prompting references"
 ---
 

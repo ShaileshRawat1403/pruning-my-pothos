@@ -8,7 +8,7 @@ tags:
   - aeo
   - geo
   - discoverability
-coverUrl: "/covers/shelf/shared-winning-ai-search.svg"
+coverUrl: "/covers/shelf/items/shared-resources/winning-ai-search-deck.png"
 coverAlt: "Cover illustration for Winning AI Search deck"
 pdfUrl: "/resources/presentations/Winning_AI_Search.pdf"
 resourceHighlights:

@@ -6,7 +6,7 @@ tags:
   - notes
   - framework
   - ai
-coverUrl: "/covers/shelf/notes-i7.svg"
+coverUrl: "/covers/shelf/items/notes/i-7-loop-summary.png"
 coverAlt: "Cover illustration for Notes: I-7 Cognitive Loop (summary)"
 ---
 

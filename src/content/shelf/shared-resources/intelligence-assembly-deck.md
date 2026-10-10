@@ -8,7 +8,7 @@ tags:
   - orchestration
   - memory
   - systems
-coverUrl: "/covers/shelf/shared-intelligence-assembly.svg"
+coverUrl: "/covers/shelf/items/shared-resources/intelligence-assembly-deck.png"
 coverAlt: "Cover illustration for The Intelligence Assembly deck"
 pdfUrl: "/resources/presentations/The_Intelligence_Assembly.pdf"
 resourceHighlights:
