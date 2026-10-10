@@ -112,10 +112,10 @@ here: a clear comparison question, answered plainly, ranks.
    and break the one-question rule.
 3. Done 2026-10-10. Leaks: 410 for `/scenes/nietzsche.html` (off-topic, keep it gone); 301
    or 410 for `/systems/mental-frameworks/` to the nearest real answer.
-4. Next tier CTR: titles and descriptions for training vs inference,
+4. Done 2026-10-10 (titles; revisit position in November). Next tier CTR: titles and descriptions for training vs inference,
    context windows, structured output; find why structured output sits at
    61 and prompting at 30 (likely the intent does not match the page).
-5. Request indexing for the 17 articles that gained drawn scenes.
+5. Done 2026-10-10: the 17 articles that gained drawn scenes carry updatedAt 2026-10-09/10, so the sitemap lastmod signals the change. Structured output (61) and prompting (30) rank for head terms ("structured outputs", "prompting") where provider docs dominate; the titles now aim at the longer questions they answer.
 
 ### Phase 2: a repeatable engine (2027)
 
