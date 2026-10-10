@@ -180,6 +180,8 @@ RewriteRule ^shelf/movies(/.*)?$ - [G,L]
 RewriteRule ^sentences/sentence-[0-9]+/?$ - [G,L]
 RewriteRule ^systems/simple-tokenizer/?$ - [G,L]
 RewriteRule ^shelf/music/music-recommendation/?$ - [G,L]
+RewriteRule ^scenes/nietzsche\.html$ - [G,L]
+RewriteRule ^systems/(mental-frameworks|entity-glossary-for-ai-discoverability)/?$ - [G,L]
 RewriteRule ^tags/(poetry|evolution|movies|narrative|aesthetics)/?$ - [G,L]
 </IfModule>
 
