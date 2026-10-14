@@ -41,7 +41,7 @@ export default function LanguagePatternCheckPage() {
         <p className="text-base leading-relaxed max-w-[700px]" style={{ color: "var(--text-secondary)" }}>
           Paste a draft and check it against a registry of formulaic, AI-associated writing patterns:
           delve-reliance, hedging padding, repeated sentence openers, and around forty more. This runs
-          the real, live <a href="https://languageops-web.vercel.app/" target="_blank" rel="noopener noreferrer" className="link-slide" style={{ color: "var(--accent-purple)" }}>LanguageOps</a> detector,
+          the real, live <a href="https://languageops.pruningmypothos.com/" target="_blank" rel="noopener noreferrer" className="link-slide" style={{ color: "var(--accent-purple)" }}>LanguageOps</a> detector,
           not a mock. Nothing is rewritten and nothing is stored. The deterministic pass is free and
           keyless by design, which is the only part of LanguageOps exposed here.
         </p>
@@ -75,7 +75,7 @@ export default function LanguagePatternCheckPage() {
               <span style={{ color: "var(--accent-green)" }}>live</span>
             </div>
             <p style={{ color: "var(--text-secondary)" }}>
-              <span style={{ color: "var(--accent-green)" }}>$ </span>POST languageops-web.vercel.app/api/lint
+              <span style={{ color: "var(--accent-green)" }}>$ </span>POST languageops.pruningmypothos.com/api/lint
             </p>
             <p className="mt-2" style={{ color: "var(--text-muted)" }}># deterministic pass only; refine is admin-gated</p>
           </div>

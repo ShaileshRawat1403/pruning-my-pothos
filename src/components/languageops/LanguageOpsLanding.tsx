@@ -11,7 +11,7 @@ import RefineScene from "./RefineScene";
 // about the registry and the runtime are the project README's own.
 const SKILL_SHA = "c3546ccb4fb845b1ad862ea7750eadeca957fd02";
 const SKILL_URL = "https://github.com/ShaileshRawat1403/languageops-natural-response";
-const APP_URL = "https://languageops-web.vercel.app/";
+const APP_URL = "https://languageops.pruningmypothos.com/";
 
 const REFINE_STEPS = [
   {

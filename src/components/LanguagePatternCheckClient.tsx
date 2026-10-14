@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { getPatternInfo, humanizePatternId } from "../data/languageopsPatterns";
 
-const LINT_ENDPOINT = "https://languageops-web.vercel.app/api/lint";
+const LINT_ENDPOINT = "https://languageops.pruningmypothos.com/api/lint";
 
 const SAMPLE = `In today's fast-paced world, it's important to delve into the details and leverage a robust, comprehensive framework. It's not just about efficiency; it's about excellence. Furthermore, we should note that this represents a significant paradigm shift. Additionally, this demonstrates a novel approach. Moreover, the results are truly remarkable.`;
 
