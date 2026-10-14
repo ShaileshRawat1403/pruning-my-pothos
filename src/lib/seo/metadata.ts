@@ -55,6 +55,7 @@ export function constructMetadata({
       description: metaDesc,
       url: canonicalUrl,
       siteName: SITE_CONFIG.name,
+      locale: "en_GB",
       images: [
         {
           url: metaImage,

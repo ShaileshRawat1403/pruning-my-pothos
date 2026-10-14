@@ -33,14 +33,14 @@ const HOME_STRUCTURED_DATA = {
       "url": "https://pruningmypothos.com",
       "logo": "https://pruningmypothos.com/favicon.png",
       "founder": {
-        "@id": "https://pruningmypothos.com/#author",
+        "@id": "https://pruningmypothos.com/about/#person",
       },
     },
     {
       "@type": "Person",
-      "@id": "https://pruningmypothos.com/#author",
+      "@id": "https://pruningmypothos.com/about/#person",
       "name": "Shailesh Rawat",
-      "url": "https://pruningmypothos.com/about",
+      "url": "https://pruningmypothos.com/about/",
       "sameAs": [
         "https://github.com/ShaileshRawat1403",
         "https://www.linkedin.com/in/shailesh-rawat",

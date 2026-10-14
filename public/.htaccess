@@ -180,7 +180,8 @@ RewriteRule ^shelf/movies(/.*)?$ - [G,L]
 RewriteRule ^sentences/sentence-[0-9]+/?$ - [G,L]
 RewriteRule ^systems/simple-tokenizer/?$ - [G,L]
 RewriteRule ^shelf/music/music-recommendation/?$ - [G,L]
-RewriteRule ^scenes/nietzsche\.html$ - [G,L]
+# The retired standalone scene files (old visual register); nothing lives under /scenes/ now.
+RewriteRule ^scenes/ - [G,L]
 RewriteRule ^systems/(mental-frameworks|entity-glossary-for-ai-discoverability)/?$ - [G,L]
 RewriteRule ^tags/(poetry|evolution|movies|narrative|aesthetics)/?$ - [G,L]
 </IfModule>
@@ -216,7 +217,7 @@ RedirectMatch 410 ^/sentences/sentence-[0-9]+/?$
 RedirectMatch 410 ^/systems/simple-tokenizer/?$
 # Retired with no surviving answer (2026-10-10): off-topic scene, and a
 # page the archive disposition left without a successor.
-RedirectMatch 410 ^/scenes/nietzsche\.html$
+RedirectMatch 410 ^/scenes/
 RedirectMatch 410 ^/systems/(mental-frameworks|entity-glossary-for-ai-discoverability)/?$
 RedirectMatch 410 ^/shelf/music/music-recommendation/?$
 </IfModule>

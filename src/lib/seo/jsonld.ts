@@ -116,6 +116,7 @@ export function getArticleSchema({ title, description, path, datePublished, date
     },
     "publisher": {
       "@type": "Organization",
+      "@id": `${SITE_CONFIG.url}/#organization`,
       "name": SITE_CONFIG.name,
       "logo": {
         "@type": "ImageObject",
