@@ -5,9 +5,12 @@ import DaxHeroCinema from "./DaxHeroCinema";
 import RaoTour from "./RaoTour";
 import CrateCascade from "./CrateCascade";
 import CopyCommand from "./CopyCommand";
+import SceneVisual from "../visuals/SceneVisual";
+import ReviewedRunScene from "./ReviewedRunScene";
 
-const PEG_SHA = "494354dc814377be2994292caf4dc577ede0b0b3";
-const RELEASE_URL = "https://github.com/ShaileshRawat1403/dax/releases/tag/v1.4.0";
+const VERSION = "v2.0.1";
+const PEG_SHA = "fe911e57415dcfa9d101bd2584b28d2ea3c84694";
+const RELEASE_URL = `https://github.com/ShaileshRawat1403/dax/releases/tag/${VERSION}`;
 const GITHUB_URL = "https://github.com/ShaileshRawat1403/dax";
 
 const OUTCOMES = [
@@ -28,6 +31,54 @@ const OUTCOMES = [
     title: "Prove trust",
     body: "Audit posture plus tamper-evident ledger checks.",
     accent: "var(--accent-amber)",
+  },
+] as const;
+
+// The steps of the reviewed-run scene, in the v2.0.0 changelog's own terms.
+const REVIEWED_RUN_STEPS = [
+  {
+    id: "propose",
+    tag: "Reviewed run",
+    title: "The run's grant is written down first",
+    body: "What the run may do, before it starts: which tools, which paths, which agents it may delegate to.",
+  },
+  {
+    id: "approve",
+    title: "An operator approves exactly that grant",
+    body: "The approval covers that grant, capability, contract and binding. Remembering it covers only that combination.",
+  },
+  {
+    id: "start",
+    title: "Published, activated, then started",
+    body: "The approved grant is published unchanged, the run is activated against it, and someone starts it. Approval alone does not start a run.",
+  },
+  {
+    id: "refuse",
+    title: "A request outside the grant is refused",
+    body: "The denial is recorded before any effect. If the decision cannot be recorded, the request is refused as well.",
+  },
+];
+
+const ALSO_IN_2 = [
+  {
+    title: "Where everything came from",
+    body: "Delegated tasks, instructions, context and summaries are recorded as commitments, without keeping the conversation text.",
+  },
+  {
+    title: "A cloned repo runs nothing until trusted",
+    body: "A repository's own tool and plugin files wait for dax trust, and approval is bound to their content.",
+  },
+  {
+    title: "Built-ins keep their names",
+    body: "A plugin or MCP tool called read cannot stand in for the built-in read under a contract.",
+  },
+  {
+    title: "Changes over HTTP need a password",
+    body: "Without DAX_SERVER_PASSWORD, the HTTP server is read-only. The local TUI works as before.",
+  },
+  {
+    title: "Claude through an API key (2.0.1)",
+    body: "Native subscription sign-in is retired. The Claude Code worker keeps its own login.",
   },
 ] as const;
 
@@ -117,7 +168,7 @@ export default function DaxLanding() {
           <div className="flex items-center gap-2">
             <span className="h-px w-8 bg-[color:var(--accent-amber)]" />
             <span className="text-[10px] font-mono font-bold uppercase tracking-[0.18em] text-[color:var(--text-muted)]">
-              v1.4.0 · Open source · MIT
+              {VERSION} · Open source · MIT
             </span>
           </div>
           <h1 className="font-heading text-4xl sm:text-[2.65rem] font-black tracking-tight leading-[1.12] text-[color:var(--text-primary)] max-w-[17.5ch]">
@@ -174,6 +225,46 @@ export default function DaxLanding() {
             </GlowCard>
           ))}
         </div>
+      </section>
+
+      {/* What changed in 2.0 */}
+      <section id="two">
+        <p className="dax-section-label">New in 2.0</p>
+        <h2 className="dax-section-title">A run does only what was approved</h2>
+        <p className="dax-section-lede">
+          DAX 2.0 adds reviewed runs: the permissions are approved before the run starts, and anything they do not
+          cover is refused on the record. Scroll through one.
+        </p>
+        <SceneVisual
+          sceneId="dax-reviewed-run"
+          alt="A grant sheet lists read, edit src and run tests. An operator stamps it approved. The run lights up only once it is started. A shell request the grant does not cover is stamped denied, and the ledger records the denial."
+          steps={REVIEWED_RUN_STEPS}
+          drawing={ReviewedRunScene}
+        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mt-10">
+          {ALSO_IN_2.map((item) => (
+            <GlowCard key={item.title} accent="var(--accent-amber)" pad="p-5" className="gap-2">
+              <h3 className="font-heading text-[14.5px] font-bold tracking-tight text-[color:var(--text-primary)]">
+                {item.title}
+              </h3>
+              <p className="text-[13px] leading-relaxed text-[color:var(--text-secondary)]">{item.body}</p>
+            </GlowCard>
+          ))}
+        </div>
+        <p className="mt-6 text-sm text-[color:var(--text-muted)] max-w-[60ch]">
+          Reviewed runs cover a compiled DAX binary and remote MCP servers the operator acknowledges. Plugins, local MCP
+          servers, workers and verifiers cannot be bound in a reviewed run, so they are refused there. Details in
+          the{" "}
+          <a
+            href={`${GITHUB_URL}/blob/${PEG_SHA}/CHANGELOG.md`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[color:var(--accent-amber)] underline-offset-2 hover:underline"
+          >
+            changelog
+          </a>
+          .
+        </p>
       </section>
 
       {/* RAO tour */}
@@ -235,7 +326,7 @@ export default function DaxLanding() {
               >
                 {PEG_SHA}
               </a>{" "}
-              (v1.4.0)
+              ({VERSION})
             </p>
           </div>
           <div className="order-1 lg:order-2">
@@ -249,7 +340,7 @@ export default function DaxLanding() {
         <p className="dax-section-label">Contrast</p>
         <h2 className="dax-section-title">Where DAX sits among peers</h2>
         <p className="dax-section-lede">
-          Same class of tools, different posture on pausing, evidence and replay. As of v1.4.0.
+          Same class of tools, different posture on pausing, evidence and replay. As of {VERSION}.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           {CONTRAST.map((col) => (
@@ -309,7 +400,7 @@ export default function DaxLanding() {
             rel="noopener noreferrer"
             className="text-[color:var(--accent-amber)] underline-offset-2 hover:underline"
           >
-            Download v1.4.0
+            Download {VERSION}
           </a>
           .
         </p>
@@ -366,7 +457,7 @@ export default function DaxLanding() {
             rel="noopener noreferrer"
             className="text-[color:var(--accent-amber)] hover:underline underline-offset-2"
           >
-            Release v1.4.0
+            Release {VERSION}
           </a>
           <a
             href={`${GITHUB_URL}/tree/${PEG_SHA}/docs`}

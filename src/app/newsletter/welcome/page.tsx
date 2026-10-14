@@ -86,7 +86,7 @@ export default function NewsletterWelcomePage() {
                   Repository Evidence &amp; Architecture
                 </h3>
                 <p className="text-xs text-[#55534E] leading-relaxed">
-                  Inspect exact source excerpts and architecture contracts across DAX, Verb, and PaneTera at fixed commit references.
+                  Inspect exact source excerpts and architecture contracts across DAX, LanguageOps and PaneTera at fixed commit references.
                 </p>
               </div>
 
