@@ -84,9 +84,11 @@ interface ArticleInput {
   datePublished?: string;
   dateModified?: string;
   image?: string;
+  /** The article's declared sources (provenance.sources), as schema.org citations. */
+  citations?: { name: string; url: string }[];
 }
 
-export function getArticleSchema({ title, description, path, datePublished, dateModified, image }: ArticleInput) {
+export function getArticleSchema({ title, description, path, datePublished, dateModified, image, citations }: ArticleInput) {
   let cleanPath = path;
   if (cleanPath && !cleanPath.endsWith("/")) {
     cleanPath += "/";
@@ -114,6 +116,9 @@ export function getArticleSchema({ title, description, path, datePublished, date
       "name": SITE_CONFIG.author,
       "url": `${SITE_CONFIG.url}/about/`,
     },
+    ...(citations && citations.length > 0
+      ? { "citation": citations.map((c) => ({ "@type": "CreativeWork", "name": c.name, "url": c.url })) }
+      : {}),
     "publisher": {
       "@type": "Organization",
       "@id": `${SITE_CONFIG.url}/#organization`,

@@ -66,6 +66,16 @@ export default async function SystemsDetailPage({ params }: PageProps) {
   const faqs = system.faq ?? [];
   const proofPoints = system.proofPoints ?? [];
 
+  // Declared sources (provenance.sources), shown to readers and given to
+  // search engines as citations. Repository sources link to the exact file at
+  // the pinned commit, so the link shows what the article was written against.
+  const sources = (system.provenance?.sources ?? []).map((src) => {
+    const isRepo = src.type === "repository" && src.path && src.ref && src.url.startsWith("https://github.com/");
+    const href = isRepo ? `${src.url.replace(/\/$/, "")}/blob/${src.ref}/${src.path}` : src.url;
+    const name = src.citation ?? (isRepo ? `${src.url.replace("https://github.com/", "")}: ${src.path}` : src.url);
+    return { id: src.id, type: src.type, href, name, ref: isRepo ? src.ref!.slice(0, 7) : undefined };
+  });
+
   const articleSchema = getArticleSchema({
     // headline is the article title alone. Appending the site name pushes the
     // headline past what search engines display and repeats the publisher,
@@ -76,6 +86,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
     datePublished: system.publishDate,
     dateModified: system.updatedAt ?? system.publishDate,
     image: system.heroImage,
+    citations: sources.map((src) => ({ name: src.name, url: src.href })),
   });
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", path: "/" },
@@ -253,6 +264,28 @@ export default async function SystemsDetailPage({ params }: PageProps) {
         </section>
       )}
 
+
+      {/* Sources: what the article's claims rest on (provenance.sources). */}
+      {sources.length > 0 && (
+        <section aria-labelledby="article-sources" className="flex flex-col gap-3 border-t border-[color:var(--card-border)] pt-6">
+          <h2 id="article-sources" className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--text-muted)]">
+            Sources
+          </h2>
+          <ol className="m-0 flex flex-col gap-2 pl-5 text-sm leading-relaxed text-[color:var(--text-secondary)]">
+            {sources.map((src) => (
+              <li key={src.id}>
+                <a href={src.href} target="_blank" rel="noopener noreferrer" className="text-[color:var(--text-primary)] underline underline-offset-4 decoration-[color:var(--card-border)] hover:decoration-[color:var(--text-primary)]">
+                  {src.name}
+                </a>
+                <span className="ml-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[color:var(--text-muted)]">
+                  {src.type}
+                  {src.ref ? ` @ ${src.ref}` : ""}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
 
       {/* Slot 10 — evidence. What was built, where, and what it changed. */}
       {system.evidence && (
