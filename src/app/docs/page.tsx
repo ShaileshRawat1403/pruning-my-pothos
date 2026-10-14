@@ -5,14 +5,14 @@ import { getWebPageSchema } from "../../lib/seo/jsonld";
 
 export const metadata = constructMetadata({
   title: "Documentation & Guides",
-  description: "Access reference documentations, design specs, loop architecture layers, and tool status definitions.",
+  description: "Reference documentation for the working model behind Pruning My Pothos: execution loops, the public and private boundary, the systems stack and tool status.",
   path: "/docs"
 });
 
 export default function DocsIntroPage() {
   const schema = getWebPageSchema({
     title: "Documentation & Guides",
-    description: "Access reference documentations, design specs, loop architecture layers, and tool status definitions.",
+    description: "Reference documentation for the working model behind Pruning My Pothos: execution loops, the public and private boundary, the systems stack and tool status.",
     path: "/docs"
   });
 

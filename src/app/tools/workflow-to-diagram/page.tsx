@@ -5,14 +5,14 @@ import { getSoftwareAppSchema } from "../../../lib/seo/jsonld";
 
 export const metadata = constructMetadata({
   title: "Workflow ➔ Diagram",
-  description: "Generate visual Mermaid.js flowcharts and structured JSON graph nodes directly from raw text process steps.",
+  description: "Turn written process steps, including if/else branches, into a Mermaid flowchart you can export. A deterministic parser in your browser, with no model involved.",
   path: "/tools/workflow-to-diagram"
 });
 
 export default function WorkflowToDiagramPage() {
   const schema = getSoftwareAppSchema({
     name: "Workflow ➔ Diagram",
-    description: "Generate visual Mermaid.js flowcharts and structured JSON graph nodes directly from raw text process steps.",
+    description: "Turn written process steps, including if/else branches, into a Mermaid flowchart you can export. A deterministic parser in your browser, with no model involved.",
     path: "/tools/workflow-to-diagram"
   });
 

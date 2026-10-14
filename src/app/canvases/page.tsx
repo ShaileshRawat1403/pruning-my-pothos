@@ -4,14 +4,14 @@ import { getWebPageSchema } from "../../lib/seo/jsonld";
 
 export const metadata = constructMetadata({
   title: "Visual Canvases",
-  description: "Visual blueprints and system workflow transition canvases for governing agent-assisted engineering loops.",
+  description: "Worksheets for planning AI work: an evaluation loop canvas for inputs, assertions and ledgers, and a context partitioning canvas for sandbox boundaries.",
   path: "/canvases"
 });
 
 export default function CanvasesIndexPage() {
   const schema = getWebPageSchema({
     title: "Visual Canvases",
-    description: "Visual blueprints and system workflow transition canvases for governing agent-assisted engineering loops.",
+    description: "Worksheets for planning AI work: an evaluation loop canvas for inputs, assertions and ledgers, and a context partitioning canvas for sandbox boundaries.",
     path: "/canvases"
   });
 

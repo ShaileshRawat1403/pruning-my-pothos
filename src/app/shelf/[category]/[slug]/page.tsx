@@ -25,12 +25,23 @@ export function generateStaticParams() {
   });
 }
 
-// The item's description, filled out from its body, or for a deck or kit with
-// little body text, from the list of what it covers.
+// The item's description, filled out from its body, or for a deck or list with
+// little running text, from what it covers, the references it lists, or its
+// related reading.
 function shelfDescription(item: (typeof allShelves)[number]): string {
   const filled = fillDescription(item.description, item.content);
   const highlights = (item.resourceHighlights ?? []).map((h) => (/^[A-Z][a-z]/.test(h) ? h.charAt(0).toLowerCase() + h.slice(1) : h));
-  return filled.length < 120 && highlights.length ? listDescription(item.description, highlights, "Covers") : filled;
+  if (filled.length >= 120) return filled;
+  // Linked list items in the body: references it lists, and related reading.
+  const links = [...item.content.matchAll(/^\s*[-*]\s+\[([^\]]+)\]\(/gm)].map((m) => m[1]);
+  const listed = links.filter((t) => !/^Related\b/i.test(t));
+  const related = links.filter((t) => /^Related\b/i.test(t)).map((t) => t.replace(/^Related[^:]*:\s*/i, ""));
+  for (const [entries, label] of [[highlights, "Covers"], [listed, "Lists"], [related, "Related:"]] as const) {
+    if (!entries.length) continue;
+    const listedDesc = listDescription(item.description, [...entries], label);
+    if (listedDesc.length > filled.length) return listedDesc;
+  }
+  return filled;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

@@ -5,14 +5,14 @@ import { getSoftwareAppSchema } from "../../../lib/seo/jsonld";
 
 export const metadata = constructMetadata({
   title: "CSV ➔ Eval Dataset",
-  description: "Convert raw query-response CSV tables into structured JSONL validation datasets and evaluation rubrics.",
+  description: "Turn a CSV of queries, responses and expected answers into JSONL evaluation data, in your browser. It formats and labels; it does not run a model or grade.",
   path: "/tools/csv-to-eval"
 });
 
 export default function CsvToEvalPage() {
   const schema = getSoftwareAppSchema({
     name: "CSV ➔ Eval Dataset",
-    description: "Convert raw query-response CSV tables into structured JSONL validation datasets and evaluation rubrics.",
+    description: "Turn a CSV of queries, responses and expected answers into JSONL evaluation data, in your browser. It formats and labels; it does not run a model or grade.",
     path: "/tools/csv-to-eval"
   });
 

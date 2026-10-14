@@ -155,15 +155,18 @@ Fixed in this pass:
 Owner-side, in the tools:
 - Bing Webmaster Tools: verified (316 impressions, 7 Jul to 14 Oct). Its
   short-description warning is handled in code (below).
-- GA4: mark file_download (storyboard PDFs) as a key event.
+- GA4: enhanced measurement is on, but GA4 only lets an event be starred as
+  a key event after it has fired once. When file_download shows under Admin,
+  Events, Recent events, star it.
 - Own visits: open any page with ?pmp-owner=on once in each browser and on
   each device; GA4 and Clarity skip that browser from then on, whatever the
   IP. ?pmp-owner=off undoes it.
 
 Meta descriptions under about 120 characters (Bing flags them) are filled out
 from the page's own opening sentences, a deck's highlights, or the titles a
-tag or shelf page lists (src/lib/seo/description.ts). 160 short pages became
-24.
+tag or shelf page lists, or a reference list's entries
+(src/lib/seo/description.ts); ten app pages were rewritten by hand. 160 short
+pages became 3.
 - Core Web Vitals has no field data yet (too few visits); revisit at 1k
   visits a month.
 

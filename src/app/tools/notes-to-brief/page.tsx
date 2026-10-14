@@ -5,14 +5,14 @@ import { getSoftwareAppSchema } from "../../../lib/seo/jsonld";
 
 export const metadata = constructMetadata({
   title: "Code/Notes ➔ PDF Brief",
-  description: "Translate raw notes, snippets, and streams of thought into formal product briefs and markdown documents.",
+  description: "Turn raw notes and snippets into a Markdown brief with Goals, Decisions, Risks and Next Actions headings. Runs in your browser; nothing is sent to a server.",
   path: "/tools/notes-to-brief"
 });
 
 export default function NotesToBriefPage() {
   const schema = getSoftwareAppSchema({
     name: "Code/Notes ➔ PDF Brief",
-    description: "Translate raw notes, snippets, and streams of thought into formal product briefs and markdown documents.",
+    description: "Turn raw notes and snippets into a Markdown brief with Goals, Decisions, Risks and Next Actions headings. Runs in your browser; nothing is sent to a server.",
     path: "/tools/notes-to-brief"
   });
 

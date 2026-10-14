@@ -3,14 +3,14 @@ import { getWebPageSchema } from "../../lib/seo/jsonld";
 
 export const metadata = constructMetadata({
   title: "Technical Marketing Portfolio",
-  description: "Explore developer documentation strategies, GenAI adoption playbooks, and example-driven technical enablement kits.",
+  description: "Technical marketing and enablement work: documentation strategy for GenAI platforms, developer onboarding guides, internal adoption kits and executive narratives.",
   path: "/portfolio"
 });
 
 export default function PortfolioPage() {
   const schema = getWebPageSchema({
     title: "Technical Marketing Portfolio",
-    description: "Explore developer documentation strategies, GenAI adoption playbooks, and example-driven technical enablement kits.",
+    description: "Technical marketing and enablement work: documentation strategy for GenAI platforms, developer onboarding guides, internal adoption kits and executive narratives.",
     path: "/portfolio"
   });
 

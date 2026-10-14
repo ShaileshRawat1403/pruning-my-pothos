@@ -5,14 +5,14 @@ import { getSoftwareAppSchema } from "../../../lib/seo/jsonld";
 
 export const metadata = constructMetadata({
   title: "Repo ➔ Context Pack",
-  description: "Bundle directory structures and workspace config files into structured XML packages for context injection in LLMs.",
+  description: "Wrap file paths, README notes and config in XML tags so an LLM can read a repository's layout as context. Runs in your browser; nothing is uploaded.",
   path: "/tools/repo-context-pack"
 });
 
 export default function RepoContextPackPage() {
   const schema = getSoftwareAppSchema({
     name: "Repo ➔ Context Pack",
-    description: "Bundle directory structures and workspace config files into structured XML packages for context injection in LLMs.",
+    description: "Wrap file paths, README notes and config in XML tags so an LLM can read a repository's layout as context. Runs in your browser; nothing is uploaded.",
     path: "/tools/repo-context-pack"
   });
 

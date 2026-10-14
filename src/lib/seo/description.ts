@@ -64,8 +64,8 @@ export function listDescription(lead: string, titles: string[], label = "Include
   const picked: string[] = [];
   for (const t of titles.map((x) => x.replace(/[.!?]+$/, ""))) {
     const candidate = `${base} ${label} ${[...picked, t].join(", ")}.`;
-    if (candidate.length > MAX) break;
-    picked.push(t);
+    // An entry too long to fit is skipped; a shorter one after it may fit.
+    if (candidate.length <= MAX) picked.push(t);
   }
   return picked.length ? `${base} ${label} ${picked.join(", ")}.` : base;
 }

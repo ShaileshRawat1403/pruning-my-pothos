@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description = "Understand the architecture layers of natural language programming, mapping prompts context, evaluation loops, and governance systems.";
   } else if (slug === "public-private-boundary") {
     title = "Public / Private Boundary";
-    description = "Learn about the boundary splits between public ToolSmith helper utilities and private enterprise execution codeplanes.";
+    description = "Where the public lab ends and private execution begins: which tools are open, browser-native and local-first, and which client configurations stay private.";
   } else if (slug === "tool-status") {
     title = "Tool Status Registry";
     description = "Check the status registry of Systems Bench tools, tracking release stages from live browser sandboxes to planned CLI packages.";
@@ -50,7 +50,7 @@ export default async function DocSubpage({ params }: PageProps) {
     schemaDesc = "Understand the architecture layers of natural language programming, mapping prompts context, evaluation loops, and governance systems.";
   } else if (slug === "public-private-boundary") {
     schemaTitle = "Public / Private Boundary";
-    schemaDesc = "Learn about the boundary splits between public ToolSmith helper utilities and private enterprise execution codeplanes.";
+    schemaDesc = "Where the public lab ends and private execution begins: which tools are open, browser-native and local-first, and which client configurations stay private.";
   } else if (slug === "tool-status") {
     schemaTitle = "Tool Status Registry";
     schemaDesc = "Check the status registry of Systems Bench tools, tracking release stages from live browser sandboxes to planned CLI packages.";

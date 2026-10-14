@@ -8,7 +8,7 @@ import { CURRENT_WORK_PROJECTS } from "../../lib/content/projects";
 export const metadata = constructMetadata({
   title: "Stack",
   description:
-    "The systems being built and tested right now, with repository excerpts and the commit each one was read at.",
+    "The systems being built and tested right now, with repository excerpts and the commit each one was read at, so what you see is what was in the code.",
   path: "/stack",
 });
 
