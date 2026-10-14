@@ -52,3 +52,10 @@ jobs:
           # server after Hostinger pulls a clean checkout.
           force_orphan: true
           commit_message: "deploy: ${{ github.sha }}"
+
+      # Tell Bing and the other IndexNow engines which pages changed. Waits
+      # for Hostinger to serve the key file; never fails the deploy.
+      - name: Notify IndexNow
+        continue-on-error: true
+        timeout-minutes: 15
+        run: node scripts/indexnow.mjs

@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return constructMetadata({
     title: titleMap[category] || `${category} Shelf`,
-    description: `Browse index listings for the ${category} category inside the workspace.`,
+    description: INTROS[category] ?? `The ${category} shelf on Pruning My Pothos.`,
     path: `/shelf/${category}`
   });
 }

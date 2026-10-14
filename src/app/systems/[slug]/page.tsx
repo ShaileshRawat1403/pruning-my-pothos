@@ -46,7 +46,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: system.description,
     image: system.heroImage,
     path: `/systems/${slug}`,
-    ogType: "article"
+    ogType: "article",
+    imageAlt: system.heroImageAlt,
+    publishedTime: system.publishDate,
+    modifiedTime: system.updatedAt ?? system.publishDate,
   });
 }
 

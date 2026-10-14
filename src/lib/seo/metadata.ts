@@ -8,7 +8,14 @@ interface MetadataInput {
   path?: string;
   noindex?: boolean;
   ogType?: "website" | "article";
+  imageAlt?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
 }
+
+// Search results show about 60 characters of a title. A long title keeps its
+// words and drops the site name, rather than losing its end to an ellipsis.
+const TITLE_LIMIT = 60;
 
 export function constructMetadata({
   title,
@@ -17,8 +24,12 @@ export function constructMetadata({
   path = "",
   noindex = false,
   ogType = "website",
+  imageAlt,
+  publishedTime,
+  modifiedTime,
 }: MetadataInput = {}): Metadata {
-  const metaTitle = title ? `${title} | ${SITE_CONFIG.name}` : SITE_CONFIG.defaultTitle;
+  const branded = title ? `${title} | ${SITE_CONFIG.name}` : "";
+  const metaTitle = !title ? SITE_CONFIG.defaultTitle : branded.length <= TITLE_LIMIT ? branded : title;
   const metaDesc = description || SITE_CONFIG.defaultDescription;
   // Social platforms (LinkedIn, X, Slack) do not render SVG og:images.
   // PNG variants are generated alongside each SVG cover.
@@ -59,9 +70,11 @@ export function constructMetadata({
       images: [
         {
           url: metaImage,
+          ...(imageAlt ? { alt: imageAlt } : {}),
         },
       ],
       type: ogType,
+      ...(ogType === "article" && publishedTime ? { publishedTime, modifiedTime: modifiedTime ?? publishedTime } : {}),
     },
     twitter: {
       card: "summary_large_image",

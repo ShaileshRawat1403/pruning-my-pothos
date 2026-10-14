@@ -240,4 +240,9 @@ RedirectMatch 410 ^/shelf/music/music-recommendation/?$
   <FilesMatch "\.(css|js|jpe?g|png|gif|svg|webp|avif|ico|woff2?|pdf)$">
     Header set Cache-Control "public, max-age=86400"
   </FilesMatch>
+  # Stylesheets and fonts may be read from other origins. Clarity's heatmaps
+  # fetch the stylesheet to redraw the page; without this they show it unstyled.
+  <FilesMatch "\.(css|woff2?)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
 </IfModule>

@@ -128,3 +128,39 @@ here: a clear comparison question, answered plainly, ranks.
 
 Editorial rules still hold: one page answers one question, no manufactured
 experience, no claims of ranking in copy.
+
+### Site readiness audit (2026-10-14)
+
+Checked against the live site, Search Console, GA4 and Clarity before
+distribution starts.
+
+In place: HTTPS and www redirects to one host; robots.txt open to search and
+AI crawlers; sitemap of 239 URLs with no noindexed page in it; one canonical,
+one h1, Open Graph and Twitter cards on every page; Article, BreadcrumbList,
+WebSite, Organization and Person schema with one author @id; visible sources
+cited in schema; llms.txt (index-led); RSS; 410 for retired URLs; GA4 linked
+to Search Console; Clarity recording.
+
+Fixed in this pass:
+- Titles longer than 60 characters drop the " | Pruning My Pothos" suffix
+  (35 pages were cut off in results).
+- Systems articles carry article:published_time, article:modified_time and
+  og:image:alt.
+- Shelf category pages have real descriptions.
+- Stylesheets and fonts send Access-Control-Allow-Origin, so Clarity heatmaps
+  render styled.
+- IndexNow: the deploy workflow submits pages whose lastmod is in the last
+  three days (scripts/indexnow.mjs, key file in public/).
+
+Owner-side, in the tools:
+- Bing Webmaster Tools: add the site (import from Search Console) and submit
+  the sitemap. Bing feeds Copilot and ChatGPT search.
+- GA4: mark file_download (storyboard PDFs) as a key event; define internal
+  traffic and exclude it. Clarity: exclude your own sessions the same way.
+- Core Web Vitals has no field data yet (too few visits); revisit at 1k
+  visits a month.
+
+Content gaps from queries where the site shows but ranks poorly:
+structured output (positions 60 to 77), embeddings and embedding dimensions
+(30 to 70), "what is prompting" (about 40), Ollama models with tool support
+(30 to 50). Each is a page that exists but does not answer the query directly.
