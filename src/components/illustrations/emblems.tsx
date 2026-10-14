@@ -822,6 +822,48 @@ export const EMBLEMS: Record<string, React.ReactNode> = {
   ),
 
   /* The model: a file of numbers in a glass case. Worshipped accordingly. */
+  /* MCP: one standard power strip, three appliances, one of them smoking. */
+  "what-is-mcp-model-context-protocol": (
+    <g>
+      {floor(500)}
+      {/* The strip and its cable. */}
+      <rect x={150} y={440} width={300} height={44} rx={10} fill="#fff" stroke={D.ink} strokeWidth={5} />
+      {[0, 1, 2, 3].map((i) => (
+        <g key={i}>
+          <rect x={174 + i * 66} y={452} width={30} height={20} rx={4} fill={D.paperDeep} stroke={D.ink} strokeWidth={3} />
+        </g>
+      ))}
+      <text x={300} y={432} textAnchor="middle" className="ill-mono" fontSize={14} fontWeight={700} fill={D.teal}>MCP</text>
+      <path d="M450 462 C 480 462, 490 480, 498 496" {...LINE} strokeWidth={4} />
+      {/* Plugged in: a lamp, a filing box, a toaster. */}
+      <path d="M189 452 C 189 400, 200 380, 210 360" {...LINE} strokeWidth={3} />
+      <path d="M190 360 H240 L226 320 H204 Z" fill="#F6E7A8" stroke={D.ink} strokeWidth={4} strokeLinejoin="round" />
+      <path d="M215 360 V400" {...LINE} strokeWidth={4} />
+      <path d="M255 452 C 255 420, 270 410, 290 400" {...LINE} strokeWidth={3} />
+      <rect x={280} y={330} width={80} height={70} fill={D.teal} stroke={D.ink} strokeWidth={4} />
+      <text x={320} y={370} textAnchor="middle" className="ill-mono" fontSize={12} fontWeight={700} fill="#fff">FILES</text>
+      <path d="M321 452 C 321 430, 360 420, 380 410" {...LINE} strokeWidth={3} />
+      <rect x={370} y={350} width={100} height={60} rx={10} fill={D.accent} stroke={D.ink} strokeWidth={4} />
+      <rect x={388} y={340} width={24} height={12} fill={D.ink} />
+      <rect x={426} y={340} width={24} height={12} fill={D.ink} />
+      <g className="fx-smoke">
+        <path d="M400 330 q -14 -24 0 -46 q 14 -22 0 -44" fill="none" stroke={D.greyLight} strokeWidth={5} strokeLinecap="round" />
+        <path d="M440 330 q -14 -24 0 -46" fill="none" stroke={D.greyLight} strokeWidth={5} strokeLinecap="round" opacity={0.7} />
+      </g>
+      {/* The person, holding the next plug. */}
+      <Legs x={90} y={350} floor={496} />
+      <Torso x={90} y={220} w={110} h={140} fill={D.grey} />
+      <g className="fx-reader"><Head x={90} y={166} r={44} eyes="sleepy" look={1} mouth="flat" stubble hair="sides" /></g>
+      <Limb d="M140 260 C 160 250, 172 236, 178 220" />
+      <g className="fx-plug">
+        <rect x={170} y={196} width={22} height={28} rx={4} fill="#fff" stroke={D.ink} strokeWidth={3.5} />
+        <path d="M176 196 V184 M186 196 V184" stroke={D.ink} strokeWidth={3} strokeLinecap="round" />
+      </g>
+      <g className="fx-label">{hand(330, 110, "fits every socket.", 26, D.ink)}</g>
+      <g className="fx-warn">{hand(330, 146, "(reads the label anyway)", 22, D.greyLight)}</g>
+    </g>
+  ),
+
   "what-an-ai-model-actually-is": (
     <g>
       {floor(500)}

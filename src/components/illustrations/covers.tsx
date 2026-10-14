@@ -50,6 +50,7 @@ export const COVERS: Record<string, CoverSpec> = {
   "training-vs-inference": { quip: "Pressed once. Played forever." },
   "what-a-system-prompt-actually-is": { quip: "House rules. Homework's your problem." },
   "what-an-ai-model-actually-is": { quip: "A file of numbers. Worshipped accordingly." },
+  "what-is-mcp-model-context-protocol": { quip: "Standard plug. Unknown appliance." },
   "why-ocr-quietly-breaks-document-ai": { quip: "Garbage in. Confidently out." },
 };
 

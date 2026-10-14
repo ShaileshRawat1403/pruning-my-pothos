@@ -1,0 +1,136 @@
+---
+schemaVersion: "1.0"
+title: "What Is MCP? The Model Context Protocol in Plain Terms"
+seoTitle: "What Is MCP (Model Context Protocol)? Hosts, Clients, Servers"
+publishDate: "2026-10-14"
+description: "MCP is an open protocol for connecting AI applications to tools and data. What its hosts, clients and servers do, what a server can offer, and what the protocol leaves to you."
+category: "How-things-fit-together"
+heroImage: '/covers/systems/what-is-mcp-model-context-protocol.png'
+heroImageAlt: 'One standard power strip with several appliances plugged in, one of them smoking'
+tags:
+  - tools
+  - mcp
+  - integration
+contentType: 'technical'
+readingTime: 5
+difficulty: 'beginner'
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Say what MCP standardises, name the host, client and server in a setup you are looking at, and know which safety decisions the protocol leaves to the application."
+thesis: "MCP standardises how an AI application connects to tools and data; it does not decide which of those connections are safe to use, which stays the application's job."
+shortAnswer: "MCP, the Model Context Protocol, is an open protocol that gives AI applications one standard way to connect to tools and data. The application (the host) runs a client for each connection; each client talks to a server that offers resources, prompt templates or tools, using JSON-RPC messages. It standardises the plumbing, not the judgement: the specification says the protocol cannot enforce its security principles itself, so consent, access control and checks stay with the application."
+
+boundary:
+  is: "A beginner's map of what MCP is, its three roles, and what a server can offer."
+  isNot: "A setup guide for any particular client or server, a list of available servers, or a treatment of runtime policy design."
+  mattersWhen: "Someone proposes connecting an AI application to internal tools or data through MCP."
+
+provenance:
+  primary: synthesis
+  sources:
+    - id: mcp-spec
+      type: external
+      url: "https://modelcontextprotocol.io/specification/2026-07-28"
+      citation: "Model Context Protocol Specification, version 2026-07-28"
+  claims:
+    - statement: "MCP is an open protocol for connecting AI applications to external data sources and tools."
+      kind: external
+      sources:
+        - mcp-spec
+    - statement: "MCP messages are JSON-RPC 2.0, exchanged between hosts, clients and servers."
+      kind: external
+      sources:
+        - mcp-spec
+    - statement: "The specification says MCP cannot enforce its security principles at the protocol level."
+      kind: external
+      sources:
+        - mcp-spec
+    - statement: "A standard way to connect a tool says nothing about whether calling that tool is a good idea."
+      kind: synthesis
+
+visuals:
+  - id: host-client-server
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "The host is the application you use; it runs one client per server it connects to."
+    caption: "Three roles, named in the specification."
+    alt: "A sequence of the three MCP roles: the host, the AI application that starts connections; a client inside the host, one per connection; and a server, a service that offers resources, prompts or tools."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: host
+          label: "Host: the AI application"
+          note: "Starts the connections."
+        - id: client
+          label: "Client: a connector inside the host"
+          note: "One per server."
+        - id: server
+          label: "Server: a service with something to offer"
+          note: "Resources, prompts or tools."
+  - id: what-mcp-leaves-to-you
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "MCP standardises the connection; consent, access control and checks stay with the application."
+    caption: "The specification says the protocol cannot enforce its security principles itself."
+    alt: "A boundary between what MCP standardises, the message format, the roles and how tools, resources and prompts are offered, and what it leaves to the application: asking the user before a tool runs, deciding what data a server may see, and treating tool descriptions as untrusted."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "What the protocol covers"
+      inside:
+        label: "Standardised by MCP"
+        items:
+          - "The message format (JSON-RPC)"
+          - "The roles: host, client, server"
+          - "How tools, resources and prompts are offered"
+      outside:
+        label: "Left to the application"
+        items:
+          - "Asking the user before a tool runs"
+          - "What data each server may see"
+          - "Treating tool descriptions as untrusted"
+---
+
+Connecting an AI application to your files, a database and a ticket system used to mean three custom integrations, each written differently. MCP, the Model Context Protocol, is an attempt to make that one kind of connection instead.
+
+**MCP is an open protocol for connecting AI applications to external data sources and tools.** The specification compares it to the Language Server Protocol, which did the same job for programming-language support in code editors: one way to plug things in, so each tool does not need a custom adapter for each application.
+
+## The three roles
+
+Every MCP setup has the same three parts, and naming them is most of understanding it.
+
+**MCP messages are JSON-RPC 2.0, exchanged between hosts, clients and servers.**
+
+- **The host** is the AI application you are using: a chat app, an editor with an assistant, an agent runtime. It starts the connections.
+- **A client** is the connector inside the host. The host runs one for each server it talks to.
+- **A server** is a service that offers something: access to a file system, a database, an issue tracker.
+
+<!-- pmp:visual id="host-client-server" -->
+
+So "installing an MCP server" means giving your host one more thing to connect to. The server can run on your machine or somewhere else.
+
+## What a server can offer
+
+A server can offer three kinds of thing:
+
+- **Resources:** context and data, such as files or records, for the user or the model to use.
+- **Prompts:** templated messages and workflows a user can pick.
+- **Tools:** functions the model can ask to run.
+
+The traffic is not only one way. A server can ask the host for things too, for example asking the user for a missing piece of information.
+
+Tools are the part that changes things in the world, and they work the way [tool use](/systems/tool-use-when-language-triggers-actions/) always works: the model produces a request, and software decides whether it runs. MCP standardises how the host finds the tool and calls it. It does not make the decision.
+
+## What MCP leaves to you
+
+**The specification says MCP cannot enforce its security principles at the protocol level.** It sets out what implementers should do: ask the user before any tool runs, ask before exposing user data to a server, and treat tools as what they are, a path to running arbitrary code. It also warns that a server's description of its own tools should be treated as untrusted unless the server is.
+
+**A standard way to connect a tool says nothing about whether calling that tool is a good idea.** That judgement lives in the host: which servers it trusts, what each may reach, and what needs a person's yes.
+
+<!-- pmp:visual id="what-mcp-leaves-to-you" -->
+
+Where that line should be drawn, and why a rule written into a prompt is not one of the bounds, is [trust boundaries for tool execution](/systems/policy-governed-mcp-runtimes-for-secure-tool-execution/). What happens between a request and its effect is [from agent intent to governed execution](/systems/from-agent-intent-to-governed-execution/).
+
+## What this changes
+
+When someone proposes adding an MCP server, the protocol question is already answered. The questions left are the ones MCP hands back: what this server can reach, who said yes to that, and what the host checks before a tool runs.

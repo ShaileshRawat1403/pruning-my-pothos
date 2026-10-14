@@ -1,22 +1,23 @@
 {
   "schemaVersion": "1.1",
   "scope": "src/content/systems",
-  "sourceCount": 59,
+  "sourceCount": 60,
   "dispositionTotals": {
     "KEEP-REWRITE": 19,
     "KEEP-STRIP": 3,
     "MERGE": 21,
     "MOVE-TO-SHELF": 0,
     "REDUCE-TO-NOTE": 6,
-    "RETIRE": 10
+    "RETIRE": 10,
+    "NEW": 1
   },
   "statusTotals": {
-    "implemented": 59,
+    "implemented": 60,
     "pending": 0,
     "structural-pending": 0
   },
   "redirectStatusTotals": {
-    "not-applicable": 28,
+    "not-applicable": 29,
     "resolved": 29,
     "pending": 0,
     "none": 2
@@ -685,6 +686,17 @@
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "what-is-mcp-model-context-protocol",
+      "disposition": "NEW",
+      "destination": null,
+      "redirect": null,
+      "redirectTargetType": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
       "status": "implemented",
       "constraints": []
     }

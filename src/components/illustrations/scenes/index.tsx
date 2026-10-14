@@ -129,6 +129,8 @@ export const SCENES: Record<string, ComponentType<SceneProps>> = {
   "narrow-or-general": dynamic(() => import("./narrow-or-general")),
   "the-stale-snapshot": dynamic(() => import("./the-stale-snapshot")),
   "two-kinds-of-cache": dynamic(() => import("./two-kinds-of-cache")),
+  "host-client-server": dynamic(() => import("./host-client-server")),
+  "what-mcp-leaves-to-you": dynamic(() => import("./what-mcp-leaves-to-you")),
 
   // Works On My Prompt sheets: the steps of a sheet, keyed by its `scene`.
   // Not article visuals, so they stay out of SCENE_IDS.

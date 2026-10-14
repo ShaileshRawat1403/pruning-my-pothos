@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:939c785112089cd81131d336bd6b6a05bf99089755a732d82f1eb3ff6e1ea601
+Content snapshot: sha256:a7e887663cf1c4f8fc67bf1033ffb5768498c6d689bcdb184e73db4cb94113a2
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions
@@ -14,7 +14,7 @@ Status: Read-only diagnostic of the existing article archive.
 
 | Total Articles | Green | Amber | Red | Illustrative |
 | :--- | :--- | :--- | :--- | :--- |
-| 54 | 53 | 0 | 1 | 0 |
+| 55 | 54 | 0 | 1 | 0 |
 
 ## High-Priority Review Queue (Red)
 
@@ -92,5 +92,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [training-vs-inference](../src/content/systems/training-vs-inference.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [what-a-system-prompt-actually-is](../src/content/systems/what-a-system-prompt-actually-is.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [what-an-ai-model-actually-is](../src/content/systems/what-an-ai-model-actually-is.mdx) | 🟢 Green | v1.0 | Yes | Clean |
+| systems | [what-is-mcp-model-context-protocol](../src/content/systems/what-is-mcp-model-context-protocol.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [why-ocr-quietly-breaks-document-ai](../src/content/systems/why-ocr-quietly-breaks-document-ai.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 

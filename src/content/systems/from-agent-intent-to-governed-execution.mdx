@@ -2,7 +2,7 @@
 schemaVersion: "1.0"
 title: "From Agent Intent to Governed Execution"
 publishDate: "2026-03-05"
-updatedAt: "2026-09-20"
+updatedAt: "2026-10-14"
 description: "What has to happen between a model asking for an action and that action changing something real, and which layer owns each failure."
 category: "How-things-fit-together"
 heroImage: '/covers/systems/from-agent-intent-to-governed-execution.png'
@@ -160,6 +160,10 @@ This gets confused with four other things routinely:
 In practice this layer answers questions with concrete answers: is this tool available to this caller, is this resource inside the scope they were granted, does the amount exceed a threshold that requires something extra. Keep those rules in code you can read, separate from the instruction text, because a rule inside a prompt is a request and a rule in the authorization layer is a check.
 
 <!-- pmp:visual id="permission-is-its-own-question" -->
+
+## What bounded autonomy means
+
+Bounded autonomy is the arrangement on this page, given a name. The model has real discretion: it can choose the next step and propose actions nobody scripted in advance. The bounds sit outside it: which tools it may request, what scope and amounts are allowed, and what happens when the answer is unclear. A model that can ask for anything, where only permitted requests become effects, has autonomy within bounds. A prompt asking it to be careful is not a bound. Who chooses the next step in the first place is covered in [AI agents vs AI workflows](/systems/ai-agents-vs-ai-workflows/).
 
 ## When the answer is not obvious
 

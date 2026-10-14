@@ -127,4 +127,6 @@ export const SCENE_IDS = new Set([
   "narrow-or-general",
   "the-stale-snapshot",
   "two-kinds-of-cache",
+  "host-client-server",
+  "what-mcp-leaves-to-you",
 ]);

@@ -2,7 +2,7 @@
 schemaVersion: "1.0"
 title: "Human-in-the-Loop Is a System Design Choice"
 publishDate: "2026-01-14"
-updatedAt: "2026-09-20"
+updatedAt: "2026-10-14"
 description: "Requiring a human decision is easy. Making sure that person can actually decide, with the context, the alternatives and a path after no, is the design work."
 category: "How-things-fit-together"
 heroImage: '/covers/systems/human-in-the-loop-is-a-system-design-choice.png'
@@ -193,6 +193,14 @@ Only the third is oversight in any useful sense.
 The first two are frequently mistaken for it, usually in good faith, because from an architecture diagram they look identical.
 
 <!-- pmp:visual id="present-approval-judgment" -->
+
+## In, on, or out of the loop
+
+Three labels describe where the person sits, and they are often abbreviated as HITL, HOTL and HOOTL.
+
+**Human in the loop (HITL):** the workflow waits for a person before the step goes ahead. **Human on the loop (HOTL):** the system acts on its own while a person watches and can step in or stop it. **Human out of the loop (HOOTL):** no person in the running path; review, if any, happens afterwards.
+
+The labels say where the person is. They do not say whether that person can judge. A human in the loop who cannot say no is closer to a notification than to a decision, which is the test the rest of this page applies.
 
 ## Is the decision still open?
 

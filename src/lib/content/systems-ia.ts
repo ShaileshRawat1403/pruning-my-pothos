@@ -41,6 +41,7 @@ const PLACEMENT: Record<string, { companions: string[]; notes: string[] }> = {
     companions: [
       "tool-use-when-language-triggers-actions",
       "ai-agents-vs-ai-workflows",
+      "what-is-mcp-model-context-protocol",
       "policy-governed-mcp-runtimes-for-secure-tool-execution",
     ],
     notes: ["runtime-over-model-why-orchestration-is-the-product"],
