@@ -7,14 +7,14 @@ import { renderMarkdown } from "../../lib/markdown";
 
 export const metadata = constructMetadata({
   title: "Sentiments Index",
-  description: "A calm, reading-first index of conceptual maps, reflections, and notes detailing the Sentiments workspace.",
+  description: "A reading-first index of the Sentiments workspace: the conceptual maps, reflections and notes behind the Sans Serif Sentiments voice.",
   path: "/sentiments"
 });
 
 export default function SentimentsIndexPage() {
   const schema = getWebPageSchema({
     title: "Sentiments Index",
-    description: "A calm, reading-first index of conceptual maps, reflections, and notes detailing the Sentiments workspace.",
+    description: "A reading-first index of the Sentiments workspace: the conceptual maps, reflections and notes behind the Sans Serif Sentiments voice.",
     path: "/sentiments"
   });
 

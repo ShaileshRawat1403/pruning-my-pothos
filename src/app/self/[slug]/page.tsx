@@ -2,6 +2,7 @@ import { allSelves } from "content-collections";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Metadata } from "next";
+import { fillDescription } from "../../../lib/seo/description";
 import { constructMetadata } from "../../../lib/seo/metadata";
 import { getBreadcrumbSchema, getWebPageSchema } from "../../../lib/seo/jsonld";
 import { renderArticleSegments } from "../../../lib/visual-segments";
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return constructMetadata({
     title: selfItem.title,
-    description: selfItem.description,
+    description: fillDescription(selfItem.description, selfItem.content),
     image: selfItem.heroImage,
     path: `/self/${slug}`,
     ogType: "article"

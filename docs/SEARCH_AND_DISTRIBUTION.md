@@ -153,10 +153,17 @@ Fixed in this pass:
   three days (scripts/indexnow.mjs, key file in public/).
 
 Owner-side, in the tools:
-- Bing Webmaster Tools: add the site (import from Search Console) and submit
-  the sitemap. Bing feeds Copilot and ChatGPT search.
-- GA4: mark file_download (storyboard PDFs) as a key event; define internal
-  traffic and exclude it. Clarity: exclude your own sessions the same way.
+- Bing Webmaster Tools: verified (316 impressions, 7 Jul to 14 Oct). Its
+  short-description warning is handled in code (below).
+- GA4: mark file_download (storyboard PDFs) as a key event.
+- Own visits: open any page with ?pmp-owner=on once in each browser and on
+  each device; GA4 and Clarity skip that browser from then on, whatever the
+  IP. ?pmp-owner=off undoes it.
+
+Meta descriptions under about 120 characters (Bing flags them) are filled out
+from the page's own opening sentences, a deck's highlights, or the titles a
+tag or shelf page lists (src/lib/seo/description.ts). 160 short pages became
+24.
 - Core Web Vitals has no field data yet (too few visits); revisit at 1k
   visits a month.
 

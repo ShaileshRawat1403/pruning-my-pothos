@@ -2,6 +2,7 @@ import { allShelves } from "content-collections";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Metadata } from "next";
+import { fillDescription, listDescription } from "../../../../lib/seo/description";
 import { constructMetadata } from "../../../../lib/seo/metadata";
 import { getBreadcrumbSchema, getWebPageSchema } from "../../../../lib/seo/jsonld";
 import { renderMarkdown } from "../../../../lib/markdown";
@@ -24,6 +25,14 @@ export function generateStaticParams() {
   });
 }
 
+// The item's description, filled out from its body, or for a deck or kit with
+// little body text, from the list of what it covers.
+function shelfDescription(item: (typeof allShelves)[number]): string {
+  const filled = fillDescription(item.description, item.content);
+  const highlights = (item.resourceHighlights ?? []).map((h) => (/^[A-Z][a-z]/.test(h) ? h.charAt(0).toLowerCase() + h.slice(1) : h));
+  return filled.length < 120 && highlights.length ? listDescription(item.description, highlights, "Covers") : filled;
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { category, slug } = await params;
   const item = allShelves.find(
@@ -35,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return constructMetadata({
     title: item.seoTitle ?? item.title,
-    description: item.description,
+    description: shelfDescription(item),
     image: item.coverUrl,
     path: `/shelf/${category}/${slug}`,
     ogType: "article",

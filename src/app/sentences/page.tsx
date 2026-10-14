@@ -7,14 +7,14 @@ import { getWebPageSchema } from "../../lib/seo/jsonld";
 
 export const metadata = constructMetadata({
   title: "Sentences Archive",
-  description: "A chronological archive of short reflections, principles, and writing on systems design.",
+  description: "Short decision rules and observations on systems, language and attention: one idea per page, with the reasoning behind it.",
   path: "/sentences"
 });
 
 export default function SentencesIndexPage() {
   const schema = getWebPageSchema({
     title: "Sentences Archive",
-    description: "A chronological archive of short reflections, principles, and writing on systems design.",
+    description: "Short decision rules and observations on systems, language and attention: one idea per page, with the reasoning behind it.",
     path: "/sentences"
   });
 

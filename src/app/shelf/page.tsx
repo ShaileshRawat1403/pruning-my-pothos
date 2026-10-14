@@ -7,7 +7,7 @@ import { BUILDER_SECTION } from "../../lib/content/reference-sheets";
 
 export const metadata = constructMetadata({
   title: "Shelf",
-  description: "A curated shelf of local experiments, notes, tools, philosophy, music, and shared AI resources.",
+  description: "The references behind the writing: local experiments run on a laptop, the tools in daily use, shared decks and templates, notes, books and music.",
   path: "/shelf",
   image: "/og-default.png"
 });
@@ -15,7 +15,7 @@ export const metadata = constructMetadata({
 export default function ShelfIndexPage() {
   const schema = getWebPageSchema({
     title: "Shelf | A Thinking Workspace",
-    description: "A curated shelf of local experiments, notes, tools, philosophy, music, and shared AI resources.",
+    description: "The references behind the writing: local experiments run on a laptop, the tools in daily use, shared decks and templates, notes, books and music.",
     path: "/shelf"
   });
 

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import SpotlightCard from "../../../components/SpotlightCard";
 import SectionHeader from "../../../components/SectionHeader";
+import { listDescription } from "../../../lib/seo/description";
 import { constructMetadata } from "../../../lib/seo/metadata";
 import { getWebPageSchema } from "../../../lib/seo/jsonld";
 
@@ -45,7 +46,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return constructMetadata({
     title: titleMap[category] || `${category} Shelf`,
-    description: INTROS[category] ?? `The ${category} shelf on Pruning My Pothos.`,
+    description: listDescription(
+      INTROS[category] ?? `The ${category} shelf on Pruning My Pothos`,
+      allShelves.filter((s) => s._meta.directory === category).map((s) => s.title.replace(/^(Notes\/)?Tools:\s*/i, ""))
+    ),
     path: `/shelf/${category}`
   });
 }

@@ -2,6 +2,7 @@ import { allSentences } from "content-collections";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Metadata } from "next";
+import { fillDescription } from "../../../lib/seo/description";
 import { constructMetadata } from "../../../lib/seo/metadata";
 import { getWebPageSchema } from "../../../lib/seo/jsonld";
 import { renderMarkdown } from "../../../lib/markdown";
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return constructMetadata({
     title: sentence.title,
-    description: sentence.summary,
+    description: fillDescription(sentence.summary, sentence.content),
     path: `/sentences/${slug}`,
     ogType: "article"
   });

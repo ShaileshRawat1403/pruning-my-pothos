@@ -4,14 +4,14 @@ import { getWebPageSchema } from "../../lib/seo/jsonld";
 
 export const metadata = constructMetadata({
   title: "Systems Telemetry",
-  description: "Monitor execution telemetry, ledger updates, and status checks of offline workflow engines.",
+  description: "A sample ledger for runs of the offline workflow engines: status checks and ledger updates. The numbers shown are placeholders until real data arrives.",
   path: "/live-lab"
 });
 
 export default function LiveLabIndexPage() {
   const schema = getWebPageSchema({
     title: "Systems Telemetry",
-    description: "Monitor execution telemetry, ledger updates, and status checks of offline workflow engines.",
+    description: "A sample ledger for runs of the offline workflow engines: status checks and ledger updates. The numbers shown are placeholders until real data arrives.",
     path: "/live-lab"
   });
 

@@ -15,11 +15,16 @@
  *   elsewhere. A stored choice from ConsentBanner overrides the default on
  *   every page.
  * ConsentBanner asks once and calls window.pmpConsent(granted).
+ *
+ * The owner's own visits: opening any page with ?pmp-owner=on marks that
+ * browser (localStorage), and it is never measured again; ?pmp-owner=off
+ * undoes it. Done once per browser and device, it holds when the IP changes.
  */
 const GA_ID = "G-EQ4JMFY925";
 const CLARITY_ID = "lqscm7xayr";
 const HOST = "pruningmypothos.com";
 const CONSENT_KEY = "pmp-consent";
+const OWNER_KEY = "pmp-owner";
 
 // EU member states, plus Iceland, Liechtenstein, Norway, the UK and Switzerland.
 const STRICT_REGIONS = ["AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE", "IS", "LI", "NO", "GB", "CH"];
@@ -42,7 +47,15 @@ function gtag(){dataLayer.push(arguments);}
     if (window.clarity) window.clarity("consentv2", { ad_Storage: "denied", analytics_Storage: v });
   };
 
-  if (location.hostname !== "${HOST}") return;
+  var owner = null;
+  try {
+    var flag = new URLSearchParams(location.search).get("${OWNER_KEY}");
+    if (flag === "on") localStorage.setItem("${OWNER_KEY}", "1");
+    if (flag === "off") localStorage.removeItem("${OWNER_KEY}");
+    owner = localStorage.getItem("${OWNER_KEY}");
+  } catch (e) {}
+
+  if (location.hostname !== "${HOST}" || owner) return;
   gtag("js", new Date());
   gtag("config", "${GA_ID}");
   (function (c, l, a, r, i, t, y) {

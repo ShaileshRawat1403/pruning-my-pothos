@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import SpotlightCard from "../../../components/SpotlightCard";
 import { slugifyTag } from "../../../lib/tags";
+import { listDescription } from "../../../lib/seo/description";
 import { constructMetadata } from "../../../lib/seo/metadata";
 import { getWebPageSchema } from "../../../lib/seo/jsonld";
 
@@ -65,9 +66,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!matchedLabel) return {};
 
   // How many pieces actually sit behind this tag, across every collection.
-  const itemCount = [
+  const tagged = [
     ...allSystems, ...allSentences, ...allSelves, ...allShelves,
-  ].filter((item) => (item.tags || []).some((t) => slugifyTag(t) === tag)).length;
+  ].filter((item) => (item.tags || []).some((t) => slugifyTag(t) === tag));
+  const itemCount = tagged.length;
 
   // A hub with real depth is a page worth indexing. A tag used once is a
   // duplicate of the single article behind it, and 202 of those were being
@@ -80,7 +82,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ? `${matchedLabel}: articles and notes`
       : `Tag: #${matchedLabel}`,
     description: isHub
-      ? `Everything on ${matchedLabel}: explanations, workflows and what was learned building with it.`
+      ? listDescription(`${itemCount} pages on ${matchedLabel}`, tagged.map((item) => item.title))
       : `Browse all articles, essays, and notes tagged with #${matchedLabel}.`,
     path: `/tags/${tag}`,
     noindex: !isHub

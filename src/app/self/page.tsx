@@ -9,14 +9,14 @@ import { SELF_LINES } from "../../lib/content/plates";
 
 export const metadata = constructMetadata({
   title: "Self Calibrations",
-  description: "A chronological archive of personal calibrations, mental models, and reflections.",
+  description: "Essays on practice, judgment and learning in public: personal calibrations, mental models and the small rituals that keep the work steady.",
   path: "/self"
 });
 
 export default function SelvesIndexPage() {
   const schema = getWebPageSchema({
     title: "Self Calibrations",
-    description: "A chronological archive of personal calibrations, mental models, and reflections.",
+    description: "Essays on practice, judgment and learning in public: personal calibrations, mental models and the small rituals that keep the work steady.",
     path: "/self"
   });
 

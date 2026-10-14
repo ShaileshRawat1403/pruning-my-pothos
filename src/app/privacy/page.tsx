@@ -4,7 +4,7 @@ import CookieSettingsLink from "../../components/CookieSettingsLink";
 
 export const metadata = constructMetadata({
   title: "Privacy",
-  description: "What Pruning My Pothos measures, with which tools, and how to say no.",
+  description: "What Pruning My Pothos measures and how to say no: Google Analytics and Microsoft Clarity, consent asked by region, and no ads.",
   path: "/privacy",
 });
 
