@@ -120,9 +120,9 @@ here: a clear comparison question, answered plainly, ranks.
 ### How the work is done (from 2026-10-15)
 
 `docs/GROWTH_TRACK.md` holds the weekly loop, the cadence (2 pages a week,
-distribution packs for the owner to post, a fortnightly newsletter, a
-monthly flagship and review) and the keyword map. This file keeps the goal,
-the checkpoints and the audit history.
+discussed and published in a session; no automation; distribution is the
+owner's) and the keyword map. This file keeps the goal, the checkpoints and
+the audit history.
 
 ### Phase 2: a repeatable engine (2027)
 
