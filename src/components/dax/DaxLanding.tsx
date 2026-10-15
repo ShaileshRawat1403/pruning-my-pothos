@@ -140,19 +140,19 @@ const INSTALL_BLOCKS = [
 
 const EVIDENCE = [
   {
-    src: "/images/dax/start-here-01-home.jpg",
-    alt: "The DAX home screen, where a run starts",
-    caption: "Home: where a run starts",
+    src: "/images/dax/v2-home.jpg",
+    alt: "The DAX 2.0 home screen: the DAX wordmark, project, branch and model, the ask box, and quick-start actions to plan a fix, explore the repo or read the docs",
+    caption: "Home: project, branch, model and the ask box",
   },
   {
-    src: "/images/dax/non-dev-02-rao-approval.jpg",
-    alt: "A DAX approval prompt pausing a risky action",
-    caption: "Approval: a risky action, paused",
+    src: "/images/dax/v2-worker-contract.jpg",
+    alt: "The card DAX shows before it launches a governed worker: agent, task, risk, isolation, allowed network hosts, write scope, forbidden paths and the verify command, then Enter to start or Ctrl-C to abort",
+    caption: "A worker's contract, shown before it starts",
   },
   {
-    src: "/images/dax/non-dev-03-diff-before-approval.jpg",
-    alt: "A diff shown for review before approval",
-    caption: "The diff, shown before approval",
+    src: "/images/dax/v2-connect.jpg",
+    alt: "The DAX connect dialog, offering a governed worker that uses a signed-in account and core model providers",
+    caption: "Connect a model or a governed worker",
   },
 ] as const;
 
@@ -411,7 +411,7 @@ export default function DaxLanding() {
         <p className="dax-section-label">Evidence stills</p>
         <h2 className="dax-section-title">What the workstation looks like</h2>
         <p className="dax-section-lede">
-          Screens from the product: the home screen, an approval, and a diff before approval.
+          Screens from DAX 2.0.1, captured from the release binary in a sample repo: the home screen, a worker&rsquo;s contract before launch, and the connect dialog.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {EVIDENCE.map((e) => (
@@ -419,15 +419,18 @@ export default function DaxLanding() {
               key={e.src}
               className="m-0 rounded-[4px] border border-[color:var(--card-border)] bg-[color:var(--card-bg)] overflow-hidden hover:border-[color:var(--accent-amber)] transition-colors"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={e.src}
-                alt={e.alt}
-                width={800}
-                height={500}
-                className="block w-full h-auto aspect-[16/10] object-cover object-top bg-[color:var(--bg-elevated)]"
-                loading="lazy"
-              />
+              {/* Opens full size: terminal text is too small to read in the thumbnail. */}
+              <a href={e.src} target="_blank" rel="noopener noreferrer" className="block" aria-label={`${e.caption} (full size)`}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={e.src}
+                  alt={e.alt}
+                  width={800}
+                  height={500}
+                  className="block w-full h-auto aspect-[16/10] object-cover object-top bg-[color:var(--bg-elevated)]"
+                  loading="lazy"
+                />
+              </a>
               <figcaption className="font-mono text-[11px] text-[color:var(--text-muted)] px-3.5 py-2.5 border-t border-[color:var(--card-border)]">
                 {e.caption}
               </figcaption>
