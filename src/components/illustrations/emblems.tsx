@@ -864,6 +864,74 @@ export const EMBLEMS: Record<string, React.ReactNode> = {
     </g>
   ),
 
+  /* Forward deployed: the consultant is inside the customer's building; the
+     slide deck waits, unopened, in the lobby. */
+  "what-is-a-forward-deployed-consultant": (
+    <g>
+      {floor(500)}
+      {/* The customer's building: wall and door on the right. */}
+      <path d="M220 500 V150 H500" fill="none" stroke={D.ink} strokeWidth={5} strokeLinejoin="round" />
+      <rect x={232} y={330} width={70} height={170} fill={D.paperDeep} stroke={D.ink} strokeWidth={4} />
+      <circle cx={290} cy={420} r={5} fill={D.ink} />
+      <text x={360} y={190} textAnchor="middle" className="ill-mono" fontSize={14} fontWeight={700} fill={D.greyLight}>CUSTOMER</text>
+      {/* Inside: the consultant, laptop under one arm, at a whiteboard. */}
+      <rect x={330} y={220} width={150} height={90} fill="#fff" stroke={D.ink} strokeWidth={4} />
+      <path d="M346 246 H384 M400 246 H438 M346 282 H420" stroke={D.greyLight} strokeWidth={4} strokeLinecap="round" />
+      <path d="M392 260 L414 272" stroke={D.accent} strokeWidth={4} strokeLinecap="round" />
+      <Legs x={400} y={420} floor={496} />
+      <Torso x={400} y={330} w={86} h={100} fill={D.accent} />
+      <g className="fx-consultant"><Head x={400} y={290} r={34} eyes="sleepy" look={-1} mouth="flat" hair="sides" /></g>
+      <rect x={434} y={360} width={48} height={8} fill={D.ink} />
+      <rect x={438} y={340} width={40} height={22} fill="#fff" stroke={D.ink} strokeWidth={3} />
+      {/* The lobby: an easel with the deck, unopened, a cobweb on it. */}
+      <path d="M70 500 L110 330 L150 500 M110 330 V500" {...LINE} strokeWidth={4} />
+      <rect x={52} y={300} width={116} height={86} fill="#fff" stroke={D.ink} strokeWidth={4} />
+      <text x={110} y={350} textAnchor="middle" className="ill-mono" fontSize={18} fontWeight={700} fill={D.ink}>DECK</text>
+      <g className="fx-cobweb">
+        <path d="M168 300 L140 300 M168 300 L168 328 M168 300 L146 322 M150 300 Q156 312 168 312 M160 300 Q160 318 168 320" fill="none" stroke={D.greyLight} strokeWidth={2} />
+      </g>
+      <g className="fx-label">{hand(110, 268, "the deck can wait.", 24, D.grey)}</g>
+    </g>
+  ),
+
+  /* Bounded autonomy: the dog runs anywhere it likes inside the fence; the
+     owner reads the paper outside it. */
+  "what-is-bounded-autonomy": (
+    <g>
+      {floor(500)}
+      {/* The fence. */}
+      <path d="M20 330 H480 M20 360 H480" stroke={D.ink} strokeWidth={4} />
+      {Array.from({ length: 10 }, (_, i) => (
+        <path key={i} d={`M${30 + i * 50} 300 V420`} stroke={D.ink} strokeWidth={5} strokeLinecap="round" />
+      ))}
+      {/* Inside the fence, further back: the dog, mid-run, with its path. */}
+      <path d="M60 280 C 140 180, 240 250, 300 170 C 340 120, 420 160, 440 230" fill="none" stroke={D.greyLight} strokeWidth={4} strokeDasharray="8 8" />
+      <g className="fx-dog">
+        {/* Body, legs mid-stride, tail up. */}
+        <ellipse cx={300} cy={204} rx={50} ry={20} fill={D.paperDeep} stroke={D.ink} strokeWidth={4} />
+        <path d="M262 214 L246 240 M282 220 L290 246 M318 220 L332 244 M336 212 L356 236" stroke={D.ink} strokeWidth={5} strokeLinecap="round" />
+        <path d="M252 196 C 236 182, 232 166, 240 154" fill="none" stroke={D.ink} strokeWidth={5} strokeLinecap="round" />
+        {/* Head with a long snout and a floppy ear. */}
+        <ellipse cx={354} cy={182} rx={22} ry={18} fill={D.paperDeep} stroke={D.ink} strokeWidth={4} />
+        <path d="M368 176 C 386 176, 396 184, 396 192 C 390 198, 374 198, 366 194" fill={D.paperDeep} stroke={D.ink} strokeWidth={4} strokeLinejoin="round" />
+        <circle cx={396} cy={190} r={4} fill={D.ink} />
+        <circle cx={360} cy={176} r={3} fill={D.ink} />
+        <path d="M344 168 C 334 172, 332 190, 340 198" fill={D.ink} stroke={D.ink} strokeWidth={3} />
+        <path d="M384 200 C 386 210, 380 214, 376 206" fill={D.accent} stroke={D.ink} strokeWidth={2} />
+      </g>
+      {/* Outside, in front: the bench and the owner reading. */}
+      <path d="M120 470 H300 M140 470 V500 M280 470 V500" stroke={D.ink} strokeWidth={5} strokeLinecap="round" />
+      <Torso x={210} y={416} w={80} h={56} fill={D.grey} />
+      <Head x={210} y={384} r={28} eyes="sleepy" look={1} mouth="flat" stubble hair="sides" />
+      <g className="fx-paper">
+        <rect x={172} y={430} width={110} height={44} fill="#fff" stroke={D.ink} strokeWidth={3.5} />
+        <path d="M184 444 H268 M184 458 H254" stroke={D.greyLight} strokeWidth={3} strokeLinecap="round" />
+      </g>
+      <g className="fx-label">{hand(250, 80, "goes anywhere it likes.", 26, D.ink)}</g>
+      <g className="fx-aside">{hand(250, 114, "(inside the fence)", 22, D.greyLight)}</g>
+    </g>
+  ),
+
   "what-an-ai-model-actually-is": (
     <g>
       {floor(500)}

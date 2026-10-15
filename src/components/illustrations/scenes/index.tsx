@@ -131,6 +131,10 @@ export const SCENES: Record<string, ComponentType<SceneProps>> = {
   "two-kinds-of-cache": dynamic(() => import("./two-kinds-of-cache")),
   "host-client-server": dynamic(() => import("./host-client-server")),
   "what-mcp-leaves-to-you": dynamic(() => import("./what-mcp-leaves-to-you")),
+  "fde-and-fdc": dynamic(() => import("./fde-and-fdc")),
+  "what-an-fdc-owns": dynamic(() => import("./what-an-fdc-owns")),
+  "inside-and-outside-the-bounds": dynamic(() => import("./inside-and-outside-the-bounds")),
+  "a-request-meets-its-bounds": dynamic(() => import("./a-request-meets-its-bounds")),
 
   // Works On My Prompt sheets: the steps of a sheet, keyed by its `scene`.
   // Not article visuals, so they stay out of SCENE_IDS.

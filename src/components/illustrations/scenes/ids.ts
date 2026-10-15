@@ -129,4 +129,8 @@ export const SCENE_IDS = new Set([
   "two-kinds-of-cache",
   "host-client-server",
   "what-mcp-leaves-to-you",
+  "fde-and-fdc",
+  "what-an-fdc-owns",
+  "inside-and-outside-the-bounds",
+  "a-request-meets-its-bounds",
 ]);

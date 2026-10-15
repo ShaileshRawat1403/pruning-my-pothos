@@ -47,7 +47,7 @@ const PLACEMENT: Record<string, { companions: string[]; notes: string[] }> = {
     notes: ["runtime-over-model-why-orchestration-is-the-product"],
   },
   "human-in-the-loop-is-a-system-design-choice": {
-    companions: ["architecture-of-in-chat-ai-apps"],
+    companions: ["architecture-of-in-chat-ai-apps", "what-is-bounded-autonomy"],
     notes: [],
   },
   "evaluation-is-a-human-problem": {
@@ -59,7 +59,7 @@ const PLACEMENT: Record<string, { companions: string[]; notes: string[] }> = {
     notes: ["i-7-cognitive-loop", "tech-stack-for-nlpg-driven-ai-assisted-sdlc"],
   },
   "from-prompt-to-production": {
-    companions: [],
+    companions: ["what-is-a-forward-deployed-consultant"],
     notes: [],
   },
 };

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.1",
   "scope": "src/content/systems",
-  "sourceCount": 60,
+  "sourceCount": 62,
   "dispositionTotals": {
     "KEEP-REWRITE": 19,
     "KEEP-STRIP": 3,
@@ -9,15 +9,15 @@
     "MOVE-TO-SHELF": 0,
     "REDUCE-TO-NOTE": 6,
     "RETIRE": 10,
-    "NEW": 1
+    "NEW": 3
   },
   "statusTotals": {
-    "implemented": 60,
+    "implemented": 62,
     "pending": 0,
     "structural-pending": 0
   },
   "redirectStatusTotals": {
-    "not-applicable": 29,
+    "not-applicable": 31,
     "resolved": 29,
     "pending": 0,
     "none": 2
@@ -691,6 +691,28 @@
     },
     {
       "slug": "what-is-mcp-model-context-protocol",
+      "disposition": "NEW",
+      "destination": null,
+      "redirect": null,
+      "redirectTargetType": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "what-is-a-forward-deployed-consultant",
+      "disposition": "NEW",
+      "destination": null,
+      "redirect": null,
+      "redirectTargetType": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "what-is-bounded-autonomy",
       "disposition": "NEW",
       "destination": null,
       "redirect": null,

@@ -1,0 +1,160 @@
+---
+schemaVersion: "1.0"
+title: "What Is a Forward Deployed Consultant (FDC)?"
+seoTitle: "What Is a Forward Deployed Consultant (FDC)? Role vs FDE"
+publishDate: "2026-10-15"
+description: "A forward deployed consultant works inside a customer's organisation until a product produces the result it was bought for. What the role owns, versus an FDE."
+category: "How-things-fit-together"
+heroImage: '/covers/systems/what-is-a-forward-deployed-consultant.png'
+heroImageAlt: 'A consultant stands inside the customer building with a laptop under one arm, while a slide deck sits unopened in the lobby'
+tags:
+  - forward-deployed
+  - delivery
+  - adoption
+contentType: 'technical'
+readingTime: 6
+difficulty: 'beginner'
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Say what a forward deployed consultant is responsible for, tell the role apart from a forward deployed engineer and from a traditional consultant, and know what to ask of one."
+thesis: "A forward deployed consultant is accountable for a product producing a result inside a customer's organisation, which makes discovery, process change and adoption the job, alongside the engineer who makes the product fit."
+shortAnswer: "A forward deployed consultant (FDC) is a consultant employed by a product company who works inside a customer's organisation until the product produces the result the customer bought it for. Job postings for the role describe running discovery, redesigning the process before building, configuring the product, training people, and owning the deployment. An FDC usually works alongside a forward deployed engineer (FDE), who writes the code that makes the product fit the customer's systems."
+
+boundary:
+  is: "A plain definition of the forward deployed consultant role, how it differs from a forward deployed engineer and a traditional consultant, and what the role owns."
+  isNot: "A salary guide, a hiring guide for any one company, or a claim about how every employer defines the title."
+  mattersWhen: "A company is hiring for the role, a team is deciding who owns adoption of an AI product, or someone is weighing the role as a career."
+
+provenance:
+  primary: synthesis
+  sources:
+    - id: wikipedia-fde
+      type: external
+      url: "https://en.wikipedia.org/wiki/Forward_Deployed_Engineer"
+      citation: "Wikipedia, Forward Deployed Engineer (accessed 2026-10-15)"
+    - id: flexport-fdc
+      type: external
+      url: "https://job-boards.greenhouse.io/flexport/jobs/8110414"
+      citation: "Flexport, job posting: Forward Deployed Consultant, Supply Chain Solutions (accessed 2026-10-15)"
+    - id: monday-fdc
+      type: external
+      url: "https://monday.com/careers/f880c691-b039-4d03-a2b2-efc6eff7b968"
+      citation: "monday.com, job posting: Forward Deployed Consultant (accessed 2026-10-15)"
+    - id: goatee-readme
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/GoATee"
+      path: "README.md"
+      ref: "a2d7e377325b0eccecc9ee4bc864f67240124b41"
+      citation: "GoATee README, a spec and delivery control layer around coding assistants"
+  claims:
+    - statement: "Forward-deployed comes from U.S. military jargon, and Palantir popularised the forward deployed engineer role, using the title for staff by 2009."
+      kind: external
+      sources:
+        - wikipedia-fde
+    - statement: "In 2026, Anthropic, OpenAI, Amazon Web Services, Microsoft and Google Cloud announced divisions built around forward-deployed engineering."
+      kind: external
+      sources:
+        - wikipedia-fde
+    - statement: "Flexport's posting describes its forward deployed consultant working alongside a forward deployed engineer and managing 90-day deployment sprints from start to finish."
+      kind: external
+      sources:
+        - flexport-fdc
+    - statement: "monday.com's posting describes its forward deployed consultant running discovery, advising on process changes before building, building workflows, training customers, and leaving documentation so customers can run and extend what was built."
+      kind: external
+      sources:
+        - monday-fdc
+    - statement: "GoATee lists forward deployed consultants first among the people it is designed for."
+      kind: repository
+      sources:
+        - goatee-readme
+    - statement: "The FDC's work is the organisation around the product; the FDE's work is the product's fit to the organisation's systems."
+      kind: synthesis
+
+visuals:
+  - id: fde-and-fdc
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "The engineer makes the product fit the customer's systems; the consultant makes the customer's organisation use it."
+    caption: "Two embedded roles on one deployment, as the postings describe them."
+    alt: "A comparison of two roles. A forward deployed engineer writes production code inside the customer's systems, integrates the product with them, and feeds fixes back to the product team. A forward deployed consultant runs discovery, redesigns the process before anything is built, configures the product and trains people, and owns the business result."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Forward deployed engineer (FDE)"
+        items:
+          - "Writes production code in the customer's systems"
+          - "Integrates the product with what is already there"
+          - "Feeds fixes back to the product team"
+      after:
+        label: "Forward deployed consultant (FDC)"
+        items:
+          - "Runs discovery: what result is wanted"
+          - "Redesigns the process before building"
+          - "Configures, trains, and owns the result"
+      diffNote: "Both are employed by the product company and both stay until it works."
+  - id: what-an-fdc-owns
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "An FDC's engagement runs from the result the customer wants to a team that can run the product without them."
+    caption: "The stages named in the postings, in the order they happen."
+    alt: "A sequence of five stages: discovery of the result the customer wants; redesign of the process before building; building the workflow on the product; training and adoption; and handoff, with documentation so the customer can run and extend it."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: discover
+          label: "Discover the result"
+          note: "What the customer bought it for."
+        - id: redesign
+          label: "Redesign the process"
+          note: "Before anything is built."
+        - id: build
+          label: "Build on the product"
+          note: "Workflows, data, agents."
+        - id: adopt
+          label: "Train and adopt"
+          note: "People use it on real work."
+        - id: handoff
+          label: "Hand off"
+          note: "Documented, so they can run it."
+---
+
+A company buys a product because it expects a result: fewer delays, faster claims, a sales team that answers in hours. Between the purchase and the result sits a lot of work nobody bought: deciding what the result means here, changing how people work, and getting them to use the new thing. The forward deployed consultant is the role created to own that gap.
+
+**A forward deployed consultant (FDC) is a consultant employed by a product company who works inside a customer's organisation until the product produces the result the customer bought it for.** The title travels with a second one, the forward deployed engineer (FDE), and most of the confusion about the role is about where one ends and the other begins.
+
+## Where "forward deployed" comes from
+
+**Forward-deployed comes from U.S. military jargon, and Palantir popularised the forward deployed engineer role, using the title for staff by 2009.** A forward-deployed unit is stationed near the action instead of at headquarters; a forward deployed engineer sits with the customer instead of with the product team.
+
+The idea spread with AI. **In 2026, Anthropic, OpenAI, Amazon Web Services, Microsoft and Google Cloud announced divisions built around forward-deployed engineering.** Selling an AI product to a large organisation turned out to need someone on the inside to make it work, and the consultant version of the title followed.
+
+## FDC and FDE: two roles on one deployment
+
+The postings describe the two roles working together. **Flexport's posting describes its forward deployed consultant working alongside a forward deployed engineer and managing 90-day deployment sprints from start to finish.** monday.com's posting puts its FDC on larger teams with deployment strategists and engineers, with technical staff handling data conversions, integrations and agentic engineering.
+
+<!-- pmp:visual id="fde-and-fdc" -->
+
+**The FDC's work is the organisation around the product; the FDE's work is the product's fit to the organisation's systems.** An FDE who builds a perfect integration nobody uses has not delivered. An FDC who wins everyone over to a product that cannot reach the customer's data has not either. That is why the two are hired as a pair.
+
+## What an FDC owns
+
+**monday.com's posting describes its forward deployed consultant running discovery, advising on process changes before building, building workflows, training customers, and leaving documentation so customers can run and extend what was built.** In order, that is an engagement with a beginning and an end:
+
+<!-- pmp:visual id="what-an-fdc-owns" -->
+
+The end matters as much as the start. An FDC who leaves behind a team that cannot run the product without them has built a dependency. The handoff, with documentation the customer can follow, is part of the job.
+
+## How it differs from a traditional consultant
+
+A traditional engagement is often judged by its recommendation: the analysis, the roadmap, the deck. An FDC is employed by the company that makes the product, works inside the customer's organisation, and is judged by whether the product produces the result. Flexport's posting makes that concrete by asking its FDC to track hard-dollar savings. The skills overlap with consulting; the accountability is different.
+
+## Where AI makes the role harder
+
+With an AI product, what gets built is less predictable. An agent configured during the engagement can take actions nobody scripted, and a coding assistant can change more of a codebase than anyone asked for. The FDC then needs a clear agreement about what is being built, what must stay untouched, and how delivery will be proven, before anything is handed to the agent. Tools are appearing for exactly that: **GoATee lists forward deployed consultants first among the people it is designed for.** It is a spec and delivery control layer around coding assistants, built by this site's author.
+
+How much an agent may decide on its own is [bounded autonomy](/systems/what-is-bounded-autonomy/), and where a person must still approve is [human-in-the-loop design](/systems/human-in-the-loop-is-a-system-design-choice/). Whether a deployment is ready for real use at all is [from prompt to production](/systems/from-prompt-to-production/).
+
+## What this changes
+
+If you are hiring an FDC, ask what result they will be measured on and how the customer will run the product after they leave. If you are one, the deliverable is the result and the handoff. If you are weighing the role, it suits someone who likes the organisation as much as the technology, and who is comfortable being judged on what actually changed.

@@ -54,12 +54,8 @@ written to catch them.
    `npm run audit`, `npm run audit:editorial`, `npm run validate:archive`.
    Never run the contract suite while a dev server is up.
 5. **Owner review:** dev server only for the review, stopped after.
-6. **Distribution pack** in `private/distribution/<slug>.md` (local only,
-   gitignored): one LinkedIn post (the drawn scene, the one-line answer, the
-   link for the first comment), two X posts, one newsletter paragraph. Same
-   house rules as the site: no em dashes, no "it's not X, it's Y", none of
-   the banned stock words in `docs/BUILDER_TRACK.md`, no claims of ranking.
-   The owner posts; agents never post or send.
+6. **Distribution** is the owner's (decided 2026-10-15). Agents do not
+   draft posts unless asked, and never post or send.
 7. **Ship** after the owner's go-ahead. IndexNow runs in the deploy.
 8. **Log** the row below: date, page, target query, the query's position and
    impressions before (from the map), the hub page.
@@ -68,9 +64,9 @@ written to catch them.
 
 | Rhythm | What | Who |
 | :--- | :--- | :--- |
-| Weekly | 2 pages from the keyword map (1 when the owner is busy) | Agent drafts, owner reviews |
-| Weekly | Distribution packs for that week's pages; 3 LinkedIn, 4 X posts | Agent drafts, owner posts |
-| Every 2 weeks | Newsletter; one Stack, tool or Shelf update | Agent drafts, owner sends |
+| Weekly | 2 pages from the keyword map (owner's pace, set 2026-10-15) | Agent drafts, owner reviews |
+| Weekly | Distribution, as the owner sees fit | Owner |
+| Every 2 weeks | One Stack, tool or Shelf update | Agent drafts, owner reviews |
 | Monthly | One flagship piece built on an example the owner supplies | Owner supplies, agent builds |
 | Monthly | Review (below) | Agent prepares, owner decides |
 
@@ -93,17 +89,50 @@ Impressions and positions: Search Console, 3 months to 2026-10-14.
 `open` means not started. Tier 3 has no data yet: volume is unverified, and
 each row is checked against Search Console 6 weeks after its page ships.
 
+### Tier 0: terms the owner wants to own (priority over the tiers below)
+
+The owner's target, set 2026-10-15: rank first for "forward deployed
+consultant" (FDC), then for "forward deployed". Page one for FDC was mostly
+job postings and three thin blog posts on 2026-10-15; "forward deployed
+engineer" is crowded (Wikipedia, large guides), so the cluster wins the
+consultant term first and earns the head term through it. The owner's own
+GoATee repository lists FDCs first among its users: cite it (pinned SHA)
+wherever it is relevant; never present the owner's experience as observed
+without the owner supplying it.
+
+| # | Target query | Page | Action | Status |
+| :- | :--- | :--- | :--- | :--- |
+| F1 | forward deployed consultant / what is an FDC | `/systems/what-is-a-forward-deployed-consultant/` | Definition, FDC vs FDE, what the role owns | live 2026-10-15 (pending deploy) |
+| F2 | what does forward deployed mean / forward deployed engineer | new: `/systems/what-does-forward-deployed-mean/` | Hub: origin, the model, the roles (FDE, FDC, deployment strategist), links F1 | open |
+| F3 | forward deployed engineer vs consultant | F1 covers it | Watch Search Console; a separate page only if the comparison query grows apart from F1 | watch |
+| F4 | forward deployed AI deployment, pilot to production | new Systems page | What changes when the product is an agent; links bounded autonomy, from prompt to production | open |
+| F5 | how to become a forward deployed consultant | new page | Career intent: needs the owner's own account (editorial contract); ask first | needs owner |
+| F6 | GoATee on the Stack | Stack card and page | The FDC tool, in the owner's words, from its README at a pinned SHA | open |
+
+### Tier H: hot in search now, inside the site's intent (checked 2026-10-15)
+
+Developer attention in October 2026 (GitHub trending reports, FDE job
+growth): agent skills and harnesses, context engineering, persistent agent
+memory, forward deployed engineering.
+
+| # | Target query | Page | Status |
+| :- | :--- | :--- | :--- |
+| H1 | what is an agent harness | new Systems page; links runtime-over-model, DAX | open |
+| H2 | agent memory explained (short-term, long-term, persistent) | new Systems page; links context windows, handoff | open |
+| H3 | context engineering | same as row 18 below | open |
+| H4 | what are agent skills (Claude skills, Agent Skills) | `/systems/designing-reusable-ai-skills/` and the skills cluster | Check the cluster answers it; retitle before writing anything new | open |
+
 ### Tier 1: already showing at positions 8 to 30 (fastest wins)
 
 | # | Target query | Seen as | Impr. | Pos. | Page | Action | Status |
 | :- | :--- | :--- | -: | -: | :--- | :--- | :--- |
-| 1 | what is bounded autonomy | "bounded autonomy", "bounded autonomy definition", "bounded ai" | 249 | 8.2–9.0 | new: `/systems/what-is-bounded-autonomy/` | Definition page; hub is HITL page | open |
-| 2 | HITL vs HOTL vs HOOTL | "hitl hotl hootl", "hitl/hotl", "hitl gate", "human-in-the-loop laws" | 21 | 9–22 | `/systems/human-in-the-loop-is-a-system-design-choice/` | Put the three terms in title and first lines | open |
-| 3 | inference vs fine-tuning | "inference vs fine tuning", "fine tuning vs inference", "training vs fine tuning" | 22 | 7–10 | `/systems/training-vs-inference/` | Title and short answer name all three | open |
+| 1 | what is bounded autonomy | "bounded autonomy", "bounded autonomy definition", "bounded ai" | 249 | 8.2–9.0 | new: `/systems/what-is-bounded-autonomy/` | Definition page; hub is HITL page | live 2026-10-15 (pending deploy) |
+| 2 | HITL vs HOTL vs HOOTL | "hitl hotl hootl", "hitl/hotl", "hitl gate", "human-in-the-loop laws" | 21 | 9–22 | `/systems/human-in-the-loop-is-a-system-design-choice/` | Put the three terms in title and first lines | done 2026-10-15 (title, description) |
+| 3 | inference vs fine-tuning | "inference vs fine tuning", "fine tuning vs inference", "training vs fine tuning" | 22 | 7–10 | `/systems/training-vs-inference/` | Title and short answer name all three | done 2026-10-15 (title, description) |
 | 4 | ollama launch | "ollama launch droid", "ollama launch", "ollama launch codex", "ollama launcher" | 56 | 8–18 | `/shelf/local-experiments/ollama-launch-integrations/` | Lead with the command and what it does; dated | open |
 | 5 | obsidian scratchpad | "obsidian scratchpad" | 53 | 8.8 | `/shelf/notes/obsidian-scratchpad/` | Answer first; a setup the reader can copy | open |
 | 6 | brief.md format | "brief md format" | 12 | 22.1 | `/tools/notes-to-brief/` | Explain the format on the tool page; link a template | open |
-| 7 | what is AEO and GEO | "what is aeo and geo in publishing", "docseo" | 13 | 12–16 | `/systems/seo-aeo-geo-in-plain-terms/` | Name AEO and GEO in title and first lines | open |
+| 7 | what is AEO and GEO | "what is aeo and geo in publishing", "docseo" | 13 | 12–16 | `/systems/seo-aeo-geo-in-plain-terms/` | Name AEO and GEO in title and first lines | done 2026-10-15 (description) |
 | 8 | opencode with a local model | "opencode local model", "ollama opencode", "opencode ollama provider" | 7 | 2–8 | `/shelf/tools/ollama/` | Section on running OpenCode against Ollama; dated | open |
 
 ### Tier 2: showing at positions 30 to 80 (intent mismatch; a direct answer can climb)
@@ -152,3 +181,8 @@ Never chase a query only because it has volume.
 
 | Date | Row | Page | Target query | Before (impr., pos.) | Hub | Status |
 | :--- | :- | :--- | :--- | :--- | :--- | :--- |
+| 2026-10-15 | F1 | `/systems/what-is-a-forward-deployed-consultant/` | forward deployed consultant | new term, not yet seen | from-prompt-to-production | built, awaiting deploy |
+| 2026-10-15 | 1 | `/systems/what-is-bounded-autonomy/` | what is bounded autonomy | 249, 8.2–9.0 | human-in-the-loop | built, awaiting deploy |
+| 2026-10-15 | 2 | HITL page title and description | HITL vs HOTL vs HOOTL | 21, 9–22 | human-in-the-loop | built, awaiting deploy |
+| 2026-10-15 | 3 | Training page title and description | inference vs fine-tuning | 22, 7–10 | what-an-ai-model-actually-is | built, awaiting deploy |
+| 2026-10-15 | 7 | SEO page description | what is AEO and GEO | 13, 12–16 | (across) | built, awaiting deploy |

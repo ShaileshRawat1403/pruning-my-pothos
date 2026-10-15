@@ -1,0 +1,129 @@
+---
+schemaVersion: "1.0"
+title: "What Is Bounded Autonomy?"
+seoTitle: "What Is Bounded Autonomy? AI Agents With Real Limits"
+publishDate: "2026-10-15"
+description: "Bounded autonomy lets an AI agent choose its own next step while limits it cannot change decide what it may do. The four bounds, and why a prompt is not one."
+category: "How-things-fit-together"
+heroImage: '/covers/systems/what-is-bounded-autonomy.png'
+heroImageAlt: 'A dog runs happily around a large fenced field while its owner reads a newspaper on a bench outside the fence'
+tags:
+  - agents
+  - governance
+  - permissions
+contentType: 'technical'
+readingTime: 5
+difficulty: 'beginner'
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Define bounded autonomy, name the four bounds an agent system needs, and tell a real bound from an instruction that only asks."
+thesis: "Bounded autonomy gives an agent real discretion over its next step while the limits on what it may do sit outside the model, where it cannot talk its way past them."
+shortAnswer: "Bounded autonomy is an arrangement where an AI agent chooses its own next step, but limits it cannot change decide what it may actually do. Four bounds cover most systems: which actions it may request, where it may act, how much it may do, and when a person must decide. The bounds are enforced by software outside the model; an instruction in the prompt asking the model to be careful is a request, not a bound."
+
+boundary:
+  is: "A definition of bounded autonomy for AI agents, the four bounds that make it real, and the test for whether a limit is a bound."
+  isNot: "A policy engine design, a vendor comparison, or a treatment of autonomous vehicles or robotics."
+  mattersWhen: "Someone proposes letting an agent act on real systems, or describes an agent as safe because its prompt tells it to be."
+
+provenance:
+  primary: synthesis
+  sources:
+    - id: dax-readme
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/dax"
+      path: "README.md"
+      ref: "fe911e57415dcfa9d101bd2584b28d2ea3c84694"
+      citation: "DAX README at v2.0.1, product map and Rust proof ladder"
+  claims:
+    - statement: "An agent has autonomy within bounds when it may request anything but only permitted requests become effects."
+      kind: synthesis
+    - statement: "A limit written into the prompt is a request to the model; a limit enforced outside the model is a bound."
+      kind: synthesis
+    - statement: "DAX's README lists a scope guard, a path guard, a mutation budget and a loop breaker among its safety controls, and its policy crate resolves proposed actions to allow, ask or deny without a model call."
+      kind: repository
+      sources:
+        - dax-readme
+
+visuals:
+  - id: inside-and-outside-the-bounds
+    purpose: boundary
+    renderAs: generated-boundary
+    takeaway: "The agent decides its next step; the system decides what that step may touch."
+    caption: "Discretion inside, limits outside, enforced where the model cannot reach."
+    alt: "A boundary between what the agent decides, its next step, which tool to request and how to approach the task, and what the system decides outside it: which actions are allowed, where it may act, how much it may do, and when a person must approve."
+    evidenceRole: explanatory
+    data:
+      boundaryLabel: "Bounded autonomy"
+      inside:
+        label: "The agent decides"
+        items:
+          - "Its next step"
+          - "Which tool to ask for"
+          - "How to approach the task"
+      outside:
+        label: "The system decides"
+        items:
+          - "Which actions are allowed"
+          - "Where it may act, how much"
+          - "When a person must approve"
+  - id: a-request-meets-its-bounds
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "Every request passes the same checks before it becomes an effect, whatever the model intended."
+    caption: "One request, four checks, three outcomes."
+    alt: "A sequence: the agent proposes an action; the system checks whether the action is allowed, whether the target is in scope, and whether the budget has room; the result is allow, ask a person, or deny; the decision is recorded."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: propose
+          label: "The agent proposes"
+          note: "Any action it likes."
+        - id: allowed
+          label: "Allowed action?"
+          note: "Is this tool permitted here."
+        - id: scope
+          label: "In scope, in budget?"
+          note: "Which paths, how many changes."
+        - id: decide
+          label: "Allow, ask or deny"
+          note: "Ask means a person decides."
+        - id: record
+          label: "Recorded"
+          note: "Whatever the outcome."
+---
+
+Every useful AI agent needs some freedom. If every step is scripted in advance, it is a workflow, and it breaks on the first case nobody scripted. If it can do anything it decides to, nobody can safely let it near a real system. Bounded autonomy is the arrangement in between, and it has a precise meaning.
+
+**An agent has autonomy within bounds when it may request anything but only permitted requests become effects.** The agent keeps real discretion: it picks the next step, chooses which tool to ask for, and finds an approach nobody wrote down. What it cannot do is turn a request into a change the system has not allowed.
+
+<!-- pmp:visual id="inside-and-outside-the-bounds" -->
+
+## The four bounds
+
+Most agent systems need four limits, each answering one question:
+
+- **Which actions:** the tools and operations the agent may request at all. Reading files may be allowed while deleting them is refused.
+- **Where:** the scope those actions may touch. These folders, this customer's records, this test environment.
+- **How much:** a budget. A number of changes, steps, retries, or money spent before the run stops.
+- **When a person decides:** the cases that pause for a human answer instead of proceeding, such as anything irreversible or anything outside the usual pattern. Where that person sits, and whether they can really judge, is [human-in-the-loop design](/systems/human-in-the-loop-is-a-system-design-choice/).
+
+Each request meets the same checks on its way to becoming an effect:
+
+<!-- pmp:visual id="a-request-meets-its-bounds" -->
+
+## A bound or a request
+
+**A limit written into the prompt is a request to the model; a limit enforced outside the model is a bound.** "Never delete files" in the system prompt depends on the model following it, in every run, under every input, including instructions an attacker slipped into a document. A permission check in the software that runs the tools does not depend on the model at all. If removing a sentence from the prompt would remove the limit, the limit was never a bound.
+
+That is why bounded autonomy is an engineering arrangement more than a model property. The same model can be bounded tightly in one system and not at all in another.
+
+## What it looks like in a real tool
+
+**DAX's README lists a scope guard, a path guard, a mutation budget and a loop breaker among its safety controls, and its policy crate resolves proposed actions to allow, ask or deny without a model call.** Those map onto the four bounds: scope and paths are where, the mutation budget is how much, the loop breaker stops a run that keeps trying, and ask is the point where a person decides. DAX is built by this site's author; its page is [DAX on the Stack](/stack/dax/).
+
+The full path from a model's request to a change in the world, and which layer owns each failure, is [from agent intent to governed execution](/systems/from-agent-intent-to-governed-execution/). Who chooses the next step in the first place is [AI agents vs AI workflows](/systems/ai-agents-vs-ai-workflows/).
+
+## What this changes
+
+When someone says an agent is safe, ask where its bounds live. If the answer is the prompt, the agent has instructions and no bounds. If the answer is code that checks every request before it runs, with a record of each decision, it has bounded autonomy.
