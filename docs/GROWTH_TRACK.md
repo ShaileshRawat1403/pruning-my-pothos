@@ -62,6 +62,11 @@ written to catch them.
 
 ## Cadence
 
+No automation (owner's decision, 2026-10-15): no scheduled drafting, no
+timed publishing, no automated reports. Each batch is discussed with the
+owner in a session, built, reviewed and published on the spot. Publish a
+page as soon as it is reviewed; do not hold finished pages back.
+
 | Rhythm | What | Who |
 | :--- | :--- | :--- |
 | Weekly | 2 pages from the keyword map (owner's pace, set 2026-10-15) | Agent drafts, owner reviews |
@@ -106,7 +111,7 @@ without the owner supplying it.
 | F2 | what does forward deployed mean / forward deployed engineer | new: `/systems/what-does-forward-deployed-mean/` | Hub: origin, the model, the roles (FDE, FDC, deployment strategist), links F1 | open |
 | F3 | forward deployed engineer vs consultant | F1 covers it | Watch Search Console; a separate page only if the comparison query grows apart from F1 | watch |
 | F4 | forward deployed AI deployment, pilot to production | new Systems page | What changes when the product is an agent; links bounded autonomy, from prompt to production | open |
-| F5 | how to become a forward deployed consultant | new page | Career intent: needs the owner's own account (editorial contract); ask first | needs owner |
+| F5 | how to become a forward deployed consultant | new page | Career intent, built on the owner's rough draft of their own FDC experience (promised 2026-10-15); declare it `observed` with author attestation | waiting for owner's draft |
 | F6 | GoATee on the Stack | Stack card and page | The FDC tool, in the owner's words, from its README at a pinned SHA | open |
 
 ### Tier H: hot in search now, inside the site's intent (checked 2026-10-15)
