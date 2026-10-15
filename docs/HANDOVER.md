@@ -160,6 +160,16 @@ directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...` and
 
 ## 8. Where things stand
 
+- **Growth track** (2026-10-15): traffic work now runs from
+  `docs/GROWTH_TRACK.md`: a weekly loop (pick the next open keyword row,
+  check for an existing page, write, gate, owner review, distribution pack in
+  `private/distribution/`, ship on the owner's go-ahead, log), a cadence, a
+  monthly review, and a 25-row keyword map from Search Console (3 months to
+  2026-10-14). Row 1 (what is bounded autonomy) is next.
+- **Stack** (2026-10-15): DAX at v2.0.1 with a "New in 2.0" scroll scene and
+  stills captured from the 2.0.1 binary; LanguageOps page at
+  `/stack/languageops/`, app public at `languageops.pruningmypothos.com`
+  (Vercel; the owner's phone stays private at `pilot-langops`); Verb held back.
 - **Analytics** (2026-10-09): Google Analytics 4 (`G-EQ4JMFY925`) and
   Microsoft Clarity (`lqscm7xayr`, heatmaps and recordings) load from
   `src/components/Analytics.tsx` in the root layout, after hydration and only

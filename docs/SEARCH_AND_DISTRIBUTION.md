@@ -117,6 +117,13 @@ here: a clear comparison question, answered plainly, ranks.
    61 and prompting at 30 (likely the intent does not match the page).
 5. Done 2026-10-10: the 17 articles that gained drawn scenes carry updatedAt 2026-10-09/10, so the sitemap lastmod signals the change. Structured output (61) and prompting (30) rank for head terms ("structured outputs", "prompting") where provider docs dominate; the titles now aim at the longer questions they answer.
 
+### How the work is done (from 2026-10-15)
+
+`docs/GROWTH_TRACK.md` holds the weekly loop, the cadence (2 pages a week,
+distribution packs for the owner to post, a fortnightly newsletter, a
+monthly flagship and review) and the keyword map. This file keeps the goal,
+the checkpoints and the audit history.
+
 ### Phase 2: a repeatable engine (2027)
 
 - Publishing: comparison and definition pages chosen from Search Console

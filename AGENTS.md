@@ -21,6 +21,15 @@ the logo, UI/UX and linking are done one step at a time. Read the plan, do the
 next open step, update the plan:
 👉 [Visual track](docs/VISUAL_TRACK.md)
 
+# Growth track (rank, then distribute)
+
+Search, AI-answer and social growth is done one page at a time from a keyword
+map built on Search Console data. Read the plan, do the next open row, log it:
+👉 [Growth track](docs/GROWTH_TRACK.md)
+
+Never write for off-intent queries, never publish two pages for one question,
+never post or send on the owner's behalf, never claim rankings in copy.
+
 # Editorial Governor: PMP Editorial Contract v1
 
 All content authoring and modification in `src/content/` is strictly governed by:
