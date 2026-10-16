@@ -169,6 +169,14 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   Purge → URL, list the affected URLs; then resend IndexNow. The lasting fix
   (Edge TTL "no store" for 400 to 599 in the cache rule) is proposed and
   awaits the owner.
+- **Link audit** (run before a new session when anything looks broken):
+  `scripts/link-audit-build.py` checks every internal link and asset in
+  `out/`; `scripts/link-audit-live.py` crawls the live site through
+  Cloudflare and finds cached errors. On 2026-10-16 the build had 0 broken
+  links across 555 pages; live had only cached errors (four scripts on the
+  HITL page served a cached 429 for 15 hours, `/stack/languageops/` a cached
+  404), all purged. The 39 "Not found" URLs in Search Console are all
+  correct 301s or deliberate 410s.
 - **`.htaccess` on LiteSpeed**: only the `<IfModule mod_rewrite.c>`
   RewriteRule block is read for redirects; mirror every redirect and 410 in
   both blocks (`- [G,L]` for 410). `Header set` in plain `FilesMatch` works.
@@ -241,8 +249,17 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 ## 9. Open items
 
 Owner actions:
-1. Cloudflare cache rule: approve Edge TTL "no store" for 400 to 599
-   (section 6).
+1. Cloudflare, two settings (proposed 2026-10-16): the cache rule's Edge
+   TTL set to "no store" for status 400 to 599, and a response header
+   transform rule setting `Cache-Control: no-store` when
+   `http.response.code ge 400`. Every broken page seen so far was an origin
+   error (Hostinger 429 or a 404 mid-deploy) that Cloudflare and browsers
+   kept for 10 minutes (pages) or a day (scripts), because the error carried
+   the normal `.htaccess` cache headers. A single-URL purge can miss copies;
+   purge by prefix (`pruningmypothos.com/_next/static/chunks`) instead.
+   Optional: turn off Email Obfuscation (Scrape Shield) so crawlers stop
+   seeing `/cdn-cgi/l/email-protection` as a 404; in Search Console, press
+   "Validate fix" on the Not found (404) report.
 2. LanguageOps clean-up: delete the Access app for `languageops` (no longer
    used), remove the phone tunnel's `languageops` route, remove `API_URL`
    (old Railway) in Vercel, fix or remove the Clerk keys in Vercel, pull
