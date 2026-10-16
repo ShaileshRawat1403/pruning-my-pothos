@@ -107,8 +107,8 @@ without the owner supplying it.
 
 | # | Target query | Page | Action | Status |
 | :- | :--- | :--- | :--- | :--- |
-| F1 | forward deployed consultant / what is an FDC | `/systems/what-is-a-forward-deployed-consultant/` | Definition, FDC vs FDE, what the role owns | live 2026-10-15 |
-| F2 | what does forward deployed mean / forward deployed engineer | new: `/systems/what-does-forward-deployed-mean/` | Hub: origin, the model, the roles (FDE, FDC, deployment strategist), links F1 | built 2026-10-16, awaiting owner review |
+| F1 | forward deployed consultant / what is an FDC | `/systems/what-is-a-forward-deployed-consultant/` | Definition, FDC vs FDE, what the role owns; rewritten 2026-10-16 with the owner's view | live 2026-10-15; rewrite awaiting push |
+| F2 | what does forward deployed mean / forward deployed engineer | new: `/systems/what-does-forward-deployed-mean/` | Hub: origin, the model, the roles (FDE, FDC, deployment strategist), links F1 | built 2026-10-16, reviewed, awaiting push |
 | F3 | forward deployed engineer vs consultant | F1 covers it | Watch Search Console; a separate page only if the comparison query grows apart from F1 | watch |
 | F4 | forward deployed AI deployment, pilot to production | new Systems page | What changes when the product is an agent; links bounded autonomy, from prompt to production | open |
 | F5 | how to become a forward deployed consultant | new page | Career intent, built on the owner's rough draft of their own FDC experience (promised 2026-10-15); declare it `observed` with author attestation | waiting for owner's draft |
@@ -122,7 +122,7 @@ memory, forward deployed engineering.
 
 | # | Target query | Page | Status |
 | :- | :--- | :--- | :--- |
-| H1 | what is an agent harness | new: `/systems/what-is-an-agent-harness/`; links runtime-over-model, DAX | built 2026-10-16, awaiting owner review |
+| H1 | what is an agent harness | new: `/systems/what-is-an-agent-harness/`; links runtime-over-model, DAX | built 2026-10-16, reviewed, awaiting push |
 | H2 | agent memory explained (short-term, long-term, persistent) | new Systems page; links context windows, handoff | open |
 | H3 | context engineering | same as row 18 below | open |
 | H4 | what are agent skills (Claude skills, Agent Skills) | `/systems/designing-reusable-ai-skills/` and the skills cluster | Check the cluster answers it; retitle before writing anything new | open |
@@ -191,5 +191,6 @@ Never chase a query only because it has volume.
 | 2026-10-15 | 2 | HITL page title and description | HITL vs HOTL vs HOOTL | 21, 9–22 | human-in-the-loop | live 2026-10-15 |
 | 2026-10-15 | 3 | Training page title and description | inference vs fine-tuning | 22, 7–10 | what-an-ai-model-actually-is | live 2026-10-15 |
 | 2026-10-15 | 7 | SEO page description | what is AEO and GEO | 13, 12–16 | (across) | live 2026-10-15 |
-| 2026-10-16 | F2 | `/systems/what-does-forward-deployed-mean/` | what does forward deployed mean | new term, not yet seen | itself (hub of the forward deployed cluster; FDC page links to it) | built, awaiting owner review |
-| 2026-10-16 | H1 | `/systems/what-is-an-agent-harness/` | what is an agent harness | new term, not yet seen | from-agent-intent-to-governed-execution (runtime-over-model links to it) | built, awaiting owner review |
+| 2026-10-16 | F2 | `/systems/what-does-forward-deployed-mean/` | what does forward deployed mean | new term, not yet seen | itself (hub of the forward deployed cluster; FDC page links to it) | built, reviewed, awaiting push |
+| 2026-10-16 | H1 | `/systems/what-is-an-agent-harness/` | what is an agent harness | new term, not yet seen | from-agent-intent-to-governed-execution (runtime-over-model links to it) | built, reviewed, awaiting push |
+| 2026-10-16 | F1 | `/systems/what-is-a-forward-deployed-consultant/` (rewrite) | forward deployed consultant | new term, not yet seen | itself | rewritten around the owner's view (problem solver with access to intelligence; depth of ownership), first `observed` claims with author attestation, checked against the Flexport and monday.com postings and Anthropic; new decision scene; awaiting push |

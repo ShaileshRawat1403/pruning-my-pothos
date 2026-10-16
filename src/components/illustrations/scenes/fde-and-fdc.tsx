@@ -3,12 +3,12 @@ import { D, Head, Torso } from "../deadpan";
 import { Lit, Plate, SceneProps, Show, hand, mono } from "./kit";
 
 /**
- * FDE and FDC on one deployment. One customer building. Left: the engineer,
- * laptop cabled into the customer's server rack. Right: the consultant at a
- * whiteboard, redrawing the process for two people who will have to use it.
- * Last beat: both wear the vendor's badge, and neither has left.
+ * FDE and FDC on one deployment, by depth of ownership. One customer
+ * building. Left: the engineer, laptop cabled deep into the customer's server
+ * rack. Right: the consultant at a whiteboard, redrawing the problem for two
+ * people who will have to use it. Last beat: both wear the vendor's badge.
  */
-const SAYS = ["makes it fit their systems.", "makes their people use it.", "both stay until it works."];
+const SAYS = ["goes deep: builds and runs it.", "goes broad: problem to adoption.", "the line moves. both stay."];
 
 export default function Scene({ step, id }: SceneProps) {
   const s = Math.min(step, 2);
@@ -69,7 +69,7 @@ export default function Scene({ step, id }: SceneProps) {
           {hand(i === 0 ? 170 : i === 1 ? 470 : 320, 50, t, 24, i === 2 ? D.accent : D.grey)}
         </Show>
       ))}
-      {mono(320, 404, ["ENGINEER: CODE IN THEIR SYSTEMS", "CONSULTANT: PROCESS, PEOPLE, RESULT", "BOTH EMPLOYED BY THE PRODUCT COMPANY"][s], 18, D.accent)}
+      {mono(320, 404, ["ENGINEER: DEPTH IN THE BUILD", "CONSULTANT: BREADTH ACROSS THE PROBLEM", "BOTH EMPLOYED BY THE PRODUCT COMPANY"][s], 18, D.accent)}
     </Plate>
   );
 }

@@ -139,6 +139,7 @@ export const SCENES: Record<string, ComponentType<SceneProps>> = {
   "one-forward-deployment": dynamic(() => import("./one-forward-deployment")),
   "what-a-harness-wraps": dynamic(() => import("./what-a-harness-wraps")),
   "one-turn-of-the-harness": dynamic(() => import("./one-turn-of-the-harness")),
+  "which-system-fits-the-work": dynamic(() => import("./which-system-fits-the-work")),
 
   // Works On My Prompt sheets: the steps of a sheet, keyed by its `scene`.
   // Not article visuals, so they stay out of SCENE_IDS.

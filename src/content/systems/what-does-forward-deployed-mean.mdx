@@ -19,7 +19,7 @@ contentKind: explainer
 readerIntent: understand
 readerOutcome: "Explain what forward deployed means in software, name the roles that carry the term, and tell which one owns code, process or the customer's question."
 thesis: "Forward deployed describes where a product company's people work and what they answer for: inside the customer's organisation, accountable for the product working there, split across roles that own code, process and the customer's question."
-shortAnswer: "Forward deployed means placed close to where the work happens instead of at headquarters. The term comes from U.S. military jargon; in software it describes people a product company places inside a customer's organisation until the product works there. Three roles carry it: the forward deployed engineer (FDE) writes the code, the forward deployed consultant (FDC) owns process, adoption and the result, and the deployment strategist, Palantir's name for the role, turns the customer's question into a working result."
+shortAnswer: "Forward deployed means placed close to where the work happens instead of at headquarters. The term comes from U.S. military jargon; in software it describes people a product company places inside a customer's organisation until the product works there. Three roles carry it: the forward deployed engineer (FDE) writes the code, the forward deployed consultant (FDC) works across the whole problem, from framing and prototypes to adoption, and the deployment strategist, Palantir's name for the role, turns the customer's question into a working result."
 
 boundary:
   is: "A plain definition of forward deployed in software, where it comes from, and the roles that carry the term."
@@ -72,6 +72,9 @@ provenance:
         - wikipedia-fde
     - statement: "Forward deployed names where people work and what they answer for; the skills vary by role."
       kind: synthesis
+    - statement: "What separates the FDC from the FDE is depth of ownership: the engineer goes deeper into building and operating the system, and the consultant stays broader across the problem, the workflow, validation, governance and adoption."
+      kind: observed
+      attestation: author
 
 visuals:
   - id: headquarters-or-forward
@@ -138,8 +141,8 @@ Palantir's own posting puts it bluntly. **Palantir's posting says its forward de
 
 Three titles carry the term, or work beside it:
 
-- **Forward deployed engineer (FDE).** Writes production code inside the customer's systems and integrates the product with what is already there.
-- **Forward deployed consultant (FDC).** Owns the organisation around the product: discovery, process change, adoption and the business result. The full role, and how it differs from an FDE, is on [what is a forward deployed consultant](/systems/what-is-a-forward-deployed-consultant/).
+- **Forward deployed engineer (FDE).** Goes deepest into the build: production code, integrations and reliability inside the customer's systems.
+- **Forward deployed consultant (FDC).** Works across the whole problem: framing it, mapping the workflow, prototyping, validating, and getting the result adopted. The full role is on [what is a forward deployed consultant](/systems/what-is-a-forward-deployed-consultant/).
 - **Deployment strategist.** Palantir's title for the person who turns the customer's question into a working result. **Palantir's Deployment Strategist posting describes going onsite to meet customer analysts, working with forward deployed engineers to build the data pipeline, and leading training sessions.**
 
 On a single deployment the work passes between them:
@@ -147,6 +150,14 @@ On a single deployment the work passes between them:
 <!-- pmp:visual id="one-forward-deployment" -->
 
 Companies draw the lines differently. Some hire FDEs alone and expect them to do the consulting; some pair an FDC with an FDE; Palantir pairs strategists with engineers. Read the posting for what the role owns; the title alone says little.
+
+## From the author
+
+This site's author works as a forward deployed consultant on generative AI solutions, and draws the line between the two roles this way:
+
+> **What separates the FDC from the FDE is depth of ownership: the engineer goes deeper into building and operating the system, and the consultant stays broader across the problem, the workflow, validation, governance and adoption.**
+
+The full view, with what an FDC builds and needs to know, is on [what is a forward deployed consultant](/systems/what-is-a-forward-deployed-consultant/).
 
 ## Why AI companies adopted it
 

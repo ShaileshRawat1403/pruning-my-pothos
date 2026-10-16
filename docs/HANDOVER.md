@@ -224,7 +224,17 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 ## 8. Where things stand (2026-10-16)
 
 - `main` is deployed. Latest work, newest first:
-  - Growth batch 2 (committed, not yet pushed; awaiting owner review):
+  - FDC page rewritten (2026-10-16) around the owner's own view of the role:
+    "a problem solver with access to intelligence" and "depth of ownership"
+    versus the FDE. These are the site's first `observed` claims with
+    `attestation: author`, worded by the owner. Checked against the Flexport
+    and monday.com postings and Anthropic's July 2025 report; what the
+    postings do not cover (UI/UX, SDLC) is marked as the owner's view. New
+    decision scene from the owner's carousel. Owner material for later
+    pages: resume, LinkedIn posts (FDE vs FDC, ten questions before the
+    build, the retail photo-search case study), the FDC carousel. Open
+    questions: 8+ vs 12+ years; whether employer and client names may appear.
+  - Growth batch 2 (owner reviewed):
     "What Does Forward Deployed Mean?" (F2, hub of the forward deployed
     cluster; the FDC page links to it) and "What Is an Agent Harness?" (H1;
     the runtime-over-model note links to it). Each has cover, film, two
@@ -280,15 +290,16 @@ Owner actions:
    removing Part 4 and confirming the BANNED guide and the Nuance Navigator
    corpus are the owner's own writing. Then point the LanguageOps card at
    the real registry files.
-4. Send the rough draft for growth row F5 ("how to become an FDC").
+4. F5 ("how to become an FDC"): resume and posts received 2026-10-16;
+   answer the interview questions and the two open questions in section 8.
 5. Search Console: remove the stale `sitemap_index.xml`; star
    `file_download` as a key event in GA4 once it has fired.
 
 Agent work, in order (confirm with the owner each session):
-1. Growth: ship batch 2 after owner review (F2, H1). Next batch: F4
-   forward deployed AI, pilot to production, plus one of row 10 (which
-   Ollama models support tools) or row 9 (what are embeddings). F5 waits
-   for the owner's draft.
+1. Growth: next batch F4 forward deployed AI, pilot to production, built
+   on the owner's decision rule, ten questions and photo-search case, plus one of row 10 (which
+   Ollama models support tools) or row 9 (what are embeddings). F5 (how to
+   become an FDC) from the owner's resume, posts and an interview.
 2. Review the new pages in Search Console from mid-November against the
    log in `docs/GROWTH_TRACK.md`.
 3. Visual track and builder track continue per their files.

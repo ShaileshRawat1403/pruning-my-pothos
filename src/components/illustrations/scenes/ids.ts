@@ -137,4 +137,5 @@ export const SCENE_IDS = new Set([
   "one-forward-deployment",
   "what-a-harness-wraps",
   "one-turn-of-the-harness",
+  "which-system-fits-the-work",
 ]);
