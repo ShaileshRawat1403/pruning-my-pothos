@@ -1,0 +1,179 @@
+---
+schemaVersion: "1.0"
+title: "What Is an Agent Harness?"
+seoTitle: "What Is an Agent Harness? The Software Around the Model"
+publishDate: "2026-10-16"
+description: "An agent harness is the software that turns a language model into an agent: the loop, the tools, the context and the limits. What each part does, with examples."
+category: "How-things-fit-together"
+heroImage: '/covers/systems/what-is-an-agent-harness.png'
+heroImageAlt: 'A small robot hangs in a harness of straps from a beam, feet off the floor, suggesting it delete something, while a clipboard beside it lists what it is allowed to do'
+tags:
+  - agents
+  - runtime
+  - orchestration
+contentType: 'technical'
+readingTime: 6
+difficulty: 'beginner'
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Define an agent harness, name its four parts, tell a harness apart from a framework, an SDK and an eval harness, and know where to look when an agent misbehaves."
+thesis: "A model only proposes text; the harness around it runs the loop, holds the tools, decides what the model sees and enforces the limits, so most of what an agent does is decided by the harness."
+shortAnswer: "An agent harness is the software around a language model that turns it into an agent. It runs the loop of reasoning, acting and observing; gives the model tools that can change things; decides what goes into the model's context on each turn; and enforces at least one limit the model cannot talk its way past. Claude Code, Codex CLI, Aider and OpenHands are harnesses. The model proposes the next step; the harness decides what actually happens."
+
+boundary:
+  is: "A definition of an agent harness, its four parts, how it differs from neighbouring terms, and examples."
+  isNot: "A comparison of harness products, a build guide, or a treatment of the older test-harness meaning beyond telling it apart."
+  mattersWhen: "Someone is choosing, building or debugging an agent, or blames every agent behaviour on the model."
+
+provenance:
+  primary: synthesis
+  sources:
+    - id: arxiv-harness
+      type: external
+      url: "https://arxiv.org/abs/2606.10106"
+      citation: "Macedo, What makes a harness a harness: necessary and sufficient conditions for an agent harness, arXiv:2606.10106, June 2026"
+    - id: anthropic-long-running
+      type: external
+      url: "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents"
+      citation: "Anthropic Engineering, Effective harnesses for long-running agents, 26 November 2025"
+    - id: agent-sdk-docs
+      type: external
+      url: "https://code.claude.com/docs/en/agent-sdk/overview"
+      citation: "Claude Code documentation, Agent SDK overview (accessed 2026-10-16)"
+    - id: dax-readme
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/dax"
+      path: "README.md"
+      ref: "fe911e57415dcfa9d101bd2584b28d2ea3c84694"
+      citation: "DAX README at v2.0.1, product map and crate descriptions"
+  claims:
+    - statement: "A 2026 paper defines an agent harness as the runtime engineering layer that wraps one or more language models and turns them into an agent."
+      kind: external
+      sources:
+        - arxiv-harness
+    - statement: "The paper names four conditions: an agent loop that interleaves reasoning, action and observation; tools that can change an external environment; context management that decides what enters and leaves the model's context; and at least one control that does not depend on the model's cooperation."
+      kind: external
+      sources:
+        - arxiv-harness
+    - statement: "The paper tests its definition against Claude Code, Codex CLI, Aider, Cline, OpenHands and SWE-agent."
+      kind: external
+      sources:
+        - arxiv-harness
+    - statement: "By the paper's test, a framework composes agents above the harness, an SDK that has no runtime loop is a set of building blocks, and an eval harness measures results after the task ends."
+      kind: external
+      sources:
+        - arxiv-harness
+    - statement: "Anthropic's documentation says the Agent SDK gives developers the same tools, agent loop and context management that power Claude Code."
+      kind: external
+      sources:
+        - agent-sdk-docs
+    - statement: "Anthropic calls its Claude Agent SDK a general-purpose agent harness."
+      kind: external
+      sources:
+        - anthropic-long-running
+    - statement: "For long tasks, Anthropic's harness has the first session set up the environment and every later session make incremental progress, leaving a progress file, a feature list and git commits for the next session to read."
+      kind: external
+      sources:
+        - anthropic-long-running
+    - statement: "DAX's README describes a deterministic runtime contract around stochastic model execution, with a policy crate that evaluates tool requests against policy with no model call."
+      kind: repository
+      sources:
+        - dax-readme
+    - statement: "The model proposes the next step; the harness decides what actually happens."
+      kind: synthesis
+
+visuals:
+  - id: what-a-harness-wraps
+    purpose: layers
+    renderAs: generated-layers
+    takeaway: "The model sits in the middle; the loop, the tools, the context and the controls around it make it an agent."
+    caption: "The four parts named by the paper's definition, around the model they wrap."
+    alt: "Layers around a language model. The model proposes text. Around it, the loop runs reasoning, action and observation in turns. The tools let it change files, run commands or call services. Context management decides what the model sees on each turn. The controls enforce limits the model cannot override."
+    evidenceRole: explanatory
+    data:
+      layers:
+        - id: controls
+          label: "Controls"
+          note: "Limits the model cannot override."
+          highlighted: true
+        - id: context
+          label: "Context"
+          note: "What the model sees this turn."
+        - id: tools
+          label: "Tools"
+          note: "Read, write, run, call."
+        - id: loop
+          label: "Loop"
+          note: "Think, act, observe, repeat."
+        - id: model
+          label: "Model"
+          note: "Proposes the next step, as text."
+  - id: one-turn-of-the-harness
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "On every turn the harness, not the model, decides what is seen, what is allowed and what is kept."
+    caption: "One turn of an agent loop, with the harness's part at each step."
+    alt: "A sequence of five steps: the harness assembles the context; the model proposes an action; the harness checks the action against its limits; the tool runs; the harness records the result and puts what matters into the next turn's context."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: assemble
+          label: "Assemble context"
+          note: "Harness picks what is seen."
+        - id: propose
+          label: "Model proposes"
+          note: "A tool call, as text."
+        - id: check
+          label: "Check the limits"
+          note: "Allow, ask or deny."
+        - id: run
+          label: "Run the tool"
+          note: "The effect happens here."
+        - id: observe
+          label: "Observe and keep"
+          note: "Into the next turn."
+---
+
+A language model on its own takes text in and gives text out. It cannot open a file, run a test or remember what it did ten minutes ago. Every coding agent that does those things has software around the model doing them. That software is the agent harness.
+
+**An agent harness is the software around a language model that turns it into an agent.** It runs the loop, holds the tools, decides what the model sees and enforces the limits. **The model proposes the next step; the harness decides what actually happens.**
+
+## The four parts
+
+The term is used loosely, so a definition helps. **A 2026 paper defines an agent harness as the runtime engineering layer that wraps one or more language models and turns them into an agent.** **The paper names four conditions: an agent loop that interleaves reasoning, action and observation; tools that can change an external environment; context management that decides what enters and leaves the model's context; and at least one control that does not depend on the model's cooperation.**
+
+<!-- pmp:visual id="what-a-harness-wraps" -->
+
+In plain terms:
+
+- **The loop.** The model suggests a step, the harness carries it out, shows the model the result and asks for the next one, until the task is done or a limit stops it. A chat window answers once; a harness keeps going.
+- **The tools.** Reading files is not enough. A tool that writes a file, runs a command or calls a service changes something outside the model. How tools are offered to a model is on [tool use](/systems/tool-use-when-language-triggers-actions/).
+- **The context.** A model only knows what is in its [context window](/systems/context-windows-as-working-memory/) on this turn. The harness chooses what goes in: the instructions, the relevant files, the last tool result, a summary of earlier turns.
+- **The controls.** At least one limit is enforced by code, whatever the model writes: a permission prompt, a directory it cannot leave, a budget, a test that must pass. A limit written into the prompt is a request; a limit in the harness is a [bound](/systems/what-is-bounded-autonomy/).
+
+## One turn of the loop
+
+<!-- pmp:visual id="one-turn-of-the-harness" -->
+
+The model appears once in that sequence. The other four steps are the harness's. When an agent does something unexpected, those four steps are where to look first: what it was shown, which tools it had, which limit was missing, and what it kept from the last turn. The longer version of that argument is [why the loop outlives the model](/systems/runtime-over-model-why-orchestration-is-the-product/).
+
+## Examples
+
+**The paper tests its definition against Claude Code, Codex CLI, Aider, Cline, OpenHands and SWE-agent.** Each pairs a model with a loop, file and shell tools, context handling and some form of approval.
+
+Harnesses are also sold as parts. **Anthropic's documentation says the Agent SDK gives developers the same tools, agent loop and context management that power Claude Code.** **Anthropic calls its Claude Agent SDK a general-purpose agent harness.**
+
+Context management is where harness design gets interesting on long tasks, because no context window holds a week of work. **For long tasks, Anthropic's harness has the first session set up the environment and every later session make incremental progress, leaving a progress file, a feature list and git commits for the next session to read.** The model forgets between sessions; the harness writes things down so the next session can pick up.
+
+A harness can also sit around other harnesses. **DAX's README describes a deterministic runtime contract around stochastic model execution, with a policy crate that evaluates tool requests against policy with no model call.** It runs coding agents such as Claude Code or Codex CLI in a disposable checkout and keeps scope enforcement for itself. DAX is built by this site's author; its page is on the [Stack](/stack/dax/).
+
+## What a harness is not
+
+Several neighbouring terms get used for the same thing. **By the paper's test, a framework composes agents above the harness, an SDK that has no runtime loop is a set of building blocks, and an eval harness measures results after the task ends.** The older meaning of harness, a test harness that runs code under controlled conditions, survives in that last one.
+
+Names drift between vendors, so test the thing: does it run a loop, act through tools, manage context and enforce at least one limit by itself? If all four, it is a harness, whatever the product page calls it.
+
+## What this changes
+
+Choosing an agent means choosing a harness as much as a model: which tools it offers, what it shows the model, where it asks a person and what it records. Comparing models inside one harness tells you about the models. Comparing two agents tells you about two models and two harnesses at once, and the harness is the part you can change.

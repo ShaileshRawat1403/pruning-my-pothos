@@ -896,6 +896,78 @@ export const EMBLEMS: Record<string, React.ReactNode> = {
 
   /* Bounded autonomy: the dog runs anywhere it likes inside the fence; the
      owner reads the paper outside it. */
+  /* Forward deployed: the desk at headquarters is empty, nameplate and a
+     cold coffee; its owner works at a desk inside the customer's building. */
+  "what-does-forward-deployed-mean": (
+    <g>
+      {floor(500)}
+      {/* Headquarters, left: the empty desk. */}
+      <text x={110} y={250} textAnchor="middle" className="ill-mono" fontSize={14} fontWeight={700} fill={D.greyLight}>HEADQUARTERS</text>
+      <path d="M20 390 H200 M36 390 V500 M184 390 V500" stroke={D.ink} strokeWidth={5} strokeLinecap="round" />
+      <rect x={40} y={364} width={80} height={26} fill="#fff" stroke={D.ink} strokeWidth={3.5} />
+      <text x={80} y={383} textAnchor="middle" className="ill-mono" fontSize={14} fontWeight={700} fill={D.ink}>FDE</text>
+      <g className="fx-mug">
+        <path d="M146 350 H176 V384 C176 390, 146 390, 146 384 Z" fill={D.paper} stroke={D.ink} strokeWidth={3.5} strokeLinejoin="round" />
+        <path d="M176 358 C 190 358, 190 376, 176 376" fill="none" stroke={D.ink} strokeWidth={3.5} />
+      </g>
+      <g className="fx-cold">{hand(160, 330, "cold.", 22, D.greyLight)}</g>
+      {/* The customer's building, right, with its owner at work inside. */}
+      <path d="M240 500 V170 H500" fill="none" stroke={D.ink} strokeWidth={5} strokeLinejoin="round" />
+      <text x={370} y={208} textAnchor="middle" className="ill-mono" fontSize={14} fontWeight={700} fill={D.greyLight}>CUSTOMER</text>
+      <rect x={430} y={250} width={50} height={210} fill={D.paperDeep} stroke={D.ink} strokeWidth={4} />
+      {[0, 1, 2, 3].map((i) => (
+        <circle key={i} cx={455} cy={280 + i * 46} r={5} fill={i === 2 ? D.leaf : D.greyLight} />
+      ))}
+      <path d="M270 420 H400 M282 420 V500 M388 420 V500" stroke={D.ink} strokeWidth={5} strokeLinecap="round" />
+      <path d="M306 416 H366 L362 420 H310 Z" fill={D.ink} />
+      <path d="M310 416 L316 380 H360 L356 416" fill="#fff" stroke={D.ink} strokeWidth={3.5} strokeLinejoin="round" />
+      <path d="M366 400 C 390 400, 410 330, 430 320" fill="none" stroke={D.teal} strokeWidth={4} />
+      <g className="fx-person">
+        <Torso x={336} y={360} w={70} h={60} fill={D.teal} />
+        <Head x={336} y={326} r={30} eyes="sleepy" look={1} mouth="flat" stubble hair="sides" />
+      </g>
+      <g className="fx-label">{hand(250, 100, "out at the customer.", 28, D.ink)}</g>
+    </g>
+  ),
+
+  /* Agent harness: the model hangs in a harness of straps, feet off the
+     floor, suggesting things; the clipboard beside it says what it may do. */
+  "what-is-an-agent-harness": (
+    <g>
+      {floor(500)}
+      {/* The beam and the straps. */}
+      <path d="M60 110 H440" stroke={D.ink} strokeWidth={8} strokeLinecap="round" />
+      <path d="M150 110 L206 300 M350 110 L294 300" stroke={D.ink} strokeWidth={5} strokeLinecap="round" />
+      <ellipse cx={250} cy={306} rx={66} ry={18} fill={D.paperDeep} stroke={D.ink} strokeWidth={5} />
+      <g className="fx-robot">
+        {/* The robot, in the seat, legs dangling short of the floor. */}
+        <rect x={210} y={226} width={80} height={70} rx={12} fill="#fff" stroke={D.ink} strokeWidth={5} />
+        <circle cx={234} cy={256} r={7} fill={D.ink} />
+        <circle cx={266} cy={256} r={7} fill={D.ink} />
+        <path d="M236 276 H264" stroke={D.ink} strokeWidth={4} strokeLinecap="round" />
+        <path d="M250 226 V206" stroke={D.ink} strokeWidth={4} />
+        <circle cx={250} cy={200} r={7} fill={D.accent} stroke={D.ink} strokeWidth={3} />
+        <path d="M226 322 V420 M274 322 V420" stroke={D.ink} strokeWidth={6} strokeLinecap="round" />
+        <path d="M216 420 H236 M264 420 H284" stroke={D.ink} strokeWidth={6} strokeLinecap="round" />
+      </g>
+      <g className="fx-bubble">
+        <rect x={40} y={170} width={150} height={50} rx={14} fill="#fff" stroke={D.ink} strokeWidth={4} />
+        <path d="M180 214 L208 236 L170 220" fill="#fff" stroke={D.ink} strokeWidth={4} strokeLinejoin="round" />
+        <text x={115} y={202} textAnchor="middle" className="ill-mono" fontSize={18} fontWeight={700} fill={D.teal}>delete it?</text>
+      </g>
+      {/* The clipboard on the floor: what it may actually do. */}
+      <g className="fx-clip">
+        <rect x={350} y={360} width={110} height={140} fill="#fff" stroke={D.ink} strokeWidth={4} />
+        <rect x={380} y={350} width={50} height={18} rx={4} fill={D.grey} stroke={D.ink} strokeWidth={3} />
+        <text x={405} y={394} textAnchor="middle" className="ill-mono" fontSize={14} fontWeight={700} fill={D.ink}>ALLOWED</text>
+        <path d="M366 416 H444 M366 440 H430" stroke={D.greyLight} strokeWidth={4} strokeLinecap="round" />
+        <path d="M366 466 H444" stroke={D.accent} strokeWidth={4} strokeLinecap="round" />
+        <path d="M366 474 L444 458" stroke={D.accent} strokeWidth={4} strokeLinecap="round" />
+      </g>
+      <g className="fx-label">{hand(250, 60, "feet off the floor.", 28, D.ink)}</g>
+    </g>
+  ),
+
   "what-is-bounded-autonomy": (
     <g>
       {floor(500)}

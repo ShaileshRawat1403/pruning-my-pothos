@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:2a386504c90ee195728ad9051c3fc5e4ff291047c97734af584c8efebbc638f8
+Content snapshot: sha256:1c39b7192a0da8cb139d372b01a565aabf7e0f58450ae2da74547bb9a311719b
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions
@@ -14,7 +14,7 @@ Status: Read-only diagnostic of the existing article archive.
 
 | Total Articles | Green | Amber | Red | Illustrative |
 | :--- | :--- | :--- | :--- | :--- |
-| 57 | 56 | 0 | 1 | 0 |
+| 59 | 58 | 0 | 1 | 0 |
 
 ## High-Priority Review Queue (Red)
 
@@ -92,7 +92,9 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [training-vs-inference](../src/content/systems/training-vs-inference.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [what-a-system-prompt-actually-is](../src/content/systems/what-a-system-prompt-actually-is.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [what-an-ai-model-actually-is](../src/content/systems/what-an-ai-model-actually-is.mdx) | 🟢 Green | v1.0 | Yes | Clean |
+| systems | [what-does-forward-deployed-mean](../src/content/systems/what-does-forward-deployed-mean.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [what-is-a-forward-deployed-consultant](../src/content/systems/what-is-a-forward-deployed-consultant.mdx) | 🟢 Green | v1.0 | Yes | Clean |
+| systems | [what-is-an-agent-harness](../src/content/systems/what-is-an-agent-harness.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [what-is-bounded-autonomy](../src/content/systems/what-is-bounded-autonomy.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [what-is-mcp-model-context-protocol](../src/content/systems/what-is-mcp-model-context-protocol.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [why-ocr-quietly-breaks-document-ai](../src/content/systems/why-ocr-quietly-breaks-document-ai.mdx) | 🟢 Green | v1.0 | Yes | Clean |

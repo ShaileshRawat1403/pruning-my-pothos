@@ -53,6 +53,8 @@ export const COVERS: Record<string, CoverSpec> = {
   "what-is-mcp-model-context-protocol": { quip: "Standard plug. Unknown appliance." },
   "what-is-a-forward-deployed-consultant": { quip: "Deck in the lobby. Consultant in the building." },
   "what-is-bounded-autonomy": { quip: "Free to run. Fenced anyway." },
+  "what-does-forward-deployed-mean": { quip: "Desk at headquarters. Person at the customer." },
+  "what-is-an-agent-harness": { quip: "It proposes. The straps decide." },
   "why-ocr-quietly-breaks-document-ai": { quip: "Garbage in. Confidently out." },
 };
 

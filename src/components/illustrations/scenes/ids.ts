@@ -133,4 +133,8 @@ export const SCENE_IDS = new Set([
   "what-an-fdc-owns",
   "inside-and-outside-the-bounds",
   "a-request-meets-its-bounds",
+  "headquarters-or-forward",
+  "one-forward-deployment",
+  "what-a-harness-wraps",
+  "one-turn-of-the-harness",
 ]);

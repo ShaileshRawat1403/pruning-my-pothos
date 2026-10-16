@@ -221,10 +221,17 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 - Before making LanguageOps public, see section 9: its history holds
   material the owner may not want public.
 
-## 8. Where things stand (2026-10-15)
+## 8. Where things stand (2026-10-16)
 
-- `main` is deployed and clean. Latest work, newest first:
-  - Growth batch 1: "What Is a Forward Deployed Consultant (FDC)?" and "What
+- `main` is deployed. Latest work, newest first:
+  - Growth batch 2 (committed, not yet pushed; awaiting owner review):
+    "What Does Forward Deployed Mean?" (F2, hub of the forward deployed
+    cluster; the FDC page links to it) and "What Is an Agent Harness?" (H1;
+    the runtime-over-model note links to it). Each has cover, film, two
+    scenes. Sources: Wikipedia, Palantir's FDE and Deployment Strategist
+    postings, arXiv 2606.10106, Anthropic's harness post and Agent SDK docs,
+    DAX README at the pinned SHA.
+  - Growth batch 1 (live 2026-10-15): "What Is a Forward Deployed Consultant (FDC)?" and "What
     Is Bounded Autonomy?" (new, each with cover, film, two scenes); title
     and description fixes for HITL vs HOTL vs HOOTL, inference vs
     fine-tuning, and AEO and GEO.
@@ -278,9 +285,10 @@ Owner actions:
    `file_download` as a key event in GA4 once it has fired.
 
 Agent work, in order (confirm with the owner each session):
-1. Growth: next two pages. F2 "What does forward deployed mean" (hub for
-   FDE, FDC, deployment strategist), plus one of: H1 agent harness, row 10
-   which Ollama models support tools, row 9 what are embeddings.
+1. Growth: ship batch 2 after owner review (F2, H1). Next batch: F4
+   forward deployed AI, pilot to production, plus one of row 10 (which
+   Ollama models support tools) or row 9 (what are embeddings). F5 waits
+   for the owner's draft.
 2. Review the new pages in Search Console from mid-November against the
    log in `docs/GROWTH_TRACK.md`.
 3. Visual track and builder track continue per their files.

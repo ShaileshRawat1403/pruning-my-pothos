@@ -41,6 +41,7 @@ const PLACEMENT: Record<string, { companions: string[]; notes: string[] }> = {
     companions: [
       "tool-use-when-language-triggers-actions",
       "ai-agents-vs-ai-workflows",
+      "what-is-an-agent-harness",
       "what-is-mcp-model-context-protocol",
       "policy-governed-mcp-runtimes-for-secure-tool-execution",
     ],
@@ -59,7 +60,7 @@ const PLACEMENT: Record<string, { companions: string[]; notes: string[] }> = {
     notes: ["i-7-cognitive-loop", "tech-stack-for-nlpg-driven-ai-assisted-sdlc"],
   },
   "from-prompt-to-production": {
-    companions: ["what-is-a-forward-deployed-consultant"],
+    companions: ["what-does-forward-deployed-mean", "what-is-a-forward-deployed-consultant"],
     notes: [],
   },
 };
