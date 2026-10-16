@@ -1,4 +1,4 @@
-"""Crawl the live site from its page list; check every asset each live page
+r"""Crawl the live site from its page list; check every asset each live page
 references, every internal link in it, and the RSC data files client-side
 navigation fetches, through Cloudflare as visitors see them.
 

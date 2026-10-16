@@ -162,7 +162,7 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 - **Three separate states after a push**: CI and Deploy green, Hostinger has
   pulled (can take over 10 minutes), Cloudflare's copy expired. Check the
   origin directly: `curl --resolve "pruningmypothos.com:443:82.112.239.210" ...`.
-- **Cloudflare caches errors.** Twice on 2026-10-15 an origin error was
+- **Cloudflare cached errors** until 2026-10-16 (now fixed, see section 9). Twice on 2026-10-15 an origin error was
   cached and served to everyone: a 429 on the homepage, and 404s on two new
   articles that Bing fetched (after the IndexNow ping) before Hostinger had
   pulled. Fix on the spot: Cloudflare → Caching → Configuration → Custom
@@ -249,14 +249,15 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 ## 9. Open items
 
 Owner actions:
-1. Cloudflare, two settings (proposed 2026-10-16): the cache rule's Edge
-   TTL set to "no store" for status 400 to 599, and a response header
-   transform rule setting `Cache-Control: no-store` when
-   `http.response.code ge 400`. Every broken page seen so far was an origin
-   error (Hostinger 429 or a 404 mid-deploy) that Cloudflare and browsers
-   kept for 10 minutes (pages) or a day (scripts), because the error carried
-   the normal `.htaccess` cache headers. A single-URL purge can miss copies;
-   purge by prefix (`pruningmypothos.com/_next/static/chunks`) instead.
+1. Done 2026-10-16 (owner approved): the cache rule's Edge TTL is "no
+   store" for status 400 and above, and a response header transform rule
+   ("Errors: never cache in browsers") sets `Cache-Control: no-store` when
+   `http.response.code ge 400` on pruningmypothos.com. Verified: errors
+   return `cf-cache-status: BYPASS` and `no-store`; pages and files cache
+   as before. Cause it fixes: origin errors (Hostinger 429, 404 mid-deploy)
+   carried the normal `.htaccess` cache headers and were kept by Cloudflare
+   and browsers for 10 minutes to a day. A single-URL purge can miss
+   copies; purge by prefix if an old error is ever still cached.
    Optional: turn off Email Obfuscation (Scrape Shield) so crawlers stop
    seeing `/cdn-cgi/l/email-protection` as a 404; in Search Console, press
    "Validate fix" on the Not found (404) report.
