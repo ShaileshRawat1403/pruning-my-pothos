@@ -84,7 +84,7 @@ RewriteRule ^systems/decision-making-under-uncertainty-in-ai-runtimes/?$ /system
 RewriteRule ^systems/drift-decay-and-silent-failure/?$ /systems/observability-first-ai-systems/ [R=301,L]
 RewriteRule ^systems/embeddings-explained-like-youre-human/?$ /systems/retrieval-augmented-generation-in-plain-terms/ [R=301,L]
 RewriteRule ^systems/engineering-agentic-systems-for-reliability/?$ /systems/from-agent-intent-to-governed-execution/ [R=301,L]
-RewriteRule ^systems/engineering-bounded-autonomy/?$ /systems/from-agent-intent-to-governed-execution/ [R=301,L]
+RewriteRule ^systems/engineering-bounded-autonomy/?$ /systems/what-is-bounded-autonomy/ [R=301,L]
 RewriteRule ^systems/enterprise-ai-at-scale/?$ /systems/from-prompt-to-production/ [R=301,L]
 RewriteRule ^systems/evaluating-non-deterministic-outputs-with-rubric-based-pipelines/?$ /systems/evaluation-is-a-human-problem/ [R=301,L]
 RewriteRule ^systems/evaluation-as-a-runtime-discipline/?$ /systems/evaluation-is-a-human-problem/ [R=301,L]
@@ -102,7 +102,7 @@ RewriteRule ^systems/the-intelligence-assembly-model/?$ /systems/ai-architecture
 RewriteRule ^systems/the-logic-void/?$ /systems/what-an-ai-model-actually-is/ [R=301,L]
 RewriteRule ^systems/what-a-skill-is-in-ai-systems/?$ /systems/designing-reusable-ai-skills/ [R=301,L]
 RewriteRule ^systems/what-llms-are-optimized-for/?$ /systems/what-an-ai-model-actually-is/ [R=301,L]
-RewriteRule ^systems/why-most-ai-projects-fail-after-the-demo-stage/?$ /systems/from-prompt-to-production/ [R=301,L]
+RewriteRule ^systems/why-most-ai-projects-fail-after-the-demo-stage/?$ /systems/why-ai-pilots-stall-before-production/ [R=301,L]
 RewriteRule ^systems/winning-ai-search-as-a-discoverability-system/?$ /systems/seo-aeo-geo-in-plain-terms/ [R=301,L]
 # END PMP ARCHIVE REDIRECTS
 

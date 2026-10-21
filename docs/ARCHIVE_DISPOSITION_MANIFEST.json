@@ -204,8 +204,8 @@
     {
       "slug": "engineering-bounded-autonomy",
       "disposition": "RETIRE",
-      "destination": "from-agent-intent-to-governed-execution",
-      "redirect": "from-agent-intent-to-governed-execution",
+      "destination": "what-is-bounded-autonomy",
+      "redirect": "what-is-bounded-autonomy",
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
@@ -659,8 +659,8 @@
     {
       "slug": "why-most-ai-projects-fail-after-the-demo-stage",
       "disposition": "MERGE",
-      "destination": "from-prompt-to-production",
-      "redirect": "from-prompt-to-production",
+      "destination": "why-ai-pilots-stall-before-production",
+      "redirect": "why-ai-pilots-stall-before-production",
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
