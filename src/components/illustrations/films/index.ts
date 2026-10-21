@@ -31,6 +31,7 @@ import { film as f_what_is_a_forward_deployed_consultant } from "./what-is-a-for
 import { film as f_what_is_bounded_autonomy } from "./what-is-bounded-autonomy";
 import { film as f_what_does_forward_deployed_mean } from "./what-does-forward-deployed-mean";
 import { film as f_what_is_an_agent_harness } from "./what-is-an-agent-harness";
+import { film as f_why_ai_pilots_stall_before_production } from "./why-ai-pilots-stall-before-production";
 import { film as f_why_ocr_quietly_breaks_document_ai } from "./why-ocr-quietly-breaks-document-ai";
 import { film as f_sheet_write_it_down_or_watch_it_guess } from "./write-it-down-or-watch-it-guess";
 import { film as f_sheet_better_than_last_week_prove_it } from "./better-than-last-week-prove-it";
@@ -71,6 +72,7 @@ export const FILMS: Record<string, FilmScript> = {
   "what-is-bounded-autonomy": f_what_is_bounded_autonomy,
   "what-does-forward-deployed-mean": f_what_does_forward_deployed_mean,
   "what-is-an-agent-harness": f_what_is_an_agent_harness,
+  "why-ai-pilots-stall-before-production": f_why_ai_pilots_stall_before_production,
   "why-ocr-quietly-breaks-document-ai": f_why_ocr_quietly_breaks_document_ai,
 
   "write-it-down-or-watch-it-guess": f_sheet_write_it_down_or_watch_it_guess,

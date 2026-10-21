@@ -223,7 +223,12 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 
 ## 8. Where things stand (2026-10-16)
 
-- `main` is deployed. Latest work, newest first:
+- `main` is ahead of the live site (deploy held by the owner until the SEO/AEO/GEO
+  and analytics check). Latest work, newest first:
+  - F4 "Why Do AI Pilots Stall Before Production?" (2026-10-21): Gartner's
+    30% forecast, the owner's film as an illustration, the owner's ten
+    questions (attested), the public photo-search case study. Cover, film,
+    two scenes; placed under from prompt to production, which links to it.
   - Owner films (2026-10-21): the FDC film (90 s, illustrative claims
     deployment, posted on LinkedIn 11 Oct) embedded on the FDC page; the
     "AI, Attention, Automation and Anxiety" film (2 min) as a new Self entry,
@@ -303,8 +308,8 @@ Owner actions:
    `file_download` as a key event in GA4 once it has fired.
 
 Agent work, in order (confirm with the owner each session):
-1. Growth: next batch F4 forward deployed AI, pilot to production, built
-   on the owner's decision rule, ten questions and photo-search case, plus one of row 10 (which
+1. Before the next deploy: site-wide SEO/AEO/GEO check and a Search Console,
+   GA4 and Clarity review (owner's request, 2026-10-21). Then growth: one of row 10 (which
    Ollama models support tools) or row 9 (what are embeddings). F5 (how to
    become an FDC) from the owner's resume, posts and an interview.
 2. Review the new pages in Search Console from mid-November against the

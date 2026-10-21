@@ -138,4 +138,6 @@ export const SCENE_IDS = new Set([
   "what-a-harness-wraps",
   "one-turn-of-the-harness",
   "which-system-fits-the-work",
+  "pilot-or-production",
+  "getting-a-pilot-through",
 ]);

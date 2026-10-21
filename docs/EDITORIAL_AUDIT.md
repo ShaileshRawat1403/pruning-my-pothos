@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:ab8f255f8468b771a6d5e55cf3b1a41b6a8bb1fa28d3537c04f9d1bffe8daf4b
+Content snapshot: sha256:7ddfbbf4f93bac272b9699f275ddc053b690204bf15a70aa434715368b819167
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions
@@ -14,7 +14,7 @@ Status: Read-only diagnostic of the existing article archive.
 
 | Total Articles | Green | Amber | Red | Illustrative |
 | :--- | :--- | :--- | :--- | :--- |
-| 60 | 59 | 0 | 1 | 0 |
+| 61 | 59 | 0 | 1 | 1 |
 
 ## High-Priority Review Queue (Red)
 
@@ -98,5 +98,6 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | systems | [what-is-an-agent-harness](../src/content/systems/what-is-an-agent-harness.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [what-is-bounded-autonomy](../src/content/systems/what-is-bounded-autonomy.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 | systems | [what-is-mcp-model-context-protocol](../src/content/systems/what-is-mcp-model-context-protocol.mdx) | 🟢 Green | v1.0 | Yes | Clean |
+| systems | [why-ai-pilots-stall-before-production](../src/content/systems/why-ai-pilots-stall-before-production.mdx) | 🔵 Illustrative | v1.0 | Yes | Clean |
 | systems | [why-ocr-quietly-breaks-document-ai](../src/content/systems/why-ocr-quietly-breaks-document-ai.mdx) | 🟢 Green | v1.0 | Yes | Clean |
 

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.1",
   "scope": "src/content/systems",
-  "sourceCount": 64,
+  "sourceCount": 65,
   "dispositionTotals": {
     "KEEP-REWRITE": 19,
     "KEEP-STRIP": 3,
@@ -9,15 +9,15 @@
     "MOVE-TO-SHELF": 0,
     "REDUCE-TO-NOTE": 6,
     "RETIRE": 10,
-    "NEW": 5
+    "NEW": 6
   },
   "statusTotals": {
-    "implemented": 64,
+    "implemented": 65,
     "pending": 0,
     "structural-pending": 0
   },
   "redirectStatusTotals": {
-    "not-applicable": 33,
+    "not-applicable": 34,
     "resolved": 29,
     "pending": 0,
     "none": 2
@@ -735,6 +735,17 @@
     },
     {
       "slug": "what-is-an-agent-harness",
+      "disposition": "NEW",
+      "destination": null,
+      "redirect": null,
+      "redirectTargetType": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "why-ai-pilots-stall-before-production",
       "disposition": "NEW",
       "destination": null,
       "redirect": null,

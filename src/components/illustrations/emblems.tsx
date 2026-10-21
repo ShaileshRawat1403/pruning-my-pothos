@@ -968,6 +968,53 @@ export const EMBLEMS: Record<string, React.ReactNode> = {
     </g>
   ),
 
+  /* Pilot to production: the robot on the DEMO podium, medal and all, next
+     to the company it has to work in: a leaning tower of mismatched systems,
+     held together by one sticky note. */
+  "why-ai-pilots-stall-before-production": (
+    <g>
+      {floor(500)}
+      {/* The podium and the winner. */}
+      <rect x={40} y={410} width={160} height={90} fill={D.paperDeep} stroke={D.ink} strokeWidth={5} />
+      <text x={120} y={466} textAnchor="middle" className="ill-mono" fontSize={22} fontWeight={700} fill={D.ink}>DEMO</text>
+      <rect x={84} y={316} width={72} height={64} rx={10} fill="#fff" stroke={D.ink} strokeWidth={5} />
+      <circle cx={106} cy={342} r={6} fill={D.ink} />
+      <circle cx={134} cy={342} r={6} fill={D.ink} />
+      <path d="M108 362 H132" stroke={D.ink} strokeWidth={4} strokeLinecap="round" />
+      <path d="M100 380 V410 M140 380 V410" stroke={D.ink} strokeWidth={6} strokeLinecap="round" />
+      <path d="M120 316 V296" stroke={D.ink} strokeWidth={4} />
+      <circle cx={120} cy={290} r={7} fill={D.accent} stroke={D.ink} strokeWidth={3} />
+      <g className="fx-medal">
+        <path d="M100 380 L120 404 L140 380" fill="none" stroke={D.accent} strokeWidth={5} strokeLinejoin="round" />
+        <circle cx={120} cy={404} r={16} fill="#F6E7A8" stroke={D.ink} strokeWidth={3.5} />
+        <text x={120} y={409} textAnchor="middle" className="ill-mono" fontSize={12} fontWeight={700} fill={D.ink}>94%</text>
+      </g>
+      {/* The company: a leaning stack of systems. */}
+      <g transform="rotate(2 360 500)">
+        {[
+          { x: 250, y: 430, w: 210, h: 70, t: "ERP" },
+          { x: 262, y: 370, w: 180, h: 60, t: "CRM" },
+          { x: 246, y: 316, w: 200, h: 54, t: "SHARED INBOX" },
+          { x: 272, y: 262, w: 160, h: 54, t: "SHEET (FINAL)" },
+          { x: 258, y: 214, w: 176, h: 48, t: "LEGACY" },
+          { x: 284, y: 170, w: 130, h: 44, t: "???" },
+        ].map((b) => (
+          <g key={b.t}>
+            <rect x={b.x} y={b.y} width={b.w} height={b.h} fill={b.t === "SHEET (FINAL)" ? "#fff" : D.paperDeep} stroke={D.ink} strokeWidth={4} />
+            <text x={b.x + b.w / 2} y={b.y + b.h / 2 + 6} textAnchor="middle" className="ill-mono" fontSize={15} fontWeight={700} fill={D.grey}>{b.t}</text>
+          </g>
+        ))}
+        <g className="fx-sticky">
+          <rect x={404} y={250} width={84} height={70} fill="#F6E7A8" stroke={D.ink} strokeWidth={3} transform="rotate(6 446 285)" />
+          <text x={446} y={276} textAnchor="middle" className="ill-hand" fontSize={15} fontWeight={700} fill={D.ink} transform="rotate(6 446 285)">over $10k?</text>
+          <text x={446} y={298} textAnchor="middle" className="ill-hand" fontSize={15} fontWeight={700} fill={D.ink} transform="rotate(6 446 285)">ask Priya.</text>
+        </g>
+      </g>
+      <g className="fx-label">{hand(250, 90, "fourteen systems.", 28, D.ink)}</g>
+      <g className="fx-aside">{hand(250, 124, "one sticky note.", 24, D.greyLight)}</g>
+    </g>
+  ),
+
   "what-is-bounded-autonomy": (
     <g>
       {floor(500)}

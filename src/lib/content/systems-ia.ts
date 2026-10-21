@@ -60,7 +60,7 @@ const PLACEMENT: Record<string, { companions: string[]; notes: string[] }> = {
     notes: ["i-7-cognitive-loop", "tech-stack-for-nlpg-driven-ai-assisted-sdlc"],
   },
   "from-prompt-to-production": {
-    companions: ["what-does-forward-deployed-mean", "what-is-a-forward-deployed-consultant"],
+    companions: ["what-does-forward-deployed-mean", "what-is-a-forward-deployed-consultant", "why-ai-pilots-stall-before-production"],
     notes: [],
   },
 };

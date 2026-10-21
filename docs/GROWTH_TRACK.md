@@ -110,7 +110,7 @@ without the owner supplying it.
 | F1 | forward deployed consultant / what is an FDC | `/systems/what-is-a-forward-deployed-consultant/` | Definition, FDC vs FDE, what the role owns; rewritten 2026-10-16 with the owner's view | live 2026-10-15; rewrite awaiting push |
 | F2 | what does forward deployed mean / forward deployed engineer | new: `/systems/what-does-forward-deployed-mean/` | Hub: origin, the model, the roles (FDE, FDC, deployment strategist), links F1 | built 2026-10-16, reviewed, awaiting push |
 | F3 | forward deployed engineer vs consultant | F1 covers it | Watch Search Console; a separate page only if the comparison query grows apart from F1 | watch |
-| F4 | forward deployed AI deployment, pilot to production | new Systems page | What changes when the product is an agent; links bounded autonomy, from prompt to production | open |
+| F4 | forward deployed AI deployment, pilot to production | new: `/systems/why-ai-pilots-stall-before-production/` | Why pilots stall and what gets them through; links bounded autonomy, from prompt to production | built 2026-10-21, reviewed, awaiting push |
 | F5 | how to become a forward deployed consultant | new page | Career intent, built on the owner's rough draft of their own FDC experience (promised 2026-10-15); declare it `observed` with author attestation | waiting for owner's draft |
 | F6 | GoATee on the Stack | Stack card and page | The FDC tool, in the owner's words, from its README at a pinned SHA | open |
 
@@ -194,3 +194,4 @@ Never chase a query only because it has volume.
 | 2026-10-16 | F2 | `/systems/what-does-forward-deployed-mean/` | what does forward deployed mean | new term, not yet seen | itself (hub of the forward deployed cluster; FDC page links to it) | built, reviewed, awaiting push |
 | 2026-10-16 | H1 | `/systems/what-is-an-agent-harness/` | what is an agent harness | new term, not yet seen | from-agent-intent-to-governed-execution (runtime-over-model links to it) | built, reviewed, awaiting push |
 | 2026-10-16 | F1 | `/systems/what-is-a-forward-deployed-consultant/` (rewrite) | forward deployed consultant | new term, not yet seen | itself | rewritten around the owner's view (problem solver with access to intelligence; depth of ownership), first `observed` claims with author attestation, checked against the Flexport and monday.com postings and Anthropic; new decision scene; awaiting push |
+| 2026-10-21 | F4 | `/systems/why-ai-pilots-stall-before-production/` | why AI pilots stall / AI pilot to production | new term, not yet seen | from-prompt-to-production (links to it) | built, reviewed, awaiting push |

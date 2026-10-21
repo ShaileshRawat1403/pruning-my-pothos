@@ -55,6 +55,7 @@ export const COVERS: Record<string, CoverSpec> = {
   "what-is-bounded-autonomy": { quip: "Free to run. Fenced anyway." },
   "what-does-forward-deployed-mean": { quip: "Desk at headquarters. Person at the customer." },
   "what-is-an-agent-harness": { quip: "It proposes. The straps decide." },
+  "why-ai-pilots-stall-before-production": { quip: "Passed the demo. Met the company." },
   "why-ocr-quietly-breaks-document-ai": { quip: "Garbage in. Confidently out." },
 };
 

@@ -1,0 +1,162 @@
+---
+schemaVersion: "1.0"
+title: "Why Do AI Pilots Stall Before Production?"
+seoTitle: "Why AI Pilots Stall Before Production, and What Fixes It"
+publishDate: "2026-10-21"
+description: "An AI pilot proves the model can do the task on chosen data. Production needs it to work inside the organisation. Why pilots stall, and what gets them through."
+category: "How-things-fit-together"
+heroImage: '/covers/systems/why-ai-pilots-stall-before-production.png'
+heroImageAlt: 'A small robot on a podium wearing a medal marked DEMO, beside a towering stack of mismatched filing cabinets with one sticky note on it'
+tags:
+  - forward-deployed
+  - delivery
+  - evaluation
+contentType: 'technical'
+readingTime: 8
+difficulty: 'beginner'
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Explain why an AI pilot that passed its demo stalls before production, name what the pilot never tested, and know the work that gets a pilot through."
+thesis: "A pilot tests the model on the task; production tests the task inside the organisation, so pilots stall on the work the pilot skipped: real systems, real data, unwritten rules, the right kind of system, measurement on real work, and people where the stakes are."
+shortAnswer: "An AI pilot proves the model can do the task on data someone chose. Production needs the task to work inside the organisation: its real systems, messy data, unwritten rules and the people who must change how they work. Pilots stall in that gap; Gartner predicted that at least 30% of generative AI projects would be abandoned after proof of concept by the end of 2025, citing poor data quality, inadequate risk controls, escalating costs and unclear business value. Getting through means doing the work the pilot skipped: watching the real work, choosing the right kind of system, measuring on real data, putting people where the stakes are, and shipping in small steps."
+
+boundary:
+  is: "An explanation of why AI pilots stall between a successful demo and production use, and the work that gets them through."
+  isNot: "A readiness checklist, a vendor comparison, or a claim about the failure rate of any particular organisation's projects."
+  mattersWhen: "A pilot has passed its demo and nothing has happened since, or a team is planning a pilot and wants it to survive contact with the organisation."
+
+provenance:
+  primary: synthesis
+  sources:
+    - id: gartner-poc
+      type: external
+      url: "https://www.gartner.com/en/newsroom/press-releases/2024-07-29-gartner-predicts-30-percent-of-generative-ai-projects-will-be-abandoned-after-proof-of-concept-by-end-of-2025"
+      citation: "Gartner, press release: Gartner Predicts 30% of Generative AI Projects Will Be Abandoned After Proof of Concept By End of 2025, 29 July 2024"
+    - id: newtuple-photo-search
+      type: external
+      url: "https://www.newtuple.com/post/making-product-identification-faster-at-the-store-with-image-search"
+      citation: "Newtuple, Making product identification faster at the store with image search, 1 October 2026"
+  claims:
+    - statement: "Gartner predicted that at least 30% of generative AI projects would be abandoned after proof of concept by the end of 2025, citing poor data quality, inadequate risk controls, escalating costs and unclear business value."
+      kind: external
+      sources:
+        - gartner-poc
+    - statement: "A pilot tests the model on the task; production tests the task inside the organisation."
+      kind: synthesis
+    - statement: "In the author's film, a claims assistant scores 94% on 40 test files, then meets fourteen systems that nobody knows all of, and the rule that matters is on a sticky note: over $10k, ask Priya."
+      kind: illustrative
+    - statement: "The author asks these questions before anything is built: what kind of workflow it is, which parts are deterministic, whether retrieval helps, where a model adds value, whether anything needs an agent, how much autonomy is acceptable, where human review sits, how the system will be evaluated, what happens when it fails, and whether anyone will use it."
+      kind: observed
+      attestation: author
+    - statement: "In a retailer's photo search for items with missing barcodes, the correct product came first in 50 of 89 test searches and appeared in the top five in 78, so the team made the result a shortlist that staff check before using it."
+      kind: external
+      sources:
+        - newtuple-photo-search
+    - statement: "The case study names its next step before wider use: testing photos taken in the aisle and measuring how long identification takes."
+      kind: external
+      sources:
+        - newtuple-photo-search
+    - statement: "In the film, the spec routes claims over $10k to human review, approves the rest automatically and logs every step, and time per claim falls from 4.0 days to 2.2 over six weekly releases."
+      kind: illustrative
+
+visuals:
+  - id: pilot-or-production
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "The pilot tested the model on the task; production tests the task inside the organisation."
+    caption: "What a pilot sees, and what it meets."
+    alt: "A comparison. The pilot works on files someone chose, one clean system, the happy path and a demo audience. Production meets the real inbox, many systems nobody fully knows, exceptions and unwritten rules, and people who must change how they work."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "The pilot"
+        items:
+          - "Files someone chose"
+          - "One clean system"
+          - "The happy path"
+      after:
+        label: "Production"
+        items:
+          - "The real inbox"
+          - "Fourteen systems, one sticky note"
+          - "Exceptions and unwritten rules"
+      diffNote: "Pilots stall on everything in the right column."
+  - id: getting-a-pilot-through
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "A pilot gets through by doing the work it skipped, in small steps on the real work."
+    caption: "The work between a demo and production, in order."
+    alt: "A sequence of five steps: watch the real work, including the unwritten rules; decide what kind of system fits each part; measure on the organisation's own data; put a person where the stakes are; ship small and often, and measure again."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: watch
+          label: "Watch the real work"
+          note: "Unwritten rules included."
+        - id: choose
+          label: "Choose the system"
+          note: "Rules, retrieval or a model."
+        - id: measure
+          label: "Measure on real data"
+          note: "Their files, not the demo's."
+        - id: people
+          label: "Place the people"
+          note: "Where the stakes are."
+        - id: ship
+          label: "Ship small, weekly"
+          note: "Then measure again."
+---
+
+The demo went well. The model answered every question, the numbers looked good, and everyone agreed it was promising. Three months later nothing is in use. It is a familiar ending for an AI project, and the model may be the one part that worked.
+
+**A pilot tests the model on the task; production tests the task inside the organisation.** The pilot proves the model can read the claim, find the clause, or match the product, on data someone chose. Production asks whether it can do that in the real inbox, against the real systems, under the real rules, for people who have to change how they work. Pilots stall in the distance between those two tests.
+
+## How common it is
+
+Common enough to have a forecast. **Gartner predicted that at least 30% of generative AI projects would be abandoned after proof of concept by the end of 2025, citing poor data quality, inadequate risk controls, escalating costs and unclear business value.** None of those four reasons is about the model. Each is about something the pilot did not have to face.
+
+## What the pilot never met
+
+The author's short film on the [forward deployed consultant](/systems/what-is-a-forward-deployed-consultant/) opens with the usual story, told as an illustration. **In the author's film, a claims assistant scores 94% on 40 test files, then meets fourteen systems that nobody knows all of, and the rule that matters is on a sticky note: over $10k, ask Priya.** The demo was honest. It was tested on the wrong thing.
+
+<!-- pmp:visual id="pilot-or-production" -->
+
+The right column is where pilots stall:
+
+- **The real data** is scattered, inconsistent and partly in spreadsheets that someone treats as the system of record.
+- **The real systems** have permissions the pilot never asked for, versions nobody wrote down, and no API where the pilot assumed one.
+- **The unwritten rules** decide most of the outcomes: the threshold on a sticky note, the person everyone asks, the exception that is handled by phone.
+- **The people** were not in the demo. They have a way of working that the pilot quietly assumed would change.
+
+## The questions before the build
+
+Most of this can be found before anything is built, by asking. **The author asks these questions before anything is built: what kind of workflow it is, which parts are deterministic, whether retrieval helps, where a model adds value, whether anything needs an agent, how much autonomy is acceptable, where human review sits, how the system will be evaluated, what happens when it fails, and whether anyone will use it.**
+
+Several of those questions lead to a smaller answer than the pilot proposed. A part with clear rules becomes ordinary automation. A part that looks things up becomes [retrieval](/systems/retrieval-augmented-generation-in-plain-terms/). Only the part that needs judgement gets a model, and an agent only gets as much room as its [bounds](/systems/what-is-bounded-autonomy/) allow. The working rule is drawn on [what is a forward deployed consultant](/systems/what-is-a-forward-deployed-consultant/).
+
+## Measure on the real work
+
+A demo score answers whether the model can do the task. The question production needs answered is whether a person can use the result in the real workflow, and only a test on real work answers it.
+
+A published retail case shows the difference. **In a retailer's photo search for items with missing barcodes, the correct product came first in 50 of 89 test searches and appeared in the top five in 78, so the team made the result a shortlist that staff check before using it.** The same numbers could have been reported as a 56% failure or an 88% success. Measured against the job, they said something more useful: the system is good at narrowing the choice, and a person should make it. **The case study names its next step before wider use: testing photos taken in the aisle and measuring how long identification takes.** That is a pilot moving toward production on evidence, one question at a time.
+
+How to decide what counts as good before measuring is on [evaluation is a human problem](/systems/evaluation-is-a-human-problem/).
+
+## Ship small, put people where the stakes are
+
+<!-- pmp:visual id="getting-a-pilot-through" -->
+
+The film closes the illustration the same way. **In the film, the spec routes claims over $10k to human review, approves the rest automatically and logs every step, and time per claim falls from 4.0 days to 2.2 over six weekly releases.** The rule that lived on a sticky note became a route in the spec. The person who knew the override kept the decisions that need her. Each release was small enough that a Tuesday breakage was fixed by Friday.
+
+Where people should approve, and what they need in front of them to do it, is [human-in-the-loop design](/systems/human-in-the-loop-is-a-system-design-choice/).
+
+## Who does this work
+
+Somebody has to sit with the real work long enough to see the sticky note. That is the job the forward deployed roles were created for: people from the product company placed inside the customer until the product works there. [What does forward deployed mean](/systems/what-does-forward-deployed-mean/) covers the roles; the [forward deployed consultant](/systems/what-is-a-forward-deployed-consultant/) is the one who owns the path from the problem to adoption.
+
+Getting a pilot through is a different decision from declaring it ready. Whether the evidence justifies letting real users depend on it is [when is an AI system ready for real use](/systems/from-prompt-to-production/).
+
+## What this changes
+
+If a pilot has stalled, look for what it was never tested on: the real data, the real systems, the unwritten rules, the people. If you are planning one, test it there from the start, measure on the organisation's own work, and decide where a person stays in charge before the demo, not after.
