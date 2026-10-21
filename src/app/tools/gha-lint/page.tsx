@@ -1,14 +1,18 @@
 import ToolShell from "../../../components/ToolShell";
 import GhaLintClient from "../../../components/GhaLintClient";
 import { constructMetadata } from "../../../lib/seo/metadata";
+import { getSoftwareAppSchema } from "../../../lib/seo/jsonld";
+
+const description = "Lint a GitHub Actions workflow: pull_request_target plus PR-checkout RCE, unpinned actions, write-all permissions, script injection. Runs in your browser.";
 
 export const metadata = constructMetadata({
   title: "GitHub Actions Linter",
-  description: "Lint a GitHub Actions workflow: pull_request_target plus PR-checkout RCE, unpinned actions, write-all permissions, script injection. Runs in your browser.",
+  description,
   path: "/tools/gha-lint",
 });
 
 export default function GhaLintPage() {
+  const schema = getSoftwareAppSchema({ name: "GitHub Actions Linter", description, path: "/tools/gha-lint" });
   return (
     <ToolShell
       eyebrow="Security & Secrets"
@@ -18,6 +22,7 @@ export default function GhaLintPage() {
       pack="tesserakit-gha"
       packBlurb="The full gha pack audits every workflow for the risky triggers and permissions attackers look for."
     >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <GhaLintClient />
     </ToolShell>
   );

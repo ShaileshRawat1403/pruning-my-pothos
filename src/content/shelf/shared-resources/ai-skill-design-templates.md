@@ -1,7 +1,7 @@
 ---
 title: "AI skill design templates"
-seoTitle: "AI Skill Templates: Define, Review and Compose a Reusable Skill"
-description: "Three copy-ready AI skill templates: one to define a skill, one to review a change to it, one to hand it to the next step. Each field explained, with a filled example."
+seoTitle: "AI Skill Templates: Define, Review and Compose a Skill"
+description: "Three copy-ready AI skill templates: define a skill, review a change to it, hand it to the next step. Each field explained, with a filled example."
 publishDate: "2026-03-08"
 tags:
   - resources

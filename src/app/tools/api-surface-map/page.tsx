@@ -1,14 +1,18 @@
 import ToolShell from "../../../components/ToolShell";
 import ApiSurfaceMapClient from "../../../components/ApiSurfaceMapClient";
 import { constructMetadata } from "../../../lib/seo/metadata";
+import { getSoftwareAppSchema } from "../../../lib/seo/jsonld";
+
+const description = "Paste curl commands or a raw HTTP request and get a clean endpoint map with methods, hosts, and params. Auth headers are redacted. Runs in your browser.";
 
 export const metadata = constructMetadata({
   title: "API Surface Mapper",
-  description: "Paste curl commands or a raw HTTP request and get a clean endpoint map with methods, hosts, and params. Auth headers are redacted. Runs in your browser.",
+  description,
   path: "/tools/api-surface-map",
 });
 
 export default function ApiSurfaceMapPage() {
+  const schema = getSoftwareAppSchema({ name: "API Surface Mapper", description, path: "/tools/api-surface-map" });
   return (
     <ToolShell
       eyebrow="APIs & Traffic"
@@ -18,6 +22,7 @@ export default function ApiSurfaceMapPage() {
       pack="tesserakit-api"
       packBlurb="The full api pack parses curl and HTTP traces into a validated, secret-redacted API surface map."
     >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <ApiSurfaceMapClient />
     </ToolShell>
   );

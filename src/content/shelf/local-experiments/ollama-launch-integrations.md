@@ -1,6 +1,6 @@
 ---
 title: "Ollama launch: integration handoff"
-seoTitle: "Ollama Integration Setup: Hand Local Models to Codex and OpenCode"
+seoTitle: "Ollama Launch: Hand Local Models to Codex and OpenCode"
 description: "A launcher flow that hands a local Ollama model to Codex or OpenCode. Setup walkthrough, the two gates it checks, failure modes and what fixed them."
 publishDate: "2026-01-27"
 tags:

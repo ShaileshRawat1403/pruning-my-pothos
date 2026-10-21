@@ -1,5 +1,6 @@
 ---
 title: "Soothsayer MCP kernel: from prompts to controlled orchestration"
+seoTitle: "Soothsayer MCP Kernel: Prompts to Controlled Orchestration"
 description: "How I built a policy-governed MCP runtime where models can reason freely but execution stays deterministic, verifiable, and auditable."
 publishDate: "2026-03-04"
 tags:

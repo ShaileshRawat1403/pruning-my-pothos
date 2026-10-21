@@ -47,6 +47,8 @@ RewriteRule ^dax/?$ /stack/dax/ [R=301,L]
 # Old entry points Google still requests (Search Console, 2026-09).
 RewriteRule ^home/?$ / [R=301,L]
 RewriteRule ^skills/?$ /tools/skill-catalog/ [R=301,L]
+# Retired browser tools (2026-10): real 301s to the tools index.
+RewriteRule ^tools/(changelog|license-classify|todo-triage|markdown-links|dockerfile-hygiene|json-schema-lint)/?$ /tools/ [R=301,L]
 RewriteRule ^sentiments/about/?$ /about/ [R=301,L]
 
 # Renamed shelf paths.
@@ -187,6 +189,7 @@ RewriteRule ^tags/(poetry|evolution|movies|narrative|aesthetics)/?$ - [G,L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
+RedirectMatch 301 ^/tools/(changelog|license-classify|todo-triage|markdown-links|dockerfile-hygiene|json-schema-lint)/?$ /tools/
 RedirectMatch 301 ^/shelf/notes-tools/?$ /shelf/notes/
 RedirectMatch 301 ^/shelf/notes-tools/obsidian-scratchpad/?$ /shelf/notes/obsidian-scratchpad/
 RedirectMatch 301 ^/shelf/notes-tools/plaintext-logbook/?$ /shelf/notes/plaintext-logbook/
