@@ -56,6 +56,7 @@ export const COVERS: Record<string, CoverSpec> = {
   "what-does-forward-deployed-mean": { quip: "Desk at headquarters. Person at the customer." },
   "what-is-an-agent-harness": { quip: "It proposes. The straps decide." },
   "why-ai-pilots-stall-before-production": { quip: "Passed the demo. Met the company." },
+  "what-are-embeddings": { quip: "Same street. Probably same meaning." },
   "why-ocr-quietly-breaks-document-ai": { quip: "Garbage in. Confidently out." },
 };
 

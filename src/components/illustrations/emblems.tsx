@@ -1015,6 +1015,42 @@ export const EMBLEMS: Record<string, React.ReactNode> = {
     </g>
   ),
 
+  /* Embeddings: every sentence gets an address. Puppy and small dog live next
+     door, mailboxes full of decimals; invoice lives at the far end of the road. */
+  "what-are-embeddings": (
+    <g>
+      {floor(500)}
+      <path d="M0 470 H500" stroke={D.greyLight} strokeWidth={3} strokeDasharray="14 10" />
+      {[
+        { x: 40, w: 120, t: "PUPPY" },
+        { x: 168, w: 132, t: "SMALL DOG" },
+      ].map((h) => (
+        <g key={h.t}>
+          <path d={`M${h.x} 300 L${h.x + h.w / 2} 236 L${h.x + h.w} 300`} fill={D.accent} stroke={D.ink} strokeWidth={4} strokeLinejoin="round" />
+          <rect x={h.x} y={300} width={h.w} height={140} fill={D.paperDeep} stroke={D.ink} strokeWidth={4} />
+          <rect x={h.x + h.w / 2 - 16} y={390} width={32} height={50} fill="#fff" stroke={D.ink} strokeWidth={3.5} />
+          <text x={h.x + h.w / 2} y={340} textAnchor="middle" className="ill-mono" fontSize={16} fontWeight={700} fill={D.ink}>{h.t}</text>
+        </g>
+      ))}
+      {/* The far house. */}
+      <path d="M390 380 L425 346 L460 380" fill={D.grey} stroke={D.ink} strokeWidth={3.5} strokeLinejoin="round" />
+      <rect x={390} y={380} width={70} height={60} fill={D.paperDeep} stroke={D.ink} strokeWidth={3.5} />
+      <text x={425} y={414} textAnchor="middle" className="ill-mono" fontSize={13} fontWeight={700} fill={D.grey}>INVOICE</text>
+      {/* Mailboxes with their addresses. */}
+      <g className="fx-mail">
+        {[{ x: 96, a: "0.12, -0.40, …" }, { x: 238, a: "0.11, -0.38, …" }].map((m) => (
+          <g key={m.x}>
+            <path d={`M${m.x} 500 V462`} stroke={D.ink} strokeWidth={4} />
+            <rect x={m.x - 62} y={440} width={124} height={24} rx={4} fill="#fff" stroke={D.ink} strokeWidth={3} />
+            <text x={m.x} y={457} textAnchor="middle" className="ill-mono" fontSize={13} fontWeight={700} fill={D.teal}>{m.a}</text>
+          </g>
+        ))}
+      </g>
+      <g className="fx-label">{hand(170, 196, "neighbours.", 30, D.ink)}</g>
+      <g className="fx-aside">{hand(425, 316, "far away.", 22, D.greyLight)}</g>
+    </g>
+  ),
+
   "what-is-bounded-autonomy": (
     <g>
       {floor(500)}

@@ -223,8 +223,15 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 
 ## 8. Where things stand (2026-10-16)
 
-- `main` is ahead of the live site (deploy held by the owner until the SEO/AEO/GEO
-  and analytics check). Latest work, newest first:
+- `main` is deployed (2026-10-21). Latest work, newest first:
+  - Growth batch 4 (2026-10-21): "What Are Embeddings?" (row 9; the retired
+    embeddings-explained URL now 301s to it; RAG and tokenizer link to it);
+    answer-first edits on Ollama launch (row 4, the command and the five
+    integrations from Ollama's CLI docs, dated) and the Obsidian scratchpad
+    (row 5, a copyable Daily notes and Templates setup).
+  - SEO/AEO/GEO audit and fixes (2026-10-21): retired tool soft 404s now
+    301, 18 descriptions and 7 titles trimmed, SoftwareApplication JSON-LD
+    on all tools, two retired URLs retargeted (bounded autonomy, F4).
   - F4 "Why Do AI Pilots Stall Before Production?" (2026-10-21): Gartner's
     30% forecast, the owner's film as an illustration, the owner's ten
     questions (attested), the public photo-search case study. Cover, film,
@@ -321,9 +328,9 @@ Owner actions:
    `file_download` as a key event in GA4 once it has fired.
 
 Agent work, in order (confirm with the owner each session):
-1. Before the next deploy: site-wide SEO/AEO/GEO check and a Search Console,
-   GA4 and Clarity review (owner's request, 2026-10-21). Then growth: one of row 10 (which
-   Ollama models support tools) or row 9 (what are embeddings). F5 (how to
+1. Growth: row 10 (which Ollama models support tools, dated Shelf
+   reference) or H2 (agent memory). Snapshot of Search Console, GA4 and
+   Clarity before the 2026-10-21 deploy is in section 8. F5 (how to
    become an FDC) from the owner's resume, posts and an interview.
 2. Review the new pages in Search Console from mid-November against the
    log in `docs/GROWTH_TRACK.md`.

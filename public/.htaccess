@@ -82,7 +82,7 @@ RewriteRule ^systems/cloud-architecture-comparison-2026/?$ /shelf/local-experime
 RewriteRule ^systems/context-window-management-and-retrieval-pruning-strategies/?$ /systems/context-windows-as-working-memory/ [R=301,L]
 RewriteRule ^systems/decision-making-under-uncertainty-in-ai-runtimes/?$ /systems/from-agent-intent-to-governed-execution/ [R=301,L]
 RewriteRule ^systems/drift-decay-and-silent-failure/?$ /systems/observability-first-ai-systems/ [R=301,L]
-RewriteRule ^systems/embeddings-explained-like-youre-human/?$ /systems/retrieval-augmented-generation-in-plain-terms/ [R=301,L]
+RewriteRule ^systems/embeddings-explained-like-youre-human/?$ /systems/what-are-embeddings/ [R=301,L]
 RewriteRule ^systems/engineering-agentic-systems-for-reliability/?$ /systems/from-agent-intent-to-governed-execution/ [R=301,L]
 RewriteRule ^systems/engineering-bounded-autonomy/?$ /systems/what-is-bounded-autonomy/ [R=301,L]
 RewriteRule ^systems/enterprise-ai-at-scale/?$ /systems/from-prompt-to-production/ [R=301,L]

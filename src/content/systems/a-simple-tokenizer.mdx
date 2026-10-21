@@ -3,7 +3,7 @@ schemaVersion: "1.0"
 title: 'From Text to Tokens'
 seoTitle: "What Is a Tokenizer? How Text Becomes Tokens in an LLM"
 publishDate: "2026-01-13"
-updatedAt: "2026-10-09"
+updatedAt: "2026-10-21"
 description: "Models do not read words; they read integers produced by a tokenizer. What that step does, and why token counts behave differently from character counts."
 category: 'Explanations'
 heroImage: '/covers/systems/a-simple-tokenizer.png'
@@ -177,4 +177,4 @@ Tokenization is often used to explain why models miscount letters in a word, or 
 
 Treat that as a plausible contributing factor rather than a settled cause. This page has not measured it, and the failures people point to usually have more than one thing going on. The safe statement is the narrow one: tokenization changes how input is segmented and represented before the model sees it. Where it goes beyond that, say less, or go and measure it.
 
-For what happens after the integers reach the model, see [what an AI model actually is](/systems/what-an-ai-model-actually-is/). For how the token budget for a single run is filled, see [context windows as working memory](/systems/context-windows-as-working-memory/).
+For what happens after the integers reach the model, see [what an AI model actually is](/systems/what-an-ai-model-actually-is/). For how the token budget for a single run is filled, see [context windows as working memory](/systems/context-windows-as-working-memory/). For how text becomes a list of numbers that can be compared by meaning, see [what are embeddings](/systems/what-are-embeddings/).

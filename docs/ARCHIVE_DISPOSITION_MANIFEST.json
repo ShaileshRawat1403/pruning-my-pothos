@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.1",
   "scope": "src/content/systems",
-  "sourceCount": 65,
+  "sourceCount": 66,
   "dispositionTotals": {
     "KEEP-REWRITE": 19,
     "KEEP-STRIP": 3,
@@ -9,15 +9,15 @@
     "MOVE-TO-SHELF": 0,
     "REDUCE-TO-NOTE": 6,
     "RETIRE": 10,
-    "NEW": 6
+    "NEW": 7
   },
   "statusTotals": {
-    "implemented": 65,
+    "implemented": 66,
     "pending": 0,
     "structural-pending": 0
   },
   "redirectStatusTotals": {
-    "not-applicable": 34,
+    "not-applicable": 35,
     "resolved": 29,
     "pending": 0,
     "none": 2
@@ -182,8 +182,8 @@
     {
       "slug": "embeddings-explained-like-youre-human",
       "disposition": "MERGE",
-      "destination": "retrieval-augmented-generation-in-plain-terms",
-      "redirect": "retrieval-augmented-generation-in-plain-terms",
+      "destination": "what-are-embeddings",
+      "redirect": "what-are-embeddings",
       "redirectTargetType": "systems-slug",
       "redirectStatus": "resolved",
       "keepUrl": false,
@@ -746,6 +746,17 @@
     },
     {
       "slug": "why-ai-pilots-stall-before-production",
+      "disposition": "NEW",
+      "destination": null,
+      "redirect": null,
+      "redirectTargetType": null,
+      "redirectStatus": "not-applicable",
+      "keepUrl": true,
+      "status": "implemented",
+      "constraints": []
+    },
+    {
+      "slug": "what-are-embeddings",
       "disposition": "NEW",
       "destination": null,
       "redirect": null,

@@ -2,7 +2,7 @@
 schemaVersion: "1.0"
 title: "Retrieval-Augmented Generation in Plain Terms"
 publishDate: "2026-01-14"
-updatedAt: "2026-09-20"
+updatedAt: "2026-10-21"
 description: "Retrieval finds candidate material; context assembly decides what the model receives. Why finding the right document does not guarantee the right answer."
 category: "How-things-fit-together"
 heroImage: '/covers/systems/retrieval-augmented-generation-in-plain-terms.png'
@@ -190,7 +190,7 @@ RAG is often described as though it means a vector database. It does not. Vector
 
 **Lexical retrieval** matches the words themselves. Ask for an error code, a part number or a surname, and matching the literal string is exactly what you want. This is mature technology and it does not stop being useful because embeddings exist.
 
-**Vector retrieval** compares embeddings, which are numeric representations positioned so that related text lands near related text. This is what lets a query about "small dog" reach a passage that only says "puppy".
+**Vector retrieval** compares [embeddings](/systems/what-are-embeddings/), which are numeric representations positioned so that related text lands near related text. This is what lets a query about "small dog" reach a passage that only says "puppy".
 
 **Hybrid retrieval** runs both and combines the results, which is common precisely because the two fail in different places.
 

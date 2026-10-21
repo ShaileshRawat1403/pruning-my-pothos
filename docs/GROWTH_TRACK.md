@@ -107,10 +107,10 @@ without the owner supplying it.
 
 | # | Target query | Page | Action | Status |
 | :- | :--- | :--- | :--- | :--- |
-| F1 | forward deployed consultant / what is an FDC | `/systems/what-is-a-forward-deployed-consultant/` | Definition, FDC vs FDE, what the role owns; rewritten 2026-10-16 with the owner's view | live 2026-10-15; rewrite awaiting push |
-| F2 | what does forward deployed mean / forward deployed engineer | new: `/systems/what-does-forward-deployed-mean/` | Hub: origin, the model, the roles (FDE, FDC, deployment strategist), links F1 | built 2026-10-16, reviewed, awaiting push |
+| F1 | forward deployed consultant / what is an FDC | `/systems/what-is-a-forward-deployed-consultant/` | Definition, FDC vs FDE, what the role owns; rewritten 2026-10-16 with the owner's view | live 2026-10-15; rewrite live 2026-10-16 |
+| F2 | what does forward deployed mean / forward deployed engineer | new: `/systems/what-does-forward-deployed-mean/` | Hub: origin, the model, the roles (FDE, FDC, deployment strategist), links F1 | live 2026-10-16 |
 | F3 | forward deployed engineer vs consultant | F1 covers it | Watch Search Console; a separate page only if the comparison query grows apart from F1 | watch |
-| F4 | forward deployed AI deployment, pilot to production | new: `/systems/why-ai-pilots-stall-before-production/` | Why pilots stall and what gets them through; links bounded autonomy, from prompt to production | built 2026-10-21, reviewed, awaiting push |
+| F4 | forward deployed AI deployment, pilot to production | new: `/systems/why-ai-pilots-stall-before-production/` | Why pilots stall and what gets them through; links bounded autonomy, from prompt to production | live 2026-10-21 |
 | F5 | how to become a forward deployed consultant | new page | Career intent, built on the owner's rough draft of their own FDC experience (promised 2026-10-15); declare it `observed` with author attestation | waiting for owner's draft |
 | F6 | GoATee on the Stack | Stack card and page | The FDC tool, in the owner's words, from its README at a pinned SHA | open |
 
@@ -122,7 +122,7 @@ memory, forward deployed engineering.
 
 | # | Target query | Page | Status |
 | :- | :--- | :--- | :--- |
-| H1 | what is an agent harness | new: `/systems/what-is-an-agent-harness/`; links runtime-over-model, DAX | built 2026-10-16, reviewed, awaiting push |
+| H1 | what is an agent harness | new: `/systems/what-is-an-agent-harness/`; links runtime-over-model, DAX | live 2026-10-16 |
 | H2 | agent memory explained (short-term, long-term, persistent) | new Systems page; links context windows, handoff | open |
 | H3 | context engineering | same as row 18 below | open |
 | H4 | what are agent skills (Claude skills, Agent Skills) | `/systems/designing-reusable-ai-skills/` and the skills cluster | Check the cluster answers it; retitle before writing anything new | open |
@@ -134,8 +134,8 @@ memory, forward deployed engineering.
 | 1 | what is bounded autonomy | "bounded autonomy", "bounded autonomy definition", "bounded ai" | 249 | 8.2–9.0 | new: `/systems/what-is-bounded-autonomy/` | Definition page; hub is HITL page | live 2026-10-15 |
 | 2 | HITL vs HOTL vs HOOTL | "hitl hotl hootl", "hitl/hotl", "hitl gate", "human-in-the-loop laws" | 21 | 9–22 | `/systems/human-in-the-loop-is-a-system-design-choice/` | Put the three terms in title and first lines | done 2026-10-15 (title, description) |
 | 3 | inference vs fine-tuning | "inference vs fine tuning", "fine tuning vs inference", "training vs fine tuning" | 22 | 7–10 | `/systems/training-vs-inference/` | Title and short answer name all three | done 2026-10-15 (title, description) |
-| 4 | ollama launch | "ollama launch droid", "ollama launch", "ollama launch codex", "ollama launcher" | 56 | 8–18 | `/shelf/local-experiments/ollama-launch-integrations/` | Lead with the command and what it does; dated | open |
-| 5 | obsidian scratchpad | "obsidian scratchpad" | 53 | 8.8 | `/shelf/notes/obsidian-scratchpad/` | Answer first; a setup the reader can copy | open |
+| 4 | ollama launch | "ollama launch droid", "ollama launch", "ollama launch codex", "ollama launcher" | 56 | 8–18 | `/shelf/local-experiments/ollama-launch-integrations/` | Lead with the command and what it does; dated | done 2026-10-21 |
+| 5 | obsidian scratchpad | "obsidian scratchpad" | 53 | 8.8 | `/shelf/notes/obsidian-scratchpad/` | Answer first; a setup the reader can copy | done 2026-10-21 |
 | 6 | brief.md format | "brief md format" | 12 | 22.1 | `/tools/notes-to-brief/` | Explain the format on the tool page; link a template | open |
 | 7 | what is AEO and GEO | "what is aeo and geo in publishing", "docseo" | 13 | 12–16 | `/systems/seo-aeo-geo-in-plain-terms/` | Name AEO and GEO in title and first lines | done 2026-10-15 (description) |
 | 8 | opencode with a local model | "opencode local model", "ollama opencode", "opencode ollama provider" | 7 | 2–8 | `/shelf/tools/ollama/` | Section on running OpenCode against Ollama; dated | open |
@@ -144,7 +144,7 @@ memory, forward deployed engineering.
 
 | # | Target query | Seen as | Impr. | Pos. | Page | Action | Status |
 | :- | :--- | :--- | -: | -: | :--- | :--- | :--- |
-| 9 | what are embeddings | "embedding dimension", "mean embedding", "embedding space", "embeddings explained", "vector embedding explained", "embedding math" | 25 | 28–70 | new: `/systems/what-are-embeddings/` | Vectors, dimensions, similarity; one drawn scene | open |
+| 9 | what are embeddings | "embedding dimension", "mean embedding", "embedding space", "embeddings explained", "vector embedding explained", "embedding math" | 25 | 28–70 | new: `/systems/what-are-embeddings/` | Vectors, dimensions, similarity; one drawn scene | live 2026-10-21 |
 | 10 | which Ollama models support tools | "which ollama models support tools", "ollama tools models", "ollama with tools", 8 more variants | 30 | 26–50 | new Shelf reference, dated | A dated list with how to check it yourself | open |
 | 11 | structured outputs with JSON Schema | "structured outputs", "structured output", "structured output json schema", "qwen structured output" | 290 | 61–77 | `/systems/structured-output-and-why-it-matters/` plus `/shelf/notes/structured-output-translation-playbook/` | A JSON Schema section with a worked example; local models (Qwen via Ollama) | open |
 | 12 | what is prompting | "prompting", "what is prompting", "prompting definition", "promting" | 115 | 39–41 | `/systems/prompting-is-not-the-skill-you-think-it-is/` | A plain definition in the first lines, then the article's point | open |
@@ -191,8 +191,11 @@ Never chase a query only because it has volume.
 | 2026-10-15 | 2 | HITL page title and description | HITL vs HOTL vs HOOTL | 21, 9–22 | human-in-the-loop | live 2026-10-15 |
 | 2026-10-15 | 3 | Training page title and description | inference vs fine-tuning | 22, 7–10 | what-an-ai-model-actually-is | live 2026-10-15 |
 | 2026-10-15 | 7 | SEO page description | what is AEO and GEO | 13, 12–16 | (across) | live 2026-10-15 |
-| 2026-10-16 | F2 | `/systems/what-does-forward-deployed-mean/` | what does forward deployed mean | new term, not yet seen | itself (hub of the forward deployed cluster; FDC page links to it) | built, reviewed, awaiting push |
-| 2026-10-16 | H1 | `/systems/what-is-an-agent-harness/` | what is an agent harness | new term, not yet seen | from-agent-intent-to-governed-execution (runtime-over-model links to it) | built, reviewed, awaiting push |
-| 2026-10-16 | F1 | `/systems/what-is-a-forward-deployed-consultant/` (rewrite) | forward deployed consultant | new term, not yet seen | itself | rewritten around the owner's view (problem solver with access to intelligence; depth of ownership), first `observed` claims with author attestation, checked against the Flexport and monday.com postings and Anthropic; new decision scene; awaiting push |
-| 2026-10-21 | F4 | `/systems/why-ai-pilots-stall-before-production/` | why AI pilots stall / AI pilot to production | new term, not yet seen | from-prompt-to-production (links to it) | built, reviewed, awaiting push |
-| 2026-10-21 | audit | 13 Systems pages, 3 Shelf pages, 2 tools, portfolio | (snippet hygiene) | n/a | n/a | descriptions trimmed to 160 or less and 7 titles to 60 or less, key terms kept first; counts as this month's one change for those pages. Ollama launch page title now leads with "Ollama Launch" (row 4). Six retired tool URLs now 301 to /tools/; nine tool pages gained SoftwareApplication JSON-LD. Awaiting push |
+| 2026-10-16 | F2 | `/systems/what-does-forward-deployed-mean/` | what does forward deployed mean | new term, not yet seen | itself (hub of the forward deployed cluster; FDC page links to it) | live 2026-10-21 |
+| 2026-10-16 | H1 | `/systems/what-is-an-agent-harness/` | what is an agent harness | new term, not yet seen | from-agent-intent-to-governed-execution (runtime-over-model links to it) | live 2026-10-21 |
+| 2026-10-16 | F1 | `/systems/what-is-a-forward-deployed-consultant/` (rewrite) | forward deployed consultant | new term, not yet seen | itself | rewritten around the owner's view (problem solver with access to intelligence; depth of ownership), first `observed` claims with author attestation, checked against the Flexport and monday.com postings and Anthropic; new decision scene; live 2026-10-16 |
+| 2026-10-21 | F4 | `/systems/why-ai-pilots-stall-before-production/` | why AI pilots stall / AI pilot to production | new term, not yet seen | from-prompt-to-production (links to it) | live 2026-10-21 |
+| 2026-10-21 | audit | 13 Systems pages, 3 Shelf pages, 2 tools, portfolio | (snippet hygiene) | n/a | n/a | descriptions trimmed to 160 or less and 7 titles to 60 or less, key terms kept first; counts as this month's one change for those pages. Ollama launch page title now leads with "Ollama Launch" (row 4). Six retired tool URLs now 301 to /tools/; nine tool pages gained SoftwareApplication JSON-LD. live 2026-10-21 |
+| 2026-10-21 | 4 | Ollama launch page | ollama launch | 151, 10.7 (28 days) | (Shelf) | live 2026-10-21 |
+| 2026-10-21 | 5 | Obsidian scratchpad page | obsidian scratchpad | 15, 9.2 (28 days) | (Shelf) | live 2026-10-21 |
+| 2026-10-21 | 9 | `/systems/what-are-embeddings/` | what are embeddings | 25, 28–70; old URL 20 | retrieval-augmented-generation (links to it) | live 2026-10-21 |

@@ -1,0 +1,145 @@
+---
+schemaVersion: "1.0"
+title: "What Are Embeddings?"
+seoTitle: "What Are Embeddings? Vectors, Dimensions and Similarity"
+publishDate: "2026-10-21"
+description: "An embedding turns text into a list of numbers, so that related text lands close together. What the numbers, dimensions and similarity scores mean."
+category: "Concepts"
+heroImage: '/covers/systems/what-are-embeddings.png'
+heroImageAlt: 'Two houses labelled puppy and small dog stand side by side on one street, each mailbox marked with a row of numbers, while a house labelled invoice sits far down the road'
+tags:
+  - retrieval
+  - models
+  - embeddings
+contentType: 'technical'
+readingTime: 6
+difficulty: 'beginner'
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Explain what an embedding is, what its dimensions and a similarity score mean, how a sentence gets one embedding, and what closeness in an embedding space does and does not tell you."
+thesis: "An embedding places text as a point among numbers, so nearness measures what the embedding model learned to treat as related; whether the near thing is correct, current or the answer has to be checked somewhere else."
+shortAnswer: "An embedding is a list of numbers that an embedding model produces for a piece of text, positioned so that related text gets similar numbers. Each number is one dimension; OpenAI's current models return 1536 or 3072 of them. Two texts are compared by the angle between their lists, called cosine similarity, and a score near 1 means the model treats them as closely related. Embeddings power semantic search, clustering, recommendations and the retrieval step of RAG. Closeness measures relatedness as the model learned it, which is different from relevance to your question or truth."
+
+boundary:
+  is: "A plain explanation of text embeddings: the vector, its dimensions, similarity scores, how one sentence gets one embedding, and what nearness means."
+  isNot: "A comparison of embedding models or vector databases, or a treatment of how embedding models are trained."
+  mattersWhen: "Someone is building search or retrieval, choosing an embedding model or dimension, or reading a similarity score as if it were a confidence."
+
+provenance:
+  primary: synthesis
+  sources:
+    - id: openai-embeddings
+      type: external
+      url: "https://developers.openai.com/api/docs/guides/embeddings"
+      citation: "OpenAI, Vector embeddings guide (accessed 2026-10-21)"
+    - id: sbert
+      type: external
+      url: "https://arxiv.org/abs/1908.10084"
+      citation: "Reimers and Gurevych, Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks, EMNLP 2019"
+  claims:
+    - statement: "OpenAI's documentation describes an embedding as a vector, a list of floating point numbers."
+      kind: external
+      sources:
+        - openai-embeddings
+    - statement: "OpenAI's text-embedding-3-small returns 1536 numbers by default and text-embedding-3-large returns 3072, and a dimensions parameter shortens the list."
+      kind: external
+      sources:
+        - openai-embeddings
+    - statement: "OpenAI's embeddings are normalised to length 1, so cosine similarity can be computed as a dot product and gives the same ranking as Euclidean distance."
+      kind: external
+      sources:
+        - openai-embeddings
+    - statement: "OpenAI lists search, clustering, recommendations, anomaly detection, diversity measurement and classification as uses."
+      kind: external
+      sources:
+        - openai-embeddings
+    - statement: "Sentence-BERT produces one embedding per sentence by pooling the model's per-token outputs, and its default is the mean."
+      kind: external
+      sources:
+        - sbert
+    - statement: "Nearness in an embedding space measures what the model learned to treat as related."
+      kind: synthesis
+
+visuals:
+  - id: text-to-vector
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "A sentence goes in; a fixed-length list of numbers comes out, and that list is a point in space."
+    caption: "From a sentence to a point, in four steps."
+    alt: "A sequence of four steps: a sentence goes into an embedding model; the model produces numbers for each piece; the pieces are pooled, for example by averaging, into one list; the list, of fixed length such as 1536 numbers, is a point that can be compared with other points."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: sentence
+          label: "A sentence"
+          note: "\"my small dog\""
+        - id: model
+          label: "The embedding model"
+          note: "Numbers for each piece."
+        - id: pool
+          label: "Pool into one"
+          note: "Often by averaging."
+        - id: point
+          label: "A point in space"
+          note: "1536 numbers, say."
+  - id: what-nearness-tells-you
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Nearness tells you the model treats two texts as related; correctness and currency are checked elsewhere."
+    caption: "What a high similarity score can and cannot carry."
+    alt: "A comparison. Nearness tells you the texts share wording or meaning, the same subject, and a similar use in the data the model learned from. It does not tell you which of two near texts is correct, which is current, or which answers the question."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Nearness tells you"
+        items:
+          - "Similar meaning, even in different words"
+          - "The same subject"
+          - "Related, as the model learned it"
+      after:
+        label: "Nearness does not tell you"
+        items:
+          - "Which one is correct"
+          - "Which one is current"
+          - "Which one answers the question"
+      diffNote: "A score near 1 is closeness, which is different from confidence."
+---
+
+Search for "small dog" and a good system finds the passage that only says "puppy". No shared word made that happen. The system compared two lists of numbers and found them close. Those lists are embeddings.
+
+**OpenAI's documentation describes an embedding as a vector, a list of floating point numbers.** An embedding model produces the list for a piece of text, positioned so that text with related meaning gets similar numbers. Everything else on this page follows from that.
+
+## From a sentence to a point
+
+<!-- pmp:visual id="text-to-vector" -->
+
+The model reads the text as [tokens](/systems/a-simple-tokenizer/) and produces numbers for each one. One sentence needs one list, so the per-token numbers are combined. **Sentence-BERT produces one embedding per sentence by pooling the model's per-token outputs, and its default is the mean.** That averaged list is what people mean by a mean embedding.
+
+## What the dimensions are
+
+Each number in the list is one dimension. **OpenAI's text-embedding-3-small returns 1536 numbers by default and text-embedding-3-large returns 3072, and a dimensions parameter shortens the list.** More dimensions can hold finer distinctions; fewer are cheaper to store and faster to compare. The right length is the shortest one that still finds the right material on your own data.
+
+The individual numbers have no names. Dimension 412 does not mean "animal" or "formal". Meaning lives in where the whole list points, relative to other lists, which is why people call the collection an embedding space.
+
+## How similarity is measured
+
+Two embeddings are compared by the angle between them, called cosine similarity. Pointing the same way scores 1; unrelated scores near 0. **OpenAI's embeddings are normalised to length 1, so cosine similarity can be computed as a dot product and gives the same ranking as Euclidean distance.** For these embeddings, the two common distance measures put results in the same order.
+
+A similarity score is a measure of closeness. It is not a probability, and 0.82 does not mean 82% sure.
+
+## What embeddings are used for
+
+**OpenAI lists search, clustering, recommendations, anomaly detection, diversity measurement and classification as uses.** The best-known one is the retrieval step of [retrieval-augmented generation](/systems/retrieval-augmented-generation-in-plain-terms/): embed the question, find the nearest passages, and give those to the model. The same comparison groups support tickets by topic, finds near-duplicates, and flags the document that looks like nothing else.
+
+## What nearness does and does not tell you
+
+**Nearness in an embedding space measures what the model learned to treat as related.** That is often what you want, and sometimes exactly what goes wrong.
+
+<!-- pmp:visual id="what-nearness-tells-you" -->
+
+A policy replaced last month sits right next to the policy that replaced it, because they are about the same subject. An embedding search can return either. Which one is current, and which one answers the question, has to be decided by something other than distance: filters, dates, a reranker, or a person. Different embedding models also arrange the space differently, so a model that works well on a public benchmark can still put your material in the wrong neighbourhoods. Test it on your own queries.
+
+## What this changes
+
+Read a similarity score as closeness, never as confidence. Pick dimensions by testing on your own data. And when an embedding search returns something plausible and wrong, the search worked as designed: the fix belongs in what happens after the nearest neighbours are found, which is where the [context](/systems/context-windows-as-working-memory/) for the model gets assembled.

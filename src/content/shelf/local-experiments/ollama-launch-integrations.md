@@ -3,6 +3,7 @@ title: "Ollama launch: integration handoff"
 seoTitle: "Ollama Launch: Hand Local Models to Codex and OpenCode"
 description: "A launcher flow that hands a local Ollama model to Codex or OpenCode. Setup walkthrough, the two gates it checks, failure modes and what fixed them."
 publishDate: "2026-01-27"
+updatedAt: "2026-10-21"
 tags:
   - experiments
   - local-llm
@@ -11,6 +12,21 @@ tags:
 coverUrl: "/covers/shelf/items/local-experiments/ollama-launch-integrations.png"
 coverAlt: "Cover illustration for Ollama launch: integration handoff"
 ---
+
+## The command, in short
+
+`ollama launch` sets up a coding tool to use an Ollama model and starts it, with no environment variables or config files to write. It needs Ollama 0.15 or later, per the [launch announcement](https://ollama.com/blog/launch).
+
+```bash
+ollama launch                          # pick a tool, then a model, from a menu
+ollama launch codex                    # start one integration directly
+ollama launch claude --model qwen3.5   # choose the model as well
+ollama launch droid --config           # configure it without starting it
+```
+
+The integrations listed in [Ollama's CLI docs](https://docs.ollama.com/cli), checked 2026-10-21: OpenCode, Claude Code, Codex, VS Code and Droid (Factory's coding agent). The tool has to be installed first; the launcher tells you when it is not. For coding work, the announcement recommends raising Ollama's context length to at least 64000 tokens.
+
+The rest of this page is the first run, from January 2026: what the flow looked like, the two places it stops, and what fixed them.
 
 > **Key takeaways**
 > - `ollama launch` turns model selection into a single handoff step.

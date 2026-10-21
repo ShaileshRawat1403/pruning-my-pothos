@@ -25,7 +25,7 @@ const PLACEMENT: Record<string, { companions: string[]; notes: string[] }> = {
     notes: [],
   },
   "retrieval-augmented-generation-in-plain-terms": {
-    companions: ["context-windows-as-working-memory", "why-ocr-quietly-breaks-document-ai"],
+    companions: ["what-are-embeddings", "context-windows-as-working-memory", "why-ocr-quietly-breaks-document-ai"],
     notes: ["semantic-caching-for-probabilistic-systems"],
   },
   "prompting-is-not-the-skill-you-think-it-is": {
