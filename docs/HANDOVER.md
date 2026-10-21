@@ -269,6 +269,19 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
     descriptions (short ones from 160 to 3), og:image:alt and article dates,
     CORS on CSS and fonts for Clarity heatmaps, IndexNow, the owner
     analytics opt-out.
+- Analytics snapshot before the 2026-10-21 deploy:
+  - Search Console, 28 days to 2026-10-18: 49 clicks, 3.69k impressions,
+    CTR 1.3%, average position 9. Skills cluster leads (1,717 impressions);
+    AI skill templates 184; forward deployed queries appearing (F2: 44
+    impressions in 5 days); "nietzsche height" (off-intent, ignored).
+    Indexing: 286 indexed; 94 crawled-not-indexed, including four Systems
+    pages (designing reusable skills, observability, in-chat apps,
+    tokenizer). The generative AI report shows the same totals as Search.
+  - GA4 (data from 2026-10-08): 124 sessions; direct 91 (28% engaged,
+    likely bots and owner visits), organic 28 (54% engaged), referral 4;
+    no AI-answer referrals yet; 0 key events.
+  - Clarity, 7 days: 49 sessions (25 bots excluded), 47% scroll depth,
+    1.4 min active, 8% dead clicks, 0 JS errors, LCP 3.3 s on 3 views.
 - Search Console (3 months to 2026-10-14): one cluster (skills vs prompts vs
   agents) carries most impressions; positions 8 to 30 exist for bounded
   autonomy, HITL, inference vs fine-tuning, Ollama launch, Obsidian
