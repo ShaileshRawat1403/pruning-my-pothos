@@ -1,0 +1,46 @@
+1:"$Sreact.fragment"
+9:I[15141,["/_next/static/chunks/0jmthg935by_l.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3t39z7yidypi6.js","/_next/static/chunks/419nwfw2xdjw_.js"],"default"]
+a:I[22016,["/_next/static/chunks/0jmthg935by_l.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3t39z7yidypi6.js","/_next/static/chunks/419nwfw2xdjw_.js"],""]
+b:I[97367,["/_next/static/chunks/0jmthg935by_l.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/covers/shelf/items/notes/obsidian-scratchpad.png","image",{"fetchPriority":"high"}]
+2:T915,<p>An Obsidian scratchpad is one note per day that you write into without organising anything: a timestamp, a fragment, the next fragment. It takes two core plugins, Daily notes and Templates, and about five minutes to set up.</p>
+<h2 id="the-setup">The setup</h2>
+<ol>
+<li><p>Create two folders in your vault: <code>Scratchpad</code> and <code>Templates</code>.</p>
+</li>
+<li><p>In <code>Templates</code>, create a note called <code>scratchpad</code> with this in it:</p>
+<pre><code class="language-markdown"># {{date}}
+
+- {{time}}
+</code></pre>
+</li>
+<li><p>Turn on the <strong>Templates</strong> core plugin and set its template folder to <code>Templates</code>.</p>
+</li>
+<li><p>Turn on the <strong>Daily notes</strong> core plugin and set:</p>
+<ul>
+<li><strong>Date format</strong>: <code>YYYY-MM-DD</code></li>
+<li><strong>New file location</strong>: <code>Scratchpad</code></li>
+<li><strong>Template file location</strong>: <code>Templates/scratchpad</code></li>
+</ul>
+</li>
+<li><p>Give two commands a hotkey: <strong>Open today&#39;s daily note</strong>, and <strong>Templates: Insert current time</strong> for each new fragment.</p>
+</li>
+</ol>
+<p><code>{{date}}</code> and <code>{{time}}</code> are filled in when the note is created, as described in <a href="https://obsidian.md/help/plugins/templates">Obsidian&#39;s Templates help</a>; the Daily notes settings are on <a href="https://obsidian.md/help/plugins/daily-notes">its own help page</a>. Checked 2026-10-21.</p>
+<h2 id="how-i-use-it">How I use it</h2>
+<p>Working notes. Subject to change.</p>
+<p>What I keep: a daily file with timestamps and short fragments.</p>
+<p>Why it works: low friction beats perfect structure when ideas are early.</p>
+<p>Where it fails: long-term retrieval without periodic cleanup.</p>
+<h2 id="the-cleanup-that-keeps-it-useful">The cleanup that keeps it useful</h2>
+<p>The failure above has a cheap fix: once a week, read the week&#39;s scratchpads and move anything still alive into a proper note, then leave the scratchpad alone. The daily files stay as a log; the ideas move to where you will look for them later.</p>
+<p>A fragment that keeps coming back can be a decision waiting to be written down. The longer argument for writing those down is <a href="/self/decision-logs-beat-memory/">decision logs beat memory</a>.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Notes/Tools: a daily Obsidian scratchpad\",\"description\":\"A daily Obsidian scratchpad: one note per day, timestamps and short fragments. The Daily notes and Templates settings to copy, and a weekly cleanup.\",\"url\":\"https://pruningmypothos.com/shelf/notes/obsidian-scratchpad/\",\"image\":\"https://pruningmypothos.com/covers/shelf/items/notes/obsidian-scratchpad.png\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://pruningmypothos.com\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Shelf\",\"item\":\"https://pruningmypothos.com/shelf/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"notes\",\"item\":\"https://pruningmypothos.com/shelf/notes/\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"Notes/Tools: a daily Obsidian scratchpad\",\"item\":\"https://pruningmypothos.com/shelf/notes/obsidian-scratchpad/\"}]}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Shelf • ","notes"]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Notes/Tools: a daily Obsidian scratchpad"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-cyan/40 pl-4 py-1 text-sm sm:text-base","children":"A daily Obsidian scratchpad: one note per day, timestamps and short fragments. The Daily notes and Templates settings to copy, and a weekly cleanup."}],["$","figure",null,{"className":"w-full max-w-[420px] overflow-hidden rounded-lg border border-[color:var(--card-border)] aspect-video my-4 shadow-none self-center sm:self-start bg-[color:var(--card-bg)]","children":["$","img",null,{"src":"/covers/shelf/items/notes/obsidian-scratchpad.png","alt":"Cover illustration for Notes/Tools: a daily Obsidian scratchpad","width":1200,"height":675,"fetchPriority":"high","decoding":"async","className":"w-full h-full object-contain"}]}],"$undefined","$undefined",["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4","$L5"]}],["$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"dQLJy4rhUI6XcmM46sVS4"}
+3:["$","$L9",null,{"title":"Notes/Tools: a daily Obsidian scratchpad"}]
+4:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","notes",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","notes"]}],["$","span","obsidian",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","obsidian"]}],["$","span","workflow",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","workflow"]}]]}]
+5:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$La",null,{"href":"/shelf","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Shelf"}]}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/3t39z7yidypi6.js","async":true}]
+7:["$","script","script-1",{"src":"/_next/static/chunks/419nwfw2xdjw_.js","async":true}]
+8:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
