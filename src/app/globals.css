@@ -841,6 +841,15 @@ h1, h2, h3, h4, h5 {
 .content-body .content-figure svg {
   min-width: 420px;
 }
+/* Films: click to play, never autoplay; the poster is the still for print
+   and for readers who never press play. */
+.content-body .content-figure video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
 .content-body .diagram iframe {
   display: block;
   width: 100%;

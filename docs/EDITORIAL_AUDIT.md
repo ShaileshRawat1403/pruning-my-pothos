@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:e1511ad8994fb9626dca6c7e80a292f754185797a89e6a4903b2f66c69f3bd29
+Content snapshot: sha256:ab8f255f8468b771a6d5e55cf3b1a41b6a8bb1fa28d3537c04f9d1bffe8daf4b
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions
@@ -14,7 +14,7 @@ Status: Read-only diagnostic of the existing article archive.
 
 | Total Articles | Green | Amber | Red | Illustrative |
 | :--- | :--- | :--- | :--- | :--- |
-| 59 | 58 | 0 | 1 | 0 |
+| 60 | 59 | 0 | 1 | 0 |
 
 ## High-Priority Review Queue (Red)
 
@@ -39,6 +39,7 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 
 | Collection | Slug | Status | Contract | Boundary | Key Diagnostic |
 | :--- | :--- | :---: | :---: | :---: | :--- |
+| self | [accessing-intelligence](../src/content/self/accessing-intelligence.md) | 🟢 Green | Legacy | None | Clean |
 | self | [attention-debt](../src/content/self/attention-debt.md) | 🟢 Green | Legacy | None | Clean |
 | self | [building-a-knowledge-surface](../src/content/self/building-a-knowledge-surface.md) | 🟢 Green | Legacy | None | Clean |
 | self | [calibration-rituals](../src/content/self/calibration-rituals.md) | 🟢 Green | Legacy | None | Clean |

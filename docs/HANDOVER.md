@@ -224,6 +224,13 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 ## 8. Where things stand (2026-10-16)
 
 - `main` is deployed. Latest work, newest first:
+  - Owner films (2026-10-21): the FDC film (90 s, illustrative claims
+    deployment, posted on LinkedIn 11 Oct) embedded on the FDC page; the
+    "AI, Attention, Automation and Anxiety" film (2 min) as a new Self entry,
+    `/self/accessing-intelligence/`, written in the PMP voice from the owner's
+    post. Re-encoded to `public/media/films/` (7 MB and 11.6 MB, posters
+    beside them); click to play, never autoplay. Sources live in the owner's
+    Downloads, not the repo.
   - FDC page rewritten (2026-10-16) around the owner's own view of the role:
     "a problem solver with access to intelligence" and "depth of ownership"
     versus the FDE. These are the site's first `observed` claims with
