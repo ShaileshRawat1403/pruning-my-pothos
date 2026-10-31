@@ -140,6 +140,30 @@ export default function AboutPage() {
             </a>
           </GlowCard>
 
+          <GlowCard accent="var(--accent-amber)" className="gap-3">
+            <h3 className="font-heading text-xs font-bold uppercase tracking-wider" style={{ color: "var(--text-primary)" }}>
+              PocketFabric reports
+            </h3>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+              Two open reports on using an Android smartphone as personal computing infrastructure.
+            </p>
+            <a href="https://doi.org/10.5281/zenodo.23836212" className="link-slide text-sm font-semibold" style={{ color: "var(--accent-amber)" }}>
+              A Second Life Under Constraints ↗
+            </a>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+              The research case study: kernel compatibility, isolation, Android policy, power and GPU correctness.
+            </p>
+            <a href="https://doi.org/10.5281/zenodo.23836251" className="link-slide text-sm font-semibold" style={{ color: "var(--accent-amber)" }}>
+              PocketNode functional validation ↗
+            </a>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+              Exact-source tests, bounded service observations and unresolved findings, with supporting evidence.
+            </p>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
+              Self-funded personal work by Shailesh Rawat. CC BY 4.0. AI assistance is disclosed in both reports; neither has undergone journal peer review.
+            </p>
+          </GlowCard>
+
           {/* Social links */}
           <GlowCard accent="var(--accent-purple)" topRule={false} className="gap-3">
             <h3 className="font-heading text-xs font-bold uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
