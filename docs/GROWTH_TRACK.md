@@ -199,3 +199,5 @@ Never chase a query only because it has volume.
 | 2026-10-21 | 4 | Ollama launch page | ollama launch | 151, 10.7 (28 days) | (Shelf) | live 2026-10-21 |
 | 2026-10-21 | 5 | Obsidian scratchpad page | obsidian scratchpad | 15, 9.2 (28 days) | (Shelf) | live 2026-10-21 |
 | 2026-10-21 | 9 | `/systems/what-are-embeddings/` | what are embeddings | 25, 28–70; old URL 20 | retrieval-augmented-generation (links to it) | live 2026-10-21 |
+
+| 2026-10-31 | owner-requested research distribution | `/about/` | PocketFabric reports | n/a | author profile | links to the two published Zenodo reports; no search-ranking or reliability claims |

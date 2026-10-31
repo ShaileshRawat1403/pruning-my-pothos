@@ -221,9 +221,10 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 - Before making LanguageOps public, see section 9: its history holds
   material the owner may not want public.
 
-## 8. Where things stand (2026-10-16)
+## 8. Where things stand (2026-10-31)
 
-- `main` is deployed (2026-10-21). Latest work, newest first:
+- Latest publication change (2026-10-31): owner requested distribution of the PocketFabric research and PocketNode validation reports. The About page links to both Zenodo DOIs, labels the work self-funded and discloses AI assistance and lack of journal peer review. This is a publication-links addition, not a new Systems article.
+- Previous deployment (2026-10-21). Earlier work, newest first:
   - Growth batch 4 (2026-10-21): "What Are Embeddings?" (row 9; the retired
     embeddings-explained URL now 301s to it; RAG and tokenizer link to it);
     answer-first edits on Ollama launch (row 4, the command and the five
@@ -296,6 +297,9 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   GA4 and Clarity have little data yet.
 
 ## 9. Open items
+
+- PocketFabric distribution: arXiv is awaiting the owner's endorser. engrXiv policy excludes verbatim AI-generated paragraphs; do not certify the current reports as eligible. ResearchGate and TechRxiv may require browser verification and account access.
+
 
 Owner actions:
 1. Done 2026-10-16 (owner approved): the cache rule's Edge TTL is "no
