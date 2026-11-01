@@ -221,7 +221,15 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 - Before making LanguageOps public, see section 9: its history holds
   material the owner may not want public.
 
-## 8. Where things stand (2026-10-31)
+## 8. Where things stand (2026-11-01)
+
+- PocketFabric website adaptation (2026-11-01): `/stack/pocketfabric/` is a native
+  Stack case study, linked from Stack/About and sitemap. The supplied HTML stays
+  unchanged. React controls reconstruct historical migration, mount failure and
+  GPU comparisons; all results are scoped to the public v1.2 reports. Claim map:
+  `src/components/pocketfabric/README.md`. See VISUAL_TRACK for checks. This page
+  is prepared locally on `codex/pocketfabric-website`; it needs separate owner
+  approval before a production push.
 
 - Latest publication change (2026-10-31): owner requested distribution of the PocketFabric research and PocketNode validation reports. The About page links to both Zenodo DOIs, labels the work self-funded and discloses AI assistance and lack of journal peer review. This is a publication-links addition, not a new Systems article.
 - Previous deployment (2026-10-21). Earlier work, newest first:
@@ -297,6 +305,10 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   GA4 and Clarity have little data yet.
 
 ## 9. Open items
+
+- Review the PocketFabric page at `/stack/pocketfabric/`, then obtain explicit
+  approval for its production push. The prior PR #4 approval applied only to the
+  report-link deployment. Do not carry that approval over to this page.
 
 - PocketFabric distribution: arXiv is awaiting the owner's endorser. engrXiv policy excludes verbatim AI-generated paragraphs; do not certify the current reports as eligible. ResearchGate and TechRxiv may require browser verification and account access.
 

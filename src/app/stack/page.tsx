@@ -3,6 +3,7 @@ import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 import ProjectInspector from "../../components/home/ProjectInspector";
 import SectionHeader from "../../components/SectionHeader";
+import SpotlightCard from "../../components/SpotlightCard";
 import { CURRENT_WORK_PROJECTS } from "../../lib/content/projects";
 
 export const metadata = constructMetadata({
@@ -35,6 +36,15 @@ export default function StackPage() {
         scene="stack"
         tick="var(--accent-amber)"
       />
+
+      <SpotlightCard href="/stack/pocketfabric/" accent="var(--accent-amber)" className="gap-3">
+        <span className="text-xs font-mono text-[color:var(--text-muted)]">PocketFabric / illustrated case study</span>
+        <h2 className="text-2xl font-heading font-bold">A retired phone, run like a server →</h2>
+        <p className="max-w-[660px] text-sm leading-relaxed text-[color:var(--text-secondary)]">
+          A rooted OnePlus 9, a staged Linux migration and a GPU result that needed a second look.
+          Explore the mechanisms and read both open reports, including their limits.
+        </p>
+      </SpotlightCard>
 
       <ProjectInspector projects={CURRENT_WORK_PROJECTS} headingLevel={2} />
 

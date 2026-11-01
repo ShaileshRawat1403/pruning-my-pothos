@@ -41,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/privacy",
     "/portfolio",
     "/stack/dax",
+    "/stack/pocketfabric",
     "/stack/languageops",
     "/shelf",
     "/tools/prompt-to-json",

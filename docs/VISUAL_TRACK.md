@@ -91,3 +91,22 @@ Status: `done`, `next`, `open`, `parked`.
   portrait stays on About and Calibrations.
 - 2026-10-02: Program started from the owner's direction above. Measured
   baseline recorded under "Where it stands".
+
+## 2026-11-01: PocketFabric native case study
+
+- Added `/stack/pocketfabric/` as a Stack case study adapted from the owner's
+  supplied HTML. Original input remains unchanged in pocketfabric-node1.
+- Native site shell, typography, light/dark theme tokens and paper/ink SVG;
+  explicit timeline, migration, mount incident, precision and timing controls.
+  No global prototype scripts, autoplay, iframe or additional dependencies.
+- Linked from Stack and About; included in sitemap. Both report cards use
+  SpotlightCard. Public citations and a component README map claims to the
+  two v1.2 reports. Historical and candidate boundaries stay explicit.
+- Removed the unsupported meaning-similarity result and sample green health
+  display. Replaced overlapping load/warm-up breakdown with separate cold
+  end-to-end and compute-counter comparisons. No em dashes.
+- Validation: lint passed with three existing image warnings; static build,
+  73 contract checks, full audit, archive validation and editorial audit passed.
+  Editorial snapshot unchanged (60 green, one existing red, one illustrative).
+  Browser checks cover controls, keyboard activation, desktop/mobile layouts
+  and themes. No production push: owner approval required for this deployment.

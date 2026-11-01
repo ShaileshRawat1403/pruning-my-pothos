@@ -147,6 +147,9 @@ export default function AboutPage() {
             <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
               Two open reports on using an Android smartphone as personal computing infrastructure.
             </p>
+            <Link href="/stack/pocketfabric/" className="link-slide text-sm font-semibold" style={{ color: "var(--accent-amber)" }}>
+              Explore the illustrated case study →
+            </Link>
             <a href="https://doi.org/10.5281/zenodo.23836212" className="link-slide text-sm font-semibold" style={{ color: "var(--accent-amber)" }}>
               A Second Life Under Constraints ↗
             </a>
