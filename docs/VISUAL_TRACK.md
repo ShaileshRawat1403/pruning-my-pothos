@@ -109,4 +109,4 @@ Status: `done`, `next`, `open`, `parked`.
   73 contract checks, full audit, archive validation and editorial audit passed.
   Editorial snapshot unchanged (60 green, one existing red, one illustrative).
   Browser checks cover controls, keyboard activation, desktop/mobile layouts
-  and themes. No production push: owner approval required for this deployment.
+  and themes. Owner approved deployment on 2026-11-01; PR #5 tracks the release.
