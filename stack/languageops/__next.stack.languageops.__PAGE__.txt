@@ -1,0 +1,8 @@
+1:"$Sreact.fragment"
+2:I[39325,["/_next/static/chunks/0jmthg935by_l.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/1vqu09z5-wbbl.js","/_next/static/chunks/419nwfw2xdjw_.js"],"default"]
+3:I[97367,["/_next/static/chunks/0jmthg935by_l.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+:HL["/_next/static/chunks/0p5oao3dz2zvl.css","style"]
+:HL["/_next/static/chunks/0y_1tw6qb1ga9.css","style"]
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"SoftwareApplication\",\"name\":\"LanguageOps\",\"description\":\"LanguageOps finds AI-associated writing patterns without a model, rewrites under a contract that keeps facts and deliberate devices, and checks the result.\",\"applicationCategory\":\"DeveloperApplication\",\"operatingSystem\":\"All\",\"url\":\"https://pruningmypothos.com/stack/languageops/\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0.00\",\"priceCurrency\":\"USD\"}}"}}],["$","$L2",null,{}]],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0p5oao3dz2zvl.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0y_1tw6qb1ga9.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/1vqu09z5-wbbl.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/419nwfw2xdjw_.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"G826ffsUjR8UleJfoMgAi"}
+5:null

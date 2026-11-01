@@ -1,0 +1,41 @@
+1:"$Sreact.fragment"
+7:I[22016,["/_next/static/chunks/0jmthg935by_l.js","/_next/static/chunks/1-8s9_t85wwr4.js","/_next/static/chunks/3f8v9-h3h9y95.js"],""]
+8:I[97367,["/_next/static/chunks/0jmthg935by_l.js","/_next/static/chunks/1-8s9_t85wwr4.js"],"OutletBoundary"]
+9:"$Sreact.suspense"
+2:Tdfa,<p class="lead">The machines can answer almost anything. The asking is still ours.</p>
+
+
+
+<figure class="content-figure">
+  <video controls preload="none" playsinline poster="/media/films/accessing-intelligence.jpg" width="1920" height="1080" aria-label="Short film in five chapters about AI, attention, automation and anxiety, ending on accessing intelligence.">
+    <source src="/media/films/accessing-intelligence.mp4" type="video/mp4">
+  </video>
+  <figcaption>AI, Attention, Automation and Anxiety: five questions we forgot to ask. Two minutes, no voice, captions and a score.</figcaption>
+</figure>
+<p>Four words kept turning up together for weeks: AI, attention, automation, anxiety. In client calls, in late-night chats with friends, in my own head at 2 a.m. One feeling, four names.</p>
+<p>I tried writing it as an essay. It came out as an essay nobody would finish, me included. So I made a two-minute film instead, mostly with AI. The irony was noted, and then used.</p>
+<p>The film asks five questions. Here they are with the parts the captions leave out.</p>
+<h2 id="who-is-speaking">Who is speaking?</h2>
+<p>Half my inbox is now one assistant circling back to another. Gary&#39;s machine hopes this email finds Dave well. Dave&#39;s machine is happy to help. Gary and Dave are at lunch.</p>
+<p>If no one wrote it, it is hard to say who it is for. The reply is already drafted anyway.</p>
+<h2 id="what-are-you-looking-at">What are you looking at?</h2>
+<p>Attention is the one thing I hand out for free, and I have been generous. Mostly to a toaster with a firmware update.</p>
+<p>Everything asks for a glance: a new opinion is available, three people viewed you, you were mentioned. I cannot remember the last thing that looked back.</p>
+<h2 id="what-is-work-for">What is work for?</h2>
+<p>Camus said we should imagine Sisyphus happy. Then someone automated the boulder. The counter went from 33 ascents to 628,963, and the man at the bottom of the hill went quiet.</p>
+<p>Productivity has never been higher. I have never been less needed. I miss the boulder. I think it was the point.</p>
+<h2 id="what-is-the-fear-for">What is the fear for?</h2>
+<p>Kierkegaard called anxiety the dizziness of freedom. The modern version comes with a dashboard that detects it and offers to optimise it.</p>
+<p>Am I replaceable? Will it remember me? Who decided this? Somewhere in making the film I stopped treating those questions as the problem. The four words describe one slow handover, made a little at a time, and the anxiety is the part of us that noticed what we gave away. That makes it information. I would rather read it than optimise it.</p>
+<h2 id="what-will-you-ask-of-it">What will you ask of it?</h2>
+<p>The machine was never coming to save us. It is not coming for us either, or for my job. It does not want anything, which turned out to be the most useful thing I learned.</p>
+<p>Intelligence is something we can access now, and access is cheap. What stays expensive is knowing what to ask, and wanting something enough to ask it well. They cannot want anything. That part is still mine.</p>
+<h2 id="the-fifth-a">The fifth A</h2>
+<p>Behind the four sits a fifth: accessing intelligence. Of the five, it is the only one I get to choose. AI, attention, automation and anxiety happen to me. Accessing is something I do.</p>
+<p>It is also how I describe my work. A forward deployed consultant is <a href="/systems/what-is-a-forward-deployed-consultant/">a problem solver with access to intelligence</a>: the machines bring the answers, and the job is the asking.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Accessing Intelligence\",\"description\":\"Two minutes on AI, attention, automation and anxiety, and the fifth A hiding behind them. The machines can answer almost anything.\",\"url\":\"https://pruningmypothos.com/self/accessing-intelligence/\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://pruningmypothos.com\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Self\",\"item\":\"https://pruningmypothos.com/self/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Accessing Intelligence\",\"item\":\"https://pruningmypothos.com/self/accessing-intelligence/\"}]}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Published: ","October 21, 2026","",""]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Accessing Intelligence"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-pink/40 pl-4 py-1 text-sm sm:text-base","children":"Two minutes on AI, attention, automation and anxiety, and the fifth A hiding behind them. The machines can answer almost anything."}],"$undefined",[["$","div","0",{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}]],"$L3","$L4"]}],["$L5"],"$L6"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"G826ffsUjR8UleJfoMgAi"}
+3:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","attention",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","attention"]}],["$","span","automation",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","automation"]}],["$","span","practice",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","practice"]}]]}]
+4:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$L7",null,{"href":"/sentiments","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Sentiments"}]}]
+5:["$","script","script-0",{"src":"/_next/static/chunks/3f8v9-h3h9y95.js","async":true}]
+6:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
+a:null
