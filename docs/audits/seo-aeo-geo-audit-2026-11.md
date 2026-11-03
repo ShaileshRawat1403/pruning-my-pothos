@@ -18,7 +18,7 @@ Furthermore, crawler accessibility is wide open to modern search engines and AI 
 However, several targeted technical, migration, and structural opportunities exist to eliminate signal dilution, speed up legacy URL deindexing, and strengthen coverage in thinner conceptual stages:
 
 1. **Protocol & Host Redirect Chaining:** Requests to `http://www.pruningmypothos.com/` encounter a 2-hop redirect chain (`http://www.` → `https://www.` → `https://`) due to Cloudflare edge HTTPS rewriting preceding LiteSpeed `.htaccess` non-www normalization.
-2. **Legacy WordPress 404 Backlog:** 14 legacy WordPress personal essay URLs currently commented out in `.htaccess` return HTTP 404 rather than HTTP 410 (Gone), causing Googlebot to retain them in the 94-page "Crawled - currently not indexed" backlog.
+2. **Legacy WordPress URLs & Crawl Backlog (Separate Findings):** 14 legacy personal essay URLs commented out in `.htaccess` return HTTP 404. Separately, Google Search Console reports a 94-page "Crawled - currently not indexed" backlog that requires independent URL inspection. Any legacy URL cleanup is deferred pending replacement evaluation and hosting environment verification.
 3. **Structured Data Dead Code & Omissions:** Schema helper functions `getWebsiteSchema()` and `getOrgSchema()` in `src/lib/seo/jsonld.ts` are dead code (the homepage embeds an inline version). Sentences detail pages lack `BreadcrumbList` schema, and Self essays lack `publishedTime`/`modifiedTime` in OpenGraph/article metadata despite having frontmatter dates.
 4. **Topical Stage Imbalance:** While Stage 4 (Action & Authorization) has 6 deep articles, Stage 6 (Evaluation & Evidence) has only 2 articles, and Stage 7 (State & Continuity) has only 1 flagship and 2 notes. Evaluation and persistent agent memory are among the fastest-growing AI query spaces.
 5. **Role of WebMCP Clarified:** WebMCP represents an experimental browser-agent interface, not an organic ranking, indexing, or AI citation mechanism. Technical discoverability and evidence-backed knowledge citation must remain the top priority before investing in agent interaction tools.
@@ -248,24 +248,14 @@ The website previously migrated from WordPress to Astro, and subsequently to sta
 
 | Field | Requirement |
 |---|---|
-| **Finding** | Commented-Out 410 Rules for 14 Legacy WordPress Essays |
-| **URL / File** | `public/.htaccess` Lines 160–174 |
-| **Evidence** | 14 WordPress-era URLs are commented out:
-  ```apache
-  # RewriteRule ^the-antithesis/?$ - [G,L]
-  # RewriteRule ^category-terms-and-conditions-buster-keaton-branding-lessons/?$ - [G,L]
-  # RewriteRule ^2025-best-time-to-be-a-writer/?$ - [G,L]
-  # RewriteRule ^copywriting-needs-a-rest/?$ - [G,L]
-  # RewriteRule ^unmute-write-in-voice/?$ - [G,L]
-  # RewriteRule ^change-communication-isnt-a-message-its-a-translation/?$ - [G,L]
-  # RewriteRule ^the-philosophy-of-faith-reason/?$ - [G,L]
-  ```
-  Live curl to `https://pruningmypothos.com/the-antithesis/` returns HTTP 404 instead of HTTP 410. These 14 URLs accounted for 597 historical impressions and contribute directly to Google Search Console's 94 "Crawled - currently not indexed" pages. |
-| **Status** | **Confirmed** |
-| **Severity** | Medium |
+| **Finding** | Legacy WordPress Essays Status & GSC Crawl Backlog (Separate Findings) |
+| **URL / File** | `public/.htaccess` Lines 160–174 / GSC Coverage Report |
+| **Evidence** | 14 WordPress-era URLs are commented out in `.htaccess` and return HTTP 404. Separately, Google Search Console reports a 94-page "Crawled - currently not indexed" backlog. There is no established causal link between these 14 URLs and the broader 94-page backlog, as Google treats both 404 and 410 as removal signals. |
+| **Status** | **Confirmed (Legacy 404s) / Pending GSC Export (94 URLs)** |
+| **Severity** | Low |
 | **Impact** | SEO |
-| **Recommendation** | Uncomment the 14 `[G,L]` RewriteRules in both the `<IfModule mod_rewrite.c>` and `<IfModule !mod_rewrite.c>` blocks in `public/.htaccess`. An explicit HTTP 410 (Gone) instructs search engines to prune these URLs from their index much faster than a standard 404. |
-| **Validation** | `curl -sI https://pruningmypothos.com/the-antithesis/` returns `HTTP/2 410`. |
+| **Recommendation** | Defer legacy URL remediation pending two verifications: (1) inspect GSC URL-level data to establish whether each legacy URL has a surviving replacement for a 301 redirect or should return 404/410; (2) verify whether production hosting infrastructure (e.g. Vercel vs. LiteSpeed) processes `.htaccess` directives or requires native platform routing rules. |
+| **Validation** | URL inspection in GSC confirms accurate status classification for each path. |
 
 ---
 
@@ -368,11 +358,11 @@ The website previously migrated from WordPress to Astro, and subsequently to sta
 
 ### P1: High-Impact Technical & Content Corrections
 
-1. **Uncomment 14 Legacy WordPress 410 Rules in `.htaccess`**
+1. **Evaluate Legacy WordPress URLs & Crawl Backlog (Deferred)**
    - **Impact:** SEO
-   - **Effort:** Small
-   - **Rationale:** Accelerates removal of legacy WordPress URLs from Google's "Crawled - currently not indexed" backlog (94 URLs).
-   - **Action:** Uncomment lines 160–174 in `public/.htaccess`.
+   - **Effort:** Medium
+   - **Rationale:** Separately analyze the 14 legacy URLs and the 94-page GSC "Crawled - currently not indexed" report without assuming a causal connection, as Google treats both 404 and 410 as removal signals.
+   - **Action:** Defer remediation until GSC URL data confirms individual 301 replacements vs. dead endpoints, and hosting routing support is verified.
 
 2. **Eliminate Protocol Redirect Chain at Cloudflare Edge**
    - **Impact:** SEO
@@ -436,7 +426,7 @@ The website previously migrated from WordPress to Astro, and subsequently to sta
 
 | Rank | Action | Impact | Effort | Expected Outcome |
 |:---:|---|---|:---:|---|
-| **1** | **Uncomment 14 legacy essay 410 rules in `public/.htaccess`** | SEO | **Small** | Directs Googlebot to prune dead WordPress URLs immediately, draining the 94-page "Crawled - currently not indexed" pool. |
+| **1** | **Audit legacy URLs & GSC crawl backlog (Deferred)** | SEO | **Medium** | Reconciles the 94-page GSC backlog and determines whether 14 legacy essays have 301 replacements or remain 404/410. |
 | **2** | **Add Cloudflare 1-hop apex redirect (`http://www.` → `https://`)** | SEO | **Small** | Eliminates 2-hop redirect chain, preserving crawl budget and consolidating link equity cleanly on the apex domain. |
 | **3** | **Reframe opening of `debugging-a-semantic-cache-miss.md`** | GEO / Integrity | **Small** | Returns `npm run audit:editorial` to 100% clean status across all 62 audited articles; eliminates ungrounded claim flags. |
 | **4** | **Add Breadcrumbs & `publishedTime` to Sentences & Self metadata** | SEO / Schema | **Small** | Closes schema inconsistencies across secondary content collections and enriches SERP snippets. |
