@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { fillDescription } from "../../../lib/seo/description";
 import { constructMetadata } from "../../../lib/seo/metadata";
-import { getWebPageSchema } from "../../../lib/seo/jsonld";
+import { getBreadcrumbSchema, getWebPageSchema } from "../../../lib/seo/jsonld";
 import { renderMarkdown } from "../../../lib/markdown";
 
 interface PageProps {
@@ -45,6 +45,11 @@ export default async function SentencesDetailPage({ params }: PageProps) {
     description: sentence.summary,
     path: `/sentences/${slug}`
   });
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Sentences", path: "/sentences" },
+    { name: sentence.title, path: `/sentences/${slug}` },
+  ]);
 
   return (
     <article className="sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6">
@@ -52,6 +57,12 @@ export default async function SentencesDetailPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageSchema) }}
       />
+      {breadcrumbSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      )}
       {/* Category header tag */}
       <span className="text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start">
         {sentence.category}

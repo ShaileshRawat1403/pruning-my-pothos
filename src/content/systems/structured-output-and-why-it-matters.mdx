@@ -170,7 +170,23 @@ Say you need an invoice amount out of an email. Ask in prose and you get a sente
 {"invoice_id": "INV-4021", "amount": 100, "currency": "GBP"}
 ```
 
-Now software can read the amount without parsing English. More importantly, if the model returns something else, code can **reject** it. That is the real shift. The requirement moved out of the instruction, where nothing was watching, and into a validator, where something is.
+To enforce that shape, software supplies a JSON Schema contract:
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "invoice_id": { "type": "string" },
+    "amount": { "type": "number", "minimum": 0 },
+    "currency": { "type": "string", "enum": ["GBP", "USD", "EUR"] }
+  },
+  "required": ["invoice_id", "amount", "currency"],
+  "additionalProperties": false
+}
+```
+
+Now software can read the amount without parsing English. More importantly, if the model returns something else, code can **reject** it. That is the real shift. The requirement moved out of the instruction, where nothing was watching, and into a validator, where something is. You can try that translation directly with the [Prompt to JSON tool](/tools/prompt-to-json/) to turn loose requirements into a schema before wiring it into code.
 
 <!-- pmp:visual id="prose-or-shape" -->
 
