@@ -146,8 +146,8 @@ memory, forward deployed engineering.
 | :- | :--- | :--- | -: | -: | :--- | :--- | :--- |
 | 9 | what are embeddings | "embedding dimension", "mean embedding", "embedding space", "embeddings explained", "vector embedding explained", "embedding math" | 25 | 28–70 | new: `/systems/what-are-embeddings/` | Vectors, dimensions, similarity; one drawn scene | live 2026-10-21 |
 | 10 | which Ollama models support tools | "which ollama models support tools", "ollama tools models", "ollama with tools", 8 more variants | 30 | 26–50 | new Shelf reference, dated | A dated list with how to check it yourself | open |
-| 11 | structured outputs with JSON Schema | "structured outputs", "structured output", "structured output json schema", "qwen structured output" | 290 | 61–77 | `/systems/structured-output-and-why-it-matters/` plus `/shelf/notes/structured-output-translation-playbook/` | A JSON Schema section with a worked example; local models (Qwen via Ollama) | open |
-| 12 | what is prompting | "prompting", "what is prompting", "prompting definition", "promting" | 115 | 39–41 | `/systems/prompting-is-not-the-skill-you-think-it-is/` | A plain definition in the first lines, then the article's point | open |
+| 11 | structured outputs with JSON Schema | "structured outputs", "structured output", "structured output json schema", "qwen structured output" | 290 | 61–77 | `/systems/structured-output-and-why-it-matters/` plus `/shelf/notes/structured-output-translation-playbook/` | A JSON Schema section with a worked example; local models (Qwen via Ollama) | live 2026-11-03 |
+| 12 | what is prompting | "prompting", "what is prompting", "prompting definition", "promting" | 115 | 39–41 | `/systems/prompting-is-not-the-skill-you-think-it-is/` | A plain definition in the first lines, then the article's point | live 2026-11-03 |
 | 13 | what is a context window | "context window", "all llms have a context window" | 6 | 9–37 | `/systems/context-windows-as-working-memory/` | Definition first | open |
 
 ### Tier 3: new terms close to the site's intent (no data yet)
@@ -201,3 +201,6 @@ Never chase a query only because it has volume.
 | 2026-10-21 | 9 | `/systems/what-are-embeddings/` | what are embeddings | 25, 28–70; old URL 20 | retrieval-augmented-generation (links to it) | live 2026-10-21 |
 
 | 2026-10-31 | owner-requested research distribution | `/about/` | PocketFabric reports | n/a | author profile | links to the two published Zenodo reports; no search-ranking or reliability claims |
+| 2026-11-03 | 11 | `/systems/structured-output-and-why-it-matters/` | structured outputs with JSON Schema | 290, 61–77 | itself | Draft 2020-12 schema contract validating invoice payload added; linked /tools/prompt-to-json/; updatedAt 2026-11-03; live 2026-11-03 |
+| 2026-11-03 | 12 | `/systems/prompting-is-not-the-skill-you-think-it-is/` | what is prompting | 115, 39–41 | itself | Bold core definition under "What a prompt actually is"; updatedAt 2026-11-03; live 2026-11-03 |
+| 2026-11-03 | AEO/GEO Pass | Sentences detail pages, Systems, Self | structured data, epistemic integrity, metadata hygiene | n/a | (across) | BreadcrumbList JSON-LD across Sentences; Self semantic-cache incident reframed to illustrative; MT-Bench and contract test suite evidence added to evaluation article; removed manufactured modifiedTime fallback; live 2026-11-03 |

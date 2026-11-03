@@ -221,7 +221,29 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 - Before making LanguageOps public, see section 9: its history holds
   material the owner may not want public.
 
-## 8. Where things stand (2026-11-01)
+## 8. Where things stand (2026-11-03)
+
+- **AEO, GEO, Schema and Epistemic Integrity Release (2026-11-03)**: PR #6 merged
+  to `main` with owner authorization. GitHub Actions CI and Deploy to Hostinger
+  succeeded; live site verified on Hostinger and Cloudflare.
+  - Epistemic integrity: reframed the semantic cache debug incident
+    (`src/content/self/debugging-a-semantic-cache-miss.md`) as an explicit
+    illustrative scenario with an illustrative mitigation; editorial audit
+    register is 100% clean (61 Green, 0 Amber, 0 Red, 1 Illustrative).
+  - Structured data: injected `BreadcrumbList` JSON-LD schema across all
+    Sentences detail pages (`src/app/sentences/[slug]/page.tsx`).
+  - Metadata hygiene: eliminated manufactured `article:modified_time` fallbacks
+    across Systems and Self; Self emits genuine `publishedTime` only; Systems
+    emits `article:modified_time` only when `updatedAt` is defined.
+  - Search-driven improvements: added Draft 2020-12 JSON Schema contract example
+    to `/systems/structured-output-and-why-it-matters/` (Growth row 11) and linked
+    `/tools/prompt-to-json/`; added bold definition to
+    `/systems/prompting-is-not-the-skill-you-think-it-is/` (Growth row 12); added
+    empirical citations (MT-Bench arXiv:2306.05685, repository test suite SHA
+    5e62ad6) to `/systems/evaluation-is-a-human-problem/`.
+  - Architecture & audit docs: added `docs/agent-instructions/brief-mcp-vs-api-vs-webmcp.md`
+    and `docs/audits/seo-aeo-geo-audit-2026-11.md`. Decoupled 14 legacy 404 URLs
+    from the GSC 94-page crawl backlog, treating them as separate findings.
 
 - PocketFabric website adaptation (2026-11-01): `/stack/pocketfabric/` is a native
   Stack case study, linked from Stack/About and sitemap. The supplied HTML stays
@@ -306,6 +328,8 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 
 ## 9. Open items
 
+- PR #6 (AEO, GEO, schema, epistemic integrity): merged into `main` and deployed to Hostinger 2026-11-03. Live site verified on Hostinger origin and Cloudflare edge.
+- Legacy WordPress 410 URLs (deferred task): 14 legacy URLs in GSC require URL-level replacement mapping and hosting verification before applying 410 Gone responses. Kept separate from the November content release.
 - PocketFabric release: PR #5 carries the owner-approved 2026-11-01 deployment.
   Check its Actions run and the live `/stack/pocketfabric/` page for the outcome.
   The approval covers this release only; future production pushes need approval.
