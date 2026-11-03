@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ogType: "article",
     imageAlt: system.heroImageAlt,
     publishedTime: system.publishDate,
-    modifiedTime: system.updatedAt ?? system.publishDate,
+    ...(system.updatedAt ? { modifiedTime: system.updatedAt } : {}),
   });
 }
 

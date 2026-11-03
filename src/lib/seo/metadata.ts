@@ -74,7 +74,12 @@ export function constructMetadata({
         },
       ],
       type: ogType,
-      ...(ogType === "article" && publishedTime ? { publishedTime, modifiedTime: modifiedTime ?? publishedTime } : {}),
+      ...(ogType === "article" && publishedTime
+        ? {
+            publishedTime,
+            ...(modifiedTime ? { modifiedTime } : {}),
+          }
+        : {}),
     },
     twitter: {
       card: "summary_large_image",

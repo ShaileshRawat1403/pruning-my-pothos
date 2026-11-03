@@ -3,7 +3,7 @@ schemaVersion: "1.0"
 title: "What Counts as Good, and How to Check It"
 seoTitle: "AI Evaluation: How to Tell If a System Behaved as Expected"
 publishDate: "2026-01-14"
-updatedAt: "2026-09-20"
+updatedAt: "2026-11-03"
 description: "Evaluation compares behaviour against an expectation written down first. What to check, which method suits which property, and how to keep changes visible."
 category: "Explanations"
 heroImage: '/covers/systems/evaluation-is-a-human-problem.png'
@@ -29,7 +29,17 @@ boundary:
 
 provenance:
   primary: synthesis
-  sources: []
+  sources:
+    - id: mt-bench
+      type: external
+      url: "https://arxiv.org/abs/2306.05685"
+      citation: "Zheng et al., Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena, arXiv:2306.05685, June 2023"
+    - id: pmp-contract-suite
+      type: repository
+      url: "https://github.com/ShaileshRawat1403/pruning-my-pothos"
+      path: "scripts/test-contract-v1.mjs"
+      ref: "5e62ad65900a51b5455599a85fcc329e6247bb30"
+      citation: "Pruning My Pothos contract test suite at 5e62ad6, 73 deterministic assertions without a model call"
   claims:
     - statement: "Evaluation compares observed behaviour against an expectation that was written down before the run."
       kind: synthesis
@@ -37,6 +47,14 @@ provenance:
       kind: synthesis
     - statement: "A retained metric should say what is measured, on what population, over what period, how it was produced, and which decision changes if it moves."
       kind: synthesis
+    - statement: "Empirical benchmarks identify three systematic biases when a model evaluates another model: position bias, verbosity bias, and self-enhancement bias."
+      kind: external
+      sources:
+        - mt-bench
+    - statement: "Deterministic assertions verify exact structural invariants without calling a model."
+      kind: repository
+      sources:
+        - pmp-contract-suite
 
 related:
   - type: explainer
@@ -165,11 +183,11 @@ Those fail in different ways, get checked by different means, and carry differen
 
 ## Four ways to check, and what each one costs
 
-**Deterministic assertions.** Did it parse, is the required field present, is the value inside the permitted range, does the cited identifier correspond to a document that exists. These are exact, cheap, and narrow. They cannot tell you whether an answer is any good, and they catch a class of failure that otherwise gets reported as the model behaving strangely. Well-formedness itself is [structured output](/systems/structured-output-and-why-it-matters/) work, applied here after the fact rather than before an action.
+**Deterministic assertions.** Did it parse, is the required field present, is the value inside the permitted range, does the cited identifier correspond to a document that exists. **Deterministic assertions verify exact structural invariants without calling a model.** In this repository, for example, a contract suite runs 73 deterministic checks over frontmatter keys and link targets rather than asking a model to grade them. These are exact, cheap, and narrow. They cannot tell you whether an answer is any good, and they catch a class of failure that otherwise gets reported as the model behaving strangely. Well-formedness itself is [structured output](/systems/structured-output-and-why-it-matters/) work, applied here after the fact rather than before an action.
 
 **Heuristics.** Length bounds, presence of a required phrase, overlap with a reference answer. Word-overlap measures such as BLEU and ROUGE sit here. They are quick and they have no access to meaning, so a close paraphrase scores badly and a fluent restatement of the wrong fact can score well. Useful as a cheap tripwire, unsafe as a definition of correct.
 
-**Model-based graders.** A model scoring output against a rubric. It extends judgment to volumes nobody can read by hand, and it is doing the same probabilistic thing as the system under test. Three consequences follow. A grader that returns a score without a reason gives you a number you cannot audit. Graders can reward confident, well-formed writing, which may be a property the rubric never asked for. And a grader has to be compared against human labels before its scores mean anything, which makes the grader a component you also have to evaluate.
+**Model-based graders.** A model scoring output against a rubric. It extends judgment to volumes nobody can read by hand, and it is doing the same probabilistic thing as the system under test. **Empirical benchmarks identify three systematic biases when a model evaluates another model: position bias, verbosity bias, and self-enhancement bias.** Position bias tilts toward whichever response arrives first. Verbosity bias awards higher marks to length and formatting over factual accuracy. Self-enhancement favors outputs from the judge's own model family. Beyond those three biases, stochastic temperature sampling introduces non-determinism, meaning identical candidates can produce divergent scores across runs. A grader that returns a score without an inspectable reason gives you a number you cannot audit, which makes the grader a component you also have to evaluate.
 
 **Human review.** The expensive one, and the one the other three are standing in for. **Every cheaper check approximates a judgment someone made first.** An assertion about citations encodes a decision about what counts as supported. A rubric row encodes a decision about what counts as the right tone. The judgment does not disappear when it is automated. It gets fixed at the moment it was encoded, and revisiting it becomes separate work that nothing prompts.
 
@@ -185,7 +203,7 @@ Keep the criteria to the ones that would change what you do. A rubric that score
 
 ## A fixed set of things that already went wrong
 
-Keep the bad outputs. Sort them by failure mode: wrong fact, wrong tone, missed refusal, malformed structure, quiet truncation, confident answer from thin evidence. Re-score that same collection after a prompt change, a model change, or a change in what gets retrieved.
+Keep the bad outputs. Sort them by failure mode: wrong fact, wrong tone, missed refusal, malformed structure, quiet truncation, confident answer from thin evidence. Tools like the [CSV-to-eval utility](/tools/csv-to-eval/) help package those raw failure logs into structured test assertions. Re-score that same collection after a prompt change, a model change, or a change in what gets retrieved.
 
 The value lives in the word same. A fresh sample each time tells you how the system did on that sample. A fixed set tells you what moved, because the only thing that changed between the two runs is the thing you changed.
 

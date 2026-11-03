@@ -31,7 +31,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: fillDescription(selfItem.description, selfItem.content),
     image: selfItem.heroImage,
     path: `/self/${slug}`,
-    ogType: "article"
+    ogType: "article",
+    publishedTime: selfItem.publishDate,
   });
 }
 

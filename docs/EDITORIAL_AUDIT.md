@@ -1,6 +1,6 @@
 # Editorial Integrity Audit Report
 
-Content snapshot: sha256:7f4ccf1fb03dd097333283b1a2a6643a8e0fb5ffc67af1fc4778b5624a737206
+Content snapshot: sha256:7f6172e8fe42359de149da26858ab837578466caf50d4124b40a396487895cf2
 Status: Read-only diagnostic of the existing article archive.
 
 ## Status Definitions
@@ -14,21 +14,13 @@ Status: Read-only diagnostic of the existing article archive.
 
 | Total Articles | Green | Amber | Red | Illustrative |
 | :--- | :--- | :--- | :--- | :--- |
-| 62 | 60 | 0 | 1 | 1 |
+| 62 | 61 | 0 | 0 | 1 |
 
 ## High-Priority Review Queue (Red)
 
 Articles containing first-person incident assertions or ungrounded empirical claims that require author attestation or illustrative reframing:
 
-### [Debugging a Semantic Cache Miss](../src/content/self/debugging-a-semantic-cache-miss.md)
-- **File**: `src/content/self/debugging-a-semantic-cache-miss.md` (self)
-- **Status**: 🔴 **Red**
-- **Diagnostic Issues**:
-  - First-person incident language detected without 'observed' provenance declaration or author attestation
-- **Flagged Excerpts**:
-  - `L14: "Last week, we received" — first-person incident opener ('Last week we/I received...')`
-  - `L14: "we received a bug report" — unverified incident ('we received a bug report...')`
-- **Action Required**: Decide whether incident genuinely occurred (add `provenance.primary: observed` + `attestation: author`) or reframe as an explicit illustrative scenario.
+*None detected.*
 
 ## Qualification Queue (Amber)
 
@@ -45,7 +37,7 @@ Articles with solid conceptual foundations that need qualified phrasing (e.g. co
 | self | [calibration-rituals](../src/content/self/calibration-rituals.md) | 🟢 Green | Legacy | None | Clean |
 | self | [constraint-of-kindness](../src/content/self/constraint-of-kindness.md) | 🟢 Green | Legacy | None | Clean |
 | self | [craft-of-saying-no](../src/content/self/craft-of-saying-no.md) | 🟢 Green | Legacy | None | Clean |
-| self | [debugging-a-semantic-cache-miss](../src/content/self/debugging-a-semantic-cache-miss.md) | 🔴 Red | Legacy | None | First-person incident language detected without 'observed' provenance declaration or author attestation |
+| self | [debugging-a-semantic-cache-miss](../src/content/self/debugging-a-semantic-cache-miss.md) | 🟢 Green | Legacy | None | Clean |
 | self | [debugging-multi-agent-systems](../src/content/self/debugging-multi-agent-systems.md) | 🟢 Green | Legacy | None | Clean |
 | self | [debugging-my-first-schema-translation-error](../src/content/self/debugging-my-first-schema-translation-error.md) | 🟢 Green | Legacy | None | Clean |
 | self | [decision-logs-beat-memory](../src/content/self/decision-logs-beat-memory.md) | 🟢 Green | Legacy | None | Clean |
