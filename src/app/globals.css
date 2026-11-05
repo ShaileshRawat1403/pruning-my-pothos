@@ -1300,3 +1300,12 @@ a:hover .ill-lift .hd-lid, .ill-lift:hover .hd-lid { transform-box: fill-box; tr
 
 /* Theme switch: the new theme opens as a circle of light from the toggle. */
 ::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+
+/* The growing vine beside the Systems stages (ScrollVine). */
+.scroll-vine-stem { stroke: #5f8f78; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; transition: stroke-dashoffset 0.25s linear; }
+.scroll-vine-leaf { opacity: 0; transform-box: fill-box; transform-origin: 50% 100%; transform: scale(0.2); transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.3, 1.6, 0.5, 1); }
+.scroll-vine-leaf.is-on { opacity: 1; transform: scale(0.62); }
+.scroll-vine-leaf-body { fill: #6f9f86; stroke: #2b2620; stroke-width: 1.6; stroke-linejoin: round; }
+[data-theme="dark"] .scroll-vine-leaf-body { stroke: #1a1814; }
+.scroll-vine-leaf-vein { stroke: #2b2620; stroke-width: 1.2; stroke-linecap: round; opacity: 0.6; }
+@media print { .scroll-vine-leaf { opacity: 1; transform: scale(0.62); } }
