@@ -20,7 +20,10 @@ jobs:
       - name: Install Pinned Vale (3.17.0)
         run: |
           mkdir -p /tmp/vale-install
-          curl -sL https://github.com/vale-cli/vale/releases/download/v3.17.0/vale_3.17.0_Linux_64-bit.tar.gz | tar -xz -C /tmp/vale-install
+          # Download to a file with retries; a failed fetch must not be piped into tar.
+          curl -fsSL --retry 5 --retry-delay 5 --retry-all-errors -o /tmp/vale.tar.gz \
+            https://github.com/vale-cli/vale/releases/download/v3.17.0/vale_3.17.0_Linux_64-bit.tar.gz
+          tar -xzf /tmp/vale.tar.gz -C /tmp/vale-install
           sudo mv /tmp/vale-install/vale /usr/local/bin/vale
           vale --version
 
