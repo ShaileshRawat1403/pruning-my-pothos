@@ -6,14 +6,14 @@ import "./pocketfabric.css";
 const description = "A rooted OnePlus 9 became a Linux host. Explore the migration, the mount failure and the GPU results, with both open reports and their limits.";
 
 export const metadata = constructMetadata({
-  title: "PocketFabric: a retired phone, run like a server",
+  title: "PocketFabric: a retired phone that runs like a server",
   description,
   path: "/stack/pocketfabric",
 });
 
 export default function PocketFabricPage() {
   const schema = getWebPageSchema({
-    title: "PocketFabric: a retired phone, run like a server",
+    title: "PocketFabric: a retired phone that runs like a server",
     description,
     path: "/stack/pocketfabric",
   });
