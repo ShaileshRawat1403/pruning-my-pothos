@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SITE_POSITIONING } from "../../lib/config/site-positioning";
 import "./prism-hero.css";
 
@@ -93,6 +93,11 @@ export default function PrismHero() {
   const contentRef = useRef<HTMLDivElement>(null);
   const cueRef = useRef<HTMLSpanElement>(null);
   const activeRef = useRef<number>(-1);
+  const benchRef = useRef<HTMLDivElement>(null);
+  // Parts the reader has blocked at the lens, read by the drawing loop.
+  const [blocked, setBlocked] = useState<boolean[]>(() => BANDS.map(() => false));
+  const blockedRef = useRef(blocked);
+  useEffect(() => { blockedRef.current = blocked; }, [blocked]);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -113,6 +118,12 @@ export default function PrismHero() {
     let angle = 22, target = 22, lastPointer = -1e9;
     let yaw = 0, yawTarget = 0;
     let start = 0, started = false;
+    // The person on the line: distance along the path, direction, run cycle,
+    // the band they are on, a short trail of past poses, and kicked-up dust.
+    let figS = 0, figDir = 1, figLast = 0, figPhase = 0, figFace = 1, figBand = -1;
+    const trail: { x: number; y: number; ph: number; f: number; air: number }[] = [];
+    const puffs: { x: number; y: number; vx: number; vy: number; t: number }[] = [];
+    const ripples: { i: number; t: number }[] = [];
     let frame = 0, running = false, visible = true;
     const dust = Array.from({ length: 90 }, () => ({ x: Math.random(), y: Math.random(), s: 0.4 + Math.random() * 1.4, v: 0.15 + Math.random() * 0.5, p: Math.random() * Math.PI * 2 }));
 
@@ -324,6 +335,18 @@ export default function PrismHero() {
       const gather = ease(clamp((rb - 0.15) / 0.3, 0, 1));
       const p2On = clamp((rb - 0.1) / 0.25, 0, 1);
       const exitP = ease(clamp((rb - 0.45) / 0.3, 0, 1));
+      // White light missing a colour is tinted: the beam out is the sum of
+      // the bands that get through.
+      const off = blockedRef.current;
+      const bandOf = (i: number) => Math.floor(((i + 0.5) / Math.max(1, valid.length - 1)) * BANDS.length);
+      const through = BANDS.filter((_, i) => !off[i]);
+      let tint: [number, number, number] = [255, 255, 255];
+      if (through.length && through.length < BANDS.length) {
+        const sum = through.reduce((acc, b) => { const c = rgbFor(b.nm); return [acc[0] + c[0], acc[1] + c[1], acc[2] + c[2]]; }, [0, 0, 0]);
+        const m = Math.max(...sum);
+        tint = sum.map((v) => Math.round(255 * Math.pow(v / m, 1.6))) as [number, number, number];
+      }
+      const exitOn = through.length > 0 ? exitP : 0;
 
       if (beamP >= 1 && valid.length > 1) {
         // Inside the glass: the beam crosses as warm white.
@@ -370,7 +393,7 @@ export default function PrismHero() {
             strip(ctx, 4, dark ? 0.95 : 1);
           }
           // Through the lens, the band bends toward the second prism.
-          if (gather > 0) {
+          if (gather > 0 && !off[bandOf(i)]) {
             const ga = lerp(la, F, gather), gb = lerp(lb, F, gather);
             const cone = (c: CanvasRenderingContext2D, alpha: number) => {
               const gr = c.createLinearGradient(la.x, la.y, F.x, F.y);
@@ -384,11 +407,12 @@ export default function PrismHero() {
           }
         }
         // One beam again, leaving the second prism.
-        if (exitP > 0) {
-          const end = lerp(E, exitEnd, exitP);
+        if (exitOn > 0) {
+          const end = lerp(E, exitEnd, exitOn);
           const gr = gctx.createLinearGradient(E.x, E.y, exitEnd.x, exitEnd.y);
-          gr.addColorStop(0, dark ? "rgba(255,248,230,0.95)" : "rgba(243,190,90,0.55)");
-          gr.addColorStop(1, dark ? "rgba(255,248,230,0.2)" : "rgba(243,190,90,0.1)");
+          const glow = through.length < BANDS.length ? tint.join(",") : dark ? "255,248,230" : "243,190,90";
+          gr.addColorStop(0, `rgba(${glow},${dark ? 0.95 : 0.6})`);
+          gr.addColorStop(1, `rgba(${glow},${dark ? 0.2 : 0.12})`);
           gctx.strokeStyle = gr; gctx.lineWidth = 26; gctx.lineCap = "round";
           gctx.beginPath(); gctx.moveTo(E.x, E.y); gctx.lineTo(end.x, end.y); gctx.stroke();
         }
@@ -468,10 +492,10 @@ export default function PrismHero() {
         body2.addColorStop(0, dark ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.85)");
         body2.addColorStop(1, dark ? "rgba(255,255,255,0.025)" : "rgba(236,230,218,0.75)");
         poly(tri); ctx.fillStyle = body2; ctx.fill();
-        if (gather >= 1) {
+        if (gather >= 1 && through.length) {
           // Inside: the colours cross as one.
           ctx.globalCompositeOperation = blend;
-          ctx.strokeStyle = dark ? "rgba(255,252,240,0.8)" : "rgba(243,190,90,0.7)"; ctx.lineWidth = 3;
+          ctx.strokeStyle = through.length < BANDS.length ? `rgba(${tint.join(",")},0.85)` : dark ? "rgba(255,252,240,0.8)" : "rgba(243,190,90,0.7)"; ctx.lineWidth = 3;
           ctx.beginPath(); ctx.moveTo(F.x, F.y); ctx.lineTo(E.x, E.y); ctx.stroke();
           ctx.globalCompositeOperation = "source-over";
         }
@@ -486,11 +510,12 @@ export default function PrismHero() {
         poly(in2); ctx.stroke();
         ctx.restore();
       }
-      if (exitP > 0) {
-        const end = lerp(E, exitEnd, exitP);
+      if (exitOn > 0) {
+        const end = lerp(E, exitEnd, exitOn);
         const gr = ctx.createLinearGradient(E.x, E.y, exitEnd.x, exitEnd.y);
-        gr.addColorStop(0, dark ? "rgba(255,255,255,1)" : "rgba(43,38,32,1)");
-        gr.addColorStop(1, dark ? "rgba(255,255,255,0.35)" : "rgba(43,38,32,0.3)");
+        const core = dark || through.length < BANDS.length ? tint.join(",") : "43,38,32";
+        gr.addColorStop(0, `rgba(${core},1)`);
+        gr.addColorStop(1, `rgba(${core},0.35)`);
         ctx.globalCompositeOperation = blend;
         ctx.strokeStyle = gr; ctx.lineWidth = dark ? 2.6 : 2.2; ctx.lineCap = "round";
         ctx.beginPath(); ctx.moveTo(E.x, E.y); ctx.lineTo(end.x, end.y); ctx.stroke();
@@ -510,6 +535,20 @@ export default function PrismHero() {
         ctx.strokeStyle = dark ? "rgba(255,255,255,0.5)" : "rgba(43,38,32,0.6)"; ctx.lineWidth = 1.2; ctx.stroke();
         ctx.beginPath(); ctx.ellipse(screenX - 2.5, yMid - ry * 0.15, 2, ry * 0.6, 0, 0, Math.PI * 2);
         ctx.fillStyle = "rgba(255,255,255,0.5)"; ctx.fill();
+        // A card held in front of each blocked band.
+        const yAt = (f: number) => {
+          const lo = valid[Math.floor(f)], hi = valid[Math.min(valid.length - 1, Math.ceil(f))];
+          return lerp(landing(lo), landing(hi), f - Math.floor(f)).y;
+        };
+        BANDS.forEach((b, i) => {
+          if (!off[i]) return;
+          const y0 = yAt((i / BANDS.length) * (valid.length - 1)) - 3, y1 = yAt(((i + 1) / BANDS.length) * (valid.length - 1)) + 3;
+          const [r, gg, bb] = rgbFor(b.nm);
+          ctx.fillStyle = dark ? "#1b1a18" : "#f4efe4";
+          ctx.fillRect(screenX - 13, y0, 9, y1 - y0);
+          ctx.strokeStyle = `rgb(${r},${gg},${bb})`; ctx.lineWidth = 1.2;
+          ctx.strokeRect(screenX - 13, y0, 9, y1 - y0);
+        });
         ctx.restore();
       }
 
@@ -597,35 +636,171 @@ export default function PrismHero() {
         cam(ctx, dpr);
       }
 
-      // A person at every stage: one ink line, drawn by hand across all
-      // seven bands, with a knot where it crosses each.
+      // A person at every stage: one ink path that runs along each band and
+      // steps down to the next, back and forth through all seven, and a
+      // figure who runs it.
       const humanP = reduce ? 1 : clamp((p - 0.72) / 0.22, 0, 1);
-      let humanTop: V | null = null;
+      let humanTail: V | null = null;
       if (valid.length > 1 && humanP > 0) {
-        const knots = BANDS.map((_, i) => bandAt(i, 0.72));
-        const dir = norm(sub(knots[knots.length - 1], knots[0]));
-        const head = sub(knots[0], mul(dir, 34)), tail = add(knots[knots.length - 1], mul(dir, 30));
-        humanTop = head;
-        const path: V[] = [];
-        const pts = [head, ...knots, tail];
-        for (let j = 0; j < pts.length - 1; j++) {
-          for (let k = 0; k < 8; k++) {
-            const a = lerp(pts[j], pts[j + 1], k / 8);
-            const wob = Math.sin((j * 8 + k) * 0.9) * 0.7;
-            path.push({ x: a.x + dir.y * wob, y: a.y - dir.x * wob });
-          }
-        }
-        path.push(tail);
-        const n = Math.max(2, Math.round(path.length * ease(humanP)));
+        const A0 = 0.5, A1 = 0.9;
+        const runs = BANDS.map((_, i) => (i % 2 ? [bandAt(i, A1), bandAt(i, A0)] : [bandAt(i, A0), bandAt(i, A1)]));
+        const pts = runs.flat();
+        const segLen = pts.slice(1).map((v, i) => Math.hypot(v.x - pts[i].x, v.y - pts[i].y));
+        const cum = [0]; segLen.forEach((l) => cum.push(cum[cum.length - 1] + l));
+        const total = cum[cum.length - 1];
+        const at = (d: number) => {
+          const dd = clamp(d, 0, total);
+          let k = 0;
+          while (k < segLen.length - 1 && cum[k + 1] < dd) k++;
+          const u = segLen[k] ? (dd - cum[k]) / segLen[k] : 0;
+          return { pos: lerp(pts[k], pts[k + 1], u), seg: k, tan: norm(sub(pts[k + 1], pts[k])) };
+        };
+        const runMid = (i: number) => (cum[i * 2] + cum[i * 2 + 1]) / 2;
+        humanTail = pts[pts.length - 1];
+
+        // The path, drawn on by hand with a slight wobble.
+        const drawTo = total * ease(humanP);
         const ink = dark ? "rgba(243,238,228,0.85)" : "rgba(34,30,25,0.85)";
-        ctx.strokeStyle = ink; ctx.lineWidth = 1.5; ctx.lineCap = "round"; ctx.lineJoin = "round";
-        ctx.beginPath(); path.slice(0, n).forEach((v, i) => (i ? ctx.lineTo(v.x, v.y) : ctx.moveTo(v.x, v.y))); ctx.stroke();
-        knots.forEach((v, i) => {
-          if ((i + 1) * 8 > n) return;
-          ctx.beginPath(); ctx.arc(v.x, v.y, activeRef.current === i ? 4.2 : 3, 0, Math.PI * 2);
-          ctx.fillStyle = dark ? "#151413" : "#fbf9f4"; ctx.fill();
-          ctx.strokeStyle = ink; ctx.lineWidth = 1.3; ctx.stroke();
+        const faint = dark ? "rgba(243,238,228,0.42)" : "rgba(34,30,25,0.4)";
+        const inkPath = () => {
+          ctx.beginPath();
+          for (let d = 0, j = 0; d <= drawTo; d += 4, j++) {
+            const { pos, tan } = at(d);
+            const w = Math.sin(j * 0.7) * 0.35;
+            const x = pos.x - tan.y * w, y = pos.y + tan.x * w;
+            if (j) ctx.lineTo(x, y); else ctx.moveTo(x, y);
+          }
+        };
+        ctx.strokeStyle = faint; ctx.lineWidth = 1.1; ctx.lineCap = "round"; ctx.lineJoin = "round";
+        inkPath(); ctx.stroke();
+        const nowS = now / 1000;
+        const dt = figLast ? Math.min(0.05, nowS - figLast) : 0;
+        figLast = nowS;
+        // Move: run the path end to end and back; a hovered label pulls the
+        // runner to that band and they stop there.
+        let speed = 0, standing = false;
+        const kick = (x: number, y: number, n: number, dir: number) => {
+          for (let k = 0; k < n; k++) puffs.push({ x, y, vx: (-dir * (20 + Math.random() * 40)), vy: -(10 + Math.random() * 30), t: nowS });
+        };
+        if (humanP >= 1 && !reduce) {
+          const want = activeRef.current;
+          if (want >= 0) {
+            const goal = runMid(want), gap = goal - figS;
+            if (Math.abs(gap) > 2) { figDir = Math.sign(gap); speed = Math.min(300, 40 + Math.abs(gap) * 4); figS += figDir * speed * dt; }
+            else { figS = goal; standing = true; }
+          } else {
+            // Faster through the middle of a run, slower into the turns.
+            const seg = at(figS).seg;
+            const runU = seg % 2 ? 1 : clamp((figS - cum[seg]) / Math.max(1, segLen[seg]), 0, 1);
+            speed = 120 + 90 * Math.sin(Math.PI * runU);
+            figS += figDir * speed * dt;
+            if (figS >= total || figS <= 0) {
+              figS = clamp(figS, 0, total); figDir *= -1;
+              const end = at(figS).pos; kick(end.x, end.y, 9, -figDir);
+            }
+          }
+        } else if (humanP >= 1) standing = true;
+        const here = at(figS);
+        const onStep = here.seg % 2 === 1;
+        const band = Math.min(BANDS.length - 1, Math.floor((here.seg + (onStep && figDir < 0 ? 1 : 0)) / 2));
+        if (humanP >= 1 && band !== figBand) {
+          if (figBand >= 0 && onStep && figDir > 0) kick(here.pos.x, here.pos.y, 5, 0);
+          figBand = band; ripples.push({ i: band, t: nowS });
+        }
+        if (!onStep && Math.abs(here.tan.x) > 0.2) figFace = Math.sign(here.tan.x * figDir) || figFace;
+        if (standing) figFace = 1;
+        figPhase += dt * (speed / 9);
+        const air = onStep && !standing ? 1 : 0;
+
+        // Knots mark each band's run; they ripple as the runner arrives.
+        for (let r = ripples.length - 1; r >= 0; r--) {
+          const age = nowS - ripples[r].t;
+          if (age > 0.9) { ripples.splice(r, 1); continue; }
+          const [cr, cg, cb] = rgbFor(BANDS[ripples[r].i].nm);
+          const v = at(runMid(ripples[r].i)).pos;
+          ctx.beginPath(); ctx.arc(v.x, v.y, 4 + 18 * (age / 0.9), 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(${cr},${cg},${cb},${1 - age / 0.9})`; ctx.lineWidth = 1.5; ctx.stroke();
+        }
+        BANDS.forEach((_, i) => {
+          if (runMid(i) > drawTo) return;
+          const v = at(runMid(i)).pos;
+          const lit = (humanP >= 1 && i === figBand) || activeRef.current === i;
+          const [cr, cg, cb] = rgbFor(BANDS[i].nm);
+          ctx.beginPath(); ctx.arc(v.x, v.y, lit ? 3.6 : 2.4, 0, Math.PI * 2);
+          ctx.fillStyle = lit ? `rgb(${cr},${cg},${cb})` : dark ? "#151413" : "#fbf9f4"; ctx.fill();
+          ctx.strokeStyle = ink; ctx.lineWidth = 1.2; ctx.stroke();
         });
+        // Dust.
+        for (let k = puffs.length - 1; k >= 0; k--) {
+          const d = puffs[k], age = nowS - d.t;
+          if (age > 0.6) { puffs.splice(k, 1); continue; }
+          ctx.beginPath(); ctx.arc(d.x + d.vx * age, d.y + d.vy * age + 40 * age * age, 1.2 + age * 2.5, 0, Math.PI * 2);
+          ctx.fillStyle = dark ? `rgba(243,238,228,${0.5 * (1 - age / 0.6)})` : `rgba(34,30,25,${0.35 * (1 - age / 0.6)})`; ctx.fill();
+        }
+
+        if (humanP >= 1) {
+          // A stick figure in the house ink, haloed so it reads over colour.
+          const figure = (foot: V, ph: number, f: number, airF: number, still: boolean) => {
+            const lean = still ? 0 : 0.28 * f;
+            const bounce = still ? Math.sin(nowS * 3) * 0.4 : -Math.abs(Math.sin(ph)) * 1.6;
+            const hip = { x: foot.x, y: foot.y - 11 + bounce };
+            const neck = { x: hip.x + Math.sin(lean) * 11, y: hip.y - Math.cos(lean) * 11 };
+            const sh = lerp(hip, neck, 0.85);
+            const lines: V[][] = [[hip, neck]];
+            if (still) {
+              lines.push([hip, { x: hip.x - 1.5, y: hip.y + 5.5 }, { x: foot.x - 3.5, y: foot.y }]);
+              lines.push([hip, { x: hip.x + 1.5, y: hip.y + 5.5 }, { x: foot.x + 3.5, y: foot.y }]);
+              lines.push([sh, { x: sh.x + 5, y: sh.y - 1 }, { x: sh.x + 10, y: sh.y - 3 }]);
+              lines.push([sh, { x: sh.x - 3, y: sh.y + 4 }, { x: sh.x - 4, y: sh.y + 8 }]);
+            } else if (airF) {
+              lines.push([hip, { x: hip.x + f * 4, y: hip.y + 3 }, { x: hip.x + f * 1, y: hip.y + 8 }]);
+              lines.push([hip, { x: hip.x - f * 3, y: hip.y + 5 }, { x: hip.x - f * 6, y: hip.y + 7 }]);
+              lines.push([sh, { x: sh.x - 4, y: sh.y - 4 }, { x: sh.x - 6, y: sh.y - 9 }]);
+              lines.push([sh, { x: sh.x + 4, y: sh.y - 4 }, { x: sh.x + 6, y: sh.y - 9 }]);
+            } else {
+              [1, -1].forEach((side) => {
+                const a = Math.sin(ph) * 0.95 * side;
+                const knee = { x: hip.x + f * Math.sin(a) * 6, y: hip.y + Math.cos(a) * 5.5 };
+                const bend = Math.max(0, -Math.sin(ph) * side) * 4;
+                lines.push([hip, knee, { x: knee.x - f * (1 + bend), y: knee.y + 5.5 - bend * 0.4 }]);
+                const elbow = { x: sh.x - f * Math.sin(a) * 4.5, y: sh.y + 4 };
+                lines.push([sh, elbow, { x: elbow.x + f * 3, y: elbow.y - 2.5 }]);
+              });
+            }
+            return { lines, head: { x: neck.x + Math.sin(lean) * 4.2, y: neck.y - Math.cos(lean) * 4.2 } };
+          };
+          const paint = (fig: ReturnType<typeof figure>, alpha: number, halo: boolean) => {
+            ctx.lineCap = "round"; ctx.lineJoin = "round";
+            if (halo) {
+              ctx.strokeStyle = dark ? "rgba(21,20,19,0.9)" : "rgba(251,249,244,0.95)"; ctx.lineWidth = 4.5;
+              ctx.beginPath(); fig.lines.forEach((l) => l.forEach((v, i) => (i ? ctx.lineTo(v.x, v.y) : ctx.moveTo(v.x, v.y)))); ctx.stroke();
+              ctx.beginPath(); ctx.arc(fig.head.x, fig.head.y, 4.6, 0, Math.PI * 2); ctx.fillStyle = ctx.strokeStyle; ctx.fill();
+            }
+            const c = dark ? `rgba(243,238,228,${alpha})` : `rgba(34,30,25,${alpha})`;
+            ctx.strokeStyle = c; ctx.lineWidth = 1.7;
+            ctx.beginPath(); fig.lines.forEach((l) => l.forEach((v, i) => (i ? ctx.lineTo(v.x, v.y) : ctx.moveTo(v.x, v.y)))); ctx.stroke();
+            ctx.beginPath(); ctx.arc(fig.head.x, fig.head.y, 3.3, 0, Math.PI * 2); ctx.fillStyle = c; ctx.fill();
+          };
+          // Motion trail: a few fading poses behind a runner at speed.
+          trail.unshift({ x: here.pos.x, y: here.pos.y, ph: figPhase, f: figFace, air });
+          if (trail.length > 14) trail.pop();
+          if (speed > 150) [12, 8, 4].forEach((k, j) => {
+            const tp = trail[k];
+            if (tp) paint(figure(tp, tp.ph, tp.f, tp.air, false), [0.12, 0.2, 0.3][j], false);
+          });
+          // Speed lines behind the runner.
+          if (speed > 170 && !air) {
+            ctx.strokeStyle = dark ? "rgba(243,238,228,0.45)" : "rgba(34,30,25,0.35)"; ctx.lineWidth = 1;
+            ctx.beginPath();
+            [-15, -9, -3].forEach((dy, j) => {
+              const x0 = here.pos.x - figFace * (10 + j * 3), y0 = here.pos.y + dy;
+              ctx.moveTo(x0, y0); ctx.lineTo(x0 - figFace * (10 + j * 4), y0);
+            });
+            ctx.stroke();
+          }
+          paint(figure(here.pos, figPhase, figFace, air, standing), 1, true);
+        }
+        BANDS.forEach((_, i) => labelRefs.current[i]?.classList.toggle("is-visited", humanP >= 1 && i === figBand && rb < 0.2));
       }
 
       // Labels stand beside the screen, spaced evenly and led back to their
@@ -656,9 +831,9 @@ export default function PrismHero() {
       }
       if (humanRef.current) {
         const el = humanRef.current;
-        if (humanTop && !compact) {
-          const at = camPt(humanTop.x, humanTop.y);
-          el.style.transform = `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translate(-50%, -125%)`;
+        if (humanTail && !compact) {
+          const at = camPt(humanTail.x, humanTail.y);
+          el.style.transform = `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translate(calc(-100% + 8px), 10px)`;
         } else el.style.transform = "";
         el.style.opacity = String(compact ? 1 : humanP);
       }
@@ -672,9 +847,24 @@ export default function PrismHero() {
       }
       if (outRef.current) {
         const at = camPt(lerp(E, exitEnd, 0.6).x, E.y - 40);
-        outRef.current.style.transform = `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translateX(-50%)`;
+        // Long captions stay inside the frame.
+        const half = outRef.current.offsetWidth / 2;
+        const x = clamp(at.x, half + 24, W - half - 24);
+        outRef.current.style.transform = `translate(${x.toFixed(1)}px, ${at.y.toFixed(1)}px) translateX(-50%)`;
         outRef.current.style.opacity = String(clamp((rb - 0.72) / 0.18, 0, 1));
+        const missing = BANDS.filter((_, i) => off[i]).map((b) => b.label);
+        const text = !missing.length ? "A system <em>you understand</em>"
+          : missing.length === BANDS.length ? "Nothing <em>gets through</em>"
+          : missing.length <= 2 ? `A system <em>missing ${missing.join(" and ")}</em>`
+          : `A system <em>missing ${missing.length} parts</em>`;
+        if (outRef.current.innerHTML !== text) outRef.current.innerHTML = text;
       }
+      if (benchRef.current) {
+        const on = clamp((rb - 0.78) / 0.14, 0, 1);
+        benchRef.current.style.opacity = String(on);
+        benchRef.current.inert = on < 0.5;
+      }
+      section.classList.toggle("is-rebuilt", rb > 0.05);
       if (contentRef.current) {
         // The copy steps aside for the rebuild and returns if you scroll back.
         const out = clamp((rb - 0.04) / 0.26, 0, 1);
@@ -810,7 +1000,8 @@ export default function PrismHero() {
         <span ref={noteRef} className="prism-note" aria-hidden="true">Same thing. Now with labels.</span>
         <span ref={outRef} className="prism-ai prism-out" aria-hidden="true">A system <em>you understand</em></span>
         <a ref={humanRef} href={HUMAN_HREF} className="prism-human">
-          <span className="prism-human-mark" aria-hidden="true" />a human, at every stage
+          <span className="prism-human-mark" aria-hidden="true" />
+          <span>a human,<br />at every stage</span>
         </a>
         <ul className="prism-labels">
           {BANDS.map((b, i) => (
@@ -835,6 +1026,28 @@ export default function PrismHero() {
           ))}
         </ul>
         <span ref={cueRef} className="prism-cue" aria-hidden="true">Scroll to put it back together</span>
+        <div ref={benchRef} className="prism-bench" role="group" aria-label="Block a part at the lens">
+          <span className="prism-bench-hint">Block a part. See what gets through.</span>
+          <div className="prism-bench-row">
+            {BANDS.map((b, i) => (
+              <button
+                key={b.key}
+                type="button"
+                className="prism-chip"
+                aria-pressed={blocked[i]}
+                style={{ ["--band" as string]: `rgb(${rgbFor(b.nm).join(",")})` }}
+                onClick={() => setBlocked((cur) => cur.map((v, j) => (j === i ? !v : v)))}
+                onPointerEnter={() => { activeRef.current = i; }}
+                onPointerLeave={() => { activeRef.current = -1; }}
+                onFocus={() => { activeRef.current = i; }}
+                onBlur={() => { activeRef.current = -1; }}
+              >
+                <span className="prism-chip-dot" aria-hidden="true" />
+                {b.label}
+              </button>
+            ))}
+          </div>
+        </div>
         <button
           type="button"
           className="prism-tilt"

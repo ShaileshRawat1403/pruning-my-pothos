@@ -81,7 +81,37 @@
   padding: 0.2rem 0.35rem; will-change: transform, opacity;
 }
 .prism-human-mark { width: 7px; height: 7px; border-radius: 50%; border: 1.4px solid currentColor; }
+.prism-human { align-items: flex-start; line-height: 1.5; text-align: left; }
+.prism-human .prism-human-mark { margin-top: 0.3em; }
 .prism-human:hover, .prism-human:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+
+/* The stage the person is standing on. */
+.prism-label-note { transition: color 0.25s ease; }
+.prism-label.is-visited .prism-label-note { color: var(--band); }
+.prism-label.is-visited .prism-label-name { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--band); }
+
+/* The rebuild bench: block a part at the lens. */
+.prism-bench {
+  position: absolute; left: 50%; bottom: 1.6rem; transform: translateX(-50%); z-index: 3; opacity: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 0.7rem; width: min(92%, 980px);
+}
+.prism-bench-hint { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+.prism-bench-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+.prism-chip {
+  display: inline-flex; align-items: center; gap: 0.45rem; cursor: pointer;
+  font-family: var(--font-heading); font-size: 13px; font-weight: 600; color: var(--pr-label);
+  padding: 0.4rem 0.8rem; border-radius: 999px; border: 1px solid color-mix(in oklab, var(--band) 40%, var(--card-border));
+  background: color-mix(in oklab, var(--bg-color) 75%, transparent); backdrop-filter: blur(6px);
+  transition: border-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+.prism-chip:hover, .prism-chip:focus-visible { border-color: var(--band); transform: translateY(-1px); }
+.prism-chip:focus-visible { outline: 2px solid var(--band); outline-offset: 2px; }
+.prism-chip-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--band); box-shadow: 0 0 10px var(--band); transition: all 0.2s ease; }
+.prism-chip[aria-pressed="true"] { opacity: 0.55; text-decoration: line-through; text-decoration-color: var(--band); }
+.prism-chip[aria-pressed="true"] .prism-chip-dot { background: transparent; box-shadow: inset 0 0 0 1.5px var(--band); }
+.prism-hero.is-compact .prism-bench, .prism-hero:not(.is-live) .prism-bench { display: none; }
+@media not all and (min-width: 760px) and (prefers-reduced-motion: no-preference) { .prism-bench { display: none; } }
+.prism-hero.is-rebuilt .prism-replay { display: none; }
 
 .prism-cue {
   position: absolute; left: 50%; bottom: 1.1rem; transform: translateX(-50%); z-index: 3; opacity: 0;
