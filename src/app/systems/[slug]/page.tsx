@@ -250,6 +250,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
               visual={segment.visual}
               provenanceSources={provenanceSources}
               scene
+              chapter={place.role === "flagship"}
             />
           )
         );

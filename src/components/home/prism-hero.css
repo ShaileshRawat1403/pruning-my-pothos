@@ -173,3 +173,40 @@
 }
 .prism-hero.needs-tilt .prism-tilt { display: inline-block; }
 @media print { .prism-tilt { display: none !important; } }
+
+/* The copy: tight display type, a lede with a way in, and buttons that
+   belong to the light. */
+.prism-rule { width: 2rem; height: 1px; background: linear-gradient(90deg, #ff5f5f, #ffb347, #ffe066, #7be07a, #5ec8ff, #8b7bff); }
+.prism-h1 { font-size: clamp(2.35rem, 3.7vw, 3.35rem); line-height: 1.02; letter-spacing: -0.035em; margin: 0; text-wrap: balance; }
+.prism-lit {
+  --lit: #ff7a6b, #ffb35c, #ffe066, #8be37a, #5ec8ff, #9d8bff;
+  color: transparent; -webkit-background-clip: text; background-clip: text;
+  background-image: linear-gradient(100deg, var(--text-primary) 0%, var(--text-primary) 46%, var(--lit), var(--text-primary) 100%);
+  background-size: 260% 100%; background-position: 0% 0;
+  transition: background-position 1.6s cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+[data-theme="light"] .prism-lit { --lit: #d9452f, #d9861f, #b8930b, #3f9a3a, #1f84c9, #6a4fd8; }
+.prism-hero.is-split .prism-lit { background-position: 74% 0; }
+.prism-lede { max-width: 31rem; margin: 0; font-size: clamp(1rem, 1.15vw, 1.13rem); line-height: 1.65; color: var(--text-secondary); }
+.prism-lede strong { color: var(--text-primary); font-weight: 600; }
+
+.prism-cta {
+  position: relative; display: inline-flex; align-items: center; gap: 0.6rem; overflow: hidden;
+  padding: 0.85rem 1.35rem 0.9rem; border-radius: 999px;
+  font-family: var(--font-heading); font-size: 15px; font-weight: 650; letter-spacing: -0.005em;
+  color: var(--bg-color); background: var(--text-primary);
+  box-shadow: 0 10px 30px -14px color-mix(in oklab, var(--text-primary) 70%, transparent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.prism-cta::after {
+  content: ""; position: absolute; left: 16px; right: 16px; bottom: 0; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, #ff5f5f, #ffb347, #ffe066, #7be07a, #5ec8ff, #8b7bff);
+  transform: scaleX(0.25); opacity: 0.7; transition: transform 0.35s ease, opacity 0.35s ease;
+}
+.prism-cta span { transition: transform 0.2s ease; }
+.prism-cta:hover, .prism-cta:focus-visible { transform: translateY(-1px); box-shadow: 0 14px 34px -14px color-mix(in oklab, var(--text-primary) 80%, transparent); }
+.prism-cta:hover::after, .prism-cta:focus-visible::after { transform: scaleX(1); opacity: 1; }
+.prism-cta:hover span, .prism-cta:focus-visible span { transform: translateX(3px); }
+.prism-cta:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 3px; }
+.prism-more { font-family: var(--font-heading); font-size: 15px; font-weight: 600; }
+@media (prefers-reduced-motion: reduce) { .prism-lit { transition: none; } }

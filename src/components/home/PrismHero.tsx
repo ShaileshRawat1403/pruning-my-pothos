@@ -80,6 +80,13 @@ function rgbFor(nm: number): [number, number, number] {
 const STEPS = 56;
 const WAVES = Array.from({ length: STEPS + 1 }, (_, i) => 680 - (i / STEPS) * (680 - 412));
 
+// The headline's last words catch the light when the beam splits.
+const LIT_FROM = "understand";
+const headParts = (() => {
+  const h = SITE_POSITIONING.headline, i = h.indexOf(LIT_FROM);
+  return i > 0 ? [h.slice(0, i), h.slice(i)] : null;
+})();
+
 export default function PrismHero() {
   const sectionRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -881,6 +888,7 @@ export default function PrismHero() {
         noteRef.current.style.transform = `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translateX(-50%)`;
         noteRef.current.style.opacity = String((reduce ? 1 : clamp((p - 0.85) / 0.15, 0, 1)) * (1 - clamp(rb / 0.2, 0, 1)));
       }
+      section.classList.toggle("is-split", fanP > 0.15);
       section.classList.add("is-live");
     };
 
@@ -965,21 +973,28 @@ export default function PrismHero() {
           <div className="grid grid-cols-1 lg:grid-cols-[10fr_14fr] gap-8 lg:gap-6 items-center">
             <div ref={contentRef} className="flex flex-col gap-6 min-w-0 relative z-[2]">
               <div className="flex items-center gap-2">
-                <span className="h-px w-8 bg-[color:var(--accent-cyan)]" />
+                <span className="prism-rule" aria-hidden="true" />
                 <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[color:var(--text-muted)]">
                   How applied AI systems actually work
                 </span>
               </div>
-              <h1 className="font-heading font-black text-4xl sm:text-5xl lg:text-[3rem] tracking-tight leading-[1.06] text-[color:var(--text-primary)]">
-                {SITE_POSITIONING.headline}
+              <h1 className="prism-h1 font-heading font-black text-[color:var(--text-primary)]">
+                {headParts ? (
+                  <>
+                    {headParts[0]}
+                    <span className="prism-lit">{headParts[1]}</span>
+                  </>
+                ) : (
+                  SITE_POSITIONING.headline
+                )}
               </h1>
-              <p className="text-base sm:text-lg text-[color:var(--text-secondary)] leading-relaxed max-w-xl">
-                Everyone says AI. Pass it through a prism and it comes apart into the parts that do
-                the work, with a person at every one. Pick a colour to read about it.
+              <p className="prism-lede">
+                <strong>Everyone says AI.</strong> Pass it through a prism and it comes apart into the
+                parts that do the work, with a person at every one. Pick a colour to read about it.
               </p>
-              <div className="flex flex-wrap gap-x-6 gap-y-3 items-center">
-                <Link href="#systems-map" className="btn-premium btn-primary">
-                  Start with the map
+              <div className="flex flex-wrap gap-x-7 gap-y-3 items-center pt-1">
+                <Link href="#systems-map" className="prism-cta">
+                  Start with the map <span aria-hidden="true">→</span>
                 </Link>
                 <Link href="/storyboards/" className="prism-more">
                   Flip through a storyboard <span aria-hidden="true">→</span>
