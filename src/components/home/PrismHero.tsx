@@ -827,6 +827,8 @@ export default function PrismHero() {
           el.style.transform = compact ? "" : `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translateY(-50%)`;
           el.style.opacity = String(show);
           el.style.pointerEvents = show > 0.3 ? "" : "none";
+          // Faded out for the rebuild: out of the tab order too.
+          el.inert = labelFade < 0.3;
         });
       }
       if (humanRef.current) {
@@ -871,6 +873,7 @@ export default function PrismHero() {
         contentRef.current.style.opacity = String(1 - out);
         contentRef.current.style.transform = out ? `translateY(${(-24 * out).toFixed(1)}px)` : "";
         contentRef.current.style.pointerEvents = out > 0.5 ? "none" : "";
+        contentRef.current.inert = out > 0.5;
       }
       if (cueRef.current) cueRef.current.style.opacity = String(pinned ? clamp((p - 0.95) / 0.05, 0, 1) * (1 - clamp(q / 0.06, 0, 1)) : 0);
       if (noteRef.current) {
@@ -986,8 +989,8 @@ export default function PrismHero() {
             <div ref={stageRef} className="prism-stage" role="group" aria-label="AI through a prism: seven parts, each linking to its explainer">
               <p className="sr-only">
                 A beam labelled AI enters a glass prism and leaves as seven bands: the model,
-                instructions, context, tools, the harness, permissions and evaluation. An ink line
-                marked a human, at every stage, crosses every band: a person chooses the model, writes
+                instructions, context, tools, the harness, permissions and evaluation. A small figure
+                marked a human, at every stage, runs through every band: a person chooses the model, writes
                 the instructions, decides what it sees and what it can reach, sets when the loop
                 stops, decides what needs approval and defines what good means. Scrolling passes the
                 bands through a lens and a second prism, which gather them back into one beam: a
