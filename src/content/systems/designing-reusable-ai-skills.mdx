@@ -1,9 +1,10 @@
 ---
 schemaVersion: "1.0"
-title: "Designing Reusable AI Skills"
+title: "What Are Agent Skills, and What Makes One Reusable?"
+seoTitle: "What Are Agent Skills? Definition, SKILL.md and Design"
 publishDate: "2026-03-08"
-updatedAt: "2026-11-03"
-description: "Turning a prompt that worked into something reusable means declaring what it takes, what it returns, what it may touch and when it should stop."
+updatedAt: "2026-11-05"
+description: "An agent skill is a folder with a SKILL.md an agent loads when a task matches. What the open format requires, and the declarations that make a skill reusable."
 category: "Explanations"
 heroImage: '/covers/systems/designing-reusable-ai-skills.png'
 heroImageAlt: 'A repeated task packaged with declared inputs, outputs, tool scope and a stop condition'
@@ -17,14 +18,14 @@ difficulty: 'intermediate'
 
 contentKind: explainer
 readerIntent: use
-readerOutcome: "Turn a repeated task into a package with declared inputs, outputs, tool scope and stop conditions, then change it without losing track of what changed."
-thesis: "A saved prompt becomes reusable when what it takes, what it returns, what it may touch and when it should stop are written down, which is also what makes a later change inspectable."
-shortAnswer: "A prompt that worked is not yet reusable. What makes it reusable is declaring the things that were implicit the first time: what input it expects, what shape it returns, which tools it may use, what counts as done, and what it should do instead of guessing. Those declarations are also what let you change it later and tell whether the change was cosmetic or consequential."
+readerOutcome: "Know what an agent skill is in the open format, then turn a repeated task into one with declared inputs, outputs, tool scope and stop conditions, and change it without losing track of what changed."
+thesis: "An agent skill is a SKILL.md that an agent loads when a task matches, and it becomes reusable when what it takes, what it returns, what it may touch and when it should stop are written down, which is also what makes a later change inspectable."
+shortAnswer: "An agent skill is a folder with a SKILL.md file: a name, a description of what the skill does and when to use it, and instructions an agent loads when a task matches. The format makes a skill findable. What makes it reusable is declaring the things that were implicit the first time: what input it expects, what shape it returns, which tools it may use, what counts as done, and what it should do instead of guessing. Those declarations are also what let you change it later and tell whether the change was cosmetic or consequential."
 useValue: "Package a repeated AI task so another person or run can invoke it and get comparable behaviour."
 
 boundary:
   is: "A practical guide to packaging a repeated task and changing it safely afterwards."
-  isNot: "A universal skill format, a definition of agents or workflows, or a treatment of general evaluation methodology."
+  isNot: "A complete reference to any platform's skill format, a definition of agents or workflows, or a treatment of general evaluation methodology."
   mattersWhen: "The same task is being re-explained to a model for the third time."
 
 provenance:
@@ -36,7 +37,27 @@ provenance:
       path: ".agents/skills/pruningmypothos-editorial/SKILL.md"
       ref: "a1bdf7881f76c1a6d2d46c73b95b8aa7e0c5cf49"
       citation: "Pruning My Pothos editorial skill: SKILL.md with five LanguageOps recipe files."
+    - id: agent-skills-spec
+      type: external
+      url: "https://agentskills.io/specification"
+      citation: "Agent Skills, Specification (accessed 2026-11-05)"
+    - id: claude-code-skills
+      type: external
+      url: "https://code.claude.com/docs/en/skills"
+      citation: "Claude Code documentation, Extend Claude with skills (accessed 2026-11-05)"
   claims:
+    - statement: "The open Agent Skills specification defines a skill as a directory containing, at minimum, a SKILL.md file."
+      kind: external
+      sources:
+        - agent-skills-spec
+    - statement: "The specification has agents load skills progressively: the name and description at startup, the full instructions when the skill is activated, and other files only when a task needs them."
+      kind: external
+      sources:
+        - agent-skills-spec
+    - statement: "Claude Code's documentation says its skills follow the Agent Skills standard and extend it."
+      kind: external
+      sources:
+        - claude-code-skills
     - statement: "This repository packages its own editorial skill as a SKILL.md alongside five recipe files and a validator that checks structure rather than judgment."
       kind: repository
       sources:
@@ -176,13 +197,23 @@ related:
 
 A prompt works. You save it. Next month someone else uses it, gets a different shape of answer, and adjusts the wording. Now there are two versions and no way to say which is right.
 
-What was saved was a phrase. What was needed was everything that was implicit when it worked the first time.
+What was saved was a phrase. What was needed was everything that was implicit when it worked the first time. Agent skills are the format many tools now use to hold that.
 
-## What a skill means here
+## What agent skills are
+
+**The open Agent Skills specification defines a skill as a directory containing, at minimum, a SKILL.md file.** The file opens with frontmatter. The specification requires two fields there: a name, and a description of what the skill does and when to use it. The instructions below are free-form Markdown, and scripts, reference files and templates can sit beside it in the folder.
+
+**The specification has agents load skills progressively: the name and description at startup, the full instructions when the skill is activated, and other files only when a task needs them.** That is the practical difference from a long system prompt. An agent can carry many skills and pay for the one in use.
+
+**Claude Code's documentation says its skills follow the Agent Skills standard and extend it.** The details differ between tools. Claude Code treats every frontmatter field as optional, recommends a description, and adds fields of its own, such as one that stops the model invoking a skill by itself. Check the documentation of the tool you are writing for.
+
+The format makes a skill findable and loadable. It leaves almost everything that decides whether the skill behaves the same way twice to the author.
+
+## What makes a skill reusable
 
 **In PMP, a skill is a reusable, versioned package of instructions and declared operating constraints for a repeated task.** It may define inputs, outputs, tool scope, success criteria, failure conditions and escalation.
 
-Other platforms use the word differently, sometimes for a tool, sometimes for a plugin, sometimes for a saved prompt with a name. This is working vocabulary for describing one architecture, not a claim about what the word means generally.
+This is a design sense of the word and narrower than the file format. A folder with a valid SKILL.md can still leave all of these implicit, and a skill held somewhere other than a SKILL.md can declare every one.
 
 The load-bearing part is *declared*. A prompt that happens to be reused is still a prompt. What makes it a skill in this sense is that the things which were assumed are now written down.
 
@@ -190,13 +221,13 @@ The load-bearing part is *declared*. A prompt that happens to be reused is still
 
 These are design dimensions rather than required fields. A small skill may need three of them; a consequential one probably needs all six.
 
-**Purpose.** One sentence naming the job this owns that nothing else should. If it takes a paragraph, you may be describing a workflow.
+**Purpose.** One sentence naming the job this owns that nothing else should. In a SKILL.md this is the description, and it doubles as the trigger: an agent reads it to decide when to load the skill. If it takes a paragraph, you may be describing a workflow.
 
 **Inputs.** What must be supplied, what is optional, and what should be ignored. "Ignored" earns its place: skills degrade when callers pass extra context that quietly changes behaviour.
 
 **Output shape.** What comes back. If anything downstream depends on it, that shape is a contract, and the mechanics of checking it are [structured output](/systems/structured-output-and-why-it-matters/).
 
-**Tool scope.** What it may touch. A skill drafting a release summary does not need billing access. Narrower is easier to validate and easier to reason about later.
+**Tool scope.** What it may touch. A skill drafting a release summary does not need billing access. Narrower is easier to validate and easier to reason about later. The specification has an experimental `allowed-tools` field for pre-approved tools; support varies between agents.
 
 **Success criteria.** What a correct result looks like, specifically enough that someone else could judge it.
 
