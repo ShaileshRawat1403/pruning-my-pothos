@@ -82,7 +82,7 @@ export default function PocketFabricStory() {
       <div className="pf-hero-copy">
         <Link href="/stack/" className="pf-back">← Stack / PocketFabric</Link>
         <p className="pf-kicker">One phone. A month of operating it.</p>
-        <h1>A retired phone,<br />run like a server.</h1>
+        <h1>A retired phone<br />that runs like a server.</h1>
         <p className="pf-lead">PocketFabric is an experiment in using a rooted Android phone as personal computing infrastructure. The hard parts were service control, recovery, isolation and getting the GPU result right.</p>
         <p className="pf-byline">Shailesh Rawat · Independent Researcher<br />Study: August–October 2026 · Reports: 31 October 2026</p>
         <div className="pf-links"><a href="#pf-migration">Explore the migration ↓</a><a href="#pf-reports">Read the reports ↗</a></div>

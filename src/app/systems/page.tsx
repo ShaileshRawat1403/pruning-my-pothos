@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SpotlightCard from "../../components/SpotlightCard";
 import SectionHeader from "../../components/SectionHeader";
+import ScrollVine from "../../components/ScrollVine";
 import { constructMetadata } from "../../lib/seo/metadata";
 import { getWebPageSchema } from "../../lib/seo/jsonld";
 import { getSystemsIA, type IaArticle } from "../../lib/content/systems-ia";
@@ -66,6 +67,7 @@ export default function SystemsIndexPage() {
           </p>
         </div>
 
+        <ScrollVine>
         <ol className="list-none p-0 m-0 border-t border-[color:var(--card-border)]">
           {stages.map((stage) => {
             return (
@@ -108,6 +110,7 @@ export default function SystemsIndexPage() {
             );
           })}
         </ol>
+        </ScrollVine>
       </section>
 
       {/* Pieces that belong to no single stage. */}

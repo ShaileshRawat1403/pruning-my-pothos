@@ -99,6 +99,7 @@ export default function HeroCinema() {
     }
 
     let film: gsap.core.Timeline | null = null;
+    let look: ((ev: PointerEvent) => void) | null = null;
     const ctx = gsap.context(() => {
       // Starting positions for everything the film brings on.
       gsap.set(q(".hc-camera"), { transformOrigin: "50% 55%", scale: 1 });
@@ -120,7 +121,7 @@ export default function HeroCinema() {
       gsap.set(q(".hc-pruned"), { x: 0, y: 0, rotation: 0, svgOrigin: "342 366", autoAlpha: 0 });
       svg.classList.add("is-playing");
 
-      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+      const tl = gsap.timeline({ paused: true, defaults: { ease: "power2.out" } });
       film = tl;
       // Development only: lets the film be paused and scrubbed from the console.
       if (process.env.NODE_ENV !== "production") (window as unknown as { __heroFilm?: gsap.core.Timeline }).__heroFilm = tl;
@@ -192,19 +193,55 @@ export default function HeroCinema() {
             delay: 1.2,
           });
           gsap.to(q(".hc-plant"), { rotation: 1.2, svgOrigin: "200 410", duration: 2.8, yoyo: true, repeat: -1, ease: "sine.inOut" });
+          // He keeps an eye on you: pupils drift toward the cursor.
+          const eyes = q(".hc-eyes")[0] as Element | undefined;
+          if (eyes && window.matchMedia("(pointer: fine)").matches) {
+            const qx = gsap.quickTo(q(".hc-pupil"), "x", { duration: 0.35, ease: "power3" });
+            const qy = gsap.quickTo(q(".hc-pupil"), "y", { duration: 0.35, ease: "power3" });
+            look = (ev: PointerEvent) => {
+              const r = eyes.getBoundingClientRect();
+              const dx = ev.clientX - (r.left + r.width / 2), dy = ev.clientY - (r.top + r.height / 2);
+              const d = Math.hypot(dx, dy) || 1, k = Math.min(1, d / 240);
+              qx((dx / d) * 4 * k);
+              qy((dy / d) * 2.5 * k);
+            };
+            window.addEventListener("pointermove", look, { passive: true });
+          }
         });
         setDone(true);
       }, 6.1);
     }, svg);
 
-    // Fail-safe: if the page is on screen but the film has not moved (no
-    // animation frames, for whatever reason), show the finished scene rather
-    // than an empty sheet of paper.
-    const guard = window.setTimeout(() => {
-      if (document.visibilityState === "visible" && film && film.time() === 0) film.progress(1);
-    }, 2500);
+    // The film waits until the plate is properly on screen, so a reader who
+    // scrolls down to it sees it play. A replay starts at once.
+    // Fail-safe: if the film has not moved once it should have (no animation
+    // frames, for whatever reason), show the finished scene rather than an
+    // empty sheet of paper.
+    let guard = 0;
+    const start = () => {
+      film?.play();
+      guard = window.setTimeout(() => {
+        if (document.visibilityState === "visible" && film && film.time() === 0) film.progress(1);
+      }, 2500);
+    };
+    let io: IntersectionObserver | null = null;
+    if (take > 0) start();
+    else {
+      io = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            io?.disconnect();
+            start();
+          }
+        },
+        { threshold: 0.45 },
+      );
+      io.observe(svg);
+    }
 
     return () => {
+      if (look) window.removeEventListener("pointermove", look);
+      io?.disconnect();
       window.clearTimeout(guard);
       ctx.revert();
     };

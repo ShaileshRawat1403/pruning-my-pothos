@@ -4,6 +4,8 @@ import { getWebPageSchema } from "../../lib/seo/jsonld";
 import { getStoryboards } from "../../lib/content/storyboards";
 import { Frame } from "../../components/illustrations/registry";
 import SectionHeader from "../../components/SectionHeader";
+import InfiniteWall, { type WallItem } from "../../components/InfiniteWall";
+import { getSystemsIA } from "../../lib/content/systems-ia";
 
 export const metadata = constructMetadata({
   title: "Storyboards",
@@ -14,6 +16,23 @@ export const metadata = constructMetadata({
 
 export default function StoryboardsPage() {
   const storyboards = getStoryboards();
+  // The wall: storyboards on one row, every Systems article's cover on the
+  // other. Thumbnails come from scripts/make-wall-thumbs.sh.
+  const ia = getSystemsIA();
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const boardRow: WallItem[] = storyboards.map((sb) => ({
+    src: `/wall/storyboards/${sb.slug}.webp`,
+    href: `/storyboards/${sb.slug}/`,
+    title: sb.title,
+    kicker: "Storyboard",
+  }));
+  const coverRow: WallItem[] = [
+    ...ia.stages.flatMap((st) => [
+      { src: `/wall/systems/${st.slug}.webp`, href: st.href, title: st.title, kicker: `Stage ${pad(st.number)}` },
+      ...[...st.companions, ...st.notes].map((a) => ({ src: `/wall/systems/${a.slug}.webp`, href: a.href, title: a.title, kicker: `Stage ${pad(st.number)}` })),
+    ]),
+    ...ia.across.map((a) => ({ src: `/wall/systems/${a.slug}.webp`, href: a.href, title: a.title, kicker: "Across the map" })),
+  ];
   const schema = getWebPageSchema({
     title: "Storyboards",
     description: "Illustrated PDF explainers, each drawn from a Systems article.",
@@ -35,6 +54,8 @@ export default function StoryboardsPage() {
         scene="storyboards"
         tick="var(--accent-cyan)"
       />
+
+      <InfiniteWall rows={[boardRow, coverRow]} label="A wall of storyboards and Systems covers. Drag to browse." />
 
       <ul className="m-0 grid list-none grid-cols-1 gap-8 p-0 sm:grid-cols-2 lg:grid-cols-3">
         {storyboards.map((sb) => (

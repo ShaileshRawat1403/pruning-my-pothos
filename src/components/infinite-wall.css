@@ -1,0 +1,30 @@
+/* The storyboard wall: full-bleed rows of covers. */
+.wall {
+  position: relative; width: 100vw; margin-left: calc(50% - 50vw);
+  display: flex; flex-direction: column; gap: 1.1rem; padding: 0.5rem 0 0.75rem;
+  overflow: hidden; user-select: none; touch-action: pan-y;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.wall-row { cursor: grab; }
+.wall-row:active { cursor: grabbing; }
+.wall-track { display: flex; gap: 1.1rem; width: max-content; will-change: transform; }
+.wall-card {
+  position: relative; flex: 0 0 auto; width: clamp(220px, 24vw, 320px); aspect-ratio: 1200 / 630;
+  border-radius: 4px; overflow: hidden; border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-card); background: var(--card-bg);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.wall-card img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.wall-card:hover img, .wall-card:focus-visible img { transform: scale(1.05); }
+.wall-card:hover, .wall-card:focus-visible { border-color: var(--accent-cyan); box-shadow: var(--shadow-premium); }
+.wall-caption {
+  position: absolute; inset: auto 0 0 0; display: flex; flex-direction: column; gap: 0.15rem;
+  padding: 1.6rem 0.75rem 0.6rem; color: #f6f1e7;
+  background: linear-gradient(transparent, rgba(16, 14, 12, 0.85));
+  opacity: 0; transform: translateY(6px); transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.wall-card:hover .wall-caption, .wall-card:focus-visible .wall-caption { opacity: 1; transform: none; }
+.wall-kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.75; }
+.wall-title { font-family: var(--font-heading); font-size: 14px; font-weight: 700; line-height: 1.25; }
+@media print { .wall { display: none; } }

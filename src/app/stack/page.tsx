@@ -39,7 +39,7 @@ export default function StackPage() {
 
       <SpotlightCard href="/stack/pocketfabric/" accent="var(--accent-amber)" className="gap-3">
         <span className="text-xs font-mono text-[color:var(--text-muted)]">PocketFabric / illustrated case study</span>
-        <h2 className="text-2xl font-heading font-bold">A retired phone, run like a server →</h2>
+        <h2 className="text-2xl font-heading font-bold">A retired phone that runs like a server →</h2>
         <p className="max-w-[660px] text-sm leading-relaxed text-[color:var(--text-secondary)]">
           A rooted OnePlus 9, a staged Linux migration and a GPU result that needed a second look.
           Explore the mechanisms and read both open reports, including their limits.

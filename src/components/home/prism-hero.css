@@ -34,13 +34,14 @@
   white-space: nowrap; opacity: 0; will-change: transform, opacity;
   transition: color 0.2s ease;
 }
+/* A short lead from the band on the screen to its name. */
 .prism-label-dot {
-  width: 9px; height: 9px; border-radius: 50%;
-  background: var(--band); box-shadow: 0 0 0 2px color-mix(in oklab, var(--band) 35%, transparent), 0 0 14px var(--band);
-  transition: transform 0.2s ease;
+  width: 14px; height: 2px; border-radius: 1px;
+  background: var(--band); box-shadow: 0 0 8px var(--band);
+  transform-origin: left center; transition: transform 0.2s ease;
 }
 .prism-label:hover, .prism-label:focus-visible { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--band); }
-.prism-label:hover .prism-label-dot, .prism-label:focus-visible .prism-label-dot { transform: scale(1.35); }
+.prism-label:hover .prism-label-dot, .prism-label:focus-visible .prism-label-dot { transform: scaleX(1.6); }
 .prism-label:focus-visible { outline: 2px solid var(--band); outline-offset: 2px; border-radius: 3px; }
 
 .prism-ai, .prism-note {
@@ -53,16 +54,29 @@
 
 .prism-replay {
   position: absolute; right: 1.25rem; bottom: 1rem; z-index: 3;
+  display: inline-flex; align-items: center; gap: 0.4em;
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--text-muted); background: transparent; border: 1px solid var(--card-border);
-  padding: 0.35rem 0.6rem; border-radius: 3px; opacity: 0; transition: opacity 0.2s ease;
+  color: var(--text-muted); background: transparent; border: 0;
+  padding: 0.35rem 0.5rem; opacity: 0; transition: opacity 0.2s ease, color 0.2s ease;
 }
-.prism-hero:hover .prism-replay, .prism-replay:focus-visible { opacity: 1; }
+.prism-replay span { font-size: 14px; letter-spacing: 0; transition: transform 0.4s ease; }
+.prism-hero:hover .prism-replay, .prism-replay:focus-visible { opacity: 0.8; }
+.prism-replay:hover { color: var(--text-primary); }
+.prism-replay:hover span { transform: rotate(-180deg); }
+
+/* The second way in: a quiet text link beside the main button. */
+.prism-more {
+  display: inline-flex; align-items: center; gap: 0.45em;
+  font-family: var(--font-mono); font-size: 14px; color: var(--text-primary);
+  padding: 0.4rem 0; border-bottom: 1px solid var(--card-border-hover);
+  transition: border-color 0.2s ease, gap 0.2s ease;
+}
+.prism-more:hover, .prism-more:focus-visible { border-color: var(--accent-cyan); gap: 0.75em; }
 
 /* Narrow screens: a two-column legend under the drawing. */
 .prism-hero.is-compact .prism-labels {
   position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 0.15rem 1rem;
-  margin: -1.5rem 1.5rem 2rem; padding: 0;
+  margin: -3.5rem 1.5rem 2rem; padding: 0;
 }
 .prism-hero.is-compact .prism-label { position: static; text-shadow: none; }
 
@@ -75,3 +89,13 @@
 
 @media (prefers-reduced-motion: reduce) { .prism-replay { display: none; } }
 @media print { .prism-replay, .prism-canvas { display: none; } .prism-label { opacity: 1 !important; } }
+
+/* iOS asks before sharing device tilt; the button only shows where it must. */
+.prism-tilt {
+  display: none; position: absolute; left: 50%; bottom: 0.9rem; transform: translateX(-50%); z-index: 3;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-secondary); background: color-mix(in oklab, var(--bg-color) 70%, transparent);
+  border: 1px solid var(--card-border); padding: 0.45rem 0.8rem; border-radius: 999px; backdrop-filter: blur(6px);
+}
+.prism-hero.needs-tilt .prism-tilt { display: inline-block; }
+@media print { .prism-tilt { display: none !important; } }

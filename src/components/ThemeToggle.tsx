@@ -21,10 +21,27 @@ export default function ThemeToggle() {
     document.documentElement.setAttribute("data-theme", initial);
   }, []);
 
-  const toggle = () => {
+  // The new theme opens as a circle of light from the button. Browsers without
+  // view transitions, and reduced motion, switch at once.
+  const toggle = (e: React.MouseEvent<HTMLButtonElement>) => {
     const next = theme === "light" ? "dark" : "light";
     try { localStorage.setItem("systems-theme", next); } catch { /* Theme still works without persistence. */ }
-    document.documentElement.setAttribute("data-theme", next);
+    const apply = () => document.documentElement.setAttribute("data-theme", next);
+    const doc = document as Document & { startViewTransition?: (cb: () => void) => { ready: Promise<void> } };
+    if (!doc.startViewTransition || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      apply();
+      return;
+    }
+    const r = e.currentTarget.getBoundingClientRect();
+    const x = r.left + r.width / 2, y = r.top + r.height / 2;
+    const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+    const transition = doc.startViewTransition(apply);
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+        { duration: 700, easing: "cubic-bezier(0.2, 0.7, 0.2, 1)", pseudoElement: "::view-transition-new(root)" },
+      );
+    }).catch(() => {});
   };
 
   if (!mounted) {

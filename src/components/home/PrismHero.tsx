@@ -97,7 +97,7 @@ export default function PrismHero() {
     let stageBox = { x: 0, y: 0, w: 0, h: 0 };
     let angle = 22, target = 22, lastPointer = -1e9;
     let yaw = 0, yawTarget = 0;
-    let start = performance.now();
+    let start = 0, started = false;
     let frame = 0, running = false, visible = true;
     const dust = Array.from({ length: 90 }, () => ({ x: Math.random(), y: Math.random(), s: 0.4 + Math.random() * 1.4, v: 0.15 + Math.random() * 0.5, p: Math.random() * Math.PI * 2 }));
 
@@ -114,8 +114,10 @@ export default function PrismHero() {
 
     const geometry = () => {
       const { x, y, w, h } = stageBox;
-      const side = Math.min(w * 0.38, h * 0.6);
-      const c = { x: x + w * 0.3, y: y + h * 0.46 };
+      // Phones show the labels as a legend, so the drawing can take the width.
+      const narrow = W < 760;
+      const side = narrow ? Math.min(w * 0.44, h * 0.62) : Math.min(w * 0.38, h * 0.6);
+      const c = { x: x + w * (narrow ? 0.36 : 0.3), y: y + h * 0.46 };
       const hgt = side * Math.sqrt(3) / 2;
       const T = { x: c.x, y: c.y - (2 / 3) * hgt };
       const BL = { x: c.x - side / 2, y: c.y + hgt / 3 };
@@ -146,24 +148,39 @@ export default function PrismHero() {
 
     const draw = (now: number) => {
       const dark = document.documentElement.getAttribute("data-theme") !== "light";
-      const t = (now - start) / 1000;
-      const p = reduce ? 1 : clamp(t / 2.4, 0, 1);
-      const beamP = clamp(p / 0.32, 0, 1);
-      const fanP = clamp((p - 0.3) / 0.45, 0, 1);
+      // The opening shot, once the hero is properly on screen: darkness, the
+      // beam flickers on, a flare where it meets the glass, the spectrum
+      // sweeps out, labels, a slow camera push in. Scrolling keeps pushing.
+      const raw = reduce ? 99 : started ? (now - start) / 1000 : 0;
+      const t = Number.isFinite(raw) ? raw : -1;
+      const DUR = 3.8;
+      const p = reduce ? 1 : clamp(t / DUR, 0, 1);
+      const beamP = reduce ? 1 : clamp((t - 0.55) / 0.9, 0, 1);
+      const fanP = reduce ? 1 : clamp((t - 1.5) / 1.2, 0, 1);
       const ease = (x: number) => 1 - Math.pow(1 - x, 3);
+      const sr = section.getBoundingClientRect();
+      const scrollP = clamp(-sr.top / Math.max(1, sr.height), 0, 1);
 
       if (!reduce && now - lastPointer > 2500) {
-        target = 22 + Math.sin(t * 0.35) * 2.2;
-        yawTarget = Math.sin(t * 0.22) * 0.55;
+        const ti = Math.max(0, t);
+        target = 22 + Math.sin(ti * 0.35) * 2.2;
+        yawTarget = Math.sin(ti * 0.22) * 0.55;
       }
       angle += (target - angle) * (reduce ? 1 : 0.06);
-      yaw += (yawTarget - yaw) * (reduce ? 1 : 0.05);
+      yaw += (yawTarget + scrollP * 0.6 - yaw) * (reduce ? 1 : 0.05);
       const g = trace(angle);
 
+      // Camera: pushes in over the opening and a little more on scroll.
+      const zoom = reduce ? 1 : 1 + 0.09 * (1 - ease(p)) + 0.06 * scrollP;
+      const fx = g.c.x + g.side * 0.6, fy = g.c.y;
+      const camPt = (x: number, y: number) => ({ x: fx + (x - fx) * zoom, y: fy + (y - fy) * zoom });
+      const cam = (c2: CanvasRenderingContext2D, k: number) => c2.setTransform(k * zoom, 0, 0, k * zoom, k * (fx - fx * zoom), k * (fy - fy * zoom));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, W, H);
       gctx.setTransform(1 / 4, 0, 0, 1 / 4, 0, 0);
       gctx.clearRect(0, 0, W, H);
+      cam(ctx, dpr);
+      cam(gctx, 1 / 4);
 
       const L = Math.max(W, H) * 1.6;
       const src = sub(g.pin, mul(g.d0, Math.min(L, (g.pin.x - stageBox.x + 40) / Math.max(0.2, g.d0.x))));
@@ -223,42 +240,80 @@ export default function PrismHero() {
         c2.strokeStyle = gr; c2.lineWidth = width; c2.lineCap = "round";
         c2.beginPath(); c2.moveTo(src.x, src.y); c2.lineTo(beamEnd.x, beamEnd.y); c2.stroke();
       };
+      const flick = beamP > 0 && beamP < 0.4 ? (Math.sin(t * 83) > -0.2 ? 1 : 0.25) * (0.45 + beamP * 1.4) : 1;
+      gctx.globalAlpha = flick; ctx.globalAlpha = flick;
       gctx.globalCompositeOperation = blend;
       beam(gctx, 26, dark ? "rgba(255,246,220,A)" : "rgba(243,190,90,A)", dark ? 0.9 : 0.5);
       ctx.globalCompositeOperation = blend;
       beam(ctx, dark ? 2.6 : 2.2, dark ? "rgba(255,255,255,A)" : "rgba(43,38,32,A)", 1);
+      gctx.globalAlpha = 1; ctx.globalAlpha = 1;
 
-      const valid = g.rays.filter(Boolean) as { nm: number; pout: V; out: V }[];
+      const valid = (g.rays.filter(Boolean) as { nm: number; pout: V; out: V }[]).filter((r) => r.out.x > 0.05);
+
+      // The light lands on a screen, as in the classroom experiment: far
+      // enough out that seven labels have room, inside the frame at full
+      // zoom, and clear of the section's top and bottom.
+      let screenX = 0;
+      const ZMAX = 1.16;
+      const reachOf = (r: { pout: V; out: V }) => (screenX - r.pout.x) / r.out.x;
+      const landing = (r: { pout: V; out: V }) => add(r.pout, mul(r.out, reachOf(r)));
+      if (valid.length > 1) {
+        const first = valid[0], last = valid[valid.length - 1], mid = valid[Math.floor(valid.length / 2)];
+        const spread = Math.hypot(last.out.x - first.out.x, last.out.y - first.out.y);
+        const narrow = W < 760;
+        const D = narrow ? g.side * 1.4 : Math.max(g.side * 0.7, (34 * 7) / Math.max(0.05, spread));
+        let X = mid.pout.x + mid.out.x * D;
+        X = Math.min(X, fx + (W - (narrow ? 24 : 200) - fx) / ZMAX);
+        const yLow = fy + (H - 64 - fy) / ZMAX, yHigh = fy + (56 - fy) / ZMAX;
+        if (last.out.y > 0) X = Math.min(X, last.pout.x + last.out.x * ((yLow - last.pout.y) / last.out.y));
+        if (first.out.y < 0) X = Math.min(X, first.pout.x + first.out.x * ((yHigh - first.pout.y) / first.out.y));
+        screenX = Math.max(X, Math.max(first.pout.x, last.pout.x) + g.side * 0.45);
+      }
+
       if (beamP >= 1 && valid.length > 1) {
-        // Inside the glass.
+        // Inside the glass: the beam crosses as warm white.
         ctx.globalCompositeOperation = blend;
+        const midOut = valid[Math.floor(valid.length / 2)].pout;
+        const inner = ctx.createLinearGradient(g.pin.x, g.pin.y, midOut.x, midOut.y);
+        inner.addColorStop(0, dark ? "rgba(255,248,230,0.3)" : "rgba(243,190,90,0.34)");
+        inner.addColorStop(1, dark ? "rgba(255,255,255,0.16)" : "rgba(255,250,238,0.5)");
         ctx.beginPath(); ctx.moveTo(g.pin.x, g.pin.y);
         valid.forEach((r) => ctx.lineTo(r.pout.x, r.pout.y));
         ctx.closePath();
-        ctx.fillStyle = dark ? "rgba(255,255,255,0.22)" : "rgba(43,38,32,0.12)";
+        ctx.fillStyle = inner;
         ctx.fill();
 
-        // The spectrum, one wedge per wavelength step.
-        const len = L * ease(fanP);
-        const reach = Math.max(W, H) * 0.75;
+        // The spectrum, one wedge per wavelength step, from the glass to the screen.
+        const grow = ease(fanP);
+        const k = activeRef.current;
         for (let i = 0; i < valid.length - 1; i++) {
           const a = valid[i], b = valid[i + 1];
           const [r, gg, bb] = rgbFor((a.nm + b.nm) / 2);
-          const fa = add(a.pout, mul(a.out, len)), fb = add(b.pout, mul(b.out, len));
-          const k = activeRef.current;
+          const la = landing(a), lb = landing(b);
+          const fa = lerp(a.pout, la, grow), fb = lerp(b.pout, lb, grow);
           let boost = 1;
           if (k >= 0) boost = Math.floor(((i + 0.5) / (valid.length - 1)) * BANDS.length) === k ? 1.4 : 0.32;
           const wedge = (c2: CanvasRenderingContext2D, alpha: number) => {
-            const gr = c2.createLinearGradient(a.pout.x, a.pout.y, a.pout.x + a.out.x * reach, a.pout.y + a.out.y * reach);
+            const gr = c2.createLinearGradient(a.pout.x, a.pout.y, la.x, la.y);
             gr.addColorStop(0, `rgba(${r},${gg},${bb},${alpha * 0.55})`);
-            gr.addColorStop(0.08, `rgba(${r},${gg},${bb},${alpha})`);
-            gr.addColorStop(0.45, `rgba(${r},${gg},${bb},${alpha * 0.55})`);
-            gr.addColorStop(1, `rgba(${r},${gg},${bb},0)`);
+            gr.addColorStop(0.07, `rgba(${r},${gg},${bb},${alpha})`);
+            gr.addColorStop(0.6, `rgba(${r},${gg},${bb},${alpha * 0.4})`);
+            gr.addColorStop(1, `rgba(${r},${gg},${bb},${alpha * 0.7})`);
             c2.fillStyle = gr;
             c2.beginPath(); c2.moveTo(a.pout.x, a.pout.y); c2.lineTo(b.pout.x, b.pout.y); c2.lineTo(fb.x, fb.y); c2.lineTo(fa.x, fa.y); c2.closePath(); c2.fill();
           };
-          wedge(gctx, (dark ? 0.55 : 0.28) * boost);
-          wedge(ctx, clamp((dark ? 0.34 : 0.36) * boost, 0, 1));
+          wedge(gctx, (dark ? 0.55 : 0.3) * boost);
+          wedge(ctx, clamp((dark ? 0.34 : 0.48) * boost, 0, 1));
+          // Where it lands: a crisp strip of pure colour on the screen.
+          const land = clamp((fanP - 0.9) / 0.1, 0, 1);
+          if (land > 0) {
+            const strip = (c2: CanvasRenderingContext2D, w: number, alpha: number) => {
+              c2.fillStyle = `rgba(${r},${gg},${bb},${alpha * land * Math.min(1.2, boost)})`;
+              c2.fillRect(screenX - w / 2, la.y, w, lb.y - la.y + 0.6);
+            };
+            strip(gctx, 16, dark ? 0.9 : 0.55);
+            strip(ctx, 4, dark ? 0.95 : 1);
+          }
         }
         // White where the colours still overlap, just past the exit face.
         const f0 = valid[0], f1 = valid[valid.length - 1];
@@ -282,7 +337,7 @@ export default function PrismHero() {
       ctx.globalAlpha = dark ? 1 : 0.8;
       ctx.drawImage(glowCanvas, 0, 0, canvas.width, canvas.height);
       ctx.restore();
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cam(ctx, dpr);
 
       // Glass edges, rim light and the bright entry and exit points.
       ctx.globalCompositeOperation = "source-over";
@@ -312,6 +367,35 @@ export default function PrismHero() {
       ctx.beginPath(); ctx.moveTo(g.T.x - 3, g.T.y + 10); ctx.lineTo(rimEnd.x + 4, rimEnd.y); ctx.stroke();
       ctx.strokeStyle = dark ? "rgba(255,255,255,0.18)" : "rgba(43,38,32,0.18)"; ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(g.BL.x + 8, g.BL.y - 5); ctx.lineTo(g.BR.x - 8, g.BR.y - 5); ctx.stroke();
+      // Bevel: a second, inner edge gives the glass its thickness.
+      const inset = (v: V) => add(v, mul(norm(sub(g.c, v)), 7));
+      const iT = inset(g.T), iBL = inset(g.BL), iBR = inset(g.BR);
+      ctx.strokeStyle = dark ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.95)";
+      ctx.lineWidth = dark ? 1 : 1.4;
+      ctx.beginPath(); ctx.moveTo(iT.x, iT.y); ctx.lineTo(iBL.x, iBL.y); ctx.lineTo(iBR.x, iBR.y); ctx.closePath(); ctx.stroke();
+      if (!dark) {
+        ctx.strokeStyle = "rgba(43,38,32,0.1)"; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(iBL.x, iBL.y + 1.5); ctx.lineTo(iBR.x, iBR.y + 1.5); ctx.stroke();
+      }
+
+      // The screen the light lands on: a thin card, edge on.
+      if (valid.length > 1) {
+        const top = landing(valid[0]).y, bot = landing(valid[valid.length - 1]).y;
+        const show = reduce ? 1 : clamp((t - 1.3) / 0.8, 0, 1);
+        const pad = 22;
+        const card = ctx.createLinearGradient(0, top - pad, 0, bot + pad);
+        const ink = dark ? "255,255,255" : "43,38,32";
+        card.addColorStop(0, `rgba(${ink},0)`);
+        card.addColorStop(0.12, `rgba(${ink},${(dark ? 0.22 : 0.3) * show})`);
+        card.addColorStop(0.88, `rgba(${ink},${(dark ? 0.22 : 0.3) * show})`);
+        card.addColorStop(1, `rgba(${ink},0)`);
+        ctx.fillStyle = card;
+        ctx.fillRect(screenX + 3, top - pad, 1, bot - top + pad * 2);
+        if (!dark) {
+          ctx.fillStyle = `rgba(43,38,32,${0.05 * show})`;
+          ctx.fillRect(screenX + 4, top - pad * 0.6, 5, bot - top + pad * 1.2);
+        }
+      }
       if (beamP >= 1 && valid.length) {
         const mid = valid[Math.floor(valid.length / 2)].pout;
         ctx.globalCompositeOperation = blend;
@@ -337,7 +421,7 @@ export default function PrismHero() {
           const rel = sub({ x: px, y: py }, first.pout);
           const ang = Math.atan2(rel.y, rel.x);
           let light = 0;
-          if (rel.x > 0 && ang >= Math.min(aMin, aMax) - 0.02 && ang <= Math.max(aMin, aMax) + 0.02) light = clamp(1 - Math.hypot(rel.x, rel.y) / (W * 0.6), 0, 1) * fanP;
+          if (rel.x > 0 && px < screenX && ang >= Math.min(aMin, aMax) - 0.02 && ang <= Math.max(aMin, aMax) + 0.02) light = clamp(1 - Math.hypot(rel.x, rel.y) / (W * 0.6), 0, 1) * fanP;
           const toBeam = sub({ x: px, y: py }, g.pin);
           const along = dot(toBeam, mul(g.d0, -1));
           const perp = Math.abs(toBeam.x * g.d0.y - toBeam.y * g.d0.x);
@@ -347,25 +431,47 @@ export default function PrismHero() {
           ctx.beginPath(); ctx.arc(px, py, m.s, 0, Math.PI * 2); ctx.fill();
         }
       }
+      // Flare where the light meets the glass.
+      const ft = t - 1.42;
+      if (!reduce && ft > 0 && ft < 1 && valid.length) {
+        const k = ft < 0.08 ? ft / 0.08 : 1 - (ft - 0.08) / 0.92;
+        const at = valid[Math.floor(valid.length / 2)].pout;
+        ctx.globalCompositeOperation = dark ? "lighter" : "source-over";
+        ctx.save();
+        ctx.translate(at.x, at.y);
+        ctx.scale(1, 0.05);
+        const streak = ctx.createRadialGradient(0, 0, 0, 0, 0, g.side * 1.7);
+        streak.addColorStop(0, `rgba(255,252,240,${0.85 * k})`);
+        streak.addColorStop(0.35, `rgba(200,215,255,${0.25 * k})`);
+        streak.addColorStop(1, "rgba(200,215,255,0)");
+        ctx.fillStyle = streak; ctx.beginPath(); ctx.arc(0, 0, g.side * 1.7, 0, Math.PI * 2); ctx.fill();
+        ctx.restore();
+        const bloom = ctx.createRadialGradient(at.x, at.y, 0, at.x, at.y, g.side * 0.45);
+        bloom.addColorStop(0, `rgba(255,250,235,${(dark ? 0.6 : 0.5) * k})`);
+        bloom.addColorStop(1, "rgba(255,250,235,0)");
+        ctx.fillStyle = bloom; ctx.beginPath(); ctx.arc(at.x, at.y, g.side * 0.45, 0, Math.PI * 2); ctx.fill();
+      }
       ctx.globalCompositeOperation = "source-over";
 
-      // Labels ride their bands: seven equal slices of the fan, at the distance
-      // where the fan has room for them, kept inside the frame.
+      // The room starts dark and the scene fades up.
+      if (!reduce && t < 1.3) {
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        const veil = 1 - ease(clamp(t / 1.3, 0, 1));
+        ctx.fillStyle = dark ? `rgba(14,13,12,${0.92 * veil})` : `rgba(250,248,243,${0.85 * veil})`;
+        ctx.fillRect(0, 0, W, H);
+        cam(ctx, dpr);
+      }
+
+      // Labels stand beside the screen, each level with its band: seven equal
+      // slices of the fan where it lands.
       const placed: { i: number; x: number; y: number }[] = [];
       if (valid.length > 1) {
-        const gap = 31;
-        const first = valid[0], last = valid[valid.length - 1];
-        const spread = Math.hypot(last.out.x - first.out.x, last.out.y - first.out.y);
-        const maxX = W - 190;
-        const reachX = Math.max(first.out.x, last.out.x);
-        const dMax = Math.max(g.side * 0.6, (maxX - first.pout.x) / Math.max(0.05, reachX));
-        const D = clamp((gap * 6.6) / Math.max(0.05, spread), g.side * 0.6, dMax);
         BANDS.forEach((_, i) => {
           const f = ((i + 0.5) / BANDS.length) * (valid.length - 1);
           const lo = valid[Math.floor(f)], hi = valid[Math.min(valid.length - 1, Math.ceil(f))];
           const w = f - Math.floor(f);
-          const po = lerp(lo.pout, hi.pout, w), o = lerp(lo.out, hi.out, w);
-          placed.push({ i, x: po.x + o.x * D + 8, y: po.y + o.y * D });
+          const y = lerp(landing(lo), landing(hi), w).y;
+          placed.push({ i, x: screenX + 12, y });
         });
       }
       // Narrow screens: the fan is too short for seven labels, so they become a legend.
@@ -375,18 +481,21 @@ export default function PrismHero() {
         const el = labelRefs.current[q.i];
         if (!el) return;
         const show = reduce ? 1 : clamp((p - 0.62 - q.i * 0.035) / 0.12, 0, 1);
-        el.style.transform = compact ? "" : `translate(${q.x.toFixed(1)}px, ${q.y.toFixed(1)}px) translateY(-50%)`;
+        const at = camPt(q.x, q.y);
+        el.style.transform = compact ? "" : `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translateY(-50%)`;
         el.style.opacity = String(show);
       });
       if (aiRef.current) {
-        const at = lerp(src, g.pin, 0.38);
+        const on = lerp(src, g.pin, 0.38);
         const up = { x: g.d0.y, y: -g.d0.x };
         const side = up.y < 0 ? up : mul(up, -1);
-        aiRef.current.style.transform = `translate(${(at.x + side.x * 46).toFixed(1)}px, ${(at.y + side.y * 46 - 10).toFixed(1)}px) rotate(${(-angle).toFixed(2)}deg)`;
-        aiRef.current.style.opacity = String(reduce ? 1 : clamp(t / 0.6, 0, 1));
+        const at = camPt(on.x + side.x * 46, on.y + side.y * 46 - 10);
+        aiRef.current.style.transform = `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) rotate(${(-angle).toFixed(2)}deg)`;
+        aiRef.current.style.opacity = String(reduce ? 1 : clamp((t - 0.7) / 0.6, 0, 1));
       }
       if (noteRef.current) {
-        noteRef.current.style.transform = `translate(${g.c.x.toFixed(1)}px, ${(g.BL.y + 28).toFixed(1)}px) translateX(-50%)`;
+        const at = camPt(g.c.x, g.BL.y + 28);
+        noteRef.current.style.transform = `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translateX(-50%)`;
         noteRef.current.style.opacity = String(reduce ? 1 : clamp((p - 0.85) / 0.15, 0, 1));
       }
       section.classList.add("is-live");
@@ -400,18 +509,29 @@ export default function PrismHero() {
     const pause = () => { running = false; cancelAnimationFrame(frame); frame = 0; };
 
     resize();
-    if (reduce) draw(performance.now()); else play();
+    if (reduce) { started = true; draw(performance.now()); } else play();
+    const begin = () => {
+      if (started) return;
+      started = true;
+      const go = () => window.setTimeout(() => { start = performance.now(); }, 250);
+      start = Infinity;
+      if (document.fonts?.ready) document.fonts.ready.then(go); else go();
+    };
 
     const ro = new ResizeObserver(() => { resize(); if (!running) draw(performance.now()); });
     ro.observe(section);
-    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) play(); else pause(); });
+    const io = new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible) play(); else pause();
+      if (e.intersectionRatio >= 0.4) begin();
+    }, { threshold: [0, 0.4] });
     io.observe(section);
     const onVis = () => (document.hidden ? pause() : play());
     document.addEventListener("visibilitychange", onVis);
     const theme = new MutationObserver(() => { if (!running) draw(performance.now()); });
     theme.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
     const onMove = (e: PointerEvent) => {
-      if (!fine) return;
+      if (!fine && e.pointerType !== "touch") return;
       const r = section.getBoundingClientRect();
       const ny = clamp((e.clientY - r.top) / r.height, 0, 1);
       target = 30 - ny * 13;
@@ -422,11 +542,34 @@ export default function PrismHero() {
     const replay = () => { start = performance.now(); if (reduce) draw(start); };
     section.addEventListener("prism:replay", replay);
 
+    // Phones: tilting the device steers the light. iOS asks first.
+    const onOrient = (e: DeviceOrientationEvent) => {
+      if (e.gamma == null || e.beta == null) return;
+      yawTarget = clamp(e.gamma / 28, -1, 1);
+      target = 22 + clamp((e.beta - 50) / 35, -1, 1) * 7;
+      lastPointer = performance.now();
+    };
+    type OrientationPermission = { requestPermission?: () => Promise<string> };
+    const DOE = (typeof window !== "undefined" ? (window as unknown as { DeviceOrientationEvent?: OrientationPermission }).DeviceOrientationEvent : undefined);
+    let orientOn = false;
+    const enableOrient = () => { if (!orientOn) { window.addEventListener("deviceorientation", onOrient); orientOn = true; } };
+    const asks = !fine && !reduce && !!DOE && typeof DOE.requestPermission === "function";
+    if (!fine && !reduce && DOE && !asks) enableOrient();
+    if (asks) section.classList.add("needs-tilt");
+    const askTilt = () => {
+      DOE?.requestPermission?.().then((state) => {
+        if (state === "granted") { enableOrient(); section.classList.remove("needs-tilt"); }
+      }).catch(() => {});
+    };
+    section.addEventListener("prism:tilt", askTilt);
+
     return () => {
       pause(); ro.disconnect(); io.disconnect(); theme.disconnect();
       document.removeEventListener("visibilitychange", onVis);
       section.removeEventListener("pointermove", onMove);
       section.removeEventListener("prism:replay", replay);
+      section.removeEventListener("prism:tilt", askTilt);
+      if (orientOn) window.removeEventListener("deviceorientation", onOrient);
     };
   }, []);
 
@@ -449,12 +592,12 @@ export default function PrismHero() {
               Everyone says AI. Pass it through a prism and it comes apart into seven things you can
               read about, inspect and build. Pick a colour.
             </p>
-            <div className="flex flex-wrap gap-3 items-center">
+            <div className="flex flex-wrap gap-x-6 gap-y-3 items-center">
               <Link href="#systems-map" className="btn-premium btn-primary">
                 Start with the map
               </Link>
-              <Link href="/storyboards/" className="btn-premium btn-secondary">
-                Flip through a storyboard
+              <Link href="/storyboards/" className="prism-more">
+                Flip through a storyboard <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
@@ -489,10 +632,17 @@ export default function PrismHero() {
       </ul>
       <button
         type="button"
+        className="prism-tilt"
+        onClick={(e) => e.currentTarget.parentElement?.dispatchEvent(new Event("prism:tilt"))}
+      >
+        Tilt to steer the light
+      </button>
+      <button
+        type="button"
         className="prism-replay"
         onClick={(e) => e.currentTarget.parentElement?.dispatchEvent(new Event("prism:replay"))}
       >
-        Play again
+        <span aria-hidden="true">↻</span> Play again
       </button>
     </section>
   );

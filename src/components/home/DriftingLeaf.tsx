@@ -8,14 +8,17 @@ interface Path {
   sy: number;
   ex: number;
   ey: number;
+  startScroll: number;
   endScroll: number;
 }
 
 /**
- * One pruned leaf that leaves the hero plate as the reader scrolls and lands
+ * One pruned leaf that leaves the method plate as the reader scrolls and lands
  * beside the Systems Map heading. Positions are measured from two markers,
  * #hero-plate and #map-leaf-landing, relative to the home page wrapper, and
- * re-measured on resize. Desktop only, and absent under reduced motion.
+ * re-measured whenever the page changes size (the prism hero settles after
+ * load). The fall starts once the plate is centred on screen and ends when
+ * the heading is. Desktop only, and absent under reduced motion.
  */
 export default function DriftingLeaf() {
   const ref = useRef<HTMLDivElement>(null);
@@ -32,25 +35,31 @@ export default function DriftingLeaf() {
       const o = host.getBoundingClientRect();
       const p = plate.getBoundingClientRect();
       const l = land.getBoundingClientRect();
+      const startScroll = Math.max(0, p.top + window.scrollY + p.height * 0.5 - window.innerHeight * 0.5);
       setPath({
         sx: p.left - o.left + p.width * 0.72,
         sy: p.top - o.top + p.height * 0.8,
         ex: l.left - o.left,
         ey: l.top - o.top,
-        endScroll: Math.max(200, l.top + window.scrollY - window.innerHeight * 0.5),
+        startScroll,
+        endScroll: Math.max(startScroll + 160, l.top + window.scrollY - window.innerHeight * 0.5),
       });
     };
     measure();
     window.addEventListener("resize", measure);
-    const t = window.setTimeout(measure, 800);
+    const host = ref.current?.parentElement;
+    const ro = host ? new ResizeObserver(measure) : null;
+    if (host && ro) ro.observe(host);
+    document.fonts?.ready.then(measure);
     return () => {
       window.removeEventListener("resize", measure);
-      window.clearTimeout(t);
+      ro?.disconnect();
     };
   }, []);
 
+  const begin = path?.startScroll ?? 0;
   const end = path?.endScroll ?? 1;
-  const progress = useTransform(scrollY, [40, end], [0, 1], { clamp: true });
+  const progress = useTransform(scrollY, [begin, end], [0, 1], { clamp: true });
   const x = useTransform(progress, (v) => (path ? path.sx + (path.ex - path.sx) * v + Math.sin(v * Math.PI * 3) * 60 * (1 - v) : 0));
   const y = useTransform(progress, (v) => (path ? path.sy + (path.ey - path.sy) * v : 0));
   const rotate = useTransform(progress, (v) => 150 + v * 420);
