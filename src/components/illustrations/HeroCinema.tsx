@@ -120,7 +120,7 @@ export default function HeroCinema() {
       gsap.set(q(".hc-pruned"), { x: 0, y: 0, rotation: 0, svgOrigin: "342 366", autoAlpha: 0 });
       svg.classList.add("is-playing");
 
-      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+      const tl = gsap.timeline({ paused: true, defaults: { ease: "power2.out" } });
       film = tl;
       // Development only: lets the film be paused and scrubbed from the console.
       if (process.env.NODE_ENV !== "production") (window as unknown as { __heroFilm?: gsap.core.Timeline }).__heroFilm = tl;
@@ -197,14 +197,35 @@ export default function HeroCinema() {
       }, 6.1);
     }, svg);
 
-    // Fail-safe: if the page is on screen but the film has not moved (no
-    // animation frames, for whatever reason), show the finished scene rather
-    // than an empty sheet of paper.
-    const guard = window.setTimeout(() => {
-      if (document.visibilityState === "visible" && film && film.time() === 0) film.progress(1);
-    }, 2500);
+    // The film waits until the plate is properly on screen, so a reader who
+    // scrolls down to it sees it play. A replay starts at once.
+    // Fail-safe: if the film has not moved once it should have (no animation
+    // frames, for whatever reason), show the finished scene rather than an
+    // empty sheet of paper.
+    let guard = 0;
+    const start = () => {
+      film?.play();
+      guard = window.setTimeout(() => {
+        if (document.visibilityState === "visible" && film && film.time() === 0) film.progress(1);
+      }, 2500);
+    };
+    let io: IntersectionObserver | null = null;
+    if (take > 0) start();
+    else {
+      io = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            io?.disconnect();
+            start();
+          }
+        },
+        { threshold: 0.45 },
+      );
+      io.observe(svg);
+    }
 
     return () => {
+      io?.disconnect();
       window.clearTimeout(guard);
       ctx.revert();
     };

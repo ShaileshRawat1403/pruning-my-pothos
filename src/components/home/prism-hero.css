@@ -75,3 +75,13 @@
 
 @media (prefers-reduced-motion: reduce) { .prism-replay { display: none; } }
 @media print { .prism-replay, .prism-canvas { display: none; } .prism-label { opacity: 1 !important; } }
+
+/* iOS asks before sharing device tilt; the button only shows where it must. */
+.prism-tilt {
+  display: none; position: absolute; left: 50%; bottom: 0.9rem; transform: translateX(-50%); z-index: 3;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-secondary); background: color-mix(in oklab, var(--bg-color) 70%, transparent);
+  border: 1px solid var(--card-border); padding: 0.45rem 0.8rem; border-radius: 999px; backdrop-filter: blur(6px);
+}
+.prism-hero.needs-tilt .prism-tilt { display: inline-block; }
+@media print { .prism-tilt { display: none !important; } }

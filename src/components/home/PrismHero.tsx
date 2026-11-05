@@ -97,7 +97,7 @@ export default function PrismHero() {
     let stageBox = { x: 0, y: 0, w: 0, h: 0 };
     let angle = 22, target = 22, lastPointer = -1e9;
     let yaw = 0, yawTarget = 0;
-    let start = performance.now();
+    let start = 0, started = false;
     let frame = 0, running = false, visible = true;
     const dust = Array.from({ length: 90 }, () => ({ x: Math.random(), y: Math.random(), s: 0.4 + Math.random() * 1.4, v: 0.15 + Math.random() * 0.5, p: Math.random() * Math.PI * 2 }));
 
@@ -146,24 +146,39 @@ export default function PrismHero() {
 
     const draw = (now: number) => {
       const dark = document.documentElement.getAttribute("data-theme") !== "light";
-      const t = (now - start) / 1000;
-      const p = reduce ? 1 : clamp(t / 2.4, 0, 1);
-      const beamP = clamp(p / 0.32, 0, 1);
-      const fanP = clamp((p - 0.3) / 0.45, 0, 1);
+      // The opening shot, once the hero is properly on screen: darkness, the
+      // beam flickers on, a flare where it meets the glass, the spectrum
+      // sweeps out, labels, a slow camera push in. Scrolling keeps pushing.
+      const raw = reduce ? 99 : started ? (now - start) / 1000 : 0;
+      const t = Number.isFinite(raw) ? raw : -1;
+      const DUR = 3.8;
+      const p = reduce ? 1 : clamp(t / DUR, 0, 1);
+      const beamP = reduce ? 1 : clamp((t - 0.55) / 0.9, 0, 1);
+      const fanP = reduce ? 1 : clamp((t - 1.5) / 1.2, 0, 1);
       const ease = (x: number) => 1 - Math.pow(1 - x, 3);
+      const sr = section.getBoundingClientRect();
+      const scrollP = clamp(-sr.top / Math.max(1, sr.height), 0, 1);
 
       if (!reduce && now - lastPointer > 2500) {
-        target = 22 + Math.sin(t * 0.35) * 2.2;
-        yawTarget = Math.sin(t * 0.22) * 0.55;
+        const ti = Math.max(0, t);
+        target = 22 + Math.sin(ti * 0.35) * 2.2;
+        yawTarget = Math.sin(ti * 0.22) * 0.55;
       }
       angle += (target - angle) * (reduce ? 1 : 0.06);
-      yaw += (yawTarget - yaw) * (reduce ? 1 : 0.05);
+      yaw += (yawTarget + scrollP * 0.6 - yaw) * (reduce ? 1 : 0.05);
       const g = trace(angle);
 
+      // Camera: pushes in over the opening and a little more on scroll.
+      const zoom = reduce ? 1 : 1 + 0.09 * (1 - ease(p)) + 0.06 * scrollP;
+      const fx = g.c.x + g.side * 0.6, fy = g.c.y;
+      const camPt = (x: number, y: number) => ({ x: fx + (x - fx) * zoom, y: fy + (y - fy) * zoom });
+      const cam = (c2: CanvasRenderingContext2D, k: number) => c2.setTransform(k * zoom, 0, 0, k * zoom, k * (fx - fx * zoom), k * (fy - fy * zoom));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, W, H);
       gctx.setTransform(1 / 4, 0, 0, 1 / 4, 0, 0);
       gctx.clearRect(0, 0, W, H);
+      cam(ctx, dpr);
+      cam(gctx, 1 / 4);
 
       const L = Math.max(W, H) * 1.6;
       const src = sub(g.pin, mul(g.d0, Math.min(L, (g.pin.x - stageBox.x + 40) / Math.max(0.2, g.d0.x))));
@@ -223,10 +238,13 @@ export default function PrismHero() {
         c2.strokeStyle = gr; c2.lineWidth = width; c2.lineCap = "round";
         c2.beginPath(); c2.moveTo(src.x, src.y); c2.lineTo(beamEnd.x, beamEnd.y); c2.stroke();
       };
+      const flick = beamP > 0 && beamP < 0.4 ? (Math.sin(t * 83) > -0.2 ? 1 : 0.25) * (0.45 + beamP * 1.4) : 1;
+      gctx.globalAlpha = flick; ctx.globalAlpha = flick;
       gctx.globalCompositeOperation = blend;
       beam(gctx, 26, dark ? "rgba(255,246,220,A)" : "rgba(243,190,90,A)", dark ? 0.9 : 0.5);
       ctx.globalCompositeOperation = blend;
       beam(ctx, dark ? 2.6 : 2.2, dark ? "rgba(255,255,255,A)" : "rgba(43,38,32,A)", 1);
+      gctx.globalAlpha = 1; ctx.globalAlpha = 1;
 
       const valid = g.rays.filter(Boolean) as { nm: number; pout: V; out: V }[];
       if (beamP >= 1 && valid.length > 1) {
@@ -282,7 +300,7 @@ export default function PrismHero() {
       ctx.globalAlpha = dark ? 1 : 0.8;
       ctx.drawImage(glowCanvas, 0, 0, canvas.width, canvas.height);
       ctx.restore();
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cam(ctx, dpr);
 
       // Glass edges, rim light and the bright entry and exit points.
       ctx.globalCompositeOperation = "source-over";
@@ -347,7 +365,36 @@ export default function PrismHero() {
           ctx.beginPath(); ctx.arc(px, py, m.s, 0, Math.PI * 2); ctx.fill();
         }
       }
+      // Flare where the light meets the glass.
+      const ft = t - 1.42;
+      if (!reduce && ft > 0 && ft < 1 && valid.length) {
+        const k = ft < 0.08 ? ft / 0.08 : 1 - (ft - 0.08) / 0.92;
+        const at = valid[Math.floor(valid.length / 2)].pout;
+        ctx.globalCompositeOperation = dark ? "lighter" : "source-over";
+        ctx.save();
+        ctx.translate(at.x, at.y);
+        ctx.scale(1, 0.05);
+        const streak = ctx.createRadialGradient(0, 0, 0, 0, 0, g.side * 1.7);
+        streak.addColorStop(0, `rgba(255,252,240,${0.85 * k})`);
+        streak.addColorStop(0.35, `rgba(200,215,255,${0.25 * k})`);
+        streak.addColorStop(1, "rgba(200,215,255,0)");
+        ctx.fillStyle = streak; ctx.beginPath(); ctx.arc(0, 0, g.side * 1.7, 0, Math.PI * 2); ctx.fill();
+        ctx.restore();
+        const bloom = ctx.createRadialGradient(at.x, at.y, 0, at.x, at.y, g.side * 0.45);
+        bloom.addColorStop(0, `rgba(255,250,235,${(dark ? 0.6 : 0.5) * k})`);
+        bloom.addColorStop(1, "rgba(255,250,235,0)");
+        ctx.fillStyle = bloom; ctx.beginPath(); ctx.arc(at.x, at.y, g.side * 0.45, 0, Math.PI * 2); ctx.fill();
+      }
       ctx.globalCompositeOperation = "source-over";
+
+      // The room starts dark and the scene fades up.
+      if (!reduce && t < 1.3) {
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        const veil = 1 - ease(clamp(t / 1.3, 0, 1));
+        ctx.fillStyle = dark ? `rgba(14,13,12,${0.92 * veil})` : `rgba(250,248,243,${0.85 * veil})`;
+        ctx.fillRect(0, 0, W, H);
+        cam(ctx, dpr);
+      }
 
       // Labels ride their bands: seven equal slices of the fan, at the distance
       // where the fan has room for them, kept inside the frame.
@@ -375,18 +422,21 @@ export default function PrismHero() {
         const el = labelRefs.current[q.i];
         if (!el) return;
         const show = reduce ? 1 : clamp((p - 0.62 - q.i * 0.035) / 0.12, 0, 1);
-        el.style.transform = compact ? "" : `translate(${q.x.toFixed(1)}px, ${q.y.toFixed(1)}px) translateY(-50%)`;
+        const at = camPt(q.x, q.y);
+        el.style.transform = compact ? "" : `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translateY(-50%)`;
         el.style.opacity = String(show);
       });
       if (aiRef.current) {
-        const at = lerp(src, g.pin, 0.38);
+        const on = lerp(src, g.pin, 0.38);
         const up = { x: g.d0.y, y: -g.d0.x };
         const side = up.y < 0 ? up : mul(up, -1);
-        aiRef.current.style.transform = `translate(${(at.x + side.x * 46).toFixed(1)}px, ${(at.y + side.y * 46 - 10).toFixed(1)}px) rotate(${(-angle).toFixed(2)}deg)`;
-        aiRef.current.style.opacity = String(reduce ? 1 : clamp(t / 0.6, 0, 1));
+        const at = camPt(on.x + side.x * 46, on.y + side.y * 46 - 10);
+        aiRef.current.style.transform = `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) rotate(${(-angle).toFixed(2)}deg)`;
+        aiRef.current.style.opacity = String(reduce ? 1 : clamp((t - 0.7) / 0.6, 0, 1));
       }
       if (noteRef.current) {
-        noteRef.current.style.transform = `translate(${g.c.x.toFixed(1)}px, ${(g.BL.y + 28).toFixed(1)}px) translateX(-50%)`;
+        const at = camPt(g.c.x, g.BL.y + 28);
+        noteRef.current.style.transform = `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translateX(-50%)`;
         noteRef.current.style.opacity = String(reduce ? 1 : clamp((p - 0.85) / 0.15, 0, 1));
       }
       section.classList.add("is-live");
@@ -400,18 +450,29 @@ export default function PrismHero() {
     const pause = () => { running = false; cancelAnimationFrame(frame); frame = 0; };
 
     resize();
-    if (reduce) draw(performance.now()); else play();
+    if (reduce) { started = true; draw(performance.now()); } else play();
+    const begin = () => {
+      if (started) return;
+      started = true;
+      const go = () => window.setTimeout(() => { start = performance.now(); }, 250);
+      start = Infinity;
+      if (document.fonts?.ready) document.fonts.ready.then(go); else go();
+    };
 
     const ro = new ResizeObserver(() => { resize(); if (!running) draw(performance.now()); });
     ro.observe(section);
-    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) play(); else pause(); });
+    const io = new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible) play(); else pause();
+      if (e.intersectionRatio >= 0.4) begin();
+    }, { threshold: [0, 0.4] });
     io.observe(section);
     const onVis = () => (document.hidden ? pause() : play());
     document.addEventListener("visibilitychange", onVis);
     const theme = new MutationObserver(() => { if (!running) draw(performance.now()); });
     theme.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
     const onMove = (e: PointerEvent) => {
-      if (!fine) return;
+      if (!fine && e.pointerType !== "touch") return;
       const r = section.getBoundingClientRect();
       const ny = clamp((e.clientY - r.top) / r.height, 0, 1);
       target = 30 - ny * 13;
@@ -422,11 +483,34 @@ export default function PrismHero() {
     const replay = () => { start = performance.now(); if (reduce) draw(start); };
     section.addEventListener("prism:replay", replay);
 
+    // Phones: tilting the device steers the light. iOS asks first.
+    const onOrient = (e: DeviceOrientationEvent) => {
+      if (e.gamma == null || e.beta == null) return;
+      yawTarget = clamp(e.gamma / 28, -1, 1);
+      target = 22 + clamp((e.beta - 50) / 35, -1, 1) * 7;
+      lastPointer = performance.now();
+    };
+    type OrientationPermission = { requestPermission?: () => Promise<string> };
+    const DOE = (typeof window !== "undefined" ? (window as unknown as { DeviceOrientationEvent?: OrientationPermission }).DeviceOrientationEvent : undefined);
+    let orientOn = false;
+    const enableOrient = () => { if (!orientOn) { window.addEventListener("deviceorientation", onOrient); orientOn = true; } };
+    const asks = !fine && !reduce && !!DOE && typeof DOE.requestPermission === "function";
+    if (!fine && !reduce && DOE && !asks) enableOrient();
+    if (asks) section.classList.add("needs-tilt");
+    const askTilt = () => {
+      DOE?.requestPermission?.().then((state) => {
+        if (state === "granted") { enableOrient(); section.classList.remove("needs-tilt"); }
+      }).catch(() => {});
+    };
+    section.addEventListener("prism:tilt", askTilt);
+
     return () => {
       pause(); ro.disconnect(); io.disconnect(); theme.disconnect();
       document.removeEventListener("visibilitychange", onVis);
       section.removeEventListener("pointermove", onMove);
       section.removeEventListener("prism:replay", replay);
+      section.removeEventListener("prism:tilt", askTilt);
+      if (orientOn) window.removeEventListener("deviceorientation", onOrient);
     };
   }, []);
 
@@ -487,6 +571,13 @@ export default function PrismHero() {
           </li>
         ))}
       </ul>
+      <button
+        type="button"
+        className="prism-tilt"
+        onClick={(e) => e.currentTarget.parentElement?.dispatchEvent(new Event("prism:tilt"))}
+      >
+        Tilt to steer the light
+      </button>
       <button
         type="button"
         className="prism-replay"
