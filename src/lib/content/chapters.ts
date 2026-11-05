@@ -1,11 +1,10 @@
 /**
- * Chapters: the flagship articles whose scenes are told full screen
- * (components/visuals/ChapterScene.tsx). Every other article keeps the
- * ordinary pinned scene. Add a slug here to turn an article into chapters.
+ * Chapters (components/visuals/ChapterScene.tsx) tell a scene full screen.
+ * The flagship articles, the eight Systems Map stages, use them; the article
+ * page decides from the article's place in the map (systems-ia.ts), so a new
+ * flagship gets chapters without a list to keep. Companions and notes keep
+ * the ordinary pinned scene.
  */
-export const CHAPTER_ARTICLES = new Set<string>([
-  "agent-instructions-and-handoff-as-an-operating-system",
-]);
 
 /** Where the camera looks for a step, in scene units (640 x 420); s is zoom. */
 export interface Frame { x: number; y: number; s: number }

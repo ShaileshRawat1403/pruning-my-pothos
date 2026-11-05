@@ -13,7 +13,6 @@ import CoverFilm from "../../../components/illustrations/CoverFilm";
 import { coverKicker } from "../../../lib/content/covers";
 import { slugifyTag } from "../../../lib/tags";
 import { getSystemsIA, placeOf } from "../../../lib/content/systems-ia";
-import { CHAPTER_ARTICLES } from "../../../lib/content/chapters";
 import { BUILDER_SECTION, REFERENCE_SHEETS, REFERENCE_TYPE_LABEL } from "../../../lib/content/reference-sheets";
 import SpotlightCard from "../../../components/SpotlightCard";
 import { SheetCover } from "../../../components/illustrations/sheets";
@@ -251,7 +250,7 @@ export default async function SystemsDetailPage({ params }: PageProps) {
               visual={segment.visual}
               provenanceSources={provenanceSources}
               scene
-              chapter={CHAPTER_ARTICLES.has(slug)}
+              chapter={place.role === "flagship"}
             />
           )
         );

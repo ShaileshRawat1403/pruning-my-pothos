@@ -235,6 +235,11 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   permissions, evaluation) with a running "human at every stage" figure and
   a block-a-part bench. Visual track row 12. The pin height assumes the
   80px header (`top: 81px` in `prism-hero.css`); change both together.
+- **Chapters on the flagships (2026-11-05, branch `feat/chapter-scenes`)**:
+  flagship articles render scenes through `ChapterScene` (visual track row
+  13); the article page passes `chapter={place.role === "flagship"}` to
+  `VisualBlock`. Like the hero, the pin assumes the 80px header (`top:
+  81px` in `chapter-scene.css`).
 - **Delight pass (2026-11-05, PR #9, merged and deployed)**: see visual track row 11. New pieces:
   `HalftoneField`, `InfiniteWall` (+ `public/wall/` thumbnails from
   `scripts/make-wall-thumbs.sh`; rerun after `export:storyboards`),
