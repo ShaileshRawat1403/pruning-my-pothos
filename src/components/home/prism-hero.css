@@ -7,7 +7,8 @@
   --pr-label: #f3eee4;
   --pr-label-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
   background: var(--pr-bg);
-  overflow: hidden;
+  /* clip, not hidden: hidden would stop the stage from sticking. */
+  overflow: clip;
   isolation: isolate;
 }
 
@@ -17,7 +18,18 @@
   --pr-label-shadow: 0 1px 10px rgba(255, 252, 245, 0.9);
 }
 
+.prism-pin { position: relative; overflow: clip; }
 .prism-canvas { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+/* Wide screens with motion: the stage pins under the header while the
+   section scrolls past it, and that scroll runs the rebuild. Keep the query
+   in step with PIN_QUERY in PrismHero.tsx. */
+@media (min-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .prism-hero { height: calc(100svh - 81px + 90vh); }
+  .prism-pin { position: sticky; top: 81px; height: calc(100svh - 81px); min-height: 560px; }
+  .prism-frame { height: 100%; display: flex; flex-direction: column; justify-content: center; padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .prism-frame > .grid { width: 100%; }
+}
 .prism-stage { position: relative; min-height: 560px; }
 @media (max-width: 1023px) {
   .prism-stage { min-height: min(76vw, 460px); }
@@ -35,8 +47,15 @@
   transition: color 0.2s ease;
 }
 /* A short lead from the band on the screen to its name. */
+.prism-label-text { display: flex; flex-direction: column; line-height: 1.15; }
+.prism-label-note {
+  font-family: var(--font-mono); font-size: 10.5px; font-weight: 400; letter-spacing: 0.02em;
+  color: var(--text-muted); text-shadow: none;
+}
+/* Beside the screen a drawn lead does the dot's job. */
+.prism-hero:not(.is-compact).is-live .prism-label-dot { display: none; }
 .prism-label-dot {
-  width: 14px; height: 2px; border-radius: 1px;
+  flex: none; width: 14px; height: 2px; border-radius: 1px;
   background: var(--band); box-shadow: 0 0 8px var(--band);
   transform-origin: left center; transition: transform 0.2s ease;
 }
@@ -51,6 +70,56 @@
 .prism-ai { font-size: 12px; font-weight: 600; color: var(--pr-label); text-shadow: var(--pr-label-shadow); }
 .prism-ai em { font-style: normal; color: var(--text-muted); margin-left: 0.4em; }
 .prism-note { font-size: 11px; color: var(--text-muted); }
+.prism-out { font-size: 13px; }
+
+/* The person at every stage: the ink line's caption, a link to why. */
+.prism-human {
+  position: absolute; left: 0; top: 0; z-index: 3; opacity: 0;
+  display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--pr-label); text-shadow: var(--pr-label-shadow);
+  padding: 0.2rem 0.35rem; will-change: transform, opacity;
+}
+.prism-human-mark { width: 7px; height: 7px; border-radius: 50%; border: 1.4px solid currentColor; }
+.prism-human { align-items: flex-start; line-height: 1.5; text-align: left; }
+.prism-human .prism-human-mark { margin-top: 0.3em; }
+.prism-human:hover, .prism-human:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+
+/* The stage the person is standing on. */
+.prism-label-note { transition: color 0.25s ease; }
+.prism-label.is-visited .prism-label-note { color: var(--band); }
+.prism-label.is-visited .prism-label-name { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--band); }
+
+/* The rebuild bench: block a part at the lens. */
+.prism-bench {
+  position: absolute; left: 50%; bottom: 1.6rem; transform: translateX(-50%); z-index: 3; opacity: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 0.7rem; width: min(92%, 980px);
+}
+.prism-bench-hint { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+.prism-bench-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+.prism-chip {
+  display: inline-flex; align-items: center; gap: 0.45rem; cursor: pointer;
+  font-family: var(--font-heading); font-size: 13px; font-weight: 600; color: var(--pr-label);
+  padding: 0.4rem 0.8rem; border-radius: 999px; border: 1px solid color-mix(in oklab, var(--band) 40%, var(--card-border));
+  background: color-mix(in oklab, var(--bg-color) 75%, transparent); backdrop-filter: blur(6px);
+  transition: border-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+.prism-chip:hover, .prism-chip:focus-visible { border-color: var(--band); transform: translateY(-1px); }
+.prism-chip:focus-visible { outline: 2px solid var(--band); outline-offset: 2px; }
+.prism-chip-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--band); box-shadow: 0 0 10px var(--band); transition: all 0.2s ease; }
+.prism-chip[aria-pressed="true"] { opacity: 0.55; text-decoration: line-through; text-decoration-color: var(--band); }
+.prism-chip[aria-pressed="true"] .prism-chip-dot { background: transparent; box-shadow: inset 0 0 0 1.5px var(--band); }
+.prism-hero.is-compact .prism-bench, .prism-hero:not(.is-live) .prism-bench { display: none; }
+@media not all and (min-width: 760px) and (prefers-reduced-motion: no-preference) { .prism-bench { display: none; } }
+.prism-hero.is-rebuilt .prism-replay { display: none; }
+
+.prism-cue {
+  position: absolute; left: 50%; bottom: 1.1rem; transform: translateX(-50%); z-index: 3; opacity: 0;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-muted); pointer-events: none; white-space: nowrap;
+}
+.prism-cue::after { content: ""; display: block; width: 1px; height: 18px; margin: 0.45rem auto 0; background: currentColor; animation: prism-cue 1.8s ease-in-out infinite; transform-origin: top; }
+@keyframes prism-cue { 0%, 100% { transform: scaleY(0.3); opacity: 0.4; } 50% { transform: scaleY(1); opacity: 1; } }
 
 .prism-replay {
   position: absolute; right: 1.25rem; bottom: 1rem; z-index: 3;
@@ -75,20 +144,25 @@
 
 /* Narrow screens: a two-column legend under the drawing. */
 .prism-hero.is-compact .prism-labels {
-  position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 0.15rem 1rem;
-  margin: -3.5rem 1.5rem 2rem; padding: 0;
+  position: relative; z-index: 2; display: grid; grid-template-columns: 1fr; gap: 0.15rem 1rem;
+  margin: 0 1.5rem 2rem; padding: 0; row-gap: 0.6rem;
 }
-.prism-hero.is-compact .prism-label { position: static; text-shadow: none; }
+.prism-hero.is-compact .prism-label { position: static; text-shadow: none; align-items: flex-start; }
+.prism-hero.is-compact .prism-label-dot { margin-top: 0.55em; }
+.prism-hero.is-compact .prism-replay { display: none; }
+.prism-hero.is-compact .prism-human, .prism-hero:not(.is-live) .prism-human {
+  position: relative; display: flex; opacity: 1; margin: -3.5rem 1.5rem 0.9rem; text-shadow: none;
+}
 
 /* Without script the labels are a plain list under the copy. */
 .prism-hero:not(.is-live) .prism-labels {
   position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 0.25rem 1rem;
-  max-width: 1280px; margin: -2rem auto 2rem; padding: 0 3rem;
+  max-width: 1280px; margin: 0 auto 2rem; padding: 0 3rem;
 }
 .prism-hero:not(.is-live) .prism-label { position: static; opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) { .prism-replay { display: none; } }
-@media print { .prism-replay, .prism-canvas { display: none; } .prism-label { opacity: 1 !important; } }
+@media print { .prism-replay, .prism-canvas, .prism-cue { display: none; } .prism-label { opacity: 1 !important; } }
 
 /* iOS asks before sharing device tilt; the button only shows where it must. */
 .prism-tilt {
