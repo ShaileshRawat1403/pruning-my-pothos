@@ -223,6 +223,13 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 
 ## 8. Where things stand (2026-11-05)
 
+- **Prism hero (2026-11-05)**: the home page opens with `PrismHero`
+  (`src/components/home/PrismHero.tsx`, canvas, no library): a beam
+  labelled "AI" refracts into a spectrum whose seven bands link to their
+  Systems explainers. The old `Hero` is gone; its plate lives on as
+  `MethodPlate` directly under the prism and above the systems map (the
+  drifting leaf starts at `#hero-plate`). Visual track row 10.
+
 - **H4 skills page reframe (2026-11-05, uncommitted)**: owner chose option B. `/systems/designing-reusable-ai-skills/` now answers "what are agent skills" first from the Agent Skills specification and Claude Code's skills docs (accessed 2026-11-05), then keeps the PMP design thesis under "What makes a skill reusable". Slug unchanged. AGY's brief and check live in `docs/drafts/agy/` (not for commit). Next content: H2 agent memory, brief ready.
 
 - **WordPress Legacy & Search Console Reconciliation Audit (2026-11-04)**: Completed

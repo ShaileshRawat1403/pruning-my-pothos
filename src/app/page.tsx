@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { constructMetadata } from "../lib/seo/metadata";
 import { SITE_POSITIONING } from "../lib/config/site-positioning";
-import Hero from "../components/home/Hero";
+import PrismHero from "../components/home/PrismHero";
+import MethodPlate from "../components/home/MethodPlate";
 import SystemsMap from "../components/home/SystemsMap";
 import SelectedSystems from "../components/home/SelectedSystems";
 import ReferencePreview from "../components/home/ReferencePreview";
@@ -75,7 +76,8 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_STRUCTURED_DATA) }}
       />
-      <Hero />
+      <PrismHero />
+      <MethodPlate />
       <SystemsMap />
       <SelectedSystems />
       <ReferencePreview />
