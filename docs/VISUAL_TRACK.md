@@ -64,8 +64,14 @@ Status: `done`, `next`, `open`, `parked`.
 | 7 | **Motion everywhere**: section headers (Sentences, Tools, Stack, Shelf, Systems, Storyboards) already play a story and Self/About have the inking portrait, so the gap was the 404: it now has the `lost` section scene (snip, the leaf drops, the 404 tag keeps swinging) | done (2026-10-09) |
 | 8 | **UI/UX tightening**: ten pages checked at 1300px and 390px (home, Systems, an article, Storyboards, Stack, Shelf, Self, About, Tools, Sentences). Fixed: About was titled "Self"; Self and About forced an 86vh hero that left a screen of empty space above the title | done (2026-10-09) |
 | 9 | Home hero: looked at again with the Struck P in the header; the plate, replay and CTAs hold at both widths, no change needed | done (2026-10-09) |
+| 10 | **Prism hero** (owner direction 2026-11-05, inspired by a "Halo Prism" template, redrawn for PMP): a canvas prism refracts a beam labelled "AI" per wavelength into a spectrum; seven labelled bands link to their explainers (a human, evaluation, skills, tools, context, system prompt, prompt). Glass solid turns with the pointer, floor light, dust in dark mode; light mode is pastel light on paper; labels become a legend on phones; still frame for reduced motion; pauses off screen. The old hero plate moved below as "The method" (Cut the claims. Keep the craft.), above the systems map so the drifting leaf still falls downward | done (2026-11-05) |
 
 ## Decisions log
+
+- 2026-11-05: The owner asked for richer, immersive motion. The prism hero
+  is the one exception to "one thing moves at a time": after its intro it
+  responds to the pointer and drifts gently, and stops when off screen. Its
+  claims stay inside the seven articles it links to.
 
 - 2026-10-10: No old-style visuals left. Shelf items get drawn covers from
   one template (`shelf-covers.tsx`, exported with
