@@ -229,6 +229,11 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   Systems explainers. The old `Hero` is gone; its plate lives on as
   `MethodPlate` directly under the prism and above the systems map (the
   drifting leaf starts at `#hero-plate`). Visual track row 10.
+- **Delight pass (2026-11-05, branch `feat/cinematic-hero`, awaiting owner
+  review before merge)**: see visual track row 11. New pieces:
+  `HalftoneField`, `InfiniteWall` (+ `public/wall/` thumbnails from
+  `scripts/make-wall-thumbs.sh`; rerun after `export:storyboards`),
+  `ScrollVine`; SpotlightCard tilt/sheen; ThemeToggle view transition.
 
 - **H4 skills page reframe (2026-11-05, uncommitted)**: owner chose option B. `/systems/designing-reusable-ai-skills/` now answers "what are agent skills" first from the Agent Skills specification and Claude Code's skills docs (accessed 2026-11-05), then keeps the PMP design thesis under "What makes a skill reusable". Slug unchanged. AGY's brief and check live in `docs/drafts/agy/` (not for commit). Next content: H2 agent memory, brief ready.
 
