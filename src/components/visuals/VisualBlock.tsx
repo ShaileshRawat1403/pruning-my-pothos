@@ -9,6 +9,7 @@ import EvidenceMapVisual from "./EvidenceMapVisual";
 import StateChangeVisual from "./StateChangeVisual";
 import AssetVisual from "./AssetVisual";
 import SceneVisual from "./SceneVisual";
+import ChapterScene from "./ChapterScene";
 import { SCENE_IDS } from "../illustrations/scenes/ids";
 import { sceneSteps } from "../../lib/scene-steps";
 
@@ -28,6 +29,8 @@ interface VisualBlockProps {
    * needs the height of a page to scroll through, which a list does not have.
    */
   scene?: boolean;
+  /** Tell the scene as a full-screen chapter (flagship articles only, lib/content/chapters.ts). */
+  chapter?: boolean;
 }
 
 export default function VisualBlock({
@@ -35,6 +38,7 @@ export default function VisualBlock({
   provenanceSources = [],
   hideTakeaway = false,
   scene = false,
+  chapter = false,
 }: VisualBlockProps) {
   const asScene = scene && SCENE_IDS.has(visual.id);
 
@@ -78,7 +82,11 @@ export default function VisualBlock({
       }
     >
       {asScene ? (
-        <SceneVisual sceneId={visual.id} alt={visual.alt} steps={sceneSteps(visual)} />
+        chapter ? (
+          <ChapterScene sceneId={visual.id} alt={visual.alt} steps={sceneSteps(visual)} title={visual.takeaway} />
+        ) : (
+          <SceneVisual sceneId={visual.id} alt={visual.alt} steps={sceneSteps(visual)} />
+        )
       ) : (
         <div className="w-full flex items-center justify-center">
           {renderContent()}
