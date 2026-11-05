@@ -387,13 +387,15 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   2. URL Inspection sample done 2026-11-04 (33 URLs, `docs/audits/gsc-collection-2026-11-04/page-captures/url-inspection-sample-2026-11-04.txt`). All 24 backlog pages are still "Crawled - currently not indexed" with no recrawl since their export dates (21 on 2026-07-22). All 8 tag hubs still show "Excluded by noindex" from crawls dated 2026-03-18 to 2026-10-12, before they became hubs. `/tags/local-llm/` shows Indexing allowed and canonicals as N/A. The MCP Systems article is indexed. Next: owner decides whether to request indexing for the 8 hubs and the backlog pages (owner action only; GSC limits daily requests).
   3. Legacy Essay Recovery: Inventory original titles, text, and metadata for the 15 WordPress essays (lines 160–174) for owner editorial decisions.
   4. Post-Nov 3 Baseline Tracking: Monitor Search Console for fresh crawl and indexing signals from the November 3 metadata deployment before evaluating snippet changes.
-- PocketFabric film (2026-11-04, uncommitted): the owner's 91 s silent film is
-  re-encoded to `public/media/films/pocketfabric.mp4` (6.7 MB, poster beside it)
-  and embedded under the ledger on `/stack/pocketfabric/`, click to play, hidden
-  in print. Three film cards say more than the reports (GPU "exact" with F16
-  off, the green service console and "awake all night", the similarity card);
-  the caption names them. Owner to choose: keep the caption, or re-cut those
-  cards. Source file stays on the owner's Desktop.
+- PocketFabric film (2026-11-05): the owner's 91 s silent film, edited at the
+  owner's request so it claims no more than the reports: "The GPU is exact
+  with F16 off" now reads "passes"; "awake all night" now reads "back after a
+  reboot"; the console carries "// sample console. not a live status page.";
+  the similarity card carries "// a separate experiment. not in the two
+  reports.". Edited master on the owner's Desktop ("PocketFabric Film -
+  edited.mp4"), original untouched. Web encode at
+  `public/media/films/pocketfabric.mp4` (6.7 MB), embedded under the ledger on
+  `/stack/pocketfabric/`, click to play, hidden in print.
 - PocketFabric release: PR #5 carries the owner-approved 2026-11-01 deployment.
   Check its Actions run and the live `/stack/pocketfabric/` page for the outcome.
   The approval covers this release only; future production pushes need approval.
