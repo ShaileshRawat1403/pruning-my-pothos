@@ -152,11 +152,11 @@ RewriteRule ^gallery/?$ /canvases/ [R=301,L]
 RewriteRule ^wp-content/.+$ - [G,L]
 RewriteRule ^wp-(admin|login|json)(/.*)?$ - [G,L]
 
-# Legacy personal essays from the WordPress era. 13 URLs, 597 impressions,
-# zero clicks between them in 16 months, all off-strategy for the pivot.
-# They currently 404, which is a valid outcome: Google will drop them.
-# Uncomment to serve 410 instead, which drops them faster and shrinks the
-# "crawled - currently not indexed" backlog (193 pages). Reversible.
+# Legacy personal essays from the WordPress era: 15 URLs, 492 impressions,
+# 0 clicks in the 16-month GSC export ending 2026-11-01. They currently 404,
+# held pending the owner's review of the original text.
+# Uncommenting a rule serves 410 Gone instead, which drops the URL from
+# Google faster. Reversible. Owner decision only.
 # RewriteRule ^content-enablement-a-critical-strategy-for-change-management/?$ - [G,L]
 # RewriteRule ^the-anatomy-of-change-communications/?$ - [G,L]
 # RewriteRule ^artificial-intelligence-vs-natural-stupidity/?$ - [G,L]
