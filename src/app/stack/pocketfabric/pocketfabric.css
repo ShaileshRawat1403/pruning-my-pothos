@@ -34,6 +34,8 @@
 .pf-ledger strong { font-size: 2.6rem; font-weight: 750; letter-spacing: -.06em; }
 .pf-ledger span { font-size: .75rem; color: var(--text-secondary); line-height: 1.65; }
 .pf-story .pf-caption { margin-top: .75rem; }
+.pf-film { margin-top: 2.5rem; }
+.pf-film video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; border: 1px solid var(--card-border); border-radius: 4px; }
 .pf-chapters { display: flex; flex-wrap: wrap; gap: .65rem 1.5rem; font-size: .75rem; margin-top: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--card-border); }
 .pf-chapters a:hover, .pf-back:hover { text-decoration: underline; }
 .pf-section { padding-top: 5rem; scroll-margin-top: 7rem; }
@@ -143,7 +145,7 @@
 @media (prefers-reduced-motion: reduce) { .pf-story *, .pf-story *::before, .pf-story *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 @media print {
   .pf-story { color: #171717; }
-  .pf-controls, .pf-chapters, .pf-back { display: none; }
+  .pf-controls, .pf-chapters, .pf-back, .pf-film { display: none; }
   .pf-story p, .pf-story figcaption { color: #333; }
   .pf-section { break-inside: avoid-page; padding-top: 2rem; }
   .pf-phone-plate { transform: none; }
