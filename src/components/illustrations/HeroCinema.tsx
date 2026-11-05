@@ -99,6 +99,7 @@ export default function HeroCinema() {
     }
 
     let film: gsap.core.Timeline | null = null;
+    let look: ((ev: PointerEvent) => void) | null = null;
     const ctx = gsap.context(() => {
       // Starting positions for everything the film brings on.
       gsap.set(q(".hc-camera"), { transformOrigin: "50% 55%", scale: 1 });
@@ -192,6 +193,20 @@ export default function HeroCinema() {
             delay: 1.2,
           });
           gsap.to(q(".hc-plant"), { rotation: 1.2, svgOrigin: "200 410", duration: 2.8, yoyo: true, repeat: -1, ease: "sine.inOut" });
+          // He keeps an eye on you: pupils drift toward the cursor.
+          const eyes = q(".hc-eyes")[0] as Element | undefined;
+          if (eyes && window.matchMedia("(pointer: fine)").matches) {
+            const qx = gsap.quickTo(q(".hc-pupil"), "x", { duration: 0.35, ease: "power3" });
+            const qy = gsap.quickTo(q(".hc-pupil"), "y", { duration: 0.35, ease: "power3" });
+            look = (ev: PointerEvent) => {
+              const r = eyes.getBoundingClientRect();
+              const dx = ev.clientX - (r.left + r.width / 2), dy = ev.clientY - (r.top + r.height / 2);
+              const d = Math.hypot(dx, dy) || 1, k = Math.min(1, d / 240);
+              qx((dx / d) * 4 * k);
+              qy((dy / d) * 2.5 * k);
+            };
+            window.addEventListener("pointermove", look, { passive: true });
+          }
         });
         setDone(true);
       }, 6.1);
@@ -225,6 +240,7 @@ export default function HeroCinema() {
     }
 
     return () => {
+      if (look) window.removeEventListener("pointermove", look);
       io?.disconnect();
       window.clearTimeout(guard);
       ctx.revert();

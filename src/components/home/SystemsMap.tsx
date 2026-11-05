@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SpotlightCard from "../SpotlightCard";
+import HalftoneField from "../HalftoneField";
 import { Emblem, EMBLEM_W, EMBLEM_H } from "../illustrations/emblems";
 import { DeadpanDefs, Paper } from "../illustrations/deadpan";
 import { getSystemsMap } from "../../lib/content/systems-map";
@@ -18,9 +19,12 @@ export default function SystemsMap() {
     <section
       id="systems-map"
       aria-labelledby="systems-map-title"
-      className="scroll-mt-28 w-full border-b border-[color:var(--card-border)] bg-[color:var(--bg-color)]"
+      className="relative scroll-mt-28 w-full border-b border-[color:var(--card-border)] bg-[color:var(--bg-color)]"
     >
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12 py-16">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[300px] overflow-hidden" aria-hidden="true">
+        <HalftoneField />
+      </div>
+      <div className="relative max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12 py-16">
         <div className="flex justify-between items-end mb-10 flex-wrap gap-4">
           <div className="flex flex-col gap-1 max-w-2xl">
             <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[color:var(--text-muted)]">
