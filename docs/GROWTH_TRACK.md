@@ -125,7 +125,7 @@ memory, forward deployed engineering.
 | H1 | what is an agent harness | new: `/systems/what-is-an-agent-harness/`; links runtime-over-model, DAX | live 2026-10-16 |
 | H2 | agent memory explained (short-term, long-term, persistent) | new Systems page; links context windows, handoff | open |
 | H3 | context engineering | same as row 18 below | open |
-| H4 | what are agent skills (Claude skills, Agent Skills) | `/systems/designing-reusable-ai-skills/` and the skills cluster | Check the cluster answers it; retitle before writing anything new | open |
+| H4 | what are agent skills (Claude skills, Agent Skills) | `/systems/designing-reusable-ai-skills/` and the skills cluster | Check the cluster answers it; retitle before writing anything new | done 2026-11-05 (option B: definition first from the Agent Skills spec and Claude Code docs, PMP design thesis kept; awaiting push) |
 
 ### Tier 1: already showing at positions 8 to 30 (fastest wins)
 
@@ -146,8 +146,8 @@ memory, forward deployed engineering.
 | :- | :--- | :--- | -: | -: | :--- | :--- | :--- |
 | 9 | what are embeddings | "embedding dimension", "mean embedding", "embedding space", "embeddings explained", "vector embedding explained", "embedding math" | 25 | 28–70 | new: `/systems/what-are-embeddings/` | Vectors, dimensions, similarity; one drawn scene | live 2026-10-21 |
 | 10 | which Ollama models support tools | "which ollama models support tools", "ollama tools models", "ollama with tools", 8 more variants | 30 | 26–50 | new Shelf reference, dated | A dated list with how to check it yourself | open |
-| 11 | structured outputs with JSON Schema | "structured outputs", "structured output", "structured output json schema", "qwen structured output" | 290 | 61–77 | `/systems/structured-output-and-why-it-matters/` plus `/shelf/notes/structured-output-translation-playbook/` | A JSON Schema section with a worked example; local models (Qwen via Ollama) | open |
-| 12 | what is prompting | "prompting", "what is prompting", "prompting definition", "promting" | 115 | 39–41 | `/systems/prompting-is-not-the-skill-you-think-it-is/` | A plain definition in the first lines, then the article's point | open |
+| 11 | structured outputs with JSON Schema | "structured outputs", "structured output", "structured output json schema", "qwen structured output" | 290 | 61–77 | `/systems/structured-output-and-why-it-matters/` plus `/shelf/notes/structured-output-translation-playbook/` | A JSON Schema section with a worked example; local models (Qwen via Ollama) | live 2026-11-03 |
+| 12 | what is prompting | "prompting", "what is prompting", "prompting definition", "promting" | 115 | 39–41 | `/systems/prompting-is-not-the-skill-you-think-it-is/` | A plain definition in the first lines, then the article's point | live 2026-11-03 |
 | 13 | what is a context window | "context window", "all llms have a context window" | 6 | 9–37 | `/systems/context-windows-as-working-memory/` | Definition first | open |
 
 ### Tier 3: new terms close to the site's intent (no data yet)
@@ -201,3 +201,8 @@ Never chase a query only because it has volume.
 | 2026-10-21 | 9 | `/systems/what-are-embeddings/` | what are embeddings | 25, 28–70; old URL 20 | retrieval-augmented-generation (links to it) | live 2026-10-21 |
 
 | 2026-10-31 | owner-requested research distribution | `/about/` | PocketFabric reports | n/a | author profile | links to the two published Zenodo reports; no search-ranking or reliability claims |
+| 2026-11-03 | 11 | `/systems/structured-output-and-why-it-matters/` | structured outputs with JSON Schema | 290, 61–77 | itself | Draft 2020-12 schema contract validating invoice payload added; linked /tools/prompt-to-json/; updatedAt 2026-11-03; live 2026-11-03 |
+| 2026-11-03 | 12 | `/systems/prompting-is-not-the-skill-you-think-it-is/` | what is prompting | 115, 39–41 | itself | Bold core definition under "What a prompt actually is"; updatedAt 2026-11-03; live 2026-11-03 |
+| 2026-11-03 | AEO/GEO Pass | Sentences detail pages, Systems, Self | structured data, epistemic integrity, metadata hygiene | n/a | (across) | BreadcrumbList JSON-LD across Sentences; Self semantic-cache incident reframed to illustrative; MT-Bench and contract test suite evidence added to evaluation article; removed manufactured modifiedTime fallback; live 2026-11-03 |
+| 2026-11-04 | GSC Audit | Domain-wide (763 URLs) | GSC reconciliation & WordPress legacy audit | n/a | (across) | Verified 278 indexed, 485 excluded (189 intentional noindex + 8 stale hub verdicts, 87 non-slash + 68 slash redirects, 86 crawled-not-indexed, 46 404/410, 1 soft-404). Systems articles: 4 confirmed indexed by URL Inspection (incl. what-is-mcp, no Performance row), 34 of 35 in 16-mo Pages.csv. 33-URL inspection sample: 24 backlog pages still crawled-not-indexed, 8 tag hubs still on stale noindex verdicts. 16-mo baseline: 416 clicks, 60.6k imp; skills article drives 70.2% of clicks; 15 legacy essays had 492 imp (0 clicks). Investigation closed; technical release deferred. |
+| 2026-11-05 | H4 | `/systems/designing-reusable-ai-skills/` | what are agent skills | 0 clicks, 138 imp, pos 7.59 (16 mo) | itself | Retitled "What Are Agent Skills, and What Makes One Reusable?"; new opening section from agentskills.io spec and Claude Code docs (3 external claims); PMP definition kept as the design sense; cover re-exported; related-card titles updated on 3 pages; updatedAt 2026-11-05; not yet live |

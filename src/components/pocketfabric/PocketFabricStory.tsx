@@ -98,6 +98,13 @@ export default function PocketFabricStory() {
     </div>
     <p className="pf-caption">Historical observations through 29 October 2026. This page is an illustrated account of that work, not a live status page. <Source>Research §§3–4</Source></p>
 
+    <figure className="pf-film">
+      <video controls preload="none" playsInline poster="/media/films/pocketfabric.jpg" width={1920} height={1080} aria-label="Silent 90-second film by the author: a retired OnePlus 9 becomes PocketFabric Node 1, moves its services from PRoot into a Debian chroot, works within a kernel without namespaces, then tests recovery and the GPU, and ends on what remains unproven.">
+        <source src="/media/films/pocketfabric.mp4" type="video/mp4" />
+      </video>
+      <figcaption>The author’s 90-second film of the same work, without sound. Its console is a sample, and its similarity card marks a separate experiment; the reports remain the record. <Source>Research §§3–6</Source></figcaption>
+    </figure>
+
     <nav className="pf-chapters" aria-label="PocketFabric sections">
       <a href="#pf-record">The record</a><a href="#pf-migration">The migration</a><a href="#pf-failure">The failure</a><a href="#pf-boundary">The boundary</a><a href="#pf-gpu">The GPU</a><a href="#pf-reports">The reports</a>
     </nav>

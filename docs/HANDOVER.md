@@ -221,7 +221,81 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 - Before making LanguageOps public, see section 9: its history holds
   material the owner may not want public.
 
-## 8. Where things stand (2026-11-01)
+## 8. Where things stand (2026-11-05)
+
+- **H4 skills page reframe (2026-11-05, uncommitted)**: owner chose option B. `/systems/designing-reusable-ai-skills/` now answers "what are agent skills" first from the Agent Skills specification and Claude Code's skills docs (accessed 2026-11-05), then keeps the PMP design thesis under "What makes a skill reusable". Slug unchanged. AGY's brief and check live in `docs/drafts/agy/` (not for commit). Next content: H2 agent memory, brief ready.
+
+- **WordPress Legacy & Search Console Reconciliation Audit (2026-11-04)**: Completed
+  Phase 2 reconciliation of all 7 GSC raw exports (October 23, 2026 coverage
+  baseline, 16-month performance data) against production routing and codebase.
+  - Overall status: Google tracks 763 total URLs across `pruningmypothos.com`
+    (278 indexed, 485 excluded across 5 distinct categories).
+  - Systems articles status: 3 are confirmed indexed by URL Inspection
+    (`designing-reusable-ai-skills`, `observability-first-ai-systems`,
+    `a-simple-tokenizer`); 34 of 35 have a row in the 16-month `Pages.csv`
+    (impressions in that window do not prove current indexing);
+    `/systems/what-is-mcp-model-context-protocol/` (publishDate 2026-10-14)
+    has no Performance row; URL Inspection on 2026-11-04 shows it indexed
+    (last crawl 2026-11-03). 4 of 35 are therefore confirmed indexed by
+    inspection. The previously reported missing In-Chat AI Apps article was
+    an unverified phantom slug (`in-chat-ai-apps-why-they-stall-at-the-interface`);
+    the canonical article is `/systems/architecture-of-in-chat-ai-apps/` and
+    appears in Search Performance (pos 9.4, 28 impressions, 1 click).
+  - Exclusions reconciliation:
+    - 197 `noindex` URLs: 189 match editorial doctrine (180 non-hub tag
+      taxonomy paths with `noindex: !isHub` plus 9 shelf singles under
+      `NOINDEX_SHELF_SINGLES`); 8 are tag hubs in the live sitemap currently
+      serving `<meta name="robots" content="index, follow">` (`/tags/mcp/`,
+      `/tags/seo/`, `/tags/identity/`, `/tags/music/`, `/tags/aeo/`,
+      `/tags/design/`, `/tags/language/`, `/tags/architecture/`) whose GSC
+      verdicts predate their transition to hubs (last crawled 2026-03-18 to
+      2026-10-12) and represent stale verdicts awaiting recrawl.
+    - 155 redirect URLs: 87 non-trailing-slash normalizations (0 clicks,
+      20 imp on those exact URLs in Pages.csv) and 68 trailing-slash redirects (37 sticky notes to
+      `/sentiments/` [0 clicks, 52 imp, hypothesized trigger for 1 Soft 404],
+      20 Systems 1:1 consolidations [18 clicks, 7.9k imp], and 11 other path
+      and protocol redirects).
+    - 46 Not found (404) URLs: 23 are retired standalone scene files returning
+      HTTP 410 Gone (grouped under 404 by GSC); remainder are legacy portfolio/tags.
+    - 86 Crawled - currently not indexed: Down from 398 on 2026-08-07, 193 on
+      2026-08-22 to 08-28, and 92 on 2026-10-18; only 24 match active canonical sitemap URLs (21 last crawled
+      2026-07-22; 1 on 2026-10-19, 1 on 2026-05-10, 1 on 2026-05-08), while 62
+      are legacy portfolio, retired tags, shelf singles or noise.
+    - 1 Soft 404: `/sticky-notes/note-13/` from a single crawl on March 5, 2026.
+  - Search traffic concentration: 416 clicks and 60.6k impressions over 16 months.
+    `/systems/skills-vs-prompts-vs-agents/` generated 292 clicks (70.2% of all domain
+    clicks) and 25,756 impressions. `/resources/presentations/ContentOpsPDF.pdf`
+    is the #2 asset domain-wide (8,383 impressions, 5 clicks). The 15 legacy essays
+    earned 492 impressions (0 clicks in the 16-month export ending 2026-11-01); none
+    of the 15 appears in any of the five exported not-indexed lists (02-06).
+  - Standing decision: Close the WordPress investigation. Skip the proposed
+    technical `.htaccess` release for now. Do not introduce a `/skills` redirect
+    (zero search demand for this bare slug; defer unrequested redirects). Hold all
+    snippet rewrites until post-Nov 3 performance matures. Pivot to targeted
+    verification of the 33-URL sample and editorial review of original text for
+    the 15 legacy essays (holding at 404 pending owner review).
+
+- **AEO, GEO, Schema and Epistemic Integrity Release (2026-11-03)**: PR #6 merged
+  to `main` with owner authorization. GitHub Actions CI and Deploy to Hostinger
+  succeeded; live site verified on Hostinger and Cloudflare.
+  - Epistemic integrity: reframed the semantic cache debug incident
+    (`src/content/self/debugging-a-semantic-cache-miss.md`) as an explicit
+    illustrative scenario with an illustrative mitigation; editorial audit
+    register is 100% clean (61 Green, 0 Amber, 0 Red, 1 Illustrative).
+  - Structured data: injected `BreadcrumbList` JSON-LD schema across all
+    Sentences detail pages (`src/app/sentences/[slug]/page.tsx`).
+  - Metadata hygiene: eliminated manufactured `article:modified_time` fallbacks
+    across Systems and Self; Self emits genuine `publishedTime` only; Systems
+    emits `article:modified_time` only when `updatedAt` is defined.
+  - Search-driven improvements: added Draft 2020-12 JSON Schema contract example
+    to `/systems/structured-output-and-why-it-matters/` (Growth row 11) and linked
+    `/tools/prompt-to-json/`; added bold definition to
+    `/systems/prompting-is-not-the-skill-you-think-it-is/` (Growth row 12); added
+    empirical citations (MT-Bench arXiv:2306.05685, repository test suite SHA
+    5e62ad6) to `/systems/evaluation-is-a-human-problem/`.
+  - Architecture & audit docs: added `docs/agent-instructions/brief-mcp-vs-api-vs-webmcp.md`
+    and `docs/audits/seo-aeo-geo-audit-2026-11.md`. Decoupled 14 legacy 404 URLs
+    from the GSC 94-page crawl backlog, treating them as separate findings.
 
 - PocketFabric website adaptation (2026-11-01): `/stack/pocketfabric/` is a native
   Stack case study, linked from Stack/About and sitemap. The supplied HTML stays
@@ -306,6 +380,22 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 
 ## 9. Open items
 
+- PR #6 (AEO, GEO, schema, epistemic integrity): merged into `main` and deployed to Hostinger 2026-11-03. Live site verified on Hostinger origin and Cloudflare edge.
+- WordPress Legacy Footprint & GSC Reconciliation: Investigation closed 2026-11-04. Research artifacts documented in `docs/audits/wordpress-legacy-investigation-2026-11.md` and `docs/audits/legacy-url-disposition-2026-11.csv`. Proposed technical `.htaccess` release skipped; no production changes deployed.
+- Next immediate tasks:
+  1. GSC Housekeeping (Owner action): Remove obsolete `sitemap_index.xml` submission in Search Console Sitemaps interface.
+  2. URL Inspection sample done 2026-11-04 (33 URLs, `docs/audits/gsc-collection-2026-11-04/page-captures/url-inspection-sample-2026-11-04.txt`). All 24 backlog pages are still "Crawled - currently not indexed" with no recrawl since their export dates (21 on 2026-07-22). All 8 tag hubs still show "Excluded by noindex" from crawls dated 2026-03-18 to 2026-10-12, before they became hubs. `/tags/local-llm/` shows Indexing allowed and canonicals as N/A. The MCP Systems article is indexed. Next: owner decides whether to request indexing for the 8 hubs and the backlog pages (owner action only; GSC limits daily requests).
+  3. Legacy Essay Recovery: Inventory original titles, text, and metadata for the 15 WordPress essays (lines 160–174) for owner editorial decisions.
+  4. Post-Nov 3 Baseline Tracking: Monitor Search Console for fresh crawl and indexing signals from the November 3 metadata deployment before evaluating snippet changes.
+- PocketFabric film (2026-11-05): the owner's 91 s silent film, edited at the
+  owner's request so it claims no more than the reports: "The GPU is exact
+  with F16 off" now reads "passes"; "awake all night" now reads "back after a
+  reboot"; the console carries "// sample console. not a live status page.";
+  the similarity card carries "// a separate experiment. not in the two
+  reports.". Edited master on the owner's Desktop ("PocketFabric Film -
+  edited.mp4"), original untouched. Web encode at
+  `public/media/films/pocketfabric.mp4` (6.7 MB), embedded under the ledger on
+  `/stack/pocketfabric/`, click to play, hidden in print.
 - PocketFabric release: PR #5 carries the owner-approved 2026-11-01 deployment.
   Check its Actions run and the live `/stack/pocketfabric/` page for the outcome.
   The approval covers this release only; future production pushes need approval.
