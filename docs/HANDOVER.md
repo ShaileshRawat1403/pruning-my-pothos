@@ -513,9 +513,24 @@ Agent work, in order (confirm with the owner each session):
    Clarity has too few mobile views to measure behaviour (2 on the skills
    page in 30 days). Waiting for the owner's review before any landing
    page changes.
-   Do not change the skills-vs-prompts-vs-agents page before the December
-   review (last edit 2026-11-05); check Search Console's generative AI
-   report for "prompt vs skill vs agent" first.
+   Update 2026-11-17: privacy checked against real GA requests (no email
+   address in any of them; GA's own `form_submit` never fires on the
+   Letters form). `feat/tracking-events` pushed as PR #13 for the owner's
+   review; the privacy page's "Updated" date must be the deployment date.
+   After it deploys, confirm each event reaches GA4 once, including a
+   prism band link that navigates away. GA4 settings stay with the owner.
+   Option A (short answer before the cover on phones) is built as an
+   opt-in `answerFirst` flag on the local branch `feat/answer-first-mobile`
+   (not pushed); it ships with the next new article. The cookie banner
+   stays as it is, so first visitors see the answer only after dismissing
+   it. Treat it as an editorial improvement; December reports raw counts
+   without crediting the layout.
+   Skills page title: keep it through the hold. In December, compare the
+   page's Search Console queries, impressions, clicks and positions before
+   proposing a title; show the on-page headline and the search title
+   separately if they differ, and keep the page's coverage of workflows.
+   Check Search Console's generative AI report for "prompt vs skill vs
+   agent" first.
 3. Visual track and builder track continue per their files.
 4. DAX approval and diff stills, when the owner allows a model run.
 
