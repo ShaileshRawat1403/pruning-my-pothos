@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import { NEWSLETTER_CONFIG, isNewsletterConfigured } from "@/lib/newsletter/config";
+import { track } from "@/lib/analytics/track";
 
 type Variant = "hero" | "footer" | "inline";
 
@@ -127,6 +128,10 @@ export default function NewsletterForm({
 
       const data = await res.json();
       if (data.status === "success") {
+        // Kit accepted the address and sent its confirmation email. This is
+        // not a confirmed subscription: Kit's subscriber count is the source
+        // for that. Never send the address itself.
+        track("letters_signup_submitted", { form_location: variant });
         setStatus("success");
       } else {
         const msg =

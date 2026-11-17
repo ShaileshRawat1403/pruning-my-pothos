@@ -8,7 +8,7 @@ export const metadata = constructMetadata({
   path: "/privacy",
 });
 
-const UPDATED = "9 October 2026";
+const UPDATED = "17 November 2026";
 
 /**
  * The privacy page. Plain statements of what the site does; keep it in step
@@ -31,7 +31,9 @@ export default function PrivacyPage() {
       <ul>
         <li>
           <strong>Google Analytics 4</strong> counts page views and records things like the page, the referring site, the device
-          type and an approximate location derived from the connection.
+          type and an approximate location derived from the connection. It also counts a few clicks on this site: which home page
+          link you followed, the part buttons on the home page prism, and that a newsletter form was sent. Your email address
+          never goes to Google Analytics.
         </li>
         <li>
           <strong>Microsoft Clarity</strong> records clicks, scrolling and anonymised session replays to produce heatmaps. Clarity
