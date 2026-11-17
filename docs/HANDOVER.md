@@ -101,6 +101,21 @@ slashes), MDX via content-collections, Tailwind, a Zod editorial contract.
   and roles, never about identity; no sexual humour.
 - **Stack shows** DAX, LanguageOps and PaneTera. Verb is held back until the
   owner says it is ready. GoATee is a candidate Stack entry (growth row F6).
+- **Measurement (2026-11-17)**: the two headline metrics are Google Search
+  clicks and GA4 engaged sessions, the latter with known owner traffic
+  excluded and any remaining uncertainty flagged. 15k monthly impressions
+  stays the December checkpoint; the December review reports the gap.
+  Reviews show raw counts beside every rate. At about 30 engaged sessions a
+  month, a change is reported as seen, not credited to a UX edit, unless
+  the evidence supports it. A confirmed Letters subscription is Kit's count
+  only; site events are labelled as submits or redirects. Tracking work and
+  read-only UX diagnosis run in parallel; existing search landing pages are
+  not changed until the owner has reviewed the diagnosis; new pages keep
+  the two-a-week cadence where it fits, with publication dates logged.
+- **UX focus (2026-11-17)**: first the article opening screen on mobile
+  (does it answer the query that brought the reader), then the
+  end-of-article next step; a Letters redesign only if the evidence asks
+  for it. The drawn, deadpan identity stays.
 
 ## 4. Information architecture
 
@@ -481,9 +496,23 @@ Agent work, in order (confirm with the owner each session):
    reference) or H2 (agent memory). Snapshot of Search Console, GA4 and
    Clarity before the 2026-10-21 deploy is in section 8. F5 (how to
    become an FDC) from the owner's resume, posts and an interview.
-2. Done 2026-11-17 (monthly review, logged). Proposed and waiting for the
-   owner: a `sign_up` event in `NewsletterForm.tsx` (success branch, line
-   129) and `select_content` / `prism_block` events in `PrismHero.tsx`.
+2. Done 2026-11-17 (monthly review, logged). Tracking events are built on
+   the local branch `feat/tracking-events` (not pushed, waiting for the
+   owner's review of the diff): `select_content` for home page links
+   (`HomeClickTracking.tsx`), `prism_block` in `PrismHero.tsx`, and
+   `letters_signup_submitted` in `NewsletterForm.tsx` (Kit accepted the
+   address; not a confirmed subscription, so it is not named `sign_up`),
+   plus privacy page wording. Each fired once per action against a local
+   build; the live check after deploy is still owed. Storyboard PDFs stay
+   on GA4's `file_download`.
+   Mobile diagnosis (local build, 390px wide, read-only): on all six
+   Systems landing pages checked, the short answer starts 714 to 847px
+   down, below the cover drawing, so it is under the first phone screen
+   (about 660px); the description above the cover carries a compressed
+   answer. A first-visit consent banner covers 179px of that screen.
+   Clarity has too few mobile views to measure behaviour (2 on the skills
+   page in 30 days). Waiting for the owner's review before any landing
+   page changes.
    Do not change the skills-vs-prompts-vs-agents page before the December
    review (last edit 2026-11-05); check Search Console's generative AI
    report for "prompt vs skill vs agent" first.

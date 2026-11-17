@@ -87,6 +87,12 @@ From Search Console, last 28 days against the 28 before:
 - Rows logged `live` for 4+ weeks: record their position now in the log.
 - GA4: visits from chatgpt.com, perplexity.ai, copilot.microsoft.com and
   bing.com/chat (AI answers); clicks from linkedin.com and x.com.
+- Headline metrics (owner, 2026-11-17): Google Search clicks and GA4
+  engaged sessions, with known owner traffic excluded and the remaining
+  uncertainty flagged. GA4 users are inflated by referral spam and
+  0-second bot traffic; do not lead with them. Show raw counts beside every
+  rate, list the pages published in the window, and do not credit a change
+  to a UX edit unless the evidence supports it.
 
 ## Keyword map
 
