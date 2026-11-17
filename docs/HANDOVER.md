@@ -223,6 +223,21 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
 
 ## 8. Where things stand (2026-11-05)
 
+- **Traffic review (2026-11-17)**: first monthly review, read-only, from
+  GA4, Search Console, Bing, Clarity and Cloudflare in the owner's Chrome.
+  Findings are in the growth log; numbers and their sources are in the
+  owner's Claude artifact "Pothos Traffic Review" (fixed CSV snapshots,
+  refreshed by hand each month, no automation). Measurement facts: the site
+  sends no custom events. GA4 enhanced measurement gives `page_view` on
+  load and on in-app navigation (once each), `file_download` on storyboard
+  PDF links (once) and `form_submit`; verified live 13:51 to 13:53 UTC from
+  the owner's desktop Chrome with the owner flag turned off, then restored.
+  GA4 users are inflated by referral spam (aocr.org) and 0-second
+  US/Singapore desktop traffic, so read engaged sessions. Cloudflare zone
+  analytics mixes hosts (`verb` is about half the requests): filter Host
+  equals `pruningmypothos.com`. Not measured: Letters signup success (Kit
+  only), which homepage or prism link a visitor used, prism block buttons.
+
 - **Prism hero (2026-11-05)**: the home page opens with `PrismHero`
   (`src/components/home/PrismHero.tsx`, canvas, no library): a beam
   labelled "AI" refracts into a spectrum whose seven bands link to their
@@ -453,15 +468,25 @@ Owner actions:
 4. F5 ("how to become an FDC"): resume and posts received 2026-10-16;
    answer the interview questions and the two open questions in section 8.
 5. Search Console: remove the stale `sitemap_index.xml`; star
-   `file_download` as a key event in GA4 once it has fired.
+   `file_download` as a key event in GA4 (it fired on 2026-11-17).
+6. Open `https://pruningmypothos.com/?pmp-owner=on` once on the phone, so
+   the owner's own reading stops counting (the desktop Chrome already has
+   the flag).
+7. Kit: note the confirmed subscriber count each month, and check the
+   form's post-confirmation redirect points at `/newsletter/welcome/`
+   (that page had 0 views from 17 Aug to 16 Nov).
 
 Agent work, in order (confirm with the owner each session):
 1. Growth: row 10 (which Ollama models support tools, dated Shelf
    reference) or H2 (agent memory). Snapshot of Search Console, GA4 and
    Clarity before the 2026-10-21 deploy is in section 8. F5 (how to
    become an FDC) from the owner's resume, posts and an interview.
-2. Review the new pages in Search Console from mid-November against the
-   log in `docs/GROWTH_TRACK.md`.
+2. Done 2026-11-17 (monthly review, logged). Proposed and waiting for the
+   owner: a `sign_up` event in `NewsletterForm.tsx` (success branch, line
+   129) and `select_content` / `prism_block` events in `PrismHero.tsx`.
+   Do not change the skills-vs-prompts-vs-agents page before the December
+   review (last edit 2026-11-05); check Search Console's generative AI
+   report for "prompt vs skill vs agent" first.
 3. Visual track and builder track continue per their files.
 4. DAX approval and diff stills, when the owner allows a model run.
 
