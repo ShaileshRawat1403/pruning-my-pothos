@@ -98,6 +98,44 @@ export default async function SystemsDetailPage({ params }: PageProps) {
   ]);
   const faqSchema = faqs.length > 0 ? getFaqSchema({ faq: faqs }) : null;
 
+  // The cover and its storyboard line, in their usual order. Kept in one
+  // place so the answer-first layout below can reuse them unchanged.
+  const coverBlock = (
+    <>
+      {/* Cover. Drawn live from the article's emblem (the same drawing as its storyboard cover), so its
+          text stays text and it reads the same in either theme. The PNG of
+          the same drawing is only for link previews. Where the article has a
+          film (illustrations/films/), the cover plays it once, then rests. */}
+      <figure className="m-0 w-full overflow-hidden rounded-sm border border-[#D9D4C6]">
+        <CoverFilm slug={slug}>
+          <ArticleCover slug={slug} title={system.title} kicker={coverKicker(slug)} hero />
+        </CoverFilm>
+      </figure>
+
+      {/* Article -> storyboard. The storyboard is its own entity, linked
+          once, in one line under the cover, so the prose starts sooner. */}
+      {storyboard && (
+        <p className="m-0 -mt-4 flex flex-wrap items-baseline gap-x-5 gap-y-1 font-mono text-xs text-[color:var(--text-muted)]">
+          <span className="font-bold uppercase tracking-[0.18em]">
+            Storyboard &middot; {storyboard.frames.length} frames
+          </span>
+          <Link
+            href={`/storyboards/${storyboard.slug}/`}
+            className="font-semibold text-[color:var(--text-primary)] underline underline-offset-4"
+          >
+            See this argument drawn &rarr;
+          </Link>
+          <a
+            href={storyboard.pdf}
+            className="underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)]"
+          >
+            PDF
+          </a>
+        </p>
+      )}
+    </>
+  );
+
   return (
     <article className="max-w-[840px] mx-auto py-8 flex flex-col gap-8">
       <script
@@ -173,40 +211,26 @@ export default async function SystemsDetailPage({ params }: PageProps) {
         </div>
       </header>
 
-      {/* Cover. Drawn live from the article's emblem (the same drawing as its storyboard cover), so its
-          text stays text and it reads the same in either theme. The PNG of
-          the same drawing is only for link previews. Where the article has a
-          film (illustrations/films/), the cover plays it once, then rests. */}
-      <figure className="m-0 w-full overflow-hidden rounded-sm border border-[#D9D4C6]">
-        <CoverFilm slug={slug}>
-          <ArticleCover slug={slug} title={system.title} kicker={coverKicker(slug)} hero />
-        </CoverFilm>
-      </figure>
-
-      {/* Article -> storyboard. The storyboard is its own entity, linked
-          once, in one line under the cover, so the prose starts sooner. */}
-      {storyboard && (
-        <p className="m-0 -mt-4 flex flex-wrap items-baseline gap-x-5 gap-y-1 font-mono text-xs text-[color:var(--text-muted)]">
-          <span className="font-bold uppercase tracking-[0.18em]">
-            Storyboard &middot; {storyboard.frames.length} frames
-          </span>
-          <Link
-            href={`/storyboards/${storyboard.slug}/`}
-            className="font-semibold text-[color:var(--text-primary)] underline underline-offset-4"
-          >
-            See this argument drawn &rarr;
-          </Link>
-          <a
-            href={storyboard.pdf}
-            className="underline underline-offset-4 decoration-[color:var(--card-border)] hover:text-[color:var(--text-primary)]"
-          >
-            PDF
-          </a>
-        </p>
+      {/* Slot 04, the retrieval unit, above the prose on purpose. With
+          `answerFirst` (opt-in per article, owner decision 2026-11-17) it
+          also comes before the cover on phones, with the cover directly
+          below; from the sm breakpoint up it returns below the cover. It is
+          first in the HTML either way for that article, so screen readers
+          and answer engines meet the answer first. Articles without the
+          flag keep their existing layout. */}
+      {system.answerFirst && system.shortAnswer ? (
+        <div className="flex flex-col gap-8">
+          <div className="sm:order-last">
+            <AnswerBlock>{system.shortAnswer}</AnswerBlock>
+          </div>
+          {coverBlock}
+        </div>
+      ) : (
+        <>
+          {coverBlock}
+          {system.shortAnswer && <AnswerBlock>{system.shortAnswer}</AnswerBlock>}
+        </>
       )}
-
-      {/* Slot 04 — the retrieval unit. Above the prose on purpose. */}
-      {system.shortAnswer && <AnswerBlock>{system.shortAnswer}</AnswerBlock>}
 
       {system.useValue && (
         <aside className="explainer-answer" aria-label="What you can do after reading">

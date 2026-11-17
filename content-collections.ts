@@ -60,6 +60,12 @@ const systems = defineCollection({
     // because an answer engine will lift them out. No backward pronouns.
     shortAnswer: z.string().min(80).max(700).optional(),
 
+    // Layout, opt-in per article: on phones the short answer comes before
+    // the cover, with the cover directly below; wider screens keep the
+    // cover first. Off by default so pages already in search keep their
+    // layout (owner decision 2026-11-17: new articles first).
+    answerFirst: z.boolean().optional(),
+
     // Slot 05. One everyday mechanism the reader already trusts.
     // `breaksWhen` is not optional within the object: an analogy without
     // its failure point is a claim nobody has checked.

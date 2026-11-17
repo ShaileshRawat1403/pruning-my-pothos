@@ -43,7 +43,11 @@ written to catch them.
    - Title: the query in plain words, at most 60 characters with the site
      suffix dropped automatically when it does not fit (`src/lib/seo/metadata.ts`).
    - `shortAnswer` answers the query in two or three sentences; the first
-     paragraph of the body says the same thing.
+     paragraph of the body says the same thing. New Systems pages also set
+     `answerFirst: true`, so phones show the short answer before the cover
+     (owner, 2026-11-17). Pages already in search keep their layout until
+     the owner decides otherwise. Check the page at 390px wide on a first
+     visit, with the cookie banner showing.
    - `description` 120 to 160 characters, says what the reader gets.
    - At least one declared visual with a scroll scene
      (`docs/STORYBOARD_AUTHORING.md`); a cover with its own emblem.
