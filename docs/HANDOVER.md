@@ -519,6 +519,17 @@ Agent work, in order (confirm with the owner each session):
    review; the privacy page's "Updated" date must be the deployment date.
    After it deploys, confirm each event reaches GA4 once, including a
    prism band link that navigates away. GA4 settings stay with the owner.
+   Done 2026-11-18: PR #13 merged (merge commit `7f187a8`, privacy page
+   dated 18 November 2026), deployed (run 44226679647; live from 03:07
+   UTC after Hostinger's pull and the 10 minute cache). Live check in GA4
+   Realtime: `prism_block`, `letters_signup_submitted` and
+   `select_content` each counted once; `select_content` arrived with
+   `link_role = prism_band` from the evaluation band, whose click
+   navigated away. Kit's response was faked in the page for the check,
+   so no subscriber was created. These test hits are the agent's, from
+   03:08 to 03:10 UTC on 18 November (home page, footer form, evaluation
+   article); leave them out of the December review. The owner flag was
+   restored afterwards.
    Option A (short answer before the cover on phones) is built as an
    opt-in `answerFirst` flag on the local branch `feat/answer-first-mobile`
    (not pushed); it ships with the next new article. The cookie banner
