@@ -199,8 +199,12 @@ export default async function SystemsDetailPage({ params }: PageProps) {
     </>
   );
 
+  const answerFirst = Boolean(system.answerFirst && system.shortAnswer);
+
   return (
-    <article className="max-w-[840px] mx-auto py-8 flex flex-col gap-8">
+    <article
+      className={`max-w-[840px] mx-auto py-8 flex flex-col gap-8${answerFirst ? " max-sm:pt-4" : ""}`}
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -224,8 +228,9 @@ export default async function SystemsDetailPage({ params }: PageProps) {
 
           `answerFirst` (opt-in per article, owner decisions 2026-11-17 and
           2026-11-18): on phones the answer comes straight after the title,
-          then the description and tags, then the cover, so that on a first
-          visit at 390px the answer starts above the consent banner. From
+          then the kicker row, description and tags, then the cover, and the
+          article's top padding is halved, so that on a first visit at 390px
+          the answer's opening sentence sits above the consent banner. From
           the sm breakpoint up the order is the default one again. The DOM
           order is the phone order, so screen readers and answer engines
           meet the answer right after the title; the answer holds no links,
@@ -233,19 +238,17 @@ export default async function SystemsDetailPage({ params }: PageProps) {
           its own vertical margin here; from sm up it keeps it, so the
           spacing matches the default opening. Articles without the flag keep
           their existing layout. */}
-      {system.answerFirst && system.shortAnswer ? (
+      {answerFirst ? (
         <div className="flex flex-col gap-4">
-          <header className="flex flex-col gap-4">
-            {metaRow}
-            {titleEl}
-          </header>
-          <div className="answer-first-slot mt-2 sm:order-4 sm:mt-4">
+          <header className="flex flex-col gap-4 sm:order-2">{titleEl}</header>
+          <div className="answer-first-slot sm:order-5 sm:mt-4">
             <AnswerBlock>{system.shortAnswer}</AnswerBlock>
           </div>
-          <div className="mt-2 flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6 sm:order-2 sm:mt-0">
+          <div className="mt-2 sm:order-1 sm:mt-0">{metaRow}</div>
+          <div className="flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6 sm:order-3">
             {intro}
           </div>
-          <div className="mt-4 flex flex-col gap-8 sm:order-3">{coverBlock}</div>
+          <div className="mt-4 flex flex-col gap-8 sm:order-4">{coverBlock}</div>
         </div>
       ) : (
         <>

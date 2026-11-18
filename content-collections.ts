@@ -62,7 +62,8 @@ const systems = defineCollection({
 
     // Layout, opt-in per article: on phones the short answer comes straight
     // after the title (above the consent banner on a first visit), then the
-    // description, tags and cover; wider screens keep the default order.
+    // kicker row, description, tags and cover; wider screens keep the
+    // default order.
     // Off by default so pages already in search keep their layout (owner
     // decisions 2026-11-17 and 2026-11-18: new articles first).
     answerFirst: z.boolean().optional(),

@@ -45,13 +45,17 @@ written to catch them.
    - `shortAnswer` answers the query in two or three sentences; the first
      paragraph of the body says the same thing. New Systems pages also set
      `answerFirst: true`, so phones show the short answer straight after
-     the title, then the description, tags and cover (owner, 2026-11-17
-     and 2026-11-18). Pages already in search keep their layout until the
-     owner decides otherwise. Check the page at 390px wide on a first
-     visit, with the cookie banner showing: the answer's label and first
-     lines must sit above the banner. With a two-line title about four
-     lines (roughly 130 characters) show, so keep the first sentence of
-     `shortAnswer` within that.
+     the title, then the kicker row, description, tags and cover (owner,
+     2026-11-17 and 2026-11-18). Pages already in search keep their layout
+     until the owner decides otherwise. Writing guidance: keep the first
+     sentence of `shortAnswer` to about 130 characters and the title to
+     four lines at 390px (the longest current title, 65 characters, is
+     four). The rendered check decides, not the count: at 390 by 660 on a
+     first visit, with the cookie banner showing, the whole first sentence
+     must sit above the banner. Measured 2026-11-18 on all 35 current
+     articles with the flag forced on: every first sentence of 130
+     characters or fewer passed, at every title length; the five that
+     failed were 166 to 230 characters.
    - `description` 120 to 160 characters, says what the reader gets.
    - At least one declared visual with a scroll scene
      (`docs/STORYBOARD_AUTHORING.md`); a cover with its own emblem.
