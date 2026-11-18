@@ -287,6 +287,26 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   removes the strip on the skills page (249px), training vs inference
   (95px) and agent intent to governed execution (50px); five other pages
   with tables measured the same before and after; no text changes.
+- **Publication round 2026-11-18 (owner-approved, merged in order, each
+  verified live before the next)**:
+  - PR #20, content table width (merge `eb1c0a6`): live 13:44:41 UTC.
+    The skills page's cached HTML still pointed at the old stylesheet
+    until 13:50:46 UTC; then live tables measured gap-free at 1280px
+    and unchanged at 390px.
+  - PR #17, `/systems/what-is-agent-memory/` (merge `996444b`): published
+    and first `answerFirst` activation, live 13:55:31 UTC. Live article
+    matches the reviewed build; mobile check 134px (390 by 660) and 17px
+    (375 by 568) clear; GA tag present; in the sitemap; the five other
+    RAG-stage pages list it.
+  - PR #18, `/shelf/shared-resources/which-ollama-models-support-tools/`
+    (merge `04709f3`): published, live 14:00:41 UTC. Rechecked just
+    before merge (13:51 to 13:55 UTC): latest release v0.40.16 at `d63b702`; same
+    20 Popular models, 6 cloud and 14 local; 12 shared with Newest;
+    `qwen3` still tagged and in neither list; no corrections needed.
+    Live page matches the reviewed build, indexable, in the sitemap,
+    table gap-free.
+  - Live checks ran in headless Chrome with every analytics endpoint
+    blocked; no analytics responses were recorded.
 - **Deployment round closed 2026-11-18 (owner)**: PR #13 (tracking,
   merge `7f187a8`), PR #15 (answer-first template, merge `f720d39`) and
   PR #14 (docs, merge `486bd10`) are merged and deployed. The owner
@@ -596,17 +616,13 @@ Owner actions:
    submitted count.
 
 Agent work, in order (confirm with the owner each session):
-1. Growth: H2 (agent memory) drafted 2026-11-18 on
-   `content/h2-agent-memory`, the first article with `answerFirst: true`;
-   publication check passed (390 by 660: 134px clear of the banner; 375
-   by 568: 17px). The owner accepted the recorded Chrome and text-size
-   limitations for this round and approved the RAG-stage list entry
-   (section 3, expected navigation change). Waiting for the owner's
-   review of the local preview and publication approval; once deployed,
-   verify the live page and record the first activation date. Search Console showed no memory queries in the 3 months to
-   2026-11-17, so it is a new page, not an improvement to an old one.
-   Next: row 10 (which Ollama models support tools, dated Shelf
-   reference). Snapshot of Search Console, GA4 and
+1. Growth: H2 (agent memory) and row 10 (which Ollama models support
+   tools) went live 2026-11-18, both owner-approved (see section 8,
+   publication round). Next: the next open growth row, confirmed with
+   the owner: rows 6, 8 and 13 are open, and row 25 (local LLM tool
+   calling) is unblocked now that row 10 is live. Before any change to
+   the Ollama page, recheck its dated claims (release, library lists,
+   counts). Snapshot of Search Console, GA4 and
    Clarity before the 2026-10-21 deploy is in section 8. F5 (how to
    become an FDC) from the owner's resume, posts and an interview.
 2. Done 2026-11-17 (monthly review, logged). Tracking events were built
@@ -661,8 +677,11 @@ Agent work, in order (confirm with the owner each session):
    checklist in the growth track (weekly loop, step 5): the article's real
    title and short answer checked at 390 by 660 and 375 by 568, first
    visit, banner showing, reduced motion, limitations recorded, and the
-   owner approving from the screenshots. First article activation: not
-   yet; record its date here and in the growth log when it ships. Treat
+   owner approving from the screenshots. First article activation:
+   2026-11-18, `/systems/what-is-agent-memory/` (PR #17, merge
+   `996444b`), live 13:55:31 UTC; the live check at 390 by 660 (134px
+   clear of the banner) and 375 by 568 (17px) matched the approved
+   screenshots. Treat
    it as an editorial improvement; December reports raw counts without
    crediting the layout.
    Skills page title: keep it through the hold. In December, compare the
