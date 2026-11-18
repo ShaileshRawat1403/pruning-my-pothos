@@ -1,0 +1,170 @@
+---
+schemaVersion: "1.0"
+title: "What Is Agent Memory?"
+seoTitle: "What Is Agent Memory? Short-Term and Long-Term Explained"
+publishDate: "2026-11-18"
+description: "Agent memory is what an application stores outside the model and puts back into a later run. Short-term and long-term memory, who writes it, what breaks."
+category: "Concepts"
+heroImage: '/covers/systems/what-is-agent-memory.png'
+heroImageAlt: 'A goldfish bowl stands on a filing cabinet whose top drawer is labelled memory; a sticky note on the bowl reads likes metric, and the goldfish looks at nothing'
+tags:
+  - agents
+  - memory
+  - context
+contentType: 'technical'
+readingTime: 6
+difficulty: 'beginner'
+answerFirst: true
+
+contentKind: explainer
+readerIntent: understand
+readerOutcome: "Explain what agent memory is, tell short-term from long-term memory, say who decides what gets written and read back, and name what goes wrong when memory is stale, wrong or unscoped."
+thesis: "Agent memory is storage an application keeps outside the model and reads back into later runs, so what an agent remembers is decided by code and data that can be inspected, corrected and deleted."
+shortAnswer: "Agent memory is information kept outside the model and put back into a later run. Short-term memory is the conversation so far, kept for one thread or session. Long-term memory lasts across sessions and usually holds facts about a user, records of past actions, or instructions for a task. The model keeps none of it between calls: code decides what is written, when, and what is read back, which is also why memory can be inspected, corrected and deleted."
+
+boundary:
+  is: "A plain explanation of agent memory: short-term and long-term memory, the kinds of thing stored, who writes and reads it, and what goes wrong."
+  isNot: "A comparison of memory products or vector databases, or a guide to building a memory store."
+  mattersWhen: "An agent forgets something it should know, remembers something wrong, or is about to be given memory that persists across users or sessions."
+
+provenance:
+  primary: synthesis
+  sources:
+    - id: langchain-memory
+      type: external
+      url: "https://docs.langchain.com/oss/python/concepts/memory"
+      citation: "LangChain, Memory overview (accessed 2026-11-18)"
+    - id: claude-memory-tool
+      type: external
+      url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool"
+      citation: "Anthropic, Memory tool (accessed 2026-11-18)"
+    - id: memgpt
+      type: external
+      url: "https://arxiv.org/abs/2310.08560"
+      citation: "Packer et al., MemGPT: Towards LLMs as Operating Systems, 2023"
+  claims:
+    - statement: "The model keeps nothing between calls; an application stores information outside it and places selected parts back into a later run."
+      kind: synthesis
+    - statement: "LangChain's documentation describes short-term memory as thread-scoped, kept as part of the agent's state and saved through checkpoints."
+      kind: external
+      sources:
+        - langchain-memory
+    - statement: "Long-term memory is shared across threads and kept outside any single conversation, in what LangChain calls namespaces in a store."
+      kind: external
+      sources:
+        - langchain-memory
+    - statement: "LangChain's documentation names three kinds of long-term memory: semantic memory holds facts, episodic memory holds experiences such as past actions, and procedural memory holds instructions for doing a task."
+      kind: external
+      sources:
+        - langchain-memory
+    - statement: "Memory can be written while the agent is responding, which LangChain calls the hot path, or afterwards as a background task."
+      kind: external
+      sources:
+        - langchain-memory
+    - statement: "Anthropic's memory tool lets Claude store files under a /memories directory and read them back in later conversations, and it runs client-side: Claude requests the file operations and the application carries them out."
+      kind: external
+      sources:
+        - claude-memory-tool
+    - statement: "With the tool enabled, Claude checks its memory directory before starting a task."
+      kind: external
+      sources:
+        - claude-memory-tool
+    - statement: "MemGPT, a 2023 research system, manages memory in tiers, drawing on how operating systems move data between fast and slow memory."
+      kind: external
+      sources:
+        - memgpt
+    - statement: "Anthropic's documentation warns that a path such as /memories/../../secrets.env can reach files outside the memory directory, so the application has to check every path."
+      kind: external
+      sources:
+        - claude-memory-tool
+    - statement: "Because memory lives in ordinary storage, it can be inspected, corrected and deleted, and it needs the same scoping and review as any other data the system keeps."
+      kind: synthesis
+
+visuals:
+  - id: short-term-and-long-term
+    purpose: comparison
+    renderAs: generated-comparison
+    takeaway: "Short-term memory is one thread's conversation; long-term memory is kept across sessions; neither lives in the model."
+    caption: "The two kinds of agent memory, and where each one is kept."
+    alt: "A comparison. Short-term memory is the conversation so far, kept for one thread or session, and trimmed when the context window fills. Long-term memory holds facts, past actions and instructions, is kept across sessions, and is read back when the application chooses."
+    evidenceRole: explanatory
+    data:
+      before:
+        label: "Short-term memory"
+        items:
+          - "The conversation so far"
+          - "Kept for one thread or session"
+          - "Trimmed when the window fills"
+      after:
+        label: "Long-term memory"
+        items:
+          - "Facts, past actions, instructions"
+          - "Kept across sessions"
+          - "Read back when the application chooses"
+      diffNote: "Neither one lives in the model."
+  - id: memory-write-and-read
+    purpose: sequence
+    renderAs: generated-sequence
+    takeaway: "A memory is written during or after one run, kept outside the model, and placed back into the input of a later run."
+    caption: "One fact, from one run to the next."
+    alt: "A sequence of four steps: in the first run the user says they prefer metric units; the fact is written down, by code or by the model through a tool; it is kept in storage outside the model, where it can be inspected; in a later run the application places it back into the model's input."
+    evidenceRole: explanatory
+    data:
+      steps:
+        - id: run-one
+          label: "Run one"
+          note: "\"I prefer metric.\""
+        - id: write
+          label: "Write"
+          note: "Code or a tool saves it."
+        - id: store
+          label: "Store"
+          note: "Outside the model."
+        - id: run-two
+          label: "Run two"
+          note: "Placed back in the input."
+---
+
+An agent that greets you by name next week did not remember you. After this conversation something wrote your name into storage, and before the next one something put it back into the model's input. That writing and reading is agent memory.
+
+**The model keeps nothing between calls; an application stores information outside it and places selected parts back into a later run.** Everything an agent appears to remember arrives the same way as everything else it sees: in the [context window](/systems/context-windows-as-working-memory/) for the current run.
+
+## Short-term and long-term memory
+
+**LangChain's documentation describes short-term memory as thread-scoped, kept as part of the agent's state and saved through checkpoints.** In practice that is the conversation so far, plus anything the agent has worked out within the same thread or session. It still has to fit in the context window, so long threads are trimmed or summarised, and whatever is cut is gone from the run.
+
+**Long-term memory is shared across threads and kept outside any single conversation, in what LangChain calls namespaces in a store.** This is the part people usually mean by persistent memory: it survives the end of a session and can be read back in a new one.
+
+<!-- pmp:visual id="short-term-and-long-term" -->
+
+## What gets stored
+
+**LangChain's documentation names three kinds of long-term memory: semantic memory holds facts, episodic memory holds experiences such as past actions, and procedural memory holds instructions for doing a task.** For illustration: "the user prefers metric units" is a fact, "the last deploy failed at the database migration" is an experience, and "run the tests before opening a pull request" is an instruction.
+
+The three names describe what a memory is about. All three can sit in the same store, as text or records, and they are read back the same way.
+
+## Who decides what gets written
+
+<!-- pmp:visual id="memory-write-and-read" -->
+
+Something has to choose what is worth keeping. **Memory can be written while the agent is responding, which LangChain calls the hot path, or afterwards as a background task.** Writing on the hot path makes the memory available at once and slows the response; writing in the background keeps the response quick and the memory arrives later.
+
+Sometimes the model makes the choice through a tool. **Anthropic's memory tool lets Claude store files under a /memories directory and read them back in later conversations, and it runs client-side: Claude requests the file operations and the application carries them out.** **With the tool enabled, Claude checks its memory directory before starting a task.** The model proposes what to write; the application decides where it lives and whether the write happens at all, the same split an [agent harness](/systems/what-is-an-agent-harness/) makes for every other action.
+
+Reading memory back is a selection problem. A store that has grown for months holds more than one run can use, so the application picks the items that belong in this run, the same choice [retrieval-augmented generation](/systems/retrieval-augmented-generation-in-plain-terms/) makes for documents. **MemGPT, a 2023 research system, manages memory in tiers, drawing on how operating systems move data between fast and slow memory.** The model's input is the fast tier; storage is the slow one; something has to move items between them.
+
+## What goes wrong
+
+Memory fails in ordinary ways, because it is ordinary data.
+
+- **Stale:** the user changed their preference, and the old fact is still read back.
+- **Wrong:** the agent wrote down a misunderstanding, and every later run inherits it as context.
+- **Unscoped:** memory saved for one user or project is read into another one's run.
+- **Planted:** text the agent stored from a web page or a document returns in a later run looking like trusted context.
+- **Out of bounds:** **Anthropic's documentation warns that a path such as /memories/../../secrets.env can reach files outside the memory directory, so the application has to check every path.**
+
+**Because memory lives in ordinary storage, it can be inspected, corrected and deleted, and it needs the same scoping and review as any other data the system keeps.**
+
+## What this changes
+
+When an agent seems to forget, look at what was written and what was read back into the run before blaming the model. When it remembers something wrong, there is a record to find and delete. And when an agent hands work to the next session on purpose, a written [handoff](/systems/agent-instructions-and-handoff-as-an-operating-system/) is memory with a name on it: chosen, dated and readable by a person.

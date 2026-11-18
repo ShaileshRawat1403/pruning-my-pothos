@@ -144,6 +144,8 @@ export const SCENES: Record<string, ComponentType<SceneProps>> = {
   "getting-a-pilot-through": dynamic(() => import("./getting-a-pilot-through")),
   "text-to-vector": dynamic(() => import("./text-to-vector")),
   "what-nearness-tells-you": dynamic(() => import("./what-nearness-tells-you")),
+  "short-term-and-long-term": dynamic(() => import("./short-term-and-long-term")),
+  "memory-write-and-read": dynamic(() => import("./memory-write-and-read")),
 
   // Works On My Prompt sheets: the steps of a sheet, keyed by its `scene`.
   // Not article visuals, so they stay out of SCENE_IDS.

@@ -1051,6 +1051,42 @@ export const EMBLEMS: Record<string, React.ReactNode> = {
     </g>
   ),
 
+  /* Agent memory: the goldfish is the model and keeps nothing; the sticky
+     note on its bowl is the memory, written by someone else and read back. */
+  "what-is-agent-memory": (
+    <g>
+      {floor(500)}
+      {/* The filing cabinet. */}
+      <rect x={130} y={308} width={240} height={192} fill={D.paperDeep} stroke={D.ink} strokeWidth={4} />
+      {[322, 410].map((y) => (
+        <g key={y}>
+          <rect x={146} y={y} width={208} height={76} fill={D.face} stroke={D.ink} strokeWidth={3.5} />
+          <rect x={230} y={y + 48} width={40} height={10} rx={4} fill={D.grey} stroke={D.ink} strokeWidth={2.5} />
+        </g>
+      ))}
+      <rect x={196} y={334} width={108} height={26} fill="#fff" stroke={D.ink} strokeWidth={3} />
+      <text x={250} y={353} textAnchor="middle" className="ill-mono" fontSize={15} fontWeight={700} fill={D.teal}>MEMORY</text>
+      {/* The bowl and its water. */}
+      <path d="M150 196 C 160 186, 340 186, 350 196 C 368 260, 338 304, 290 308 L210 308 C 162 304, 132 260, 150 196 Z" fill={D.teal} opacity={0.2} />
+      <path d="M190 140 C 116 182, 120 300, 210 308 L290 308 C 380 300, 384 182, 310 140" fill="none" stroke={D.ink} strokeWidth={4} strokeLinecap="round" />
+      <ellipse cx={250} cy={140} rx={62} ry={11} fill="none" stroke={D.ink} strokeWidth={4} />
+      {/* The fish, looking at nothing. */}
+      <path d="M262 248 L292 228 L292 268 Z" fill={D.accent} stroke={D.ink} strokeWidth={3.5} strokeLinejoin="round" />
+      <ellipse cx={232} cy={248} rx={36} ry={21} fill={D.accent} stroke={D.ink} strokeWidth={3.5} />
+      <SleepyEye x={214} y={243} r={7} />
+      {/* The note, taped to the glass. */}
+      <g className="fx-note">
+        <g transform="rotate(6 360 252)">
+          <path d="M306 214 L414 210 L412 292 L304 294 Z" fill="#F6E7A8" stroke={D.ink} strokeWidth={3} strokeLinejoin="round" />
+          <text x={359} y={246} textAnchor="middle" className="ill-hand" fontSize={22} fontWeight={700} fill={D.ink}>likes</text>
+          <text x={359} y={274} textAnchor="middle" className="ill-hand" fontSize={22} fontWeight={700} fill={D.ink}>metric</text>
+        </g>
+      </g>
+      <g className="fx-aside">{hand(150, 112, "no idea.", 24, D.greyLight)}</g>
+      <g className="fx-label">{hand(356, 200, "written down.", 22, D.ink, "start")}</g>
+    </g>
+  ),
+
   "what-is-bounded-autonomy": (
     <g>
       {floor(500)}

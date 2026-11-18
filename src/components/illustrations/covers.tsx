@@ -57,6 +57,7 @@ export const COVERS: Record<string, CoverSpec> = {
   "what-is-an-agent-harness": { quip: "It proposes. The straps decide." },
   "why-ai-pilots-stall-before-production": { quip: "Passed the demo. Met the company." },
   "what-are-embeddings": { quip: "Same street. Probably same meaning." },
+  "what-is-agent-memory": { quip: "The fish forgot. The note didn't." },
   "why-ocr-quietly-breaks-document-ai": { quip: "Garbage in. Confidently out." },
 };
 
