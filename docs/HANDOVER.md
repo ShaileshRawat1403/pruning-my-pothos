@@ -521,8 +521,14 @@ Owner actions:
    submitted count.
 
 Agent work, in order (confirm with the owner each session):
-1. Growth: row 10 (which Ollama models support tools, dated Shelf
-   reference) or H2 (agent memory). Snapshot of Search Console, GA4 and
+1. Growth: H2 (agent memory) drafted 2026-11-18 on
+   `content/h2-agent-memory`, the first article with `answerFirst: true`;
+   publication check passed (390 by 660: 134px clear of the banner; 375
+   by 568: 17px), waiting for the owner's review and publication
+   approval. Search Console showed no memory queries in the 3 months to
+   2026-11-17, so it is a new page, not an improvement to an old one.
+   Next: row 10 (which Ollama models support tools, dated Shelf
+   reference). Snapshot of Search Console, GA4 and
    Clarity before the 2026-10-21 deploy is in section 8. F5 (how to
    become an FDC) from the owner's resume, posts and an interview.
 2. Done 2026-11-17 (monthly review, logged). Tracking events were built

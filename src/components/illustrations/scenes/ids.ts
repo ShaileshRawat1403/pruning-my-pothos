@@ -142,4 +142,6 @@ export const SCENE_IDS = new Set([
   "getting-a-pilot-through",
   "text-to-vector",
   "what-nearness-tells-you",
+  "short-term-and-long-term",
+  "memory-write-and-read",
 ]);
