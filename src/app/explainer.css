@@ -27,6 +27,15 @@
   gap: 0.75rem;
 }
 
+/* answerFirst opening (systems/[slug]/page.tsx): on phones the answer sits
+   straight under the title, so its box drops its own vertical margin there
+   and the slot's spacing applies. From the sm breakpoint up it keeps it. */
+@media (max-width: 39.99rem) {
+  .answer-first-slot > .explainer-answer {
+    margin: 0;
+  }
+}
+
 .explainer-answer p {
   margin: 0;
   font-size: 1.0625rem;

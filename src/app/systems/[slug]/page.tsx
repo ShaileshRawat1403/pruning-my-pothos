@@ -136,6 +136,69 @@ export default async function SystemsDetailPage({ params }: PageProps) {
     </>
   );
 
+  // The header's parts, kept in one place so both openings below render the
+  // same elements (only their order differs).
+  const metaRow = (
+    <div className="flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider">
+      <span>Systems</span>
+      {coverKicker(slug) !== "SYSTEMS" && (
+        <>
+          <span>&bull;</span>
+          <span>{coverKicker(slug).replace("SYSTEMS · ", "")}</span>
+        </>
+      )}
+      {system.readingTime && (
+        <>
+          <span>&bull;</span>
+          <span>{system.readingTime} min read</span>
+        </>
+      )}
+      {system.difficulty && (
+        <>
+          <span>&bull;</span>
+          <span>{system.difficulty}</span>
+        </>
+      )}
+      {system.updatedAt && (
+        <>
+          <span>&bull;</span>
+          <span>
+            Updated{" "}
+            {new Date(system.updatedAt).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })}
+          </span>
+        </>
+      )}
+    </div>
+  );
+  const titleEl = (
+    <h1 className="font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]">
+      {system.title}
+    </h1>
+  );
+  const intro = (
+    <>
+      <p className="text-[color:var(--text-secondary)] text-base leading-relaxed">
+        {system.description}
+      </p>
+      {/* Tag chips */}
+      <div className="flex flex-wrap gap-2 mt-2">
+        {system.tags.map((tag) => (
+          <Link
+            key={tag}
+            href={`/tags/${slugifyTag(tag)}/`}
+            className="px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]"
+          >
+            #{tag}
+          </Link>
+        ))}
+      </div>
+    </>
+  );
+
   return (
     <article className="max-w-[840px] mx-auto py-8 flex flex-col gap-8">
       <script
@@ -154,79 +217,43 @@ export default async function SystemsDetailPage({ params }: PageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      {/* Header */}
-      <header className="flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6">
-        <div className="flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider">
-          <span>Systems</span>
-          {coverKicker(slug) !== "SYSTEMS" && (
-            <>
-              <span>&bull;</span>
-              <span>{coverKicker(slug).replace("SYSTEMS · ", "")}</span>
-            </>
-          )}
-          {system.readingTime && (
-            <>
-              <span>&bull;</span>
-              <span>{system.readingTime} min read</span>
-            </>
-          )}
-          {system.difficulty && (
-            <>
-              <span>&bull;</span>
-              <span>{system.difficulty}</span>
-            </>
-          )}
-          {system.updatedAt && (
-            <>
-              <span>&bull;</span>
-              <span>
-                Updated{" "}
-                {new Date(system.updatedAt).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
-              </span>
-            </>
-          )}
-        </div>
-        <h1 className="font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]">
-          {system.title}
-        </h1>
-        <p className="text-[color:var(--text-secondary)] text-base leading-relaxed">
-          {system.description}
-        </p>
+      {/* Opening. Slot 04, the short answer, is the retrieval unit and sits
+          above the prose on purpose.
 
-        {/* Tag chips */}
-        <div className="flex flex-wrap gap-2 mt-2">
-          {system.tags.map((tag) => (
-            <Link
-              key={tag}
-              href={`/tags/${slugifyTag(tag)}/`}
-              className="px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]"
-            >
-              #{tag}
-            </Link>
-          ))}
-        </div>
-      </header>
+          Default: header (kicker, title, description, tags), cover, answer.
 
-      {/* Slot 04, the retrieval unit, above the prose on purpose. With
-          `answerFirst` (opt-in per article, owner decision 2026-11-17) it
-          also comes before the cover on phones, with the cover directly
-          below; from the sm breakpoint up it returns below the cover. It is
-          first in the HTML either way for that article, so screen readers
-          and answer engines meet the answer first. Articles without the
-          flag keep their existing layout. */}
+          `answerFirst` (opt-in per article, owner decisions 2026-11-17 and
+          2026-11-18): on phones the answer comes straight after the title,
+          then the description and tags, then the cover, so that on a first
+          visit at 390px the answer starts above the consent banner. From
+          the sm breakpoint up the order is the default one again. The DOM
+          order is the phone order, so screen readers and answer engines
+          meet the answer right after the title; the answer holds no links,
+          so keyboard focus order never jumps. On phones the answer box drops
+          its own vertical margin here; from sm up it keeps it, so the
+          spacing matches the default opening. Articles without the flag keep
+          their existing layout. */}
       {system.answerFirst && system.shortAnswer ? (
-        <div className="flex flex-col gap-8">
-          <div className="sm:order-last">
+        <div className="flex flex-col gap-4">
+          <header className="flex flex-col gap-4">
+            {metaRow}
+            {titleEl}
+          </header>
+          <div className="answer-first-slot mt-2 sm:order-4 sm:mt-4">
             <AnswerBlock>{system.shortAnswer}</AnswerBlock>
           </div>
-          {coverBlock}
+          <div className="mt-2 flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6 sm:order-2 sm:mt-0">
+            {intro}
+          </div>
+          <div className="mt-4 flex flex-col gap-8 sm:order-3">{coverBlock}</div>
         </div>
       ) : (
         <>
+          <header className="flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6">
+            {metaRow}
+            {titleEl}
+            {intro}
+          </header>
           {coverBlock}
           {system.shortAnswer && <AnswerBlock>{system.shortAnswer}</AnswerBlock>}
         </>
