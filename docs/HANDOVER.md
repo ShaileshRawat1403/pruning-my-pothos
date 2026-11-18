@@ -271,6 +271,15 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   verified, and the settings correction leaves those findings valid. Any
   sessions before 20 Oct are past Clarity's 30-day view and unchecked, as
   is the 7-day snapshot before the 2026-10-21 deploy.
+- **Content table width (owner-approved 2026-11-18)**: `.content-body
+  table` in `globals.css` was `display: block; width: 100%`, so a table
+  narrower than the column drew its border full width with an empty strip
+  beside the rows. Now `width: max-content; max-width: 100%`: narrow
+  tables hug their columns, wide ones still scroll inside their box on
+  phones. Owner-approved exception to the landing-page hold: at 1280px it
+  removes the strip on the skills page (249px), training vs inference
+  (95px) and agent intent to governed execution (50px); five other pages
+  with tables measured the same before and after; no text changes.
 - **Deployment round closed 2026-11-18 (owner)**: PR #13 (tracking,
   merge `7f187a8`), PR #15 (answer-first template, merge `f720d39`) and
   PR #14 (docs, merge `486bd10`) are merged and deployed. The owner

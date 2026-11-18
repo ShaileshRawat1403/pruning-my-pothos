@@ -759,8 +759,11 @@ h1, h2, h3, h4, h5 {
   border: 1px solid var(--card-border);
 }
 .content-body table {
+  /* Block so a wide table scrolls inside its own box on phones; max-content
+     so a narrow one hugs its columns instead of leaving an empty strip. */
   display: block;
-  width: 100%;
+  width: max-content;
+  max-width: 100%;
   overflow-x: auto;
   border-collapse: collapse;
   border: 1px solid var(--card-border);
