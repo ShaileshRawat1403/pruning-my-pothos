@@ -190,7 +190,7 @@ memory, forward deployed engineering.
 | # | Target query | Page | Status |
 | :- | :--- | :--- | :--- |
 | H1 | what is an agent harness | new: `/systems/what-is-an-agent-harness/`; links runtime-over-model, DAX | live 2026-10-16 |
-| H2 | agent memory explained (short-term, long-term, persistent) | new: `/systems/what-is-agent-memory/`; links context windows, RAG, agent harness, handoff | drafted 2026-11-18 with `answerFirst: true`; publication check passed at 390 × 660 and 375 × 568; waiting for owner review and publication approval |
+| H2 | agent memory explained (short-term, long-term, persistent) | new: `/systems/what-is-agent-memory/`; links context windows, RAG, agent harness, handoff | drafted 2026-11-18 with `answerFirst: true`; publication check passed at 390 × 660 and 375 × 568; Chrome and text-size limitations accepted and RAG-stage list entry approved by the owner 2026-11-18; waiting for preview review and publication approval |
 | H3 | context engineering | same as row 18 below | open |
 | H4 | what are agent skills (Claude skills, Agent Skills) | `/systems/designing-reusable-ai-skills/` and the skills cluster | Check the cluster answers it; retitle before writing anything new | done 2026-11-05 (option B: definition first from the Agent Skills spec and Claude Code docs, PMP design thesis kept; awaiting push) |
 
