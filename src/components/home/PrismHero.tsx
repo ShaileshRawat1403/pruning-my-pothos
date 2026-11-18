@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { SITE_POSITIONING } from "../../lib/config/site-positioning";
+import { track } from "../../lib/analytics/track";
 import "./prism-hero.css";
 
 // The home page opening. A beam labelled "AI" enters a glass prism and leaves
@@ -1054,7 +1055,10 @@ export default function PrismHero() {
                 className="prism-chip"
                 aria-pressed={blocked[i]}
                 style={{ ["--band" as string]: `rgb(${rgbFor(b.nm).join(",")})` }}
-                onClick={() => setBlocked((cur) => cur.map((v, j) => (j === i ? !v : v)))}
+                onClick={() => {
+                  track("prism_block", { part: b.label, blocked: !blocked[i] });
+                  setBlocked((cur) => cur.map((v, j) => (j === i ? !v : v)));
+                }}
                 onPointerEnter={() => { activeRef.current = i; }}
                 onPointerLeave={() => { activeRef.current = -1; }}
                 onFocus={() => { activeRef.current = i; }}
