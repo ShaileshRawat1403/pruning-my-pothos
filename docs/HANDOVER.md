@@ -519,9 +519,9 @@ Agent work, in order (confirm with the owner each session):
    reference) or H2 (agent memory). Snapshot of Search Console, GA4 and
    Clarity before the 2026-10-21 deploy is in section 8. F5 (how to
    become an FDC) from the owner's resume, posts and an interview.
-2. Done 2026-11-17 (monthly review, logged). Tracking events are built on
-   the local branch `feat/tracking-events` (not pushed, waiting for the
-   owner's review of the diff): `select_content` for home page links
+2. Done 2026-11-17 (monthly review, logged). Tracking events were built
+   on `feat/tracking-events` (merged as PR #13 on 2026-11-18, see below):
+   `select_content` for home page links
    (`HomeClickTracking.tsx`), `prism_block` in `PrismHero.tsx`, and
    `letters_signup_submitted` in `NewsletterForm.tsx` (Kit accepted the
    address; not a confirmed subscription, so it is not named `sign_up`),
@@ -551,14 +551,24 @@ Agent work, in order (confirm with the owner each session):
    navigated away. Kit's response was faked in the page for the check,
    so no subscriber was created. These test hits are the agent's, from
    03:08 to 03:10 UTC on 18 November (home page, footer form, evaluation
-   article); leave them out of the December review. The owner flag was
-   restored afterwards.
-   Option A (short answer before the cover on phones) is built as an
-   opt-in `answerFirst` flag on the local branch `feat/answer-first-mobile`
-   (not pushed); it ships with the next new article. The cookie banner
-   stays as it is, so first visitors see the answer only after dismissing
-   it. Treat it as an editorial improvement; December reports raw counts
-   without crediting the layout.
+   article); the December review handles them under the growth track's
+   test activity rule. The owner flag was restored afterwards.
+   Systems article layout. Live now, every article and every screen width:
+   kicker row, title, description, tags, cover, then the short answer. At
+   390px on a first visit the answer starts 714 to 847px down, under the
+   cookie banner (which is unchanged). Proposed in PR #15 (branch
+   `feat/answer-first-mobile`, waiting for the owner's review and merge
+   approval): an opt-in `answerFirst` flag. On phones a flagged article
+   shows title, short answer, kicker row, description, tags, cover, so the
+   answer's first sentence sits above the banner on a first visit (30 of
+   35 current articles pass at 390 by 660 with the flag forced on; every
+   first sentence of 130 characters or fewer passes). From 640px up the
+   order is the live one. No article sets the flag in that PR; it ships
+   with the next new Systems article, whose real title and short answer
+   must pass the same check first. Not deployed yet: record the date here
+   and in the growth log when the first flagged article goes live. Treat
+   it as an editorial improvement; December reports raw counts without
+   crediting the layout.
    Skills page title: keep it through the hold. In December, compare the
    page's Search Console queries, impressions, clicks and positions before
    proposing a title; show the on-page headline and the search title

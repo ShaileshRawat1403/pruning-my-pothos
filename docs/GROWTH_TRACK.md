@@ -100,17 +100,26 @@ From Search Console, last 28 days against the 28 before:
   to 7 Dec: 20 days, the first partial"), give raw counts beside every
   rate, and make no before/after comparison for them until a full
   previous window exists.
-- Test activity: remove every identifiable agent or owner test before
-  computing anything, and list what was removed. Known tests: 2026-11-17
-  13:51 to 13:53 UTC (enhanced measurement check) and 2026-11-18 03:08 to
-  03:10 UTC (one session: 2 home page loads, 1 `prism_block`, 1
-  `form_start`, 1 `letters_signup_submitted` from the footer with Kit
-  faked, 1 `select_content` with `link_role = prism_band` to the
-  evaluation article, its page view and scrolls). Event counts can be
-  subtracted exactly. Session-level figures (users, engaged sessions,
-  engagement time) and Clarity can only be adjusted by an assumed one
-  session per test, and Cloudflare requests not at all: say so in the
-  review instead of presenting the adjusted figure as exact.
+- Test activity: keep the original counts. Subtract a test only when it
+  can be shown to fall inside the report window (compare the test's UTC
+  time, converted to the GA4 property's time zone, with the window's
+  dates) and the report covers that event, page or session. Show each
+  figure as original, removed and adjusted, with a note for each removal,
+  and list the known tests that were not subtracted and why. Event counts
+  inside the window can be subtracted exactly. Session-level figures
+  (users, engaged sessions, engagement time) and Clarity can only be
+  adjusted by an assumed one session per test, and Cloudflare requests not
+  at all: say so instead of presenting an adjusted figure as exact.
+  Known tests:
+  - 2026-11-17, 13:51 to 13:53 UTC: enhanced measurement check (page
+    views and one storyboard PDF `file_download`).
+  - 2026-11-18, 03:08 to 03:10 UTC: one session; 2 home page loads, 1
+    `prism_block`, 1 `form_start`, 1 `letters_signup_submitted` from the
+    footer with Kit faked (no subscriber), 1 `select_content` with
+    `link_role = prism_band` to the evaluation article, its page view and
+    scrolls.
+  - The owner's real Kit signup test: add its UTC time and the test
+    subscriber when the owner reports them.
 - Letters: submitted addresses (`letters_signup_submitted` in GA4, Kit
   accepted the address) and confirmed subscribers (Kit's count) are two
   separate measures. Never add them, and never report one as the other.
