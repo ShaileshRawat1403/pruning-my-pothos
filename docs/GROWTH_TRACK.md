@@ -43,7 +43,21 @@ written to catch them.
    - Title: the query in plain words, at most 60 characters with the site
      suffix dropped automatically when it does not fit (`src/lib/seo/metadata.ts`).
    - `shortAnswer` answers the query in two or three sentences; the first
-     paragraph of the body says the same thing.
+     paragraph of the body says the same thing. New Systems pages are
+     written for `answerFirst: true`, which makes phones show the short
+     answer straight after the title, then the kicker row, description,
+     tags and cover (owner, 2026-11-17 and 2026-11-18). The flag is set
+     only after the publication check in step 5 passes and the owner
+     approves. Pages already in search keep their layout until the owner
+     decides otherwise. Writing guidance: keep the first
+     sentence of `shortAnswer` to about 130 characters and the title to
+     four lines at 390px (the longest current title, 65 characters, is
+     four). The rendered check decides, not the count: at 390 by 660 on a
+     first visit, with the cookie banner showing, the whole first sentence
+     must sit above the banner. Measured 2026-11-18 on all 35 current
+     articles with the flag forced on: every first sentence of 130
+     characters or fewer passed, at every title length; the five that
+     failed were 166 to 230 characters.
    - `description` 120 to 160 characters, says what the reader gets.
    - At least one declared visual with a scroll scene
      (`docs/STORYBOARD_AUTHORING.md`); a cover with its own emblem.
@@ -54,6 +68,23 @@ written to catch them.
    `npm run audit`, `npm run audit:editorial`, `npm run validate:archive`.
    Never run the contract suite while a dev server is up.
 5. **Owner review:** dev server only for the review, stopped after.
+   Publication checklist for a Systems page with `answerFirst: true`:
+   - [ ] Render the page's actual title and `shortAnswer` (never sample
+     copy) in a static build, at **390 × 660** and **375 × 568**, each on
+     a first visit with the cookie banner showing and reduced motion
+     enabled (`prefers-reduced-motion: reduce`).
+   - [ ] At each size, record whether the whole first sentence sits above
+     the banner, and the gap or overlap in pixels.
+   - [ ] Record any limitation in the page's PR: a size where the first
+     sentence is cut, a title over four lines, a first sentence over
+     about 130 characters.
+   - [ ] Put the screenshots in the PR, each captioned with its viewport
+     width and height and "first visit, banner showing, reduced motion".
+   - [ ] Owner approves publication from the screenshots. Without that
+     approval the page ships with the flag off.
+   - [ ] When it ships, log the date below. For the first page with the
+     flag, also record that date as the first activation in the handover's
+     "Systems article layout" note.
 6. **Distribution** is the owner's (decided 2026-10-15). Agents do not
    draft posts unless asked, and never post or send.
 7. **Ship** after the owner's go-ahead. IndexNow runs in the deploy.

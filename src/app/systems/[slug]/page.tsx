@@ -98,81 +98,10 @@ export default async function SystemsDetailPage({ params }: PageProps) {
   ]);
   const faqSchema = faqs.length > 0 ? getFaqSchema({ faq: faqs }) : null;
 
-  return (
-    <article className="max-w-[840px] mx-auto py-8 flex flex-col gap-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-      {breadcrumbSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        />
-      )}
-      {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-      )}
-      {/* Header */}
-      <header className="flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6">
-        <div className="flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider">
-          <span>Systems</span>
-          {coverKicker(slug) !== "SYSTEMS" && (
-            <>
-              <span>&bull;</span>
-              <span>{coverKicker(slug).replace("SYSTEMS · ", "")}</span>
-            </>
-          )}
-          {system.readingTime && (
-            <>
-              <span>&bull;</span>
-              <span>{system.readingTime} min read</span>
-            </>
-          )}
-          {system.difficulty && (
-            <>
-              <span>&bull;</span>
-              <span>{system.difficulty}</span>
-            </>
-          )}
-          {system.updatedAt && (
-            <>
-              <span>&bull;</span>
-              <span>
-                Updated{" "}
-                {new Date(system.updatedAt).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
-              </span>
-            </>
-          )}
-        </div>
-        <h1 className="font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]">
-          {system.title}
-        </h1>
-        <p className="text-[color:var(--text-secondary)] text-base leading-relaxed">
-          {system.description}
-        </p>
-
-        {/* Tag chips */}
-        <div className="flex flex-wrap gap-2 mt-2">
-          {system.tags.map((tag) => (
-            <Link
-              key={tag}
-              href={`/tags/${slugifyTag(tag)}/`}
-              className="px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]"
-            >
-              #{tag}
-            </Link>
-          ))}
-        </div>
-      </header>
-
+  // The cover and its storyboard line, in their usual order. Kept in one
+  // place so the answer-first layout below can reuse them unchanged.
+  const coverBlock = (
+    <>
       {/* Cover. Drawn live from the article's emblem (the same drawing as its storyboard cover), so its
           text stays text and it reads the same in either theme. The PNG of
           the same drawing is only for link previews. Where the article has a
@@ -204,9 +133,134 @@ export default async function SystemsDetailPage({ params }: PageProps) {
           </a>
         </p>
       )}
+    </>
+  );
 
-      {/* Slot 04 — the retrieval unit. Above the prose on purpose. */}
-      {system.shortAnswer && <AnswerBlock>{system.shortAnswer}</AnswerBlock>}
+  // The header's parts, kept in one place so both openings below render the
+  // same elements (only their order differs).
+  const metaRow = (
+    <div className="flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-wider">
+      <span>Systems</span>
+      {coverKicker(slug) !== "SYSTEMS" && (
+        <>
+          <span>&bull;</span>
+          <span>{coverKicker(slug).replace("SYSTEMS · ", "")}</span>
+        </>
+      )}
+      {system.readingTime && (
+        <>
+          <span>&bull;</span>
+          <span>{system.readingTime} min read</span>
+        </>
+      )}
+      {system.difficulty && (
+        <>
+          <span>&bull;</span>
+          <span>{system.difficulty}</span>
+        </>
+      )}
+      {system.updatedAt && (
+        <>
+          <span>&bull;</span>
+          <span>
+            Updated{" "}
+            {new Date(system.updatedAt).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })}
+          </span>
+        </>
+      )}
+    </div>
+  );
+  const titleEl = (
+    <h1 className="font-heading text-3xl sm:text-4xl font-extrabold text-[color:var(--text-primary)]">
+      {system.title}
+    </h1>
+  );
+  const intro = (
+    <>
+      <p className="text-[color:var(--text-secondary)] text-base leading-relaxed">
+        {system.description}
+      </p>
+      {/* Tag chips */}
+      <div className="flex flex-wrap gap-2 mt-2">
+        {system.tags.map((tag) => (
+          <Link
+            key={tag}
+            href={`/tags/${slugifyTag(tag)}/`}
+            className="px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]"
+          >
+            #{tag}
+          </Link>
+        ))}
+      </div>
+    </>
+  );
+
+  const answerFirst = Boolean(system.answerFirst && system.shortAnswer);
+
+  return (
+    <article
+      className={`max-w-[840px] mx-auto py-8 flex flex-col gap-8${answerFirst ? " max-sm:pt-4" : ""}`}
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      {breadcrumbSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      )}
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      {/* Opening. Slot 04, the short answer, is the retrieval unit and sits
+          above the prose on purpose.
+
+          Default: header (kicker, title, description, tags), cover, answer.
+
+          `answerFirst` (opt-in per article, owner decisions 2026-11-17 and
+          2026-11-18): on phones the answer comes straight after the title,
+          then the kicker row, description and tags, then the cover, and the
+          article's top padding is halved, so that on a first visit at 390px
+          the answer's opening sentence sits above the consent banner. From
+          the sm breakpoint up the order is the default one again. The DOM
+          order is the phone order, so screen readers and answer engines
+          meet the answer right after the title; the answer holds no links,
+          so keyboard focus order never jumps. On phones the answer box drops
+          its own vertical margin here; from sm up it keeps it, so the
+          spacing matches the default opening. Articles without the flag keep
+          their existing layout. */}
+      {answerFirst ? (
+        <div className="flex flex-col gap-4">
+          <header className="flex flex-col gap-4 sm:order-2">{titleEl}</header>
+          <div className="answer-first-slot sm:order-5 sm:mt-4">
+            <AnswerBlock>{system.shortAnswer}</AnswerBlock>
+          </div>
+          <div className="mt-2 sm:order-1 sm:mt-0">{metaRow}</div>
+          <div className="flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6 sm:order-3">
+            {intro}
+          </div>
+          <div className="mt-4 flex flex-col gap-8 sm:order-4">{coverBlock}</div>
+        </div>
+      ) : (
+        <>
+          <header className="flex flex-col gap-4 border-b border-[color:var(--card-border)] pb-6">
+            {metaRow}
+            {titleEl}
+            {intro}
+          </header>
+          {coverBlock}
+          {system.shortAnswer && <AnswerBlock>{system.shortAnswer}</AnswerBlock>}
+        </>
+      )}
 
       {system.useValue && (
         <aside className="explainer-answer" aria-label="What you can do after reading">
