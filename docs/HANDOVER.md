@@ -307,6 +307,8 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
     table gap-free.
   - Live checks ran in headless Chrome with every analytics endpoint
     blocked; no analytics responses were recorded.
+  - Round marked complete by the owner on 2026-11-18; both local preview
+    servers stopped.
 - **Deployment round closed 2026-11-18 (owner)**: PR #13 (tracking,
   merge `7f187a8`), PR #15 (answer-first template, merge `f720d39`) and
   PR #14 (docs, merge `486bd10`) are merged and deployed. The owner
