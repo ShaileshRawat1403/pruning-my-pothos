@@ -8,7 +8,7 @@ export const metadata = constructMetadata({
   path: "/privacy",
 });
 
-const UPDATED = "17 November 2026";
+const UPDATED = "18 November 2026";
 
 /**
  * The privacy page. Plain statements of what the site does; keep it in step
