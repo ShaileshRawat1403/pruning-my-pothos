@@ -88,6 +88,7 @@ export function conformFrontmatter(collection, data, slug, customDate) {
           "readingTime",
           "difficulty",
           "shortAnswer",
+          "answerFirst",
           "analogy",
           "figure",
           "practice",
