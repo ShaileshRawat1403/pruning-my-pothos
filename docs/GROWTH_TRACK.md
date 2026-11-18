@@ -151,6 +151,16 @@ From Search Console, last 28 days against the 28 before:
     scrolls.
   - The owner's real Kit signup test: add its UTC time and the test
     subscriber when the owner reports them.
+  - 2026-11-18, 12:01:33 to 12:01:51 UTC, uncertain: an agent's headless
+    Chrome check of which Clarity project the live site loads (fresh
+    profile, no owner flag), on the home page and
+    `/systems/what-are-embeddings/`. GA4's collect endpoint was blocked,
+    but three fallback hits to `www.google.com/g/collect` for
+    G-EQ4JMFY925 returned 204, likely 2 `page_view` and 1 engagement hit.
+    Whether GA4 counted them is unknown. Subtract only what can be
+    identified reliably (those two pages in that minute, headless Chrome);
+    otherwise list it as not subtracted. Clarity received nothing (all its
+    requests were blocked).
 - Letters: submitted addresses (`letters_signup_submitted` in GA4, Kit
   accepted the address) and confirmed subscribers (Kit's count) are two
   separate measures. Never add them, and never report one as the other.
