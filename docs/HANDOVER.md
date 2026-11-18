@@ -253,6 +253,12 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   equals `pruningmypothos.com`. Not measured: Letters signup success (Kit
   only), which homepage or prism link a visitor used, prism block buttons.
 
+- **Answer-first template (deployed 2026-11-18)**: PR #15 (merge
+  `f720d39`) added the opt-in `answerFirst` layout flag for Systems
+  articles. It is off on every article, so no live page changed. It is
+  switched on per article only through the growth track's publication
+  checklist (weekly loop, step 5). Details and the activation record are
+  in section 9, "Systems article layout".
 - **Tracking events (complete 2026-11-18)**: PR #13 (merge `7f187a8`)
   added `select_content` for home page links (`HomeClickTracking.tsx`;
   params `content_type`, `item_id`, `section`, `link_role`),
@@ -553,20 +559,25 @@ Agent work, in order (confirm with the owner each session):
    03:08 to 03:10 UTC on 18 November (home page, footer form, evaluation
    article); the December review handles them under the growth track's
    test activity rule. The owner flag was restored afterwards.
-   Systems article layout. Live now, every article and every screen width:
-   kicker row, title, description, tags, cover, then the short answer. At
-   390px on a first visit the answer starts 714 to 847px down, under the
-   cookie banner (which is unchanged). Proposed in PR #15 (branch
-   `feat/answer-first-mobile`, waiting for the owner's review and merge
-   approval): an opt-in `answerFirst` flag. On phones a flagged article
-   shows title, short answer, kicker row, description, tags, cover, so the
-   answer's first sentence sits above the banner on a first visit (30 of
-   35 current articles pass at 390 by 660 with the flag forced on; every
+   Systems article layout. Template deployed 2026-11-18 (PR #15, merge
+   `f720d39`, deploy run green at 06:33 UTC, live by 06:44 UTC): an opt-in
+   `answerFirst` flag. No article sets it, so every live article keeps the
+   layout it had: kicker row, title, description, tags, cover, then the
+   short answer; at 390px on a first visit the answer starts 714 to 847px
+   down, under the cookie banner (unchanged). After the deploy all 35 live
+   article pages matched the merged build, and in an owner-flagged browser
+   (nothing sent to GA) `prism_block` and the navigating `select_content`
+   each reached the dataLayer once. With the flag, a phone shows title,
+   short answer, kicker row, description, tags, cover, so the answer's
+   first sentence can sit above the banner on a first visit (30 of 35
+   current articles pass at 390 by 660 with the flag forced on; every
    first sentence of 130 characters or fewer passes). From 640px up the
-   order is the live one. No article sets the flag in that PR; it ships
-   with the next new Systems article, whose real title and short answer
-   must pass the same check first. Not deployed yet: record the date here
-   and in the growth log when the first flagged article goes live. Treat
+   order is the default one. The flag is set only through the publication
+   checklist in the growth track (weekly loop, step 5): the article's real
+   title and short answer checked at 390 by 660 and 375 by 568, first
+   visit, banner showing, reduced motion, limitations recorded, and the
+   owner approving from the screenshots. First article activation: not
+   yet; record its date here and in the growth log when it ships. Treat
    it as an editorial improvement; December reports raw counts without
    crediting the layout.
    Skills page title: keep it through the hold. In December, compare the
