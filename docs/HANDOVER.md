@@ -510,6 +510,17 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   autonomy, HITL, inference vs fine-tuning, Ollama launch, Obsidian
   scratchpad, brief.md, AEO and GEO. Bing Webmaster Tools is verified;
   GA4 and Clarity have little data yet.
+- **Row 10 Ollama tools page drafted (2026-11-18)**:
+  `/shelf/shared-resources/which-ollama-models-support-tools/`, from
+  Ollama's docs, the model library's Tools filter and the source at
+  v0.40.16 (commit d63b702609c4300a2ca07be2bdb0adb9834725e5). Nothing was
+  installed or run; the page says so. Before publication, recheck the
+  latest release, the Popular and Newest lists, and every source line
+  link. A "tested on" row is optional and needs the environment, exact
+  commands, output, date and who ran it. House rule wording (AGENTS.md 3;
+  section 2 item 2): first-hand claims come only from the owner, declared
+  `observed` with author attestation. An agent-run test is attributed to
+  the agent and never written as the owner's experience.
 
 ## 9. Open items
 
