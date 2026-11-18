@@ -101,6 +101,21 @@ slashes), MDX via content-collections, Tailwind, a Zod editorial contract.
   and roles, never about identity; no sexual humour.
 - **Stack shows** DAX, LanguageOps and PaneTera. Verb is held back until the
   owner says it is ready. GoATee is a candidate Stack entry (growth row F6).
+- **Measurement (2026-11-17)**: the two headline metrics are Google Search
+  clicks and GA4 engaged sessions, the latter with known owner traffic
+  excluded and any remaining uncertainty flagged. 15k monthly impressions
+  stays the December checkpoint; the December review reports the gap.
+  Reviews show raw counts beside every rate. At about 30 engaged sessions a
+  month, a change is reported as seen, not credited to a UX edit, unless
+  the evidence supports it. A confirmed Letters subscription is Kit's count
+  only; site events are labelled as submits or redirects. Tracking work and
+  read-only UX diagnosis run in parallel; existing search landing pages are
+  not changed until the owner has reviewed the diagnosis; new pages keep
+  the two-a-week cadence where it fits, with publication dates logged.
+- **UX focus (2026-11-17)**: first the article opening screen on mobile
+  (does it answer the query that brought the reader), then the
+  end-of-article next step; a Letters redesign only if the evidence asks
+  for it. The drawn, deadpan identity stays.
 
 ## 4. Information architecture
 
@@ -222,6 +237,40 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   material the owner may not want public.
 
 ## 8. Where things stand (2026-11-05)
+
+- **Traffic review (2026-11-17)**: first monthly review, read-only, from
+  GA4, Search Console, Bing, Clarity and Cloudflare in the owner's Chrome.
+  Findings are in the growth log; numbers and their sources are in the
+  owner's Claude artifact "Pothos Traffic Review" (fixed CSV snapshots,
+  refreshed by hand each month, no automation). Measurement facts: the site
+  sends no custom events. GA4 enhanced measurement gives `page_view` on
+  load and on in-app navigation (once each), `file_download` on storyboard
+  PDF links (once) and `form_submit`; verified live 13:51 to 13:53 UTC from
+  the owner's desktop Chrome with the owner flag turned off, then restored.
+  GA4 users are inflated by referral spam (aocr.org) and 0-second
+  US/Singapore desktop traffic, so read engaged sessions. Cloudflare zone
+  analytics mixes hosts (`verb` is about half the requests): filter Host
+  equals `pruningmypothos.com`. Not measured: Letters signup success (Kit
+  only), which homepage or prism link a visitor used, prism block buttons.
+
+- **Answer-first template (deployed 2026-11-18)**: PR #15 (merge
+  `f720d39`) added the opt-in `answerFirst` layout flag for Systems
+  articles. It is off on every article, so no live page changed. It is
+  switched on per article only through the growth track's publication
+  checklist (weekly loop, step 5). Details and the activation record are
+  in section 9, "Systems article layout".
+- **Tracking events (complete 2026-11-18)**: PR #13 (merge `7f187a8`)
+  added `select_content` for home page links (`HomeClickTracking.tsx`;
+  params `content_type`, `item_id`, `section`, `link_role`),
+  `prism_block` (`PrismHero.tsx`; `part`, `blocked`) and
+  `letters_signup_submitted` (`NewsletterForm.tsx`; `form_location`),
+  sent through `src/lib/analytics/track.ts`. The last means Kit accepted
+  the address, not a confirmed subscription; Kit's count is the confirmed
+  measure, kept separate. No email address reaches GA (checked against
+  real requests). Live from 03:07 UTC on 2026-11-18, which starts the
+  event baseline; each event counted once in GA4 Realtime in the 03:08 to
+  03:10 UTC test, excluded from reviews as set out in the growth track's
+  Monthly review.
 
 - **Prism hero (2026-11-05)**: the home page opens with `PrismHero`
   (`src/components/home/PrismHero.tsx`, canvas, no library): a beam
@@ -452,16 +501,91 @@ Owner actions:
    the real registry files.
 4. F5 ("how to become an FDC"): resume and posts received 2026-10-16;
    answer the interview questions and the two open questions in section 8.
-5. Search Console: remove the stale `sitemap_index.xml`; star
-   `file_download` as a key event in GA4 once it has fired.
+5. Search Console: remove the stale `sitemap_index.xml`.
+6. Open `https://pruningmypothos.com/?pmp-owner=on` once on the phone, so
+   the owner's own reading stops counting (the desktop Chrome already has
+   the flag).
+7. GA4 settings (owner only): Admin, Data retention, event data to 14
+   months; Admin, Custom definitions, event-scoped dimensions for
+   `item_id`, `section`, `link_role`, `part`, `blocked` and
+   `form_location` (they report from the day they are created, never
+   earlier; `content_type` is built in); Admin, Key events: mark
+   `letters_signup_submitted` and `file_download`.
+8. Kit test, once: in a private window, submit the footer form with a
+   plus address you own, note the UTC time, check GA4 Realtime shows one
+   `letters_signup_submitted` and Kit shows the address unconfirmed;
+   confirm from the email, check it lands on `/newsletter/welcome/` (0
+   views from 17 Aug to 16 Nov) and Kit marks it confirmed; then delete
+   the test subscriber in Kit and log the time as test activity. Each
+   month, note Kit's confirmed subscriber count apart from GA4's
+   submitted count.
 
 Agent work, in order (confirm with the owner each session):
 1. Growth: row 10 (which Ollama models support tools, dated Shelf
    reference) or H2 (agent memory). Snapshot of Search Console, GA4 and
    Clarity before the 2026-10-21 deploy is in section 8. F5 (how to
    become an FDC) from the owner's resume, posts and an interview.
-2. Review the new pages in Search Console from mid-November against the
-   log in `docs/GROWTH_TRACK.md`.
+2. Done 2026-11-17 (monthly review, logged). Tracking events were built
+   on `feat/tracking-events` (merged as PR #13 on 2026-11-18, see below):
+   `select_content` for home page links
+   (`HomeClickTracking.tsx`), `prism_block` in `PrismHero.tsx`, and
+   `letters_signup_submitted` in `NewsletterForm.tsx` (Kit accepted the
+   address; not a confirmed subscription, so it is not named `sign_up`),
+   plus privacy page wording. Each fired once per action against a local
+   build; the live check after deploy is still owed. Storyboard PDFs stay
+   on GA4's `file_download`.
+   Mobile diagnosis (local build, 390px wide, read-only): on all six
+   Systems landing pages checked, the short answer starts 714 to 847px
+   down, below the cover drawing, so it is under the first phone screen
+   (about 660px); the description above the cover carries a compressed
+   answer. A first-visit consent banner covers 179px of that screen.
+   Clarity has too few mobile views to measure behaviour (2 on the skills
+   page in 30 days). Waiting for the owner's review before any landing
+   page changes.
+   Update 2026-11-17: privacy checked against real GA requests (no email
+   address in any of them; GA's own `form_submit` never fires on the
+   Letters form). `feat/tracking-events` pushed as PR #13 for the owner's
+   review; the privacy page's "Updated" date must be the deployment date.
+   After it deploys, confirm each event reaches GA4 once, including a
+   prism band link that navigates away. GA4 settings stay with the owner.
+   Tracking deployment complete 2026-11-18: PR #13 merged (merge commit `7f187a8`, privacy page
+   dated 18 November 2026), deployed (run 44226679647; live from 03:07
+   UTC after Hostinger's pull and the 10 minute cache). Live check in GA4
+   Realtime: `prism_block`, `letters_signup_submitted` and
+   `select_content` each counted once; `select_content` arrived with
+   `link_role = prism_band` from the evaluation band, whose click
+   navigated away. Kit's response was faked in the page for the check,
+   so no subscriber was created. These test hits are the agent's, from
+   03:08 to 03:10 UTC on 18 November (home page, footer form, evaluation
+   article); the December review handles them under the growth track's
+   test activity rule. The owner flag was restored afterwards.
+   Systems article layout. Template deployed 2026-11-18 (PR #15, merge
+   `f720d39`, deploy run green at 06:33 UTC, live by 06:44 UTC): an opt-in
+   `answerFirst` flag. No article sets it, so every live article keeps the
+   layout it had: kicker row, title, description, tags, cover, then the
+   short answer; at 390px on a first visit the answer starts 714 to 847px
+   down, under the cookie banner (unchanged). After the deploy all 35 live
+   article pages matched the merged build, and in an owner-flagged browser
+   (nothing sent to GA) `prism_block` and the navigating `select_content`
+   each reached the dataLayer once. With the flag, a phone shows title,
+   short answer, kicker row, description, tags, cover, so the answer's
+   first sentence can sit above the banner on a first visit (30 of 35
+   current articles pass at 390 by 660 with the flag forced on; every
+   first sentence of 130 characters or fewer passes). From 640px up the
+   order is the default one. The flag is set only through the publication
+   checklist in the growth track (weekly loop, step 5): the article's real
+   title and short answer checked at 390 by 660 and 375 by 568, first
+   visit, banner showing, reduced motion, limitations recorded, and the
+   owner approving from the screenshots. First article activation: not
+   yet; record its date here and in the growth log when it ships. Treat
+   it as an editorial improvement; December reports raw counts without
+   crediting the layout.
+   Skills page title: keep it through the hold. In December, compare the
+   page's Search Console queries, impressions, clicks and positions before
+   proposing a title; show the on-page headline and the search title
+   separately if they differ, and keep the page's coverage of workflows.
+   Check Search Console's generative AI report for "prompt vs skill vs
+   agent" first.
 3. Visual track and builder track continue per their files.
 4. DAX approval and diff stills, when the owner allows a model run.
 
