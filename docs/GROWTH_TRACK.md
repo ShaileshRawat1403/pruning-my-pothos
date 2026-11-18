@@ -93,6 +93,27 @@ From Search Console, last 28 days against the 28 before:
   0-second bot traffic; do not lead with them. Show raw counts beside every
   rate, list the pages published in the window, and do not credit a change
   to a UX edit unless the evidence supports it.
+- Event baseline (owner, 2026-11-18): `select_content` (home page links),
+  `prism_block` and `letters_signup_submitted` exist from 2026-11-18
+  (live 03:07 UTC; that day is partial). Report them from that date only,
+  state how many days of tracking the window holds (for example "18 Nov
+  to 7 Dec: 20 days, the first partial"), give raw counts beside every
+  rate, and make no before/after comparison for them until a full
+  previous window exists.
+- Test activity: remove every identifiable agent or owner test before
+  computing anything, and list what was removed. Known tests: 2026-11-17
+  13:51 to 13:53 UTC (enhanced measurement check) and 2026-11-18 03:08 to
+  03:10 UTC (one session: 2 home page loads, 1 `prism_block`, 1
+  `form_start`, 1 `letters_signup_submitted` from the footer with Kit
+  faked, 1 `select_content` with `link_role = prism_band` to the
+  evaluation article, its page view and scrolls). Event counts can be
+  subtracted exactly. Session-level figures (users, engaged sessions,
+  engagement time) and Clarity can only be adjusted by an assumed one
+  session per test, and Cloudflare requests not at all: say so in the
+  review instead of presenting the adjusted figure as exact.
+- Letters: submitted addresses (`letters_signup_submitted` in GA4, Kit
+  accepted the address) and confirmed subscribers (Kit's count) are two
+  separate measures. Never add them, and never report one as the other.
 
 ## Keyword map
 
@@ -213,3 +234,4 @@ Never chase a query only because it has volume.
 | 2026-11-04 | GSC Audit | Domain-wide (763 URLs) | GSC reconciliation & WordPress legacy audit | n/a | (across) | Verified 278 indexed, 485 excluded (189 intentional noindex + 8 stale hub verdicts, 87 non-slash + 68 slash redirects, 86 crawled-not-indexed, 46 404/410, 1 soft-404). Systems articles: 4 confirmed indexed by URL Inspection (incl. what-is-mcp, no Performance row), 34 of 35 in 16-mo Pages.csv. 33-URL inspection sample: 24 backlog pages still crawled-not-indexed, 8 tag hubs still on stale noindex verdicts. 16-mo baseline: 416 clicks, 60.6k imp; skills article drives 70.2% of clicks; 15 legacy essays had 492 imp (0 clicks). Investigation closed; technical release deferred. |
 | 2026-11-05 | H4 | `/systems/designing-reusable-ai-skills/` | what are agent skills | 0 clicks, 138 imp, pos 7.59 (16 mo) | itself | Retitled "What Are Agent Skills, and What Makes One Reusable?"; new opening section from agentskills.io spec and Claude Code docs (3 external claims); PMP definition kept as the design sense; cover re-exported; related-card titles updated on 3 pages; updatedAt 2026-11-05; not yet live |
 | 2026-11-17 | review | Monthly review, 20 Oct to 16 Nov against 22 Sep to 19 Oct (read-only; no site or settings change) | (all) | GSC 3.64k imp, 48 clicks, pos 8.8 | n/a | GSC 4.69k imp (+29%; 31% of the 15k December checkpoint), 22 clicks, pos 10.2. The click drop is one page: skills-vs-prompts-vs-agents 33 to 6 clicks at a steady pos 7.6 (7.3 before); 21 of its 33 came 10 to 19 Oct and the burst ended after the 21 Oct description trim (timing only, not proven; a 12-click burst on 15 to 16 Sep had no edit). Live 4+ weeks: bounded autonomy pos 8.5 (272 imp), FDC 4.5 (179), embeddings 24.8 (423), "what does forward deployed mean" 10.3 (72). GA4: users 152 vs 85, but 37 are aocr.org referral spam and US/Singapore desktop users (72, 40) average 0 s; engaged sessions 30 vs 42 (21 from India). AI and social: chatgpt.com 1 session, t.co 15 (9 engaged), linkedin.com 1. Tracking verified live 13:51 to 13:53 UTC: page_view once per load and per in-app navigation, file_download once per PDF click. Storyboard PDF clicks 0, Letters welcome page 0 views since 17 Aug. Numbers and sources in the owner's Claude artifact "Pothos Traffic Review" |
+| 2026-11-18 | tracking | New GA4 events deployed (PR #13, merge `7f187a8`): `select_content` for home page links, `prism_block`, `letters_signup_submitted` | (home page, Letters form) | none before this date | n/a | Complete. Live from 03:07 UTC; each event counted once in GA4 Realtime (03:08 to 03:10 UTC test, Kit faked). Start of the event baseline; the test session is excluded from December (see Monthly review) |

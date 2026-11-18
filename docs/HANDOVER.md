@@ -253,6 +253,19 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   equals `pruningmypothos.com`. Not measured: Letters signup success (Kit
   only), which homepage or prism link a visitor used, prism block buttons.
 
+- **Tracking events (complete 2026-11-18)**: PR #13 (merge `7f187a8`)
+  added `select_content` for home page links (`HomeClickTracking.tsx`;
+  params `content_type`, `item_id`, `section`, `link_role`),
+  `prism_block` (`PrismHero.tsx`; `part`, `blocked`) and
+  `letters_signup_submitted` (`NewsletterForm.tsx`; `form_location`),
+  sent through `src/lib/analytics/track.ts`. The last means Kit accepted
+  the address, not a confirmed subscription; Kit's count is the confirmed
+  measure, kept separate. No email address reaches GA (checked against
+  real requests). Live from 03:07 UTC on 2026-11-18, which starts the
+  event baseline; each event counted once in GA4 Realtime in the 03:08 to
+  03:10 UTC test, excluded from reviews as set out in the growth track's
+  Monthly review.
+
 - **Prism hero (2026-11-05)**: the home page opens with `PrismHero`
   (`src/components/home/PrismHero.tsx`, canvas, no library): a beam
   labelled "AI" refracts into a spectrum whose seven bands link to their
@@ -482,14 +495,24 @@ Owner actions:
    the real registry files.
 4. F5 ("how to become an FDC"): resume and posts received 2026-10-16;
    answer the interview questions and the two open questions in section 8.
-5. Search Console: remove the stale `sitemap_index.xml`; star
-   `file_download` as a key event in GA4 (it fired on 2026-11-17).
+5. Search Console: remove the stale `sitemap_index.xml`.
 6. Open `https://pruningmypothos.com/?pmp-owner=on` once on the phone, so
    the owner's own reading stops counting (the desktop Chrome already has
    the flag).
-7. Kit: note the confirmed subscriber count each month, and check the
-   form's post-confirmation redirect points at `/newsletter/welcome/`
-   (that page had 0 views from 17 Aug to 16 Nov).
+7. GA4 settings (owner only): Admin, Data retention, event data to 14
+   months; Admin, Custom definitions, event-scoped dimensions for
+   `item_id`, `section`, `link_role`, `part`, `blocked` and
+   `form_location` (they report from the day they are created, never
+   earlier; `content_type` is built in); Admin, Key events: mark
+   `letters_signup_submitted` and `file_download`.
+8. Kit test, once: in a private window, submit the footer form with a
+   plus address you own, note the UTC time, check GA4 Realtime shows one
+   `letters_signup_submitted` and Kit shows the address unconfirmed;
+   confirm from the email, check it lands on `/newsletter/welcome/` (0
+   views from 17 Aug to 16 Nov) and Kit marks it confirmed; then delete
+   the test subscriber in Kit and log the time as test activity. Each
+   month, note Kit's confirmed subscriber count apart from GA4's
+   submitted count.
 
 Agent work, in order (confirm with the owner each session):
 1. Growth: row 10 (which Ollama models support tools, dated Shelf
@@ -519,7 +542,7 @@ Agent work, in order (confirm with the owner each session):
    review; the privacy page's "Updated" date must be the deployment date.
    After it deploys, confirm each event reaches GA4 once, including a
    prism band link that navigates away. GA4 settings stay with the owner.
-   Done 2026-11-18: PR #13 merged (merge commit `7f187a8`, privacy page
+   Tracking deployment complete 2026-11-18: PR #13 merged (merge commit `7f187a8`, privacy page
    dated 18 November 2026), deployed (run 44226679647; live from 03:07
    UTC after Hostinger's pull and the 10 minute cache). Live check in GA4
    Realtime: `prism_block`, `letters_signup_submitted` and
