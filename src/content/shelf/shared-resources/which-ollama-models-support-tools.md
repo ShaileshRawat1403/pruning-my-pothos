@@ -13,10 +13,10 @@ coverAlt: "Cover illustration for Which Ollama models support tools"
 resourceHighlights:
   - Check the capability on your own install with ollama show
   - Why the answer depends on your Ollama version and the model you pulled
-  - The model library's Tools filter, dated
+  - What the library's Tools filter showed on 18 November 2026, and what it leaves out
 ---
 
-An Ollama model supports tools when your Ollama server lists `tools` among that model's capabilities. The server works this out from the model's prompt template or its built-in parser, so the answer depends on two things: the Ollama version you run and the version of the model you pulled. The model library's [Tools filter](https://ollama.com/search?c=tools) shows which models Ollama labels this way.
+An Ollama model supports tools when your Ollama server lists `tools` among that model's capabilities. The server works this out from the model's prompt template or its built-in parser, so the answer depends on two things: the Ollama version you run and the version of the model you pulled. The model library's [Tools filter](https://ollama.com/search?c=tools) lists models Ollama labels this way, though not all of them at once.
 
 **Checked 18 November 2026** against Ollama's documentation, its model library and its source code at release v0.40.16 (published 9 November 2026). None of the commands below were run for this page: no Ollama install and no model were tested. The expected results come from the documentation and the source, linked at each step.
 
@@ -89,11 +89,17 @@ So the capability is read from files that arrive with the model and from parsers
 
 Ollama's documentation also covers [streaming tool calls, parallel tool calls and a multi-turn agent loop](https://docs.ollama.com/capabilities/tool-calling). For what a tool call is and what can go wrong when language triggers an action, see [Tool use: when language triggers actions](/systems/tool-use-when-language-triggers-actions/).
 
-## The library's Tools filter, 18 November 2026
+## What the library's Tools filter showed on 18 November 2026
 
-The [Tools filter](https://ollama.com/search?c=tools), sorted by Popular, showed 20 models and gave no total. The [Newest](https://ollama.com/search?c=tools&o=newest) sort showed a different 20. Neither page offered more results. `qwen3`, the model in Ollama's own examples, carries the `tools` tag on [its library page](https://ollama.com/library/qwen3) and appears in neither list, so the filter's first page shows only part of the set.
+The table below is an observed list: what the [Tools filter](https://ollama.com/search?c=tools) showed when it was read on 18 November 2026. It is incomplete, and it changes with the sort order and over time.
 
-Popular, in page order:
+- **It shows 20 models and no total.** Neither sort order offered a next page or a count.
+- **It depends on the sort.** Sorted by [Popular](https://ollama.com/search?c=tools) and by [Newest](https://ollama.com/search?c=tools&o=newest), the filter showed 20 models each, and 12 of them appeared in both lists.
+- **It can leave out tagged models.** `qwen3`, the model in Ollama's own examples, carries the `tools` tag on [its library page](https://ollama.com/library/qwen3) and appeared in neither list.
+
+To check a model that is not listed, open its library page and look for the `tools` tag, or run `ollama show` on your own copy (step 2 above).
+
+Sorted by Popular, in page order, as observed on 18 November 2026:
 
 | Model | Runs | Other capability tags |
 | :--- | :--- | :--- |
