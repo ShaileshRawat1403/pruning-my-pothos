@@ -253,6 +253,24 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   equals `pruningmypothos.com`. Not measured: Letters signup success (Kit
   only), which homepage or prism link a visitor used, prism block buttons.
 
+- **Clarity project corrected (2026-11-18)**: the site's tag has used
+  `lqscm7xayr` since 2026-10-09 (the only ID in the code, live requests
+  confirm it). In Clarity that project was named "LP" with the website
+  URL `https://www.indovance.com/lp/cad-drafting-services.php`, which the
+  owner says they never set; how it got there is unknown. At the owner's
+  request it is now "Pruning My Pothos", `https://pruningmypothos.com`.
+  Same ID and data, no code change. Access: the owner is the sole current
+  project member, Admin; historical membership and account access remain
+  unverified. All 137 recordings available (20 Oct to 18 Nov) were
+  checked: every entry and exit page is on pruningmypothos.com, the top
+  heatmap pages too; other domains appear only as referrers. The Indovance
+  URL now redirects to its home page, whose HTML carries no Clarity tag.
+  Earlier analysis: the 2026-11-17 review (139 sessions, 111 bots, 96
+  users) and the mobile diagnosis (2 skills page mobile views) used this
+  project's "30 days to 17 Nov"; 20 Oct to 17 Nov of that window is
+  verified, and the settings correction leaves those findings valid. Any
+  sessions before 20 Oct are past Clarity's 30-day view and unchecked, as
+  is the 7-day snapshot before the 2026-10-21 deploy.
 - **Deployment round closed 2026-11-18 (owner)**: PR #13 (tracking,
   merge `7f187a8`), PR #15 (answer-first template, merge `f720d39`) and
   PR #14 (docs, merge `486bd10`) are merged and deployed. The owner
@@ -468,6 +486,9 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
     no AI-answer referrals yet; 0 key events.
   - Clarity, 7 days: 49 sessions (25 bots excluded), 47% scroll depth,
     1.4 min active, 8% dead clicks, 0 JS errors, LCP 3.3 s on 3 views.
+    Unverified: these dates are past Clarity's 30-day view, so which
+    domains the week held could not be checked (see the 2026-11-18
+    Clarity correction above).
 - Search Console (3 months to 2026-10-14): one cluster (skills vs prompts vs
   agents) carries most impressions; positions 8 to 30 exist for bounded
   autonomy, HITL, inference vs fine-tuning, Ollama launch, Obsidian
@@ -567,8 +588,9 @@ Agent work, in order (confirm with the owner each session):
    (about 660px); the description above the cover carries a compressed
    answer. A first-visit consent banner covers 179px of that screen.
    Clarity has too few mobile views to measure behaviour (2 on the skills
-   page in 30 days). Waiting for the owner's review before any landing
-   page changes.
+   page in 30 days to 17 Nov; pruningmypothos.com URLs verified for 20 Oct
+   to 17 Nov, earlier days of that window unavailable). Waiting for the
+   owner's review before any landing page changes.
    Update 2026-11-17: privacy checked against real GA requests (no email
    address in any of them; GA's own `form_submit` never fires on the
    Letters form). `feat/tracking-events` pushed as PR #13 for the owner's
