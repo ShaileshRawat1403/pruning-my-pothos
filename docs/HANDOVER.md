@@ -253,6 +253,31 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   equals `pruningmypothos.com`. Not measured: Letters signup success (Kit
   only), which homepage or prism link a visitor used, prism block buttons.
 
+- **Deployment round closed 2026-11-18 (owner)**: PR #13 (tracking,
+  merge `7f187a8`), PR #15 (answer-first template, merge `f720d39`) and
+  PR #14 (docs, merge `486bd10`) are merged and deployed. The owner
+  accepted these checks as sufficient; what each one verified:
+  - GA4 Realtime, 03:08 to 03:10 UTC, live site, owner flag off: GA4
+    received `prism_block`, `letters_signup_submitted` (Kit's response
+    faked, so it proves the event, not a subscription) and
+    `select_content` with `link_role = prism_band` from a click that
+    navigated away, each counted once. This is the only check that proves
+    receipt in GA4.
+  - Owner-flagged browser, 06:45 UTC, live site after the PR #15 deploy:
+    `prism_block` and the navigating `select_content` each reached the
+    page's dataLayer once with the expected parameters. Nothing was sent
+    to GA, so it proves the deployed code fires the events, not that GA
+    received them, and it adds no test activity.
+  - Source check: no file under `src/lib` or `src/components` changed
+    between `7f187a8` and `f720d39`, so the tracking code is the code
+    checked at 03:08.
+  - Live HTML: after each later deploy (live by 06:44 and 07:03 UTC) all
+    35 Systems article pages matched a fresh build of `main` (the article
+    element, with build hashes masked), and no page carries the
+    answer-first slot; the GA tag is on the live home page.
+  - Not rechecked after 03:08: `letters_signup_submitted`, and GA4's
+    built-in events (`page_view`, `scroll`, `form_start`,
+    `file_download`).
 - **Answer-first template (deployed 2026-11-18)**: PR #15 (merge
   `f720d39`) added the opt-in `answerFirst` layout flag for Systems
   articles. It is off on every article, so no live page changed. It is
@@ -505,13 +530,15 @@ Owner actions:
 6. Open `https://pruningmypothos.com/?pmp-owner=on` once on the phone, so
    the owner's own reading stops counting (the desktop Chrome already has
    the flag).
-7. GA4 settings (owner only): Admin, Data retention, event data to 14
+7. GA4 settings (owner only; the owner is doing this separately, agents
+   never change GA4): Admin, Data retention, event data to 14
    months; Admin, Custom definitions, event-scoped dimensions for
    `item_id`, `section`, `link_role`, `part`, `blocked` and
    `form_location` (they report from the day they are created, never
    earlier; `content_type` is built in); Admin, Key events: mark
    `letters_signup_submitted` and `file_download`.
-8. Kit test, once: in a private window, submit the footer form with a
+8. Kit signup test (owner only; the owner is doing this separately), once:
+   in a private window, submit the footer form with a
    plus address you own, note the UTC time, check GA4 Realtime shows one
    `letters_signup_submitted` and Kit shows the address unconfirmed;
    confirm from the email, check it lands on `/newsletter/welcome/` (0
@@ -532,7 +559,7 @@ Agent work, in order (confirm with the owner each session):
    `letters_signup_submitted` in `NewsletterForm.tsx` (Kit accepted the
    address; not a confirmed subscription, so it is not named `sign_up`),
    plus privacy page wording. Each fired once per action against a local
-   build; the live check after deploy is still owed. Storyboard PDFs stay
+   build, then live (below). Storyboard PDFs stay
    on GA4's `file_download`.
    Mobile diagnosis (local build, 390px wide, read-only): on all six
    Systems landing pages checked, the short answer starts 714 to 847px
