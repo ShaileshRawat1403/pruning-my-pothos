@@ -287,6 +287,17 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   removes the strip on the skills page (249px), training vs inference
   (95px) and agent intent to governed execution (50px); five other pages
   with tables measured the same before and after; no text changes.
+- **Row 8 OpenCode section (2026-11-19, owner chose option A)**: a dated
+  "OpenCode with a local model" section on the Ollama launch page, the
+  page every OpenCode query lands on (23 impressions, 19 Aug to 17 Nov).
+  Owner-approved exception to the landing-page hold for this one section;
+  the owner's January run text is unchanged apart from a new "The first
+  run, January 2026" heading. Docs and source only, not run. It separates
+  OpenCode 1 (default installer and npm `latest`, 1.19.6, `provider`
+  block) from OpenCode 2 (2.3.2, own installer, finds Ollama by itself),
+  and gives both context-length figures (Ollama 64k or more; OpenCode 1
+  docs 16k to 32k if tool calls fail). Recheck both release lines before
+  any update.
 - **Publication round 2026-11-18 (owner-approved, merged in order, each
   verified live before the next)**:
   - PR #20, content table width (merge `eb1c0a6`): live 13:44:41 UTC.
