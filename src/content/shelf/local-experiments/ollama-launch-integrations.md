@@ -3,7 +3,7 @@ title: "Ollama launch: integration handoff"
 seoTitle: "Ollama Launch: Hand Local Models to Codex and OpenCode"
 description: "A launcher flow that hands a local Ollama model to Codex or OpenCode. Setup walkthrough, the two gates it checks, failure modes and what fixed them."
 publishDate: "2026-01-27"
-updatedAt: "2026-11-19"
+updatedAt: "2026-11-20"
 tags:
   - experiments
   - local-llm
@@ -28,7 +28,7 @@ The integrations listed in [Ollama's CLI docs](https://docs.ollama.com/cli), che
 
 ## OpenCode with a local model
 
-**Checked 19 November 2026** against Ollama's and OpenCode's documentation and OpenCode's source. Nothing in this section was run for this page, and the first run further down used Codex, so none of it is tested here.
+**Checked 20 November 2026** against Ollama's and OpenCode's documentation and OpenCode's source. Nothing in this section was run for this page, and the first run further down used Codex, so none of it is tested here.
 
 Which OpenCode you install decides how it finds Ollama. Two release lines were current on that date:
 

@@ -296,7 +296,10 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   OpenCode 1 (default installer and npm `latest`, 1.19.6, `provider`
   block) from OpenCode 2 (2.3.2, own installer, finds Ollama by itself),
   and gives both context-length figures (Ollama 64k or more; OpenCode 1
-  docs 16k to 32k if tool calls fail). Recheck both release lines before
+  docs 16k to 32k if tool calls fail). Rechecked on 2026-11-20 before
+  publishing: both release lines, npm `latest`, the install script
+  wording, the quoted Ollama and OpenCode docs and the pinned source were
+  unchanged, so only the dates moved. Recheck both release lines before
   any update.
 - **Publication round 2026-11-18 (owner-approved, merged in order, each
   verified live before the next)**:
