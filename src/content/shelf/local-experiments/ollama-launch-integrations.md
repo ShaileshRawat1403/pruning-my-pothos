@@ -3,7 +3,7 @@ title: "Ollama launch: integration handoff"
 seoTitle: "Ollama Launch: Hand Local Models to Codex and OpenCode"
 description: "A launcher flow that hands a local Ollama model to Codex or OpenCode. Setup walkthrough, the two gates it checks, failure modes and what fixed them."
 publishDate: "2026-01-27"
-updatedAt: "2026-10-21"
+updatedAt: "2026-11-20"
 tags:
   - experiments
   - local-llm
@@ -25,6 +25,65 @@ ollama launch droid --config           # configure it without starting it
 ```
 
 The integrations listed in [Ollama's CLI docs](https://docs.ollama.com/cli), checked 2026-10-21: OpenCode, Claude Code, Codex, VS Code and Droid (Factory's coding agent). The tool has to be installed first; the launcher tells you when it is not. For coding work, the announcement recommends raising Ollama's context length to at least 64000 tokens.
+
+## OpenCode with a local model
+
+**Checked 20 November 2026** against Ollama's and OpenCode's documentation and OpenCode's source. Nothing in this section was run for this page, and the first run further down used Codex, so none of it is tested here.
+
+Which OpenCode you install decides how it finds Ollama. Two release lines were current on that date:
+
+- **OpenCode 1** (1.19.6, released 17 November 2026) is what `curl -fsSL https://opencode.ai/install | bash` and `npm install -g opencode-ai` install. The [install script](https://opencode.ai/install) says it "only installs OpenCode 1", and npm's `latest` tag pointed to 1.19.6. Its docs are at [opencode.ai/v1/docs](https://opencode.ai/v1/docs/providers).
+- **OpenCode 2** (2.3.2, released 18 November 2026) has its own installer, `curl -fsSL https://opencode.ai/v2/install | bash`, named in the same script. The main [opencode.ai/docs](https://opencode.ai/docs/providers) pages describe it. See the [release list](https://github.com/anomalyco/opencode/releases).
+
+### The short way: ollama launch
+
+```bash
+ollama launch opencode           # set OpenCode up for Ollama and start it
+ollama launch opencode --config  # set it up without starting it
+```
+
+Ollama's [OpenCode page](https://docs.ollama.com/integrations/opencode) says this does not overwrite `~/.config/opencode/opencode.json`, so existing OpenCode settings still apply, and that models defined only in that file do not appear in the launch picker. `ollama launch` needs Ollama 0.15 or later.
+
+### By hand, OpenCode 1
+
+Add a provider to OpenCode's config, `~/.config/opencode/opencode.json`:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama",
+      "options": { "baseURL": "http://localhost:11434/v1" },
+      "models": { "qwen3.5": { "name": "qwen3.5" } }
+    }
+  }
+}
+```
+
+This is the shape both [Ollama's OpenCode page](https://docs.ollama.com/integrations/opencode) and [OpenCode 1's provider docs](https://opencode.ai/v1/docs/providers) show. Each key under `models` is a model name as `ollama list` shows it. Start `opencode` and pick the model with `/models`.
+
+### OpenCode 2 finds Ollama by itself
+
+With Ollama running on the same machine, OpenCode 2 probes `http://127.0.0.1:11434` and adds the models it finds to `/models` without any config, per its [provider docs](https://opencode.ai/docs/providers). At 2.3.2 the [source](https://github.com/anomalyco/opencode/blob/c0ad18b402eb2827fc1ee71c171b1177b3fc02d1/packages/core/src/plugin/provider/ollama.ts#L44-L90) reads Ollama's model list and each model's details, keeps the models that report the `completion` capability, and marks tool support from the `tools` capability: the same list explained in [Which Ollama models support tools](/shelf/shared-resources/which-ollama-models-support-tools/). For an Ollama server elsewhere, the docs set `providers.ollama.settings.baseURL`, ending in `/v1`. To make a model the default, set `"model": "ollama/<name>"` ([models docs](https://opencode.ai/docs/models)).
+
+### Context length is where it breaks
+
+Ollama's default context depends on GPU memory: 4k tokens below 24 GiB of VRAM, 32k from 24 to 48 GiB, and 256k at 48 GiB or more ([context length docs](https://docs.ollama.com/context-length)). The two projects give different numbers for what OpenCode needs:
+
+- Ollama's OpenCode page: "a context length of 64k or higher".
+- OpenCode 1's provider docs: if tool calls are not working, raise Ollama's `num_ctx`, starting around 16k to 32k.
+
+Set it with the slider in the Ollama app's settings, or start the server with `OLLAMA_CONTEXT_LENGTH=64000 ollama serve`. `ollama ps` shows the context a loaded model is running with. A longer context needs more memory: Ollama's [launch post](https://ollama.com/blog/launch) gives about 23 GB of VRAM for `glm-4.7-flash` at 64000 tokens.
+
+OpenCode 2 takes a model's context size from the model's own details ([source](https://github.com/anomalyco/opencode/blob/c0ad18b402eb2827fc1ee71c171b1177b3fc02d1/packages/core/src/plugin/provider/ollama.ts#L86-L88)). That is the size the model supports, which can be larger than the context your Ollama server is set to serve.
+
+### Not tested here
+
+A tested result would record the Ollama and OpenCode versions, the model and tag, the operating system, the exact commands and output, the date, and who ran it.
+
+## The first run, January 2026
 
 The rest of this page is the first run, from January 2026: what the flow looked like, the two places it stops, and what fixed them.
 

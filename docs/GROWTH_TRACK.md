@@ -215,7 +215,7 @@ memory, forward deployed engineering.
 | 5 | obsidian scratchpad | "obsidian scratchpad" | 53 | 8.8 | `/shelf/notes/obsidian-scratchpad/` | Answer first; a setup the reader can copy | done 2026-10-21 |
 | 6 | brief.md format | "brief md format" | 12 | 22.1 | `/tools/notes-to-brief/` | Explain the format on the tool page; link a template | open |
 | 7 | what is AEO and GEO | "what is aeo and geo in publishing", "docseo" | 13 | 12–16 | `/systems/seo-aeo-geo-in-plain-terms/` | Name AEO and GEO in title and first lines | done 2026-10-15 (description) |
-| 8 | opencode with a local model | "opencode local model", "ollama opencode", "opencode ollama provider" | 7 | 2–8 | `/shelf/tools/ollama/` | Section on running OpenCode against Ollama; dated | open |
+| 8 | opencode with a local model | "opencode local model", "ollama opencode", "opencode ollama provider" | 7 (23 in 3 months to 2026-11-17, avg pos 31.7) | 2–8 | `/shelf/local-experiments/ollama-launch-integrations/` (where these queries land; `/shelf/tools/ollama/` is noindex) | Section on running OpenCode against Ollama; dated | drafted 2026-11-19 as a section on the launch page (owner chose option A, hold exception); rechecked and published 2026-11-20; docs and source only, not run |
 
 ### Tier 2: showing at positions 30 to 80 (intent mismatch; a direct answer can climb)
 
