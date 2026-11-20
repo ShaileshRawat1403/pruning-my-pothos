@@ -161,6 +161,17 @@ From Search Console, last 28 days against the 28 before:
     identified reliably (those two pages in that minute, headless Chrome);
     otherwise list it as not subtracted. Clarity received nothing (all its
     requests were blocked).
+  - 2026-11-18 to 2026-11-20, Cloudflare Web Analytics only, uncertain:
+    an agent's headless Chrome live checks (layout, Clarity project,
+    performance profiles) blocked GA4, Clarity and Bing but not
+    Cloudflare's own beacon (`static.cloudflareinsights.com`), which the
+    live site loads. Heaviest window: 2026-11-20, about 00:35 to 00:55 UTC,
+    about 6 home page loads. Cannot be subtracted; mention it when reading
+    Cloudflare visits for those days. All later checks block it.
+  - 2026-11-20, about 01:28 and 01:48 UTC: the owner's PageSpeed Insights
+    runs on the home page, mobile and desktop each. Lighthouse loads the
+    page with its analytics, so each run may count as a page view in GA4,
+    Clarity and Cloudflare.
 - Letters: submitted addresses (`letters_signup_submitted` in GA4, Kit
   accepted the address) and confirmed subscribers (Kit's count) are two
   separate measures. Never add them, and never report one as the other.

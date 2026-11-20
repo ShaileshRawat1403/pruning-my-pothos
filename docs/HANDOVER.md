@@ -557,8 +557,41 @@ Cache-Control") → Hostinger (LiteSpeed). Pages carry `s-maxage=600`, files
   section 2 item 2): first-hand claims come only from the owner, declared
   `observed` with author attestation. An agent-run test is attributed to
   the agent and never written as the owner's experience.
+- **Home page performance (2026-11-20)**: PageSpeed on 19 Nov gave desktop
+  66 (TBT 10,750 ms) and mobile 64 (TBT 4,950 ms). Cause: the prism hero
+  and the halftone dots redrew every frame without pause, and the hero's
+  glow was scaled up and then blurred at full size each frame, which is
+  very costly where canvases are drawn without a GPU (as on PageSpeed's
+  servers). PR #23 (live 00:45:29 UTC) cut per-frame cost with the same
+  motion (owner chose option A); PR #24 (live 01:19:57 UTC) blurs the glow
+  at quarter size. PageSpeed at 01:48 UTC: desktop 100, mobile 72. The
+  01:28 run measured #23 only: Cloudflare served cached HTML for up to 10
+  minutes after the deploy. Method: profile with the GPU off and compare
+  main-thread busy time over several runs; single throttled runs on the
+  Mac were too noisy. Further mobile gains need a design call: let the
+  motion rest when idle, or a lighter hero on phones.
+- **Row 8 published (2026-11-20)**: PR #22, the OpenCode section on the
+  Ollama launch page, live 02:00:48 UTC after a recheck that found every
+  claim unchanged.
+- **Freshness review (2026-11-20)**: 243 content files and the 68
+  outbound links on indexed Systems and Shelf pages. Fixed: a dated note
+  that Azure AI Foundry is now Microsoft Foundry (Azure run page, Azure
+  tools page); the Ollama tools page's pre-release wording; Shelf
+  `updatedAt` was silently dropped by the content schema, so the sitemap
+  and structured data now carry it. The Gartner link's 403 is bot
+  blocking only (opens in a browser). Only change `updatedAt` when the
+  content changes.
 
 ## 9. Open items
+
+- **GoATee citations (2026-11-20)**: `i-7-cognitive-loop` and
+  `what-is-a-forward-deployed-consultant` cite the private repo
+  `ShaileshRawat1403/GoATee` (pinned commits exist). The owner is making it
+  public; then check the four citation links open.
+- **Freshness cadence**: recheck version-dependent Shelf pages monthly
+  (Ollama tools page and the OpenCode section, next mid-December); review
+  Systems explainers quarterly, starting with pages at positions 8 to 30
+  in Search Console.
 
 - PR #6 (AEO, GEO, schema, epistemic integrity): merged into `main` and deployed to Hostinger 2026-11-03. Live site verified on Hostinger origin and Cloudflare edge.
 - WordPress Legacy Footprint & GSC Reconciliation: Investigation closed 2026-11-04. Research artifacts documented in `docs/audits/wordpress-legacy-investigation-2026-11.md` and `docs/audits/legacy-url-disposition-2026-11.csv`. Proposed technical `.htaccess` release skipped; no production changes deployed.

@@ -409,6 +409,8 @@ const shelf = defineCollection({
     title: z.string(),
     description: z.string(),
     publishDate: z.string(),
+    // Set only when the page's content changed after publication.
+    updatedAt: z.string().optional(),
     tags: z.array(z.string()).optional().default([]),
     artist: z.string().optional(),
     album: z.string().optional(),

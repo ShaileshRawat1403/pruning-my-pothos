@@ -2,6 +2,7 @@
 title: "Azure setup: first cloud pass"
 description: "A first-time Azure run that turned identity and networking into the real curriculum."
 publishDate: "2026-01-26"
+updatedAt: "2026-11-20"
 tags:
   - experiments
   - cloud
@@ -113,6 +114,8 @@ Azure makes more sense when you separate where things live from who can touch th
 I had a Spring Boot backend, a PostgreSQL database with `pgvector`, and a hosted LLM. The first deployment looked clean, but the system behaved like it was unplugged. The database connection timed out, and the LLM endpoint returned 404s even with the correct API key.
 
 The fix was not in the code. It was in the cloud posture.
+
+**Name change, checked 20 November 2026:** Microsoft has since renamed Azure AI Foundry to Microsoft Foundry ([Microsoft Learn](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry)). This run was in January 2026, under the earlier name, and the account below keeps it.
 
 ## The two gates
 

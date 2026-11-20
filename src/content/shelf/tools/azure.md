@@ -2,6 +2,7 @@
 title: "Tools: Azure"
 description: "A policy-first cloud where identity and networking lead."
 publishDate: "2026-01-27"
+updatedAt: "2026-11-20"
 tags:
   - tools
   - azure
@@ -14,7 +15,7 @@ coverAlt: "Cover illustration for Tools: Azure"
 
 - Strong enterprise identity and policy controls.
 - Tight integration with Microsoft ecosystems.
-- Clear AI service pathways via Azure AI Foundry.
+- Clear AI service pathways via [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry), named Azure AI Foundry until Microsoft renamed it.
 
 ## Prerequisites
 

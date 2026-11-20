@@ -83,6 +83,8 @@ export default async function ShelfDetailPage({ params }: PageProps) {
     description: item.description,
     path: `/shelf/${category}/${slug}`,
     image: item.coverUrl,
+    datePublished: item.publishDate,
+    dateModified: item.updatedAt,
   });
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", path: "/" },
