@@ -133,6 +133,25 @@ export default function PrismHero() {
     const puffs: { x: number; y: number; vx: number; vy: number; t: number }[] = [];
     const ripples: { i: number; t: number }[] = [];
     let frame = 0, running = false, visible = true;
+    // Frame pacing. The opening and anything the visitor does run at the
+    // display's rate; the ambient sway, dust and runner alone run at 30 frames
+    // a second, where the eye cannot tell the difference.
+    const AMBIENT_MS = 1000 / 30;
+    let lastDraw = 0, lastScroll = -1e9;
+    let dark = document.documentElement.getAttribute("data-theme") !== "light";
+    // Last value written for each element's style, so a frame only touches
+    // the DOM where something changed.
+    const written = new WeakMap<HTMLElement, Record<string, string>>();
+    const put = (el: HTMLElement, prop: "transform" | "opacity" | "pointerEvents", v: string) => {
+      let m = written.get(el);
+      if (!m) { m = {}; written.set(el, m); }
+      if (m[prop] === v) return;
+      m[prop] = v;
+      el.style[prop] = v;
+    };
+    const setInert = (el: HTMLElement, v: boolean) => { if (el.inert !== v) el.inert = v; };
+    // The caption's width, measured when it changes rather than every frame.
+    let outHalf = 0;
     const dust = Array.from({ length: 90 }, () => ({ x: Math.random(), y: Math.random(), s: 0.4 + Math.random() * 1.4, v: 0.15 + Math.random() * 0.5, p: Math.random() * Math.PI * 2 }));
 
     const resize = () => {
@@ -181,7 +200,10 @@ export default function PrismHero() {
     };
 
     const draw = (now: number) => {
-      const dark = document.documentElement.getAttribute("data-theme") !== "light";
+      // Easing and drift scale with the time since the last frame, so the
+      // motion keeps its speed at any frame rate.
+      const steps = lastDraw ? clamp((now - lastDraw) / (1000 / 60), 0, 4) : 1;
+      lastDraw = now;
       // The opening shot, once the hero is properly on screen: darkness, the
       // beam flickers on, a flare where it meets the glass, the spectrum
       // sweeps out, labels, a slow camera push in. Scrolling keeps pushing.
@@ -205,8 +227,8 @@ export default function PrismHero() {
         target = 22 + Math.sin(ti * 0.35) * 2.2;
         yawTarget = Math.sin(ti * 0.22) * 0.55;
       }
-      angle += (target - angle) * (reduce ? 1 : 0.06);
-      yaw += (yawTarget + scrollP * 0.6 + rb * 0.3 - yaw) * (reduce ? 1 : 0.05);
+      angle += (target - angle) * (reduce ? 1 : 1 - Math.pow(1 - 0.06, steps));
+      yaw += (yawTarget + scrollP * 0.6 + rb * 0.3 - yaw) * (reduce ? 1 : 1 - Math.pow(1 - 0.05, steps));
       const g = trace(angle);
       const fx = g.c.x + g.side * 0.6, fy = g.c.y;
       const compact = W < 760;
@@ -597,7 +619,7 @@ export default function PrismHero() {
         const first = valid[0], last = valid[valid.length - 1];
         const aMin = Math.atan2(first.out.y, first.out.x), aMax = Math.atan2(last.out.y, last.out.x);
         for (const m of dust) {
-          m.y -= m.v * 0.0006; m.x += Math.sin(t * 0.3 + m.p) * 0.00025;
+          m.y -= m.v * 0.0006 * steps; m.x += Math.sin(t * 0.3 + m.p) * 0.00025 * steps;
           if (m.y < 0) m.y = 1;
           const px = stageBox.x + m.x * (W - stageBox.x) + yaw * m.s * 14, py = m.y * H;
           const rel = sub({ x: px, y: py }, first.pout);
@@ -832,36 +854,35 @@ export default function PrismHero() {
             ctx.beginPath(); ctx.moveTo(screenX + 5, bandY[i]); ctx.lineTo(screenX + 16, ly); ctx.lineTo(screenX + 26, ly); ctx.stroke();
           }
           const at = camPt(screenX + 30, ly);
-          el.style.transform = compact ? "" : `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translateY(-50%)`;
-          el.style.opacity = String(show);
-          el.style.pointerEvents = show > 0.3 ? "" : "none";
+          put(el, "transform", compact ? "" : `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translateY(-50%)`);
+          put(el, "opacity", show.toFixed(3));
+          put(el, "pointerEvents", show > 0.3 ? "" : "none");
           // Faded out for the rebuild: out of the tab order too.
-          el.inert = labelFade < 0.3;
+          setInert(el, labelFade < 0.3);
         });
       }
       if (humanRef.current) {
         const el = humanRef.current;
         if (humanTail && !compact) {
           const at = camPt(humanTail.x, humanTail.y);
-          el.style.transform = `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translate(calc(-100% + 8px), 10px)`;
-        } else el.style.transform = "";
-        el.style.opacity = String(compact ? 1 : humanP);
+          put(el, "transform", `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translate(calc(-100% + 8px), 10px)`);
+        } else put(el, "transform", "");
+        put(el, "opacity", (compact ? 1 : humanP).toFixed(3));
       }
       if (aiRef.current) {
         const on = lerp(src, g.pin, 0.38);
         const up = { x: g.d0.y, y: -g.d0.x };
         const side = up.y < 0 ? up : mul(up, -1);
         const at = camPt(on.x + side.x * 46, on.y + side.y * 46 - 10);
-        aiRef.current.style.transform = `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) rotate(${(-angle).toFixed(2)}deg)`;
-        aiRef.current.style.opacity = String(reduce ? 1 : clamp((t - 0.7) / 0.6, 0, 1));
+        put(aiRef.current, "transform", `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) rotate(${(-angle).toFixed(2)}deg)`);
+        put(aiRef.current, "opacity", (reduce ? 1 : clamp((t - 0.7) / 0.6, 0, 1)).toFixed(3));
       }
       if (outRef.current) {
         const at = camPt(lerp(E, exitEnd, 0.6).x, E.y - 40);
         // Long captions stay inside the frame.
-        const half = outRef.current.offsetWidth / 2;
-        const x = clamp(at.x, half + 24, W - half - 24);
-        outRef.current.style.transform = `translate(${x.toFixed(1)}px, ${at.y.toFixed(1)}px) translateX(-50%)`;
-        outRef.current.style.opacity = String(clamp((rb - 0.72) / 0.18, 0, 1));
+        const x = clamp(at.x, outHalf + 24, W - outHalf - 24);
+        put(outRef.current, "transform", `translate(${x.toFixed(1)}px, ${at.y.toFixed(1)}px) translateX(-50%)`);
+        put(outRef.current, "opacity", clamp((rb - 0.72) / 0.18, 0, 1).toFixed(3));
         const missing = BANDS.filter((_, i) => off[i]).map((b) => b.label);
         const text = !missing.length ? "A system <em>you understand</em>"
           : missing.length === BANDS.length ? "Nothing <em>gets through</em>"
@@ -871,37 +892,56 @@ export default function PrismHero() {
       }
       if (benchRef.current) {
         const on = clamp((rb - 0.78) / 0.14, 0, 1);
-        benchRef.current.style.opacity = String(on);
-        benchRef.current.inert = on < 0.5;
+        put(benchRef.current, "opacity", on.toFixed(3));
+        setInert(benchRef.current, on < 0.5);
       }
       section.classList.toggle("is-rebuilt", rb > 0.05);
       if (contentRef.current) {
         // The copy steps aside for the rebuild and returns if you scroll back.
         const out = clamp((rb - 0.04) / 0.26, 0, 1);
-        contentRef.current.style.opacity = String(1 - out);
-        contentRef.current.style.transform = out ? `translateY(${(-24 * out).toFixed(1)}px)` : "";
-        contentRef.current.style.pointerEvents = out > 0.5 ? "none" : "";
-        contentRef.current.inert = out > 0.5;
+        put(contentRef.current, "opacity", (1 - out).toFixed(3));
+        put(contentRef.current, "transform", out ? `translateY(${(-24 * out).toFixed(1)}px)` : "");
+        put(contentRef.current, "pointerEvents", out > 0.5 ? "none" : "");
+        setInert(contentRef.current, out > 0.5);
       }
-      if (cueRef.current) cueRef.current.style.opacity = String(pinned ? clamp((p - 0.95) / 0.05, 0, 1) * (1 - clamp(q / 0.06, 0, 1)) : 0);
+      if (cueRef.current) put(cueRef.current, "opacity", (pinned ? clamp((p - 0.95) / 0.05, 0, 1) * (1 - clamp(q / 0.06, 0, 1)) : 0).toFixed(3));
       if (noteRef.current) {
         const at = camPt(g.c.x, g.BL.y + 28);
-        noteRef.current.style.transform = `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translateX(-50%)`;
-        noteRef.current.style.opacity = String((reduce ? 1 : clamp((p - 0.85) / 0.15, 0, 1)) * (1 - clamp(rb / 0.2, 0, 1)));
+        put(noteRef.current, "transform", `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translateX(-50%)`);
+        put(noteRef.current, "opacity", ((reduce ? 1 : clamp((p - 0.85) / 0.15, 0, 1)) * (1 - clamp(rb / 0.2, 0, 1))).toFixed(3));
       }
       section.classList.toggle("is-split", fanP > 0.15);
-      section.classList.add("is-live");
+      if (!section.classList.contains("is-live")) section.classList.add("is-live");
     };
 
+    // Ambient: the opening has played (or not yet begun) and nothing has been
+    // touched or scrolled lately.
+    const ambient = (now: number) => {
+      const intro = started && Number.isFinite(start) && now - start < 4600;
+      return !intro && now - lastPointer > 3500 && now - lastScroll > 400;
+    };
     const loop = (now: number) => {
-      draw(now);
+      if (!ambient(now) || now - lastDraw >= AMBIENT_MS - 2) draw(now);
       frame = running ? requestAnimationFrame(loop) : 0;
     };
-    const play = () => { if (!running && visible && !document.hidden && !reduce) { running = true; frame = requestAnimationFrame(loop); } };
+    // The loop waits for the page to finish loading, so it does not compete
+    // with loading and hydration; a still frame shows until then.
+    let loaded = document.readyState === "complete";
+    const play = () => { if (loaded && !running && visible && !document.hidden && !reduce) { running = true; lastDraw = 0; frame = requestAnimationFrame(loop); } };
+    const onLoad = () => {
+      if (loaded) return;
+      loaded = true;
+      window.clearTimeout(loadTimer);
+      // An opening timed before the loop ran would start part-way through.
+      if (started && Number.isFinite(start)) start = performance.now();
+      play();
+    };
+    const loadTimer = loaded ? 0 : window.setTimeout(onLoad, 3000);
+    if (!loaded) window.addEventListener("load", onLoad, { once: true });
     const pause = () => { running = false; cancelAnimationFrame(frame); frame = 0; };
 
     resize();
-    if (reduce) { started = true; draw(performance.now()); } else play();
+    if (reduce) { started = true; draw(performance.now()); } else { draw(performance.now()); play(); }
     const begin = () => {
       if (started) return;
       started = true;
@@ -921,7 +961,14 @@ export default function PrismHero() {
     io.observe(pin);
     const onVis = () => (document.hidden ? pause() : play());
     document.addEventListener("visibilitychange", onVis);
-    const theme = new MutationObserver(() => { if (!running) draw(performance.now()); });
+    const theme = new MutationObserver(() => {
+      dark = document.documentElement.getAttribute("data-theme") !== "light";
+      if (!running) draw(performance.now());
+    });
+    const outRo = outRef.current ? new ResizeObserver(() => { outHalf = (outRef.current?.offsetWidth ?? 0) / 2; }) : null;
+    if (outRef.current) { outHalf = outRef.current.offsetWidth / 2; outRo?.observe(outRef.current); }
+    const onScroll = () => { lastScroll = performance.now(); };
+    window.addEventListener("scroll", onScroll, { passive: true });
     theme.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
     const onMove = (e: PointerEvent) => {
       if (!fine && e.pointerType !== "touch") return;
@@ -957,7 +1004,10 @@ export default function PrismHero() {
     section.addEventListener("prism:tilt", askTilt);
 
     return () => {
-      pause(); ro.disconnect(); io.disconnect(); theme.disconnect();
+      pause(); ro.disconnect(); io.disconnect(); theme.disconnect(); outRo?.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("load", onLoad);
+      window.clearTimeout(loadTimer);
       document.removeEventListener("visibilitychange", onVis);
       section.removeEventListener("pointermove", onMove);
       section.removeEventListener("prism:replay", replay);
