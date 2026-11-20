@@ -116,7 +116,12 @@ export default function PrismHero() {
     const ctx = canvas.getContext("2d");
     const glowCanvas = document.createElement("canvas");
     const gctx = glowCanvas.getContext("2d");
-    if (!ctx || !gctx) return;
+    // The glow is blurred at its own quarter size, then scaled up. Blurring
+    // the full-size canvas instead looks the same and costs far more, most of
+    // all where the browser draws canvases without a GPU.
+    const blurCanvas = document.createElement("canvas");
+    const bctx = blurCanvas.getContext("2d");
+    if (!ctx || !gctx || !bctx) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const fine = window.matchMedia("(pointer: fine)").matches;
@@ -162,6 +167,7 @@ export default function PrismHero() {
       canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
       canvas.style.width = `${W}px`; canvas.style.height = `${H}px`;
       glowCanvas.width = Math.max(1, Math.round(W / 4)); glowCanvas.height = Math.max(1, Math.round(H / 4));
+      blurCanvas.width = glowCanvas.width; blurCanvas.height = glowCanvas.height;
       stageBox = { x: s.left - r.left, y: s.top - r.top, w: s.width, h: s.height };
     };
 
@@ -461,12 +467,17 @@ export default function PrismHero() {
       }
 
       // Composite the soft glow layer once.
+      // A 7px blur at full size is 7 / 4 of a pixel at quarter size.
+      bctx.setTransform(1, 0, 0, 1, 0, 0);
+      bctx.clearRect(0, 0, blurCanvas.width, blurCanvas.height);
+      bctx.filter = `blur(${((7 * glowCanvas.width) / Math.max(1, W)).toFixed(2)}px)`;
+      bctx.drawImage(glowCanvas, 0, 0);
+      bctx.filter = "none";
       ctx.save();
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.globalCompositeOperation = blend;
-      ctx.filter = `blur(${Math.round(7 * dpr)}px)`;
       ctx.globalAlpha = dark ? 1 : 0.8;
-      ctx.drawImage(glowCanvas, 0, 0, canvas.width, canvas.height);
+      ctx.drawImage(blurCanvas, 0, 0, canvas.width, canvas.height);
       ctx.restore();
       cam(ctx, dpr);
 
