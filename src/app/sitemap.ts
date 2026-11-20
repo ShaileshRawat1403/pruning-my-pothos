@@ -97,7 +97,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const slug = item._meta.fileName.replace(/\.mdx?$/, "");
     return {
       url: `${SITE_CONFIG.url}/shelf/${item._meta.directory}/${slug}/`,
-      lastModified: knownDate(item.publishDate),
+      lastModified: knownDate(item.updatedAt, item.publishDate),
     };
   });
 

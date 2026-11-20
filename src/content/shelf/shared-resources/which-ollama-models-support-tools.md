@@ -3,6 +3,7 @@ title: "Which Ollama models support tools"
 seoTitle: "Which Ollama Models Support Tools? How to Check Yours"
 description: "Ollama lists tools among a model's capabilities when it can take a tools array. How to check your version and model, a test call, and the library list."
 publishDate: "2026-11-18"
+updatedAt: "2026-11-20"
 tags:
   - resources
   - ollama
@@ -131,7 +132,7 @@ Models marked cloud carry the `cloud` tag in the library and list no download si
 - **25 July 2024**: Ollama [announced tool calling](https://ollama.com/blog/tool-support), naming Llama 3.1, Mistral Nemo, Firefunction v2 and Command-R+.
 - **28 May 2025**: [streaming tool calls](https://ollama.com/blog/streaming-tool), with a parser that reads each model's template for the start of a tool call instead of waiting for complete JSON.
 - **27 October 2026**: release [v0.40.12](https://github.com/ollama/ollama/releases/tag/v0.40.12) fixed tool-only assistant turns from Kimi CLI.
-- **9 November 2026**: [v0.40.16](https://github.com/ollama/ollama/releases/tag/v0.40.16), the latest release when this page was checked. A pre-release, v0.40.17-rc1, followed on 10 November.
+- **9 November 2026**: [v0.40.16](https://github.com/ollama/ollama/releases/tag/v0.40.16), the latest release when this page was checked, and still the latest on 20 November. A pre-release of the next version, v0.40.17, followed on 10 November ([release list](https://github.com/ollama/ollama/releases)).
 
 Neither blog post names the Ollama version that introduced the feature.
 

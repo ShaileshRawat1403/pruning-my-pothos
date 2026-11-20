@@ -54,9 +54,11 @@ interface WebPageInput {
   description: string;
   path: string;
   image?: string;
+  datePublished?: string;
+  dateModified?: string;
 }
 
-export function getWebPageSchema({ title, description, path, image }: WebPageInput) {
+export function getWebPageSchema({ title, description, path, image, datePublished, dateModified }: WebPageInput) {
   let cleanPath = path;
   if (cleanPath && !cleanPath.endsWith("/")) {
     cleanPath += "/";
@@ -74,6 +76,8 @@ export function getWebPageSchema({ title, description, path, image }: WebPageInp
     "description": description,
     "url": canonicalUrl,
     ...(imageUrl ? { "image": imageUrl } : {}),
+    ...(datePublished ? { "datePublished": datePublished } : {}),
+    ...(dateModified ? { "dateModified": dateModified } : {}),
   };
 }
 
