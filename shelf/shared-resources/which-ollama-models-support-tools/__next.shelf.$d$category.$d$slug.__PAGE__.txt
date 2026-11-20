@@ -1,0 +1,197 @@
+1:"$Sreact.fragment"
+9:I[715141,["/_next/static/chunks/3m05l96v2elzm.js","/_next/static/chunks/1ntn7efqc-iiw.js","/_next/static/chunks/3t4aw08v2m25o.js","/_next/static/chunks/2n4nxnmpnvkfu.js"],"default"]
+a:I[522016,["/_next/static/chunks/3m05l96v2elzm.js","/_next/static/chunks/1ntn7efqc-iiw.js","/_next/static/chunks/3t4aw08v2m25o.js","/_next/static/chunks/2n4nxnmpnvkfu.js"],""]
+b:I[897367,["/_next/static/chunks/3m05l96v2elzm.js","/_next/static/chunks/1ntn7efqc-iiw.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/covers/shelf/items/shared-resources/which-ollama-models-support-tools.png","image",{"fetchPriority":"high"}]
+2:T3238,<p>An Ollama model supports tools when your Ollama server lists <code>tools</code> among that model&#39;s capabilities. The server works this out from the model&#39;s prompt template or its built-in parser, so the answer depends on two things: the Ollama version you run and the version of the model you pulled. The model library&#39;s <a href="https://ollama.com/search?c=tools">Tools filter</a> lists models Ollama labels this way, though not all of them at once.</p>
+<p><strong>Checked 18 November 2026</strong> against Ollama&#39;s documentation, its model library and its source code at release v0.40.16 (published 9 November 2026). None of the commands below were run for this page: no Ollama install and no model were tested. The expected results come from the documentation and the source, linked at each step.</p>
+<h2 id="check-your-own-install">Check your own install</h2>
+<h3 id="1-your-ollama-version">1. Your Ollama version</h3>
+<pre><code class="language-bash">ollama --version
+curl http://localhost:11434/api/version
+</code></pre>
+<p><code>ollama --version</code> asks the running server for its version and prints <code>ollama version is</code> followed by it. If the command-line client is a different version, it adds a line starting <code>Warning: client version is</code> (<a href="https://github.com/ollama/ollama/blob/d63b702609c4300a2ca07be2bdb0adb9834725e5/cmd/cmd.go#L2349-L2367">source, cmd/cmd.go</a>). The server&#39;s version is the one that matters here, because the server decides the capabilities. The <code>/api/version</code> endpoint returns it as JSON with a <code>version</code> field (<a href="https://docs.ollama.com/api-reference/get-version">API reference</a>).</p>
+<h3 id="2-the-models-capabilities">2. The model&#39;s capabilities</h3>
+<pre><code class="language-bash">ollama show qwen3
+curl http://localhost:11434/api/show -d &#39;{&quot;model&quot;: &quot;qwen3&quot;}&#39;
+</code></pre>
+<p>Replace <code>qwen3</code> with the model you pulled; <code>qwen3</code> is the model Ollama&#39;s own <a href="https://docs.ollama.com/capabilities/tool-calling">tool calling examples</a> use. <code>ollama show</code> prints a Capabilities table when the server reports any (<a href="https://github.com/ollama/ollama/blob/d63b702609c4300a2ca07be2bdb0adb9834725e5/cmd/cmd.go#L1499-L1500">source, cmd/cmd.go</a>). The <code>/api/show</code> endpoint returns the same list in a <code>capabilities</code> array, which the API reference describes as a &quot;List of supported features&quot; (<a href="https://docs.ollama.com/api-reference/show-model-details">API reference</a>).</p>
+<p>Look for <code>tools</code> in that list. That is the exact string Ollama uses for tool support (<a href="https://github.com/ollama/ollama/blob/d63b702609c4300a2ca07be2bdb0adb9834725e5/types/model/capability.go#L5-L16">source, types/model/capability.go</a>). Other values in the same list include <code>completion</code>, <code>thinking</code>, <code>vision</code> and <code>embedding</code>.</p>
+<h3 id="3-a-single-tool-call">3. A single tool call</h3>
+<pre><code class="language-bash">curl http://localhost:11434/api/chat -d &#39;{
+  &quot;model&quot;: &quot;qwen3&quot;,
+  &quot;stream&quot;: false,
+  &quot;messages&quot;: [
+    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What is the temperature in New York?&quot;}
+  ],
+  &quot;tools&quot;: [{
+    &quot;type&quot;: &quot;function&quot;,
+    &quot;function&quot;: {
+      &quot;name&quot;: &quot;get_temperature&quot;,
+      &quot;description&quot;: &quot;Get the current temperature for a city&quot;,
+      &quot;parameters&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;required&quot;: [&quot;city&quot;],
+        &quot;properties&quot;: {
+          &quot;city&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;The name of the city&quot;}
+        }
+      }
+    }
+  }]
+}&#39;
+</code></pre>
+<p>This follows the single-tool request in Ollama&#39;s <a href="https://docs.ollama.com/capabilities/tool-calling">tool calling documentation</a>. What to expect:</p>
+<ul>
+<li><strong>If the model has the <code>tools</code> capability</strong> and decides to use the tool, the reply&#39;s <code>message</code> carries a <code>tool_calls</code> list, each entry with the function&#39;s <code>name</code> and its <code>arguments</code> (<a href="https://docs.ollama.com/capabilities/tool-calling">docs</a>). Your code runs the function and sends the result back as a message with <code>&quot;role&quot;: &quot;tool&quot;</code>. The model may also answer in plain text without calling the tool; the documentation does not promise a call.</li>
+<li><strong>If the model lacks the <code>tools</code> capability</strong>, the server refuses the request with HTTP 400 and an error that names the model and ends in <code>does not support tools</code>. A request that includes tools requires the capability (<a href="https://github.com/ollama/ollama/blob/d63b702609c4300a2ca07be2bdb0adb9834725e5/server/routes.go#L3203-L3206">source, server/routes.go</a>), the check fails when it is missing (<a href="https://github.com/ollama/ollama/blob/d63b702609c4300a2ca07be2bdb0adb9834725e5/server/images.go#L599-L631">server/images.go</a>), the model&#39;s name is put in front of it (<a href="https://github.com/ollama/ollama/blob/d63b702609c4300a2ca07be2bdb0adb9834725e5/server/routes.go#L274-L276">server/routes.go</a>), and the error is returned as a bad request (<a href="https://github.com/ollama/ollama/blob/d63b702609c4300a2ca07be2bdb0adb9834725e5/server/routes.go#L3634-L3637">server/routes.go</a>). The documentation does not describe this error.</li>
+</ul>
+<h2 id="how-ollama-decides">How Ollama decides</h2>
+<p>At v0.40.16 the server adds <code>tools</code> to a model&#39;s capabilities in three cases (<a href="https://github.com/ollama/ollama/blob/d63b702609c4300a2ca07be2bdb0adb9834725e5/server/images.go#L242-L301">source, server/images.go</a>):</p>
+<ul>
+<li>the model&#39;s Go template uses a <code>tools</code> variable;</li>
+<li>the model&#39;s chat template mentions <code>tools</code> or <code>tool_call</code>;</li>
+<li>the model uses one of Ollama&#39;s built-in parsers that handles tool calls (<a href="https://github.com/ollama/ollama/blob/d63b702609c4300a2ca07be2bdb0adb9834725e5/server/images.go#L486-L497">source</a>).</li>
+</ul>
+<p>So the capability is read from files that arrive with the model and from parsers that ship with Ollama. Two consequences follow from that, and both are worth checking yourself: a copy of a model pulled long ago carries the template it was pulled with, and the list of built-in parsers belongs to the Ollama version you run.</p>
+<h2 id="what-the-label-leaves-open">What the label leaves open</h2>
+<p><code>tools</code> means the server will accept a <code>tools</code> array for that model and look for tool calls in its output. It says nothing about how well the model picks a tool or fills its arguments. That takes a test with your own tools and prompts.</p>
+<p>Ollama&#39;s documentation also covers <a href="https://docs.ollama.com/capabilities/tool-calling">streaming tool calls, parallel tool calls and a multi-turn agent loop</a>. For what a tool call is and what can go wrong when language triggers an action, see <a href="/systems/tool-use-when-language-triggers-actions/">Tool use: when language triggers actions</a>.</p>
+<h2 id="what-the-librarys-tools-filter-showed-on-18-november-2026">What the library&#39;s Tools filter showed on 18 November 2026</h2>
+<p>The table below is an observed list: what the <a href="https://ollama.com/search?c=tools">Tools filter</a> showed when it was read on 18 November 2026. It is incomplete, and it changes with the sort order and over time.</p>
+<ul>
+<li><strong>It shows 20 models and no total.</strong> Neither sort order offered a next page or a count.</li>
+<li><strong>It depends on the sort.</strong> Sorted by <a href="https://ollama.com/search?c=tools">Popular</a> and by <a href="https://ollama.com/search?c=tools&o=newest">Newest</a>, the filter showed 20 models each, and 12 of them appeared in both lists.</li>
+<li><strong>It can leave out tagged models.</strong> <code>qwen3</code>, the model in Ollama&#39;s own examples, carries the <code>tools</code> tag on <a href="https://ollama.com/library/qwen3">its library page</a> and appeared in neither list.</li>
+</ul>
+<p>To check a model that is not listed, open its library page and look for the <code>tools</code> tag, or run <code>ollama show</code> on your own copy (step 2 above).</p>
+<p>Sorted by Popular, in page order, as observed on 18 November 2026:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Model</th>
+<th align="left">Runs</th>
+<th align="left">Other capability tags</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">deepseek-v4.1-flash</td>
+<td align="left">cloud</td>
+<td align="left">vision, thinking</td>
+</tr>
+<tr>
+<td align="left">glm-5.3</td>
+<td align="left">cloud</td>
+<td align="left">thinking</td>
+</tr>
+<tr>
+<td align="left">glm-5.3-flash</td>
+<td align="left">cloud</td>
+<td align="left">vision, thinking</td>
+</tr>
+<tr>
+<td align="left">inkling-2-small</td>
+<td align="left">cloud</td>
+<td align="left">vision, thinking</td>
+</tr>
+<tr>
+<td align="left">ripple-preview</td>
+<td align="left">local</td>
+<td align="left">thinking</td>
+</tr>
+<tr>
+<td align="left">mimo-v2.6</td>
+<td align="left">local</td>
+<td align="left">vision, thinking</td>
+</tr>
+<tr>
+<td align="left">lfm3</td>
+<td align="left">local</td>
+<td align="left">thinking</td>
+</tr>
+<tr>
+<td align="left">lfm3-omni</td>
+<td align="left">local</td>
+<td align="left">vision, audio</td>
+</tr>
+<tr>
+<td align="left">lfm3-vl</td>
+<td align="left">local</td>
+<td align="left">vision, thinking</td>
+</tr>
+<tr>
+<td align="left">lfm3-audio</td>
+<td align="left">local</td>
+<td align="left">vision, audio</td>
+</tr>
+<tr>
+<td align="left">minimax-m3.1-flash</td>
+<td align="left">cloud</td>
+<td align="left">vision, thinking</td>
+</tr>
+<tr>
+<td align="left">kimi-k3.1-pro</td>
+<td align="left">cloud</td>
+<td align="left">vision, thinking</td>
+</tr>
+<tr>
+<td align="left">qwen3.8</td>
+<td align="left">local</td>
+<td align="left">vision, thinking</td>
+</tr>
+<tr>
+<td align="left">nemotron-3.5-lightning</td>
+<td align="left">local</td>
+<td align="left">thinking</td>
+</tr>
+<tr>
+<td align="left">bonsai-2</td>
+<td align="left">local</td>
+<td align="left">vision, thinking</td>
+</tr>
+<tr>
+<td align="left">ornith-1.5</td>
+<td align="left">local</td>
+<td align="left">vision, thinking</td>
+</tr>
+<tr>
+<td align="left">ornith</td>
+<td align="left">local</td>
+<td align="left">thinking</td>
+</tr>
+<tr>
+<td align="left">flint</td>
+<td align="left">local</td>
+<td align="left">thinking</td>
+</tr>
+<tr>
+<td align="left">muse-glimmer</td>
+<td align="left">local</td>
+<td align="left">vision, thinking</td>
+</tr>
+<tr>
+<td align="left">tev1</td>
+<td align="left">local</td>
+<td align="left">decision, thinking</td>
+</tr>
+</tbody></table>
+<p>Models marked cloud carry the <code>cloud</code> tag in the library and list no download size. The library tag is Ollama&#39;s label for the model; the capability your server reports for the copy you pulled is the one your requests are checked against.</p>
+<h2 id="dated-history">Dated history</h2>
+<ul>
+<li><strong>25 July 2024</strong>: Ollama <a href="https://ollama.com/blog/tool-support">announced tool calling</a>, naming Llama 3.1, Mistral Nemo, Firefunction v2 and Command-R+.</li>
+<li><strong>28 May 2025</strong>: <a href="https://ollama.com/blog/streaming-tool">streaming tool calls</a>, with a parser that reads each model&#39;s template for the start of a tool call instead of waiting for complete JSON.</li>
+<li><strong>27 October 2026</strong>: release <a href="https://github.com/ollama/ollama/releases/tag/v0.40.12">v0.40.12</a> fixed tool-only assistant turns from Kimi CLI.</li>
+<li><strong>9 November 2026</strong>: <a href="https://github.com/ollama/ollama/releases/tag/v0.40.16">v0.40.16</a>, the latest release when this page was checked, and still the latest on 20 November. A pre-release of the next version, v0.40.17, followed on 10 November (<a href="https://github.com/ollama/ollama/releases">release list</a>).</li>
+</ul>
+<p>Neither blog post names the Ollama version that introduced the feature.</p>
+<h2 id="not-tested-here">Not tested here</h2>
+<p>This page has no &quot;tested on&quot; table. Nothing was installed or run for it. A tested row would record the Ollama version, the model and tag, the operating system, the exact commands and their output, the date, and who ran it.</p>
+<p>Related on the Shelf: <a href="/shelf/tools/ollama/">Tools: Ollama</a>, <a href="/shelf/local-experiments/ollama-launch-integrations/">Ollama launch</a> and <a href="/shelf/shared-resources/local-llm-references/">Local LLM references</a>.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"sentiments-scope max-w-[700px] mx-auto py-12 flex flex-col gap-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Which Ollama models support tools\",\"description\":\"Ollama lists tools among a model's capabilities when it can take a tools array. How to check your version and model, a test call, and the library list.\",\"url\":\"https://pruningmypothos.com/shelf/shared-resources/which-ollama-models-support-tools/\",\"image\":\"https://pruningmypothos.com/covers/shelf/items/shared-resources/which-ollama-models-support-tools.png\",\"datePublished\":\"2026-11-18\",\"dateModified\":\"2026-11-20\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://pruningmypothos.com\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Shelf\",\"item\":\"https://pruningmypothos.com/shelf/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"shared-resources\",\"item\":\"https://pruningmypothos.com/shelf/shared-resources/\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"Which Ollama models support tools\",\"item\":\"https://pruningmypothos.com/shelf/shared-resources/which-ollama-models-support-tools/\"}]}"}}],["$","span",null,{"className":"text-[10px] font-mono font-bold uppercase text-[color:var(--text-primary)] tracking-widest self-start","children":["Shelf • ","shared-resources"]}],["$","h1",null,{"className":"font-heading text-2xl sm:text-3xl font-extrabold text-[color:var(--text-primary)] leading-snug","children":"Which Ollama models support tools"}],["$","p",null,{"className":"text-[color:var(--text-secondary)] font-medium italic border-l-2 border-accent-cyan/40 pl-4 py-1 text-sm sm:text-base","children":"Ollama lists tools among a model's capabilities when it can take a tools array. How to check your version and model, a test call, and the library list."}],["$","figure",null,{"className":"w-full max-w-[420px] overflow-hidden rounded-lg border border-[color:var(--card-border)] aspect-video my-4 shadow-none self-center sm:self-start bg-[color:var(--card-bg)]","children":["$","img",null,{"src":"/covers/shelf/items/shared-resources/which-ollama-models-support-tools.png","alt":"Cover illustration for Which Ollama models support tools","width":1200,"height":675,"fetchPriority":"high","decoding":"async","className":"w-full h-full object-contain"}]}],"$undefined",["$","div",null,{"className":"flex flex-col gap-2 my-4","children":[["$","h3",null,{"className":"font-heading text-sm font-bold text-[color:var(--text-primary)]","children":"Resource Highlights"}],["$","ul",null,{"className":"list-disc pl-5 text-xs text-[color:var(--text-secondary)] flex flex-col gap-1.5","children":[["$","li","0",{"children":"Check the capability on your own install with ollama show"}],["$","li","1",{"children":"Why the answer depends on your Ollama version and the model you pulled"}],["$","li","2",{"children":"What the library's Tools filter showed on 18 November 2026, and what it leaves out"}]]}]]}],["$","div",null,{"className":"content-body max-w-none text-sm sm:text-base leading-relaxed text-[color:var(--text-secondary)] mt-4","dangerouslySetInnerHTML":{"__html":"$2"}}],"$L3","$L4","$L5"]}],["$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"KFYA5HKkYzQAh8NDamyut"}
+3:["$","$L9",null,{"title":"Which Ollama models support tools"}]
+4:["$","div",null,{"className":"flex flex-wrap gap-2 mt-6","children":[["$","span","resources",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","resources"]}],["$","span","ollama",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","ollama"]}],["$","span","local-llm",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","local-llm"]}],["$","span","tools",{"className":"px-2.5 py-0.5 border border-[color:var(--card-border)] bg-[color:var(--bg-color)] rounded-full text-xs font-mono text-[color:var(--text-secondary)]","children":["#","tools"]}]]}]
+5:["$","div",null,{"className":"border-t border-[color:var(--card-border)] pt-8 mt-12 flex justify-between items-center text-xs font-mono","children":["$","$La",null,{"href":"/shelf","className":"text-[color:var(--text-primary)] hover:underline font-semibold","children":"← Back to Shelf"}]}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/3t4aw08v2m25o.js","async":true}]
+7:["$","script","script-1",{"src":"/_next/static/chunks/2n4nxnmpnvkfu.js","async":true}]
+8:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

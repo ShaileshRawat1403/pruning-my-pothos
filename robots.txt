@@ -1,0 +1,13 @@
+User-Agent: *
+Allow: /
+
+User-Agent: GPTBot
+User-Agent: ChatGPT-User
+User-Agent: OAI-SearchBot
+User-Agent: Google-Extended
+User-Agent: PerplexityBot
+User-Agent: ClaudeBot
+User-Agent: CCBot
+Allow: /
+
+Sitemap: https://pruningmypothos.com/sitemap.xml
